@@ -1,0 +1,54 @@
+CREATE TABLE CS_MEDICINE
+(
+  MED_CD     VARCHAR2(10 BYTE)                  NOT NULL,
+  MED_NAME   VARCHAR2(50 BYTE)                  NOT NULL,
+  MED_GROUP  VARCHAR2(50 BYTE),
+  STATUS     VARCHAR2(2 BYTE),
+  STOCK      NUMBER,
+  UOM        VARCHAR2(20 BYTE),
+  INS_DATE   DATE,
+  INS_EMP    VARCHAR2(10 BYTE),
+  UPD_DATE   DATE,
+  UPD_EMP    VARCHAR2(10 BYTE),
+  TRANS_ID   NUMBER
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE INDEX CS_MEDICINE_IDX_01 ON CS_MEDICINE
+(MED_CD, STATUS, UOM)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;

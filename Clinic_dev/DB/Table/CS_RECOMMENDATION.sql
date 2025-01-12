@@ -1,0 +1,59 @@
+CREATE TABLE CS_RECOMMENDATION
+(
+  RECOM_ID      NUMBER                          NOT NULL,
+  RM_NO         VARCHAR2(20 BYTE)               NOT NULL,
+  INSP_DATE     DATE                            NOT NULL,
+  POLI_CD       VARCHAR2(10 BYTE),
+  RECOM_01      VARCHAR2(1 BYTE),
+  RECOM_02      VARCHAR2(1 BYTE),
+  RECOM_03      VARCHAR2(1 BYTE),
+  RECOM_04      VARCHAR2(1 BYTE),
+  RECOM_REMARK  VARCHAR2(200 BYTE),
+  INS_DATE      DATE,
+  INS_EMP       VARCHAR2(10 BYTE),
+  VISIT_NO      VARCHAR2(10 BYTE),
+  LETTER_NO     VARCHAR2(50 BYTE),
+  LETTER_DT     DATE,
+  UPD_DATE      DATE,
+  UPD_EMP       VARCHAR2(10 BYTE)
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE INDEX CS_RECOMM_IDX_01 ON CS_RECOMMENDATION
+(RECOM_ID, RM_NO, INSP_DATE, POLI_CD, VISIT_NO)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;

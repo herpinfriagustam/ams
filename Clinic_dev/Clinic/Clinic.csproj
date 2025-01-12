@@ -1,0 +1,2135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D155633C-FE82-405C-A0FF-7F8FEF469C8B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Clinic</RootNamespace>
+    <AssemblyName>Clinic</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>santosa.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Clinic_dev 1.1\Clinic_dev\Clinic\bin\Clinic\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v15.2" />
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v15.2" />
+    <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Pdf.v15.2.Core\v4.0_15.2.9.0__b88d1754d700e49a\DevExpress.Pdf.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Pdf.v15.2.Drawing\v4.0_15.2.9.0__b88d1754d700e49a\DevExpress.Pdf.v15.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.2" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core" />
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.UI, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.2" />
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v15.2.Win, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\DevExpress.XtraRichEdit.v15.2\v4.0_15.2.9.0__b88d1754d700e49a\DevExpress.XtraRichEdit.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp">
+      <HintPath>..\..\Klinik\Another Program\kliniksantosareport-main\kliniksantosareport-main\Klinik Santosa Report\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Racik.cs" />
+    <Compile Include="Class\MedicineGroup.cs" />
+    <Compile Include="Class\MedicineUmum.cs" />
+    <Compile Include="Class\OracleChangeNotification.cs" />
+    <Compile Include="Master\MasterDokter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterDokter.Designer.cs">
+      <DependentUpon>MasterDokter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterAsuransi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterAsuransi.Designer.cs">
+      <DependentUpon>MasterAsuransi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterChgPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterChgPass.Designer.cs">
+      <DependentUpon>MasterChgPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\BillListv1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment\BillListv1.Designer.cs">
+      <DependentUpon>BillListv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Lap_KasHarian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Lap_KasHarian.Designer.cs">
+      <DependentUpon>Lap_KasHarian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Lap_KunjunganRI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Lap_KunjunganRI.Designer.cs">
+      <DependentUpon>Lap_KunjunganRI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Lap_Kunjungan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Lap_Kunjungan.Designer.cs">
+      <DependentUpon>Lap_Kunjungan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\ActionResultMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\ActionResultMngt.Designer.cs">
+      <DependentUpon>ActionResultMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Api\Entity\PatientPost.cs" />
+    <Compile Include="Api\Entity\PatientRow.cs" />
+    <Compile Include="Api\Entity\PostPatient.cs" />
+    <Compile Include="Api\HL7\HL7.cs" />
+    <Compile Include="Api\HL7\HL7BackboneElement.cs" />
+    <Compile Include="Api\HL7\HL7DataType.cs" />
+    <Compile Include="Api\HL7\HL7DomainResource.cs" />
+    <Compile Include="Api\HL7\HL7Element.cs" />
+    <Compile Include="Api\HL7\HL7Patient.cs" />
+    <Compile Include="Api\HL7\HL7Resource.cs" />
+    <Compile Include="Api\HL7\HL7ResourceType.cs" />
+    <Compile Include="Api\HL7\HL7ValueSets.cs" />
+    <Compile Include="Api\HL7\SatuSehat.cs" />
+    <Compile Include="Class\App.cs" />
+    <Compile Include="Class\CFunction.cs" />
+    <Compile Include="Class\Dosis.cs" />
+    <Compile Include="Class\Dokter.cs" />
+    <Compile Include="Class\MusicPlayer.cs" />
+    <Compile Include="Class\terbilang.cs" />
+    <Compile Include="Controller\UcAntrianNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\UcAntrianNo.designer.cs">
+      <DependentUpon>UcAntrianNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UcAntrianNoNm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\UcAntrianNoNm.designer.cs">
+      <DependentUpon>UcAntrianNoNm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UcDokter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\UcDokter.designer.cs">
+      <DependentUpon>UcDokter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UcMarquee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\UcMarquee.designer.cs">
+      <DependentUpon>UcMarquee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstInspectionCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstInspectionCopy.Designer.cs">
+      <DependentUpon>FirstInspectionCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstInspectionPreg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstInspectionPreg.Designer.cs">
+      <DependentUpon>FirstInspectionPreg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardMonthly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardMonthly.Designer.cs">
+      <DependentUpon>DashboardMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiagnosaInactive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnosaInactive.Designer.cs">
+      <DependentUpon>DiagnosaInactive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Formula.cs" />
+    <Compile Include="Class\Formula2.cs" />
+    <Compile Include="GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\Guarantor.cs" />
+    <Compile Include="Helpers\ApiHelper.cs" />
+    <Compile Include="Helpers\IniHelper.cs" />
+    <Compile Include="Inpatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inpatient.Designer.cs">
+      <DependentUpon>Inpatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InpatientMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InpatientMngt.Designer.cs">
+      <DependentUpon>InpatientMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Layanan.cs" />
+    <Compile Include="MainMenu\AntrianPoli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\AntrianPoli.designer.cs">
+      <DependentUpon>AntrianPoli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\AntrianPerawat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\AntrianPerawat.designer.cs">
+      <DependentUpon>AntrianPerawat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\Dashboard Antrian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\Dashboard Antrian.designer.cs">
+      <DependentUpon>Dashboard Antrian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\DashboardAntrianxx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\DashboardAntrianxx.designer.cs">
+      <DependentUpon>DashboardAntrianxx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ppPendaftaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\ppPendaftaran.Designer.cs">
+      <DependentUpon>ppPendaftaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\PatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\PatientInfo.Designer.cs">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuReport\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuReport\ReportForm.designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuReport\ReportViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuReport\ReportViewForm.designer.cs">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IIGeneralConsent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IIGeneralConsent.designer.cs">
+      <DependentUpon>IIGeneralConsent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessment.designer.cs">
+      <DependentUpon>IIIFirstAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX.designer.cs">
+      <DependentUpon>IV_III_MIX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_II_KPP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_II_KPP.designer.cs">
+      <DependentUpon>IV_II_KPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_I_PPTK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_I_PPTK.designer.cs">
+      <DependentUpon>IV_I_PPTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_III_DK_II.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_III_DK_II.designer.cs">
+      <DependentUpon>VII_III_DK_II.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_II_DK_I.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_II_DK_I.designer.cs">
+      <DependentUpon>VII_II_DK_I.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_IV_DK_III.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_IV_DK_III.designer.cs">
+      <DependentUpon>VII_IV_DK_III.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_IX_CP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_IX_CP.designer.cs">
+      <DependentUpon>VII_IX_CP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC.designer.cs">
+      <DependentUpon>VII_I_DIC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC_IDENTITAS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC_IDENTITAS.designer.cs">
+      <DependentUpon>VII_I_DIC_IDENTITAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC_RPYL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_I_DIC_RPYL.designer.cs">
+      <DependentUpon>VII_I_DIC_RPYL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_VIII_CBBL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_VIII_CBBL.designer.cs">
+      <DependentUpon>VII_VIII_CBBL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_VII_CK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_VII_CK.designer.cs">
+      <DependentUpon>VII_VII_CK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_VI_LPP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_VI_LPP.designer.cs">
+      <DependentUpon>VII_VI_LPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VII_V_DK_IV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VII_V_DK_IV.designer.cs">
+      <DependentUpon>VII_V_DK_IV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_II_RMPRI_PPIA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_II_RMPRI_PPIA.designer.cs">
+      <DependentUpon>VI_II_RMPRI_PPIA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_IV_RMPRI_PAMKRI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_IV_RMPRI_PAMKRI.designer.cs">
+      <DependentUpon>VI_IV_RMPRI_PAMKRI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_IX_RMPRI_PP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_IX_RMPRI_PP.designer.cs">
+      <DependentUpon>VI_IX_RMPRI_PP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_VIII_RMPRI_AAGPRI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_VIII_RMPRI_AAGPRI.designer.cs">
+      <DependentUpon>VI_VIII_RMPRI_AAGPRI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_X_RMPRI_RP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_X_RMPRI_RP.designer.cs">
+      <DependentUpon>VI_X_RMPRI_RP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportKwitansi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportKwitansi.Designer.cs">
+      <DependentUpon>ReportKwitansi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservasi\ReservationRegisterRI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservasi\ReservationRegisterRI.Designer.cs">
+      <DependentUpon>ReservationRegisterRI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservasi\ReservationRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservasi\ReservationRegister.Designer.cs">
+      <DependentUpon>ReservationRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\FrmRawatInapv1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\FrmRawatInapv1.designer.cs">
+      <DependentUpon>FrmRawatInapv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\FrmTindakan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\FrmTindakan.designer.cs">
+      <DependentUpon>FrmTindakan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\InspectionGigi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\InspectionGigi.Designer.cs">
+      <DependentUpon>InspectionGigi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\InspectionV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\InspectionV2.Designer.cs">
+      <DependentUpon>InspectionV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\InspectionUSG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\InspectionUSG.Designer.cs">
+      <DependentUpon>InspectionUSG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\InspectionV1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\InspectionV1.Designer.cs">
+      <DependentUpon>InspectionV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\RawatInapBidan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\RawatInapBidan.designer.cs">
+      <DependentUpon>RawatInapBidan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ReportEntity.cs" />
+    <Compile Include="Reports\IBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IBase.designer.cs">
+      <DependentUpon>IBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentCPPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentCPPT.designer.cs">
+      <DependentUpon>IIIFirstAssessmentCPPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentMedicine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentMedicine.designer.cs">
+      <DependentUpon>IIIFirstAssessmentMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentTooths.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IIIFirstAssessmentTooths.designer.cs">
+      <DependentUpon>IIIFirstAssessmentTooths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_ANESTESI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_ANESTESI.designer.cs">
+      <DependentUpon>IV_III_MIX_ANESTESI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_FISOLOGI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_FISOLOGI.designer.cs">
+      <DependentUpon>IV_III_MIX_FISOLOGI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_SBLP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_SBLP.designer.cs">
+      <DependentUpon>IV_III_MIX_SBLP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_STLP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IV_III_MIX_STLP.designer.cs">
+      <DependentUpon>IV_III_MIX_STLP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportHelper.cs" />
+    <Compile Include="Reports\VI_III_RMPRI_FPRJPA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_III_RMPRI_FPRJPA.designer.cs">
+      <DependentUpon>VI_III_RMPRI_FPRJPA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_III_RMPRI_FPRJPD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_III_RMPRI_FPRJPD.designer.cs">
+      <DependentUpon>VI_III_RMPRI_FPRJPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_I_RMPRI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_I_RMPRI.designer.cs">
+      <DependentUpon>VI_I_RMPRI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_VIII_RMPRI_AAGPRI_AM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_VIII_RMPRI_AAGPRI_AM.designer.cs">
+      <DependentUpon>VI_VIII_RMPRI_AAGPRI_AM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO.designer.cs">
+      <DependentUpon>VI_VII_RMPRI_JPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO_JDWL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO_JDWL.designer.cs">
+      <DependentUpon>VI_VII_RMPRI_JPO_JDWL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO_LL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_VII_RMPRI_JPO_LL.designer.cs">
+      <DependentUpon>VI_VII_RMPRI_JPO_LL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VI_V_RMPRI_CPPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VI_V_RMPRI_CPPT.designer.cs">
+      <DependentUpon>VI_V_RMPRI_CPPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationMngt6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationMngt6.Designer.cs">
+      <DependentUpon>ReservationMngt6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservasi\ReservationMngt5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservasi\ReservationMngt5.Designer.cs">
+      <DependentUpon>ReservationMngt5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\FrmRawatInap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\FrmRawatInap.designer.cs">
+      <DependentUpon>FrmRawatInap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\MedicineSeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\MedicineSeller.Designer.cs">
+      <DependentUpon>MedicineSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\TreatNonMedis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\TreatNonMedis.Designer.cs">
+      <DependentUpon>TreatNonMedis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterCode.Designer.cs">
+      <DependentUpon>MasterCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterUser.Designer.cs">
+      <DependentUpon>MasterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterFormula.Designer.cs">
+      <DependentUpon>MasterFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterMedicine.Designer.cs">
+      <DependentUpon>MasterMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LetterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LetterReport.Designer.cs">
+      <DependentUpon>LetterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudiometriUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudiometriUpload.Designer.cs">
+      <DependentUpon>AudiometriUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudiometriList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudiometriList.Designer.cs">
+      <DependentUpon>AudiometriList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\GuarantorMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\GuarantorMngt.Designer.cs">
+      <DependentUpon>GuarantorMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterRoom.Designer.cs">
+      <DependentUpon>MasterRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterPoli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterPoli.Designer.cs">
+      <DependentUpon>MasterPoli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterTreatment.Designer.cs">
+      <DependentUpon>MasterTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InPatientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InPatientReport.Designer.cs">
+      <DependentUpon>InPatientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutPatientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutPatientReport.Designer.cs">
+      <DependentUpon>OutPatientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Patient.cs" />
+    <Compile Include="Master\PatientInfoMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\PatientInfoMngt.Designer.cs">
+      <DependentUpon>PatientInfoMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\BillList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment\BillList.Designer.cs">
+      <DependentUpon>BillList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientReport2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientReport2.Designer.cs">
+      <DependentUpon>PatientReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportKetRanap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportKetRanap.Designer.cs">
+      <DependentUpon>ReportKetRanap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportAgreement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportAgreement.Designer.cs">
+      <DependentUpon>ReportAgreement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportBill2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportBill2.Designer.cs">
+      <DependentUpon>ReportBill2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportBill.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportBill.Designer.cs">
+      <DependentUpon>ReportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportCard.Designer.cs">
+      <DependentUpon>ReportCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportMRRanapOri.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMRRanapOri.Designer.cs">
+      <DependentUpon>ReportMRRanapOri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportMRRanap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMRRanap.Designer.cs">
+      <DependentUpon>ReportMRRanap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportRujukanOri.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportRujukanOri.Designer.cs">
+      <DependentUpon>ReportRujukanOri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportVisitNote.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportVisitNote.Designer.cs">
+      <DependentUpon>ReportVisitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservasi\ReservationMngt4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservasi\ReservationMngt4.Designer.cs">
+      <DependentUpon>ReservationMngt4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationQueue2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationQueue2.Designer.cs">
+      <DependentUpon>ReservationQueue2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RsvNotif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RsvNotif.Designer.cs">
+      <DependentUpon>RsvNotif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObsNotif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObsNotif.Designer.cs">
+      <DependentUpon>ObsNotif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherFiles.Designer.cs">
+      <DependentUpon>OtherFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudiometriReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudiometriReport.Designer.cs">
+      <DependentUpon>AudiometriReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregnantReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregnantReport.Designer.cs">
+      <DependentUpon>PregnantReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineReport.Designer.cs">
+      <DependentUpon>MedicineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportAction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportAction.Designer.cs">
+      <DependentUpon>ReportAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportAudiometri.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportAudiometri.Designer.cs">
+      <DependentUpon>ReportAudiometri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreatmentMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreatmentMngt.Designer.cs">
+      <DependentUpon>TreatmentMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisitReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitReport.Designer.cs">
+      <DependentUpon>VisitReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransMedList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransMedList.Designer.cs">
+      <DependentUpon>TransMedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalReport.Designer.cs">
+      <DependentUpon>MedicalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientReport.Designer.cs">
+      <DependentUpon>PatientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineMngt.Designer.cs">
+      <DependentUpon>MedicineMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\DiagnosaMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\DiagnosaMngt.Designer.cs">
+      <DependentUpon>DiagnosaMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\fclinic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\fclinic.Designer.cs">
+      <DependentUpon>fclinic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu\ClinicMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\ClinicMngt.Designer.cs">
+      <DependentUpon>ClinicMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ConnectDb.cs" />
+    <Compile Include="Class\Diagnosa.cs" />
+    <Compile Include="DiagnosaItmUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnosaItmUpload.Designer.cs">
+      <DependentUpon>DiagnosaItmUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\DiagnosaType.cs" />
+    <Compile Include="ExtendedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExtendedPanel.Designer.cs">
+      <DependentUpon>ExtendedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstInspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstInspection.Designer.cs">
+      <DependentUpon>FirstInspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\FlagYn.cs" />
+    <Compile Include="Class\INew.cs" />
+    <Compile Include="Class\InitData.cs" />
+    <Compile Include="Transaction\InspectionPregnant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\InspectionPregnant.Designer.cs">
+      <DependentUpon>InspectionPregnant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Inspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\Inspection.Designer.cs">
+      <DependentUpon>Inspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ISearch.cs" />
+    <Compile Include="Class\Kehamilan.cs" />
+    <Compile Include="Class\KetHamil.cs" />
+    <Compile Include="Class\Medicine.cs" />
+    <Compile Include="Class\MedicineInfo.cs" />
+    <Compile Include="UploadFile\MedicineStokUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadFile\MedicineStokUpload.Designer.cs">
+      <DependentUpon>MedicineStokUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiagnosaGrpUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnosaGrpUpload.Designer.cs">
+      <DependentUpon>DiagnosaGrpUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="McuUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="McuUpload.Designer.cs">
+      <DependentUpon>McuUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadFile\MedicineUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadFile\MedicineUpload.Designer.cs">
+      <DependentUpon>MedicineUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="McuList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="McuList.Designer.cs">
+      <DependentUpon>McuList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObservationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObservationList.Designer.cs">
+      <DependentUpon>ObservationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\PatientType.cs" />
+    <Compile Include="Class\Poli.cs" />
+    <Compile Include="Master\MasterDiagnosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterDiagnosa.Designer.cs">
+      <DependentUpon>MasterDiagnosa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\PrescriptionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\PrescriptionList.Designer.cs">
+      <DependentUpon>PrescriptionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Class\Purpose.cs" />
+    <Compile Include="Report\ReportCutiHamil.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportCutiHamil.Designer.cs">
+      <DependentUpon>ReportCutiHamil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportMRHamil.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMRHamil.Designer.cs">
+      <DependentUpon>ReportMRHamil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportMRKb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMRKb.Designer.cs">
+      <DependentUpon>ReportMRKb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportMRUmum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportMRUmum.Designer.cs">
+      <DependentUpon>ReportMRUmum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportRekomendasics.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportRekomendasics.Designer.cs">
+      <DependentUpon>ReportRekomendasics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportRekomendasiPr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportRekomendasiPr.Designer.cs">
+      <DependentUpon>ReportRekomendasiPr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportRujukan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportRujukan.Designer.cs">
+      <DependentUpon>ReportRujukan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSkdKK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportSkdKK.Designer.cs">
+      <DependentUpon>ReportSkdKK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSkdUmum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportSkdUmum.Designer.cs">
+      <DependentUpon>ReportSkdUmum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnamnesaMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnamnesaMngt.Designer.cs">
+      <DependentUpon>AnamnesaMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalRecordMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalRecordMngt.Designer.cs">
+      <DependentUpon>MedicalRecordMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationMngt3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationMngt3.Designer.cs">
+      <DependentUpon>ReservationMngt3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationMngt2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationMngt2.Designer.cs">
+      <DependentUpon>ReservationMngt2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationMngt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationMngt.Designer.cs">
+      <DependentUpon>ReservationMngt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationQueue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationQueue.Designer.cs">
+      <DependentUpon>ReservationQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationScan.Designer.cs">
+      <DependentUpon>ReservationScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Room.cs" />
+    <Compile Include="Class\Stat.cs" />
+    <Compile Include="Class\Status.cs" />
+    <Compile Include="Utility\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\WorkAccident.cs" />
+    <EmbeddedResource Include="Master\MasterDokter.resx">
+      <DependentUpon>MasterDokter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterAsuransi.resx">
+      <DependentUpon>MasterAsuransi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterChgPass.resx">
+      <DependentUpon>MasterChgPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment\BillListv1.resx">
+      <DependentUpon>BillListv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Lap_KasHarian.resx">
+      <DependentUpon>Lap_KasHarian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Lap_KunjunganRI.resx">
+      <DependentUpon>Lap_KunjunganRI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Lap_Kunjungan.resx">
+      <DependentUpon>Lap_Kunjungan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\ActionResultMngt.resx">
+      <DependentUpon>ActionResultMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\UcAntrianNo.resx">
+      <DependentUpon>UcAntrianNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\UcAntrianNoNm.resx">
+      <DependentUpon>UcAntrianNoNm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\UcDokter.resx">
+      <DependentUpon>UcDokter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\UcMarquee.resx">
+      <DependentUpon>UcMarquee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstInspectionCopy.resx">
+      <DependentUpon>FirstInspectionCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstInspectionPreg.resx">
+      <DependentUpon>FirstInspectionPreg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardMonthly.resx">
+      <DependentUpon>DashboardMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnosaInactive.resx">
+      <DependentUpon>DiagnosaInactive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inpatient.resx">
+      <DependentUpon>Inpatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InpatientMngt.resx">
+      <DependentUpon>InpatientMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\AntrianPoli.resx">
+      <DependentUpon>AntrianPoli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\AntrianPerawat.resx">
+      <DependentUpon>AntrianPerawat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\Dashboard Antrian.resx">
+      <DependentUpon>Dashboard Antrian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\DashboardAntrianxx.resx">
+      <DependentUpon>DashboardAntrianxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\ppPendaftaran.resx">
+      <DependentUpon>ppPendaftaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\PatientInfo.resx">
+      <DependentUpon>PatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuReport\PrintRibbonControllerResources.resx" />
+    <EmbeddedResource Include="MenuReport\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuReport\ReportViewForm.resx">
+      <DependentUpon>ReportViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuReport\XRDesignRibbonControllerResources.resx" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\IIGeneralConsent.resx">
+      <DependentUpon>IIGeneralConsent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IIIFirstAssessment.resx">
+      <DependentUpon>IIIFirstAssessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_III_MIX.resx">
+      <DependentUpon>IV_III_MIX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_II_KPP.resx">
+      <DependentUpon>IV_II_KPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_I_PPTK.resx">
+      <DependentUpon>IV_I_PPTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_III_DK_II.resx">
+      <DependentUpon>VII_III_DK_II.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_II_DK_I.resx">
+      <DependentUpon>VII_II_DK_I.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_IV_DK_III.resx">
+      <DependentUpon>VII_IV_DK_III.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_IX_CP.resx">
+      <DependentUpon>VII_IX_CP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_I_DIC.resx">
+      <DependentUpon>VII_I_DIC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_I_DIC_IDENTITAS.resx">
+      <DependentUpon>VII_I_DIC_IDENTITAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_I_DIC_RPYL.resx">
+      <DependentUpon>VII_I_DIC_RPYL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_VIII_CBBL.resx">
+      <DependentUpon>VII_VIII_CBBL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_VII_CK.resx">
+      <DependentUpon>VII_VII_CK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_VI_LPP.resx">
+      <DependentUpon>VII_VI_LPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VII_V_DK_IV.resx">
+      <DependentUpon>VII_V_DK_IV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_II_RMPRI_PPIA.resx">
+      <DependentUpon>VI_II_RMPRI_PPIA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_IV_RMPRI_PAMKRI.resx">
+      <DependentUpon>VI_IV_RMPRI_PAMKRI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_IX_RMPRI_PP.resx">
+      <DependentUpon>VI_IX_RMPRI_PP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_VIII_RMPRI_AAGPRI.resx">
+      <DependentUpon>VI_VIII_RMPRI_AAGPRI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_X_RMPRI_RP.resx">
+      <DependentUpon>VI_X_RMPRI_RP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportKwitansi.resx">
+      <DependentUpon>ReportKwitansi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservasi\ReservationRegisterRI.resx">
+      <DependentUpon>ReservationRegisterRI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservasi\ReservationRegister.resx">
+      <DependentUpon>ReservationRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\FrmRawatInapv1.resx">
+      <DependentUpon>FrmRawatInapv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\FrmTindakan.resx">
+      <DependentUpon>FrmTindakan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\InspectionGigi.resx">
+      <DependentUpon>InspectionGigi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\InspectionV2.resx">
+      <DependentUpon>InspectionV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\InspectionUSG.resx">
+      <DependentUpon>InspectionUSG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\InspectionV1.resx">
+      <DependentUpon>InspectionV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\RawatInapBidan.resx">
+      <DependentUpon>RawatInapBidan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IBase.resx">
+      <DependentUpon>IBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IIIFirstAssessmentCPPT.resx">
+      <DependentUpon>IIIFirstAssessmentCPPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IIIFirstAssessmentMedicine.resx">
+      <DependentUpon>IIIFirstAssessmentMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IIIFirstAssessmentTooths.resx">
+      <DependentUpon>IIIFirstAssessmentTooths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_III_MIX_ANESTESI.resx">
+      <DependentUpon>IV_III_MIX_ANESTESI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_III_MIX_FISOLOGI.resx">
+      <DependentUpon>IV_III_MIX_FISOLOGI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_III_MIX_SBLP.resx">
+      <DependentUpon>IV_III_MIX_SBLP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IV_III_MIX_STLP.resx">
+      <DependentUpon>IV_III_MIX_STLP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_III_RMPRI_FPRJPA.resx">
+      <DependentUpon>VI_III_RMPRI_FPRJPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_III_RMPRI_FPRJPD.resx">
+      <DependentUpon>VI_III_RMPRI_FPRJPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_I_RMPRI.resx">
+      <DependentUpon>VI_I_RMPRI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_VIII_RMPRI_AAGPRI_AM.resx">
+      <DependentUpon>VI_VIII_RMPRI_AAGPRI_AM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_VII_RMPRI_JPO.resx">
+      <DependentUpon>VI_VII_RMPRI_JPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_VII_RMPRI_JPO_JDWL.resx">
+      <DependentUpon>VI_VII_RMPRI_JPO_JDWL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_VII_RMPRI_JPO_LL.resx">
+      <DependentUpon>VI_VII_RMPRI_JPO_LL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VI_V_RMPRI_CPPT.resx">
+      <DependentUpon>VI_V_RMPRI_CPPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationMngt6.resx">
+      <DependentUpon>ReservationMngt6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservasi\ReservationMngt5.resx">
+      <DependentUpon>ReservationMngt5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\FrmRawatInap.resx">
+      <DependentUpon>FrmRawatInap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\MedicineSeller.resx">
+      <DependentUpon>MedicineSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\TreatNonMedis.resx">
+      <DependentUpon>TreatNonMedis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterCode.resx">
+      <DependentUpon>MasterCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterUser.resx">
+      <DependentUpon>MasterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterFormula.resx">
+      <DependentUpon>MasterFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterMedicine.resx">
+      <DependentUpon>MasterMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LetterReport.resx">
+      <DependentUpon>LetterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudiometriUpload.resx">
+      <DependentUpon>AudiometriUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudiometriList.resx">
+      <DependentUpon>AudiometriList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\GuarantorMngt.resx">
+      <DependentUpon>GuarantorMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterRoom.resx">
+      <DependentUpon>MasterRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterPoli.resx">
+      <DependentUpon>MasterPoli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterTreatment.resx">
+      <DependentUpon>MasterTreatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InPatientReport.resx">
+      <DependentUpon>InPatientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutPatientReport.resx">
+      <DependentUpon>OutPatientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\PatientInfoMngt.resx">
+      <DependentUpon>PatientInfoMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment\BillList.resx">
+      <DependentUpon>BillList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientReport2.resx">
+      <DependentUpon>PatientReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportKetRanap.resx">
+      <DependentUpon>ReportKetRanap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportAgreement.resx">
+      <DependentUpon>ReportAgreement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportBill2.resx">
+      <DependentUpon>ReportBill2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportBill.resx">
+      <DependentUpon>ReportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportCard.resx">
+      <DependentUpon>ReportCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportMRRanapOri.resx">
+      <DependentUpon>ReportMRRanapOri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportMRRanap.resx">
+      <DependentUpon>ReportMRRanap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportRujukanOri.resx">
+      <DependentUpon>ReportRujukanOri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportVisitNote.resx">
+      <DependentUpon>ReportVisitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservasi\ReservationMngt4.resx">
+      <DependentUpon>ReservationMngt4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationQueue2.resx">
+      <DependentUpon>ReservationQueue2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RsvNotif.resx">
+      <DependentUpon>RsvNotif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObsNotif.resx">
+      <DependentUpon>ObsNotif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherFiles.resx">
+      <DependentUpon>OtherFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudiometriReport.resx">
+      <DependentUpon>AudiometriReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregnantReport.resx">
+      <DependentUpon>PregnantReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineReport.resx">
+      <DependentUpon>MedicineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportAction.resx">
+      <DependentUpon>ReportAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportAudiometri.resx">
+      <DependentUpon>ReportAudiometri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreatmentMngt.resx">
+      <DependentUpon>TreatmentMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitReport.resx">
+      <DependentUpon>VisitReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransMedList.resx">
+      <DependentUpon>TransMedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalReport.resx">
+      <DependentUpon>MedicalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientReport.resx">
+      <DependentUpon>PatientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineMngt.resx">
+      <DependentUpon>MedicineMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\DiagnosaMngt.resx">
+      <DependentUpon>DiagnosaMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\fclinic.resx">
+      <DependentUpon>fclinic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\ClinicMngt.resx">
+      <DependentUpon>ClinicMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnosaItmUpload.resx">
+      <DependentUpon>DiagnosaItmUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstInspection.resx">
+      <DependentUpon>FirstInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\InspectionPregnant.resx">
+      <DependentUpon>InspectionPregnant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\Inspection.resx">
+      <DependentUpon>Inspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadFile\MedicineStokUpload.resx">
+      <DependentUpon>MedicineStokUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnosaGrpUpload.resx">
+      <DependentUpon>DiagnosaGrpUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="McuUpload.resx">
+      <DependentUpon>McuUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadFile\MedicineUpload.resx">
+      <DependentUpon>MedicineUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="McuList.resx">
+      <DependentUpon>McuList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObservationList.resx">
+      <DependentUpon>ObservationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterDiagnosa.resx">
+      <DependentUpon>MasterDiagnosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\PrescriptionList.resx">
+      <DependentUpon>PrescriptionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report\ReportCutiHamil.resx">
+      <DependentUpon>ReportCutiHamil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportMRHamil.resx">
+      <DependentUpon>ReportMRHamil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportMRKb.resx">
+      <DependentUpon>ReportMRKb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportMRUmum.resx">
+      <DependentUpon>ReportMRUmum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportRekomendasics.resx">
+      <DependentUpon>ReportRekomendasics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportRekomendasiPr.resx">
+      <DependentUpon>ReportRekomendasiPr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportRujukan.resx">
+      <DependentUpon>ReportRujukan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSkdKK.resx">
+      <DependentUpon>ReportSkdKK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSkdUmum.resx">
+      <DependentUpon>ReportSkdUmum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnamnesaMngt.resx">
+      <DependentUpon>AnamnesaMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalRecordMngt.resx">
+      <DependentUpon>MedicalRecordMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationMngt3.resx">
+      <DependentUpon>ReservationMngt3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationMngt2.resx">
+      <DependentUpon>ReservationMngt2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationMngt.resx">
+      <DependentUpon>ReservationMngt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationQueue.resx">
+      <DependentUpon>ReservationQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationScan.resx">
+      <DependentUpon>ReservationScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Templates\1. Cover.rtf" />
+    <None Include="Templates\2. Rawat Jalan.docx" />
+    <None Include="Templates\AllTemplate.rtf" />
+    <None Include="Templates\Rawat_Jalan.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK.WAV" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SCAN_ID_FIRST.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\03.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\04.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\06.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\08.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\09.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\antrian.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IN.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\M.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TT.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TT17100003.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\01.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\antrian.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IN.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\M.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TT.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TT17100003.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\01.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\03.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\04.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\06.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\08.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\09.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_21.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_22.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_23.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_24.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_25.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_26.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_27.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_28.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_30.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_01.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_02.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_03.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_04.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_05.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_06.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_07.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_08.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_8.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_09.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_9.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_10.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_11.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_12.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_13.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_14.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_15.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_16.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_17.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_18.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_19.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_20.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-blur-hospital-clinic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dapino-Medical-Hospital.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\front.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healthcare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healthcare2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ear2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ear1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fam2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\136934.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hospital.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Logo Clicic.jpg" />
+    <Content Include="Resources\logo-color.png" />
+    <None Include="Resources\Logo_Santosa-removebg-preview.png" />
+    <Content Include="Resources\manFronBack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pain-Scale.jpg" />
+    <Content Include="Resources\painScale.png" />
+    <Content Include="Resources\Rates.jpg" />
+    <Content Include="santosa.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="XXXNotUsed\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

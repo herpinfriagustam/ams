@@ -1,0 +1,27 @@
+CREATE TABLE CS_USER
+(
+  EMPID      VARCHAR2(20 BYTE)                  NOT NULL,
+  USER_ROLE  VARCHAR2(20 BYTE)                  NOT NULL,
+  STATUS     VARCHAR2(20 BYTE)                  NOT NULL,
+  INS_DATE   DATE
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;

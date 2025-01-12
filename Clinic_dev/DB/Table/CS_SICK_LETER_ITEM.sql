@@ -1,0 +1,28 @@
+CREATE TABLE CS_SICK_LETER_ITEM
+(
+  ITEM_ID    VARCHAR2(10 BYTE)                  NOT NULL,
+  ITEM_NAME  VARCHAR2(50 BYTE)                  NOT NULL,
+  STATUS     VARCHAR2(1 BYTE),
+  INS_DATE   DATE,
+  INS_EMP    VARCHAR2(10 BYTE)
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;

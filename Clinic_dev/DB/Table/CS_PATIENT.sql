@@ -1,0 +1,105 @@
+CREATE TABLE CS_PATIENT
+(
+  RM_NO          VARCHAR2(20 BYTE)              NOT NULL,
+  EMPID          VARCHAR2(10 BYTE)              NOT NULL,
+  GROUP_PATIENT  VARCHAR2(10 BYTE),
+  INFO01         VARCHAR2(100 BYTE),
+  INFO02         VARCHAR2(100 BYTE),
+  INFO03         VARCHAR2(100 BYTE),
+  INFO04         VARCHAR2(100 BYTE),
+  INFO05         VARCHAR2(100 BYTE),
+  INFO06         VARCHAR2(100 BYTE),
+  INFO07         VARCHAR2(100 BYTE),
+  INFO08         VARCHAR2(100 BYTE),
+  INFO09         VARCHAR2(100 BYTE),
+  INFO10         VARCHAR2(100 BYTE),
+  INFO11         VARCHAR2(100 BYTE),
+  INFO12         VARCHAR2(100 BYTE),
+  INFO13         VARCHAR2(100 BYTE),
+  INFO14         VARCHAR2(100 BYTE),
+  INFO15         VARCHAR2(100 BYTE),
+  STATUS         VARCHAR2(10 BYTE),
+  INS_DATE       DATE,
+  INS_EMP        VARCHAR2(10 BYTE),
+  UPD_DATE       DATE,
+  UPD_EMP        VARCHAR2(10 BYTE)
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE INDEX CS_PATIENT_IDX_01 ON CS_PATIENT
+(RM_NO, EMPID, GROUP_PATIENT, STATUS)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX CS_PATIENT_U01 ON CS_PATIENT
+(EMPID, GROUP_PATIENT, STATUS)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;
+
+
+ALTER TABLE CS_PATIENT ADD (
+  CONSTRAINT CS_PATIENT_U01
+ UNIQUE (EMPID, GROUP_PATIENT, STATUS)
+    USING INDEX 
+    TABLESPACE TS_ITASSET_DATA
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       2147483645
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ));

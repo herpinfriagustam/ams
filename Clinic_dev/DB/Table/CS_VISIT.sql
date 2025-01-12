@@ -1,0 +1,106 @@
+CREATE TABLE CS_VISIT
+(
+  EMPID             VARCHAR2(10 BYTE)           NOT NULL,
+  POLI_CD           VARCHAR2(10 BYTE),
+  TYPE_PATIENT      VARCHAR2(1 BYTE),
+  VISIT_DATE        DATE                        NOT NULL,
+  TIME_RESERVATION  DATE,
+  TIME_INSPECTION   DATE,
+  TIME_RECEIPT      DATE,
+  TIME_OBSERVATION  DATE,
+  TIME_END          DATE,
+  OBSERVATION       VARCHAR2(1 BYTE),
+  STATUS            VARCHAR2(10 BYTE),
+  VISIT_REMARK      VARCHAR2(50 BYTE),
+  INS_DATE          DATE,
+  INS_EMP           VARCHAR2(10 BYTE),
+  UPD_DATE          DATE,
+  UPD_EMP           VARCHAR2(10 BYTE),
+  PURPOSE           VARCHAR2(3 BYTE),
+  VISIT_CNT         VARCHAR2(3 BYTE),
+  WORK_ACCIDENT     VARCHAR2(1 BYTE),
+  QUE01             VARCHAR2(10 BYTE),
+  QUE02             VARCHAR2(10 BYTE),
+  START_HOLD        DATE,
+  END_HOLD          DATE,
+  TMP_STATUS        VARCHAR2(10 BYTE)
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE UNIQUE INDEX CS_VISIT_U01 ON CS_VISIT
+(EMPID, VISIT_DATE, QUE01)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;
+
+
+CREATE INDEX CS_VISIT_IDX_01 ON CS_VISIT
+(EMPID, VISIT_DATE, STATUS, PURPOSE)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;
+
+
+ALTER TABLE CS_VISIT ADD (
+  CONSTRAINT CS_VISIT_U01
+ UNIQUE (EMPID, VISIT_DATE, QUE01)
+    USING INDEX 
+    TABLESPACE TS_ITASSET_DATA
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       2147483645
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ));

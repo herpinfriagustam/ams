@@ -1,0 +1,49 @@
+CREATE TABLE CS_ROOM
+(
+  ROOM_ID    VARCHAR2(10 BYTE)                  NOT NULL,
+  ROOM_NAME  VARCHAR2(50 BYTE)                  NOT NULL,
+  BED_QTY    NUMBER                             NOT NULL,
+  STATUS     VARCHAR2(10 BYTE),
+  INS_DATE   DATE,
+  INS_EMP    VARCHAR2(10 BYTE)
+)
+TABLESPACE TS_ITASSET_DATA
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE INDEX CS_ROOM_IDX_01 ON CS_ROOM
+(ROOM_ID, STATUS)
+LOGGING
+TABLESPACE TS_ITASSET_DATA
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+NOPARALLEL;

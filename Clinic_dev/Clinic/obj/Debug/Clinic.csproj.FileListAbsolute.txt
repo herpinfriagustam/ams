@@ -1,0 +1,1773 @@
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\tesLogin.exe
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\tesLogin.pdb
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Data.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Data.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\tesLogin.Clinic.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\tesLogin.Properties.Resources.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\Clinic.csproj.GenerateResource.Cache
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\tesLogin.exe.licenses
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\tesLogin.exe
+D:\TT17100003\Project\Clinic\Program\Clinic\tesLogin\obj\Debug\tesLogin.pdb
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\Clinic.exe.config
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\Clinic.exe
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\Clinic.pdb
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\tesLogin.Clinic.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.FirstInspection.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Inspection.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.McuUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.McuList.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ObservationList.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ReservationScan.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.WaitForm1.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.exe.licenses
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.exe
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.pdb
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\NAudio.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\NAudio.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.PatientReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicalReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.TransMedList.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.LetterReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.VisitReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.MedicineReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.PregnantReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.AudiometriList.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.OtherFiles.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.ObsNotif.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.RsvNotif.resources
+D:\TT17100003\Project\Clinic\Program\Clinic\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.exe
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\Clinic.exe
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\NAudio.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\NAudio.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.LetterReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.RsvNotif.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ObsNotif.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.OtherFiles.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.PregnantReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.VisitReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.TransMedList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\tesLogin.Clinic.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspection.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Inspection.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.McuUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.McuList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ObservationList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationScan.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfoMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCard.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.GuarantorMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAgreement.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanap.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportVisitNote.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.BillList.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill2.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt4.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Inpatient.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanapOri.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ActionResultMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukanOri.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue2.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterPoli.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterFormula.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterRoom.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterTreatment.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.InpatientMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport2.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.TreatmentMngt.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.OutPatientReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.InPatientReport.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev_20210412\Clinic\bin\Debug\Clinic.exe.config
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev_20210412\Clinic\obj\Debug\Clinic.exe
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev_20210412\Clinic\obj\Debug\Clinic.pdb
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.MasterUser.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportKetRanap.resources
+D:\TT17100003\Project\Clinic\Program\Dev\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.exe
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\NAudio.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\NAudio.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ActionResultMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Inpatient.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InpatientMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TreatNonMedis.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterCode.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterUser.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterFormula.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.LetterReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.GuarantorMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterRoom.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterPoli.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterTreatment.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InPatientReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.OutPatientReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfoMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.BillList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport2.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportKetRanap.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAgreement.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill2.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCard.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanapOri.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanap.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukanOri.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportVisitNote.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt4.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue2.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.RsvNotif.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ObsNotif.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.OtherFiles.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PregnantReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TreatmentMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.VisitReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TransMedList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\tesLogin.Clinic.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspection.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Inspection.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.McuUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.McuList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ObservationList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationScan.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.resources
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.exe
+E:\Office\Project\Desktop\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.exe
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\NAudio.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\NAudio.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ActionResultMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionCopy.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Inpatient.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InpatientMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ppPendaftaran.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfo.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MenuReport.PrintRibbonControllerResources.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReportForm.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReportViewForm.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MenuReport.XRDesignRibbonControllerResources.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_III_DK_II.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_II_DK_I.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_IV_DK_III.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_IX_CP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_IDENTITAS.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_RPYL.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VIII_CBBL.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VII_CK.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VI_LPP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_V_DK_IV.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FrmTindakan.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.RawatInapBidan.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IBase.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIGeneralConsent.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessment.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentCPPT.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentMedicine.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentTooths.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_ANESTESI.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_FISOLOGI.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_SBLP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_STLP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_II_KPP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_I_PPTK.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPA.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPD.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_II_RMPRI_PPIA.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_IV_RMPRI_PAMKRI.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_IX_RMPRI_PP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_I_RMPRI.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI_AM.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_JDWL.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_LL.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_V_RMPRI_CPPT.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_X_RMPRI_RP.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt6.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt5.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FrmRawatInap.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TreatNonMedis.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterCode.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterUser.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterFormula.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.LetterReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.GuarantorMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterRoom.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterPoli.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterTreatment.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InPatientReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.OutPatientReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfoMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.BillList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport2.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportKetRanap.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAgreement.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill2.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCard.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanapOri.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanap.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukanOri.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportVisitNote.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt4.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue2.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.RsvNotif.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ObsNotif.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.OtherFiles.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PregnantReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TreatmentMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.VisitReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.TransMedList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.fclinic.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspection.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Inspection.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.McuUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.McuList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ObservationList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationScan.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.resources
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.exe
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\Program\Clinic\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Resources\manFronBack.png
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Clinic.exe.config
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Clinic.exe
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Clinic.pdb
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\NAudio.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\Interop.WMPLib.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\NAudio.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Interop.WMPLib.dll
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterDokter.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterAsuransi.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterChgPass.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.BillListv1.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Lap_Kunjungan.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ActionResultMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ControllerAntrian.UcAntrianNo.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ControllerAntrian.UcAntrianNoNm.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ControllerAntrian.UcDokter.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ControllerAntrian.UcMarquee.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FirstInspectionCopy.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Inpatient.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InpatientMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AntrianPoli.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AntrianPerawat.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DashboardAntrian.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DashboardAntrianxx.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ppPendaftaran.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PatientInfo.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MenuReport.PrintRibbonControllerResources.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReportForm.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReportViewForm.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MenuReport.XRDesignRibbonControllerResources.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IIGeneralConsent.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessment.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_II_KPP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_I_PPTK.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_III_DK_II.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_II_DK_I.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_IV_DK_III.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_IX_CP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_IDENTITAS.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_RPYL.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_VIII_CBBL.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_VII_CK.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_VI_LPP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VII_V_DK_IV.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_II_RMPRI_PPIA.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_IV_RMPRI_PAMKRI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_IX_RMPRI_PP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_X_RMPRI_RP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportKwitansi.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationRegisterRI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationRegister.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FrmRawatInapv1.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FrmTindakan.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InspectionGigi.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InspectionV2.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InspectionUSG.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InspectionV1.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.RawatInapBidan.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IBase.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentCPPT.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentMedicine.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentTooths.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_ANESTESI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_FISOLOGI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_SBLP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_STLP.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPA.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPD.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_I_RMPRI.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI_AM.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_JDWL.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_LL.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Reports.VI_V_RMPRI_CPPT.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt6.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt5.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FrmRawatInap.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicineSeller.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.TreatNonMedis.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterCode.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterUser.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterFormula.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.LetterReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AudiometriList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.GuarantorMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterRoom.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterPoli.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterTreatment.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InPatientReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.OutPatientReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PatientInfoMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.BillList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PatientReport2.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportKetRanap.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportAgreement.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportBill2.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportBill.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportCard.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportMRRanapOri.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportMRRanap.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportRujukanOri.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportVisitNote.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt4.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationQueue2.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.RsvNotif.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ObsNotif.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.OtherFiles.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PregnantReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicineReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.TreatmentMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.VisitReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.TransMedList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicalReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PatientReport.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.fclinic.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.FirstInspection.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Inspection.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.McuUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.McuList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ObservationList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.ReservationScan.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.WaitForm1.resources
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.exe.licenses
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.exe
+C:\Users\USERNEM\Desktop\APP\Clinic_dev v1.6\Clinic_dev v1.6\Clinic\obj\Debug\Clinic.pdb
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Clinic.exe
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Images.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\NAudio.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\Interop.WMPLib.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Extensions.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Utils.v15.2.UI.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.Xpo.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.UI.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraCharts.v15.2.Wizard.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Core.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGauges.v15.2.Win.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraGrid.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraNavBar.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\NAudio.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraPivotGrid.v15.2.xml
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.PivotGrid.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Utils.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Utils.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Utils.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Utils.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.Xpo.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.Xpo.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.Xpo.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.Xpo.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraCharts.v15.2.Wizard.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGauges.v15.2.Core.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraNavBar.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraReports.v15.2.Extensions.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterAsuransi.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterChgPass.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.BillListv1.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_KasHarian.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_KunjunganRI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_Kunjungan.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ActionResultMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ControllerAntrian.UcAntrianNo.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ControllerAntrian.UcAntrianNoNm.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ControllerAntrian.UcDokter.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ControllerAntrian.UcMarquee.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionCopy.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspectionPreg.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardMonthly.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaInactive.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Inpatient.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InpatientMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AntrianPoli.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AntrianPerawat.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardAntrian.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DashboardAntrianxx.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ppPendaftaran.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfo.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MenuReport.PrintRibbonControllerResources.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReportForm.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReportViewForm.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MenuReport.XRDesignRibbonControllerResources.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIGeneralConsent.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessment.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_II_KPP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_I_PPTK.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_III_DK_II.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_II_DK_I.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_IV_DK_III.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_IX_CP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_IDENTITAS.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_I_DIC_RPYL.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VIII_CBBL.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VII_CK.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_VI_LPP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VII_V_DK_IV.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_II_RMPRI_PPIA.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_IV_RMPRI_PAMKRI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_IX_RMPRI_PP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_X_RMPRI_RP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportKwitansi.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationRegisterRI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationRegister.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FrmRawatInapv1.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FrmTindakan.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionGigi.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionV2.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionUSG.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionV1.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.RawatInapBidan.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IBase.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentCPPT.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentMedicine.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IIIFirstAssessmentTooths.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_ANESTESI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_FISOLOGI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_SBLP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX_STLP.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPA.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_III_RMPRI_FPRJPD.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_I_RMPRI.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VIII_RMPRI_AAGPRI_AM.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_JDWL.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_VII_RMPRI_JPO_LL.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.VI_V_RMPRI_CPPT.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt6.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt5.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FrmRawatInap.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineSeller.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.TreatNonMedis.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterCode.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterUser.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterFormula.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterMedicine.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.LetterReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.GuarantorMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterRoom.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterPoli.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterTreatment.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InPatientReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.OutPatientReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PatientInfoMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.BillList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport2.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportKetRanap.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAgreement.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill2.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportBill.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCard.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanapOri.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRRanap.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukanOri.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportVisitNote.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt4.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue2.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.RsvNotif.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ObsNotif.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.OtherFiles.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AudiometriReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PregnantReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAction.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportAudiometri.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.TreatmentMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.VisitReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.TransMedList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PatientReport.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.fclinic.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ClinicMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaItmUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.FirstInspection.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.InspectionPregnant.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Inspection.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineStokUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.DiagnosaGrpUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.McuUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicineUpload.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.McuList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ObservationList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDiagnosa.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.PrescriptionList.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Properties.Resources.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportCutiHamil.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRHamil.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRKb.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportMRUmum.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasics.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRekomendasiPr.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportRujukan.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdKK.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.Report.ReportSkdUmum.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.AnamnesaMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.MedicalRecordMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt3.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt2.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationMngt.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationQueue.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationScan.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.resources
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.exe
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
