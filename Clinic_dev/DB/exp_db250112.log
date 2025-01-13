@@ -1,0 +1,501 @@
+
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+Export done in WE8MSWIN1252 character set and AL16UTF16 NCHAR character set
+server uses AL32UTF8 character set (possible charset conversion)
+
+About to export specified users ...
+. exporting pre-schema procedural objects and actions
+. exporting foreign function library names for user KLINIK 
+. exporting PUBLIC type synonyms
+. exporting private type synonyms
+. exporting object type definitions for user KLINIK 
+About to export KLINIK's objects ...
+. exporting database links
+. exporting sequence numbers
+. exporting cluster definitions
+. about to export KLINIK's tables via Conventional Path ...
+. . exporting table                      APEX$_ACL
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 APEX$_WS_FILES
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table               APEX$_WS_HISTORY
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 APEX$_WS_LINKS
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 APEX$_WS_NOTES
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  APEX$_WS_ROWS
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  APEX$_WS_TAGS
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table APEX$_WS_WEBPG_SECTION_HISTORY
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table        APEX$_WS_WEBPG_SECTIONS
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    APP_VERSION
+                                                           84 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                      CS_ACTION
+                                                          455 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_ADD_INFO
+                                                           10 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_ANAMNESA
+.......
+                                                         7018 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                CS_ANAMNESA_DTL
+......
+                                                         6839 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                CS_ANTRIAN_FILE
+                                                            4 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_ASURANSI_PT
+                                                            3 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_AUDIOMETRI
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                         CS_BED
+                                                           22 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_CALL_LOG
+..........
+                                                        10791 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_CODE_DATA
+                                                          143 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_DET_APT_TRX
+                                                           77 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_DIAGNOSA
+.
+                                                         1208 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table           CS_DIAGNOSA_CATEGORY
+                                                           30 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table               CS_DIAGNOSA_ITEM
+........
+                                                         8956 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table            CS_DIAGNOSA_ITEM_BK
+........
+                                                         8954 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                      CS_DOKTER
+                                                           17 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_EMPLOYEES
+                                                            2 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                     CS_FORMULA
+.
+                                                         1386 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_FORMULA_241115
+.
+                                                         1408 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_FORMULA_BK
+.
+                                                         1407 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_FORMULA_HIS
+                                                            1 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_FORMULA_X
+.
+                                                         1075 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_FORMULA_X1
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_FORMULA_X12
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_FORMULA_ZZ
+.
+                                                         1065 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_GUARANTOR
+                                                          394 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                CS_HEAD_APT_TRX
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table               CS_HISTORY_LOGIN
+                                                          334 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_INPATIENT
+                                                          179 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                         CS_KIR
+                                                           27 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                         CS_MCU
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_MEDICINE
+                                                          903 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_MEDICINE_BK
+                                                          892 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table               CS_MEDICINE_STOK
+........
+                                                         8059 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table           CS_MEDICINE_STOK_TMP
+                                                          901 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_MEDICINE_TRANS
+.
+                                                         1477 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_OBSERVATION
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                     CS_PATIENT
+........
+                                                         8600 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                CS_PATIENT_INFO
+........
+                                                         8603 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table             CS_PATIENT_INFO_BK
+....
+                                                         4048 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_POLICLINIC
+                                                            9 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                     CS_RECEIPT
+..
+                                                         2460 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 CS_RECEIPT_DEL
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_RECOMMENDATION
+                                                            1 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                       CS_REFER
+                                                           12 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                        CS_ROOM
+                                                            7 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_ROOM_CLASS
+                                                            3 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    CS_ROOM_HIS
+                                                           25 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  CS_SICK_LETER
+                                                            7 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table             CS_SICK_LETER_ITEM
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            CS_TREATMENT_DETAIL
+.
+                                                         1952 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table        CS_TREATMENT_DETAIL_ADJ
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table        CS_TREATMENT_DETAIL_DEL
+                                                           18 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table             CS_TREATMENT_GROUP
+                                                           16 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_TREATMENT_HEAD
+.
+                                                         1198 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table       CS_TREATMENT_HEAD_CANCEL
+                                                            2 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_TREATMENT_ITEM
+.
+                                                         1274 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table           CS_TREATMENT_ITEM_BK
+                                                          630 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            CS_TREATMENT_ITEM_X
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table           CS_TREATMENT_ITEM_ZZ
+                                                          281 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table          CS_TREATMENT_ITEM_ZZA
+                                                          202 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table               CS_TREATMENT_MED
+                                                            5 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              CS_TREATMENT_TYPE
+                                                            3 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                      CS_UPLOAD
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                        CS_USER
+                                                           38 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                       CS_VISIT
+.......
+                                                         7018 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_VISIT_DOC
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                   CS_VISIT_HIS
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 DEMO_CUSTOMERS
+                                                            7 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table               DEMO_ORDER_ITEMS
+                                                           49 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    DEMO_ORDERS
+                                                           10 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              DEMO_PRODUCT_INFO
+                                                           10 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    DEMO_STATES
+                                                           51 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                     DEMO_USERS
+                                                            2 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                           DEPT
+                                                            4 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                            EMP
+                                                           14 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                     INF_PASIEN
+                                                            1 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                KEMENDAGRI_AREA
+...........................................................................
+................
+                                                        91592 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  REPORT_DETAIL
+                                                           48 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              REPORT_DETAIL_DEF
+                                                           11 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  REPORT_HEADER
+                                                            1 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            REPORT_HEADER_BIDAN
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                T1_ASESMEN_GIZI
+                                                          169 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                        T1_CPPT
+...
+                                                         3007 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                T1_GRAFIK_VITAL
+                                                          436 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            T1_JADWAL_BERI_OBAT
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 T1_OBAT_PULANG
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table          T1_PERENCANAAN_PULANG
+                                                          169 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 T1_RAWAT_INAP1
+                                                          169 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                 T1_RAWAT_INAP2
+                                                          169 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table           T1_RESIKO_JATUH_ANAK
+                                                           15 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table         T1_RESIKO_JATUH_DEWASA
+                                                           64 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table               T1_RESUME_PULANG
+                                                          169 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table             T2_DOKUMEN_SKALA_I
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            T2_DOKUMEN_SKALA_II
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table           T2_DOKUMEN_SKALA_III
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table            T2_DOKUMEN_SKALA_IV
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              T2_MTR_PEMBEDAHAN
+                                                            4 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table      T2_MTR_PEMBERIAN_ANAMNESA
+                                                            3 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                T2_PMT_ANASTESI
+                                                            2 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table           T2_PMT_PERSALINAN_IV
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                T2_R_INAP_BIDAN
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+EXP-00091: Exporting questionable statistics.
+. . exporting table              T2_R_INAP_BIDAN_1
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              T2_R_INAP_BIDAN_2
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table     T2_RIWAYAT_PERSALINAN_LALU
+                                                            1 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table              T2_TINDAKAN_BIDAN
+                                                           18 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table             TABLE_ANTRIAN_FILE
+                                                            4 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                TBL_COMMON_DATA
+                                                            9 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                  TBL_KUNJUNGAN
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                    TBL_PICTURE
+                                                            0 rows exported
+EXP-00091: Exporting questionable statistics.
+. . exporting table                TOAD_PLAN_TABLE
+. exporting synonyms
+. exporting views
+. exporting stored procedures
+. exporting operators
+. exporting referential integrity constraints
+. exporting triggers
+. exporting indextypes
+. exporting bitmap, functional and extensible indexes
+. exporting posttables actions
+. exporting materialized views
+. exporting snapshot logs
+. exporting job queues
+. exporting refresh groups and children
+. exporting dimensions
+. exporting post-schema procedural objects and actions
+. exporting statistics
+Export terminated successfully with warnings.

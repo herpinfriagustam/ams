@@ -1,0 +1,4 @@
+FILE="C:\Users\SERVER_KLINIK\Documents\Backup\db250112.dmp"
+LOG="C:\Users\SERVER_KLINIK\Documents\Backup\exp_db250112.log"
+OWNER=('KLINIK')
+FEEDBACK=1000
