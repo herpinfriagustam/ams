@@ -11,7 +11,8 @@ using DevExpress.XtraBars;
 using System.Net;
 using System.Net.Sockets;
 using System.Diagnostics;
-using Clinic.Class; 
+using Clinic.Class;
+using System.Threading;
 
 namespace Clinic
 {
@@ -102,6 +103,15 @@ namespace Clinic
 
         private bool isLoggedOut = false;
 
+        string mAppVersion = "";
+        string mAppVersionServer = "";
+
+        Thread mThread;
+
+        DataRow mAppVersionInfoServer;
+
+        const string APP_NAME = "Clinic.exe";
+        const string APP_LAUNCHER = "Launcher.exe";
 
         //ConnectDb ConnOra = new ConnectDb();
         public ClinicMngt()
@@ -138,7 +148,63 @@ namespace Clinic
 
             //notificationListener.StopListening();
 
-        } 
+        }
+        private void navBarItem72_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                //Application.Restart();
+                // Set status logout
+                isLoggedOut = true;
+
+                // Clear session data (misalnya credentials atau settings)
+                Properties.Settings.Default.UserLoggedIn = false;
+                Properties.Settings.Default.Save();
+
+                // Menutup semua child forms jika ada
+                foreach (Form childForm in this.MdiChildren)
+                {
+                    childForm.Close();
+                }
+
+                mThread = new Thread(UpdateApp);
+                mThread.Start();
+
+                //// Tampilkan form login dan sembunyikan form utama (MDI parent form)
+                //fclinic loginForm = new fclinic();
+                //loginForm.MdiParent = this;  // Set parent form ke MDI
+                //loginForm.Show();
+                ////Sembunyikan MDI form utama
+                //this.Hide();
+                ////Application.Restart();
+                Application.Exit();
+            } 
+        }
+        private void UpdateApp()
+        {
+            // 1. Checking for update
+            //bool updateAvailable = isUpdateAvailable();
+            //if (updateAvailable == false)
+            //{
+            Process.Start(Application.StartupPath + "//" + APP_LAUNCHER);
+            //}
+
+            //// 2. If Update available Download it
+            //bool downloaded = DownloadUpdate();
+
+            //// 3. If download success close and launch the app
+            //if (downloaded)
+            //{
+            //    Process.Start(Application.StartupPath + "//" + APP_LAUNCHER);
+            //}
+            //else
+            //{
+            //    //Process.Start(Application.StartupPath + "//klinik//" + APP_NAME);
+            //}
+
+            Process.GetCurrentProcess().Kill();
+        }
         private void MenuPrivilege()
         {
             if (userStatus == "DOH")
@@ -1922,36 +1988,7 @@ namespace Clinic
             }
         }
 
-        private void navBarItem72_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            var result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                //Application.Restart();
-                // Set status logout
-                isLoggedOut = true;
-
-                // Clear session data (misalnya credentials atau settings)
-                Properties.Settings.Default.UserLoggedIn = false;
-                Properties.Settings.Default.Save();
-
-                // Menutup semua child forms jika ada
-                foreach (Form childForm in this.MdiChildren)
-                {
-                    childForm.Close();
-                }
-
-                // Tampilkan form login dan sembunyikan form utama (MDI parent form)
-                fclinic loginForm = new fclinic();
-                loginForm.MdiParent = this;  // Set parent form ke MDI
-                loginForm.Show();
-                //Sembunyikan MDI form utama
-                this.Hide();
-                Application.Restart();
-            }
-             
-            
-        }
+       
         private void ClinicMngt_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isLoggedOut)

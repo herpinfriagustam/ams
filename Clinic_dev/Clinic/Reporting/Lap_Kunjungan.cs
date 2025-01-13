@@ -36,6 +36,7 @@ namespace Clinic
         private void ObservationList_Load(object sender, EventArgs e)
         {
             InitData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "Lap_Kunjungan");
             //LoadData();
         }
 

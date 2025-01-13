@@ -429,6 +429,7 @@ namespace Clinic
             loadDataTrGroup();
             loadDataTrItem();
             loadDataRsv();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterTreatment");
         }
 
         private void btnLoadType_Click(object sender, EventArgs e)

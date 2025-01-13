@@ -68,7 +68,7 @@ namespace Clinic
             //edate = dt.Rows[0]["edate"].ToString();
             dDateBgn.Text = today;
             dDateEnd.Text = today;
-
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "TreatNonMedis");
             initData();
             loadData();
         }

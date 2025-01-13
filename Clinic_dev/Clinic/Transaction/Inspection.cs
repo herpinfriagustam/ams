@@ -83,6 +83,8 @@ namespace Clinic
         {
             InitData();
             LoadDataPasien();
+            ConnOra.InsertHistoryAkses( DB.vUserId , ConnOra.my_IP, "Inspection");
+
             sql = "";
             sql = " select a.ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' ";
              

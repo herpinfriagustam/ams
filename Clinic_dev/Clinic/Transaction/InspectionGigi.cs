@@ -79,6 +79,7 @@ namespace Clinic
         {
             InitData();
             LoadDataPasien();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "InspectionGigi");
         }
 
         private void InitData()

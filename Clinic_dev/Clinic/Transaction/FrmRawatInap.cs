@@ -385,6 +385,7 @@ namespace Clinic
             loadDataAnamnesa();
             //LoadItemLayanan();
             InitData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "FrmRawatInap");
         }
         
         private void LoadItemLayanan()

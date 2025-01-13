@@ -111,6 +111,7 @@ namespace Clinic
         {
             btnSaveAnam.Enabled = false;
             btnAddAnam.Enabled = false;
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "ReservationMngt5");
             //workingDirectory = Environment.CurrentDirectory;
             //resourcesDirectory = Directory.GetParent(workingDirectory).Parent.FullName + "\\Resources\\";
             initData();

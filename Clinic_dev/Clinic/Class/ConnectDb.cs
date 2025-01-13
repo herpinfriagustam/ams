@@ -22,11 +22,11 @@ namespace Clinic
 
         string _ConnectStringOra = "";
         string _ConnectStringSql = "";
-        public string my_IP = "", v_iddokter = "", v_nik = "";
+        public string my_IP, v_iddokter = "", v_nik = "";
         public OleDbConnection Create_Connect_Ora()
         {
-            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
-            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
+            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
 
             try
             {
@@ -41,6 +41,36 @@ namespace Clinic
             finally
             {
                 if (_ConnectOra != null) _ConnectOra.Close();
+            }
+        }
+        public void InsertHistoryAkses(string p_UserID, string p_IP, string p_Menu)
+        {
+            // Connection string untuk OLEDB
+            //string connectionString = "Provider=OraOLEDB.Oracle;Data Source=your_datasource;User Id=your_username;Password=your_password;";
+            OleDbConnection conn = Create_Connect_Ora();
+            try
+            {
+
+                conn.Open();
+                Console.WriteLine("Connected to Oracle Database!");
+
+                // Command untuk memanggil stored procedure
+                using (OleDbCommand cmd = new OleDbCommand("InsertUserMenu", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new OleDbParameter("p_UserID", OleDbType.VarChar)).Value = p_UserID;
+                    cmd.Parameters.Add(new OleDbParameter("p_IP", OleDbType.VarChar)).Value = p_IP;
+                    cmd.Parameters.Add(new OleDbParameter("p_Menu", OleDbType.VarChar)).Value = p_Menu;
+
+                    // Eksekusi stored procedure
+                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("Data successfully inserted!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
         public DataTable Data_Table_ora(string sql)
@@ -225,21 +255,21 @@ namespace Clinic
             {
                 if (connection == null)
                 {
-                    //connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
-                    //    (ADDRESS = 
-                    //        (PROTOCOL = TCP)
-                    //        (HOST = localhost )(PORT = 1521))
-                    //    (CONNECT_DATA = (SERVER = DEDICATED)
-                    //        (SERVICE_NAME = XE))
-                    //    );User Id=KLINIK;Password=KLINIK;");
-
                     connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
                         (ADDRESS = 
                             (PROTOCOL = TCP)
-                            (HOST =  192.168.1.99 )(PORT = 1521))
+                            (HOST = localhost )(PORT = 1521))
                         (CONNECT_DATA = (SERVER = DEDICATED)
                             (SERVICE_NAME = XE))
                         );User Id=KLINIK;Password=KLINIK;");
+
+                    //connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
+                    //    (ADDRESS = 
+                    //        (PROTOCOL = TCP)
+                    //        (HOST =  192.168.1.99 )(PORT = 1521))
+                    //    (CONNECT_DATA = (SERVER = DEDICATED)
+                    //        (SERVICE_NAME = XE))
+                    //    );User Id=KLINIK;Password=KLINIK;");
                 }
                 return connection;
             }
@@ -303,8 +333,8 @@ namespace Clinic
 
 
         //private string server = "192.168.1.99"; //  "localhost/XE";// 
-        //private string database = "localhost/XE";// 
-        private string database = "192.168.1.99:1521/XE";
+        private string database = "localhost/XE";// 
+        //private string database = "192.168.1.99:1521/XE";
         private string uid = "KLINIK";
         private string password = "KLINIK";
 
@@ -497,8 +527,8 @@ namespace Clinic
     {
 
         #region DBConncetion
-        //public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
-        public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
+        public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
+        //public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
 
         #endregion
 

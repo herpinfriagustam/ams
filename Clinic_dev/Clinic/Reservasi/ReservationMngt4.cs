@@ -74,6 +74,7 @@ namespace Clinic
         {
             btnSaveInfo.Enabled = false;
             btnAddAnam.Enabled = false;
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "ReservationMngt4");
             //workingDirectory = Environment.CurrentDirectory;
             //resourcesDirectory = Directory.GetParent(workingDirectory).Parent.FullName + "\\Resources\\";
             initData();
@@ -1369,9 +1370,9 @@ namespace Clinic
                     else
                     {
                         purpose = "DOC";
-                        c_que = "D";
+                        c_que = "I";
 
-                        sql_check = " select  nvl(max(to_number(substr(que01,2,3))),0) que from cs_visit where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate,'yyyy-mm-dd') and purpose = '" + purpose + "' ";
+                        sql_check = " select  nvl(max(to_number(substr(que01,2,3))),0) que from cs_visit where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate,'yyyy-mm-dd') and purpose = '" + purpose + "' and POLI_CD ='POL0004' ";
 
                         try
                         {

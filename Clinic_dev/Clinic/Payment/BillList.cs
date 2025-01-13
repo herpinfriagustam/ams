@@ -169,6 +169,7 @@ namespace Clinic
             initData();
             LoadData();
             LoadDataLimit();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "BillList");
             SoftBlink(labelControl6, Color.LightPink, Color.Red, 1600, false);
         }
 

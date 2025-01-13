@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
@@ -36,11 +38,23 @@ namespace Clinic
         {
             
         }
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
+        }
 
         private void LoadData()
         {
             string empid = "", pass = "", sql_cek1 = "", sql_cek2 = "", name = "", role = "", sqlins ="";
-
+            ConnOra.my_IP = GetLocalIPAddress();
             if (txtUser.Text == "" || txtPass.Text == "")
             {
                 MessageBox.Show("Silahkan isi User ID dan Password");
@@ -67,7 +81,7 @@ namespace Clinic
                         if (txtUser.Text.ToString().ToUpper() == DB.vUserId.ToString().ToUpper() && txtPass.Text.ToString().ToUpper() == pass.ToString().ToUpper())
                         {
                             sqlins = ""; 
-                            sqlins = sqlins + " insert into KLINIK.CS_HISTORY_LOGIN (SEQ_ID,USER_ID, IP_KOMPUTER,S_DATE,E_DATE) values (CS_HISTORY_LOGIN_SEQ.nextval,'" + DB.vUserId + "',  '" + ConnOra.my_IP + "',sysdate, null) "; 
+                            sqlins = sqlins + " insert into KLINIK.CS_HISTORY_LOGIN (SEQ_ID,USER_ID, IP_KOMPUTER,S_DATE,E_DATE, F_MENU) values (CS_HISTORY_LOGIN_SEQ.nextval,'" + DB.vUserId + "',  '" + ConnOra.my_IP + "',sysdate, null, 'LOGIN') "; 
 
                             try
                             {

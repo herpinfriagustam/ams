@@ -87,6 +87,7 @@ namespace Clinic
         {
             InitData();
             LoadDataPasien();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "InspectionPregnant");
         }
 
         private void InitData()
@@ -955,7 +956,7 @@ namespace Clinic
                        " type_diagnosa, a.remark, 'S' a, a.diagnosa_id  " +
                        " from KLINIK.cs_diagnosa a  " +
                        " join KLINIK.cs_diagnosa_item b on a.item_cd = b.item_cd  " +
-                       " join KLINIK.cs_diagnosa_category c on b.cat_id = c.cat_id and b.cat_id = decode('" + spoli + "','POL0002','CAT030', 'CAT016' )" +
+                       " join KLINIK.cs_diagnosa_category c on b.cat_id = c.cat_id  " +
                        " JOIN KLINIK.cs_anamnesa D ON A.ANAMNESA_ID = D.ANAMNESA_ID " +
                        " JOIN KLINIK.CS_VISIT E ON E.id_visit = D.id_visit " +
                        " where a.rm_no = '" + s_rm + "'  " +

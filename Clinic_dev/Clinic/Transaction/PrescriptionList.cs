@@ -154,6 +154,7 @@ namespace Clinic
         {
             initData();
             LoadData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "PrescriptionList");
             //LoadDataLimit();
             //SoftBlink(labelControl6, Color.LightPink, Color.Red, 1600, false);
         }
@@ -685,7 +686,7 @@ namespace Clinic
                                 "            and visit_no=b.que01)  || chr(13) || 'Anamnesa : '|| " +
                                 "        (select  'Tensi : ' || blood_press || ', Nadi : ' || pulse ||    " +
                                 "                 ', Suhu : ' || temperature || ', BB : ' || bb || ', TB : ' || tb || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa   " +
-                                "                 || CHR (13) ||'Alergi ' || ALERGI_MKN || ', Alergi ' || ALERGI_OBAT as anamnesa     " +
+                                "                 || CHR (13) ||'Alergi ' || ALERGI_MKN || ', Alergi ' || ALERGI_OBAT || ', Kolesterol : '||CHOLESTEROL || ', Gula : '||BLOOD_SUGAR || ', Asam Urat : '||URIC_ACID as anamnesa     " +
                                 "        from KLINIK.cs_anamnesa d, KLINIK.cs_anamnesa_dtl e " +
                                 "        where d.ANAMNESA_ID = e.ANAMNESA_ID " +
                                 "          and d.rm_no=c.rm_no   " +
