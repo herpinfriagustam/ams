@@ -2100,6 +2100,7 @@ D:\AMS Github\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
 D:\AMS Github\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 D:\AMS Github\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\AMS Github\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe
@@ -2275,6 +2276,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterAsuransi.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterChgPass.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.BillListv1.resources
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_PenggunaApp.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_KasHarian.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_KunjunganRI.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Lap_Kunjungan.resources
@@ -2427,5 +2429,5 @@ D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.ReservationScan.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
-D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache

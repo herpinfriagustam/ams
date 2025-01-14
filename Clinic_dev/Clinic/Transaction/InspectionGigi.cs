@@ -9061,7 +9061,7 @@ namespace Clinic
             //    LoadDataResep();
             //} 
         }
-
+         
         private void btnAddTindakan_Click(object sender, EventArgs e)
         {
             gridView14.OptionsBehavior.EditingMode = GridEditingMode.Default;
@@ -9439,12 +9439,41 @@ namespace Clinic
 
         private void timerStart_Tick(object sender, EventArgs e)
         {
-
+            if (lsOK == 0)
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.Appearance.ForeColor = Color.Red;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    bl_klap = true;
+                    _currentLabel.Visible = false;
+                }
+            }
+            else
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.Appearance.ForeColor = Color.ForestGreen;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    _currentLabel.Visible = false;
+                    bl_klap = true;
+                }
+            }
         }
 
         private void timerEnd_Tick(object sender, EventArgs e)
         {
-
+            timerStart.Enabled = false;
+            timerEnd.Enabled = false;
+            _currentLabel.Visible = false;
         }
     }
 }

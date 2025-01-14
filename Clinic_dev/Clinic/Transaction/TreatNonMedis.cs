@@ -121,7 +121,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "addrs, jobs, purpose, height, weight, blood_press, d_now, d_his, eye_status, ";
             sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Harga, f_type, decode(STAT_PAY,'Y','Closed','Belum Bayar') STAT_PAY ";
             sql_search = sql_search + Environment.NewLine + "from cs_kir ";
-            sql_search = sql_search + Environment.NewLine + "where 1=1 ";
+            sql_search = sql_search + Environment.NewLine + "where 1=1 and STAT_PAY <> 'X' ";
             sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-mm-dd') and to_date('" + dDateEnd.Text + "','yyyy-mm-dd') ";
             sql_search = sql_search + Environment.NewLine + "order by regis_date, name ";
 
@@ -496,8 +496,8 @@ namespace Clinic
 
                 sql_delete = "";
 
-                sql_delete = sql_delete + " update cs_code_data set status = 'I' ";
-                sql_delete = sql_delete + " where code_class_id = '" + p_class + "' and code_id = '" + p_kode + "' ";
+                sql_delete = sql_delete + " update cs_kir set STAT_PAY = 'X', UPD_EMP = '" + DB.vUserId + "', UPD_DATE = sysdate ";
+                sql_delete = sql_delete + " where KIR_ID = '" + p_class + "' ";
 
                 try
                 {

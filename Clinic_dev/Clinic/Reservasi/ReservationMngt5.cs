@@ -2153,7 +2153,7 @@ namespace Clinic
                                      " temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "', VITALHR = '" + tensi + "',VITALRR = '" + vrr + "', " +
                                      " cholesterol = '" + chol + "', blood_sugar = '" + bsugar + "', uric_acid = '" + uacid + "', disease_now = '" + r_now + "',  " +
                                      " disease_then = '" + r_then + "', disease_family = '" + r_fam + "', anamnesa_physical = '" + anam_physical + "', anamnesa_other = '" + anam_other + "',  ";
-                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                        sql_update = sql_update + "  INS_EMP = '" + DB.vUserId + "', INS_DATE  = sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                         sql_update = sql_update + " where  ANAMNESA_ID = " + v_ptnumber + "";
 
                         try
@@ -2283,7 +2283,7 @@ namespace Clinic
                                     " set C_MSK_RS = '" + FN.radioVal(radioGroup16) + "', SDR_KANDUNG = '" + FN.radioVal(radioGroup3) + "', SDR_TIRI ='" + FN.radioVal(radioGroup2) + "', TGL_BERSAMA = '" + FN.joinVal(radioGroup4, textBox3)   + "',  " +
                                     "     SBICARA = '" + FN.radioVal(radioGroup5) + "',  SKOMUNIKASI = '" + FN.radioVal(radioGroup6) + "',  SEMOSI = '" + FN.radioVal(radioGroup7) + "', RJIWA = '" + FN.radioVal(radioGroup8) + "', RTRAUMA = '" + FN.radioVal(radioGroup10) + "', " +
                                     "     APERASAAN = '" + FN.radioVal(radioGroup13) + "', INWAWANCARA = '" + FN.radioVal(radioGroup1) + "', " +
-                                    "     KSPIRITUAL = '" + FN.radioVal(radioGroup9) + "', MSPIRITUAL = '" + FN.radioVal(radioGroup11) + "', KIBADAH = '" + FN.radioVal(radioGroup12) + "' , EDU_KE	= '" + FN.joinVal(radioGroup42, textBox8)  + "' ";
+                                    "     KSPIRITUAL = '" + FN.radioVal(radioGroup9) + "', MSPIRITUAL = '" + FN.radioVal(radioGroup11) + "', KIBADAH = '" + FN.radioVal(radioGroup12) + "' , EDU_KE	= '" + FN.joinVal(radioGroup42, textBox8)  + "' , upd_emp = '" + DB.vUserId + "', upd_date = sysdate   ";
                     sql_all = sql_all + " where ANAMNESA_ID = " + v_ptnumber + " ";
 
                     ORADB.Execute(ORADB.XE, sql_all); 
@@ -2297,7 +2297,7 @@ namespace Clinic
 
                     sql_all = "";
                     sql_all = sql_all + " update KLINIK.CS_ANAMNESA " +
-                                        " set MASUK_RS = '" + FN.radioVal(radioGroup16) + "', JNS_PELAYANAN  = '" + FN.radioVal(radioGroup17) + "', VITALTERATUR  = '" + FN.radioVal(radioGroup40) + "'  ";
+                                        " set MASUK_RS = '" + FN.radioVal(radioGroup16) + "', JNS_PELAYANAN  = '" + FN.radioVal(radioGroup17) + "', VITALTERATUR  = '" + FN.radioVal(radioGroup40) + "' , upd_emp = '" + DB.vUserId + "', upd_date = sysdate   ";
                     sql_all = sql_all + " where ANAMNESA_ID = " + v_ptnumber + " ";
 
                     ORADB.Execute(ORADB.XE, sql_all); 
@@ -2345,7 +2345,7 @@ namespace Clinic
                                     "     KUALITAS_NYERI = '" + FN.radioVal(radioGroup18) + "', MENJALAR = '" + FN.radioVal(radioGroup19) + "', FREKUENSI_NYERI ='" + FN.radioVal(radioGroup20) + "', PENGARUH_NYERI = '" + FN.radioVal(radioGroup28) + "',  " +
                                     "     PSEMPOYONGAN = '" + FN.radioVal(radioGroup22) + "',  PPENOPANG = '" + FN.radioVal(radioGroup23) + "',  HRESIKO = '" + FN.radioVal(radioGroup27) + "', BERITAHU_DOKTER = '" + FN.radioVal(radioGroup21) + "',  " +
                                     "     SG_KURUS = '" + FN.radioVal(radioGroup24) + "', SG_TURUNBB = '" + FN.radioVal(radioGroup25) + "',  SG_ASUPAN = '" + FN.radioVal(radioGroup26) + "', " +
-                                    "     SG_HASIL = '" + txt_h_sk.Text  + "', SG_SARAN = '" + txt_ssaran.Text + "' ,ALERGI_MKN = '" + FN.getVal(gbMakan,5) + "' , ALERGI_OBAT = '" + FN.getVal(gbObat,5) + "' ";
+                                    "     SG_HASIL = '" + txt_h_sk.Text  + "', SG_SARAN = '" + txt_ssaran.Text + "' ,ALERGI_MKN = '" + FN.getVal(gbMakan,5) + "' , ALERGI_OBAT = '" + FN.getVal(gbObat,5) + "' , upd_emp = '" + DB.vUserId + "', upd_date = sysdate  ";
                     sql_all = sql_all + " where ANAMNESA_ID = " + v_ptnumber + " ";
 
                     ORADB.Execute(ORADB.XE, sql_all);
@@ -2385,7 +2385,7 @@ namespace Clinic
                                 " set AFS_PENGLIHATAN = '" + FN.radioVal(radioGroup30) + "', AFS_PENCIUMAN = '" + FN.radioVal(radioGroup31) + "', AFS_PENDENGARAN ='" + FN.radioVal(radioGroup32) + "', AFS_KOGNITIF1 = '" + FN.radioVal(radioGroup33) + "',  " +
                                 "     AFS_KOGNITIF2 = '" + FN.radioVal(radioGroup34) + "',  AFS_MOTOR_SHRI = '" + FN.radioVal(radioGroup35) + "',  AFS_MOTOR_JALAN = '" + FN.radioVal(radioGroup36) + "', DPS_HOME_CARE = '" + FN.radioVal(radioGroup37) + "',  " +
                                 "     DPS_IMPLAN = '" + FN.radioVal(radioGroup38) + "', DPS_PULANG = '" + FN.radioVal(radioGroup39) + "',  DPS_HASIL = '" + txt_h_skrining.Text + "', " +
-                                "     DPS_SARAN = '" + txt_saran4.Text + "', DPS_PENUNJANG = '" + txt_p_penunjang.Text + "', KONTROL_ULG =  '" + FN.joinVal2(radioGroup41, txtjam) + "' , TGL_KONTROL  =  '" + dtKontrol.Text  + "'   ";
+                                "     DPS_SARAN = '" + txt_saran4.Text + "', DPS_PENUNJANG = '" + txt_p_penunjang.Text + "', KONTROL_ULG =  '" + FN.joinVal2(radioGroup41, txtjam) + "' , TGL_KONTROL  =  '" + dtKontrol.Text  + "'  , upd_emp = '" + DB.vUserId + "', upd_date = sysdate  ";
                 sql_all = sql_all + " where ANAMNESA_ID = " + v_ptnumber + " ";
 
                 try

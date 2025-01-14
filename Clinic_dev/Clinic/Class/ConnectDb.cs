@@ -22,7 +22,7 @@ namespace Clinic
 
         string _ConnectStringOra = "";
         string _ConnectStringSql = "";
-        public string my_IP, v_iddokter = "", v_nik = "";
+        public string my_IP = "", v_iddokter = "", v_nik = "";
         public OleDbConnection Create_Connect_Ora()
         {
             string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";

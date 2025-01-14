@@ -1910,8 +1910,8 @@ namespace Clinic
                 sql_update = "";
                 sql_update = " update cs_visit set time_end = sysdate, status = 'CLS',  " +
                              " upd_date = sysdate, upd_emp = '" + DB.vUserId + "'  " +
-                             " where patient_no = '" + s_nik + "' and to_char(visit_date,'yyyy-MM-dd') = '" + s_date + "' " +
-                             " and que01 = '" + s_que + "' ";
+                             " where patient_no = '" + s_nik + "' " +
+                             " and id_visit = '" + visitid + "' ";
             } 
 
             try

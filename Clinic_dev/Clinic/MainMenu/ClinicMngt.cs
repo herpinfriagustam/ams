@@ -98,6 +98,7 @@ namespace Clinic
         Lap_Kunjungan Lap_Kunjungan = null;
         Lap_KunjunganRI Lap_KunjunganRI = null;
         Lap_KasHarian Lap_KasHarian = null;
+        Lap_PenggunaApp Lap_PenggunaApp = null;
 
         string version =  "Version " + Application.ProductVersion;
 
@@ -105,7 +106,7 @@ namespace Clinic
 
         string mAppVersion = "";
         string mAppVersionServer = "";
-
+        string sql_ = "";
         Thread mThread;
 
         DataRow mAppVersionInfoServer;
@@ -156,6 +157,12 @@ namespace Clinic
             {
                 //Application.Restart();
                 // Set status logout
+
+                sql_ = "";
+                sql_ = "UPDATE KLINIK.CS_HISTORY_LOGIN SET E_DATE = SYSDATE  WHERE USER_ID = '" + DB.vUserId + "' AND E_DATE IS NULL and trunc(S_DATE) = trunc(sysdate) ";
+
+                ConnOra.ExeNonQuery(sql_); 
+
                 isLoggedOut = true;
 
                 // Clear session data (misalnya credentials atau settings)
@@ -247,6 +254,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
 
                 navBarGroup5.Visible = true; // Group Master Data
                 navBarItem12.Visible = true; // Master Data Diagnosa
@@ -306,6 +314,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
                 navBarGroup8.Visible = false; // Group Payment
                  
                 navBarGroup5.Visible = true; // Group Master Data
@@ -494,6 +503,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
 
                 navBarGroup5.Visible = true; // Group Master Data
                 navBarItem12.Visible = true; // Master Data Diagnosa
@@ -2144,6 +2154,25 @@ namespace Clinic
                 Lap_KasHarian.WindowState = FormWindowState.Maximized;
                 Lap_KasHarian.Show();
                 Lap_KasHarian.Focus();
+            }
+        }
+
+        private void navBarItem77_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (Lap_PenggunaApp == null || Lap_PenggunaApp.Text == "")
+            {
+                Lap_PenggunaApp = new Lap_PenggunaApp();
+                Lap_PenggunaApp.MdiParent = this;
+                Lap_PenggunaApp.v_empid = userEmpid;
+                Lap_PenggunaApp.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide();
+            }
+            else if (CheckOpened(Lap_PenggunaApp.Text))
+            {
+                Lap_PenggunaApp.WindowState = FormWindowState.Maximized;
+                Lap_PenggunaApp.Show();
+                Lap_PenggunaApp.Focus();
             }
         }
 

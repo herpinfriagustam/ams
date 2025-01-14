@@ -1730,7 +1730,7 @@ namespace Clinic
                             sql_update = sql_update + " update cs_anamnesa";
                             sql_update = sql_update + " set blood_press = '" + tensi + "', pulse = '" + nadi + "', bb = '" + bb + "', tb = '" + tb + "', ";
                             sql_update = sql_update + "     temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "',  disease_now = '" + rw + "', VITALRR = '" + trr + "',";
-                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                             sql_update = sql_update + " where rm_no = '" + rm_no + "' and  ID_VISIT = " + id_visit + " ";
 
                             command.CommandText = sql_update;

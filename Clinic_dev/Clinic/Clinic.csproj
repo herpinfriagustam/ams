@@ -161,6 +161,12 @@
     <Compile Include="Payment\BillListv1.Designer.cs">
       <DependentUpon>BillListv1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\Lap_PenggunaApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Lap_PenggunaApp.Designer.cs">
+      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\Lap_KasHarian.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1111,6 +1117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment\BillListv1.resx">
       <DependentUpon>BillListv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Lap_PenggunaApp.resx">
+      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\Lap_KasHarian.resx">
       <DependentUpon>Lap_KasHarian.cs</DependentUpon>
