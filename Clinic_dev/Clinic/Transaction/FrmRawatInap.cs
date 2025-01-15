@@ -3139,9 +3139,9 @@ namespace Clinic
                 return;
             else if (txTbPb.Text == "" || txTbPb.Text == string.Empty)
                 return;
-            else if (Convert.ToInt32(txBB.Text) < 0)
+            else if (Convert.ToDouble(txBB.Text) < 0)
                 return;
-            else if (Convert.ToInt32(txTbPb.Text) < 0)
+            else if (Convert.ToDouble(txTbPb.Text) < 0)
                 return; 
             else
                 txImt.Text = ((Convert.ToDouble(txBB.Text) / (Convert.ToDouble(txTbPb.Text) * Convert.ToDouble(txTbPb.Text))) * 10000).ToString("0.00");
@@ -4374,7 +4374,7 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
                 tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
