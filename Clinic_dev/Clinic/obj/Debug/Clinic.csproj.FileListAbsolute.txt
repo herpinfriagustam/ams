@@ -2103,6 +2103,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
@@ -2134,6 +2135,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v15.2.Extensi
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\NAudio.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Interop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -2268,6 +2270,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGrid.v15.2.re
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources
@@ -2429,6 +2432,3 @@ D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
-D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll
-D:\Backupdb\ams\Clinic_dev\Clinic\bin\Debug\Interop.WMPLib.dll
-D:\Backupdb\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
