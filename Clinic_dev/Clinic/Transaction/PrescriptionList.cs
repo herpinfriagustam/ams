@@ -1888,6 +1888,9 @@ namespace Clinic
             string s_nik = "", s_que = "", s_date = "", sql_his = "", s_rm = "", s_edit = "", sql_cek = "", payst = "", s_stat = "" ,smstock ="", spoli ="";
             string s_tipe = "", sql_update="", p_kirid ="";
 
+            if (gridView1.RowCount < 1)
+                return;
+
             s_nik = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
             s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();

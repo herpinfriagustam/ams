@@ -991,10 +991,12 @@ D:\AMS Github\Clinic_dev\Clinic\obj\Release\Clinic.csproj.GenerateResource.Cache
 D:\AMS Github\Clinic_dev\Clinic\obj\Release\Clinic.exe.licenses
 D:\AMS Github\Clinic_dev\Clinic\obj\Release\Clinic.exe
 D:\AMS Github\Clinic_dev\Clinic\obj\Release\Clinic.pdb
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Resources\manFronBack.png
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Clinic.pdb
+D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.BonusSkins.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Charts.v15.2.Core.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Data.v15.2.dll
@@ -1027,6 +1029,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraRichEdit.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\NAudio.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Newtonsoft.Json.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Oracle.ManagedDataAccess.dll
+D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\Interop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.CodeParser.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraTreeList.v15.2.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -1161,6 +1164,7 @@ D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\de\DevExpress.XtraPivotGrid.v15.2.
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\bin\Release\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Interop.WMPLib.dll
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.ResolveComReference.cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterDokter.resources
@@ -1320,5 +1324,4 @@ D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.ReservationScan.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.WaitForm1.resources
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.GenerateResource.Cache
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe.licenses
-D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
 D:\Backupdb\ams\Clinic_dev\Clinic\obj\Release\Clinic.pdb

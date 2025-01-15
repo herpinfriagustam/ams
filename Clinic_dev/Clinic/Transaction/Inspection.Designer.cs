@@ -801,7 +801,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(498, 608);
+            this.xtraTabPage1.Size = new System.Drawing.Size(494, 605);
             this.xtraTabPage1.Text = "Pasien";
             // 
             // tableLayoutPanel1
@@ -820,7 +820,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 608);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 605);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gridControl1
@@ -829,7 +829,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 53);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(492, 248);
+            this.gridControl1.Size = new System.Drawing.Size(488, 246);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -922,7 +922,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 44);
+            this.panel1.Size = new System.Drawing.Size(488, 44);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -930,7 +930,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(251, 16);
+            this.labelControl5.Location = new System.Drawing.Point(247, 16);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(36, 16);
             this.labelControl5.TabIndex = 37;
@@ -940,7 +940,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(291, 14);
+            this.comboBox1.Location = new System.Drawing.Point(287, 14);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
             this.comboBox1.TabIndex = 36;
@@ -950,7 +950,7 @@
             // 
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshList.Image")));
-            this.btnRefreshList.Location = new System.Drawing.Point(394, 13);
+            this.btnRefreshList.Location = new System.Drawing.Point(390, 13);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(95, 23);
             this.btnRefreshList.TabIndex = 35;
@@ -971,16 +971,16 @@
             this.panel2.Controls.Add(this.btnCreate);
             this.panel2.Controls.Add(this.labelControl2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 307);
+            this.panel2.Location = new System.Drawing.Point(3, 305);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(492, 44);
+            this.panel2.Size = new System.Drawing.Size(488, 44);
             this.panel2.TabIndex = 2;
             // 
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
-            this.btnCreate.Location = new System.Drawing.Point(343, 13);
+            this.btnCreate.Location = new System.Drawing.Point(339, 13);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(146, 23);
             this.btnCreate.TabIndex = 35;
@@ -999,10 +999,10 @@
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 357);
+            this.gridControl2.Location = new System.Drawing.Point(3, 355);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(492, 248);
+            this.gridControl2.Size = new System.Drawing.Size(488, 247);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1061,7 +1061,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.tableLayoutPanel10);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(498, 608);
+            this.xtraTabPage2.Size = new System.Drawing.Size(494, 605);
             this.xtraTabPage2.Text = "Medical Record";
             // 
             // tableLayoutPanel10
@@ -1078,7 +1078,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(498, 608);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(494, 605);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // panel13
@@ -1089,7 +1089,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(3, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(492, 44);
+            this.panel13.Size = new System.Drawing.Size(488, 44);
             this.panel13.TabIndex = 0;
             // 
             // btnMrPrint
@@ -1097,7 +1097,7 @@
             this.btnMrPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMrPrint.Enabled = false;
             this.btnMrPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnMrPrint.Image")));
-            this.btnMrPrint.Location = new System.Drawing.Point(327, 12);
+            this.btnMrPrint.Location = new System.Drawing.Point(323, 12);
             this.btnMrPrint.Name = "btnMrPrint";
             this.btnMrPrint.Size = new System.Drawing.Size(78, 23);
             this.btnMrPrint.TabIndex = 40;
@@ -1109,7 +1109,7 @@
             this.loadMR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadMR.Enabled = false;
             this.loadMR.Image = ((System.Drawing.Image)(resources.GetObject("loadMR.Image")));
-            this.loadMR.Location = new System.Drawing.Point(411, 13);
+            this.loadMR.Location = new System.Drawing.Point(407, 13);
             this.loadMR.Name = "loadMR";
             this.loadMR.Size = new System.Drawing.Size(78, 23);
             this.loadMR.TabIndex = 39;
@@ -1148,7 +1148,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(3, 53);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(492, 204);
+            this.panel16.Size = new System.Drawing.Size(488, 204);
             this.panel16.TabIndex = 1;
             // 
             // lMrJk
@@ -1159,7 +1159,7 @@
             this.lMrJk.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrJk.Location = new System.Drawing.Point(127, 171);
             this.lMrJk.Name = "lMrJk";
-            this.lMrJk.Size = new System.Drawing.Size(362, 29);
+            this.lMrJk.Size = new System.Drawing.Size(358, 29);
             this.lMrJk.TabIndex = 104;
             this.lMrJk.Text = "-";
             // 
@@ -1171,7 +1171,7 @@
             this.lMrTtl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrTtl.Location = new System.Drawing.Point(127, 136);
             this.lMrTtl.Name = "lMrTtl";
-            this.lMrTtl.Size = new System.Drawing.Size(362, 29);
+            this.lMrTtl.Size = new System.Drawing.Size(358, 29);
             this.lMrTtl.TabIndex = 103;
             this.lMrTtl.Text = "-";
             // 
@@ -1183,7 +1183,7 @@
             this.lMrAddr.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrAddr.Location = new System.Drawing.Point(127, 108);
             this.lMrAddr.Name = "lMrAddr";
-            this.lMrAddr.Size = new System.Drawing.Size(362, 29);
+            this.lMrAddr.Size = new System.Drawing.Size(358, 29);
             this.lMrAddr.TabIndex = 102;
             this.lMrAddr.Text = "-";
             // 
@@ -1195,7 +1195,7 @@
             this.lMrNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrNo.Location = new System.Drawing.Point(127, 73);
             this.lMrNo.Name = "lMrNo";
-            this.lMrNo.Size = new System.Drawing.Size(362, 29);
+            this.lMrNo.Size = new System.Drawing.Size(358, 29);
             this.lMrNo.TabIndex = 101;
             this.lMrNo.Text = "-";
             // 
@@ -1207,7 +1207,7 @@
             this.lMrNik.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrNik.Location = new System.Drawing.Point(127, 38);
             this.lMrNik.Name = "lMrNik";
-            this.lMrNik.Size = new System.Drawing.Size(362, 29);
+            this.lMrNik.Size = new System.Drawing.Size(358, 29);
             this.lMrNik.TabIndex = 100;
             this.lMrNik.Text = "-";
             // 
@@ -1219,7 +1219,7 @@
             this.lMrName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMrName.Location = new System.Drawing.Point(127, 3);
             this.lMrName.Name = "lMrName";
-            this.lMrName.Size = new System.Drawing.Size(362, 29);
+            this.lMrName.Size = new System.Drawing.Size(358, 29);
             this.lMrName.TabIndex = 99;
             this.lMrName.Text = "-";
             // 
@@ -1355,7 +1355,7 @@
             this.gridControl7.Location = new System.Drawing.Point(3, 263);
             this.gridControl7.MainView = this.gridView7;
             this.gridControl7.Name = "gridControl7";
-            this.gridControl7.Size = new System.Drawing.Size(492, 342);
+            this.gridControl7.Size = new System.Drawing.Size(488, 339);
             this.gridControl7.TabIndex = 2;
             this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -1406,7 +1406,7 @@
             this.xtraTabPage5.Controls.Add(this.tableLayoutPanel11);
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.PageVisible = false;
-            this.xtraTabPage5.Size = new System.Drawing.Size(498, 608);
+            this.xtraTabPage5.Size = new System.Drawing.Size(494, 605);
             this.xtraTabPage5.Text = "MCU";
             // 
             // tableLayoutPanel11
@@ -1433,7 +1433,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(498, 608);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(494, 605);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // panel17
@@ -1446,14 +1446,14 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(3, 3);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(475, 44);
+            this.panel17.Size = new System.Drawing.Size(471, 44);
             this.panel17.TabIndex = 0;
             // 
             // cMcuPeriode
             // 
             this.cMcuPeriode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cMcuPeriode.FormattingEnabled = true;
-            this.cMcuPeriode.Location = new System.Drawing.Point(308, 14);
+            this.cMcuPeriode.Location = new System.Drawing.Point(304, 14);
             this.cMcuPeriode.Name = "cMcuPeriode";
             this.cMcuPeriode.Size = new System.Drawing.Size(80, 21);
             this.cMcuPeriode.TabIndex = 118;
@@ -1464,7 +1464,7 @@
             this.labelControl139.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl139.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl139.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl139.Location = new System.Drawing.Point(296, 16);
+            this.labelControl139.Location = new System.Drawing.Point(292, 16);
             this.labelControl139.Name = "labelControl139";
             this.labelControl139.Size = new System.Drawing.Size(10, 18);
             this.labelControl139.TabIndex = 116;
@@ -1475,7 +1475,7 @@
             this.loadMCU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadMCU.Enabled = false;
             this.loadMCU.Image = ((System.Drawing.Image)(resources.GetObject("loadMCU.Image")));
-            this.loadMCU.Location = new System.Drawing.Point(394, 13);
+            this.loadMCU.Location = new System.Drawing.Point(390, 13);
             this.loadMCU.Name = "loadMCU";
             this.loadMCU.Size = new System.Drawing.Size(78, 23);
             this.loadMCU.TabIndex = 40;
@@ -1497,7 +1497,7 @@
             this.labelControl127.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl127.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl127.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl127.Location = new System.Drawing.Point(246, 16);
+            this.labelControl127.Location = new System.Drawing.Point(242, 16);
             this.labelControl127.Name = "labelControl127";
             this.labelControl127.Size = new System.Drawing.Size(47, 18);
             this.labelControl127.TabIndex = 110;
@@ -1523,7 +1523,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 53);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(475, 54);
+            this.panel18.Size = new System.Drawing.Size(471, 54);
             this.panel18.TabIndex = 1;
             // 
             // labelControl132
@@ -1689,7 +1689,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 113);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(475, 114);
+            this.groupBox8.Size = new System.Drawing.Size(471, 114);
             this.groupBox8.TabIndex = 2;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Kesimpulan dan Status";
@@ -1700,7 +1700,7 @@
             this.gridControl8.Location = new System.Drawing.Point(3, 17);
             this.gridControl8.MainView = this.gridView8;
             this.gridControl8.Name = "gridControl8";
-            this.gridControl8.Size = new System.Drawing.Size(469, 94);
+            this.gridControl8.Size = new System.Drawing.Size(465, 94);
             this.gridControl8.TabIndex = 0;
             this.gridControl8.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -1718,7 +1718,7 @@
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox9.Location = new System.Drawing.Point(3, 233);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(475, 114);
+            this.groupBox9.Size = new System.Drawing.Size(471, 114);
             this.groupBox9.TabIndex = 3;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Riwayat dan Tanda Vital";
@@ -1729,7 +1729,7 @@
             this.gridControl9.Location = new System.Drawing.Point(3, 17);
             this.gridControl9.MainView = this.gridView9;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(469, 94);
+            this.gridControl9.Size = new System.Drawing.Size(465, 94);
             this.gridControl9.TabIndex = 0;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
@@ -1746,7 +1746,7 @@
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 353);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(475, 114);
+            this.groupBox10.Size = new System.Drawing.Size(471, 114);
             this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Mata";
@@ -1757,7 +1757,7 @@
             this.gridControl10.Location = new System.Drawing.Point(3, 17);
             this.gridControl10.MainView = this.gridView10;
             this.gridControl10.Name = "gridControl10";
-            this.gridControl10.Size = new System.Drawing.Size(469, 94);
+            this.gridControl10.Size = new System.Drawing.Size(465, 94);
             this.gridControl10.TabIndex = 0;
             this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView10});
@@ -1774,7 +1774,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 473);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(475, 114);
+            this.groupBox11.Size = new System.Drawing.Size(471, 114);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Laboratorium";
@@ -1785,7 +1785,7 @@
             this.gridControl11.Location = new System.Drawing.Point(3, 17);
             this.gridControl11.MainView = this.gridView11;
             this.gridControl11.Name = "gridControl11";
-            this.gridControl11.Size = new System.Drawing.Size(469, 94);
+            this.gridControl11.Size = new System.Drawing.Size(465, 94);
             this.gridControl11.TabIndex = 0;
             this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -1802,7 +1802,7 @@
             this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox12.Location = new System.Drawing.Point(3, 593);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(475, 114);
+            this.groupBox12.Size = new System.Drawing.Size(471, 114);
             this.groupBox12.TabIndex = 6;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Pemeriksaan Lain";
@@ -1813,7 +1813,7 @@
             this.gridControl12.Location = new System.Drawing.Point(3, 17);
             this.gridControl12.MainView = this.gridView12;
             this.gridControl12.Name = "gridControl12";
-            this.gridControl12.Size = new System.Drawing.Size(469, 94);
+            this.gridControl12.Size = new System.Drawing.Size(465, 94);
             this.gridControl12.TabIndex = 0;
             this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -1830,7 +1830,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-            this.xtraTabControl2.Size = new System.Drawing.Size(918, 633);
+            this.xtraTabControl2.Size = new System.Drawing.Size(925, 633);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
@@ -1847,7 +1847,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel2);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage3.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage3.Text = "Anamnesa";
             // 
             // tableLayoutPanel2
@@ -1870,7 +1870,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // gridControl3
@@ -1879,7 +1879,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 53);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(910, 104);
+            this.gridControl3.Size = new System.Drawing.Size(913, 104);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1947,7 +1947,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(910, 44);
+            this.panel3.Size = new System.Drawing.Size(913, 44);
             this.panel3.TabIndex = 1;
             // 
             // labelControl164
@@ -1955,7 +1955,7 @@
             this.labelControl164.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl164.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl164.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl164.Location = new System.Drawing.Point(297, 12);
+            this.labelControl164.Location = new System.Drawing.Point(300, 12);
             this.labelControl164.Name = "labelControl164";
             this.labelControl164.Size = new System.Drawing.Size(144, 19);
             this.labelControl164.TabIndex = 42;
@@ -1966,7 +1966,7 @@
             // 
             this.btnDoInsp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoInsp.Image = ((System.Drawing.Image)(resources.GetObject("btnDoInsp.Image")));
-            this.btnDoInsp.Location = new System.Drawing.Point(653, 9);
+            this.btnDoInsp.Location = new System.Drawing.Point(656, 9);
             this.btnDoInsp.Name = "btnDoInsp";
             this.btnDoInsp.Size = new System.Drawing.Size(112, 23);
             this.btnDoInsp.TabIndex = 41;
@@ -1977,7 +1977,7 @@
             // 
             this.btnCall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCall.Image = ((System.Drawing.Image)(resources.GetObject("btnCall.Image")));
-            this.btnCall.Location = new System.Drawing.Point(580, 9);
+            this.btnCall.Location = new System.Drawing.Point(583, 9);
             this.btnCall.Name = "btnCall";
             this.btnCall.Size = new System.Drawing.Size(67, 23);
             this.btnCall.TabIndex = 40;
@@ -1988,7 +1988,7 @@
             // 
             this.btnAddAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnam.Image")));
-            this.btnAddAnam.Location = new System.Drawing.Point(770, 9);
+            this.btnAddAnam.Location = new System.Drawing.Point(773, 9);
             this.btnAddAnam.Name = "btnAddAnam";
             this.btnAddAnam.Size = new System.Drawing.Size(67, 23);
             this.btnAddAnam.TabIndex = 39;
@@ -2000,7 +2000,7 @@
             this.btnSaveAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAnam.Enabled = false;
             this.btnSaveAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAnam.Image")));
-            this.btnSaveAnam.Location = new System.Drawing.Point(843, 9);
+            this.btnSaveAnam.Location = new System.Drawing.Point(846, 9);
             this.btnSaveAnam.Name = "btnSaveAnam";
             this.btnSaveAnam.Size = new System.Drawing.Size(63, 23);
             this.btnSaveAnam.TabIndex = 38;
@@ -2023,7 +2023,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 343);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(910, 217);
+            this.groupBox1.Size = new System.Drawing.Size(913, 214);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Assesment";
@@ -2040,7 +2040,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(904, 197);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(907, 194);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // gridControl4
@@ -2049,7 +2049,7 @@
             this.gridControl4.Location = new System.Drawing.Point(3, 43);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(898, 151);
+            this.gridControl4.Size = new System.Drawing.Size(901, 148);
             this.gridControl4.TabIndex = 1;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2124,7 +2124,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(898, 34);
+            this.panel4.Size = new System.Drawing.Size(901, 34);
             this.panel4.TabIndex = 0;
             // 
             // labelControl163
@@ -2132,7 +2132,7 @@
             this.labelControl163.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl163.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl163.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl163.Location = new System.Drawing.Point(270, 6);
+            this.labelControl163.Location = new System.Drawing.Point(273, 6);
             this.labelControl163.Name = "labelControl163";
             this.labelControl163.Size = new System.Drawing.Size(144, 19);
             this.labelControl163.TabIndex = 40;
@@ -2143,7 +2143,7 @@
             // 
             this.btnCanDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCanDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnCanDiag.Image")));
-            this.btnCanDiag.Location = new System.Drawing.Point(609, 6);
+            this.btnCanDiag.Location = new System.Drawing.Point(612, 6);
             this.btnCanDiag.Name = "btnCanDiag";
             this.btnCanDiag.Size = new System.Drawing.Size(67, 23);
             this.btnCanDiag.TabIndex = 39;
@@ -2154,7 +2154,7 @@
             // 
             this.btnDelDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnDelDiag.Image")));
-            this.btnDelDiag.Location = new System.Drawing.Point(682, 6);
+            this.btnDelDiag.Location = new System.Drawing.Point(685, 6);
             this.btnDelDiag.Name = "btnDelDiag";
             this.btnDelDiag.Size = new System.Drawing.Size(67, 23);
             this.btnDelDiag.TabIndex = 38;
@@ -2165,7 +2165,7 @@
             // 
             this.btnSaveDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveDiag.Image")));
-            this.btnSaveDiag.Location = new System.Drawing.Point(828, 6);
+            this.btnSaveDiag.Location = new System.Drawing.Point(831, 6);
             this.btnSaveDiag.Name = "btnSaveDiag";
             this.btnSaveDiag.Size = new System.Drawing.Size(67, 23);
             this.btnSaveDiag.TabIndex = 37;
@@ -2177,7 +2177,7 @@
             this.btnAddDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddDiag.Enabled = false;
             this.btnAddDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDiag.Image")));
-            this.btnAddDiag.Location = new System.Drawing.Point(755, 6);
+            this.btnAddDiag.Location = new System.Drawing.Point(758, 6);
             this.btnAddDiag.Name = "btnAddDiag";
             this.btnAddDiag.Size = new System.Drawing.Size(67, 23);
             this.btnAddDiag.TabIndex = 36;
@@ -2203,7 +2203,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 263);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(910, 74);
+            this.groupBox2.Size = new System.Drawing.Size(913, 74);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Objektif";
@@ -2240,7 +2240,7 @@
             this.pAdd.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.pAdd.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.pAdd.Properties.NullText = "Pemeriksaan Tambahan";
-            this.pAdd.Size = new System.Drawing.Size(752, 20);
+            this.pAdd.Size = new System.Drawing.Size(755, 20);
             this.pAdd.TabIndex = 3;
             // 
             // pFisik
@@ -2255,7 +2255,7 @@
             this.pFisik.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.pFisik.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.pFisik.Properties.NullText = "Pemeriksaan Fisik";
-            this.pFisik.Size = new System.Drawing.Size(752, 20);
+            this.pFisik.Size = new System.Drawing.Size(755, 20);
             this.pFisik.TabIndex = 2;
             // 
             // groupBox3
@@ -2266,7 +2266,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(3, 163);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(910, 94);
+            this.groupBox3.Size = new System.Drawing.Size(913, 94);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Subjektif";
@@ -2283,7 +2283,7 @@
             this.panel25.Controls.Add(this.labelControl6);
             this.panel25.Location = new System.Drawing.Point(3, 17);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(730, 74);
+            this.panel25.Size = new System.Drawing.Size(733, 74);
             this.panel25.TabIndex = 8;
             // 
             // rNow
@@ -2300,7 +2300,7 @@
             this.rNow.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rNow.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rNow.Properties.NullText = "Riwayat penyakit sekarang";
-            this.rNow.Size = new System.Drawing.Size(572, 20);
+            this.rNow.Size = new System.Drawing.Size(575, 20);
             this.rNow.TabIndex = 1;
             // 
             // rOld
@@ -2315,7 +2315,7 @@
             this.rOld.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rOld.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rOld.Properties.NullText = "Riwayat penyakit dahulu";
-            this.rOld.Size = new System.Drawing.Size(572, 20);
+            this.rOld.Size = new System.Drawing.Size(575, 20);
             this.rOld.TabIndex = 2;
             // 
             // labelControl8
@@ -2340,7 +2340,7 @@
             this.rFam.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rFam.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rFam.Properties.NullText = "Riwayat penyakit keluarga";
-            this.rFam.Size = new System.Drawing.Size(572, 20);
+            this.rFam.Size = new System.Drawing.Size(575, 20);
             this.rFam.TabIndex = 3;
             // 
             // labelControl7
@@ -2368,7 +2368,7 @@
             this.groupBox13.Controls.Add(this.taobat);
             this.groupBox13.Controls.Add(this.tmknan);
             this.groupBox13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox13.Location = new System.Drawing.Point(742, 17);
+            this.groupBox13.Location = new System.Drawing.Point(745, 17);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(165, 74);
             this.groupBox13.TabIndex = 7;
@@ -2401,9 +2401,9 @@
             this.groupBox4.Controls.Add(this.checkAll);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(3, 566);
+            this.groupBox4.Location = new System.Drawing.Point(3, 563);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(910, 39);
+            this.groupBox4.Size = new System.Drawing.Size(913, 39);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Plan";
@@ -2462,7 +2462,7 @@
             // 
             this.xtraTabPage9.Controls.Add(this.tableLayoutPanel8);
             this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage9.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage9.Text = "Terapi / Resep";
             // 
             // tableLayoutPanel8
@@ -2482,7 +2482,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel11
@@ -2497,7 +2497,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(910, 44);
+            this.panel11.Size = new System.Drawing.Size(913, 44);
             this.panel11.TabIndex = 0;
             // 
             // loadResep
@@ -2505,7 +2505,7 @@
             this.loadResep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadResep.Enabled = false;
             this.loadResep.Image = ((System.Drawing.Image)(resources.GetObject("loadResep.Image")));
-            this.loadResep.Location = new System.Drawing.Point(828, 12);
+            this.loadResep.Location = new System.Drawing.Point(831, 12);
             this.loadResep.Name = "loadResep";
             this.loadResep.Size = new System.Drawing.Size(78, 23);
             this.loadResep.TabIndex = 42;
@@ -2607,7 +2607,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 53);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(910, 210);
+            this.panel12.Size = new System.Drawing.Size(913, 210);
             this.panel12.TabIndex = 1;
             // 
             // lstsobat
@@ -2626,7 +2626,7 @@
             this.btnNoReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNoReceipt.Enabled = false;
             this.btnNoReceipt.Image = ((System.Drawing.Image)(resources.GetObject("btnNoReceipt.Image")));
-            this.btnNoReceipt.Location = new System.Drawing.Point(791, 181);
+            this.btnNoReceipt.Location = new System.Drawing.Point(794, 181);
             this.btnNoReceipt.Name = "btnNoReceipt";
             this.btnNoReceipt.Size = new System.Drawing.Size(107, 23);
             this.btnNoReceipt.TabIndex = 133;
@@ -2641,7 +2641,7 @@
             this.lMedPt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedPt.Location = new System.Drawing.Point(133, 144);
             this.lMedPt.Name = "lMedPt";
-            this.lMedPt.Size = new System.Drawing.Size(772, 29);
+            this.lMedPt.Size = new System.Drawing.Size(775, 29);
             this.lMedPt.TabIndex = 116;
             this.lMedPt.Text = "-";
             // 
@@ -2653,7 +2653,7 @@
             this.lMedPf.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedPf.Location = new System.Drawing.Point(133, 109);
             this.lMedPf.Name = "lMedPf";
-            this.lMedPf.Size = new System.Drawing.Size(772, 29);
+            this.lMedPf.Size = new System.Drawing.Size(775, 29);
             this.lMedPf.TabIndex = 115;
             this.lMedPf.Text = "-";
             // 
@@ -2665,7 +2665,7 @@
             this.lMedRp.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedRp.Location = new System.Drawing.Point(133, 74);
             this.lMedRp.Name = "lMedRp";
-            this.lMedRp.Size = new System.Drawing.Size(772, 29);
+            this.lMedRp.Size = new System.Drawing.Size(775, 29);
             this.lMedRp.TabIndex = 114;
             this.lMedRp.Text = "-";
             // 
@@ -2740,7 +2740,7 @@
             this.lMedNik.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedNik.Location = new System.Drawing.Point(623, 7);
             this.lMedNik.Name = "lMedNik";
-            this.lMedNik.Size = new System.Drawing.Size(282, 29);
+            this.lMedNik.Size = new System.Drawing.Size(285, 29);
             this.lMedNik.TabIndex = 106;
             this.lMedNik.Text = "-";
             // 
@@ -2773,7 +2773,7 @@
             this.lMedDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedDiag.Location = new System.Drawing.Point(133, 175);
             this.lMedDiag.Name = "lMedDiag";
-            this.lMedDiag.Size = new System.Drawing.Size(765, 29);
+            this.lMedDiag.Size = new System.Drawing.Size(768, 29);
             this.lMedDiag.TabIndex = 103;
             this.lMedDiag.Text = "-";
             // 
@@ -2806,7 +2806,7 @@
             this.lMedAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedAnam.Location = new System.Drawing.Point(134, 39);
             this.lMedAnam.Name = "lMedAnam";
-            this.lMedAnam.Size = new System.Drawing.Size(772, 29);
+            this.lMedAnam.Size = new System.Drawing.Size(775, 29);
             this.lMedAnam.TabIndex = 100;
             this.lMedAnam.Text = "-";
             // 
@@ -2839,7 +2839,7 @@
             this.lMedName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lMedName.Location = new System.Drawing.Point(134, 7);
             this.lMedName.Name = "lMedName";
-            this.lMedName.Size = new System.Drawing.Size(452, 29);
+            this.lMedName.Size = new System.Drawing.Size(455, 29);
             this.lMedName.TabIndex = 97;
             this.lMedName.Text = "-";
             // 
@@ -2870,10 +2870,10 @@
             this.panel19.Controls.Add(this.btnSaveResepLuar);
             this.panel19.Controls.Add(this.mResepLuar);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(0, 548);
+            this.panel19.Location = new System.Drawing.Point(0, 545);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(916, 60);
+            this.panel19.Size = new System.Drawing.Size(919, 60);
             this.panel19.TabIndex = 3;
             // 
             // labelControl147
@@ -2882,7 +2882,7 @@
             this.labelControl147.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl147.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl147.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl147.Location = new System.Drawing.Point(810, 4);
+            this.labelControl147.Location = new System.Drawing.Point(813, 4);
             this.labelControl147.Name = "labelControl147";
             this.labelControl147.Size = new System.Drawing.Size(99, 21);
             this.labelControl147.TabIndex = 104;
@@ -2893,7 +2893,7 @@
             this.btnSaveResepLuar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveResepLuar.Enabled = false;
             this.btnSaveResepLuar.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveResepLuar.Image")));
-            this.btnSaveResepLuar.Location = new System.Drawing.Point(810, 29);
+            this.btnSaveResepLuar.Location = new System.Drawing.Point(813, 29);
             this.btnSaveResepLuar.Name = "btnSaveResepLuar";
             this.btnSaveResepLuar.Size = new System.Drawing.Size(100, 28);
             this.btnSaveResepLuar.TabIndex = 103;
@@ -2914,7 +2914,7 @@
             this.mResepLuar.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.mResepLuar.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.mResepLuar.Properties.NullText = "Riwayat penyakit sekarang";
-            this.mResepLuar.Size = new System.Drawing.Size(801, 54);
+            this.mResepLuar.Size = new System.Drawing.Size(804, 54);
             this.mResepLuar.TabIndex = 2;
             this.mResepLuar.TextChanged += new System.EventHandler(this.mResepLuar_TextChanged);
             // 
@@ -2928,7 +2928,7 @@
             this.xtraTabControl3.Location = new System.Drawing.Point(3, 269);
             this.xtraTabControl3.Name = "xtraTabControl3";
             this.xtraTabControl3.SelectedTabPage = this.xtraTabPage12;
-            this.xtraTabControl3.Size = new System.Drawing.Size(910, 276);
+            this.xtraTabControl3.Size = new System.Drawing.Size(913, 273);
             this.xtraTabControl3.TabIndex = 4;
             this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage12,
@@ -2940,7 +2940,7 @@
             this.xtraTabPage12.Controls.Add(this.gridControl6);
             this.xtraTabPage12.Controls.Add(this.panel28);
             this.xtraTabPage12.Name = "xtraTabPage12";
-            this.xtraTabPage12.Size = new System.Drawing.Size(908, 248);
+            this.xtraTabPage12.Size = new System.Drawing.Size(907, 242);
             this.xtraTabPage12.Text = "Resep Obat";
             // 
             // gridControl6
@@ -2949,7 +2949,7 @@
             this.gridControl6.Location = new System.Drawing.Point(0, 34);
             this.gridControl6.MainView = this.gridView6;
             this.gridControl6.Name = "gridControl6";
-            this.gridControl6.Size = new System.Drawing.Size(908, 214);
+            this.gridControl6.Size = new System.Drawing.Size(907, 208);
             this.gridControl6.TabIndex = 107;
             this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3328,7 +3328,7 @@
             this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel28.Location = new System.Drawing.Point(0, 0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(908, 34);
+            this.panel28.Size = new System.Drawing.Size(907, 34);
             this.panel28.TabIndex = 106;
             // 
             // labelControl165
@@ -3336,7 +3336,7 @@
             this.labelControl165.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl165.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl165.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl165.Location = new System.Drawing.Point(382, 8);
+            this.labelControl165.Location = new System.Drawing.Point(381, 8);
             this.labelControl165.Name = "labelControl165";
             this.labelControl165.Size = new System.Drawing.Size(144, 19);
             this.labelControl165.TabIndex = 109;
@@ -3359,7 +3359,7 @@
             this.btnMedDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedDel.Enabled = false;
             this.btnMedDel.Image = ((System.Drawing.Image)(resources.GetObject("btnMedDel.Image")));
-            this.btnMedDel.Location = new System.Drawing.Point(689, 6);
+            this.btnMedDel.Location = new System.Drawing.Point(688, 6);
             this.btnMedDel.Name = "btnMedDel";
             this.btnMedDel.Size = new System.Drawing.Size(67, 23);
             this.btnMedDel.TabIndex = 103;
@@ -3371,7 +3371,7 @@
             this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedAdd.Enabled = false;
             this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
-            this.btnMedAdd.Location = new System.Drawing.Point(762, 6);
+            this.btnMedAdd.Location = new System.Drawing.Point(761, 6);
             this.btnMedAdd.Name = "btnMedAdd";
             this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
             this.btnMedAdd.TabIndex = 101;
@@ -3383,7 +3383,7 @@
             this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedSave.Enabled = false;
             this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
-            this.btnMedSave.Location = new System.Drawing.Point(834, 6);
+            this.btnMedSave.Location = new System.Drawing.Point(833, 6);
             this.btnMedSave.Name = "btnMedSave";
             this.btnMedSave.Size = new System.Drawing.Size(67, 23);
             this.btnMedSave.TabIndex = 102;
@@ -3395,7 +3395,7 @@
             this.btnMedCan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedCan.Enabled = false;
             this.btnMedCan.Image = ((System.Drawing.Image)(resources.GetObject("btnMedCan.Image")));
-            this.btnMedCan.Location = new System.Drawing.Point(616, 6);
+            this.btnMedCan.Location = new System.Drawing.Point(615, 6);
             this.btnMedCan.Name = "btnMedCan";
             this.btnMedCan.Size = new System.Drawing.Size(67, 23);
             this.btnMedCan.TabIndex = 107;
@@ -3406,7 +3406,7 @@
             // 
             this.xtraTabPage13.Controls.Add(this.splitContainer1);
             this.xtraTabPage13.Name = "xtraTabPage13";
-            this.xtraTabPage13.Size = new System.Drawing.Size(908, 248);
+            this.xtraTabPage13.Size = new System.Drawing.Size(907, 242);
             this.xtraTabPage13.Text = "Resep Racikan";
             // 
             // splitContainer1
@@ -3424,8 +3424,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gdRacik);
             this.splitContainer1.Panel2.Controls.Add(this.panel27);
-            this.splitContainer1.Size = new System.Drawing.Size(908, 248);
-            this.splitContainer1.SplitterDistance = 389;
+            this.splitContainer1.Size = new System.Drawing.Size(907, 242);
+            this.splitContainer1.SplitterDistance = 388;
             this.splitContainer1.TabIndex = 5;
             // 
             // gridRacik
@@ -3434,7 +3434,7 @@
             this.gridRacik.Location = new System.Drawing.Point(0, 38);
             this.gridRacik.MainView = this.gridHRacik;
             this.gridRacik.Name = "gridRacik";
-            this.gridRacik.Size = new System.Drawing.Size(389, 210);
+            this.gridRacik.Size = new System.Drawing.Size(388, 204);
             this.gridRacik.TabIndex = 7;
             this.gridRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridHRacik});
@@ -3525,7 +3525,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel26.Location = new System.Drawing.Point(0, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(389, 38);
+            this.panel26.Size = new System.Drawing.Size(388, 38);
             this.panel26.TabIndex = 0;
             // 
             // labelControl166
@@ -3555,7 +3555,7 @@
             this.simpleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton6.Enabled = false;
             this.simpleButton6.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(295, 8);
+            this.simpleButton6.Location = new System.Drawing.Point(294, 8);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(91, 23);
             this.simpleButton6.TabIndex = 105;
@@ -3578,7 +3578,7 @@
             this.gdRacik.Location = new System.Drawing.Point(0, 38);
             this.gdRacik.MainView = this.gvRacik;
             this.gdRacik.Name = "gdRacik";
-            this.gdRacik.Size = new System.Drawing.Size(515, 210);
+            this.gdRacik.Size = new System.Drawing.Size(515, 204);
             this.gdRacik.TabIndex = 108;
             this.gdRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRacik});
@@ -3724,7 +3724,7 @@
             this.xtraTabPage14.Controls.Add(this.panel29);
             this.xtraTabPage14.Controls.Add(this.gridControl16);
             this.xtraTabPage14.Name = "xtraTabPage14";
-            this.xtraTabPage14.Size = new System.Drawing.Size(908, 248);
+            this.xtraTabPage14.Size = new System.Drawing.Size(907, 242);
             this.xtraTabPage14.Text = "Resep Tambahan";
             // 
             // panel29
@@ -3738,7 +3738,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(908, 34);
+            this.panel29.Size = new System.Drawing.Size(907, 34);
             this.panel29.TabIndex = 107;
             // 
             // labelControl168
@@ -3768,7 +3768,7 @@
             this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton3.Enabled = false;
             this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(689, 6);
+            this.simpleButton3.Location = new System.Drawing.Point(688, 6);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(67, 23);
             this.simpleButton3.TabIndex = 103;
@@ -3780,7 +3780,7 @@
             this.sTambahU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sTambahU.Enabled = false;
             this.sTambahU.Image = ((System.Drawing.Image)(resources.GetObject("sTambahU.Image")));
-            this.sTambahU.Location = new System.Drawing.Point(762, 6);
+            this.sTambahU.Location = new System.Drawing.Point(761, 6);
             this.sTambahU.Name = "sTambahU";
             this.sTambahU.Size = new System.Drawing.Size(67, 23);
             this.sTambahU.TabIndex = 101;
@@ -3792,7 +3792,7 @@
             this.sSimpanU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sSimpanU.Enabled = false;
             this.sSimpanU.Image = ((System.Drawing.Image)(resources.GetObject("sSimpanU.Image")));
-            this.sSimpanU.Location = new System.Drawing.Point(834, 6);
+            this.sSimpanU.Location = new System.Drawing.Point(833, 6);
             this.sSimpanU.Name = "sSimpanU";
             this.sSimpanU.Size = new System.Drawing.Size(67, 23);
             this.sSimpanU.TabIndex = 102;
@@ -3804,7 +3804,7 @@
             this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton9.Enabled = false;
             this.simpleButton9.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.Image")));
-            this.simpleButton9.Location = new System.Drawing.Point(616, 6);
+            this.simpleButton9.Location = new System.Drawing.Point(615, 6);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(67, 23);
             this.simpleButton9.TabIndex = 107;
@@ -3817,7 +3817,7 @@
             this.gridControl16.Location = new System.Drawing.Point(0, 0);
             this.gridControl16.MainView = this.gridView16;
             this.gridControl16.Name = "gridControl16";
-            this.gridControl16.Size = new System.Drawing.Size(908, 248);
+            this.gridControl16.Size = new System.Drawing.Size(907, 242);
             this.gridControl16.TabIndex = 6;
             this.gridControl16.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView16});
@@ -3903,7 +3903,7 @@
             // 
             this.xtraTabPage10.Controls.Add(this.tableLayoutPanel9);
             this.xtraTabPage10.Name = "xtraTabPage10";
-            this.xtraTabPage10.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage10.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage10.Text = "SKD";
             // 
             // tableLayoutPanel9
@@ -3920,7 +3920,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // l
@@ -3934,7 +3934,7 @@
             this.l.Dock = System.Windows.Forms.DockStyle.Fill;
             this.l.Location = new System.Drawing.Point(3, 3);
             this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(910, 44);
+            this.l.Size = new System.Drawing.Size(913, 44);
             this.l.TabIndex = 0;
             // 
             // loadSKD
@@ -3942,7 +3942,7 @@
             this.loadSKD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadSKD.Enabled = false;
             this.loadSKD.Image = ((System.Drawing.Image)(resources.GetObject("loadSKD.Image")));
-            this.loadSKD.Location = new System.Drawing.Point(828, 12);
+            this.loadSKD.Location = new System.Drawing.Point(831, 12);
             this.loadSKD.Name = "loadSKD";
             this.loadSKD.Size = new System.Drawing.Size(78, 23);
             this.loadSKD.TabIndex = 43;
@@ -4022,7 +4022,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(3, 53);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(910, 114);
+            this.panel14.Size = new System.Drawing.Size(913, 114);
             this.panel14.TabIndex = 1;
             // 
             // lSkdType
@@ -4075,7 +4075,7 @@
             this.lSkdDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lSkdDiag.Location = new System.Drawing.Point(530, 41);
             this.lSkdDiag.Name = "lSkdDiag";
-            this.lSkdDiag.Size = new System.Drawing.Size(299, 29);
+            this.lSkdDiag.Size = new System.Drawing.Size(302, 29);
             this.lSkdDiag.TabIndex = 109;
             this.lSkdDiag.Text = "-";
             this.lSkdDiag.Visible = false;
@@ -4132,7 +4132,7 @@
             this.lSkdAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lSkdAnam.Location = new System.Drawing.Point(530, 6);
             this.lSkdAnam.Name = "lSkdAnam";
-            this.lSkdAnam.Size = new System.Drawing.Size(299, 29);
+            this.lSkdAnam.Size = new System.Drawing.Size(302, 29);
             this.lSkdAnam.TabIndex = 103;
             this.lSkdAnam.Text = "-";
             this.lSkdAnam.Visible = false;
@@ -4197,7 +4197,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(3, 173);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(910, 432);
+            this.panel15.Size = new System.Drawing.Size(913, 429);
             this.panel15.TabIndex = 2;
             // 
             // grpSkdUmum
@@ -4824,7 +4824,7 @@
             this.xtraTabPage8.Controls.Add(this.tableLayoutPanel7);
             this.xtraTabPage8.Name = "xtraTabPage8";
             this.xtraTabPage8.PageVisible = false;
-            this.xtraTabPage8.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage8.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage8.Text = "Observasi";
             // 
             // tableLayoutPanel7
@@ -4841,7 +4841,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // panel9
@@ -4857,7 +4857,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(910, 44);
+            this.panel9.Size = new System.Drawing.Size(913, 44);
             this.panel9.TabIndex = 0;
             // 
             // loadObservasi
@@ -4865,7 +4865,7 @@
             this.loadObservasi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadObservasi.Enabled = false;
             this.loadObservasi.Image = ((System.Drawing.Image)(resources.GetObject("loadObservasi.Image")));
-            this.loadObservasi.Location = new System.Drawing.Point(828, 12);
+            this.loadObservasi.Location = new System.Drawing.Point(831, 12);
             this.loadObservasi.Name = "loadObservasi";
             this.loadObservasi.Size = new System.Drawing.Size(78, 23);
             this.loadObservasi.TabIndex = 41;
@@ -4920,7 +4920,7 @@
             this.labelControl113.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl113.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl113.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl113.Location = new System.Drawing.Point(560, 14);
+            this.labelControl113.Location = new System.Drawing.Point(563, 14);
             this.labelControl113.Name = "labelControl113";
             this.labelControl113.Size = new System.Drawing.Size(55, 20);
             this.labelControl113.TabIndex = 125;
@@ -4931,7 +4931,7 @@
             this.labelControl112.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl112.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl112.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl112.Location = new System.Drawing.Point(621, 15);
+            this.labelControl112.Location = new System.Drawing.Point(624, 15);
             this.labelControl112.Name = "labelControl112";
             this.labelControl112.Size = new System.Drawing.Size(13, 20);
             this.labelControl112.TabIndex = 126;
@@ -4940,7 +4940,7 @@
             // luObsRoom
             // 
             this.luObsRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.luObsRoom.Location = new System.Drawing.Point(640, 14);
+            this.luObsRoom.Location = new System.Drawing.Point(643, 14);
             this.luObsRoom.Name = "luObsRoom";
             this.luObsRoom.Properties.AutoHeight = false;
             this.luObsRoom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4976,7 +4976,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 53);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(910, 144);
+            this.panel10.Size = new System.Drawing.Size(913, 144);
             this.panel10.TabIndex = 1;
             // 
             // btnObsDel
@@ -4984,7 +4984,7 @@
             this.btnObsDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObsDel.Enabled = false;
             this.btnObsDel.Image = ((System.Drawing.Image)(resources.GetObject("btnObsDel.Image")));
-            this.btnObsDel.Location = new System.Drawing.Point(620, 114);
+            this.btnObsDel.Location = new System.Drawing.Point(623, 114);
             this.btnObsDel.Name = "btnObsDel";
             this.btnObsDel.Size = new System.Drawing.Size(67, 23);
             this.btnObsDel.TabIndex = 141;
@@ -5136,7 +5136,7 @@
             this.btnObsCls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObsCls.Enabled = false;
             this.btnObsCls.Image = ((System.Drawing.Image)(resources.GetObject("btnObsCls.Image")));
-            this.btnObsCls.Location = new System.Drawing.Point(693, 114);
+            this.btnObsCls.Location = new System.Drawing.Point(696, 114);
             this.btnObsCls.Name = "btnObsCls";
             this.btnObsCls.Size = new System.Drawing.Size(67, 23);
             this.btnObsCls.TabIndex = 97;
@@ -5148,7 +5148,7 @@
             this.btnObsSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObsSave.Enabled = false;
             this.btnObsSave.Image = ((System.Drawing.Image)(resources.GetObject("btnObsSave.Image")));
-            this.btnObsSave.Location = new System.Drawing.Point(839, 114);
+            this.btnObsSave.Location = new System.Drawing.Point(842, 114);
             this.btnObsSave.Name = "btnObsSave";
             this.btnObsSave.Size = new System.Drawing.Size(67, 23);
             this.btnObsSave.TabIndex = 96;
@@ -5160,7 +5160,7 @@
             this.btnObsAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObsAdd.Enabled = false;
             this.btnObsAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnObsAdd.Image")));
-            this.btnObsAdd.Location = new System.Drawing.Point(766, 114);
+            this.btnObsAdd.Location = new System.Drawing.Point(769, 114);
             this.btnObsAdd.Name = "btnObsAdd";
             this.btnObsAdd.Size = new System.Drawing.Size(67, 23);
             this.btnObsAdd.TabIndex = 95;
@@ -5227,7 +5227,7 @@
             this.gridControl5.Location = new System.Drawing.Point(3, 203);
             this.gridControl5.MainView = this.gridView5;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(910, 402);
+            this.gridControl5.Size = new System.Drawing.Size(913, 399);
             this.gridControl5.TabIndex = 2;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -5288,7 +5288,7 @@
             // 
             this.xtraTabPage4.Controls.Add(this.tableLayoutPanel3);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage4.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage4.Text = "Rujukan";
             // 
             // tableLayoutPanel3
@@ -5303,7 +5303,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel5
@@ -5317,7 +5317,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(910, 44);
+            this.panel5.Size = new System.Drawing.Size(913, 44);
             this.panel5.TabIndex = 0;
             // 
             // btnLoadRujukan
@@ -5325,7 +5325,7 @@
             this.btnLoadRujukan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadRujukan.Enabled = false;
             this.btnLoadRujukan.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadRujukan.Image")));
-            this.btnLoadRujukan.Location = new System.Drawing.Point(828, 12);
+            this.btnLoadRujukan.Location = new System.Drawing.Point(831, 12);
             this.btnLoadRujukan.Name = "btnLoadRujukan";
             this.btnLoadRujukan.Size = new System.Drawing.Size(78, 23);
             this.btnLoadRujukan.TabIndex = 38;
@@ -5392,7 +5392,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 53);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(910, 552);
+            this.panel6.Size = new System.Drawing.Size(913, 549);
             this.panel6.TabIndex = 1;
             // 
             // groupBox5
@@ -5434,7 +5434,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(910, 552);
+            this.groupBox5.Size = new System.Drawing.Size(913, 549);
             this.groupBox5.TabIndex = 66;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Form Input";
@@ -5616,7 +5616,7 @@
             this.lRefRec.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefRec.Location = new System.Drawing.Point(134, 195);
             this.lRefRec.Name = "lRefRec";
-            this.lRefRec.Size = new System.Drawing.Size(772, 29);
+            this.lRefRec.Size = new System.Drawing.Size(775, 29);
             this.lRefRec.TabIndex = 103;
             this.lRefRec.Text = "-";
             // 
@@ -5649,7 +5649,7 @@
             this.lRefDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefDiag.Location = new System.Drawing.Point(134, 160);
             this.lRefDiag.Name = "lRefDiag";
-            this.lRefDiag.Size = new System.Drawing.Size(772, 29);
+            this.lRefDiag.Size = new System.Drawing.Size(775, 29);
             this.lRefDiag.TabIndex = 100;
             this.lRefDiag.Text = "-";
             // 
@@ -5682,7 +5682,7 @@
             this.lRefHis.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefHis.Location = new System.Drawing.Point(134, 125);
             this.lRefHis.Name = "lRefHis";
-            this.lRefHis.Size = new System.Drawing.Size(772, 29);
+            this.lRefHis.Size = new System.Drawing.Size(775, 29);
             this.lRefHis.TabIndex = 97;
             this.lRefHis.Text = "-";
             // 
@@ -5715,7 +5715,7 @@
             this.lRefAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefAnam.Location = new System.Drawing.Point(134, 90);
             this.lRefAnam.Name = "lRefAnam";
-            this.lRefAnam.Size = new System.Drawing.Size(772, 29);
+            this.lRefAnam.Size = new System.Drawing.Size(775, 29);
             this.lRefAnam.TabIndex = 94;
             this.lRefAnam.Text = "-";
             // 
@@ -5748,7 +5748,7 @@
             this.lRefAddr.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefAddr.Location = new System.Drawing.Point(134, 55);
             this.lRefAddr.Name = "lRefAddr";
-            this.lRefAddr.Size = new System.Drawing.Size(772, 29);
+            this.lRefAddr.Size = new System.Drawing.Size(775, 29);
             this.lRefAddr.TabIndex = 91;
             this.lRefAddr.Text = "-";
             // 
@@ -5781,7 +5781,7 @@
             this.lRefName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRefName.Location = new System.Drawing.Point(134, 20);
             this.lRefName.Name = "lRefName";
-            this.lRefName.Size = new System.Drawing.Size(772, 29);
+            this.lRefName.Size = new System.Drawing.Size(775, 29);
             this.lRefName.TabIndex = 88;
             this.lRefName.Text = "-";
             // 
@@ -5811,7 +5811,7 @@
             this.xtraTabPage7.Controls.Add(this.tableLayoutPanel6);
             this.xtraTabPage7.Name = "xtraTabPage7";
             this.xtraTabPage7.PageVisible = false;
-            this.xtraTabPage7.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage7.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage7.Text = "Rekomendasi";
             // 
             // tableLayoutPanel6
@@ -5826,7 +5826,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // groupBox7
@@ -5864,7 +5864,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(3, 53);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(910, 552);
+            this.groupBox7.Size = new System.Drawing.Size(913, 549);
             this.groupBox7.TabIndex = 67;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Form Input";
@@ -5876,7 +5876,7 @@
             this.labelControl135.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl135.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl135.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl135.Location = new System.Drawing.Point(785, 166);
+            this.labelControl135.Location = new System.Drawing.Point(788, 166);
             this.labelControl135.Name = "labelControl135";
             this.labelControl135.Size = new System.Drawing.Size(84, 29);
             this.labelControl135.TabIndex = 139;
@@ -5889,7 +5889,7 @@
             this.lRemainRecom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lRemainRecom.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lRemainRecom.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lRemainRecom.Location = new System.Drawing.Point(868, 166);
+            this.lRemainRecom.Location = new System.Drawing.Point(871, 166);
             this.lRemainRecom.Name = "lRemainRecom";
             this.lRemainRecom.Size = new System.Drawing.Size(29, 29);
             this.lRemainRecom.TabIndex = 138;
@@ -5914,7 +5914,7 @@
             this.lRecDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecDiag.Location = new System.Drawing.Point(134, 424);
             this.lRecDiag.Name = "lRecDiag";
-            this.lRecDiag.Size = new System.Drawing.Size(772, 29);
+            this.lRecDiag.Size = new System.Drawing.Size(775, 29);
             this.lRecDiag.TabIndex = 127;
             this.lRecDiag.Text = "-";
             this.lRecDiag.Visible = false;
@@ -5950,7 +5950,7 @@
             this.lRecAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecAnam.Location = new System.Drawing.Point(134, 389);
             this.lRecAnam.Name = "lRecAnam";
-            this.lRecAnam.Size = new System.Drawing.Size(772, 29);
+            this.lRecAnam.Size = new System.Drawing.Size(775, 29);
             this.lRecAnam.TabIndex = 124;
             this.lRecAnam.Text = "-";
             this.lRecAnam.Visible = false;
@@ -6021,7 +6021,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mRecRek.Location = new System.Drawing.Point(134, 201);
             this.mRecRek.Name = "mRecRek";
-            this.mRecRek.Size = new System.Drawing.Size(770, 75);
+            this.mRecRek.Size = new System.Drawing.Size(773, 75);
             this.mRecRek.TabIndex = 118;
             this.mRecRek.TextChanged += new System.EventHandler(this.mRecRek_TextChanged);
             // 
@@ -6086,7 +6086,7 @@
             this.lRecAge.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecAge.Location = new System.Drawing.Point(134, 125);
             this.lRecAge.Name = "lRecAge";
-            this.lRecAge.Size = new System.Drawing.Size(772, 29);
+            this.lRecAge.Size = new System.Drawing.Size(775, 29);
             this.lRecAge.TabIndex = 97;
             this.lRecAge.Text = "-";
             // 
@@ -6119,7 +6119,7 @@
             this.lRecDept.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecDept.Location = new System.Drawing.Point(134, 90);
             this.lRecDept.Name = "lRecDept";
-            this.lRecDept.Size = new System.Drawing.Size(772, 29);
+            this.lRecDept.Size = new System.Drawing.Size(775, 29);
             this.lRecDept.TabIndex = 94;
             this.lRecDept.Text = "-";
             // 
@@ -6152,7 +6152,7 @@
             this.lRecNik.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecNik.Location = new System.Drawing.Point(134, 55);
             this.lRecNik.Name = "lRecNik";
-            this.lRecNik.Size = new System.Drawing.Size(776, 29);
+            this.lRecNik.Size = new System.Drawing.Size(779, 29);
             this.lRecNik.TabIndex = 91;
             this.lRecNik.Text = "-";
             // 
@@ -6185,7 +6185,7 @@
             this.lRecName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lRecName.Location = new System.Drawing.Point(134, 20);
             this.lRecName.Name = "lRecName";
-            this.lRecName.Size = new System.Drawing.Size(772, 29);
+            this.lRecName.Size = new System.Drawing.Size(775, 29);
             this.lRecName.TabIndex = 88;
             this.lRecName.Text = "-";
             // 
@@ -6221,7 +6221,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(910, 44);
+            this.panel8.Size = new System.Drawing.Size(913, 44);
             this.panel8.TabIndex = 0;
             // 
             // loadRekomendasi
@@ -6229,7 +6229,7 @@
             this.loadRekomendasi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadRekomendasi.Enabled = false;
             this.loadRekomendasi.Image = ((System.Drawing.Image)(resources.GetObject("loadRekomendasi.Image")));
-            this.loadRekomendasi.Location = new System.Drawing.Point(828, 12);
+            this.loadRekomendasi.Location = new System.Drawing.Point(831, 12);
             this.loadRekomendasi.Name = "loadRekomendasi";
             this.loadRekomendasi.Size = new System.Drawing.Size(78, 23);
             this.loadRekomendasi.TabIndex = 40;
@@ -6293,7 +6293,7 @@
             // 
             this.xtraTabPage11.Controls.Add(this.tableLayoutPanel12);
             this.xtraTabPage11.Name = "xtraTabPage11";
-            this.xtraTabPage11.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage11.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage11.Text = "Pelayanan";
             // 
             // tableLayoutPanel12
@@ -6310,7 +6310,7 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // panel20
@@ -6326,7 +6326,7 @@
             this.panel20.Location = new System.Drawing.Point(0, 0);
             this.panel20.Margin = new System.Windows.Forms.Padding(0);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(916, 50);
+            this.panel20.Size = new System.Drawing.Size(919, 50);
             this.panel20.TabIndex = 0;
             // 
             // labelControl173
@@ -6347,7 +6347,7 @@
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Enabled = false;
             this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(716, 3);
+            this.simpleButton2.Location = new System.Drawing.Point(719, 3);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(88, 44);
             this.simpleButton2.TabIndex = 135;
@@ -6392,7 +6392,7 @@
             this.loadTind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadTind.Enabled = false;
             this.loadTind.Image = ((System.Drawing.Image)(resources.GetObject("loadTind.Image")));
-            this.loadTind.Location = new System.Drawing.Point(831, 15);
+            this.loadTind.Location = new System.Drawing.Point(834, 15);
             this.loadTind.Name = "loadTind";
             this.loadTind.Size = new System.Drawing.Size(78, 23);
             this.loadTind.TabIndex = 40;
@@ -6427,7 +6427,7 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(916, 558);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(919, 555);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
             // gridControl14
@@ -6436,7 +6436,7 @@
             this.gridControl14.Location = new System.Drawing.Point(3, 353);
             this.gridControl14.MainView = this.gridView14;
             this.gridControl14.Name = "gridControl14";
-            this.gridControl14.Size = new System.Drawing.Size(910, 202);
+            this.gridControl14.Size = new System.Drawing.Size(913, 199);
             this.gridControl14.TabIndex = 4;
             this.gridControl14.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView14});
@@ -6461,7 +6461,7 @@
             this.panel23.Location = new System.Drawing.Point(0, 300);
             this.panel23.Margin = new System.Windows.Forms.Padding(0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(916, 50);
+            this.panel23.Size = new System.Drawing.Size(919, 50);
             this.panel23.TabIndex = 3;
             // 
             // labelControl172
@@ -6480,7 +6480,7 @@
             this.btnDelTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelTindakan.Enabled = false;
             this.btnDelTindakan.Image = ((System.Drawing.Image)(resources.GetObject("btnDelTindakan.Image")));
-            this.btnDelTindakan.Location = new System.Drawing.Point(685, 16);
+            this.btnDelTindakan.Location = new System.Drawing.Point(688, 16);
             this.btnDelTindakan.Name = "btnDelTindakan";
             this.btnDelTindakan.Size = new System.Drawing.Size(67, 23);
             this.btnDelTindakan.TabIndex = 105;
@@ -6492,7 +6492,7 @@
             this.btnAddTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTindakan.Enabled = false;
             this.btnAddTindakan.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTindakan.Image")));
-            this.btnAddTindakan.Location = new System.Drawing.Point(758, 16);
+            this.btnAddTindakan.Location = new System.Drawing.Point(761, 16);
             this.btnAddTindakan.Name = "btnAddTindakan";
             this.btnAddTindakan.Size = new System.Drawing.Size(67, 23);
             this.btnAddTindakan.TabIndex = 104;
@@ -6504,7 +6504,7 @@
             this.btnSaveTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTindakan.Enabled = false;
             this.btnSaveTindakan.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveTindakan.Image")));
-            this.btnSaveTindakan.Location = new System.Drawing.Point(831, 16);
+            this.btnSaveTindakan.Location = new System.Drawing.Point(834, 16);
             this.btnSaveTindakan.Name = "btnSaveTindakan";
             this.btnSaveTindakan.Size = new System.Drawing.Size(78, 23);
             this.btnSaveTindakan.TabIndex = 41;
@@ -6531,7 +6531,7 @@
             this.panel22.Location = new System.Drawing.Point(0, 120);
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(916, 50);
+            this.panel22.Size = new System.Drawing.Size(919, 50);
             this.panel22.TabIndex = 1;
             // 
             // labelControl171
@@ -6550,7 +6550,7 @@
             this.btnDelTind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelTind.Enabled = false;
             this.btnDelTind.Image = ((System.Drawing.Image)(resources.GetObject("btnDelTind.Image")));
-            this.btnDelTind.Location = new System.Drawing.Point(685, 16);
+            this.btnDelTind.Location = new System.Drawing.Point(688, 16);
             this.btnDelTind.Name = "btnDelTind";
             this.btnDelTind.Size = new System.Drawing.Size(67, 23);
             this.btnDelTind.TabIndex = 105;
@@ -6563,7 +6563,7 @@
             this.btnAddTind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTind.Enabled = false;
             this.btnAddTind.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTind.Image")));
-            this.btnAddTind.Location = new System.Drawing.Point(758, 16);
+            this.btnAddTind.Location = new System.Drawing.Point(761, 16);
             this.btnAddTind.Name = "btnAddTind";
             this.btnAddTind.Size = new System.Drawing.Size(67, 23);
             this.btnAddTind.TabIndex = 104;
@@ -6575,7 +6575,7 @@
             this.btnSaveTind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTind.Enabled = false;
             this.btnSaveTind.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveTind.Image")));
-            this.btnSaveTind.Location = new System.Drawing.Point(831, 16);
+            this.btnSaveTind.Location = new System.Drawing.Point(834, 16);
             this.btnSaveTind.Name = "btnSaveTind";
             this.btnSaveTind.Size = new System.Drawing.Size(78, 23);
             this.btnSaveTind.TabIndex = 41;
@@ -6611,7 +6611,7 @@
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Margin = new System.Windows.Forms.Padding(0);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(916, 120);
+            this.panel21.Size = new System.Drawing.Size(919, 120);
             this.panel21.TabIndex = 0;
             // 
             // lbl_id_visit
@@ -6619,7 +6619,7 @@
             this.lbl_id_visit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_id_visit.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lbl_id_visit.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lbl_id_visit.Location = new System.Drawing.Point(609, 3);
+            this.lbl_id_visit.Location = new System.Drawing.Point(612, 3);
             this.lbl_id_visit.Name = "lbl_id_visit";
             this.lbl_id_visit.Size = new System.Drawing.Size(21, 29);
             this.lbl_id_visit.TabIndex = 102;
@@ -6630,7 +6630,7 @@
             this.lTinDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lTinDesc.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lTinDesc.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lTinDesc.Location = new System.Drawing.Point(837, 3);
+            this.lTinDesc.Location = new System.Drawing.Point(840, 3);
             this.lTinDesc.Name = "lTinDesc";
             this.lTinDesc.Size = new System.Drawing.Size(76, 29);
             this.lTinDesc.TabIndex = 101;
@@ -6641,7 +6641,7 @@
             this.lTinTipe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lTinTipe.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lTinTipe.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lTinTipe.Location = new System.Drawing.Point(810, 3);
+            this.lTinTipe.Location = new System.Drawing.Point(813, 3);
             this.lTinTipe.Name = "lTinTipe";
             this.lTinTipe.Size = new System.Drawing.Size(21, 29);
             this.lTinTipe.TabIndex = 100;
@@ -6652,7 +6652,7 @@
             this.labelControl160.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl160.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl160.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl160.Location = new System.Drawing.Point(791, 3);
+            this.labelControl160.Location = new System.Drawing.Point(794, 3);
             this.labelControl160.Name = "labelControl160";
             this.labelControl160.Size = new System.Drawing.Size(13, 29);
             this.labelControl160.TabIndex = 99;
@@ -6664,7 +6664,7 @@
             this.labelControl159.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl159.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl159.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl159.Location = new System.Drawing.Point(718, 3);
+            this.labelControl159.Location = new System.Drawing.Point(721, 3);
             this.labelControl159.Name = "labelControl159";
             this.labelControl159.Size = new System.Drawing.Size(67, 29);
             this.labelControl159.TabIndex = 98;
@@ -6678,7 +6678,7 @@
             this.lTinDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lTinDiag.Location = new System.Drawing.Point(124, 76);
             this.lTinDiag.Name = "lTinDiag";
-            this.lTinDiag.Size = new System.Drawing.Size(785, 29);
+            this.lTinDiag.Size = new System.Drawing.Size(788, 29);
             this.lTinDiag.TabIndex = 97;
             this.lTinDiag.Text = "-";
             // 
@@ -6711,7 +6711,7 @@
             this.lTinAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lTinAnam.Location = new System.Drawing.Point(124, 41);
             this.lTinAnam.Name = "lTinAnam";
-            this.lTinAnam.Size = new System.Drawing.Size(785, 29);
+            this.lTinAnam.Size = new System.Drawing.Size(788, 29);
             this.lTinAnam.TabIndex = 94;
             this.lTinAnam.Text = "-";
             // 
@@ -6773,7 +6773,7 @@
             this.gridControl13.Location = new System.Drawing.Point(3, 173);
             this.gridControl13.MainView = this.gridView13;
             this.gridControl13.Name = "gridControl13";
-            this.gridControl13.Size = new System.Drawing.Size(910, 124);
+            this.gridControl13.Size = new System.Drawing.Size(913, 124);
             this.gridControl13.TabIndex = 2;
             this.gridControl13.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView13});
@@ -6792,7 +6792,7 @@
             // 
             this.xtraTabPage6.Controls.Add(this.tableLayoutPanel4);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage6.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage6.Text = "Tindakan";
             // 
             // tableLayoutPanel4
@@ -6812,7 +6812,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // groupBox6
@@ -6846,7 +6846,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 253);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(910, 352);
+            this.groupBox6.Size = new System.Drawing.Size(913, 349);
             this.groupBox6.TabIndex = 67;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Form Input";
@@ -6902,7 +6902,7 @@
             this.labelControl140.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl140.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl140.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl140.Location = new System.Drawing.Point(792, 133);
+            this.labelControl140.Location = new System.Drawing.Point(795, 133);
             this.labelControl140.Name = "labelControl140";
             this.labelControl140.Size = new System.Drawing.Size(84, 18);
             this.labelControl140.TabIndex = 143;
@@ -6915,7 +6915,7 @@
             this.lRemainAct2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lRemainAct2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lRemainAct2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lRemainAct2.Location = new System.Drawing.Point(876, 133);
+            this.lRemainAct2.Location = new System.Drawing.Point(879, 133);
             this.lRemainAct2.Name = "lRemainAct2";
             this.lRemainAct2.Size = new System.Drawing.Size(29, 18);
             this.lRemainAct2.TabIndex = 142;
@@ -6928,7 +6928,7 @@
             this.labelControl136.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl136.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl136.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl136.Location = new System.Drawing.Point(792, 20);
+            this.labelControl136.Location = new System.Drawing.Point(795, 20);
             this.labelControl136.Name = "labelControl136";
             this.labelControl136.Size = new System.Drawing.Size(84, 29);
             this.labelControl136.TabIndex = 141;
@@ -6941,7 +6941,7 @@
             this.lRemainAct.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lRemainAct.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lRemainAct.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lRemainAct.Location = new System.Drawing.Point(875, 20);
+            this.lRemainAct.Location = new System.Drawing.Point(878, 20);
             this.lRemainAct.Name = "lRemainAct";
             this.lRemainAct.Size = new System.Drawing.Size(29, 29);
             this.lRemainAct.TabIndex = 140;
@@ -6999,7 +6999,7 @@
             this.lActDiag.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lActDiag.Location = new System.Drawing.Point(134, 365);
             this.lActDiag.Name = "lActDiag";
-            this.lActDiag.Size = new System.Drawing.Size(770, 29);
+            this.lActDiag.Size = new System.Drawing.Size(773, 29);
             this.lActDiag.TabIndex = 124;
             this.lActDiag.Text = "-";
             this.lActDiag.Visible = false;
@@ -7035,7 +7035,7 @@
             this.lActAnam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lActAnam.Location = new System.Drawing.Point(134, 330);
             this.lActAnam.Name = "lActAnam";
-            this.lActAnam.Size = new System.Drawing.Size(770, 29);
+            this.lActAnam.Size = new System.Drawing.Size(773, 29);
             this.lActAnam.TabIndex = 121;
             this.lActAnam.Text = "-";
             this.lActAnam.Visible = false;
@@ -7069,7 +7069,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mActRemark.Location = new System.Drawing.Point(134, 153);
             this.mActRemark.Name = "mActRemark";
-            this.mActRemark.Size = new System.Drawing.Size(770, 75);
+            this.mActRemark.Size = new System.Drawing.Size(773, 75);
             this.mActRemark.TabIndex = 118;
             this.mActRemark.TextChanged += new System.EventHandler(this.mActRemark_TextChanged);
             // 
@@ -7079,7 +7079,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mActName.Location = new System.Drawing.Point(134, 55);
             this.mActName.Name = "mActName";
-            this.mActName.Size = new System.Drawing.Size(770, 75);
+            this.mActName.Size = new System.Drawing.Size(773, 75);
             this.mActName.TabIndex = 117;
             this.mActName.TextChanged += new System.EventHandler(this.mActName_TextChanged);
             // 
@@ -7154,7 +7154,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(910, 44);
+            this.panel7.Size = new System.Drawing.Size(913, 44);
             this.panel7.TabIndex = 0;
             // 
             // loadTindakan
@@ -7162,7 +7162,7 @@
             this.loadTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadTindakan.Enabled = false;
             this.loadTindakan.Image = ((System.Drawing.Image)(resources.GetObject("loadTindakan.Image")));
-            this.loadTindakan.Location = new System.Drawing.Point(828, 12);
+            this.loadTindakan.Location = new System.Drawing.Point(831, 12);
             this.loadTindakan.Name = "loadTindakan";
             this.loadTindakan.Size = new System.Drawing.Size(78, 23);
             this.loadTindakan.TabIndex = 39;
@@ -7188,14 +7188,14 @@
             this.panel24.Location = new System.Drawing.Point(0, 50);
             this.panel24.Margin = new System.Windows.Forms.Padding(0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(916, 50);
+            this.panel24.Size = new System.Drawing.Size(919, 50);
             this.panel24.TabIndex = 68;
             // 
             // simpleButton1
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(831, 13);
+            this.simpleButton1.Location = new System.Drawing.Point(834, 13);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(78, 23);
             this.simpleButton1.TabIndex = 89;
@@ -7239,7 +7239,7 @@
             this.gridControl15.Location = new System.Drawing.Point(3, 103);
             this.gridControl15.MainView = this.gridView15;
             this.gridControl15.Name = "gridControl15";
-            this.gridControl15.Size = new System.Drawing.Size(910, 144);
+            this.gridControl15.Size = new System.Drawing.Size(913, 144);
             this.gridControl15.TabIndex = 69;
             this.gridControl15.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView15});
