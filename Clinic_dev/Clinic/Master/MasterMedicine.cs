@@ -117,6 +117,7 @@ namespace Clinic
             LoadDataMaster();
             LoadDataLimit();
             SoftBlink(labelControl4, Color.LightPink, Color.Red, 1600, false);
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterMedicine");
         }
 
         private void btnLoadKate_Click(object sender, EventArgs e)

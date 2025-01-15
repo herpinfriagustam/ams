@@ -665,6 +665,7 @@
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerEnd = new System.Windows.Forms.Timer(this.components);
+            this.labelControl223 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -7287,6 +7288,7 @@
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.labelControl223);
             this.panel23.Controls.Add(this.simpleButton2);
             this.panel23.Controls.Add(this.lTindRm);
             this.panel23.Controls.Add(this.lTindQue);
@@ -8175,6 +8177,17 @@
             // 
             this.timerEnd.Interval = 1000;
             this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
+            // 
+            // labelControl223
+            // 
+            this.labelControl223.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl223.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.labelControl223.Location = new System.Drawing.Point(314, 16);
+            this.labelControl223.Name = "labelControl223";
+            this.labelControl223.Size = new System.Drawing.Size(144, 19);
+            this.labelControl223.TabIndex = 139;
+            this.labelControl223.Text = "LBL INFO ACTION";
+            this.labelControl223.Visible = false;
             // 
             // InspectionPregnant
             // 
@@ -9067,5 +9080,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn54;
         private DevExpress.XtraEditors.LabelControl labelControl221;
         private DevExpress.XtraEditors.LabelControl labelControl222;
+        private DevExpress.XtraEditors.LabelControl labelControl223;
     }
 }

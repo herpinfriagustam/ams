@@ -3113,7 +3113,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.gdRacik);
             this.splitContainer1.Panel2.Controls.Add(this.panel27);
             this.splitContainer1.Size = new System.Drawing.Size(907, 242);
-            this.splitContainer1.SplitterDistance = 391;
+            this.splitContainer1.SplitterDistance = 389;
             this.splitContainer1.TabIndex = 5;
             // 
             // gridRacik
@@ -3122,7 +3122,7 @@
             this.gridRacik.Location = new System.Drawing.Point(0, 38);
             this.gridRacik.MainView = this.gridHRacik;
             this.gridRacik.Name = "gridRacik";
-            this.gridRacik.Size = new System.Drawing.Size(391, 204);
+            this.gridRacik.Size = new System.Drawing.Size(389, 204);
             this.gridRacik.TabIndex = 7;
             this.gridRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridHRacik});
@@ -3213,7 +3213,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel26.Location = new System.Drawing.Point(0, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(391, 38);
+            this.panel26.Size = new System.Drawing.Size(389, 38);
             this.panel26.TabIndex = 0;
             // 
             // labelControl166
@@ -3243,7 +3243,7 @@
             this.simpleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton6.Enabled = false;
             this.simpleButton6.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(297, 8);
+            this.simpleButton6.Location = new System.Drawing.Point(295, 8);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(91, 23);
             this.simpleButton6.TabIndex = 105;
@@ -3266,7 +3266,7 @@
             this.gdRacik.Location = new System.Drawing.Point(0, 38);
             this.gdRacik.MainView = this.gvRacik;
             this.gdRacik.Name = "gdRacik";
-            this.gdRacik.Size = new System.Drawing.Size(512, 204);
+            this.gdRacik.Size = new System.Drawing.Size(514, 204);
             this.gdRacik.TabIndex = 108;
             this.gdRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRacik});
@@ -3358,7 +3358,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel27.Location = new System.Drawing.Point(0, 0);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(512, 38);
+            this.panel27.Size = new System.Drawing.Size(514, 38);
             this.panel27.TabIndex = 105;
             // 
             // labelControl167
@@ -3376,7 +3376,7 @@
             // 
             this.sAddRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sAddRacik.Image = ((System.Drawing.Image)(resources.GetObject("sAddRacik.Image")));
-            this.sAddRacik.Location = new System.Drawing.Point(295, 8);
+            this.sAddRacik.Location = new System.Drawing.Point(297, 8);
             this.sAddRacik.Name = "sAddRacik";
             this.sAddRacik.Size = new System.Drawing.Size(67, 23);
             this.sAddRacik.TabIndex = 105;
@@ -3388,7 +3388,7 @@
             this.sHapusRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sHapusRacik.Enabled = false;
             this.sHapusRacik.Image = ((System.Drawing.Image)(resources.GetObject("sHapusRacik.Image")));
-            this.sHapusRacik.Location = new System.Drawing.Point(370, 8);
+            this.sHapusRacik.Location = new System.Drawing.Point(372, 8);
             this.sHapusRacik.Name = "sHapusRacik";
             this.sHapusRacik.Size = new System.Drawing.Size(63, 23);
             this.sHapusRacik.TabIndex = 104;
@@ -3400,7 +3400,7 @@
             this.sSimpanRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sSimpanRacik.Enabled = false;
             this.sSimpanRacik.Image = ((System.Drawing.Image)(resources.GetObject("sSimpanRacik.Image")));
-            this.sSimpanRacik.Location = new System.Drawing.Point(443, 8);
+            this.sSimpanRacik.Location = new System.Drawing.Point(445, 8);
             this.sSimpanRacik.Name = "sSimpanRacik";
             this.sSimpanRacik.Size = new System.Drawing.Size(63, 23);
             this.sSimpanRacik.TabIndex = 103;
@@ -6950,10 +6950,12 @@
             // timerStart
             // 
             this.timerStart.Interval = 1000;
+            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
             // 
             // timerEnd
             // 
             this.timerEnd.Interval = 1000;
+            this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
             // 
             // InspectionGigi
             // 

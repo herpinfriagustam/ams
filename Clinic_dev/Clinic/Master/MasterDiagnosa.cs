@@ -84,7 +84,7 @@ namespace Clinic
             initData();
             LoadDataKate();
             LoadDataItem();
-
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterDiagnosa");
         }
 
         private void btnLoadKate_Click(object sender, EventArgs e)

@@ -57,6 +57,7 @@ namespace Clinic
             //workingDirectory = Environment.CurrentDirectory;
             //resourcesDirectory = Directory.GetParent(workingDirectory).Parent.FullName + "\\Resources\\";
             initData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "PatientInfoMngt");
             //LoadData();
         }
 

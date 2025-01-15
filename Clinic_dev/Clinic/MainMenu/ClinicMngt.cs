@@ -11,7 +11,8 @@ using DevExpress.XtraBars;
 using System.Net;
 using System.Net.Sockets;
 using System.Diagnostics;
-using Clinic.Class; 
+using Clinic.Class;
+using System.Threading;
 
 namespace Clinic
 {
@@ -97,11 +98,21 @@ namespace Clinic
         Lap_Kunjungan Lap_Kunjungan = null;
         Lap_KunjunganRI Lap_KunjunganRI = null;
         Lap_KasHarian Lap_KasHarian = null;
+        Lap_PenggunaApp Lap_PenggunaApp = null;
 
         string version =  "Version " + Application.ProductVersion;
 
         private bool isLoggedOut = false;
 
+        string mAppVersion = "";
+        string mAppVersionServer = "";
+        string sql_ = "";
+        Thread mThread;
+
+        DataRow mAppVersionInfoServer;
+
+        const string APP_NAME = "Clinic.exe";
+        const string APP_LAUNCHER = "Launcher.exe";
 
         //ConnectDb ConnOra = new ConnectDb();
         public ClinicMngt()
@@ -138,7 +149,69 @@ namespace Clinic
 
             //notificationListener.StopListening();
 
-        } 
+        }
+        private void navBarItem72_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                //Application.Restart();
+                // Set status logout
+
+                sql_ = "";
+                sql_ = "UPDATE KLINIK.CS_HISTORY_LOGIN SET E_DATE = SYSDATE  WHERE USER_ID = '" + DB.vUserId + "' AND E_DATE IS NULL and trunc(S_DATE) = trunc(sysdate) ";
+
+                ConnOra.ExeNonQuery(sql_); 
+
+                isLoggedOut = true;
+
+                // Clear session data (misalnya credentials atau settings)
+                Properties.Settings.Default.UserLoggedIn = false;
+                Properties.Settings.Default.Save();
+
+                // Menutup semua child forms jika ada
+                foreach (Form childForm in this.MdiChildren)
+                {
+                    childForm.Close();
+                }
+
+                mThread = new Thread(UpdateApp);
+                mThread.Start();
+
+                //// Tampilkan form login dan sembunyikan form utama (MDI parent form)
+                //fclinic loginForm = new fclinic();
+                //loginForm.MdiParent = this;  // Set parent form ke MDI
+                //loginForm.Show();
+                ////Sembunyikan MDI form utama
+                //this.Hide();
+                ////Application.Restart();
+                Application.Exit();
+            } 
+        }
+        private void UpdateApp()
+        {
+            // 1. Checking for update
+            //bool updateAvailable = isUpdateAvailable();
+            //if (updateAvailable == false)
+            //{
+            Process.Start(Application.StartupPath + "//" + APP_LAUNCHER);
+            //}
+
+            //// 2. If Update available Download it
+            //bool downloaded = DownloadUpdate();
+
+            //// 3. If download success close and launch the app
+            //if (downloaded)
+            //{
+            //    Process.Start(Application.StartupPath + "//" + APP_LAUNCHER);
+            //}
+            //else
+            //{
+            //    //Process.Start(Application.StartupPath + "//klinik//" + APP_NAME);
+            //}
+
+            Process.GetCurrentProcess().Kill();
+        }
         private void MenuPrivilege()
         {
             if (userStatus == "DOH")
@@ -181,6 +254,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
 
                 navBarGroup5.Visible = true; // Group Master Data
                 navBarItem12.Visible = true; // Master Data Diagnosa
@@ -240,6 +314,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
                 navBarGroup8.Visible = false; // Group Payment
                  
                 navBarGroup5.Visible = true; // Group Master Data
@@ -428,6 +503,7 @@ namespace Clinic
                 navBarItem55.Visible = true; // Laporan Rawat Inap
                 navBarItem60.Visible = true; // Laporan Rekam Medis
                 navBarItem76.Visible = true; // Laporan Kas Harian
+                navBarItem77.Visible = true; // Laporan Pengguna System
 
                 navBarGroup5.Visible = true; // Group Master Data
                 navBarItem12.Visible = true; // Master Data Diagnosa
@@ -1922,36 +1998,7 @@ namespace Clinic
             }
         }
 
-        private void navBarItem72_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            var result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                //Application.Restart();
-                // Set status logout
-                isLoggedOut = true;
-
-                // Clear session data (misalnya credentials atau settings)
-                Properties.Settings.Default.UserLoggedIn = false;
-                Properties.Settings.Default.Save();
-
-                // Menutup semua child forms jika ada
-                foreach (Form childForm in this.MdiChildren)
-                {
-                    childForm.Close();
-                }
-
-                // Tampilkan form login dan sembunyikan form utama (MDI parent form)
-                fclinic loginForm = new fclinic();
-                loginForm.MdiParent = this;  // Set parent form ke MDI
-                loginForm.Show();
-                //Sembunyikan MDI form utama
-                this.Hide();
-                Application.Restart();
-            }
-             
-            
-        }
+       
         private void ClinicMngt_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isLoggedOut)
@@ -2107,6 +2154,25 @@ namespace Clinic
                 Lap_KasHarian.WindowState = FormWindowState.Maximized;
                 Lap_KasHarian.Show();
                 Lap_KasHarian.Focus();
+            }
+        }
+
+        private void navBarItem77_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (Lap_PenggunaApp == null || Lap_PenggunaApp.Text == "")
+            {
+                Lap_PenggunaApp = new Lap_PenggunaApp();
+                Lap_PenggunaApp.MdiParent = this;
+                Lap_PenggunaApp.v_empid = userEmpid;
+                Lap_PenggunaApp.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide();
+            }
+            else if (CheckOpened(Lap_PenggunaApp.Text))
+            {
+                Lap_PenggunaApp.WindowState = FormWindowState.Maximized;
+                Lap_PenggunaApp.Show();
+                Lap_PenggunaApp.Focus();
             }
         }
 

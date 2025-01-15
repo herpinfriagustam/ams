@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Clinic_dev 1.1\Clinic_dev\Clinic\bin\Clinic\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -160,6 +160,12 @@
     </Compile>
     <Compile Include="Payment\BillListv1.Designer.cs">
       <DependentUpon>BillListv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Lap_PenggunaApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Lap_PenggunaApp.Designer.cs">
+      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\Lap_KasHarian.cs">
       <SubType>Form</SubType>
@@ -1111,6 +1117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment\BillListv1.resx">
       <DependentUpon>BillListv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Lap_PenggunaApp.resx">
+      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\Lap_KasHarian.resx">
       <DependentUpon>Lap_KasHarian.cs</DependentUpon>

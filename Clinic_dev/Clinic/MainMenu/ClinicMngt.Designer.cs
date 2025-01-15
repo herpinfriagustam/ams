@@ -95,6 +95,8 @@
             this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem75 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem76 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem77 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem26 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem37 = new DevExpress.XtraNavBar.NavBarItem();
@@ -142,7 +144,6 @@
             this.navBarItem33 = new DevExpress.XtraNavBar.NavBarItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.navBarItem76 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -439,7 +440,8 @@
             this.navBarItem73,
             this.navBarItem74,
             this.navBarItem75,
-            this.navBarItem76});
+            this.navBarItem76,
+            this.navBarItem77});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 192;
@@ -854,6 +856,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem75),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem76),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem77),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem26),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem37),
@@ -941,6 +944,32 @@
             this.navBarItem75.Caption = "Kunjungan Rawat Inap";
             this.navBarItem75.Name = "navBarItem75";
             this.navBarItem75.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem75_LinkClicked);
+            // 
+            // navBarItem76
+            // 
+            this.navBarItem76.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem76.Appearance.Options.UseFont = true;
+            this.navBarItem76.AppearanceHotTracked.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem76.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem76.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem76.AppearancePressed.Options.UseFont = true;
+            this.navBarItem76.Caption = "Pendapatan Kas Harian";
+            this.navBarItem76.Name = "navBarItem76";
+            this.navBarItem76.Visible = false;
+            this.navBarItem76.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem76_LinkClicked);
+            // 
+            // navBarItem77
+            // 
+            this.navBarItem77.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem77.Appearance.Options.UseFont = true;
+            this.navBarItem77.AppearanceHotTracked.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem77.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem77.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem77.AppearancePressed.Options.UseFont = true;
+            this.navBarItem77.Caption = "Riwayat Pengguna App";
+            this.navBarItem77.Name = "navBarItem77";
+            this.navBarItem77.Visible = false;
+            this.navBarItem77.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem77_LinkClicked);
             // 
             // navBarItem24
             // 
@@ -1408,6 +1437,7 @@
             // navBarGroup3
             // 
             this.navBarGroup3.Caption = "Utility";
+            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem71),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem72)});
@@ -1482,19 +1512,6 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
-            // 
-            // navBarItem76
-            // 
-            this.navBarItem76.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.navBarItem76.Appearance.Options.UseFont = true;
-            this.navBarItem76.AppearanceHotTracked.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.navBarItem76.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem76.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.navBarItem76.AppearancePressed.Options.UseFont = true;
-            this.navBarItem76.Caption = "Pendapatan Kas Harian";
-            this.navBarItem76.Name = "navBarItem76";
-            this.navBarItem76.Visible = false;
-            this.navBarItem76.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem76_LinkClicked);
             // 
             // ClinicMngt
             // 
@@ -1645,5 +1662,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem74;
         private DevExpress.XtraNavBar.NavBarItem navBarItem75;
         private DevExpress.XtraNavBar.NavBarItem navBarItem76;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem77;
     }
 }

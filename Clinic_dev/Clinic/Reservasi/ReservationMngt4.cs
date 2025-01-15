@@ -74,6 +74,7 @@ namespace Clinic
         {
             btnSaveInfo.Enabled = false;
             btnAddAnam.Enabled = false;
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "ReservationMngt4");
             //workingDirectory = Environment.CurrentDirectory;
             //resourcesDirectory = Directory.GetParent(workingDirectory).Parent.FullName + "\\Resources\\";
             initData();
@@ -1369,9 +1370,9 @@ namespace Clinic
                     else
                     {
                         purpose = "DOC";
-                        c_que = "D";
+                        c_que = "I";
 
-                        sql_check = " select  nvl(max(to_number(substr(que01,2,3))),0) que from cs_visit where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate,'yyyy-mm-dd') and purpose = '" + purpose + "' ";
+                        sql_check = " select  nvl(max(to_number(substr(que01,2,3))),0) que from cs_visit where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate,'yyyy-mm-dd') and purpose = '" + purpose + "' and POLI_CD ='POL0004' ";
 
                         try
                         {
@@ -1729,7 +1730,7 @@ namespace Clinic
                             sql_update = sql_update + " update cs_anamnesa";
                             sql_update = sql_update + " set blood_press = '" + tensi + "', pulse = '" + nadi + "', bb = '" + bb + "', tb = '" + tb + "', ";
                             sql_update = sql_update + "     temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "',  disease_now = '" + rw + "', VITALRR = '" + trr + "',";
-                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                             sql_update = sql_update + " where rm_no = '" + rm_no + "' and  ID_VISIT = " + id_visit + " ";
 
                             command.CommandText = sql_update;

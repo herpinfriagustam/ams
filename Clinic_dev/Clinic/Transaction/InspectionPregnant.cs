@@ -87,6 +87,7 @@ namespace Clinic
         {
             InitData();
             LoadDataPasien();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "InspectionPregnant");
         }
 
         private void InitData()
@@ -920,7 +921,7 @@ namespace Clinic
                 btnSaveAdd.Enabled = true;
             }
 
-            if (s_tatus == "Completed" || s_tatus == "Payment")
+            if (s_tatus == "Completed" || s_tatus == "Payment" || s_tatus == "Medicine")
             {
                 btnDelTindakan.Enabled = false;
                 btnAddTindakan.Enabled = false;
@@ -955,7 +956,7 @@ namespace Clinic
                        " type_diagnosa, a.remark, 'S' a, a.diagnosa_id  " +
                        " from KLINIK.cs_diagnosa a  " +
                        " join KLINIK.cs_diagnosa_item b on a.item_cd = b.item_cd  " +
-                       " join KLINIK.cs_diagnosa_category c on b.cat_id = c.cat_id and b.cat_id = decode('" + spoli + "','POL0002','CAT030', 'CAT016' )" +
+                       " join KLINIK.cs_diagnosa_category c on b.cat_id = c.cat_id  " +
                        " JOIN KLINIK.cs_anamnesa D ON A.ANAMNESA_ID = D.ANAMNESA_ID " +
                        " JOIN KLINIK.CS_VISIT E ON E.id_visit = D.id_visit " +
                        " where a.rm_no = '" + s_rm + "'  " +
@@ -1504,9 +1505,7 @@ namespace Clinic
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql_insert);
                                 //MessageBox.Show("Data Berhasil disimpan.");
-                                labelControl189.Visible = true;
-                                labelControl189.Text = "Simpan Diagnosa Berhasil";
-                                Blinking(labelControl189, 1);
+                               
                             }
                             catch (Exception ex)
                             {
@@ -1539,9 +1538,7 @@ namespace Clinic
                             //MessageBox.Show("Query Exec : " + sql_update);
 
                             //MessageBox.Show("Data Berhasil diupdate");
-                            labelControl189.Visible = true;
-                            labelControl189.Text = "Update Diagnosa Berhasil";
-                            Blinking(labelControl189, 1);
+                            
                         }
                         catch (Exception ex)
                         {
@@ -1580,29 +1577,402 @@ namespace Clinic
                          " set  " +
                          " infop1 = '" + s_infop1 + "', infop2 = '" + s_infop2 + "', " +
                          " infop3 = '" + s_infop3 + "', infop4 = '" + s_infop4 + "', " +
-                         " infop5 = '" + s_infop5 + "', " +
-                         " upd_emp = '" + DB.vUserId + "', upd_date = sysdate " +
+                         " infop5 = '" + s_infop5 + "'  " + 
                          " where rm_no = '" + rm_no + "' and to_char(insp_date,'yyyy-mm-dd') = '" + date + "' and ANAMNESA_ID =  " + v_anamnesa + " ";
 
             ConnOra.ExeNonQuery(sql_update);
 
             if (ssave == 0)
             {
-                labelControl163.Visible = true;
-                labelControl163.Text = "Update Diagnosa Berhasil";
-                Blinking(labelControl163, 1);
+                labelControl189.Visible = true;
+                labelControl189.Text = "Update Diagnosa Berhasil";
+                Blinking(labelControl189, 1);
             }
             else if (ssave == 2)
             {
 
-                labelControl163.Visible = true;
-                labelControl163.Text = "Simpan Diagnosa Berhasil";
-                Blinking(labelControl163, 1);
+                labelControl189.Visible = true;
+                labelControl189.Text = "Simpan Diagnosa Berhasil";
+                Blinking(labelControl189, 1);
             }
 
-            //pelayanandefault();
+            if (gridView4.RowCount <= 0)
+            {
+                btnAddDiag.Enabled = true;
+                btnDelDiag.Enabled = false;
+                btnSaveDiag.Enabled = false;
+            }
+            else
+            {
+                btnAddDiag.Enabled = true;
+                btnDelDiag.Enabled = true;
+                btnSaveDiag.Enabled = true;
+            }
+
+            pelayanandefault();
 
             LoadDiagnosa(rm_no, date, que, s_poli);
+        }
+        private void pelayanandefault()
+        {
+            string date = "", que = "", rm_no = "", pasno = "", nama_laya = "", status = "", remark = "", action = "", stbyr = "", insu_flag = "",   headid = "", policd = "";
+            string sql_cnt = "", diag_cnt = "", sql_update = "", sql_visit ="", sstatvisit ="";
+            int stsimpan = 0;
+
+            date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
+            que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+            rm_no = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+            pasno = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
+            policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
+            idvisit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[13]).ToString();
+            //pid_visit = lbl_id_visit.Text;
+
+            //for (int i = 0; i < gridView13.DataRowCount; i++)
+            //{
+            nama_laya = "TRT01";// gridView13.GetRowCellValue(i, gridView13.Columns[6]).ToString();
+            status = "OPN"; // gridView13.GetRowCellValue(i, gridView13.Columns[7]).ToString();
+            remark = "";// gridView13.GetRowCellValue(i, gridView13.Columns[8]).ToString();
+            action = "I";// gridView13.GetRowCellValue(i, gridView13.Columns[9]).ToString();
+            stbyr = "OPN"; // gridView13.GetRowCellValue(i, gridView13.Columns[10]).ToString();
+            insu_flag = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+
+            sql_visit = " select status from KLINIK.cs_visit where ID_VISIT =" + idvisit + " ";
+            OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_visit, oraConnects2);
+            DataTable dts2 = new DataTable();
+            adOras2.Fill(dts2);
+            if(dts2.Rows.Count > 0)
+            {
+                sstatvisit = dts2.Rows[0]["status"].ToString();
+
+                if (!sstatvisit.ToString().Equals("PRE") && !sstatvisit.ToString().Equals("RSV") && !sstatvisit.ToString().Equals("INS") && !sstatvisit.ToString().Equals("NUR"))
+                    return;
+            } 
+
+            //if (nama_laya == "")
+            //{
+            //    //MessageBox.Show("Nama Layanan harus diisi");
+            //    labelControl171.Visible = true;
+            //    labelControl171.Text = "Gagal,,Input Data Layanan";
+            //    Blinking(labelControl171, 0);
+            //    return;
+            //}
+            //else if (stbyr != "OPN")
+            //{
+            //    //MessageBox.Show("Data tidak bisa ditambah");
+            //    labelControl171.Visible = true;
+            //    labelControl171.Text = "Gagal,,Pasien Closed";
+            //    Blinking(labelControl171, 0);
+            //    return;
+            //}
+            //else
+            //{
+            //    if (action == "I")
+            //    {
+                    if (insu_flag.ToString().Equals("Asuransi"))
+                        insu_flag = "A";
+                    else if (insu_flag.ToString().Equals("Umum"))
+                        insu_flag = "U";
+                    else if (insu_flag.ToString().Equals("BPJS"))
+                        insu_flag = "B";
+
+                    sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' and ID_VISIT =" + idvisit + " ";
+                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                    OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+                    DataTable dt = new DataTable();
+                    adOra.Fill(dt);
+                    diag_cnt = dt.Rows[0]["cnt"].ToString();
+                    if (Convert.ToInt32(diag_cnt) > 0)
+                    {
+                        headid = dt.Rows[0]["headid"].ToString();
+                        OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                        OleDbCommand command = new OleDbCommand();
+                        OleDbTransaction trans = null;
+
+                        command.Connection = oraConnectTrans;
+                        oraConnectTrans.Open();
+
+                        try
+                        {
+                            string sql_seq2 = "", seq_val2 = "", sql_tmp = "", sql_seq = "", seq_val = "";
+
+                            trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                            command.Connection = oraConnectTrans;
+                            command.Transaction = trans;
+                            
+                            //command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                            //command.ExecuteNonQuery();
+                           
+
+                            sql_tmp = " ";
+                            sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
+                            sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
+                            sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
+                            sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
+                            sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
+                            sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
+                            sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
+                            sql_tmp = sql_tmp + " where 1=1";
+                            sql_tmp = sql_tmp + "   and default_st='Y' "; 
+                            sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                            sql_tmp = sql_tmp + "and b.treat_group_id = 'TRG07' and b.F_STATUS ='" + insu_flag + "'";
+
+                            command.CommandText = sql_tmp;
+                            command.ExecuteNonQuery();
+
+                            trans.Commit();
+                            //MessageBox.Show(sql_insert);
+                            //MessageBox.Show("Query Exec : " + sql_insert);
+                            //MessageBox.Show("Data Berhasil disimpan.");
+                            stsimpan = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            MessageBox.Show("ERROR: " + ex.Message);
+                        }
+
+                        oraConnectTrans.Close();
+
+                    }
+                    //else
+                    //{
+                    //    string sql_seq = "", seq_val = "", sql_tmp = "";
+                    //    sql_seq = " select CS_TREATMENT_HEAD_SEQ.nextval seq from dual ";
+                    //    OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                    //    OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_seq, oraConnect2);
+                    //    DataTable dt2 = new DataTable();
+                    //    adOra2.Fill(dt2);
+                    //    seq_val = dt2.Rows[0]["seq"].ToString();
+
+                    //    OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                    //    OleDbCommand command = new OleDbCommand();
+                    //    OleDbTransaction trans = null;
+
+                    //    command.Connection = oraConnectTrans;
+                    //    oraConnectTrans.Open();
+
+                    //    try
+                    //    {
+                    //        trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                    //        command.Connection = oraConnectTrans;
+                    //        command.Transaction = trans;
+                    //        //DB.vUserId = "1";
+                    //        if (insu_flag.ToString().Equals("A"))
+                    //            insu_flag = "A";
+                    //        else if (insu_flag.ToString().Equals("B"))
+                    //            insu_flag = "B";
+                    //        else
+                    //            insu_flag = "U";
+                    //        command.CommandText = " insert into KLINIK.cs_treatment_head (head_id, rm_no, patient_no, visit_date, visit_no, treat_type_id, status, remarks, pay_status, insu_flag, ins_date, ins_emp,ID_VISIT) values ('" + seq_val + "', '" + rm_no + "', '" + pasno + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + nama_laya + "', 'OPN', '" + remark + "', 'OPN', '" + insu_flag + "', sysdate, '" + DB.vUserId + "', '" + pid_visit + "') ";
+                    //        command.ExecuteNonQuery();
+
+                    //        if (nama_laya.ToString().Equals("TRT01"))
+                    //        {
+                    //            command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    //            command.ExecuteNonQuery();
+                    //        }
+                             
+
+
+                    //        sql_tmp = "";
+                    //        sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
+                    //        sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
+                    //        sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
+                    //        sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
+                    //        sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
+                    //        sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
+                    //        sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
+                    //        sql_tmp = sql_tmp + "where 1=1";
+                    //        sql_tmp = sql_tmp + "and default_st='Y' ";
+                    //        if (!nama_laya.ToString().Equals("TRT01"))
+                    //            sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
+                    //        else
+                    //            sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                    //        sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')  and b.F_STATUS ='" + insu_flag + "'";
+
+                    //        command.CommandText = sql_tmp;
+                    //        command.ExecuteNonQuery();
+
+                    //        trans.Commit();
+                    //        //MessageBox.Show(sql_insert);
+                    //        //MessageBox.Show("Query Exec : " + sql_insert);
+                    //        //MessageBox.Show("Data Berhasil disimpan.");
+                    //        stsimpan = 1;
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        trans.Rollback();
+                    //        MessageBox.Show("ERROR: " + ex.Message);
+                    //    }
+
+                    //    oraConnectTrans.Close();
+                    //}
+                //}
+                //else if (action == "U" || action == "S")
+                //{
+                //    sql_update = "";
+
+                //    if (insu_flag != lTinDesc.Text)
+                //    {
+                //        //MessageBox.Show("Data Tipe Pasien pada menu reservasi dan tagihan tidak sama");
+                //        labelControl171.Visible = true;
+                //        labelControl171.Text = "Type Pasien Tidak Sama";
+                //        Blinking(labelControl171, 0);
+                //        LoadTind();
+                //        LoadAddTind();
+                //        return;
+                //    }
+
+                //    if (insu_flag.ToString().Equals("Asuransi"))
+                //        insu_flag = "A";
+                //    else if (insu_flag.ToString().Equals("BPJS"))
+                //        insu_flag = "B";
+                //    else
+                //        insu_flag = "U";
+
+                //    sql_update = sql_update + " update KLINIK.cs_treatment_head" +
+                //                              " set remarks = '" + remark + "', insu_flag= '" + insu_flag + "', ";
+                //    sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                //    sql_update = sql_update + " where rm_no = '" + rm_no + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and patient_no = '" + pasno + "' ";
+
+                //    try
+                //    {
+                //        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                //        OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                //        oraConnect.Open();
+                //        cm.ExecuteNonQuery();
+                //        oraConnect.Close();
+                //        cm.Dispose();
+
+                //        stsimpan = 2;
+
+                //        sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' ";
+                //        OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                //        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect2);
+                //        DataTable dt = new DataTable();
+                //        adOra.Fill(dt);
+                //        diag_cnt = dt.Rows[0]["cnt"].ToString();
+                //        if (Convert.ToInt32(diag_cnt) > 0)
+                //        {
+                //            headid = dt.Rows[0]["headid"].ToString();
+                //            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                //            OleDbCommand command = new OleDbCommand();
+                //            OleDbTransaction trans = null;
+
+                //            command.Connection = oraConnectTrans;
+                //            oraConnectTrans.Open();
+
+                //            try
+                //            {
+                //                string sql_seq2 = "", seq_val2 = "", sql_tmp = "", sql_seq = "", seq_val = "";
+
+                //                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                //                command.Connection = oraConnectTrans;
+                //                command.Transaction = trans;
+                //                //DB.vUserId = "1";
+
+                //                if (nama_laya.ToString().Equals("TRT01"))
+                //                {
+                //                    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                //                    command.ExecuteNonQuery();
+                //                }
+                //                //else
+                //                //{
+                //                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
+                //                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
+                //                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
+                //                //    DataTable dts2 = new DataTable();
+                //                //    adOras2.Fill(dts2);
+                //                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
+
+                //                //    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
+                //                //    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
+                //                //    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
+                //                //    DataTable dts = new DataTable();
+                //                //    adOras.Fill(dts);
+                //                //    seq_val = dts.Rows[0]["seq"].ToString();
+
+
+                //                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
+                //                //    command.ExecuteNonQuery();
+
+                //                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                //                //    command.ExecuteNonQuery();
+
+                //                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
+                //                //    command.ExecuteNonQuery();
+
+                //                //    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
+                //                //    //command.ExecuteNonQuery();
+
+                //                //    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
+                //                //    //command.ExecuteNonQuery();  
+                //                //}
+
+                //                sql_tmp = " ";
+                //                sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
+                //                sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
+                //                sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
+                //                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
+                //                sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
+                //                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
+                //                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
+                //                sql_tmp = sql_tmp + " where 1=1";
+                //                sql_tmp = sql_tmp + "   and default_st='Y' and b.treat_item_id not in( select TREAT_ITEM_ID from KLINIK.cs_treatment_detail where HEAD_ID = " + headid + " )  ";
+                //                if (!nama_laya.ToString().Equals("TRT01"))
+                //                    sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
+                //                else
+                //                    sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                //                sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06') and b.F_STATUS ='" + insu_flag + "' ";
+
+                //                command.CommandText = sql_tmp;
+                //                command.ExecuteNonQuery();
+
+                //                trans.Commit();
+                //                stsimpan = 1;
+
+                //                //MessageBox.Show(sql_insert);
+                //                //MessageBox.Show("Query Exec : " + sql_insert);
+                //                //MessageBox.Show("Data Berhasil disimpan.");
+                //            }
+                //            catch (Exception ex)
+                //            {
+                //                trans.Rollback();
+                //                MessageBox.Show("ERROR: " + ex.Message);
+                //            }
+
+                //            oraConnectTrans.Close();
+
+                //        }
+
+                //        //MessageBox.Show("Query Exec : " + sql_update);
+
+                //        //MessageBox.Show("Data Berhasil diupdate");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show("ERROR: " + ex.Message);
+                //    }
+                //}
+                //LoadTind();
+                //LoadAddTind();
+                //simpleButton2.Enabled = true;
+            //}
+            //}
+
+            //if (stsimpan == 1)
+            //{
+            //    labelControl171.Visible = true;
+            //    labelControl171.Text = "Pelayanan Berhasil Disimpan";
+            //    Blinking(labelControl171, 1);
+            //}
+            //else if (stsimpan == 2)
+            //{
+            //    labelControl171.Visible = true;
+            //    labelControl171.Text = "Pelayanan Berhasil Diubah";
+            //    Blinking(labelControl171, 1);
+            //}
         }
 
         private void gridView4_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -5707,11 +6077,11 @@ namespace Clinic
         private void btnCanDiag_Click(object sender, EventArgs e)
         {
             string stat = gridView4.GetRowCellDisplayText(gridView4.FocusedRowHandle, gridView4.Columns[0]);
-            if (stat == "")
+            if (stat == "I" || stat == "")
             {
                 gridView4.DeleteRow(gridView4.FocusedRowHandle);
             }
-
+            
         }
 
         private void btnMedCan_Click(object sender, EventArgs e)
@@ -6101,43 +6471,43 @@ namespace Clinic
                                 command.Transaction = trans;
                                 //DB.vUserId = "1";
 
-                                if (nama_laya.ToString().Equals("TRT01"))
-                                {
-                                    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                                    command.ExecuteNonQuery();
-                                }
-                                else
-                                {
-                                    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                                    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                                    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                                    DataTable dts2 = new DataTable();
-                                    adOras2.Fill(dts2);
-                                    seq_val2 = dts2.Rows[0]["seq"].ToString();
+                                //if (nama_laya.ToString().Equals("TRT01"))
+                                //{
+                                //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                                //    command.ExecuteNonQuery();
+                                //}
+                                //else
+                                //{
+                                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
+                                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
+                                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
+                                //    DataTable dts2 = new DataTable();
+                                //    adOras2.Fill(dts2);
+                                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
 
-                                    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
-                                    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
-                                    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
-                                    DataTable dts = new DataTable();
-                                    adOras.Fill(dts);
-                                    seq_val = dts.Rows[0]["seq"].ToString();
+                                //    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
+                                //    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
+                                //    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
+                                //    DataTable dts = new DataTable();
+                                //    adOras.Fill(dts);
+                                //    seq_val = dts.Rows[0]["seq"].ToString();
 
 
-                                    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                                    command.ExecuteNonQuery();
+                                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
+                                //    command.ExecuteNonQuery();
 
-                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                                    command.ExecuteNonQuery();
+                                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                //    command.ExecuteNonQuery();
 
-                                    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                                    command.ExecuteNonQuery();
+                                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
+                                //    command.ExecuteNonQuery();
 
-                                    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
-                                    //command.ExecuteNonQuery();
+                                //    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
+                                //    //command.ExecuteNonQuery();
 
-                                    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
-                                    //command.ExecuteNonQuery();  
-                                }
+                                //    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
+                                //    //command.ExecuteNonQuery();  
+                                //}
 
                                 sql_tmp = " ";
                                 sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
@@ -6204,31 +6574,31 @@ namespace Clinic
                                 command.CommandText = " insert into KLINIK.cs_treatment_head (head_id, rm_no, patient_no, visit_date, visit_no, treat_type_id, status, remarks, pay_status, insu_flag, ins_date, ins_emp,ID_VISIT) values ('" + seq_val + "', '" + rm_no + "', '" + pasno + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + nama_laya + "', 'OPN', '" + insu_flag + "', 'OPN', '" + insu_flag + "', sysdate, '" + DB.vUserId + "', '" + pid_visit + "') ";
                                 command.ExecuteNonQuery();
 
-                                if (nama_laya.ToString().Equals("TRT01"))
-                                {
-                                    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                                    command.ExecuteNonQuery();
-                                }
-                                else
-                                {
-                                    string sql_seq2 = "", seq_val2 = "";
-                                    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                                    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                                    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                                    DataTable dts2 = new DataTable();
-                                    adOras2.Fill(dts2);
-                                    seq_val2 = dts2.Rows[0]["seq"].ToString();
+                                //if (nama_laya.ToString().Equals("TRT01"))
+                                //{
+                                //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                                //    command.ExecuteNonQuery();
+                                //}
+                                //else
+                                //{
+                                //    string sql_seq2 = "", seq_val2 = "";
+                                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
+                                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
+                                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
+                                //    DataTable dts2 = new DataTable();
+                                //    adOras2.Fill(dts2);
+                                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
 
 
-                                    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                                    command.ExecuteNonQuery();
+                                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
+                                //    command.ExecuteNonQuery();
 
-                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                                    command.ExecuteNonQuery();
+                                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                //    command.ExecuteNonQuery();
 
-                                    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                                    command.ExecuteNonQuery();
-                                }
+                                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
+                                //    command.ExecuteNonQuery();
+                                //}
 
 
                                 sql_tmp = "";
@@ -6325,43 +6695,43 @@ namespace Clinic
                                     command.Transaction = trans;
                                     //DB.vUserId = "1";
 
-                                    if (nama_laya.ToString().Equals("TRT01"))
-                                    {
-                                        command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                                        command.ExecuteNonQuery();
-                                    }
-                                    else
-                                    {
-                                        sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                                        OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                                        OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                                        DataTable dts2 = new DataTable();
-                                        adOras2.Fill(dts2);
-                                        seq_val2 = dts2.Rows[0]["seq"].ToString();
+                                    //if (nama_laya.ToString().Equals("TRT01"))
+                                    //{
+                                    //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                                    //    command.ExecuteNonQuery();
+                                    //}
+                                    //else
+                                    //{
+                                    //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
+                                    //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
+                                    //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
+                                    //    DataTable dts2 = new DataTable();
+                                    //    adOras2.Fill(dts2);
+                                    //    seq_val2 = dts2.Rows[0]["seq"].ToString();
 
-                                        sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
-                                        OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
-                                        OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
-                                        DataTable dts = new DataTable();
-                                        adOras.Fill(dts);
-                                        seq_val = dts.Rows[0]["seq"].ToString();
+                                    //    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
+                                    //    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
+                                    //    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
+                                    //    DataTable dts = new DataTable();
+                                    //    adOras.Fill(dts);
+                                    //    seq_val = dts.Rows[0]["seq"].ToString();
 
 
-                                        command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                                        command.ExecuteNonQuery();
+                                    //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
+                                    //    command.ExecuteNonQuery();
 
-                                        command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                                        command.ExecuteNonQuery();
+                                    //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                    //    command.ExecuteNonQuery();
 
-                                        command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                                        command.ExecuteNonQuery();
+                                    //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
+                                    //    command.ExecuteNonQuery();
 
-                                        //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
-                                        //command.ExecuteNonQuery();
+                                    //    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
+                                    //    //command.ExecuteNonQuery();
 
-                                        //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
-                                        //command.ExecuteNonQuery();  
-                                    }
+                                    //    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
+                                    //    //command.ExecuteNonQuery();  
+                                    //}
 
                                     sql_tmp = " ";
                                     sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
@@ -6534,7 +6904,7 @@ namespace Clinic
             sql_tind_load = sql_tind_load + Environment.NewLine + "where rm_no='" + s_rm + "' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and to_char(visit_date,'yyyy-mm-dd')='" + s_date + "' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' and id_visit = '" + idvisit + "'  ";
-            sql_tind_load = sql_tind_load + Environment.NewLine + "and a.status='OPN' ";
+            //sql_tind_load = sql_tind_load + Environment.NewLine + "and a.status='OPN' ";
 
             sql_tind_load = sql_tind_load + Environment.NewLine + "and (c.treat_type_id is null or c.treat_type_id not in ('TRT02') )";
 
@@ -6571,7 +6941,7 @@ namespace Clinic
             //gridView14.Columns[9].VisibleIndex = 6;
 
             gridView14.Columns[0].Visible = false;
-            //gridView14.Columns[5].Visible = false;
+            gridView14.Columns[4].Visible = false;
             gridView14.Columns[6].Visible = false;
             gridView14.Columns[7].Visible = false;
             gridView14.Columns[8].Visible = false;
@@ -6946,7 +7316,7 @@ namespace Clinic
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type = "", s_name = "", q_no2 = "";
+            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type = "", s_name = "", q_no2 = "", sql_="", sql_diag="", diag_cnt ="";
             int stsimpan = 0;
 
 
@@ -6966,6 +7336,25 @@ namespace Clinic
             }
             else
             {
+                sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and ANAMNESA_ID = " + v_anamnesa + " and rm_no = '" + lMedRm.Text + "' ";
+                OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+                DataTable dtd = new DataTable();
+                adOrad.Fill(dtd);
+                diag_cnt = dtd.Rows[0]["cnt"].ToString();
+
+                if (diag_cnt == "0")
+                {
+                    labelControl223.Visible = true;
+                    labelControl223.Text = "Gagal..Diagnosa Belum Di Input.";
+                    Blinking(labelControl223, 0);
+                    return;
+                }
+
+                sql_ = "";
+                sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                ConnOra.ExeNonQuery(sql_);
+
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
                                    from KLINIK.CS_CALL_LOG a, KLINIK.cs_visit b
@@ -7029,14 +7418,20 @@ namespace Clinic
                 }
                 else
                 {
-                    MessageBox.Show("Maaf Status Sudah Closed. Data tidak bisa di ubah..!!!");
+                    //MessageBox.Show("Maaf Status Sudah Closed. Data tidak bisa di ubah..!!!");
+                    labelControl223.Visible = true;
+                    labelControl223.Text = "Gagal..Status Sudah Closed.";
+                    Blinking(labelControl223, 0);
                     return;
                 }
             }
 
             if (stsimpan == 1)
             {
-                MessageBox.Show("Data Pemeriksaan Berhasil di Closed.");
+                //MessageBox.Show("Data Pemeriksaan Berhasil di Closed.");
+                labelControl223.Visible = true;
+                labelControl223.Text = "Pemeriksaan Berhasil di Closed.";
+                Blinking(labelControl223, 1);
                 simpleButton2.Enabled = false;
             }
         }
@@ -7927,6 +8322,14 @@ namespace Clinic
                 {
                     MessageBox.Show("Data Anamnesa belum disimpan. "); 
                 }
+            }
+            if (xtraTabControl2.SelectedTabPage.Text == "Pelayanan")
+            {
+                if (tmp_now != rNow.Text || tmp_old != rOld.Text || tmp_fam != rFam.Text || tmp_fisik != pFisik.Text || tmp_add != pAdd.Text)
+                {
+                    MessageBox.Show("Data Anamnesa belum disimpan. ");
+                }
+                loadTind_Click(sender, e);
             }
         }
 

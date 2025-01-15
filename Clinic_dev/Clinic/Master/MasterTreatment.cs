@@ -100,7 +100,7 @@ namespace Clinic
             listStat2.Clear();
             listStat2.Add(new Status() { statusCode = "U", statusName = "Umum" });
             listStat2.Add(new Status() { statusCode = "B", statusName = "BPJS" });
-            listStat2.Add(new Status() { statusCode = "S", statusName = "Swasta" });
+            listStat2.Add(new Status() { statusCode = "A", statusName = "Asuransi" });
 
         }
 
@@ -248,7 +248,7 @@ namespace Clinic
             sql_search = "";
             sql_search = sql_search + Environment.NewLine + "select 'S' action, treat_item_id, treat_type_id, treat_group_id, treat_item_name, ";
             sql_search = sql_search + Environment.NewLine + "treat_item_price, default_st, F_STATUS  TYPE, Used_by User_By,  status ";
-            sql_search = sql_search + Environment.NewLine + "from cs_treatment_item ";
+            sql_search = sql_search + Environment.NewLine + "from cs_treatment_item where STATUS ='A' ";
             sql_search = sql_search + Environment.NewLine + "order by treat_item_id ";
 
             //loading.ShowWaitForm();
@@ -429,6 +429,7 @@ namespace Clinic
             loadDataTrGroup();
             loadDataTrItem();
             loadDataRsv();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterTreatment");
         }
 
         private void btnLoadType_Click(object sender, EventArgs e)
@@ -644,7 +645,7 @@ namespace Clinic
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
             string sql_insert = "", sql_update = "";
-            string p_kode = "", p_tipe="", p_grup="", p_nama = "", p_harga="", p_default="", p_status = "", p_action = "";
+            string p_kode = "", p_tipe="", p_grup="", p_nama = "", p_harga="", p_default="", p_status = "", p_action = "", p_userby ="" ;
 
             for (int i = 0; i < gridView3.DataRowCount; i++)
             {
@@ -656,6 +657,7 @@ namespace Clinic
                 p_harga = gridView3.GetRowCellValue(i, gridView3.Columns[5]).ToString();
                 p_default = gridView3.GetRowCellValue(i, gridView3.Columns[6]).ToString();
                 p_status = gridView3.GetRowCellValue(i, gridView3.Columns[7]).ToString();
+                p_userby = gridView3.GetRowCellValue(i, gridView3.Columns[8]).ToString();
 
                 if (p_grup == "")
                 {
@@ -679,8 +681,8 @@ namespace Clinic
                     {
                         sql_insert = "";
 
-                        sql_insert = sql_insert + " insert into cs_treatment_item (treat_item_id, treat_item_name, treat_type_id, treat_group_id, treat_item_price, default_st, status, visible, ins_date, ins_emp) values ";
-                        sql_insert = sql_insert + " (CS_TREATMENT_ITEM_SEQ.nextval, '" + p_nama + "', '" + p_tipe + "', '" + p_grup + "', '" + p_harga + "', '" + p_default + "', 'A', 'Y', sysdate, '" + DB.vUserId + "') ";
+                        sql_insert = sql_insert + " insert into cs_treatment_item (treat_item_id, treat_item_name, treat_type_id, treat_group_id, treat_item_price, default_st, status, visible, ins_date, ins_emp, F_STATUS, USED_BY) values ";
+                        sql_insert = sql_insert + " (CS_TREATMENT_ITEM_SEQ.nextval, '" + p_nama + "', '" + p_tipe + "', '" + p_grup + "', '" + p_harga + "', '" + p_default + "', 'A', 'Y', sysdate, '" + DB.vUserId + "', '" + p_status + "', '" + p_userby + "') ";
 
                         try
                         {
@@ -705,8 +707,8 @@ namespace Clinic
                         sql_update = "";
 
                         sql_update = sql_update + " update cs_treatment_item set treat_item_name = '" + p_nama + "', treat_type_id = '" + p_tipe + "',  ";
-                        sql_update = sql_update + " treat_group_id = '" + p_grup + "', treat_item_price = '" + p_harga + "', default_st = '" + p_default + "',  ";
-                        sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' ";
+                        sql_update = sql_update + " treat_group_id = '" + p_grup + "', treat_item_price = '" + p_harga + "', default_st = '" + p_default + "', F_STATUS = '" + p_status + "' , ";
+                        sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' , USED_BY =  '" + p_userby + "'";
                         sql_update = sql_update + " where treat_item_id = '" + p_kode + "' ";
 
                         try
@@ -737,7 +739,7 @@ namespace Clinic
             btnSaveItem.Enabled = true;
             GridView view = sender as GridView;
 
-            if (e.Column.Caption == "Tipe Layanan" || e.Column.Caption == "Grup Layanan" || e.Column.Caption == "Nama Layanan" || e.Column.Caption == "Harga" || e.Column.Caption == "Default")
+            if (e.Column.Caption == "Tipe Layanan" || e.Column.Caption == "Grup Layanan" || e.Column.Caption == "Nama Layanan" || e.Column.Caption == "Harga" || e.Column.Caption == "Default" || e.Column.Caption == "Type" || e.Column.Caption == "User_By")
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString();
                 if (tmp_stat == "I")
@@ -779,7 +781,7 @@ namespace Clinic
 
                 sql_delete = "";
 
-                sql_delete = sql_delete + " update cs_treatment_item set visible = 'N' ";
+                sql_delete = sql_delete + " update cs_treatment_item set visible = 'N', STATUS ='I' ";
                 sql_delete = sql_delete + " where treat_item_id = '" + id + "' ";
 
                 try

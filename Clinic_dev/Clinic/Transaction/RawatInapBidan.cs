@@ -81,7 +81,7 @@ namespace Clinic
         {
 
             //txt_anastesi_id.Text = "11111111";
-
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "RawatInapBidan");
             selectedIndexRb();
             kondisiEnable(false);
 

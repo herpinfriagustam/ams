@@ -154,6 +154,7 @@ namespace Clinic
         {
             initData();
             LoadData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "PrescriptionList");
             //LoadDataLimit();
             //SoftBlink(labelControl6, Color.LightPink, Color.Red, 1600, false);
         }
@@ -685,7 +686,7 @@ namespace Clinic
                                 "            and visit_no=b.que01)  || chr(13) || 'Anamnesa : '|| " +
                                 "        (select  'Tensi : ' || blood_press || ', Nadi : ' || pulse ||    " +
                                 "                 ', Suhu : ' || temperature || ', BB : ' || bb || ', TB : ' || tb || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa   " +
-                                "                 || CHR (13) ||'Alergi ' || ALERGI_MKN || ', Alergi ' || ALERGI_OBAT as anamnesa     " +
+                                "                 || CHR (13) ||'Alergi ' || ALERGI_MKN || ', Alergi ' || ALERGI_OBAT || ', Kolesterol : '||CHOLESTEROL || ', Gula : '||BLOOD_SUGAR || ', Asam Urat : '||URIC_ACID as anamnesa     " +
                                 "        from KLINIK.cs_anamnesa d, KLINIK.cs_anamnesa_dtl e " +
                                 "        where d.ANAMNESA_ID = e.ANAMNESA_ID " +
                                 "          and d.rm_no=c.rm_no   " +
@@ -1887,6 +1888,9 @@ namespace Clinic
             string s_nik = "", s_que = "", s_date = "", sql_his = "", s_rm = "", s_edit = "", sql_cek = "", payst = "", s_stat = "" ,smstock ="", spoli ="";
             string s_tipe = "", sql_update="", p_kirid ="";
 
+            if (gridView1.RowCount < 1)
+                return;
+
             s_nik = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
             s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
@@ -1909,8 +1913,8 @@ namespace Clinic
                 sql_update = "";
                 sql_update = " update cs_visit set time_end = sysdate, status = 'CLS',  " +
                              " upd_date = sysdate, upd_emp = '" + DB.vUserId + "'  " +
-                             " where patient_no = '" + s_nik + "' and to_char(visit_date,'yyyy-MM-dd') = '" + s_date + "' " +
-                             " and que01 = '" + s_que + "' ";
+                             " where patient_no = '" + s_nik + "' " +
+                             " and id_visit = '" + visitid + "' ";
             } 
 
             try

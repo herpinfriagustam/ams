@@ -42,6 +42,7 @@ namespace Clinic
             dDateBgn.Text = today;
             dDateEnd.Text = today;
             initData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "DiagnosaMngt");
             //LoadData();
         }
 

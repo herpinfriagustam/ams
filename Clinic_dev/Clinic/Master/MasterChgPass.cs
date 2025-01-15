@@ -33,6 +33,7 @@ namespace Clinic
         {
             initData();
             textBox1.Text = DB.vUserId;
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterChgPass");
         }
 
         private void textBox4_KeyDown(object sender, KeyEventArgs e)

@@ -51,6 +51,7 @@ namespace Clinic
         {
             initData();
             loadData();
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterFormula");
         }
 
         private void initData()

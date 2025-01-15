@@ -13,6 +13,7 @@ namespace Clinic
     public partial class FrmTindakan : DevExpress.XtraEditors.XtraForm
     {
         private KoneksiOra koneksi;
+        ConnectDb ConnOra = new ConnectDb();
         DataTable dt_grdPersalinanLalu;
         DataTable dt_grdPemberianAnstesi;
         DataTable dt_grdSebelumBedah;
@@ -41,7 +42,7 @@ namespace Clinic
             txt_anastesi_id.Text =  p_anamnesa_id;
             txt_pasien.Text =  pnama;
             textEdit1.Text =  prekam_medis;
-
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "FrmTindakan");
             selectedIndexRb();
             //btnInputData_Click.PerformClick();
             btnInputData_Click(new object(), new EventArgs());
