@@ -169,8 +169,8 @@ namespace Clinic
                 listDokter.Add(new Dokter() { ID_Dokter = dtdok.Rows[i]["ID_Dokter"].ToString(), Nama_Dokter = dtdok.Rows[i]["Nama_Dokter"].ToString() });
             }
 
-            ConnOra.LookUpEditFilter(listDokter, LookDokter1, "ID_Dokter", "Nama_Dokter", LokDiagGrid, -1);
-            ConnOra.LookUpEditFilter(listDokter, LookDokter2, "ID_Dokter", "Nama_Dokter", LokDiagGrid, -1);
+            ConnOra.LookUpEditFilter(listDokter, txDokterPengirim, "ID_Dokter", "Nama_Dokter", LokDiagGrid, -1);
+            ConnOra.LookUpEditFilter(listDokter, txDokterKonsultan, "ID_Dokter", "Nama_Dokter", LokDiagGrid, -1);
 
             string SQL3 = " ";
             SQL3 = " ";
@@ -755,7 +755,7 @@ namespace Clinic
                 Sql = Sql + Environment.NewLine + "  select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + fnama + "' as nama, visit_no,  ";
                 Sql = Sql + Environment.NewLine + "         blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, a.bb, a.tb, disease_now ,ID_VISIT, ";
                 Sql = Sql + Environment.NewLine + "         nvl(KELUHAN_UTAMA,disease_now) KELUHAN_UTAMA, 	nvl(PENYAKIT_LALU,DISEASE_THEN) PENYAKIT_LALU,	PERNAH_DIRAWAT,	PERNAH_OPERASI,	nvl(PENYAKIT_KELUARGA,DISEASE_FAMILY) PENYAKIT_KELUARGA,	 ";
-                Sql = Sql + Environment.NewLine + "         TERGANTUNG_THD,	RIWAYAT_PEKERJAAN,	RIWAYAT_ALERGI,	RIWAYAT_OBAT,	nvl(TD,blood_press) TD,	nvl(NADI,pulse) NADI,	P,	nvl(SUHU,temperature) SUHU,	KELUHAN,	BATAS_MAKAN,	GIGI_PALSU,	MUAL,	MUNTAH,	nvl(b.BB,a.bb) BB,	nvl(b.TB,a.tb) TB,	round((	nvl(b.BB,a.bb)/(nvl(b.TB,a.tb)*	nvl(b.BB,a.bb)))* 10000,2) IMT,					 ";
+                Sql = Sql + Environment.NewLine + "         TERGANTUNG_THD,	RIWAYAT_PEKERJAAN,	RIWAYAT_ALERGI,	RIWAYAT_OBAT,	nvl(TD,blood_press) TD,	nvl(NADI,pulse) NADI,	P,	nvl(SUHU,temperature) SUHU,	KELUHAN,	BATAS_MAKAN,	GIGI_PALSU,	MUAL,	MUNTAH,	nvl(b.BB,a.bb) BB,	nvl(b.TB,a.tb) TB,round((to_number(nvl(b.BB,a.bb),'9,999.9')/(to_number(nvl(b.TB,a.tb),'9,999.9')*	to_number(nvl(b.TB,a.TB),'9,999.9')))* 10000,2) IMT,					 ";
                 Sql = Sql + Environment.NewLine + "         nvl(GST_KET,KLINIK.CS_IMT(nvl(b.BB,a.bb), nvl(b.TB,a.tb))) GST_KET,	PENDENGARAN,	PENGLIHATAN,	DEFEKASI,	MIKSI,	KULIT,	SKOR_NORTON,	RESIKO_DEKUBITUS,	LOKASI_LUKA,	PERIKSA_FISIK_LAIN,	FORM_PERIKSA_KHUSUS,	STATUS_PSIKOLOGI,	STATUS_MENTAL,	HUBUNGAN_KELUARGA,	TEMPAT_TINGGAL,	NAMA_KERABAT,	HUB_KERABAT,	TLP_KERABAT,	KEG_AGAMA,	KEG_SPIRITUAL,	HAMBATAN_BELAJAR,	BUTUH_PENERJEMAH,	KEBUTUHAN_EDUKASI,	BERSEDIA_DIKUNJUNGI,	RESIKO_CEDERA,	MENERIMA_INFO, a.VITALRR ";
                 Sql = Sql + Environment.NewLine + "   from  cs_anamnesa a, T1_RAWAT_INAP1 b  ";
                 Sql = Sql + Environment.NewLine + "  where a.ANAMNESA_ID = b.ANAMESA_ID  "; 
@@ -797,8 +797,8 @@ namespace Clinic
                     FN.splitVal(FN.rowVal(dt1, "MUNTAH"), rgMuntah);
                     txBB.Text = FN.rowVal(dt1, "BB");
                     txTbPb.Text = FN.rowVal(dt1, "TB");
-                    txImt.Text = FN.rowVal(dt1, "IMT");
-                    txGstKet.Text = FN.rowVal(dt1, "GST_KET");
+                    //txImt.Text = FN.rowVal(dt1, "IMT");
+                    //txGstKet.Text = FN.rowVal(dt1, "GST_KET");
                     FN.splitVal1(FN.rowVal(dt1, "PENDENGARAN"), rgPendengaran, txPdngrDtl);
                     FN.splitVal1(FN.rowVal(dt1, "PENGLIHATAN"), rgPenglihatan, txPnglihtDtl);
                     FN.splitVal1(FN.rowVal(dt1, "DEFEKASI"), rgDefekasi, txDefekasiDtl);
@@ -1430,16 +1430,19 @@ namespace Clinic
 
         private void btnAddCppt_Click(object sender, EventArgs e)
         {
-            if (dtCppt == null) return;
+            //if (dtCppt == null) return;
 
-            DataRow newRow = dtCppt.NewRow();
 
-            newRow["SEQ"] = ((gvCppt.RowCount) + 1).ToString();
-            newRow["TANGGAL"] = DateTime.Now;
-            newRow["JAM"] = DateTime.Now.ToString("HH:mm");
-            dtCppt.Rows.Add(newRow);
+            //DataRow newRow = dtCppt.NewRow();
 
-            gcCppt.DataSource = dtCppt;
+            //newRow["SEQ"] = ((gvCppt.RowCount) + 1).ToString();
+            //newRow["TANGGAL"] = DateTime.Now;
+            //newRow["JAM"] = DateTime.Now.ToString("HH:mm");
+            gvCppt.OptionsBehavior.ImmediateUpdateRowPosition = false;
+            gvCppt.AddNewRow();
+            //dtCppt.Rows.Add(newRow);
+
+            //gcCppt.DataSource = dtCppt;
         }
 
         private void addObat_Click(object sender, EventArgs e)
@@ -1739,7 +1742,7 @@ namespace Clinic
                     string sql = "insert all ";
                     for (int i = 0; i < gvCppt.RowCount; i++)
                     {
-                        string dte = "";
+                        string dte = ""; int ii = i + 1;
                         object tgl = gvCppt.GetRowCellValue(i,"TANGGAL");
                         if (tgl != null && tgl is DateTime)
                         {
@@ -1761,7 +1764,7 @@ namespace Clinic
                         sql = sql + " '" + FN.strVal(gvCppt, i, "HASIL_ASESMEN") + "' ,";
                         sql = sql + " '" + FN.strVal(gvCppt, i, "INSTRUKSI") + "' ,";
                         sql = sql + " '" + FN.strVal(gvCppt, i, "NAMA_TERANG") + "' ,";
-                        sql = sql + "  " + FN.strVal(gvCppt, i, "SEQ") + " , '" + DB.vUserId + "',sysdate) ";
+                        sql = sql + "  " + ii + " , '" + DB.vUserId + "',sysdate) ";   //FN.strVal(gvCppt, i, "SEQ")
                     }
                     sql = sql + " select * from dual";
                     bool save = ORADB.Execute(ORADB.XE, sql);
@@ -2317,86 +2320,88 @@ namespace Clinic
 
         private void grdMain_DoubleClick(object sender, EventArgs e)
         {
-            mainTab.Enabled = true;
-            FN.ResetInput(mainTab);
+          
+            //if (gvwMain.RowCount < 1)
+            //    return;
 
-            if (gvwMain.RowCount < 1)
-                return;
+            //anamesaID = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ANAMNESA_ID");
 
-            anamesaID = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ANAMNESA_ID");
+            //if (anamesaID.ToString().Equals("") || anamesaID.ToString().Equals("0"))
+            //    return;
 
-            if (anamesaID.ToString().Equals("") || anamesaID.ToString().Equals("0"))
-                return;
+            //mainTab.Enabled = true;
+            //FN.ResetInput(mainTab);
 
-            visitid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ID_VISIT");
-            headid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "HEAD_ID");
-            RMNO = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "RM_NO");
-            pasienno = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "PATIENT_NO");
-            type_s = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "GROUP_PATIENT");
-            inpatient_id = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "INPATIENT_ID");
-            fnama = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "NAME");
-            labelControl106.Text = RMNO;
-            labelControl107.Text = fnama; 
 
-            if (type_s.ToString().Equals("Umum"))
-            {
-                type_s = "U";
-                panelControl3.Visible = false; 
-                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
-                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
-            } 
-            else if ( type_s.ToString().Equals("Asuransi"))
-            {
-                type_s = "A";
-                panelControl3.Visible = false;
-                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
-                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
-            }
-            else
-            {
-                panelControl3.Visible = true;
-                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both; // Hanya Panel 2 yang terlihat
-                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-                type_s = "B";
-            }
-            //LoadItemLayanan();
+            //visitid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ID_VISIT");
+            //headid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "HEAD_ID");
+            //RMNO = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "RM_NO");
+            //pasienno = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "PATIENT_NO");
+            //type_s = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "GROUP_PATIENT");
+            //inpatient_id = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "INPATIENT_ID");
+            //fnama = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "NAME");
+            //labelControl106.Text = RMNO;
+            //labelControl107.Text = fnama; 
+
+            //if (type_s.ToString().Equals("Umum"))
+            //{
+            //    type_s = "U";
+            //    panelControl3.Visible = false; 
+            //    splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
+            //    splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
+            //} 
+            //else if ( type_s.ToString().Equals("Asuransi"))
+            //{
+            //    type_s = "A";
+            //    panelControl3.Visible = false;
+            //    splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
+            //    splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
+            //}
+            //else
+            //{
+            //    panelControl3.Visible = true;
+            //    splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both; // Hanya Panel 2 yang terlihat
+            //    splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
+            //    type_s = "B";
+            //}
+            ////LoadItemLayanan();
             
-            DataListObat(type_s);
+            //DataListObat(type_s);
 
-            // dtJadwalObat = ORADB.SetData(ORADB.XE, "select * from T1_JADWAL_BERI_OBAT where anamesa_id =" + anamesaID + "");
-            dtCppt = ConnOra.Data_Table_ora("SELECT * FROM ( select a.*,  case when ctype = 'S' then tanggal || 1 when ctype = 'O' then tanggal || 2 when ctype = 'A' then tanggal || 3 when ctype = 'P' then tanggal || 4 END SSORT from T1_CPPT a where anamesa_id = " + anamesaID + " ) ORDER BY SSORT   ");
-            dtObatPulang = ConnOra.Data_Table_ora("select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");
-            dtVital = ConnOra.Data_Table_ora("select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
-            //ORADB.SetData(ORADB.XE, "select * from T1_CPPT where anamesa_id =" + anamesaID + " "); 
-            //ORADB.SetData(ORADB.XE,  "select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");  
-            //ORADB.SetData(ORADB.XE, "select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
+            //// dtJadwalObat = ORADB.SetData(ORADB.XE, "select * from T1_JADWAL_BERI_OBAT where anamesa_id =" + anamesaID + "");
+            //dtCppt = ConnOra.Data_Table_ora("SELECT * FROM ( select a.*,  case when ctype = 'S' then tanggal || 1 when ctype = 'O' then tanggal || 2 when ctype = 'A' then tanggal || 3 when ctype = 'P' then tanggal || 4 END SSORT from T1_CPPT a where anamesa_id = " + anamesaID + " ) ORDER BY SSORT   ");
+            //dtObatPulang = ConnOra.Data_Table_ora("select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");
+            //dtVital = ConnOra.Data_Table_ora("select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
+            ////ORADB.SetData(ORADB.XE, "select * from T1_CPPT where anamesa_id =" + anamesaID + " "); 
+            ////ORADB.SetData(ORADB.XE,  "select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");  
+            ////ORADB.SetData(ORADB.XE, "select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
 
-            try
-            {
-                if (ConnOra.Data_Table_ora("select * from T1_RAWAT_INAP1 where anamesa_id =" + anamesaID + " ").Rows.Count > 0)
-                //if (ORADB.SetData(ORADB.XE, "select * from T1_RAWAT_INAP1 where anamesa_id = " + anamesaID + "").Rows.Count > 0)
-                {
-                    getData(anamesaID);
-                }
-                else
-                {
-                    string newId = ORADB.getData(ORADB.XE, "select rawat_inap_seq.NEXTVAL new_id from dual ", "NEW_ID");
-                    string newId2 = ORADB.getData(ORADB.XE, "select resiko_jatuh_seq.NEXTVAL new_id from dual ", "NEW_ID");
-                    List<string> sql = new List<string>();
-                    sql.Add("insert into T1_RAWAT_INAP1 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
-                    sql.Add("insert into T1_RAWAT_INAP2 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
-                    sql.Add("insert into T1_PERENCANAAN_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
-                    sql.Add("insert into T1_RESUME_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
-                    sql.Add("insert into T1_ASESMEN_GIZI (anamesa_id) values (" + anamesaID + ")");
-                    ORADB.DbTrans(ORADB.XE, sql);
-                }
-                btnInputData.Enabled = false;
-                LoadItemLayananType(type_s);
-            }
-            catch (Exception ex)
-            {
-                FN.errosMsg(ex.Message, "Error");
-            }
+            //try
+            //{
+            //    if (ConnOra.Data_Table_ora("select * from T1_RAWAT_INAP1 where anamesa_id =" + anamesaID + " ").Rows.Count > 0)
+            //    //if (ORADB.SetData(ORADB.XE, "select * from T1_RAWAT_INAP1 where anamesa_id = " + anamesaID + "").Rows.Count > 0)
+            //    {
+            //        getData(anamesaID);
+            //    }
+            //    else
+            //    {
+            //        string newId = ORADB.getData(ORADB.XE, "select rawat_inap_seq.NEXTVAL new_id from dual ", "NEW_ID");
+            //        string newId2 = ORADB.getData(ORADB.XE, "select resiko_jatuh_seq.NEXTVAL new_id from dual ", "NEW_ID");
+            //        List<string> sql = new List<string>();
+            //        sql.Add("insert into T1_RAWAT_INAP1 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+            //        sql.Add("insert into T1_RAWAT_INAP2 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+            //        sql.Add("insert into T1_PERENCANAAN_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+            //        sql.Add("insert into T1_RESUME_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+            //        sql.Add("insert into T1_ASESMEN_GIZI (anamesa_id) values (" + anamesaID + ")");
+            //        ORADB.DbTrans(ORADB.XE, sql);
+            //    }
+            //    btnInputData.Enabled = false;
+            //    LoadItemLayananType(type_s);
+            //}
+            //catch (Exception ex)
+            //{
+            //    FN.errosMsg(ex.Message, "Error");
+            //}
         }
 
         private void gvwMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -3135,30 +3140,68 @@ namespace Clinic
 
         private void txTbPb_TextChanged(object sender, EventArgs e)
         {
-            if (txBB.Text == "" || txBB.Text == string.Empty)
-                return;
-            else if (txTbPb.Text == "" || txTbPb.Text == string.Empty)
-                return;
-            else if (Convert.ToDouble(txBB.Text) < 0)
-                return;
-            else if (Convert.ToDouble(txTbPb.Text) < 0)
-                return; 
-            else
-                txImt.Text = ((Convert.ToDouble(txBB.Text) / (Convert.ToDouble(txTbPb.Text) * Convert.ToDouble(txTbPb.Text))) * 10000).ToString("0.00");
 
-            if (Convert.ToDouble(txImt.Text) < 18.5)
-                txGstKet.Text = "Berat Badan Kurang";
-            else if (Convert.ToDouble(txImt.Text) >= 18.5 && Convert.ToDouble(txImt.Text) < 23)
-                txGstKet.Text = "Berat Badan Normal";
-            else if (Convert.ToDouble(txImt.Text) >= 23 && Convert.ToDouble(txImt.Text) < 25)
-                txGstKet.Text = "Kelebihan Berat Badan";
-            else if (Convert.ToDouble(txImt.Text) >= 25 && Convert.ToDouble(txImt.Text) < 30)
-                txGstKet.Text = "Obesitas 1";
-            else if (Convert.ToDouble(txImt.Text) >= 30)
-                txGstKet.Text = "Obesitas 2";
-            else
-                txGstKet.Text = "Tidak Terklasifikasi";
-             
+            //double p_tbb = Convert.ToDouble(txBB.Text);
+            //double p_tpb = Convert.ToDouble(txTbPb.Text);
+            double p_imt = 0;
+
+            if (txBB.Text.ToString().Length > 0 && txTbPb.Text.ToString().Length > 0)
+            {
+                double p_tbb = Convert.ToDouble(txBB.Text.ToString());
+                double p_tpb = Convert.ToDouble(txTbPb.Text.ToString());
+                //double p_imt = 0;
+
+                if (p_tbb.ToString().Equals("") || txBB.Text == string.Empty)
+                    return;
+                else if (p_tbb.ToString().Equals("") || txTbPb.Text == string.Empty)
+                    return;
+                else if (p_tbb < 0)
+                    return;
+                else if (p_tpb < 0)
+                    return;
+                else
+                    p_imt = Math.Round(((p_tbb / (p_tpb * p_tpb)) * 10000), 2); //.ToString("0.00");
+
+                txImt.Text = p_imt.ToString();
+                if (Convert.ToDouble(p_imt) < 18.5)
+                    txGstKet.Text = "Berat Badan Kurang";
+                else if (Convert.ToDouble(p_imt) >= 18.5 && Convert.ToDouble(p_imt) < 23)
+                    txGstKet.Text = "Berat Badan Normal";
+                else if (Convert.ToDouble(p_imt) >= 23 && Convert.ToDouble(p_imt) < 25)
+                    txGstKet.Text = "Kelebihan Berat Badan";
+                else if (Convert.ToDouble(p_imt) >= 25 && Convert.ToDouble(p_imt) < 30)
+                    txGstKet.Text = "Obesitas 1";
+                else if (Convert.ToDouble(p_imt) >= 30)
+                    txGstKet.Text = "Obesitas 2";
+                else
+                    txGstKet.Text = "Tidak Terklasifikasi";
+            }
+
+
+            //if (txBB.Text == "" || txBB.Text == string.Empty)
+            //    return;
+            //else if (txTbPb.Text == "" || txTbPb.Text == string.Empty)
+            //    return;
+            //else if (Convert.ToDouble(txBB.Text) < 0)
+            //    return;
+            //else if (Convert.ToDouble(txTbPb.Text) < 0)
+            //    return; 
+            //else
+            //    txImt.Text = ((Convert.ToDouble(txBB.Text) / (Convert.ToDouble(txTbPb.Text) * Convert.ToDouble(txTbPb.Text))) * 10000).ToString("0.00");
+
+            //if (Convert.ToDouble(txImt.Text) < 18.5)
+            //    txGstKet.Text = "Berat Badan Kurang";
+            //else if (Convert.ToDouble(txImt.Text) >= 18.5 && Convert.ToDouble(txImt.Text) < 23)
+            //    txGstKet.Text = "Berat Badan Normal";
+            //else if (Convert.ToDouble(txImt.Text) >= 23 && Convert.ToDouble(txImt.Text) < 25)
+            //    txGstKet.Text = "Kelebihan Berat Badan";
+            //else if (Convert.ToDouble(txImt.Text) >= 25 && Convert.ToDouble(txImt.Text) < 30)
+            //    txGstKet.Text = "Obesitas 1";
+            //else if (Convert.ToDouble(txImt.Text) >= 30)
+            //    txGstKet.Text = "Obesitas 2";
+            //else
+            //    txGstKet.Text = "Tidak Terklasifikasi";
+
         }
 
         private void simpleButton6_Click(object sender, EventArgs e)
@@ -5078,6 +5121,104 @@ namespace Clinic
         private void gvMedisU_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
             gvMedisU.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvMedisU_RowUpdated);
+        }
+
+        private void gvCppt_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.SetRowCellValue(e.RowHandle, view.Columns[1], DateTime.Now); // DateTime.Now;
+            //newRow["JAM"] = DateTime.Now.ToString("HH:mm");
+            view.SetRowCellValue(e.RowHandle, view.Columns[2], DateTime.Now.ToString("HH:mm"));
+        }
+
+        private void gvCppt_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            gvCppt.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvCppt_RowUpdated);
+        }
+
+        private void gvwMain_DoubleClick(object sender, EventArgs e)
+        {
+            if (gvwMain.RowCount < 1)
+                return;
+
+            anamesaID = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ANAMNESA_ID");
+
+            if (anamesaID.ToString().Equals("") || anamesaID.ToString().Equals("0"))
+                return;
+
+            mainTab.Enabled = true;
+            FN.ResetInput(mainTab);
+
+
+            visitid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "ID_VISIT");
+            headid = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "HEAD_ID");
+            RMNO = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "RM_NO");
+            pasienno = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "PATIENT_NO");
+            type_s = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "GROUP_PATIENT");
+            inpatient_id = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "INPATIENT_ID");
+            fnama = FN.strVal(gvwMain, gvwMain.FocusedRowHandle, "NAME");
+            labelControl106.Text = RMNO;
+            labelControl107.Text = fnama;
+
+            if (type_s.ToString().Equals("Umum"))
+            {
+                type_s = "U";
+                panelControl3.Visible = false;
+                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
+                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
+            }
+            else if (type_s.ToString().Equals("Asuransi"))
+            {
+                type_s = "A";
+                panelControl3.Visible = false;
+                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel2; // Hanya Panel 2 yang terlihat
+                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
+            }
+            else
+            {
+                panelControl3.Visible = true;
+                splitContainerControl7.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both; // Hanya Panel 2 yang terlihat
+                splitContainerControl8.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
+                type_s = "B";
+            }
+            //LoadItemLayanan();
+
+            DataListObat(type_s);
+
+            // dtJadwalObat = ORADB.SetData(ORADB.XE, "select * from T1_JADWAL_BERI_OBAT where anamesa_id =" + anamesaID + "");
+            dtCppt = ConnOra.Data_Table_ora("SELECT * FROM ( select a.*,  case when ctype = 'S' then tanggal || 1 when ctype = 'O' then tanggal || 2 when ctype = 'A' then tanggal || 3 when ctype = 'P' then tanggal || 4 END SSORT from T1_CPPT a where anamesa_id = " + anamesaID + " ) ORDER BY SSORT   ");
+            dtObatPulang = ConnOra.Data_Table_ora("select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");
+            dtVital = ConnOra.Data_Table_ora("select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
+            //ORADB.SetData(ORADB.XE, "select * from T1_CPPT where anamesa_id =" + anamesaID + " "); 
+            //ORADB.SetData(ORADB.XE,  "select * from T1_OBAT_PULANG where anamesa_id =" + anamesaID + " ");  
+            //ORADB.SetData(ORADB.XE, "select * from T1_GRAFIK_VITAL where anamesa_id =" + anamesaID + " ");
+
+            try
+            {
+                if (ConnOra.Data_Table_ora("select * from T1_RAWAT_INAP1 where anamesa_id =" + anamesaID + " ").Rows.Count > 0)
+                //if (ORADB.SetData(ORADB.XE, "select * from T1_RAWAT_INAP1 where anamesa_id = " + anamesaID + "").Rows.Count > 0)
+                {
+                    getData(anamesaID);
+                }
+                else
+                {
+                    string newId = ORADB.getData(ORADB.XE, "select rawat_inap_seq.NEXTVAL new_id from dual ", "NEW_ID");
+                    string newId2 = ORADB.getData(ORADB.XE, "select resiko_jatuh_seq.NEXTVAL new_id from dual ", "NEW_ID");
+                    List<string> sql = new List<string>();
+                    sql.Add("insert into T1_RAWAT_INAP1 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+                    sql.Add("insert into T1_RAWAT_INAP2 (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+                    sql.Add("insert into T1_PERENCANAAN_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+                    sql.Add("insert into T1_RESUME_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
+                    sql.Add("insert into T1_ASESMEN_GIZI (anamesa_id) values (" + anamesaID + ")");
+                    ORADB.DbTrans(ORADB.XE, sql);
+                }
+                btnInputData.Enabled = false;
+                LoadItemLayananType(type_s);
+            }
+            catch (Exception ex)
+            {
+                FN.errosMsg(ex.Message, "Error");
+            }
         }
 
         private void gridHRacik_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)

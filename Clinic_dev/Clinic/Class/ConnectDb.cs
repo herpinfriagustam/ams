@@ -1029,7 +1029,7 @@ namespace Clinic
                     }
                 }
 
-                ResetInput(childControl);
+               ResetInput(childControl);
             }
         }
 

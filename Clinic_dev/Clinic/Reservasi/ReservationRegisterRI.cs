@@ -1049,7 +1049,7 @@ namespace Clinic
                         }
 
                         sql_cnt = "";
-                        sql_cnt = " select count(patient_no) cnt from cs_visit a, cs_inpatient b where a.inpatient_id=b.inpatient_id and a.patient_no = '" + pasno + "' and a.poli_cd='POL0004' and b.status in ('REG','OPN','PAY')  ";
+                        sql_cnt = " select count(a.patient_no) cnt from cs_visit a  where  a.patient_no = '" + pasno + "' and a.poli_cd='POL0004' and a.status not in ('CLS','CAN')   ";
                         OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
                         OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_cnt, oraConnect2);
                         DataTable dt2 = new DataTable();
