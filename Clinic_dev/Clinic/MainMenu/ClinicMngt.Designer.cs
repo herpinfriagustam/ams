@@ -53,6 +53,8 @@
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem77 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem62 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem41 = new DevExpress.XtraNavBar.NavBarItem();
@@ -96,7 +98,6 @@
             this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem75 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem76 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem77 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem24 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem26 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem37 = new DevExpress.XtraNavBar.NavBarItem();
@@ -312,7 +313,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem4);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem5);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 877);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 764);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1283, 23);
@@ -341,7 +342,7 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 147);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(200, 730);
+            this.dockPanel1.Size = new System.Drawing.Size(200, 617);
             this.dockPanel1.Text = "Menu Klinik Sistem";
             // 
             // dockPanel1_Container
@@ -349,12 +350,12 @@
             this.dockPanel1_Container.Controls.Add(this.navBarControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 38);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(192, 688);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(192, 575);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup9;
+            this.navBarControl1.ActiveGroup = this.navBarGroup10;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup9,
@@ -366,7 +367,8 @@
             this.navBarGroup6,
             this.navBarGroup7,
             this.navBarGroup8,
-            this.navBarGroup3});
+            this.navBarGroup3,
+            this.navBarGroup10});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
             this.navBarItem2,
@@ -445,14 +447,32 @@
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 192;
-            this.navBarControl1.Size = new System.Drawing.Size(192, 688);
+            this.navBarControl1.Size = new System.Drawing.Size(192, 575);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
             // 
+            // navBarGroup10
+            // 
+            this.navBarGroup10.Caption = "BPJS WS";
+            this.navBarGroup10.Expanded = true;
+            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem77)});
+            this.navBarGroup10.Name = "navBarGroup10";
+            this.navBarGroup10.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup10.SmallImage")));
+            // 
+            // navBarItem77
+            // 
+            this.navBarItem77.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem77.Appearance.Options.UseFont = true;
+            this.navBarItem77.Caption = "Antrean BPJS";
+            this.navBarItem77.Name = "navBarItem77";
+            this.navBarItem77.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem77_LinkClicked);
+            // 
             // navBarGroup9
             // 
             this.navBarGroup9.Caption = "Pendaftaran";
+            this.navBarGroup9.Expanded = true;
             this.navBarGroup9.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem62),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem41),
@@ -856,7 +876,6 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem75),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem76),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem77),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem24),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem26),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem37),
@@ -957,19 +976,6 @@
             this.navBarItem76.Name = "navBarItem76";
             this.navBarItem76.Visible = false;
             this.navBarItem76.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem76_LinkClicked);
-            // 
-            // navBarItem77
-            // 
-            this.navBarItem77.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.navBarItem77.Appearance.Options.UseFont = true;
-            this.navBarItem77.AppearanceHotTracked.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.navBarItem77.AppearanceHotTracked.Options.UseFont = true;
-            this.navBarItem77.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.navBarItem77.AppearancePressed.Options.UseFont = true;
-            this.navBarItem77.Caption = "Riwayat Pengguna App";
-            this.navBarItem77.Name = "navBarItem77";
-            this.navBarItem77.Visible = false;
-            this.navBarItem77.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem77_LinkClicked);
             // 
             // navBarItem24
             // 
@@ -1437,7 +1443,6 @@
             // navBarGroup3
             // 
             this.navBarGroup3.Caption = "Utility";
-            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem71),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem72)});
@@ -1475,7 +1480,7 @@
             this.pictureBox1.InitialImage = global::Clinic.Properties.Resources.banner;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1083, 730);
+            this.pictureBox1.Size = new System.Drawing.Size(1083, 617);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -1506,7 +1511,7 @@
             this.panel1.Location = new System.Drawing.Point(200, 147);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1083, 730);
+            this.panel1.Size = new System.Drawing.Size(1083, 617);
             this.panel1.TabIndex = 36;
             // 
             // defaultLookAndFeel1
@@ -1519,7 +1524,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 900);
+            this.ClientSize = new System.Drawing.Size(1283, 787);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonStatusBar);
@@ -1662,6 +1667,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem74;
         private DevExpress.XtraNavBar.NavBarItem navBarItem75;
         private DevExpress.XtraNavBar.NavBarItem navBarItem76;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup10;
         private DevExpress.XtraNavBar.NavBarItem navBarItem77;
     }
 }

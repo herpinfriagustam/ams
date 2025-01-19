@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\Another Program\Antrian\AntrianKlinik\AntrianKlinik\bin\Debug\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>..\..\Clinic_dev 1.1\Clinic_dev\Clinic\bin\Clinic\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -94,6 +94,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\DevExpress.XtraRichEdit.v15.2\v4.0_15.2.9.0__b88d1754d700e49a\DevExpress.XtraRichEdit.v15.2.dll</HintPath>
     </Reference>
+    <Reference Include="LZStringCSharp, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LZStringCSharp.1.4.0\lib\netstandard1.0\LZStringCSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
@@ -116,10 +120,17 @@
       <HintPath>..\..\Klinik\Another Program\kliniksantosareport-main\kliniksantosareport-main\Klinik Santosa Report\bin\Debug\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Speech" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -133,16 +144,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bpjsws\BpjswsAntreanBpjs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bpjsws\BpjswsAntreanBpjs.Designer.cs">
+      <DependentUpon>BpjswsAntreanBpjs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Bpjsws\Bpjsws.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsResponse.cs" />
+    <Compile Include="Class\Bpjsws\ModelAntrian.cs" />
+    <Compile Include="Class\Bpjsws\ModelDokter.cs" />
+    <Compile Include="Class\Bpjsws\ModelPoli.cs" />
     <Compile Include="Class\Racik.cs" />
     <Compile Include="Class\MedicineGroup.cs" />
     <Compile Include="Class\MedicineUmum.cs" />
     <Compile Include="Class\OracleChangeNotification.cs" />
-    <Compile Include="Master\MasterSchedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Master\MasterSchedule.Designer.cs">
-      <DependentUpon>MasterSchedule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Master\MasterDokter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,12 +182,6 @@
     </Compile>
     <Compile Include="Payment\BillListv1.Designer.cs">
       <DependentUpon>BillListv1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporting\Lap_PenggunaApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporting\Lap_PenggunaApp.Designer.cs">
-      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\Lap_KasHarian.cs">
       <SubType>Form</SubType>
@@ -1112,8 +1122,8 @@
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\WorkAccident.cs" />
-    <EmbeddedResource Include="Master\MasterSchedule.resx">
-      <DependentUpon>MasterSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="Bpjsws\BpjswsAntreanBpjs.resx">
+      <DependentUpon>BpjswsAntreanBpjs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\MasterDokter.resx">
       <DependentUpon>MasterDokter.cs</DependentUpon>
@@ -1126,9 +1136,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment\BillListv1.resx">
       <DependentUpon>BillListv1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\Lap_PenggunaApp.resx">
-      <DependentUpon>Lap_PenggunaApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\Lap_KasHarian.resx">
       <DependentUpon>Lap_KasHarian.cs</DependentUpon>

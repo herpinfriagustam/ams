@@ -1,0 +1,17 @@
+# Build Folders
+Debug/
+DebugPublic/
+DRelease/
+Debug_x86/
+Debug_x64/
+DRelease_x86/
+DRelease_x64/
+x64/
+x86/
+
+# Project-specific folders
+/bin/
+/obj/
+
+# Package folders
+packages/

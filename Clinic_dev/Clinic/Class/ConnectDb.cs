@@ -26,7 +26,9 @@ namespace Clinic
         public OleDbConnection Create_Connect_Ora()
         {
             //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
-            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
+            string _ConnectStringOra = "Provider=MSDAORA.1;Password=klinik;Persist Security Info=True;User ID=klinik;Data Source = localhost:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
+
 
             try
             {
@@ -1027,7 +1029,7 @@ namespace Clinic
                     {
                         series.Points.Clear();
                     }
-                } 
+                }
                 ResetInput(childControl);
             }
         }
