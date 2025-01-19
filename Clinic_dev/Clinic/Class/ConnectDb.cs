@@ -1027,9 +1027,8 @@ namespace Clinic
                     {
                         series.Points.Clear();
                     }
-                }
-
-               ResetInput(childControl);
+                } 
+                ResetInput(childControl);
             }
         }
 

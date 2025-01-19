@@ -10,7 +10,8 @@ namespace Clinic
     public partial class DashboardAntrian : DevExpress.XtraEditors.XtraForm
     {
         //private KoneksiOra koneksi;
-        private ConnectDb koneksi;
+        //private ConnectDb koneksi;
+        ConnectDb koneksi = new ConnectDb();
         private MusicPlayer player;
         DataTable dtAntrian = null;
         DataTable dtAntrianNm = null;
@@ -24,7 +25,7 @@ namespace Clinic
             InitializeComponent();
 
             //koneksi = new KoneksiOra();
-            koneksi = new ConnectDb();
+            //koneksi = new ConnectDb();
             player = new MusicPlayer();
 
             timer.Start();
@@ -183,7 +184,9 @@ namespace Clinic
                     }
 
                     Timer = 0;
-                } catch { }
+                }
+                catch {
+                }
             }
 
             if (TimeReset == 10 || TimeReset == 20 || TimeReset == 30 )
@@ -338,6 +341,7 @@ namespace Clinic
                 } 
 
                 dtGridAntrian = koneksi.Data_Table_ora(sql);
+                grdAntrian.DataSource = null;
                 grdAntrian.DataSource = dtGridAntrian;
             }
             catch { }
@@ -370,6 +374,7 @@ namespace Clinic
                                    ) A";
 
                 dtGridHold = koneksi.Data_Table_ora(sql);
+                grdKelewat.DataSource = null;
                 grdKelewat.DataSource = dtGridHold;
             }
             catch { }

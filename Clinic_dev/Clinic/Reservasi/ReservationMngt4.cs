@@ -143,6 +143,7 @@ namespace Clinic
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "REG", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "OPN", statusName = "Proses" });
+            listStat.Add(new Status() { statusCode = "PAY", statusName = "Pembayaran" });
             listStat.Add(new Status() { statusCode = "CLS", statusName = "Selesai" });
             listStat.Add(new Status() { statusCode = "CAN", statusName = "Batal" });
 
@@ -203,7 +204,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "from cs_inpatient a ";
             sql_search = sql_search + Environment.NewLine + "join cs_visit b on (a.inpatient_id=b.inpatient_id) ";
             sql_search = sql_search + Environment.NewLine + "where 1=1 ";
-            sql_search = sql_search + Environment.NewLine + "and a.status in ('REG','OPN') and b.plan = 'TRT02' ";
+            sql_search = sql_search + Environment.NewLine + "and a.status in ('REG','OPN','PAY') and b.plan = 'TRT02' ";
             sql_search = sql_search + Environment.NewLine + "order by b.visit_date ";
 
 
@@ -885,37 +886,37 @@ namespace Clinic
                 {
                     e.Appearance.BackColor = Color.FromArgb(175, Color.DarkGray);
                     e.Appearance.BackColor2 = Color.FromArgb(75, Color.DarkGoldenrod);
-                } 
-                //else if (kk == "Preparation")
-                //{
-                //    e.Appearance.BackColor = Color.OldLace;
-                //    e.Appearance.ForeColor = Color.Black;
-                //}
-                //}
+                }
+                else if (pur == "Pembayaran")
+                {
+                    e.Appearance.BackColor = Color.SandyBrown;
+                    e.Appearance.ForeColor = Color.Black;
+                }
+            //}
 
 
-                //string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
-                //string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
-                //if (stat == "Inspection" && pur == "Dokter")
-                //{
-                //    //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
-                //    e.Appearance.BackColor = Color.DodgerBlue;
-                //    //e.Appearance.BackColor2 = Color.White;
-                //    e.Appearance.ForeColor = Color.White;
-                //    //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
-                //    e.Appearance.FontStyleDelta = FontStyle.Bold;
-                //    e.HighPriority = true;
-                //}
+            //string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
+            //string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
+            //if (stat == "Inspection" && pur == "Dokter")
+            //{
+            //    //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
+            //    e.Appearance.BackColor = Color.DodgerBlue;
+            //    //e.Appearance.BackColor2 = Color.White;
+            //    e.Appearance.ForeColor = Color.White;
+            //    //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
+            //    e.Appearance.FontStyleDelta = FontStyle.Bold;
+            //    e.HighPriority = true;
+            //}
 
-                //if (stat == "Inspection" && pur == "Bidan")
-                //{
-                //    e.Appearance.BackColor = Color.LightCoral;
-                //    //e.Appearance.BackColor2 = Color.White;
-                //    e.Appearance.ForeColor = Color.White;
-                //    e.Appearance.FontStyleDelta = FontStyle.Bold;
-                //    e.HighPriority = true;
-                //}
-            }
+            //if (stat == "Inspection" && pur == "Bidan")
+            //{
+            //    e.Appearance.BackColor = Color.LightCoral;
+            //    //e.Appearance.BackColor2 = Color.White;
+            //    e.Appearance.ForeColor = Color.White;
+            //    e.Appearance.FontStyleDelta = FontStyle.Bold;
+            //    e.HighPriority = true;
+            //}
+        }
 
             //GridView View = sender as GridView;
             //if (e.RowHandle >= 0)
@@ -1629,7 +1630,7 @@ namespace Clinic
                         sql_update = "";
 
                         sql_update = sql_update + " update cs_inpatient set rs_in = '" + way_in + "', came_from = '" + dari + "', came_remark = '" + remark + "', rs_out = '" + way_out + "', patient_stat = '" + stat + "', ";
-                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate, STATUS ='CLS' ";
                         sql_update = sql_update + " where inpatient_id = " + id + "  ";
 
                         try

@@ -259,7 +259,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "   WHERE 1 = 1  ";
             sql_search = sql_search + Environment.NewLine + "     AND TRUNC(A.visit_date) = TRUNC(sysdate)   ";
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
-            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL')  "; 
+            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  "; 
             sql_search = sql_search + Environment.NewLine + "   UNION ALL ";
             sql_search = sql_search + Environment.NewLine + "   select QUE que01, '' patient_no, '' pasno, '' plan, '' gender,   ";
             sql_search = sql_search + Environment.NewLine + "         0 age,    ";
@@ -1125,31 +1125,31 @@ namespace Clinic
 
         private void gridView1_RowStyle(object sender, RowStyleEventArgs e)
         {
-            //GridView View = sender as GridView;
-            //if (e.RowHandle >= 0)
-            //{
-            //    string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
-            //    string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
-            //    if (stat == "Inspection" && pur == "Dokter")
-            //    {
-            //        //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
-            //        e.Appearance.BackColor = Color.DodgerBlue;
-            //        //e.Appearance.BackColor2 = Color.White;
-            //        e.Appearance.ForeColor = Color.White;
-            //        //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
-            //        e.Appearance.FontStyleDelta = FontStyle.Bold;
-            //        e.HighPriority = true;
-            //    }
+            GridView View = sender as GridView;
+            if (e.RowHandle >= 0)
+            {
+                string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
+                string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
+                if (stat == "CAN" )
+                {
+                    //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
+                    e.Appearance.BackColor = Color.Maroon;
+                    e.Appearance.BackColor2 = Color.MediumOrchid;
+                    e.Appearance.ForeColor = Color.White;
+                    //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
+                    e.Appearance.FontStyleDelta = FontStyle.Bold;
+                    //e.HighPriority = true;
+                }
 
-            //    if (stat == "Inspection" && pur == "Bidan")
-            //    {
-            //        e.Appearance.BackColor = Color.LightCoral;
-            //        //e.Appearance.BackColor2 = Color.White;
-            //        e.Appearance.ForeColor = Color.White;
-            //        e.Appearance.FontStyleDelta = FontStyle.Bold;
-            //        e.HighPriority = true;
-            //    }
-            //}
+                //if (stat == "Inspection" && pur == "Bidan")
+                //{
+                //    e.Appearance.BackColor = Color.LightCoral;
+                //    //e.Appearance.BackColor2 = Color.White;
+                //    e.Appearance.ForeColor = Color.White;
+                //    e.Appearance.FontStyleDelta = FontStyle.Bold;
+                //    e.HighPriority = true;
+                //}
+            }
         }
 
         private void gridView1_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -1264,6 +1264,12 @@ namespace Clinic
                 else if (kk == "Hold")
                 {
                     e.Appearance.BackColor = Color.SlateGray;
+                    e.Appearance.ForeColor = Color.White;
+                    e.Appearance.FontStyleDelta = FontStyle.Bold;
+                }
+                else if (kk == "Cancel")
+                {
+                    e.Appearance.BackColor = Color.Maroon;
                     e.Appearance.ForeColor = Color.White;
                     e.Appearance.FontStyleDelta = FontStyle.Bold;
                 }

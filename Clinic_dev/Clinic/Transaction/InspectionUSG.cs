@@ -57,6 +57,10 @@ namespace Clinic
         string pub_nama = ""; string idvisit = "";
         //string today = "2019-11-27";
         string sql = "";
+        int timer = 0, timer2 = 0, cek_interval = 180;
+        private LabelControl _currentLabel;
+        string lsMSG = ""; int lsOK = 0; bool bl_klap = true;
+
         public InspectionUSG()
         {
             InitializeComponent();
@@ -102,7 +106,7 @@ namespace Clinic
             comboBox1.Items.Clear();
             comboBox1.Items.Add("All");
             //comboBox1.Items.Add("First InspectionUSG");
-            comboBox1.Items.Add("InspectionUSG");
+            comboBox1.Items.Add("Inspection");
             //comboBox1.Items.Add("Observation");
             comboBox1.Items.Add("Medicine");
             comboBox1.Items.Add("Payment");
@@ -238,7 +242,7 @@ namespace Clinic
                 listLaya2.Add(new Layanan() { layananCode = dtly.Rows[i]["treat_item_id"].ToString(), layananName = dtly.Rows[i]["treat_item_name"].ToString() });
             }
 
-            string sql_grplay = " Select treat_group_id, initcap(treat_group_name) treat_group_name from KLINIK.cs_treatment_group where TREAT_GROUP_ID ='TRG01' ";
+            string sql_grplay = " Select treat_group_id, initcap(treat_group_name) treat_group_name from KLINIK.cs_treatment_group where TREAT_GROUP_ID in('TRG04','TRG07') ";
             OleDbConnection oraConnectg = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOrag = new OleDbDataAdapter(sql_grplay, oraConnectg);
             DataTable dtg = new DataTable();
@@ -280,15 +284,22 @@ namespace Clinic
 
         private void DataLayanan(string sstatus)
         {
-            string SQL3 = " ";
-            SQL3 = SQL3 + Environment.NewLine + "select treat_item_id, initcap(treat_item_name) treat_item_name ";
-            SQL3 = SQL3 + Environment.NewLine + "  from KLINIK.cs_treatment_item ";
-            SQL3 = SQL3 + Environment.NewLine + " where 1=1 ";
-            SQL3 = SQL3 + Environment.NewLine + "   and (treat_type_id = 'TRT01' or treat_type_id is null) AND treat_item_name like '%USG%' ";
-            SQL3 = SQL3 + Environment.NewLine + "     and F_STATUS ='" + sstatus.ToString() +"' ";
-
+            
+            string Sql = "";
+            Sql = Sql + Environment.NewLine + "select treat_item_id, initcap(treat_item_name) treat_item_name  ";
+            Sql = Sql + Environment.NewLine + "  from KLINIK.cs_treatment_item  ";
+            Sql = Sql + Environment.NewLine + " where 1=1  ";
+            Sql = Sql + Environment.NewLine + "   and treat_type_id = 'TRT01'  ";
+            Sql = Sql + Environment.NewLine + "   and F_STATUS ='" + sstatus.ToString() + "' AND treat_group_id = 'TRG07'  ";
+            Sql = Sql + Environment.NewLine + "UNION ALL ";
+            Sql = Sql + Environment.NewLine + "select treat_item_id, initcap(treat_item_name) treat_item_name  ";
+            Sql = Sql + Environment.NewLine + "  from KLINIK.cs_treatment_item  ";
+            Sql = Sql + Environment.NewLine + " where 1=1  ";
+            Sql = Sql + Environment.NewLine + "   and (treat_type_id = 'TRT01' or treat_type_id is null)   ";
+            Sql = Sql + Environment.NewLine + "   and F_STATUS ='" + sstatus.ToString() + "' AND treat_group_id = 'TRG04'    ";
+             
             OleDbConnection oraConnect3 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adOra3 = new OleDbDataAdapter(SQL3, oraConnect3);
+            OleDbDataAdapter adOra3 = new OleDbDataAdapter(Sql, oraConnect3);
             DataTable dt3a = new DataTable();
             adOra3.Fill(dt3a);
             listLaya2.Clear();
@@ -337,26 +348,29 @@ namespace Clinic
             sql_search = " ";
             
             sql_search = sql_search + Environment.NewLine + " select que01, patient_no, NAME, gender, age, blood_type, type_patient, status, visit_date, type_mr, ";
-            sql_search = sql_search + Environment.NewLine + " (select max(rm_no) from KLINIK.cs_patient where status='A' and group_patient=aa.type_mr and patient_no=aa.patient_no) as rm_no, work_accident, vdate,ID_VISIT, POLI_CD ,  decode(type_patient,'B','BPJS','U','Umum','P','Perusahaan','Swasta') ctype";
+            sql_search = sql_search + Environment.NewLine + " (select max(rm_no) from KLINIK.cs_patient where status='A' and patient_no=aa.patient_no) as rm_no, work_accident, vdate,ID_VISIT, POLI_CD ,  decode(type_patient,'B','BPJS','U','Umum','P','Perusahaan','Swasta') ctype";
             sql_search = sql_search + Environment.NewLine + "   from (  ";
             sql_search = sql_search + Environment.NewLine + "          select que01, a.patient_no, b.name, gender,  ";
             sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-b.birth_date)/30)/12) age,  ";
-            sql_search = sql_search + Environment.NewLine + "                 b.GOL_DARAH blood_type, type_patient, case when a.status='NUR' then 'First InspectionUSG'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='INS' then 'InspectionUSG'  ";
+            sql_search = sql_search + Environment.NewLine + "                 b.GOL_DARAH blood_type, type_patient, case when a.status='NUR' then 'First Inspection'  ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='INS' then 'Inspection'  ";
             //sql_search = sql_search + Environment.NewLine + "when a.status='OBS' then 'Observation'  ";
             sql_search = sql_search + Environment.NewLine + "                 when a.status='MED' then 'Medicine'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='PAY' then 'Payment'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='CLS' then 'Completed' end status,  ";
-            sql_search = sql_search + Environment.NewLine + "                      to_char(visit_date,'yyyy-mm-dd') as visit_date,  ";
-            sql_search = sql_search + Environment.NewLine + "                case when a.poli_cd = 'POL0002' then 'PREG'   ";
-            sql_search = sql_search + Environment.NewLine + "           when a.poli_cd = 'POL0003' then 'FAMP' else 'COMM' end as type_mr, work_accident,  ";
-            sql_search = sql_search + Environment.NewLine + "                visit_date as vdate, a.ID_VISIT, a.POLI_CD  ";
-            sql_search = sql_search + Environment.NewLine + "           from KLINIK.cs_visit a  ";
-            sql_search = sql_search + Environment.NewLine + "                join KLINIK.cs_patient_info b on a.patient_no = b.patient_no  ";
-            sql_search = sql_search + Environment.NewLine + "          where 1 = 1  ";
-            sql_search = sql_search + Environment.NewLine + "            and to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='PAY' then 'Payment'  "; 
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='CLS' then 'Completed' end status,   ";
+            sql_search = sql_search + Environment.NewLine + "                      to_char(A.visit_date,'yyyy-mm-dd') as visit_date,   ";
+            sql_search = sql_search + Environment.NewLine + "                case when a.poli_cd = 'POL0002' then 'PREG'    ";
+            sql_search = sql_search + Environment.NewLine + "           when a.poli_cd = 'POL0003' then 'FAMP' else 'COMM' end as type_mr, work_accident,   ";
+            sql_search = sql_search + Environment.NewLine + "                A.visit_date as vdate, a.ID_VISIT, a.POLI_CD   ";
+            sql_search = sql_search + Environment.NewLine + "           from KLINIK.cs_visit a   ";
+            sql_search = sql_search + Environment.NewLine + "                join KLINIK.cs_patient_info b on a.patient_no = b.patient_no   ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_head C ON (a.id_visit = c.id_visit) ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_DETAIL D ON (C.head_id = D.head_id) ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_item E ON (D.treat_item_id=E.treat_item_id AND UPPER(TREAT_ITEM_NAME) LIKE '%USG%') ";
+            sql_search = sql_search + Environment.NewLine + "          where 1 = 1  "; 
+            sql_search = sql_search + Environment.NewLine + "            and to_char(A.visit_date,'yyyy-mm-dd')= '" + today + "'  ";
             sql_search = sql_search + Environment.NewLine + "            and a.poli_cd not in ('POL0004') ";
-            sql_search = sql_search + Environment.NewLine + "            and purpose = 'DOC'  ";
+            sql_search = sql_search + Environment.NewLine + "            and purpose = 'MID'  ";
 
             if (comboBox1.Text == "All")
             {
@@ -366,7 +380,7 @@ namespace Clinic
             //{
             //    sql_search = sql_search + " and a.status in ('NUR') ";
             //}
-            else if (comboBox1.Text == "InspectionUSG")
+            else if (comboBox1.Text == "Inspection")
             {
                 sql_search = sql_search + Environment.NewLine + " and a.status in ('NUR','INS') ";
             }
@@ -542,6 +556,10 @@ namespace Clinic
 
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
+            try
+            {
+
+           
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
             btnDelDiag.Enabled = false;
@@ -564,7 +582,7 @@ namespace Clinic
             s_nama = View.GetRowCellDisplayText(e.RowHandle, View.Columns[2]);
             pub_nama = s_nama;
 
-            sql_his = sql_his + Environment.NewLine + "select visit_date, (select max(rm_no) from KLINIK.cs_patient where status='A' and group_patient=aa.type_mr and patient_no=aa.patient_no) as rm_no, ";
+            sql_his = sql_his + Environment.NewLine + "select visit_date, (select max(rm_no) from KLINIK.cs_patient where status='A' and patient_no=aa.patient_no) as rm_no, ";
             sql_his = sql_his + Environment.NewLine + "poli_cd, poli_name, work_accident, type, type_mr, que01, patient_no, visit_time ";
             sql_his = sql_his + Environment.NewLine + "from(  ";
             sql_his = sql_his + Environment.NewLine + "select patient_no, to_char(visit_date, 'yyyy-mm-dd') visit_date,  ";
@@ -577,7 +595,7 @@ namespace Clinic
             sql_his = sql_his + Environment.NewLine + "from KLINIK.cs_visit a  ";
             sql_his = sql_his + Environment.NewLine + "join KLINIK.cs_policlinic b on (a.poli_cd = b.poli_cd and b.status = 'A')  ";
             sql_his = sql_his + Environment.NewLine + "where 1 = 1  ";
-            sql_his = sql_his + Environment.NewLine + "and purpose = 'DOC'   ";
+            sql_his = sql_his + Environment.NewLine + "and purpose = 'MID'   ";
             sql_his = sql_his + Environment.NewLine + "and patient_no = '" + s_nik + "') aa order by 1 desc ";
 
             
@@ -624,7 +642,7 @@ namespace Clinic
                        " disease_now, disease_then, disease_family, anamnesa_physical,  " +
                        " anamnesa_other,bb, infop1, infop2, infop3, infop4, infop5, 'U' action, '" + s_nama + "' nama, tb, cholesterol, blood_sugar, uric_acid,a.ANAMNESA_ID, b.ALERGI_MKN, b.ALERGI_OBAT " +
                        " from KLINIK.cs_anamnesa a, cs_anamnesa_dtl b   " +
-                       " where a.ANAMNESA_ID = b.ANAMNESA_ID(+) and a.rm_no = '" + s_rm + "' and id_visit  = '" + idvisit + "'  " +
+                       " where a.ANAMNESA_ID = b.ANAMNESA_ID(+)   and id_visit  = '" + idvisit + "'  " +
                        " and to_char(insp_date,'yyyy-mm-dd') = '" + s_date + "'  " +
                        " and visit_no = '" + s_que + "' ";
 
@@ -836,7 +854,11 @@ namespace Clinic
             gridView3.BestFitColumns();
 
             LoadDiagnosa(s_rm,s_date,s_que);
-
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void LoadDiagnosa(string s_rm, string s_date, string s_que)
@@ -1215,7 +1237,7 @@ namespace Clinic
                         command2.CommandText = sql_update;
                         command2.ExecuteNonQuery();
 
-                        if (status == "First InspectionUSG")
+                        if (status == "First Inspection")
                         {
                             //command2.CommandText = " update cs_visit set status = 'INS', time_reservation=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where empid = '" + nik + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                             command2.CommandText = " update KLINIK.cs_visit set time_reservation=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + nik + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
@@ -4768,7 +4790,7 @@ namespace Clinic
             string s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
             string sql_upd = "";
 
-            if (s_tatus == "First InspectionUSG")
+            if (s_tatus == "First Inspection")
             {
                 sql_upd = "";
                 sql_upd = sql_upd + " update KLINIK.cs_visit";
@@ -5512,7 +5534,7 @@ namespace Clinic
                         command.CommandText = " delete KLINIK.cs_treatment_detail where head_id = '" + id + "' ";
                         command.ExecuteNonQuery();
 
-                        command.CommandText = " update KLINIK.cs_visit set status = 'INS', time_InspectionUSG=null, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                        command.CommandText = " update KLINIK.cs_visit set status = 'INS', time_Inspection=null, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                         command.ExecuteNonQuery();
 
                         trans.Commit();
@@ -5625,7 +5647,7 @@ namespace Clinic
                                     command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
                                     command.ExecuteNonQuery();
 
-                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_InspectionUSG=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_Inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
                                     command.ExecuteNonQuery();
 
                                     command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
@@ -5695,8 +5717,8 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
                                 //DB.vUserId = "1";
-                                if (insu_flag.ToString().Equals("Perusahaan"))
-                                    insu_flag = "P";
+                                if (insu_flag.ToString().Equals("Asuransi"))
+                                    insu_flag = "A";
                                 else if (insu_flag.ToString().Equals("BPJS"))
                                     insu_flag = "B";
                                 else
@@ -5723,7 +5745,7 @@ namespace Clinic
                                     command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
                                     command.ExecuteNonQuery();
 
-                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_InspectionUSG=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_Inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
                                     command.ExecuteNonQuery();
 
                                     command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
@@ -5777,8 +5799,8 @@ namespace Clinic
                             return;
                         }
 
-                        if (insu_flag.ToString().Equals("Perusahaan"))
-                            insu_flag = "P";
+                        if (insu_flag.ToString().Equals("Asuransi"))
+                            insu_flag = "A";
                         else if (insu_flag.ToString().Equals("BPJS"))
                             insu_flag = "B";
                         else
@@ -5827,7 +5849,7 @@ namespace Clinic
 
                                     if (nama_laya.ToString().Equals("TRT01"))
                                     {
-                                        command.CommandText = " update KLINIK.cs_visit set status = 'MED', TIME_INSPECTION=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                                        command.CommandText = " update KLINIK.cs_visit set TIME_INSPECTION=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                                         command.ExecuteNonQuery();
                                     }
                                     else
@@ -5850,7 +5872,7 @@ namespace Clinic
                                         command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
                                         command.ExecuteNonQuery();
 
-                                        command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_InspectionUSG=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
+                                        command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_Inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
                                         command.ExecuteNonQuery();
 
                                         command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
@@ -5872,12 +5894,9 @@ namespace Clinic
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
                                     sql_tmp = sql_tmp + " where 1=1";
-                                    sql_tmp = sql_tmp + "   and default_st='Y' and b.treat_item_id not in( select TREAT_ITEM_ID from KLINIK.cs_treatment_detail where HEAD_ID = " + headid + " )  ";
-                                    if (!nama_laya.ToString().Equals("TRT01"))
-                                        sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
-                                    else
-                                        sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
-                                    sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')";
+                                    sql_tmp = sql_tmp + "   and default_st='Y' and b.treat_item_id not in( select TREAT_ITEM_ID from KLINIK.cs_treatment_detail where HEAD_ID = " + headid + " )  "; 
+                                    sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                                    sql_tmp = sql_tmp + "and b.treat_group_id in( 'TRG07','TRG04') and b.F_STATUS = '" + insu_flag + "' ";
 
                                     command.CommandText = sql_tmp;
                                     command.ExecuteNonQuery();
@@ -5938,7 +5957,7 @@ namespace Clinic
             sql_tind_load = sql_tind_load + Environment.NewLine + "join KLINIK.cs_treatment_item c on (b.treat_item_id=c.treat_item_id) ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "where rm_no='" + s_rm + "' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and to_char(visit_date,'yyyy-mm-dd')='" + s_date + "' ";
-            sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' and TREAT_GROUP_ID ='TRG01' ";
+            sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' and b.remarks ='Initial' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and a.status='OPN'  and ID_VISIT = '" + lbl_id_visit.Text + "' ";
             //sql_tind_load = sql_tind_load + Environment.NewLine + "and c.treat_type_id in ('TRT02','TRT03') ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and (c.treat_type_id is null or c.treat_type_id not in ('TRT02')) ";
@@ -6051,10 +6070,8 @@ namespace Clinic
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type="", s_name ="", q_no2="";
-            int stsimpan = 0;
-
-                
+            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type="", s_name ="", q_no2="", sql_diag="", diag_cnt ="", sql_ ="";
+            int stsimpan = 0; 
 
             p_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             gnder = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[3]).ToString();
@@ -6071,6 +6088,28 @@ namespace Clinic
             }
             else
             {
+
+                sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and ANAMNESA_ID = " + v_anamnesa + " and rm_no = '" + lMedRm.Text + "' ";
+                OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+                DataTable dtd = new DataTable();
+                adOrad.Fill(dtd);
+                diag_cnt = dtd.Rows[0]["cnt"].ToString();
+
+                if (diag_cnt == "0")
+                {
+                    labelControl173.Visible = true;
+                    labelControl173.Text = "Gagal..Diagnosa Belum Di Input.";
+                    Blinking(labelControl173, 0);
+                    return;
+                }
+
+                sql_ = "";
+                sql_ = " update KLINIK.cs_visit set status = 'PAY', time_inspection=sysdate  where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                ConnOra.ExeNonQuery(sql_);
+
+
+
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
                                    from KLINIK.CS_CALL_LOG a, KLINIK.cs_visit b
@@ -6089,7 +6128,7 @@ namespace Clinic
                     q_no2 = dt5.Rows[0]["qno2"].ToString();
                 }
 
-                if (rm_type.ToString().Equals("DOC") && !q_no2.ToString().Equals("N"))
+                if (rm_type.ToString().Equals("MID") && !q_no2.ToString().Equals("N"))
                 {
                     if (gnder.ToString().Equals("P"))
                     {
@@ -6111,7 +6150,7 @@ namespace Clinic
 
                     stsimpan = 1;
                 }
-                else if (rm_type.ToString().Equals("DOC") && q_no2.ToString().Equals("N"))
+                else if (rm_type.ToString().Equals("MID") && q_no2.ToString().Equals("N"))
                 {
                     if (gnder.ToString().Equals("P"))
                     {
@@ -6504,6 +6543,22 @@ namespace Clinic
                     }
                 }
             }
+        }
+
+        private void Blinking(LabelControl ctrl, int mbOk)
+        {
+            //lsMSG = Message;
+            lsOK = mbOk;
+            _currentLabel = ctrl;
+            timerStart.Interval = 150;
+            timerStart.Enabled = true;
+            //timer1.Interval = 2000;
+            //timer1.Enabled = true;
+
+            timerEnd.Enabled = true;
+            timerEnd.Interval = 3000;
+            //timer3.Interval = 4000;
+            //timer3.Enabled = true;
         }
     }
 }

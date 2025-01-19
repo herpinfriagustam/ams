@@ -756,7 +756,7 @@ namespace Clinic
                 Sql = Sql + Environment.NewLine + "         blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, a.bb, a.tb, disease_now ,ID_VISIT, ";
                 Sql = Sql + Environment.NewLine + "         nvl(KELUHAN_UTAMA,disease_now) KELUHAN_UTAMA, 	nvl(PENYAKIT_LALU,DISEASE_THEN) PENYAKIT_LALU,	PERNAH_DIRAWAT,	PERNAH_OPERASI,	nvl(PENYAKIT_KELUARGA,DISEASE_FAMILY) PENYAKIT_KELUARGA,	 ";
                 Sql = Sql + Environment.NewLine + "         TERGANTUNG_THD,	RIWAYAT_PEKERJAAN,	RIWAYAT_ALERGI,	RIWAYAT_OBAT,	nvl(TD,blood_press) TD,	nvl(NADI,pulse) NADI,	P,	nvl(SUHU,temperature) SUHU,	KELUHAN,	BATAS_MAKAN,	GIGI_PALSU,	MUAL,	MUNTAH,	nvl(b.BB,a.bb) BB,	nvl(b.TB,a.tb) TB,round((to_number(nvl(b.BB,a.bb),'9,999.9')/(to_number(nvl(b.TB,a.tb),'9,999.9')*	to_number(nvl(b.TB,a.TB),'9,999.9')))* 10000,2) IMT,					 ";
-                Sql = Sql + Environment.NewLine + "         nvl(GST_KET,KLINIK.CS_IMT(nvl(b.BB,a.bb), nvl(b.TB,a.tb))) GST_KET,	PENDENGARAN,	PENGLIHATAN,	DEFEKASI,	MIKSI,	KULIT,	SKOR_NORTON,	RESIKO_DEKUBITUS,	LOKASI_LUKA,	PERIKSA_FISIK_LAIN,	FORM_PERIKSA_KHUSUS,	STATUS_PSIKOLOGI,	STATUS_MENTAL,	HUBUNGAN_KELUARGA,	TEMPAT_TINGGAL,	NAMA_KERABAT,	HUB_KERABAT,	TLP_KERABAT,	KEG_AGAMA,	KEG_SPIRITUAL,	HAMBATAN_BELAJAR,	BUTUH_PENERJEMAH,	KEBUTUHAN_EDUKASI,	BERSEDIA_DIKUNJUNGI,	RESIKO_CEDERA,	MENERIMA_INFO, a.VITALRR ";
+                Sql = Sql + Environment.NewLine + "         nvl(GST_KET,KLINIK.CS_IMT(to_number(nvl(b.BB,a.bb),'9,999.9'), to_number(nvl(b.TB,a.tb),'9,999.9'))) GST_KET,	PENDENGARAN,	PENGLIHATAN,	DEFEKASI,	MIKSI,	KULIT,	SKOR_NORTON,	RESIKO_DEKUBITUS,	LOKASI_LUKA,	PERIKSA_FISIK_LAIN,	FORM_PERIKSA_KHUSUS,	STATUS_PSIKOLOGI,	STATUS_MENTAL,	HUBUNGAN_KELUARGA,	TEMPAT_TINGGAL,	NAMA_KERABAT,	HUB_KERABAT,	TLP_KERABAT,	KEG_AGAMA,	KEG_SPIRITUAL,	HAMBATAN_BELAJAR,	BUTUH_PENERJEMAH,	KEBUTUHAN_EDUKASI,	BERSEDIA_DIKUNJUNGI,	RESIKO_CEDERA,	MENERIMA_INFO, a.VITALRR ";
                 Sql = Sql + Environment.NewLine + "   from  cs_anamnesa a, T1_RAWAT_INAP1 b  ";
                 Sql = Sql + Environment.NewLine + "  where a.ANAMNESA_ID = b.ANAMESA_ID  "; 
                 Sql = Sql + Environment.NewLine + "    and  a.ANAMNESA_ID = " + id + "  ";
@@ -882,7 +882,7 @@ namespace Clinic
                 if (dt5.Rows.Count > 0)
                 {
                     DateTime dte;
-                    if (DateTime.TryParseExact(FN.rowVal(dt5, "tanggal_keluar"), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dte))
+                    if (DateTime.TryParseExact(FN.rowVal(dt5, "tanggal_keluar"), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dte))
                         dtkeluar.EditValue = dte;
 
                     cbKeadaanPulang.SelectedItem = FN.rowVal(dt5, "keadaan_pulang");
@@ -916,14 +916,14 @@ namespace Clinic
                 if (dt6.Rows.Count > 0)
                 {
                     DateTime dte;
-                    if (DateTime.TryParseExact(FN.rowVal(dt6, "tanggal_keluar"), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dte))
+                    if (DateTime.TryParseExact(FN.rowVal(dt6, "tanggal_keluar"), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dte))
                         dtKeluarx.EditValue = dte;
 
                     //dtKeluarx.EditValue = FN.rowVal(dt6, "tanggal_keluar").ToString().Substring(0,10);
                     txtjam.Text = FN.rowVal(dt6, "JAM_KELUAR").ToString() ;
                     txDokterPengirim.EditValue = FN.rowVal(dt6, "dokter_pengirim");
                     txDokterKonsultan.EditValue = FN.rowVal(dt6, "dokter_konsultan");
-                    txDiagnosaAkhir.Text  = FN.rowVal(dt6, "diagnose_akhir");
+                    txDiagnosaAkhir.EditValue = FN.rowVal(dt6, "diagnose_akhir");
                     txAnamesa.Text = FN.rowVal(dt6, "anamesa");
                     mmPeriksaFisik.Text = FN.rowVal(dt6, "periksa_fisik_lab");
                     txPengobatan.Text = FN.rowVal(dt6, "pengobatan_dilakukan");
@@ -1228,7 +1228,7 @@ namespace Clinic
                     { "tanggal_keluar", dtKeluarx.DateTime.ToString("yyyy-MM-dd")},
                     { "dokter_pengirim", txDokterPengirim.EditValue.ToString() },
                     { "dokter_konsultan", txDokterKonsultan.EditValue.ToString() },
-                    { "diagnose_akhir", txDiagnosaAkhir.Text?.ToString() },
+                    { "diagnose_akhir", txDiagnosaAkhir.EditValue.ToString() },
                     { "anamesa",txAnamesa.Text?.ToString() },
                     { "periksa_fisik_lab", mmPeriksaFisik.Text?.ToString() },
                     { "pengobatan_dilakukan", txPengobatan.Text?.ToString() },
@@ -1244,7 +1244,7 @@ namespace Clinic
                 Dictionary<string, string> TglPulangData = new Dictionary<string, string>
                 {
                     { "date_out", tgl_out},
-                    { "STATUS", "CLS" },
+                    { "STATUS", "PAY" },
                     { "upd_date",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") },
                     { "upd_emp", DB.vUserId } 
                 };
@@ -5133,7 +5133,7 @@ namespace Clinic
 
         private void gvCppt_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-            gvCppt.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvCppt_RowUpdated);
+            //gvCppt.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvCppt_RowUpdated);
         }
 
         private void gvwMain_DoubleClick(object sender, EventArgs e)

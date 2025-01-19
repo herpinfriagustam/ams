@@ -114,7 +114,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "addrs, jobs, purpose, height, weight, blood_press, d_now, d_his, eye_status, ";
             sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Harga, f_type, decode(STAT_PAY,'X','Closed',STAT_PAY) STAT_PAY ";
             sql_search = sql_search + Environment.NewLine + "from cs_kir ";
-            sql_search = sql_search + Environment.NewLine + "where 1=1 ";
+            sql_search = sql_search + Environment.NewLine + "where 1=1 AND f_type IN ('MED') ";
             sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-mm-dd') and to_date('" + dDateEnd.Text + "','yyyy-mm-dd') ";
             sql_search = sql_search + Environment.NewLine + "order by regis_date, name ";
              

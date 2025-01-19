@@ -3239,9 +3239,9 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 598);
+            this.panel20.Location = new System.Drawing.Point(0, 574);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(745, 17);
+            this.panel20.Size = new System.Drawing.Size(762, 17);
             this.panel20.TabIndex = 292;
             // 
             // labelControl75
@@ -4266,7 +4266,7 @@
             this.gbPernahDirawat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahDirawat.Location = new System.Drawing.Point(3, 45);
             this.gbPernahDirawat.Name = "gbPernahDirawat";
-            this.gbPernahDirawat.Size = new System.Drawing.Size(475, 94);
+            this.gbPernahDirawat.Size = new System.Drawing.Size(492, 94);
             this.gbPernahDirawat.TabIndex = 6;
             this.gbPernahDirawat.TabStop = false;
             this.gbPernahDirawat.Text = "Pernah Dirawat ?";
@@ -4352,7 +4352,7 @@
             this.gbRwkerja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwkerja.Location = new System.Drawing.Point(3, 334);
             this.gbRwkerja.Name = "gbRwkerja";
-            this.gbRwkerja.Size = new System.Drawing.Size(475, 48);
+            this.gbRwkerja.Size = new System.Drawing.Size(492, 48);
             this.gbRwkerja.TabIndex = 29;
             this.gbRwkerja.TabStop = false;
             this.gbRwkerja.Text = "Riwayat Pekerjaan (Berhubungan dengan zat berbahaya?)";
@@ -4402,7 +4402,7 @@
             this.gbRwAlergi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwAlergi.Location = new System.Drawing.Point(3, 383);
             this.gbRwAlergi.Name = "gbRwAlergi";
-            this.gbRwAlergi.Size = new System.Drawing.Size(475, 63);
+            this.gbRwAlergi.Size = new System.Drawing.Size(492, 63);
             this.gbRwAlergi.TabIndex = 32;
             this.gbRwAlergi.TabStop = false;
             this.gbRwAlergi.Text = "Riwayat Alergi";
@@ -4482,7 +4482,7 @@
             this.gbTergantungThdp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTergantungThdp.Location = new System.Drawing.Point(3, 258);
             this.gbTergantungThdp.Name = "gbTergantungThdp";
-            this.gbTergantungThdp.Size = new System.Drawing.Size(475, 70);
+            this.gbTergantungThdp.Size = new System.Drawing.Size(492, 70);
             this.gbTergantungThdp.TabIndex = 22;
             this.gbTergantungThdp.TabStop = false;
             this.gbTergantungThdp.Text = "Ketergantungan Terhadap";
@@ -4575,7 +4575,7 @@
             this.gbRwSakitKlrg.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwSakitKlrg.Location = new System.Drawing.Point(3, 190);
             this.gbRwSakitKlrg.Name = "gbRwSakitKlrg";
-            this.gbRwSakitKlrg.Size = new System.Drawing.Size(475, 67);
+            this.gbRwSakitKlrg.Size = new System.Drawing.Size(492, 67);
             this.gbRwSakitKlrg.TabIndex = 14;
             this.gbRwSakitKlrg.TabStop = false;
             this.gbRwSakitKlrg.Text = "Riwayat Penyakit Keluarga";
@@ -4676,7 +4676,7 @@
             this.gbPernahOperasi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahOperasi.Location = new System.Drawing.Point(3, 145);
             this.gbPernahOperasi.Name = "gbPernahOperasi";
-            this.gbPernahOperasi.Size = new System.Drawing.Size(475, 44);
+            this.gbPernahOperasi.Size = new System.Drawing.Size(492, 44);
             this.gbPernahOperasi.TabIndex = 11;
             this.gbPernahOperasi.TabStop = false;
             this.gbPernahOperasi.Text = "Pernah Operasi ?";
@@ -4724,7 +4724,7 @@
             this.gbRwPenyakitlalu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwPenyakitlalu.Location = new System.Drawing.Point(3, 1);
             this.gbRwPenyakitlalu.Name = "gbRwPenyakitlalu";
-            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(475, 44);
+            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(492, 44);
             this.gbRwPenyakitlalu.TabIndex = 3;
             this.gbRwPenyakitlalu.TabStop = false;
             this.gbRwPenyakitlalu.Text = "Riwayat Penyakit Lalu";

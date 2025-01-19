@@ -476,7 +476,7 @@ namespace Clinic
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) stok,  ";
                 sql_his = sql_his + Environment.NewLine + " confirm, a.receipt_id,a.med_cd , e.MINUS_STOK ,f.TRANS_ID   ";
                 sql_his = sql_his + Environment.NewLine + " from cs_receipt a JOIN KLINIK.CS_KIR d ON (a.ATT3_RECIEPT = d.KIR_ID)   ";
-                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd)  ";
+                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd   )  ";
                 sql_his = sql_his + Environment.NewLine + "  left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)   ";
                 sql_his = sql_his + Environment.NewLine + " where  c.status = 'A' AND c.BPJS_COVER = 'N' AND e.MINUS_STOK = 'Y'   and KIR_ID = " + visitid + "   ";
                 sql_his = sql_his + Environment.NewLine + " order by 1  "; 
@@ -515,8 +515,11 @@ namespace Clinic
                 sql_his = sql_his + Environment.NewLine + " where b.status = 'A' ";
                 sql_his = sql_his + Environment.NewLine + " and c.status = 'A' and a.jenis_obat ='NONE' ";
                 sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_nik + "' and id_visit = " + visitid + " ";
-                //sql_his = sql_his + Environment.NewLine + " and to_char(insp_date, 'yyyy-MM-dd') =  '" + s_date + "' ";
-                sql_his = sql_his + Environment.NewLine + " order by 1 ";
+                //if (s_poli.ToString().Equals("Rawat Inap"))
+                //{
+                //    sql_his = sql_his + Environment.NewLine + "  AND A.GRID_NAME ='gvObtPlng' ";
+                //}
+                sql_his = sql_his + Environment.NewLine + " order by confirm, 1 ";
             }
             
 

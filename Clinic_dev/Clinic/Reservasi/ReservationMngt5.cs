@@ -172,7 +172,7 @@ namespace Clinic
             listStat.Add(new Status() { statusCode = "PAY", statusName = "Payment" });
             listStat.Add(new Status() { statusCode = "DON", statusName = "Completed" });
             listStat.Add(new Status() { statusCode = "CLS", statusName = "Closed" });
-            listStat.Add(new Status() { statusCode = "HOL", statusName = "Hold" });
+            //listStat.Add(new Status() { statusCode = "HOL", statusName = "Hold" });
             listStat.Add(new Status() { statusCode = "CAN", statusName = "Cancel" });
 
             listKehamilan.Clear();
@@ -334,7 +334,7 @@ namespace Clinic
                 gridView1.Columns[7].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[8].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[9].OptionsColumn.AllowEdit = false;
-                gridView1.Columns[10].OptionsColumn.AllowEdit = false;
+                gridView1.Columns[10].OptionsColumn.AllowEdit = true;
                 gridView1.Columns[11].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[12].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[13].OptionsColumn.AllowEdit = false;
@@ -1901,43 +1901,47 @@ namespace Clinic
                         oraConnect.Close();
                         cm.Dispose();
 
-                        if (gnder.ToString().Equals("Perempuan") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                        if(!status.ToString().Equals("CAN"))
                         {
-                            p1 = " Saudari  ";
+                            if (gnder.ToString().Equals("Perempuan") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                            {
+                                p1 = " Saudari  ";
+                            }
+                            else if (gnder.ToString().Equals("Perempuan") && Convert.ToInt32(age) > 30)
+                            {
+                                p1 = " Nyonya  ";
+                            }
+                            else if (gnder.ToString().Equals("Laki-Laki") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                            {
+                                p1 = " Saudara  ";
+                            }
+                            else if (gnder.ToString().Equals("Laki-Laki") && Convert.ToInt32(age) > 30)
+                            {
+                                p1 = " Tuan  ";
+                            }
+
+                            if (Convert.ToInt32(age) < 13)
+                            {
+                                p1 = " Anak  ";
+                            }
+
+                            p2 = nme + " ";
+
+                            if (tmp_poli.ToString().Equals("Poli KB"))
+                                tmp_poli = "Poli  K B";
+
+                            teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Senuju Ke " + tmp_poli + "";
+
+                            sql_check = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + tmp_pc + "', stat ='" + tmp_poli + "', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+
+                            OleDbConnection oraConnect1 = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm1 = new OleDbCommand(sql_check, oraConnect1);
+                            oraConnect1.Open();
+                            cm1.ExecuteNonQuery();
+                            oraConnect1.Close();
+                            cm1.Dispose();
                         }
-                        else if (gnder.ToString().Equals("Perempuan") && Convert.ToInt32(age) > 30)
-                        {
-                            p1 = " Nyonya  ";
-                        }
-                        else if (gnder.ToString().Equals("Laki-Laki") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
-                        {
-                            p1 = " Saudara  ";
-                        }
-                        else if (gnder.ToString().Equals("Laki-Laki") && Convert.ToInt32(age) > 30)
-                        {
-                            p1 = " Tuan  ";
-                        }
-
-                        if (Convert.ToInt32(age) < 13)
-                        {
-                            p1 = " Anak  ";
-                        }
-
-                        p2 = nme + " ";
-
-                        if (tmp_poli.ToString().Equals("Poli KB"))
-                            tmp_poli = "Poli  K B";
-
-                        teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Senuju Ke " + tmp_poli + "";
-
-                        sql_check = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + tmp_pc +"', stat ='" + tmp_poli + "', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
-
-                        OleDbConnection oraConnect1 = ConnOra.Create_Connect_Ora();
-                        OleDbCommand cm1 = new OleDbCommand(sql_check, oraConnect1);
-                        oraConnect1.Open();
-                        cm1.ExecuteNonQuery();
-                        oraConnect1.Close();
-                        cm1.Dispose();
+                        
 
 
                         //MessageBox.Show("Query Exec : " + sql_update);
@@ -3340,7 +3344,7 @@ namespace Clinic
             glLaya.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             glLaya.ImmediatePopup = true;
             glLaya.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            //glLaya.NullText = "";
+            glLaya.NullText = "";
             gvMedisPeriksa.Columns[3].ColumnEdit = glLaya;
 
             gvMedisPeriksa.Columns[1].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -3387,7 +3391,7 @@ namespace Clinic
                 glLayaU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
                 glLayaU.ImmediatePopup = true;
                 glLayaU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-                //glLayaU.NullText = "";
+                glLayaU.NullText = "";
                 gvMedisPeriksaU.Columns[3].ColumnEdit = glLayaU;
 
                 gvMedisPeriksaU.Columns[1].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -4919,6 +4923,7 @@ namespace Clinic
             newRow["JAM"] = tojam;
             newRow["ID_VISIT"] = visitid;
             newRow["ACTION"] = "I";
+            //newRow["Nama Pelayanan"] = "";
             dtMedis.Rows.Add(newRow);
 
             gridMedisPeriksa.DataSource = dtMedis;
