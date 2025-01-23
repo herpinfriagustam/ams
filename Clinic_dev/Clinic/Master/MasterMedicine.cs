@@ -335,7 +335,7 @@ namespace Clinic
                 gridView2.Columns.Clear();
                 gridControl2.DataSource = dt;
 
-                btnSaveKate.Enabled = false;
+                //btnSaveKate.Enabled = false;
 
                 //gridView1.OptionsBehavior.EditingMode = GridEditingMode.EditFormInplace;
                 gridView2.OptionsView.ColumnAutoWidth = true;

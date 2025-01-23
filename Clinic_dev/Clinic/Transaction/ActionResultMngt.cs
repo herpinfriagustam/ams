@@ -167,10 +167,7 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "        where 1=1   ";
             SQL = SQL + Environment.NewLine + "        and to_char(a.visit_date,'yyyy-mm-dd')='" + dtgl.Text + "'   ";
             SQL = SQL + Environment.NewLine + "        and a.status not in ('CAN') ";
-            SQL = SQL + Environment.NewLine + "        and f.USED_BY ='LAB'  )  ";
-            SQL = SQL + Environment.NewLine + "where 1=1 ";
-
-
+            SQL = SQL + Environment.NewLine + "        and f.USED_BY ='LAB'    ";
             if (luPoliCd.Text == "Pilih")
             {
                 SQL = SQL + Environment.NewLine + "and poli_cd like '%%' ";
@@ -179,6 +176,27 @@ namespace Clinic
             {
                 SQL = SQL + Environment.NewLine + "and poli_cd like '%" + luPoliCd.GetColumnValue("poliCode").ToString() + "%' ";
             }
+            //SQL = SQL + Environment.NewLine + "        UNION ALL ";
+            //SQL = SQL + Environment.NewLine + "        select 'S' action, a.patient_no, c.name, b.rm_no, a.visit_date, a.que01,    ";
+            //SQL = SQL + Environment.NewLine + "                to_char(a.visit_date,'yyyy-mm-dd') tgl, DECODE(a.status,'DON',(SELECT Z.pay_status FROM KLINIK.cs_treatment_head Z  WHERE a.id_visit = Z.id_visit ),a.status) status, a.poli_cd, a.purpose, a.visit_remark,   ";
+            //SQL = SQL + Environment.NewLine + "                (select count(0) from KLINIK.cs_action    ";
+            //SQL = SQL + Environment.NewLine + "        where rm_no=b.rm_no   ";
+            //SQL = SQL + Environment.NewLine + "          and visit_no=a.que01   ";
+            //SQL = SQL + Environment.NewLine + "          and insp_date=trunc(a.visit_date)) cnt,a.ID_VISIT,TYPE_PATIENT, a.TIME_INSPECTION,c.GENDER   ";
+            //SQL = SQL + Environment.NewLine + "        from KLINIK.cs_visit a    ";
+            //SQL = SQL + Environment.NewLine + "        join KLINIK.cs_patient b on (a.patient_no=b.patient_no)    ";
+            //SQL = SQL + Environment.NewLine + "        join KLINIK.cs_patient_info c on (a.patient_no=c.patient_no)    ";
+            //SQL = SQL + Environment.NewLine + "        left join KLINIK.cs_treatment_head d on (a.ID_VISIT = d.ID_VISIT)    ";
+            //SQL = SQL + Environment.NewLine + "        left join KLINIK.cs_treatment_detail e on (d.head_id=e.head_id)    ";
+            //SQL = SQL + Environment.NewLine + "        left join KLINIK.cs_treatment_item f on (e.treat_item_id=f.treat_item_id)    ";
+            //SQL = SQL + Environment.NewLine + "        where 1=1    ";
+            //SQL = SQL + Environment.NewLine + "        and to_char(a.visit_date,'yyyy-mm-dd')= '" + dtgl.Text + "'    ";
+            //SQL = SQL + Environment.NewLine + "        and a.status not in ('CAN')   ";
+            //SQL = SQL + Environment.NewLine + "        and a.POLI_CD ='POL0007'   ";
+            SQL = SQL + Environment.NewLine + "        ) ";
+            SQL = SQL + Environment.NewLine + "where 1=1 "; 
+
+            SQL = SQL + Environment.NewLine + "order by que01 desc,poli_cd, name ";
 
             try
             {
@@ -467,9 +485,11 @@ namespace Clinic
                         command2.Connection = oraConnectTrans2;
                         command2.Transaction = trans2;
 
-                        command2.CommandText = " update KLINIK.cs_visit set status = '" + vstatus + "', TIME_INSPECTION = sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate, MENU_LAST_UPDATED = 'ActionResultMngt', M_UPDATED_DATE = sysdate where patient_no = '" + s_pasno + "' and id_visit = '" + visitid + "'   ";
-                        command2.ExecuteNonQuery();
-
+                        if (berobat.ToString().Equals("ETC"))
+                        {
+                            command2.CommandText = " update KLINIK.cs_visit set status = '" + vstatus + "', TIME_INSPECTION = sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate, MENU_LAST_UPDATED = 'ActionResultMngt', M_UPDATED_DATE = sysdate where patient_no = '" + s_pasno + "' and id_visit = '" + visitid + "'   ";
+                            command2.ExecuteNonQuery();
+                        } 
 
                         if (gnder.ToString().Equals("P"))
                         {
@@ -543,8 +563,11 @@ namespace Clinic
                         command.CommandText = " insert into cs_treatment_head (head_id, rm_no, patient_no, visit_date, visit_no, treat_type_id, status, remarks, pay_status, ins_date, ins_emp, ID_VISIT, INSU_FLAG) values ('" + seq_val + "', '" + s_rmno + "', '" + s_pasno + "', to_date('" + s_vdate + "', 'yyyy-mm-dd'), '" + s_visitno + "', 'TRT02', 'OPN', 'dari pendaftaran', 'OPN', sysdate, '" + DB.vUserId + "', " + visitid + ", '" + insflag + "') ";
                         command.ExecuteNonQuery();
 
-                        command.CommandText = " update cs_visit set status = '" + vstatus + "', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + s_pasno + "' and to_char(visit_date,'yyyy-mm-dd') = '" + s_vdate + "' and ID_VISIT = " + visitid + " ";
-                        command.ExecuteNonQuery();
+                        if (berobat.ToString().Equals("ETC"))
+                        {
+                            command.CommandText = " update cs_visit set status = '" + vstatus + "', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + s_pasno + "' and to_char(visit_date,'yyyy-mm-dd') = '" + s_vdate + "' and ID_VISIT = " + visitid + " ";
+                            command.ExecuteNonQuery();
+                        }                            
 
                         sql_tmp = "";
                         sql_tmp = sql_tmp + " insert into cs_treatment_detail ";
@@ -666,10 +689,10 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "        to_char(insp_date,'yyyy-mm-dd') insp_date, ";
             SQL = SQL + Environment.NewLine + "        to_char(treat_date,'yyyy-mm-dd') treat_date, ";
             SQL = SQL + Environment.NewLine + "        'REG' info, act_name, act_remark,  ";
-            SQL = SQL + Environment.NewLine + "        treat_item_id,  treat_item_price, ";
+            SQL = SQL + Environment.NewLine + "        b.treat_item_id,  b.treat_item_price, ";
             SQL = SQL + Environment.NewLine + "        null adj_type, a.detail_id, a.detail_adj_id ";
             SQL = SQL + Environment.NewLine + "   from KLINIK.cs_action a ";
-            SQL = SQL + Environment.NewLine + "   join KLINIK.cs_treatment_detail b on (a.detail_id=b.detail_id) ";
+            SQL = SQL + Environment.NewLine + "   join KLINIK.cs_treatment_detail b on (a.detail_id=b.detail_id) join KLINIK.cs_treatment_item   c on (b.treat_item_id=c.treat_item_id and USED_BY = 'LAB' )  ";
             SQL = SQL + Environment.NewLine + "  where 1=1 ";
             SQL = SQL + Environment.NewLine + "    and rm_no='"+ p_rm_no + "' ";
             SQL = SQL + Environment.NewLine + "    and visit_no='" + v_visit_no + "' ";

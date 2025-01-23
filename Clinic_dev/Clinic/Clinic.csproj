@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\Another Program\Antrian\AntrianKlinik\AntrianKlinik\bin\Debug\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -137,6 +137,12 @@
     <Compile Include="Class\MedicineGroup.cs" />
     <Compile Include="Class\MedicineUmum.cs" />
     <Compile Include="Class\OracleChangeNotification.cs" />
+    <Compile Include="Master\MasterSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterSchedule.Designer.cs">
+      <DependentUpon>MasterSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\MasterDokter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1106,6 +1112,9 @@
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\WorkAccident.cs" />
+    <EmbeddedResource Include="Master\MasterSchedule.resx">
+      <DependentUpon>MasterSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\MasterDokter.resx">
       <DependentUpon>MasterDokter.cs</DependentUpon>
     </EmbeddedResource>

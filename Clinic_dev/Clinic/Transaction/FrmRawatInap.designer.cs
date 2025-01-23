@@ -122,16 +122,14 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.xtraScrollableControl9 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl11 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.LookDokter2 = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.txDokterKonsultan = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.LookDokter1 = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.txDokterPengirim = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txDiagnosaAkhir = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txtjam = new DevExpress.XtraEditors.TextEdit();
-            this.txDokterKonsultan = new DevExpress.XtraEditors.LookUpEdit();
-            this.txDokterPengirim = new DevExpress.XtraEditors.LookUpEdit();
             this.panel5 = new System.Windows.Forms.Panel();
             this.chkDoc7 = new System.Windows.Forms.CheckBox();
             this.chkDoc8 = new System.Windows.Forms.CheckBox();
@@ -903,15 +901,13 @@
             this.panel14.SuspendLayout();
             this.xtraScrollableControl9.SuspendLayout();
             this.xtraScrollableControl11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LookDokter2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txDokterKonsultan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookDokter1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txDokterPengirim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txDiagnosaAkhir.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtjam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txDokterKonsultan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txDokterPengirim.Properties)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txDoc3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txDoc5.Properties)).BeginInit();
@@ -1226,7 +1222,7 @@
             // 
             this.tab5.Controls.Add(this.tableLayoutPanel8);
             this.tab5.Name = "tab5";
-            this.tab5.Size = new System.Drawing.Size(1556, 714);
+            this.tab5.Size = new System.Drawing.Size(1552, 629);
             this.tab5.Text = "C. Perencanaan dan Resume Pulang";
             // 
             // tableLayoutPanel8
@@ -1241,7 +1237,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1556, 714);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1552, 629);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // pnlPulang1
@@ -1251,7 +1247,7 @@
             this.pnlPulang1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPulang1.Location = new System.Drawing.Point(3, 3);
             this.pnlPulang1.Name = "pnlPulang1";
-            this.pnlPulang1.Size = new System.Drawing.Size(857, 708);
+            this.pnlPulang1.Size = new System.Drawing.Size(854, 623);
             this.pnlPulang1.TabIndex = 0;
             // 
             // scrolPulang
@@ -1261,7 +1257,7 @@
             this.scrolPulang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scrolPulang.Location = new System.Drawing.Point(0, 0);
             this.scrolPulang.Name = "scrolPulang";
-            this.scrolPulang.Size = new System.Drawing.Size(855, 706);
+            this.scrolPulang.Size = new System.Drawing.Size(852, 621);
             this.scrolPulang.TabIndex = 3;
             // 
             // xtraScrollableControl8
@@ -1270,7 +1266,7 @@
             this.xtraScrollableControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl8.Location = new System.Drawing.Point(0, 30);
             this.xtraScrollableControl8.Name = "xtraScrollableControl8";
-            this.xtraScrollableControl8.Size = new System.Drawing.Size(855, 676);
+            this.xtraScrollableControl8.Size = new System.Drawing.Size(852, 591);
             this.xtraScrollableControl8.TabIndex = 211;
             // 
             // xtraScrollableControl12
@@ -1327,7 +1323,7 @@
             this.xtraScrollableControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl12.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl12.Name = "xtraScrollableControl12";
-            this.xtraScrollableControl12.Size = new System.Drawing.Size(855, 676);
+            this.xtraScrollableControl12.Size = new System.Drawing.Size(852, 591);
             this.xtraScrollableControl12.TabIndex = 0;
             // 
             // labelControl102
@@ -1345,7 +1341,7 @@
             // 
             this.simpleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton6.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(700, 82);
+            this.simpleButton6.Location = new System.Drawing.Point(697, 82);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(65, 23);
             this.simpleButton6.TabIndex = 306;
@@ -1356,7 +1352,7 @@
             // 
             this.simpleButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton7.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.Image")));
-            this.simpleButton7.Location = new System.Drawing.Point(771, 82);
+            this.simpleButton7.Location = new System.Drawing.Point(768, 82);
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(75, 23);
             this.simpleButton7.TabIndex = 305;
@@ -1371,7 +1367,7 @@
             this.txAltTerpsang.Location = new System.Drawing.Point(441, 53);
             this.txAltTerpsang.Name = "txAltTerpsang";
             this.txAltTerpsang.Properties.AutoHeight = false;
-            this.txAltTerpsang.Size = new System.Drawing.Size(411, 21);
+            this.txAltTerpsang.Size = new System.Drawing.Size(408, 21);
             this.txAltTerpsang.TabIndex = 5;
             // 
             // txKeadaanDtl
@@ -1382,7 +1378,7 @@
             this.txKeadaanDtl.Location = new System.Drawing.Point(441, 29);
             this.txKeadaanDtl.Name = "txKeadaanDtl";
             this.txKeadaanDtl.Properties.AutoHeight = false;
-            this.txKeadaanDtl.Size = new System.Drawing.Size(411, 21);
+            this.txKeadaanDtl.Size = new System.Drawing.Size(408, 21);
             this.txKeadaanDtl.TabIndex = 3;
             // 
             // cbKeadaanPulang
@@ -1405,7 +1401,7 @@
             // 
             this.addObat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addObat.Image = ((System.Drawing.Image)(resources.GetObject("addObat.Image")));
-            this.addObat.Location = new System.Drawing.Point(630, 82);
+            this.addObat.Location = new System.Drawing.Point(627, 82);
             this.addObat.Name = "addObat";
             this.addObat.Size = new System.Drawing.Size(65, 23);
             this.addObat.TabIndex = 6;
@@ -1814,7 +1810,7 @@
             this.gcObtPlng.Location = new System.Drawing.Point(5, 77);
             this.gcObtPlng.MainView = this.gvObtPlng;
             this.gcObtPlng.Name = "gcObtPlng";
-            this.gcObtPlng.Size = new System.Drawing.Size(847, 223);
+            this.gcObtPlng.Size = new System.Drawing.Size(844, 223);
             this.gcObtPlng.TabIndex = 301;
             this.gcObtPlng.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvObtPlng});
@@ -2080,7 +2076,7 @@
             this.labelControl26.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl26.Location = new System.Drawing.Point(0, 0);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(855, 30);
+            this.labelControl26.Size = new System.Drawing.Size(852, 30);
             this.labelControl26.TabIndex = 210;
             this.labelControl26.Text = "PERENCANAAN PULANG";
             // 
@@ -2090,9 +2086,9 @@
             this.panel14.Controls.Add(this.xtraScrollableControl9);
             this.panel14.Controls.Add(this.labelControl93);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(866, 3);
+            this.panel14.Location = new System.Drawing.Point(863, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(687, 708);
+            this.panel14.Size = new System.Drawing.Size(686, 623);
             this.panel14.TabIndex = 1;
             // 
             // xtraScrollableControl9
@@ -2101,18 +2097,16 @@
             this.xtraScrollableControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl9.Location = new System.Drawing.Point(0, 30);
             this.xtraScrollableControl9.Name = "xtraScrollableControl9";
-            this.xtraScrollableControl9.Size = new System.Drawing.Size(685, 676);
+            this.xtraScrollableControl9.Size = new System.Drawing.Size(684, 591);
             this.xtraScrollableControl9.TabIndex = 188;
             // 
             // xtraScrollableControl11
             // 
-            this.xtraScrollableControl11.Controls.Add(this.LookDokter2);
-            this.xtraScrollableControl11.Controls.Add(this.LookDokter1);
+            this.xtraScrollableControl11.Controls.Add(this.txDokterKonsultan);
+            this.xtraScrollableControl11.Controls.Add(this.txDokterPengirim);
             this.xtraScrollableControl11.Controls.Add(this.txDiagnosaAkhir);
             this.xtraScrollableControl11.Controls.Add(this.labelControl11);
             this.xtraScrollableControl11.Controls.Add(this.txtjam);
-            this.xtraScrollableControl11.Controls.Add(this.txDokterKonsultan);
-            this.xtraScrollableControl11.Controls.Add(this.txDokterPengirim);
             this.xtraScrollableControl11.Controls.Add(this.panel5);
             this.xtraScrollableControl11.Controls.Add(this.labelControl14);
             this.xtraScrollableControl11.Controls.Add(this.labelControl25);
@@ -2135,22 +2129,22 @@
             this.xtraScrollableControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl11.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl11.Name = "xtraScrollableControl11";
-            this.xtraScrollableControl11.Size = new System.Drawing.Size(685, 676);
+            this.xtraScrollableControl11.Size = new System.Drawing.Size(684, 591);
             this.xtraScrollableControl11.TabIndex = 0;
             // 
-            // LookDokter2
+            // txDokterKonsultan
             // 
-            this.LookDokter2.EditValue = "";
-            this.LookDokter2.Location = new System.Drawing.Point(301, 71);
-            this.LookDokter2.Name = "LookDokter2";
-            this.LookDokter2.Properties.AutoHeight = false;
-            this.LookDokter2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txDokterKonsultan.EditValue = "";
+            this.txDokterKonsultan.Location = new System.Drawing.Point(177, 71);
+            this.txDokterKonsultan.Name = "txDokterKonsultan";
+            this.txDokterKonsultan.Properties.AutoHeight = false;
+            this.txDokterKonsultan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookDokter2.Properties.NullText = "";
-            this.LookDokter2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.LookDokter2.Properties.View = this.gridView3;
-            this.LookDokter2.Size = new System.Drawing.Size(233, 25);
-            this.LookDokter2.TabIndex = 316;
+            this.txDokterKonsultan.Properties.NullText = "";
+            this.txDokterKonsultan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.txDokterKonsultan.Properties.View = this.gridView3;
+            this.txDokterKonsultan.Size = new System.Drawing.Size(357, 25);
+            this.txDokterKonsultan.TabIndex = 316;
             // 
             // gridView3
             // 
@@ -2159,19 +2153,19 @@
             this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
-            // LookDokter1
+            // txDokterPengirim
             // 
-            this.LookDokter1.EditValue = "";
-            this.LookDokter1.Location = new System.Drawing.Point(301, 41);
-            this.LookDokter1.Name = "LookDokter1";
-            this.LookDokter1.Properties.AutoHeight = false;
-            this.LookDokter1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txDokterPengirim.EditValue = "";
+            this.txDokterPengirim.Location = new System.Drawing.Point(177, 41);
+            this.txDokterPengirim.Name = "txDokterPengirim";
+            this.txDokterPengirim.Properties.AutoHeight = false;
+            this.txDokterPengirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookDokter1.Properties.NullText = "";
-            this.LookDokter1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.LookDokter1.Properties.View = this.gridView2;
-            this.LookDokter1.Size = new System.Drawing.Size(233, 25);
-            this.LookDokter1.TabIndex = 315;
+            this.txDokterPengirim.Properties.NullText = "";
+            this.txDokterPengirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.txDokterPengirim.Properties.View = this.gridView2;
+            this.txDokterPengirim.Size = new System.Drawing.Size(357, 25);
+            this.txDokterPengirim.TabIndex = 315;
             // 
             // gridView2
             // 
@@ -2227,36 +2221,6 @@
             this.txtjam.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.txtjam.Size = new System.Drawing.Size(90, 25);
             this.txtjam.TabIndex = 308;
-            // 
-            // txDokterKonsultan
-            // 
-            this.txDokterKonsultan.EditValue = "";
-            this.txDokterKonsultan.Location = new System.Drawing.Point(177, 72);
-            this.txDokterKonsultan.Name = "txDokterKonsultan";
-            this.txDokterKonsultan.Properties.AutoHeight = false;
-            this.txDokterKonsultan.Properties.AutoSearchColumnIndex = 1;
-            this.txDokterKonsultan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txDokterKonsultan.Properties.DropDownRows = 10;
-            this.txDokterKonsultan.Properties.NullText = "";
-            this.txDokterKonsultan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txDokterKonsultan.Size = new System.Drawing.Size(117, 25);
-            this.txDokterKonsultan.TabIndex = 307;
-            // 
-            // txDokterPengirim
-            // 
-            this.txDokterPengirim.EditValue = "";
-            this.txDokterPengirim.Location = new System.Drawing.Point(177, 41);
-            this.txDokterPengirim.Name = "txDokterPengirim";
-            this.txDokterPengirim.Properties.AutoHeight = false;
-            this.txDokterPengirim.Properties.AutoSearchColumnIndex = 1;
-            this.txDokterPengirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txDokterPengirim.Properties.DropDownRows = 10;
-            this.txDokterPengirim.Properties.NullText = "";
-            this.txDokterPengirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txDokterPengirim.Size = new System.Drawing.Size(117, 25);
-            this.txDokterPengirim.TabIndex = 306;
             // 
             // panel5
             // 
@@ -2638,7 +2602,7 @@
             this.labelControl93.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl93.Location = new System.Drawing.Point(0, 0);
             this.labelControl93.Name = "labelControl93";
-            this.labelControl93.Size = new System.Drawing.Size(685, 30);
+            this.labelControl93.Size = new System.Drawing.Size(684, 30);
             this.labelControl93.TabIndex = 187;
             this.labelControl93.Text = "RESUME PULANG";
             // 
@@ -2651,7 +2615,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.pnlAsGizi);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(1550, 708);
+            this.splitContainerControl3.Size = new System.Drawing.Size(1546, 623);
             this.splitContainerControl3.SplitterPosition = 777;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2666,7 +2630,7 @@
             this.tbLayJdObat.Name = "tbLayJdObat";
             this.tbLayJdObat.RowCount = 1;
             this.tbLayJdObat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbLayJdObat.Size = new System.Drawing.Size(777, 708);
+            this.tbLayJdObat.Size = new System.Drawing.Size(777, 623);
             this.tbLayJdObat.TabIndex = 0;
             // 
             // splitContainerControl2
@@ -2679,7 +2643,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.panel17);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(771, 702);
+            this.splitContainerControl2.Size = new System.Drawing.Size(771, 617);
             this.splitContainerControl2.SplitterPosition = 351;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -2748,6 +2712,7 @@
             // 
             // gvCppt
             // 
+            this.gvCppt.ActiveFilterEnabled = false;
             this.gvCppt.Appearance.ViewCaption.Options.UseTextOptions = true;
             this.gvCppt.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gvCppt.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -2761,10 +2726,16 @@
             this.gridColumn18});
             this.gvCppt.GridControl = this.gcCppt;
             this.gvCppt.Name = "gvCppt";
+            this.gvCppt.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvCppt.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.True;
+            this.gvCppt.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.gvCppt.OptionsCustomization.AllowSort = false;
             this.gvCppt.OptionsView.ShowGroupPanel = false;
             this.gvCppt.OptionsView.ShowViewCaption = true;
             this.gvCppt.ViewCaption = "Catatan Perkembangan Pasien Terigntegrasi (CPPT)";
             this.gvCppt.ViewCaptionHeight = 35;
+            this.gvCppt.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCppt_InitNewRow);
+            this.gvCppt.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvCppt_RowUpdated);
             // 
             // gridColumn12
             // 
@@ -2917,7 +2888,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(771, 339);
+            this.panel17.Size = new System.Drawing.Size(771, 261);
             this.panel17.TabIndex = 0;
             // 
             // splitContainerControl4
@@ -2929,7 +2900,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.panel7);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(771, 339);
+            this.splitContainerControl4.Size = new System.Drawing.Size(771, 261);
             this.splitContainerControl4.SplitterPosition = 0;
             this.splitContainerControl4.TabIndex = 0;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -2940,7 +2911,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(771, 327);
+            this.panel7.Size = new System.Drawing.Size(771, 256);
             this.panel7.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -2953,7 +2924,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(771, 327);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(771, 256);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // splitContainerControl5
@@ -2965,7 +2936,7 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.panel9);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(765, 321);
+            this.splitContainerControl5.Size = new System.Drawing.Size(765, 250);
             this.splitContainerControl5.SplitterPosition = 244;
             this.splitContainerControl5.TabIndex = 0;
             this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2978,7 +2949,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(244, 321);
+            this.panel8.Size = new System.Drawing.Size(244, 250);
             this.panel8.TabIndex = 0;
             // 
             // btnSaveV
@@ -3012,7 +2983,7 @@
             this.gcVt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpDateVx,
             this.rpTxShu});
-            this.gcVt.Size = new System.Drawing.Size(244, 321);
+            this.gcVt.Size = new System.Drawing.Size(244, 250);
             this.gcVt.TabIndex = 1;
             this.gcVt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVt});
@@ -3111,7 +3082,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(509, 321);
+            this.panel9.Size = new System.Drawing.Size(516, 250);
             this.panel9.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -3124,7 +3095,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(509, 291);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(516, 220);
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // chrVital
@@ -3159,7 +3130,7 @@
         series1,
         series2,
         series3};
-            this.chrVital.Size = new System.Drawing.Size(503, 285);
+            this.chrVital.Size = new System.Drawing.Size(510, 214);
             this.chrVital.TabIndex = 0;
             // 
             // labelControl98
@@ -3172,7 +3143,7 @@
             this.labelControl98.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl98.Location = new System.Drawing.Point(0, 0);
             this.labelControl98.Name = "labelControl98";
-            this.labelControl98.Size = new System.Drawing.Size(509, 30);
+            this.labelControl98.Size = new System.Drawing.Size(516, 30);
             this.labelControl98.TabIndex = 1;
             this.labelControl98.Text = "Grafik Tanda Vital";
             // 
@@ -3184,7 +3155,7 @@
             this.pnlAsGizi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAsGizi.Location = new System.Drawing.Point(0, 0);
             this.pnlAsGizi.Name = "pnlAsGizi";
-            this.pnlAsGizi.Size = new System.Drawing.Size(761, 708);
+            this.pnlAsGizi.Size = new System.Drawing.Size(764, 623);
             this.pnlAsGizi.TabIndex = 0;
             // 
             // xtraScrollableControl6
@@ -3262,15 +3233,15 @@
             this.xtraScrollableControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl6.Location = new System.Drawing.Point(0, 30);
             this.xtraScrollableControl6.Name = "xtraScrollableControl6";
-            this.xtraScrollableControl6.Size = new System.Drawing.Size(759, 676);
+            this.xtraScrollableControl6.Size = new System.Drawing.Size(762, 591);
             this.xtraScrollableControl6.TabIndex = 1;
             // 
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 659);
+            this.panel20.Location = new System.Drawing.Point(0, 574);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(759, 17);
+            this.panel20.Size = new System.Drawing.Size(762, 17);
             this.panel20.TabIndex = 292;
             // 
             // labelControl75
@@ -4057,7 +4028,7 @@
             this.labelControl36.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl36.Location = new System.Drawing.Point(0, 0);
             this.labelControl36.Name = "labelControl36";
-            this.labelControl36.Size = new System.Drawing.Size(759, 30);
+            this.labelControl36.Size = new System.Drawing.Size(762, 30);
             this.labelControl36.TabIndex = 0;
             this.labelControl36.Text = "ASESMEN GIZI";
             // 
@@ -4065,7 +4036,7 @@
             // 
             this.tab3.Controls.Add(this.tableLayoutPanel5);
             this.tab3.Name = "tab3";
-            this.tab3.Size = new System.Drawing.Size(1556, 714);
+            this.tab3.Size = new System.Drawing.Size(1552, 629);
             this.tab3.Text = "B. CPPT -Jadwal Obat- Assesmen Gizi";
             // 
             // tableLayoutPanel5
@@ -4078,15 +4049,15 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1556, 714);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1552, 629);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tab1
             // 
             this.tab1.Controls.Add(this.formLayout);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(1556, 714);
+            this.tab1.Size = new System.Drawing.Size(1552, 629);
             this.tab1.Text = "A1. Pengkajian Awal Medis";
             // 
             // formLayout
@@ -4104,18 +4075,18 @@
             this.formLayout.Name = "formLayout";
             this.formLayout.RowCount = 1;
             this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.formLayout.Size = new System.Drawing.Size(1556, 714);
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.Size = new System.Drawing.Size(1552, 629);
             this.formLayout.TabIndex = 0;
             // 
             // panel3
@@ -4124,7 +4095,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1550, 708);
+            this.panel3.Size = new System.Drawing.Size(1546, 623);
             this.panel3.TabIndex = 0;
             // 
             // frmLayout1
@@ -4141,7 +4112,7 @@
             this.frmLayout1.Name = "frmLayout1";
             this.frmLayout1.RowCount = 1;
             this.frmLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.frmLayout1.Size = new System.Drawing.Size(1550, 708);
+            this.frmLayout1.Size = new System.Drawing.Size(1546, 623);
             this.frmLayout1.TabIndex = 0;
             // 
             // layout123
@@ -4158,7 +4129,7 @@
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.94736F));
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.layout123.Size = new System.Drawing.Size(474, 702);
+            this.layout123.Size = new System.Drawing.Size(473, 617);
             this.layout123.TabIndex = 1;
             // 
             // gbRwObat
@@ -4168,9 +4139,9 @@
             this.gbRwObat.Controls.Add(this.rgRiwayatObat);
             this.gbRwObat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbRwObat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbRwObat.Location = new System.Drawing.Point(3, 649);
+            this.gbRwObat.Location = new System.Drawing.Point(3, 564);
             this.gbRwObat.Name = "gbRwObat";
-            this.gbRwObat.Size = new System.Drawing.Size(468, 50);
+            this.gbRwObat.Size = new System.Drawing.Size(467, 50);
             this.gbRwObat.TabIndex = 38;
             this.gbRwObat.TabStop = false;
             this.gbRwObat.Text = "Riwayat Penggunaan Obat";
@@ -4183,7 +4154,7 @@
             this.txRiwayatObat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txRiwayatObat.Location = new System.Drawing.Point(219, 19);
             this.txRiwayatObat.Name = "txRiwayatObat";
-            this.txRiwayatObat.Size = new System.Drawing.Size(238, 21);
+            this.txRiwayatObat.Size = new System.Drawing.Size(237, 21);
             this.txRiwayatObat.TabIndex = 40;
             // 
             // label35
@@ -4219,7 +4190,7 @@
             this.g1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.g1.Location = new System.Drawing.Point(3, 3);
             this.g1.Name = "g1";
-            this.g1.Size = new System.Drawing.Size(468, 130);
+            this.g1.Size = new System.Drawing.Size(467, 112);
             this.g1.TabIndex = 0;
             this.g1.TabStop = false;
             this.g1.Text = "Keluhan Utama";
@@ -4228,7 +4199,7 @@
             // 
             this.simpleButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton8.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.Image")));
-            this.simpleButton8.Location = new System.Drawing.Point(388, 42);
+            this.simpleButton8.Location = new System.Drawing.Point(387, 42);
             this.simpleButton8.Name = "simpleButton8";
             this.simpleButton8.Size = new System.Drawing.Size(62, 23);
             this.simpleButton8.TabIndex = 28;
@@ -4239,7 +4210,7 @@
             // 
             this.chDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chDefault.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDefault.Location = new System.Drawing.Point(389, 12);
+            this.chDefault.Location = new System.Drawing.Point(388, 12);
             this.chDefault.Name = "chDefault";
             this.chDefault.Size = new System.Drawing.Size(84, 31);
             this.chDefault.TabIndex = 17;
@@ -4251,7 +4222,7 @@
             this.mmKeluhan.Dock = System.Windows.Forms.DockStyle.Left;
             this.mmKeluhan.Location = new System.Drawing.Point(3, 17);
             this.mmKeluhan.Name = "mmKeluhan";
-            this.mmKeluhan.Size = new System.Drawing.Size(345, 110);
+            this.mmKeluhan.Size = new System.Drawing.Size(345, 92);
             this.mmKeluhan.TabIndex = 1;
             // 
             // g2
@@ -4259,9 +4230,9 @@
             this.g2.Controls.Add(this.xtraScrollableControl1);
             this.g2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.g2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.g2.Location = new System.Drawing.Point(3, 139);
+            this.g2.Location = new System.Drawing.Point(3, 121);
             this.g2.Name = "g2";
-            this.g2.Size = new System.Drawing.Size(468, 504);
+            this.g2.Size = new System.Drawing.Size(467, 437);
             this.g2.TabIndex = 2;
             this.g2.TabStop = false;
             this.g2.Text = "Riwayat Kesehatan";
@@ -4278,7 +4249,7 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(462, 484);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(461, 417);
             this.xtraScrollableControl1.TabIndex = 0;
             // 
             // gbPernahDirawat
@@ -4295,7 +4266,7 @@
             this.gbPernahDirawat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahDirawat.Location = new System.Drawing.Point(3, 45);
             this.gbPernahDirawat.Name = "gbPernahDirawat";
-            this.gbPernahDirawat.Size = new System.Drawing.Size(493, 94);
+            this.gbPernahDirawat.Size = new System.Drawing.Size(492, 94);
             this.gbPernahDirawat.TabIndex = 6;
             this.gbPernahDirawat.TabStop = false;
             this.gbPernahDirawat.Text = "Pernah Dirawat ?";
@@ -4307,7 +4278,7 @@
             this.txRawatDi.Enabled = false;
             this.txRawatDi.Location = new System.Drawing.Point(128, 66);
             this.txRawatDi.Name = "txRawatDi";
-            this.txRawatDi.Size = new System.Drawing.Size(328, 21);
+            this.txRawatDi.Size = new System.Drawing.Size(310, 21);
             this.txRawatDi.TabIndex = 10;
             // 
             // txKapanRawat
@@ -4317,7 +4288,7 @@
             this.txKapanRawat.Enabled = false;
             this.txKapanRawat.Location = new System.Drawing.Point(128, 42);
             this.txKapanRawat.Name = "txKapanRawat";
-            this.txKapanRawat.Size = new System.Drawing.Size(328, 21);
+            this.txKapanRawat.Size = new System.Drawing.Size(310, 21);
             this.txKapanRawat.TabIndex = 9;
             // 
             // label4
@@ -4350,7 +4321,7 @@
             this.txDiagnosa.Enabled = false;
             this.txDiagnosa.Location = new System.Drawing.Point(128, 18);
             this.txDiagnosa.Name = "txDiagnosa";
-            this.txDiagnosa.Size = new System.Drawing.Size(328, 21);
+            this.txDiagnosa.Size = new System.Drawing.Size(310, 21);
             this.txDiagnosa.TabIndex = 8;
             // 
             // label3
@@ -4381,7 +4352,7 @@
             this.gbRwkerja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwkerja.Location = new System.Drawing.Point(3, 334);
             this.gbRwkerja.Name = "gbRwkerja";
-            this.gbRwkerja.Size = new System.Drawing.Size(493, 48);
+            this.gbRwkerja.Size = new System.Drawing.Size(492, 48);
             this.gbRwkerja.TabIndex = 29;
             this.gbRwkerja.TabStop = false;
             this.gbRwkerja.Text = "Riwayat Pekerjaan (Berhubungan dengan zat berbahaya?)";
@@ -4393,7 +4364,7 @@
             this.txRwytKerja.Enabled = false;
             this.txRwytKerja.Location = new System.Drawing.Point(170, 19);
             this.txRwytKerja.Name = "txRwytKerja";
-            this.txRwytKerja.Size = new System.Drawing.Size(286, 21);
+            this.txRwytKerja.Size = new System.Drawing.Size(268, 21);
             this.txRwytKerja.TabIndex = 31;
             // 
             // label33
@@ -4431,7 +4402,7 @@
             this.gbRwAlergi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwAlergi.Location = new System.Drawing.Point(3, 383);
             this.gbRwAlergi.Name = "gbRwAlergi";
-            this.gbRwAlergi.Size = new System.Drawing.Size(493, 63);
+            this.gbRwAlergi.Size = new System.Drawing.Size(492, 63);
             this.gbRwAlergi.TabIndex = 32;
             this.gbRwAlergi.TabStop = false;
             this.gbRwAlergi.Text = "Riwayat Alergi";
@@ -4455,7 +4426,7 @@
             this.txAlergi.Enabled = false;
             this.txAlergi.Location = new System.Drawing.Point(169, 35);
             this.txAlergi.Name = "txAlergi";
-            this.txAlergi.Size = new System.Drawing.Size(287, 21);
+            this.txAlergi.Size = new System.Drawing.Size(269, 21);
             this.txAlergi.TabIndex = 37;
             this.txAlergi.Tag = "etc";
             // 
@@ -4511,7 +4482,7 @@
             this.gbTergantungThdp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTergantungThdp.Location = new System.Drawing.Point(3, 258);
             this.gbTergantungThdp.Name = "gbTergantungThdp";
-            this.gbTergantungThdp.Size = new System.Drawing.Size(493, 70);
+            this.gbTergantungThdp.Size = new System.Drawing.Size(492, 70);
             this.gbTergantungThdp.TabIndex = 22;
             this.gbTergantungThdp.TabStop = false;
             this.gbTergantungThdp.Text = "Ketergantungan Terhadap";
@@ -4523,7 +4494,7 @@
             this.txketergantungan.Enabled = false;
             this.txketergantungan.Location = new System.Drawing.Point(176, 41);
             this.txketergantungan.Name = "txketergantungan";
-            this.txketergantungan.Size = new System.Drawing.Size(280, 21);
+            this.txketergantungan.Size = new System.Drawing.Size(262, 21);
             this.txketergantungan.TabIndex = 28;
             this.txketergantungan.Tag = "etc";
             // 
@@ -4604,7 +4575,7 @@
             this.gbRwSakitKlrg.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwSakitKlrg.Location = new System.Drawing.Point(3, 190);
             this.gbRwSakitKlrg.Name = "gbRwSakitKlrg";
-            this.gbRwSakitKlrg.Size = new System.Drawing.Size(493, 67);
+            this.gbRwSakitKlrg.Size = new System.Drawing.Size(492, 67);
             this.gbRwSakitKlrg.TabIndex = 14;
             this.gbRwSakitKlrg.TabStop = false;
             this.gbRwSakitKlrg.Text = "Riwayat Penyakit Keluarga";
@@ -4628,7 +4599,7 @@
             this.txSakitKlrga.Enabled = false;
             this.txSakitKlrga.Location = new System.Drawing.Point(139, 40);
             this.txSakitKlrga.Name = "txSakitKlrga";
-            this.txSakitKlrga.Size = new System.Drawing.Size(317, 21);
+            this.txSakitKlrga.Size = new System.Drawing.Size(299, 21);
             this.txSakitKlrga.TabIndex = 21;
             this.txSakitKlrga.Tag = "etc";
             // 
@@ -4705,7 +4676,7 @@
             this.gbPernahOperasi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahOperasi.Location = new System.Drawing.Point(3, 145);
             this.gbPernahOperasi.Name = "gbPernahOperasi";
-            this.gbPernahOperasi.Size = new System.Drawing.Size(493, 44);
+            this.gbPernahOperasi.Size = new System.Drawing.Size(492, 44);
             this.gbPernahOperasi.TabIndex = 11;
             this.gbPernahOperasi.TabStop = false;
             this.gbPernahOperasi.Text = "Pernah Operasi ?";
@@ -4731,7 +4702,7 @@
             this.txJnsOperasi.Enabled = false;
             this.txJnsOperasi.Location = new System.Drawing.Point(190, 17);
             this.txJnsOperasi.Name = "txJnsOperasi";
-            this.txJnsOperasi.Size = new System.Drawing.Size(266, 21);
+            this.txJnsOperasi.Size = new System.Drawing.Size(248, 21);
             this.txJnsOperasi.TabIndex = 13;
             // 
             // label5
@@ -4753,7 +4724,7 @@
             this.gbRwPenyakitlalu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwPenyakitlalu.Location = new System.Drawing.Point(3, 1);
             this.gbRwPenyakitlalu.Name = "gbRwPenyakitlalu";
-            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(493, 44);
+            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(492, 44);
             this.gbRwPenyakitlalu.TabIndex = 3;
             this.gbRwPenyakitlalu.TabStop = false;
             this.gbRwPenyakitlalu.Text = "Riwayat Penyakit Lalu";
@@ -4779,7 +4750,7 @@
             this.txSakitLalu.Enabled = false;
             this.txSakitLalu.Location = new System.Drawing.Point(167, 17);
             this.txSakitLalu.Name = "txSakitLalu";
-            this.txSakitLalu.Size = new System.Drawing.Size(289, 21);
+            this.txSakitLalu.Size = new System.Drawing.Size(271, 21);
             this.txSakitLalu.TabIndex = 5;
             // 
             // label1
@@ -4797,11 +4768,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox6, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(483, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(482, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(552, 702);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(550, 617);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // groupBox6
@@ -4811,7 +4782,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(546, 696);
+            this.groupBox6.Size = new System.Drawing.Size(544, 611);
             this.groupBox6.TabIndex = 41;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pemeriksaan Fisik";
@@ -4840,7 +4811,7 @@
             this.Scroll2.Location = new System.Drawing.Point(3, 17);
             this.Scroll2.Name = "Scroll2";
             this.Scroll2.ScrollBarSmallChange = 1;
-            this.Scroll2.Size = new System.Drawing.Size(540, 676);
+            this.Scroll2.Size = new System.Drawing.Size(538, 591);
             this.Scroll2.TabIndex = 0;
             // 
             // groupBox11
@@ -4856,7 +4827,7 @@
             this.groupBox11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox11.Location = new System.Drawing.Point(3, 413);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(554, 169);
+            this.groupBox11.Size = new System.Drawing.Size(552, 169);
             this.groupBox11.TabIndex = 83;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Lokasi Luka / Lesi Lain";
@@ -4880,7 +4851,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txPeriksaFisik.Location = new System.Drawing.Point(186, 40);
             this.txPeriksaFisik.Name = "txPeriksaFisik";
-            this.txPeriksaFisik.Size = new System.Drawing.Size(348, 21);
+            this.txPeriksaFisik.Size = new System.Drawing.Size(346, 21);
             this.txPeriksaFisik.TabIndex = 85;
             // 
             // label70
@@ -4983,7 +4954,7 @@
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(2, 334);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(554, 76);
+            this.groupBox10.Size = new System.Drawing.Size(552, 76);
             this.groupBox10.TabIndex = 76;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Kulit Dan Kelamin";
@@ -4998,7 +4969,7 @@
             this.pnlKulit.Controls.Add(this.label64);
             this.pnlKulit.Location = new System.Drawing.Point(7, 15);
             this.pnlKulit.Name = "pnlKulit";
-            this.pnlKulit.Size = new System.Drawing.Size(543, 26);
+            this.pnlKulit.Size = new System.Drawing.Size(541, 26);
             this.pnlKulit.TabIndex = 77;
             // 
             // txKulitDtl
@@ -5008,7 +4979,7 @@
             this.txKulitDtl.Enabled = false;
             this.txKulitDtl.Location = new System.Drawing.Point(292, 3);
             this.txKulitDtl.Name = "txKulitDtl";
-            this.txKulitDtl.Size = new System.Drawing.Size(236, 21);
+            this.txKulitDtl.Size = new System.Drawing.Size(234, 21);
             this.txKulitDtl.TabIndex = 79;
             // 
             // label65
@@ -5055,7 +5026,7 @@
             this.pnlDekubitus.Controls.Add(this.label66);
             this.pnlDekubitus.Location = new System.Drawing.Point(7, 42);
             this.pnlDekubitus.Name = "pnlDekubitus";
-            this.pnlDekubitus.Size = new System.Drawing.Size(543, 26);
+            this.pnlDekubitus.Size = new System.Drawing.Size(541, 26);
             this.pnlDekubitus.TabIndex = 80;
             // 
             // txSkorNorton
@@ -5064,7 +5035,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txSkorNorton.Location = new System.Drawing.Point(292, 3);
             this.txSkorNorton.Name = "txSkorNorton";
-            this.txSkorNorton.Size = new System.Drawing.Size(210, 21);
+            this.txSkorNorton.Size = new System.Drawing.Size(208, 21);
             this.txSkorNorton.TabIndex = 82;
             // 
             // label63
@@ -5104,7 +5075,7 @@
             // 
             this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(500, 6);
+            this.label66.Location = new System.Drawing.Point(498, 6);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(23, 13);
             this.label66.TabIndex = 2;
@@ -5119,7 +5090,7 @@
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(3, 257);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(554, 76);
+            this.groupBox9.Size = new System.Drawing.Size(552, 76);
             this.groupBox9.TabIndex = 69;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Eleminasi";
@@ -5134,7 +5105,7 @@
             this.pnlMiksi.Controls.Add(this.label58);
             this.pnlMiksi.Location = new System.Drawing.Point(7, 42);
             this.pnlMiksi.Name = "pnlMiksi";
-            this.pnlMiksi.Size = new System.Drawing.Size(541, 26);
+            this.pnlMiksi.Size = new System.Drawing.Size(539, 26);
             this.pnlMiksi.TabIndex = 73;
             // 
             // txMiksiDtl
@@ -5144,7 +5115,7 @@
             this.txMiksiDtl.Enabled = false;
             this.txMiksiDtl.Location = new System.Drawing.Point(292, 3);
             this.txMiksiDtl.Name = "txMiksiDtl";
-            this.txMiksiDtl.Size = new System.Drawing.Size(235, 21);
+            this.txMiksiDtl.Size = new System.Drawing.Size(233, 21);
             this.txMiksiDtl.TabIndex = 75;
             // 
             // label59
@@ -5190,7 +5161,7 @@
             this.pnlDefekasi.Controls.Add(this.label60);
             this.pnlDefekasi.Location = new System.Drawing.Point(7, 15);
             this.pnlDefekasi.Name = "pnlDefekasi";
-            this.pnlDefekasi.Size = new System.Drawing.Size(541, 26);
+            this.pnlDefekasi.Size = new System.Drawing.Size(539, 26);
             this.pnlDefekasi.TabIndex = 70;
             // 
             // txDefekasiDtl
@@ -5200,7 +5171,7 @@
             this.txDefekasiDtl.Enabled = false;
             this.txDefekasiDtl.Location = new System.Drawing.Point(292, 3);
             this.txDefekasiDtl.Name = "txDefekasiDtl";
-            this.txDefekasiDtl.Size = new System.Drawing.Size(235, 21);
+            this.txDefekasiDtl.Size = new System.Drawing.Size(233, 21);
             this.txDefekasiDtl.TabIndex = 72;
             // 
             // label61
@@ -5245,7 +5216,7 @@
             this.groupBox8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(2, 180);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(554, 76);
+            this.groupBox8.Size = new System.Drawing.Size(552, 76);
             this.groupBox8.TabIndex = 62;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Neurosemsori";
@@ -5260,7 +5231,7 @@
             this.pnlPenglihatan.Controls.Add(this.label56);
             this.pnlPenglihatan.Location = new System.Drawing.Point(7, 42);
             this.pnlPenglihatan.Name = "pnlPenglihatan";
-            this.pnlPenglihatan.Size = new System.Drawing.Size(542, 26);
+            this.pnlPenglihatan.Size = new System.Drawing.Size(540, 26);
             this.pnlPenglihatan.TabIndex = 66;
             // 
             // txPnglihtDtl
@@ -5270,7 +5241,7 @@
             this.txPnglihtDtl.Enabled = false;
             this.txPnglihtDtl.Location = new System.Drawing.Point(292, 3);
             this.txPnglihtDtl.Name = "txPnglihtDtl";
-            this.txPnglihtDtl.Size = new System.Drawing.Size(236, 21);
+            this.txPnglihtDtl.Size = new System.Drawing.Size(234, 21);
             this.txPnglihtDtl.TabIndex = 68;
             // 
             // label57
@@ -5317,7 +5288,7 @@
             this.pnlPendengaran.Controls.Add(this.label67);
             this.pnlPendengaran.Location = new System.Drawing.Point(7, 15);
             this.pnlPendengaran.Name = "pnlPendengaran";
-            this.pnlPendengaran.Size = new System.Drawing.Size(542, 26);
+            this.pnlPendengaran.Size = new System.Drawing.Size(540, 26);
             this.pnlPendengaran.TabIndex = 63;
             // 
             // txPdngrDtl
@@ -5327,7 +5298,7 @@
             this.txPdngrDtl.Enabled = false;
             this.txPdngrDtl.Location = new System.Drawing.Point(292, 3);
             this.txPdngrDtl.Name = "txPdngrDtl";
-            this.txPdngrDtl.Size = new System.Drawing.Size(236, 21);
+            this.txPdngrDtl.Size = new System.Drawing.Size(234, 21);
             this.txPdngrDtl.TabIndex = 65;
             // 
             // label68
@@ -5385,7 +5356,7 @@
             this.groupBox7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(2, 29);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(554, 150);
+            this.groupBox7.Size = new System.Drawing.Size(552, 150);
             this.groupBox7.TabIndex = 46;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Gastrointestinal";
@@ -5412,7 +5383,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txGstKet.Location = new System.Drawing.Point(334, 124);
             this.txGstKet.Name = "txGstKet";
-            this.txGstKet.Size = new System.Drawing.Size(201, 21);
+            this.txGstKet.Size = new System.Drawing.Size(199, 21);
             this.txGstKet.TabIndex = 61;
             // 
             // label52
@@ -5486,7 +5457,7 @@
             this.pnlBatasMakan.Controls.Add(this.label46);
             this.pnlBatasMakan.Location = new System.Drawing.Point(7, 40);
             this.pnlBatasMakan.Name = "pnlBatasMakan";
-            this.pnlBatasMakan.Size = new System.Drawing.Size(542, 26);
+            this.pnlBatasMakan.Size = new System.Drawing.Size(540, 26);
             this.pnlBatasMakan.TabIndex = 50;
             // 
             // label45
@@ -5504,7 +5475,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txBtsMakan.Location = new System.Drawing.Point(196, 3);
             this.txBtsMakan.Name = "txBtsMakan";
-            this.txBtsMakan.Size = new System.Drawing.Size(332, 21);
+            this.txBtsMakan.Size = new System.Drawing.Size(330, 21);
             this.txBtsMakan.TabIndex = 51;
             // 
             // label46
@@ -5524,7 +5495,7 @@
             this.pnlMuntah.Controls.Add(this.label49);
             this.pnlMuntah.Location = new System.Drawing.Point(203, 92);
             this.pnlMuntah.Name = "pnlMuntah";
-            this.pnlMuntah.Size = new System.Drawing.Size(346, 26);
+            this.pnlMuntah.Size = new System.Drawing.Size(344, 26);
             this.pnlMuntah.TabIndex = 56;
             // 
             // rgMuntah
@@ -5588,7 +5559,7 @@
             this.pnlGigiPalsu.Controls.Add(this.label47);
             this.pnlGigiPalsu.Location = new System.Drawing.Point(7, 66);
             this.pnlGigiPalsu.Name = "pnlGigiPalsu";
-            this.pnlGigiPalsu.Size = new System.Drawing.Size(542, 26);
+            this.pnlGigiPalsu.Size = new System.Drawing.Size(540, 26);
             this.pnlGigiPalsu.TabIndex = 52;
             // 
             // rgGigiPalsu
@@ -5624,7 +5595,7 @@
             this.pnKeluhan.Controls.Add(this.label44);
             this.pnKeluhan.Location = new System.Drawing.Point(7, 15);
             this.pnKeluhan.Name = "pnKeluhan";
-            this.pnKeluhan.Size = new System.Drawing.Size(542, 26);
+            this.pnKeluhan.Size = new System.Drawing.Size(540, 26);
             this.pnKeluhan.TabIndex = 47;
             // 
             // txKeluhan
@@ -5634,7 +5605,7 @@
             this.txKeluhan.Enabled = false;
             this.txKeluhan.Location = new System.Drawing.Point(247, 3);
             this.txKeluhan.Name = "txKeluhan";
-            this.txKeluhan.Size = new System.Drawing.Size(281, 21);
+            this.txKeluhan.Size = new System.Drawing.Size(279, 21);
             this.txKeluhan.TabIndex = 49;
             // 
             // label43
@@ -5722,12 +5693,12 @@
             this.tableLayoutPanel3.Controls.Add(this.xtraScrollableControl3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.xtraScrollableControl4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1041, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1038, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(506, 702);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(505, 617);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // xtraScrollableControl3
@@ -5736,7 +5707,7 @@
             this.xtraScrollableControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl3.Location = new System.Drawing.Point(3, 3);
             this.xtraScrollableControl3.Name = "xtraScrollableControl3";
-            this.xtraScrollableControl3.Size = new System.Drawing.Size(500, 471);
+            this.xtraScrollableControl3.Size = new System.Drawing.Size(499, 413);
             this.xtraScrollableControl3.TabIndex = 0;
             // 
             // groupBox12
@@ -5747,7 +5718,7 @@
             this.groupBox12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.Location = new System.Drawing.Point(0, 0);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(500, 471);
+            this.groupBox12.Size = new System.Drawing.Size(499, 413);
             this.groupBox12.TabIndex = 87;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Riwayat Psikososial Dan Spiritual";
@@ -5761,7 +5732,7 @@
             this.xtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl2.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl2.Name = "xtraScrollableControl2";
-            this.xtraScrollableControl2.Size = new System.Drawing.Size(494, 451);
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(493, 393);
             this.xtraScrollableControl2.TabIndex = 0;
             // 
             // groupBox23
@@ -5781,7 +5752,7 @@
             this.groupBox23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox23.Location = new System.Drawing.Point(4, 145);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(507, 165);
+            this.groupBox23.Size = new System.Drawing.Size(506, 165);
             this.groupBox23.TabIndex = 102;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Status Sosial";
@@ -5795,7 +5766,7 @@
             this.pnlTempatTinggal.Controls.Add(this.label73);
             this.pnlTempatTinggal.Location = new System.Drawing.Point(9, 35);
             this.pnlTempatTinggal.Name = "pnlTempatTinggal";
-            this.pnlTempatTinggal.Size = new System.Drawing.Size(494, 55);
+            this.pnlTempatTinggal.Size = new System.Drawing.Size(493, 55);
             this.pnlTempatTinggal.TabIndex = 104;
             // 
             // txTpTinggalDtl
@@ -5805,7 +5776,7 @@
             this.txTpTinggalDtl.Enabled = false;
             this.txTpTinggalDtl.Location = new System.Drawing.Point(98, 26);
             this.txTpTinggalDtl.Name = "txTpTinggalDtl";
-            this.txTpTinggalDtl.Size = new System.Drawing.Size(383, 21);
+            this.txTpTinggalDtl.Size = new System.Drawing.Size(382, 21);
             this.txTpTinggalDtl.TabIndex = 106;
             this.txTpTinggalDtl.Tag = "etc";
             // 
@@ -5841,7 +5812,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txTlpKerabat.Location = new System.Drawing.Point(48, 136);
             this.txTlpKerabat.Name = "txTlpKerabat";
-            this.txTlpKerabat.Size = new System.Drawing.Size(230, 21);
+            this.txTlpKerabat.Size = new System.Drawing.Size(229, 21);
             this.txTlpKerabat.TabIndex = 109;
             // 
             // label75
@@ -5859,7 +5830,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txHubKerabat.Location = new System.Drawing.Point(221, 112);
             this.txHubKerabat.Name = "txHubKerabat";
-            this.txHubKerabat.Size = new System.Drawing.Size(269, 21);
+            this.txHubKerabat.Size = new System.Drawing.Size(268, 21);
             this.txHubKerabat.TabIndex = 108;
             // 
             // label76
@@ -5931,7 +5902,7 @@
             this.groupBox14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.Location = new System.Drawing.Point(4, 61);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(507, 83);
+            this.groupBox14.Size = new System.Drawing.Size(506, 83);
             this.groupBox14.TabIndex = 96;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Status Mental";
@@ -5943,7 +5914,7 @@
             this.txStsMental3.Enabled = false;
             this.txStsMental3.Location = new System.Drawing.Point(216, 57);
             this.txStsMental3.Name = "txStsMental3";
-            this.txStsMental3.Size = new System.Drawing.Size(274, 21);
+            this.txStsMental3.Size = new System.Drawing.Size(273, 21);
             this.txStsMental3.TabIndex = 101;
             // 
             // txStsMental2
@@ -5953,7 +5924,7 @@
             this.txStsMental2.Enabled = false;
             this.txStsMental2.Location = new System.Drawing.Point(130, 35);
             this.txStsMental2.Name = "txStsMental2";
-            this.txStsMental2.Size = new System.Drawing.Size(360, 21);
+            this.txStsMental2.Size = new System.Drawing.Size(359, 21);
             this.txStsMental2.TabIndex = 99;
             // 
             // chkStasMental3
@@ -6002,7 +5973,7 @@
             this.groupBox25.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox25.Location = new System.Drawing.Point(5, 314);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(506, 74);
+            this.groupBox25.Size = new System.Drawing.Size(505, 74);
             this.groupBox25.TabIndex = 110;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "Status Spiritual";
@@ -6013,7 +5984,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txkegSpirit.Location = new System.Drawing.Point(215, 41);
             this.txkegSpirit.Name = "txkegSpirit";
-            this.txkegSpirit.Size = new System.Drawing.Size(274, 21);
+            this.txkegSpirit.Size = new System.Drawing.Size(273, 21);
             this.txkegSpirit.TabIndex = 112;
             // 
             // label80
@@ -6030,7 +6001,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txkegAgama.Location = new System.Drawing.Point(215, 16);
             this.txkegAgama.Name = "txkegAgama";
-            this.txkegAgama.Size = new System.Drawing.Size(274, 21);
+            this.txkegAgama.Size = new System.Drawing.Size(273, 21);
             this.txkegAgama.TabIndex = 111;
             // 
             // label79
@@ -6057,7 +6028,7 @@
             this.gbStsPsikologi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStsPsikologi.Location = new System.Drawing.Point(2, -3);
             this.gbStsPsikologi.Name = "gbStsPsikologi";
-            this.gbStsPsikologi.Size = new System.Drawing.Size(509, 63);
+            this.gbStsPsikologi.Size = new System.Drawing.Size(508, 63);
             this.gbStsPsikologi.TabIndex = 4;
             this.gbStsPsikologi.TabStop = false;
             this.gbStsPsikologi.Text = "Status Psikologi";
@@ -6136,7 +6107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txStsPsikologi.Location = new System.Drawing.Point(142, 35);
             this.txStsPsikologi.Name = "txStsPsikologi";
-            this.txStsPsikologi.Size = new System.Drawing.Size(350, 21);
+            this.txStsPsikologi.Size = new System.Drawing.Size(349, 21);
             this.txStsPsikologi.TabIndex = 95;
             // 
             // label78
@@ -6163,7 +6134,7 @@
             this.groupBox13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.Location = new System.Drawing.Point(4, 14);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(488, 63);
+            this.groupBox13.Size = new System.Drawing.Size(487, 63);
             this.groupBox13.TabIndex = 88;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Status Psikologi";
@@ -6241,7 +6212,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox41.Location = new System.Drawing.Point(67, 35);
             this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(415, 21);
+            this.textBox41.Size = new System.Drawing.Size(414, 21);
             this.textBox41.TabIndex = 4;
             // 
             // label71
@@ -6265,10 +6236,10 @@
             this.xtraScrollableControl4.Controls.Add(this.gbHambatanBljr);
             this.xtraScrollableControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl4.FireScrollEventOnMouseWheel = true;
-            this.xtraScrollableControl4.Location = new System.Drawing.Point(3, 480);
+            this.xtraScrollableControl4.Location = new System.Drawing.Point(3, 422);
             this.xtraScrollableControl4.Name = "xtraScrollableControl4";
             this.xtraScrollableControl4.ScrollBarSmallChange = 1;
-            this.xtraScrollableControl4.Size = new System.Drawing.Size(500, 219);
+            this.xtraScrollableControl4.Size = new System.Drawing.Size(499, 192);
             this.xtraScrollableControl4.TabIndex = 1;
             // 
             // label96
@@ -6768,8 +6739,8 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.mainTab);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1558, 976);
-            this.splitContainerControl1.SplitterPosition = 224;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1558, 860);
+            this.splitContainerControl1.SplitterPosition = 198;
             this.splitContainerControl1.TabIndex = 5;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -6779,7 +6750,7 @@
             this.panTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panTbl.Location = new System.Drawing.Point(0, 0);
             this.panTbl.Name = "panTbl";
-            this.panTbl.Size = new System.Drawing.Size(1558, 225);
+            this.panTbl.Size = new System.Drawing.Size(1558, 198);
             this.panTbl.TabIndex = 0;
             // 
             // grdMain
@@ -6790,7 +6761,7 @@
             this.grdMain.Name = "grdMain";
             this.grdMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repdate});
-            this.grdMain.Size = new System.Drawing.Size(1558, 225);
+            this.grdMain.Size = new System.Drawing.Size(1558, 198);
             this.grdMain.TabIndex = 0;
             this.grdMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwMain});
@@ -6834,6 +6805,7 @@
             this.gvwMain.OptionsView.ShowGroupPanel = false;
             this.gvwMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvwMain_CustomDrawRowIndicator);
             this.gvwMain.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvwMain_RowStyle);
+            this.gvwMain.DoubleClick += new System.EventHandler(this.gvwMain_DoubleClick);
             // 
             // gridColumn28
             // 
@@ -7034,7 +7006,7 @@
             this.mainTab.Location = new System.Drawing.Point(0, 0);
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedTabPage = this.tab1;
-            this.mainTab.Size = new System.Drawing.Size(1558, 739);
+            this.mainTab.Size = new System.Drawing.Size(1558, 657);
             this.mainTab.TabIndex = 4;
             this.mainTab.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tab1,
@@ -7048,7 +7020,7 @@
             // 
             this.tab2.Controls.Add(this.tableLayoutPanel4);
             this.tab2.Name = "tab2";
-            this.tab2.Size = new System.Drawing.Size(1556, 714);
+            this.tab2.Size = new System.Drawing.Size(1552, 629);
             this.tab2.Text = "A2. Pengkajian Awal Medis";
             // 
             // tableLayoutPanel4
@@ -7063,7 +7035,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1556, 714);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1552, 629);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -7073,12 +7045,12 @@
             this.tableLayoutPanel7.Controls.Add(this.groupBox18, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.pnlRisikoJatuh, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(781, 3);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(779, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(772, 708);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(770, 623);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // groupBox18
@@ -7089,7 +7061,7 @@
             this.groupBox18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox18.Location = new System.Drawing.Point(3, 3);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(766, 135);
+            this.groupBox18.Size = new System.Drawing.Size(764, 118);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Daftar Masalah Keperawatan Prioritas";
@@ -7238,9 +7210,9 @@
             this.pnlRisikoJatuh.Controls.Add(this.panel12);
             this.pnlRisikoJatuh.Controls.Add(this.labelControl100);
             this.pnlRisikoJatuh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlRisikoJatuh.Location = new System.Drawing.Point(3, 144);
+            this.pnlRisikoJatuh.Location = new System.Drawing.Point(3, 127);
             this.pnlRisikoJatuh.Name = "pnlRisikoJatuh";
-            this.pnlRisikoJatuh.Size = new System.Drawing.Size(766, 561);
+            this.pnlRisikoJatuh.Size = new System.Drawing.Size(764, 493);
             this.pnlRisikoJatuh.TabIndex = 1;
             // 
             // pnlRJAnak
@@ -7250,7 +7222,7 @@
             this.pnlRJAnak.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRJAnak.Location = new System.Drawing.Point(0, 53);
             this.pnlRJAnak.Name = "pnlRJAnak";
-            this.pnlRJAnak.Size = new System.Drawing.Size(766, 508);
+            this.pnlRJAnak.Size = new System.Drawing.Size(764, 440);
             this.pnlRJAnak.TabIndex = 11;
             // 
             // xtraScrollableControl7
@@ -7273,7 +7245,7 @@
             this.xtraScrollableControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl7.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl7.Name = "xtraScrollableControl7";
-            this.xtraScrollableControl7.Size = new System.Drawing.Size(764, 506);
+            this.xtraScrollableControl7.Size = new System.Drawing.Size(762, 438);
             this.xtraScrollableControl7.TabIndex = 0;
             // 
             // panel22
@@ -7516,7 +7488,7 @@
             this.pnlRJDewasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRJDewasa.Location = new System.Drawing.Point(0, 53);
             this.pnlRJDewasa.Name = "pnlRJDewasa";
-            this.pnlRJDewasa.Size = new System.Drawing.Size(766, 508);
+            this.pnlRJDewasa.Size = new System.Drawing.Size(764, 440);
             this.pnlRJDewasa.TabIndex = 11;
             this.pnlRJDewasa.Visible = false;
             // 
@@ -7538,7 +7510,7 @@
             this.xScrolJatuhDwasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xScrolJatuhDwasa.Location = new System.Drawing.Point(0, 0);
             this.xScrolJatuhDwasa.Name = "xScrolJatuhDwasa";
-            this.xScrolJatuhDwasa.Size = new System.Drawing.Size(764, 506);
+            this.xScrolJatuhDwasa.Size = new System.Drawing.Size(762, 438);
             this.xScrolJatuhDwasa.TabIndex = 0;
             // 
             // panel21
@@ -7866,13 +7838,13 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 25);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(766, 28);
+            this.panel12.Size = new System.Drawing.Size(764, 28);
             this.panel12.TabIndex = 10;
             // 
             // btnSaveX
             // 
             this.btnSaveX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveX.Location = new System.Drawing.Point(693, 3);
+            this.btnSaveX.Location = new System.Drawing.Point(691, 3);
             this.btnSaveX.Name = "btnSaveX";
             this.btnSaveX.Size = new System.Drawing.Size(66, 20);
             this.btnSaveX.TabIndex = 11;
@@ -7915,7 +7887,7 @@
             this.labelControl100.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl100.Location = new System.Drawing.Point(0, 0);
             this.labelControl100.Name = "labelControl100";
-            this.labelControl100.Size = new System.Drawing.Size(766, 25);
+            this.labelControl100.Size = new System.Drawing.Size(764, 25);
             this.labelControl100.TabIndex = 189;
             this.labelControl100.Text = "Formulir Pengkajian dan Pemantuan Risiko Jatuh pada pasien";
             // 
@@ -7934,7 +7906,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.77477F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 247F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(772, 708);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(770, 623);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // gbStsFungsi
@@ -7948,7 +7920,7 @@
             this.gbStsFungsi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStsFungsi.Location = new System.Drawing.Point(3, 3);
             this.gbStsFungsi.Name = "gbStsFungsi";
-            this.gbStsFungsi.Size = new System.Drawing.Size(766, 110);
+            this.gbStsFungsi.Size = new System.Drawing.Size(764, 88);
             this.gbStsFungsi.TabIndex = 1;
             this.gbStsFungsi.TabStop = false;
             this.gbStsFungsi.Text = "Status Fungsional (Isi formulir Barthel Index)";
@@ -8011,9 +7983,9 @@
             this.groupBox16.Controls.Add(this.xtraScrollableControl10);
             this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(3, 119);
+            this.groupBox16.Location = new System.Drawing.Point(3, 97);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(766, 338);
+            this.groupBox16.Size = new System.Drawing.Size(764, 275);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Skala Nyeri";
@@ -8028,7 +8000,7 @@
             this.xtraScrollableControl10.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl10.Name = "xtraScrollableControl10";
             this.xtraScrollableControl10.ScrollBarSmallChange = 1;
-            this.xtraScrollableControl10.Size = new System.Drawing.Size(760, 318);
+            this.xtraScrollableControl10.Size = new System.Drawing.Size(758, 255);
             this.xtraScrollableControl10.TabIndex = 0;
             // 
             // pnlSkalaNyeri
@@ -8334,7 +8306,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(-473, 1743);
+            this.label9.Location = new System.Drawing.Point(-483, 1719);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 15;
@@ -8360,9 +8332,9 @@
             this.xtraScrollableControl5.Controls.Add(this.labelControl95);
             this.xtraScrollableControl5.Controls.Add(this.panel11);
             this.xtraScrollableControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControl5.Location = new System.Drawing.Point(3, 463);
+            this.xtraScrollableControl5.Location = new System.Drawing.Point(3, 378);
             this.xtraScrollableControl5.Name = "xtraScrollableControl5";
-            this.xtraScrollableControl5.Size = new System.Drawing.Size(766, 242);
+            this.xtraScrollableControl5.Size = new System.Drawing.Size(764, 242);
             this.xtraScrollableControl5.TabIndex = 2;
             // 
             // labelControl95
@@ -8376,7 +8348,7 @@
             this.labelControl95.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl95.Location = new System.Drawing.Point(0, 0);
             this.labelControl95.Name = "labelControl95";
-            this.labelControl95.Size = new System.Drawing.Size(766, 25);
+            this.labelControl95.Size = new System.Drawing.Size(764, 25);
             this.labelControl95.TabIndex = 188;
             this.labelControl95.Text = "SKRINING GIZI (Berdasarkan Malnutrition Screening Tools / MST)";
             // 
@@ -8393,7 +8365,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(766, 242);
+            this.panel11.Size = new System.Drawing.Size(764, 242);
             this.panel11.TabIndex = 9;
             // 
             // labelControl96
@@ -8405,7 +8377,7 @@
             this.labelControl96.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl96.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl96.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl96.Location = new System.Drawing.Point(672, 28);
+            this.labelControl96.Location = new System.Drawing.Point(670, 28);
             this.labelControl96.Name = "labelControl96";
             this.labelControl96.Size = new System.Drawing.Size(50, 30);
             this.labelControl96.TabIndex = 14;
@@ -8592,7 +8564,7 @@
             this.pnlLaporTim.Controls.Add(this.label24);
             this.pnlLaporTim.Controls.Add(this.label23);
             this.pnlLaporTim.Controls.Add(this.rgLapor_tr_Gizi);
-            this.pnlLaporTim.Location = new System.Drawing.Point(70, 208);
+            this.pnlLaporTim.Location = new System.Drawing.Point(69, 208);
             this.pnlLaporTim.Name = "pnlLaporTim";
             this.pnlLaporTim.Size = new System.Drawing.Size(612, 30);
             this.pnlLaporTim.TabIndex = 12;
@@ -8707,7 +8679,7 @@
             this.txScoreScrining.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txScoreScrining.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txScoreScrining.ForeColor = System.Drawing.Color.DimGray;
-            this.txScoreScrining.Location = new System.Drawing.Point(720, 28);
+            this.txScoreScrining.Location = new System.Drawing.Point(718, 28);
             this.txScoreScrining.Name = "txScoreScrining";
             this.txScoreScrining.Size = new System.Drawing.Size(41, 30);
             this.txScoreScrining.TabIndex = 10;
@@ -8744,7 +8716,7 @@
             // 
             this.tab7.Controls.Add(this.splitContainerControl6);
             this.tab7.Name = "tab7";
-            this.tab7.Size = new System.Drawing.Size(1556, 714);
+            this.tab7.Size = new System.Drawing.Size(1552, 629);
             this.tab7.Text = "B.2. Jadwal Obat";
             // 
             // splitContainerControl6
@@ -8757,7 +8729,7 @@
             this.splitContainerControl6.Panel1.Text = "Panel1";
             this.splitContainerControl6.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainerControl6.Panel2.Text = "Panel2";
-            this.splitContainerControl6.Size = new System.Drawing.Size(1556, 714);
+            this.splitContainerControl6.Size = new System.Drawing.Size(1552, 629);
             this.splitContainerControl6.SplitterPosition = 396;
             this.splitContainerControl6.TabIndex = 0;
             this.splitContainerControl6.Text = "splitContainerControl6";
@@ -8781,7 +8753,7 @@
             this.splitContainerControl7.Panel2.Controls.Add(this.simpleButton3);
             this.splitContainerControl7.Panel2.Controls.Add(this.gObatUmum);
             this.splitContainerControl7.Panel2.Text = "Panel2";
-            this.splitContainerControl7.Size = new System.Drawing.Size(1556, 396);
+            this.splitContainerControl7.Size = new System.Drawing.Size(1552, 396);
             this.splitContainerControl7.SplitterPosition = 850;
             this.splitContainerControl7.TabIndex = 0;
             this.splitContainerControl7.Text = "splitContainerControl7";
@@ -9242,7 +9214,7 @@
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(555, 9);
+            this.simpleButton1.Location = new System.Drawing.Point(551, 9);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(65, 20);
             this.simpleButton1.TabIndex = 7;
@@ -9253,7 +9225,7 @@
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(484, 9);
+            this.simpleButton2.Location = new System.Drawing.Point(480, 9);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(65, 20);
             this.simpleButton2.TabIndex = 6;
@@ -9264,7 +9236,7 @@
             // 
             this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(626, 9);
+            this.simpleButton3.Location = new System.Drawing.Point(622, 9);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(65, 20);
             this.simpleButton3.TabIndex = 5;
@@ -9282,7 +9254,7 @@
             this.repositoryItemComboBox5,
             this.repositoryItemDateEdit3,
             this.repositoryItemTextEdit3});
-            this.gObatUmum.Size = new System.Drawing.Size(694, 396);
+            this.gObatUmum.Size = new System.Drawing.Size(697, 396);
             this.gObatUmum.TabIndex = 8;
             this.gObatUmum.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvObatUmum});
@@ -9693,15 +9665,15 @@
             this.splitContainer1.Panel2.Controls.Add(this.sHapusRacik);
             this.splitContainer1.Panel2.Controls.Add(this.sSimpanRacik);
             this.splitContainer1.Panel2.Controls.Add(this.gdRacik);
-            this.splitContainer1.Size = new System.Drawing.Size(1556, 306);
-            this.splitContainer1.SplitterDistance = 762;
+            this.splitContainer1.Size = new System.Drawing.Size(1552, 228);
+            this.splitContainer1.SplitterDistance = 760;
             this.splitContainer1.TabIndex = 6;
             // 
             // labelControl35
             // 
             this.labelControl35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl35.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl35.Location = new System.Drawing.Point(348, 11);
+            this.labelControl35.Location = new System.Drawing.Point(346, 11);
             this.labelControl35.Name = "labelControl35";
             this.labelControl35.Size = new System.Drawing.Size(144, 19);
             this.labelControl35.TabIndex = 107;
@@ -9713,7 +9685,7 @@
             this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton9.Enabled = false;
             this.simpleButton9.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.Image")));
-            this.simpleButton9.Location = new System.Drawing.Point(580, 8);
+            this.simpleButton9.Location = new System.Drawing.Point(578, 8);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(70, 23);
             this.simpleButton9.TabIndex = 106;
@@ -9724,7 +9696,7 @@
             // 
             this.simpleButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton11.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.Image")));
-            this.simpleButton11.Location = new System.Drawing.Point(507, 8);
+            this.simpleButton11.Location = new System.Drawing.Point(505, 8);
             this.simpleButton11.Name = "simpleButton11";
             this.simpleButton11.Size = new System.Drawing.Size(70, 23);
             this.simpleButton11.TabIndex = 104;
@@ -9736,7 +9708,7 @@
             this.simpleButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton10.Enabled = false;
             this.simpleButton10.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.Image")));
-            this.simpleButton10.Location = new System.Drawing.Point(656, 8);
+            this.simpleButton10.Location = new System.Drawing.Point(654, 8);
             this.simpleButton10.Name = "simpleButton10";
             this.simpleButton10.Size = new System.Drawing.Size(91, 23);
             this.simpleButton10.TabIndex = 105;
@@ -9752,7 +9724,7 @@
             this.gridRacik.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpDateR,
             this.rpTimetR});
-            this.gridRacik.Size = new System.Drawing.Size(762, 306);
+            this.gridRacik.Size = new System.Drawing.Size(760, 228);
             this.gridRacik.TabIndex = 7;
             this.gridRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridHRacik});
@@ -9882,7 +9854,7 @@
             // 
             this.labelControl34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl34.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl34.Location = new System.Drawing.Point(400, 11);
+            this.labelControl34.Location = new System.Drawing.Point(398, 11);
             this.labelControl34.Name = "labelControl34";
             this.labelControl34.Size = new System.Drawing.Size(144, 19);
             this.labelControl34.TabIndex = 109;
@@ -9893,7 +9865,7 @@
             // 
             this.sAddRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sAddRacik.Image = ((System.Drawing.Image)(resources.GetObject("sAddRacik.Image")));
-            this.sAddRacik.Location = new System.Drawing.Point(559, 7);
+            this.sAddRacik.Location = new System.Drawing.Point(557, 7);
             this.sAddRacik.Name = "sAddRacik";
             this.sAddRacik.Size = new System.Drawing.Size(67, 23);
             this.sAddRacik.TabIndex = 105;
@@ -9905,7 +9877,7 @@
             this.sHapusRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sHapusRacik.Enabled = false;
             this.sHapusRacik.Image = ((System.Drawing.Image)(resources.GetObject("sHapusRacik.Image")));
-            this.sHapusRacik.Location = new System.Drawing.Point(634, 7);
+            this.sHapusRacik.Location = new System.Drawing.Point(632, 7);
             this.sHapusRacik.Name = "sHapusRacik";
             this.sHapusRacik.Size = new System.Drawing.Size(63, 23);
             this.sHapusRacik.TabIndex = 104;
@@ -9917,7 +9889,7 @@
             this.sSimpanRacik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sSimpanRacik.Enabled = false;
             this.sSimpanRacik.Image = ((System.Drawing.Image)(resources.GetObject("sSimpanRacik.Image")));
-            this.sSimpanRacik.Location = new System.Drawing.Point(707, 7);
+            this.sSimpanRacik.Location = new System.Drawing.Point(705, 7);
             this.sSimpanRacik.Name = "sSimpanRacik";
             this.sSimpanRacik.Size = new System.Drawing.Size(63, 23);
             this.sSimpanRacik.TabIndex = 103;
@@ -9935,7 +9907,7 @@
             this.repositoryItemComboBox6,
             this.repositoryItemDateEdit5,
             this.repositoryItemTextEdit5});
-            this.gdRacik.Size = new System.Drawing.Size(790, 306);
+            this.gdRacik.Size = new System.Drawing.Size(788, 228);
             this.gdRacik.TabIndex = 110;
             this.gdRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRacik});
@@ -10323,7 +10295,7 @@
             // 
             this.tab6.Controls.Add(this.tableLayoutPanel9);
             this.tab6.Name = "tab6";
-            this.tab6.Size = new System.Drawing.Size(1556, 714);
+            this.tab6.Size = new System.Drawing.Size(1552, 629);
             this.tab6.Text = "Pelayanan Rawat Inap";
             // 
             // tableLayoutPanel9
@@ -10338,8 +10310,8 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 718F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1556, 714);
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1552, 629);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -10349,20 +10321,20 @@
             this.tableLayoutPanel10.Controls.Add(this.panelControl3, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.panelControl2, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(781, 3);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(779, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.89326F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.106742F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(772, 708);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(770, 623);
             this.tableLayoutPanel10.TabIndex = 5;
             // 
             // panelControl3
             // 
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(3, 696);
+            this.panelControl3.Location = new System.Drawing.Point(3, 612);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(766, 9);
+            this.panelControl3.Size = new System.Drawing.Size(764, 8);
             this.panelControl3.TabIndex = 6;
             this.panelControl3.Visible = false;
             // 
@@ -10376,7 +10348,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(3, 3);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(766, 687);
+            this.panelControl2.Size = new System.Drawing.Size(764, 603);
             this.panelControl2.TabIndex = 5;
             // 
             // labelControl104
@@ -10384,7 +10356,7 @@
             this.labelControl104.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl104.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl104.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl104.Location = new System.Drawing.Point(311, 10);
+            this.labelControl104.Location = new System.Drawing.Point(309, 10);
             this.labelControl104.Name = "labelControl104";
             this.labelControl104.Size = new System.Drawing.Size(144, 19);
             this.labelControl104.TabIndex = 12;
@@ -10395,7 +10367,7 @@
             // 
             this.bdelnone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bdelnone.Image = ((System.Drawing.Image)(resources.GetObject("bdelnone.Image")));
-            this.bdelnone.Location = new System.Drawing.Point(623, 10);
+            this.bdelnone.Location = new System.Drawing.Point(621, 10);
             this.bdelnone.Name = "bdelnone";
             this.bdelnone.Size = new System.Drawing.Size(65, 23);
             this.bdelnone.TabIndex = 4;
@@ -10406,7 +10378,7 @@
             // 
             this.baddnone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.baddnone.Image = ((System.Drawing.Image)(resources.GetObject("baddnone.Image")));
-            this.baddnone.Location = new System.Drawing.Point(552, 10);
+            this.baddnone.Location = new System.Drawing.Point(550, 10);
             this.baddnone.Name = "baddnone";
             this.baddnone.Size = new System.Drawing.Size(65, 23);
             this.baddnone.TabIndex = 3;
@@ -10417,7 +10389,7 @@
             // 
             this.bsavenone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bsavenone.Image = ((System.Drawing.Image)(resources.GetObject("bsavenone.Image")));
-            this.bsavenone.Location = new System.Drawing.Point(694, 10);
+            this.bsavenone.Location = new System.Drawing.Point(692, 10);
             this.bsavenone.Name = "bsavenone";
             this.bsavenone.Size = new System.Drawing.Size(65, 23);
             this.bsavenone.TabIndex = 2;
@@ -10435,7 +10407,7 @@
             this.repositoryItemTextEdit2,
             this.repositoryItemComboBox3,
             this.repositoryItemComboBox4});
-            this.gridVisitDoc.Size = new System.Drawing.Size(762, 683);
+            this.gridVisitDoc.Size = new System.Drawing.Size(760, 599);
             this.gridVisitDoc.TabIndex = 1;
             this.gridVisitDoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVisitDoc});
@@ -10665,7 +10637,7 @@
             this.splitContainerControl8.Panel2.Controls.Add(this.labelControl105);
             this.splitContainerControl8.Panel2.Controls.Add(this.gridMedisU);
             this.splitContainerControl8.Panel2.Text = "Panel2";
-            this.splitContainerControl8.Size = new System.Drawing.Size(772, 708);
+            this.splitContainerControl8.Size = new System.Drawing.Size(770, 623);
             this.splitContainerControl8.SplitterPosition = 304;
             this.splitContainerControl8.TabIndex = 5;
             this.splitContainerControl8.Text = "splitContainerControl8";
@@ -10675,7 +10647,7 @@
             this.labelControl103.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl103.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl103.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl103.Location = new System.Drawing.Point(352, 8);
+            this.labelControl103.Location = new System.Drawing.Point(350, 8);
             this.labelControl103.Name = "labelControl103";
             this.labelControl103.Size = new System.Drawing.Size(144, 19);
             this.labelControl103.TabIndex = 11;
@@ -10686,7 +10658,7 @@
             // 
             this.bdelmedis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bdelmedis.Image = ((System.Drawing.Image)(resources.GetObject("bdelmedis.Image")));
-            this.bdelmedis.Location = new System.Drawing.Point(631, 8);
+            this.bdelmedis.Location = new System.Drawing.Point(629, 8);
             this.bdelmedis.Name = "bdelmedis";
             this.bdelmedis.Size = new System.Drawing.Size(65, 23);
             this.bdelmedis.TabIndex = 4;
@@ -10697,7 +10669,7 @@
             // 
             this.baddmedis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.baddmedis.Image = ((System.Drawing.Image)(resources.GetObject("baddmedis.Image")));
-            this.baddmedis.Location = new System.Drawing.Point(560, 8);
+            this.baddmedis.Location = new System.Drawing.Point(558, 8);
             this.baddmedis.Name = "baddmedis";
             this.baddmedis.Size = new System.Drawing.Size(65, 23);
             this.baddmedis.TabIndex = 3;
@@ -10708,7 +10680,7 @@
             // 
             this.bsavemedis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bsavemedis.Image = ((System.Drawing.Image)(resources.GetObject("bsavemedis.Image")));
-            this.bsavemedis.Location = new System.Drawing.Point(702, 8);
+            this.bsavemedis.Location = new System.Drawing.Point(700, 8);
             this.bsavemedis.Name = "bsavemedis";
             this.bsavemedis.Size = new System.Drawing.Size(65, 23);
             this.bsavemedis.TabIndex = 2;
@@ -10728,7 +10700,7 @@
             this.repositoryItemComboBox2,
             this.repjam,
             this.repjam2});
-            this.gridMedis.Size = new System.Drawing.Size(772, 304);
+            this.gridMedis.Size = new System.Drawing.Size(770, 304);
             this.gridMedis.TabIndex = 1;
             this.gridMedis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMedis});
@@ -10942,7 +10914,7 @@
             // 
             this.simpleButton12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton12.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton12.Image")));
-            this.simpleButton12.Location = new System.Drawing.Point(631, 7);
+            this.simpleButton12.Location = new System.Drawing.Point(629, 7);
             this.simpleButton12.Name = "simpleButton12";
             this.simpleButton12.Size = new System.Drawing.Size(65, 23);
             this.simpleButton12.TabIndex = 15;
@@ -10953,7 +10925,7 @@
             // 
             this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton13.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.Image")));
-            this.simpleButton13.Location = new System.Drawing.Point(560, 7);
+            this.simpleButton13.Location = new System.Drawing.Point(558, 7);
             this.simpleButton13.Name = "simpleButton13";
             this.simpleButton13.Size = new System.Drawing.Size(65, 23);
             this.simpleButton13.TabIndex = 14;
@@ -10964,7 +10936,7 @@
             // 
             this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton14.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton14.Image")));
-            this.simpleButton14.Location = new System.Drawing.Point(702, 7);
+            this.simpleButton14.Location = new System.Drawing.Point(700, 7);
             this.simpleButton14.Name = "simpleButton14";
             this.simpleButton14.Size = new System.Drawing.Size(65, 23);
             this.simpleButton14.TabIndex = 13;
@@ -10976,7 +10948,7 @@
             this.labelControl105.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl105.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl105.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl105.Location = new System.Drawing.Point(399, 11);
+            this.labelControl105.Location = new System.Drawing.Point(397, 11);
             this.labelControl105.Name = "labelControl105";
             this.labelControl105.Size = new System.Drawing.Size(144, 19);
             this.labelControl105.TabIndex = 12;
@@ -10996,7 +10968,7 @@
             this.repositoryItemComboBox8,
             this.repositoryItemTimeEdit1,
             this.repositoryItemTextEdit4});
-            this.gridMedisU.Size = new System.Drawing.Size(772, 392);
+            this.gridMedisU.Size = new System.Drawing.Size(770, 314);
             this.gridMedisU.TabIndex = 2;
             this.gridMedisU.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMedisU});
@@ -11226,7 +11198,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1564, 1025);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1564, 909);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // timerCek
@@ -11257,7 +11229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1564, 1025);
+            this.ClientSize = new System.Drawing.Size(1564, 909);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmRawatInap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -11296,15 +11268,13 @@
             this.xtraScrollableControl9.ResumeLayout(false);
             this.xtraScrollableControl11.ResumeLayout(false);
             this.xtraScrollableControl11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LookDokter2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txDokterKonsultan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookDokter1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txDokterPengirim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txDiagnosaAkhir.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtjam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txDokterKonsultan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txDokterPengirim.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txDoc3.Properties)).EndInit();
@@ -12344,8 +12314,6 @@
         private DevExpress.XtraEditors.SimpleButton btn_refresh;
         private System.Windows.Forms.CheckBox chDefault;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.LookUpEdit txDokterPengirim;
-        private DevExpress.XtraEditors.LookUpEdit txDokterKonsultan;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit txtjam;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn118;
@@ -12503,9 +12471,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.GridLookUpEdit txDiagnosaAkhir;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.GridLookUpEdit LookDokter2;
+        private DevExpress.XtraEditors.GridLookUpEdit txDokterKonsultan;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraEditors.GridLookUpEdit LookDokter1;
+        private DevExpress.XtraEditors.GridLookUpEdit txDokterPengirim;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
     }
 }

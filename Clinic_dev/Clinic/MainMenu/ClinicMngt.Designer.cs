@@ -636,6 +636,7 @@
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "Pemeriksaan";
+            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
@@ -847,7 +848,6 @@
             // navBarGroup4
             // 
             this.navBarGroup4.Caption = "Laporan";
-            this.navBarGroup4.Expanded = true;
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem25),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),

@@ -119,9 +119,9 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "select 'S' action, kir_id, regis_date regis_date, ";
             sql_search = sql_search + Environment.NewLine + "nid, name, gender, birth_place, birth_date  birth_date, ";
             sql_search = sql_search + Environment.NewLine + "addrs, jobs, purpose, height, weight, blood_press, d_now, d_his, eye_status, ";
-            sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Harga, f_type, decode(STAT_PAY,'Y','Closed','Belum Bayar') STAT_PAY ";
-            sql_search = sql_search + Environment.NewLine + "from cs_kir ";
-            sql_search = sql_search + Environment.NewLine + "where 1=1 and STAT_PAY <> 'X' ";
+            sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Layanan, f_type, decode(STAT_PAY,'Y','Closed','Belum Bayar') STAT_PAY ";
+            sql_search = sql_search + Environment.NewLine + "from cs_kir a, cs_treatment_item b ";
+            sql_search = sql_search + Environment.NewLine + "where 1=1 and STAT_PAY <> 'X' AND f_type IN ('KIR','MCU') and a.ID_ITEM_LAYANAN = b.treat_item_id  ";
             sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-mm-dd') and to_date('" + dDateEnd.Text + "','yyyy-mm-dd') ";
             sql_search = sql_search + Environment.NewLine + "order by regis_date, name ";
 
