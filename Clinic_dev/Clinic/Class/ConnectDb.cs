@@ -26,6 +26,7 @@ namespace Clinic
         public OleDbConnection Create_Connect_Ora()
         {
             string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=klinik;Persist Security Info=True;User ID=klinik;Data Source = localhost:1521/XE";
             //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
 
             try
@@ -160,7 +161,75 @@ namespace Clinic
             lokup.NullText = "";
             gridviw.Columns[col].ColumnEdit = lokup;
         }
+        public void LookUpGroupGridFilter<T>(
+               List<T> listsql,
+               GridView gridviw,
+               string scat,
+               string scode,
+               string sname,
+               RepositoryItemGridLookUpEdit lokup,
+               int col
+           ) where T : class
+        {
+            // Set DataSource untuk lookup editor
+            lokup.DataSource = listsql;
+            lokup.ValueMember = scode;
+            lokup.DisplayMember = sname;
+            var gridView = lokup.View;
+            gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
+            gridView.OptionsCustomization.AllowSort = true;
 
+            foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
+            {
+                column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            }
+            if (gridView.Columns[scat] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = scat,
+                    Caption = scat,
+                    Visible = true
+                });
+            }
+            if (gridView.Columns[scode] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = scode,
+                    Caption = scode,
+                    Visible = true
+                });
+            }
+            if (gridView.Columns[sname] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = sname,
+                    Caption = sname,
+                    Visible = true
+                });
+            }
+            gridView.OptionsView.ColumnAutoWidth = false;
+            gridView.Columns[scat].Width = 250; // Kolom pertama
+            gridView.Columns[scode].Width = 110; // Kolom pertama
+            gridView.Columns[sname].Width = 530;
+            gridView.RowHeight = 27;
+            gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
+            gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
+            gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
+
+            lokup.PopupFormWidth = 700;
+            lokup.ImmediatePopup = true;
+            lokup.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
+            lokup.Appearance.Options.UseFont = true;
+            lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
+            lokup.AppearanceDropDown.Options.UseFont = true;
+
+            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lokup.NullText = "";
+            gridviw.Columns[col].ColumnEdit = lokup;
+        }
         public void LookUpEditFilter<T>(
                List<T> listsql,
                GridLookUpEdit LokUpEdit,
