@@ -44,6 +44,9 @@ namespace Clinic
         List<Dosis> listDosis = new List<Dosis>();
         List<Racik> listRacik = new List<Racik>();
 
+        List<MedGroup> lMedicine = new List<MedGroup>(); List<MedGroup> lMedicineP = new List<MedGroup>();
+        List<MedGroup> lMedicineU = new List<MedGroup>(); List<MedGroup> lMedicineRacik = new List<MedGroup>();
+
         DataSet dsRujukan = new DataSet();
         DataSet dsRekomendasi = new DataSet();
         DataSet dsSkd = new DataSet();
@@ -3049,7 +3052,7 @@ namespace Clinic
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null and a.JENIS_OBAT ='NONE' " +
                            " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
                            " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='N' " +
-                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit +" ";
+                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " order by b.med_name ";
 
             DataTable dtObatUmum = ConnOra.Data_Table_ora(sql_med_load);
 
@@ -3179,7 +3182,11 @@ namespace Clinic
             //gridView6.Columns[3].ColumnEdit = medicineLookup;
 
             //DataListObat(s_stat, spoli);
-            ConnOra.LookUpGridFilter(listMedicine, gridView6, "medicineCode", "medicineName", LokObatGrid, 1);
+            //ConnOra.LookUpGridFilter(listMedicine, gridView6, "medicineCode", "medicineName", LokObatGrid, 1);
+
+            ConnOra.LookUpGroupGridFilter(lMedicine, gridView6, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGrid, 1);
+            ConnOra.LookUpGroupGridFilter(lMedicineU, gridView16, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridU, 1);
+           
 
             //glmed.DataSource = listMedicine;
             //glmed.ValueMember = "medicineCode";
@@ -3195,19 +3202,19 @@ namespace Clinic
             //glmed.NullText = "";
             //gridView6.Columns[3].ColumnEdit = glmed;
             //gvRacik.Columns[3].ColumnEdit = glmed;
-            
 
-            glmedRacik.DataSource = listMedicineRacik;
-            glmedRacik.ValueMember = "medicineCode";
-            glmedRacik.DisplayMember = "medicineName";
-            glmedRacik.PopulateViewColumns();
-            glmedRacik.View.Columns["medicineCode"].Width = 35;
-            glmedRacik.View.Columns["medicineName"].Width = 200;
-            glmedRacik.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmedRacik.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmedRacik.ImmediatePopup = true;
-            glmedRacik.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmedRacik.NullText = "";
+
+            //glmedRacik.DataSource = listMedicineRacik;
+            //glmedRacik.ValueMember = "medicineCode";
+            //glmedRacik.DisplayMember = "medicineName";
+            //glmedRacik.PopulateViewColumns();
+            //glmedRacik.View.Columns["medicineCode"].Width = 35;
+            //glmedRacik.View.Columns["medicineName"].Width = 200;
+            //glmedRacik.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmedRacik.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmedRacik.ImmediatePopup = true;
+            //glmedRacik.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmedRacik.NullText = "";
            
 
             string sql_for = "";
@@ -3300,16 +3307,17 @@ namespace Clinic
             {
                 idracik = dtR2.Rows[0]["CODE_ID"].ToString();
                 LoadResepRacikan(idracik);
-                if (sstatus.ToString().Equals("BPJS"))
-                    gvRacik.Columns[3].ColumnEdit = glmedRacik;
-                else
-                    gvRacik.Columns[3].ColumnEdit = glmed;
+                //if (sstatus.ToString().Equals("BPJS"))
+                //    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+                //else
+                //    gvRacik.Columns[3].ColumnEdit = glmed;
                 gvRacik.Columns[4].ColumnEdit = glfor;
                 gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
                 gvRacik.Columns[14].ColumnEdit = dosisLookup;
+                //ConnOra.LookUpGroupGridFilter(lMedicineRacik, gvRacik, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridR, 3);
             }
-                
 
+            
             gridRacik.DataSource = null;
             gridHRacik.Columns.Clear();
             gridRacik.DataSource = dtR2;
@@ -3317,6 +3325,7 @@ namespace Clinic
             gdRacik.DataSource = null;
             gvRacik.Columns.Clear();
             //gdRacik.DataSource = dtR2;
+            
 
             //gvRacik.OptionsView.ColumnAutoWidth = true;
             //gvRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
@@ -3770,10 +3779,12 @@ namespace Clinic
             //glmed.ImmediatePopup = true;
             //glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             //glmed.NullText = "";
-            if(sstatus.ToString().Equals("BPJS"))
-                gvRacik.Columns[3].ColumnEdit = glmedRacik;
-            else
-                gvRacik.Columns[3].ColumnEdit = glmed;
+            //if(sstatus.ToString().Equals("BPJS"))
+            //    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+            //else
+            //    gvRacik.Columns[3].ColumnEdit = glmed;
+
+            ConnOra.LookUpGroupGridFilter(lMedicineRacik, gvRacik, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridR, 3);
             //gvRacik.Columns[3].ColumnEdit = glmed;
 
             //string sql_for = "";
@@ -4083,6 +4094,94 @@ namespace Clinic
                 }
             } 
         }
+        private void DataListObatGroup(string sstatus, string spoli)
+        {
+            dtGlMed.Clear();
+            string sql_med = " ", sql_racik = "", sql_medR = "";
+
+            sql_med = "";
+            sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  "; 
+            sql_med = sql_med + Environment.NewLine + "  order by a.att2, 3  ";
+
+            OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql3 = new OleDbDataAdapter(sql_med, sqlConnect3);
+            DataTable dt3 = new DataTable();
+            dtGlMed = dt3;
+            adSql3.Fill(dt3);
+            lMedicine.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                lMedicine.Add(new MedGroup() { Kategori = dt3.Rows[i]["Kategori"].ToString(), Kode_Obat = dt3.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dt3.Rows[i]["Nama_Obat"].ToString() });
+            }
+
+            //if (sstatus.ToString().Equals("BPJS"))
+            //{
+                dtGlMedU.Clear();
+                sql_med = "";
+                sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+                sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
+                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   ";
+                sql_med = sql_med + Environment.NewLine + "  order by a.att2,3  ";
+
+                OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqlU = new OleDbDataAdapter(sql_med, sqlConnectU);
+                DataTable dtU = new DataTable();
+                dtGlMedU = dtU;
+                adSqlU.Fill(dtU);
+                lMedicineU.Clear();
+                for (int i = 0; i < dtU.Rows.Count; i++)
+                {
+                    lMedicineU.Add(new MedGroup() { Kategori = dtU.Rows[i]["Kategori"].ToString(), Kode_Obat = dtU.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtU.Rows[i]["Nama_Obat"].ToString() });
+                }
+
+                //dtGlMedRacik.Clear();
+                //sql_medR = "";
+                //sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 in('BPJS', 'UMUM','ALL')   ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   ";
+                //sql_medR = sql_medR + Environment.NewLine + "  order by med_name  ";
+
+                //Sql = Sql + Environment.NewLine + " select formula_id, initcap(formula) formula, initcap(b.med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name ";
+                //Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1      ";
+                //Sql = Sql + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'    ";
+                //Sql = Sql + Environment.NewLine + "    and POLI_CD ='POL0001'  AND RACIKAN ='Y'   ";
+
+                dtGlMedRacik.Clear();
+                sql_medR = "";
+                sql_medR = sql_medR + Environment.NewLine + " select DISTINCT a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat   ";
+                sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')    ";
+                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
+                //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                        ) ";
+                sql_medR = sql_medR + Environment.NewLine + "  order by a.att2, 3 ";
+
+
+                OleDbConnection sqlConnectR = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqlR = new OleDbDataAdapter(sql_medR, sqlConnectR);
+                DataTable dtR = new DataTable();
+                dtGlMedRacik = dtR;
+                adSqlR.Fill(dtR);
+                lMedicineRacik.Clear();
+                for (int i = 0; i < dtR.Rows.Count; i++)
+                {
+                    lMedicineRacik.Add(new MedGroup() { Kategori = dtR.Rows[i]["Kategori"].ToString(), Kode_Obat = dtR.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtR.Rows[i]["Nama_Obat"].ToString() });
+                }
+            //}
+        }
         private void loadResep_Click(object sender, EventArgs e)
         {
             string sql_load = "", sql_resep_luar = "";
@@ -4187,7 +4286,8 @@ namespace Clinic
             lMedPf.Text = p_pf;
             lMedPt.Text = p_pt;
             lMedDiag.Text = p_diagnosa;
-            DataListObat(s_stat, dt.Rows[0]["POLI_CD"].ToString());
+            //DataListObat(s_stat, dt.Rows[0]["POLI_CD"].ToString());
+            DataListObatGroup(s_stat, dt.Rows[0]["POLI_CD"].ToString());
             LoadDataResep(); 
 
             if (gridView6.RowCount > 0)

@@ -3046,7 +3046,7 @@ namespace Clinic
                            " from KLINIK.cs_receipt a   " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  left join CS_ANAMNESA c on (a.ID_VISIT = c.ID_VISIT) JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'  and D.MINUS_STOK ='N' " +
-                           " and a.rm_no = '" + s_rm + "'  " +
+                           " and a.rm_no = '" + s_rm + "' AND RACIKAN ='N' " +
                            " and a.ID_VISIT = '" + s_idvisit + "'  " ;
 
             DataTable dt2 = ConnOra.Data_Table_ora(sql_med_load);
@@ -3132,7 +3132,7 @@ namespace Clinic
             ConnOra.LookUpGridFilter(listMedicine, gridView3, "medicineCode", "medicineName", LokObatGrid, 1);
             //DataListObat(s_stat, s_policd);
 
-            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and a.MINUS_STOK ='N'   and att1  = decode('" + s_stat + "','B','BPJS','A','ASURANSI','UMUM') and poli_cd = '" + s_policd + "'  ";
+            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and a.MINUS_STOK ='N'   and att1  = decode('" + s_stat + "','B','BPJS','A','ASURANSI','UMUM') and poli_cd = '" + s_policd + "' AND RACIKAN ='N' ";
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
             DataTable dtf = new DataTable();
@@ -3191,13 +3191,13 @@ namespace Clinic
         void DataListObat(string statp, string spoli)
         {
             string sql_med = " ";
-            sql_med = sql_med + Environment.NewLine + " select a.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+            sql_med = sql_med + Environment.NewLine + " select a.med_cd, initcap(med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name  ";
             sql_med = sql_med + Environment.NewLine + "  from KLINIK.cs_medicine a, CS_FORMULA b ";
             sql_med = sql_med + Environment.NewLine + " where a.MED_CD = b.MED_CD ";
             sql_med = sql_med + Environment.NewLine + "   and a.status = 'A'   ";
-            sql_med = sql_med + Environment.NewLine + "   and b.MINUS_STOK ='N'  ";
+            sql_med = sql_med + Environment.NewLine + "   and b.MINUS_STOK ='N' AND RACIKAN ='N' ";
             sql_med = sql_med + Environment.NewLine + "   and att1 = decode('" + statp + "', 'B', 'BPJS', 'A', 'ASURANSI', 'UMUM') and poli_cd = '" + spoli + "'  ";
-            sql_med = sql_med + Environment.NewLine + " order by med_name ";
+            sql_med = sql_med + Environment.NewLine + " order by med_name  ";
              
             try
             {
@@ -3454,7 +3454,7 @@ namespace Clinic
                 med_stok = dt.Rows[0]["stock"].ToString();
                 med_uom = dt.Rows[0]["uom"].ToString();
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and a.MINUS_STOK ='N'  and att1  = decode('" + s_stat + "','B','BPJS','A','ASURANSI','UMUM')  and poli_cd = '" + s_policd + "' ";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and a.MINUS_STOK ='N'  and att1  = decode('" + s_stat + "','B','BPJS','A','ASURANSI','UMUM')  and poli_cd = '" + s_policd + "' AND RACIKAN ='N' ";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -3659,17 +3659,17 @@ namespace Clinic
                 anamnesaid = gridView3.GetRowCellValue(i, gridView3.Columns[17]).ToString();
                 visitno = gridView3.GetRowCellValue(i, gridView3.Columns[18]).ToString();
 
-                if (con == "Y")
-                {
-                    MessageBox.Show("Data tidak bisa dirubah.");
-                }
+                //if (con == "Y")
+                //{
+                //    MessageBox.Show("Data tidak bisa dirubah."); return;
+                //}
                 //else if (stok == "0")
                 //{
                 //    MessageBox.Show("Stok obat tidak tersedia.");
                 //}
-                else if (jumlah == "" || jumlah == "0")
+                if (jumlah == "" || jumlah == "0")
                 {
-                    MessageBox.Show("Jumlah obat harus diisi.");
+                    MessageBox.Show("Jumlah obat harus diisi."); return;
                 }
                 //else if (Convert.ToInt16(jumlah) > Convert.ToInt16(stok))
                 //{
@@ -3677,23 +3677,23 @@ namespace Clinic
                 //}
                 else if (kode == "")
                 {
-                    MessageBox.Show("Kode obat harus diisi.");
+                    MessageBox.Show("Kode obat harus diisi."); return;
                 }
                 else if (dosis == "")
                 {
-                    MessageBox.Show("Kode Dosis harus diisi.");
+                    MessageBox.Show("Kode Dosis harus diisi."); return;
                 }
                 else if (hari == "")
                 {
-                    MessageBox.Show("Jumlah harus diisi.");
+                    MessageBox.Show("Jumlah harus diisi."); return;
                 }
                 else if (info == "")
                 {
-                    MessageBox.Show("Info harus diisi.");
+                    MessageBox.Show("Info harus diisi."); return;
                 }
                 else if (info_dosis == "")
                 {
-                    MessageBox.Show("Dosis harus diisi.");
+                    MessageBox.Show("Dosis harus diisi."); return;
                 }
                 else
                 {
@@ -3799,8 +3799,8 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT) " +
-                                                      " values(cs_receipt_seq.nextval, '" + txt_rekammds.Text + "', to_date(to_char(sysdate,'yyyy-MM-dd'),'yyyy-MM-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'Y', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + visitno + "', sysdate, '" + DB.vUserId + "', " + id_visit + ") ";
+                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT, JENIS_OBAT) " +
+                                                      " values(cs_receipt_seq.nextval, '" + txt_rekammds.Text + "', to_date(to_char(sysdate,'yyyy-MM-dd'),'yyyy-MM-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'Y', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + visitno + "', sysdate, '" + DB.vUserId + "', " + id_visit + ", 'NONE') ";
                                 command.ExecuteNonQuery();
 
                                 //command.CommandText = " update cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-MM-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";

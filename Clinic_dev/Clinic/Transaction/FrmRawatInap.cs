@@ -745,7 +745,7 @@ namespace Clinic
 
             dtGlMedRacik.Clear();
             sql_medR = "";
-            sql_medR = sql_medR + Environment.NewLine + " select a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat   ";
+            sql_medR = sql_medR + Environment.NewLine + " select a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat    ";
             sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
             sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   ";
             sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='POL0001' AND RACIKAN ='Y'   ";
