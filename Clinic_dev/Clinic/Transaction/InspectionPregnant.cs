@@ -3167,7 +3167,7 @@ namespace Clinic
                            " from KLINIK.cs_receipt a  " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  " +
                            " JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A' AND D.MINUS_STOK = 'Y'  " +
+                           " where b.status = 'A' AND D.MINUS_STOK = 'Y'  AND RACIKAN ='N' " +
                            " and rm_no = '" + s_rm + "'  and ID_VISIT = '" + idvisit + "' " +
                            " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
                            " and visit_no = '" + s_que + "' ";
@@ -3271,7 +3271,7 @@ namespace Clinic
             glmed.NullText = "";
             gridView6.Columns[3].ColumnEdit = glmed;
 
-            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join cs_medicine b on(a.med_cd=b.med_cd) where 1=1 AND a.POLI_CD  in ('POL0002','POL0003','ALL') ";
+            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join cs_medicine b on(a.med_cd=b.med_cd) where 1=1 AND a.POLI_CD  in ('POL0002','POL0003','ALL')  AND RACIKAN ='N' ";
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
             DataTable dtf = new DataTable();
@@ -3351,7 +3351,7 @@ namespace Clinic
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  " +
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  AND RACIKAN ='N' " +
                            " and rm_no = '" + s_rm + "' and att1 ='UMUM' " +
                            " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "' and GRID_NAME = 'gridView16' " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
@@ -3437,7 +3437,7 @@ namespace Clinic
             gridView16.Columns[3].ColumnEdit = glmedU;
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD in( 'POL0002', 'POL0003') and att1 = 'UMUM' ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD in( 'POL0002', 'POL0003') and att1 = 'UMUM'  AND RACIKAN ='N' ";
 
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
@@ -3486,9 +3486,9 @@ namespace Clinic
         {
             dtGlMed.Clear();
             string sql_med = " "; 
-            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || decode(att1,'BPJS','',' [None BPJS]')  med_name  ";
             sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
-            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  ";
+            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  AND RACIKAN ='N' ";
             if(sstatus.ToString().Equals("UMUM"))
                 sql_med = sql_med + Environment.NewLine + "    and att1 = '" + sstatus + "'  ";
             else
@@ -3738,7 +3738,7 @@ namespace Clinic
                 //{
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
                   
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  and a.POLI_CD in('POL0002','POL0003' ) ";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  and a.POLI_CD in('POL0002','POL0003' )  AND RACIKAN ='N'  ";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -7478,7 +7478,7 @@ namespace Clinic
                  
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString(); 
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) =  'UMUM' and MINUS_STOK ='Y' and a.POLI_CD in ('POL0002','POL0003')";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) =  'UMUM' and MINUS_STOK ='Y' and a.POLI_CD in ('POL0002','POL0003')  AND RACIKAN ='N' ";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();

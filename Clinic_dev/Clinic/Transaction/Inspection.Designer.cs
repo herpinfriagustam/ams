@@ -1446,14 +1446,14 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(3, 3);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(492, 44);
+            this.panel17.Size = new System.Drawing.Size(471, 44);
             this.panel17.TabIndex = 0;
             // 
             // cMcuPeriode
             // 
             this.cMcuPeriode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cMcuPeriode.FormattingEnabled = true;
-            this.cMcuPeriode.Location = new System.Drawing.Point(325, 14);
+            this.cMcuPeriode.Location = new System.Drawing.Point(304, 14);
             this.cMcuPeriode.Name = "cMcuPeriode";
             this.cMcuPeriode.Size = new System.Drawing.Size(80, 21);
             this.cMcuPeriode.TabIndex = 118;
@@ -1464,7 +1464,7 @@
             this.labelControl139.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl139.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl139.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl139.Location = new System.Drawing.Point(313, 16);
+            this.labelControl139.Location = new System.Drawing.Point(292, 16);
             this.labelControl139.Name = "labelControl139";
             this.labelControl139.Size = new System.Drawing.Size(10, 18);
             this.labelControl139.TabIndex = 116;
@@ -1475,7 +1475,7 @@
             this.loadMCU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadMCU.Enabled = false;
             this.loadMCU.Image = ((System.Drawing.Image)(resources.GetObject("loadMCU.Image")));
-            this.loadMCU.Location = new System.Drawing.Point(411, 13);
+            this.loadMCU.Location = new System.Drawing.Point(390, 13);
             this.loadMCU.Name = "loadMCU";
             this.loadMCU.Size = new System.Drawing.Size(78, 23);
             this.loadMCU.TabIndex = 40;
@@ -1497,7 +1497,7 @@
             this.labelControl127.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl127.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl127.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl127.Location = new System.Drawing.Point(263, 16);
+            this.labelControl127.Location = new System.Drawing.Point(242, 16);
             this.labelControl127.Name = "labelControl127";
             this.labelControl127.Size = new System.Drawing.Size(47, 18);
             this.labelControl127.TabIndex = 110;
@@ -1523,7 +1523,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 53);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(492, 54);
+            this.panel18.Size = new System.Drawing.Size(471, 54);
             this.panel18.TabIndex = 1;
             // 
             // labelControl132
@@ -1689,7 +1689,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 113);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(492, 114);
+            this.groupBox8.Size = new System.Drawing.Size(471, 114);
             this.groupBox8.TabIndex = 2;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Kesimpulan dan Status";
@@ -1700,7 +1700,7 @@
             this.gridControl8.Location = new System.Drawing.Point(3, 17);
             this.gridControl8.MainView = this.gridView8;
             this.gridControl8.Name = "gridControl8";
-            this.gridControl8.Size = new System.Drawing.Size(486, 94);
+            this.gridControl8.Size = new System.Drawing.Size(465, 94);
             this.gridControl8.TabIndex = 0;
             this.gridControl8.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -1718,7 +1718,7 @@
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox9.Location = new System.Drawing.Point(3, 233);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(492, 114);
+            this.groupBox9.Size = new System.Drawing.Size(471, 114);
             this.groupBox9.TabIndex = 3;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Riwayat dan Tanda Vital";
@@ -1729,7 +1729,7 @@
             this.gridControl9.Location = new System.Drawing.Point(3, 17);
             this.gridControl9.MainView = this.gridView9;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(486, 94);
+            this.gridControl9.Size = new System.Drawing.Size(465, 94);
             this.gridControl9.TabIndex = 0;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
@@ -1746,7 +1746,7 @@
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 353);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(492, 114);
+            this.groupBox10.Size = new System.Drawing.Size(471, 114);
             this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Mata";
@@ -1757,7 +1757,7 @@
             this.gridControl10.Location = new System.Drawing.Point(3, 17);
             this.gridControl10.MainView = this.gridView10;
             this.gridControl10.Name = "gridControl10";
-            this.gridControl10.Size = new System.Drawing.Size(486, 94);
+            this.gridControl10.Size = new System.Drawing.Size(465, 94);
             this.gridControl10.TabIndex = 0;
             this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView10});
@@ -1774,7 +1774,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 473);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(492, 114);
+            this.groupBox11.Size = new System.Drawing.Size(471, 114);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Laboratorium";
@@ -1785,7 +1785,7 @@
             this.gridControl11.Location = new System.Drawing.Point(3, 17);
             this.gridControl11.MainView = this.gridView11;
             this.gridControl11.Name = "gridControl11";
-            this.gridControl11.Size = new System.Drawing.Size(486, 94);
+            this.gridControl11.Size = new System.Drawing.Size(465, 94);
             this.gridControl11.TabIndex = 0;
             this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -1802,7 +1802,7 @@
             this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox12.Location = new System.Drawing.Point(3, 593);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(492, 114);
+            this.groupBox12.Size = new System.Drawing.Size(471, 114);
             this.groupBox12.TabIndex = 6;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Pemeriksaan Lain";
@@ -1813,7 +1813,7 @@
             this.gridControl12.Location = new System.Drawing.Point(3, 17);
             this.gridControl12.MainView = this.gridView12;
             this.gridControl12.Name = "gridControl12";
-            this.gridControl12.Size = new System.Drawing.Size(486, 94);
+            this.gridControl12.Size = new System.Drawing.Size(465, 94);
             this.gridControl12.TabIndex = 0;
             this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});

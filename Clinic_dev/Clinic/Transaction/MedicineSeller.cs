@@ -89,7 +89,7 @@ namespace Clinic
             }
 
             dtGlMed.Clear();
-            string sql_med = " select distinct b.med_cd, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and BPJS_COVER ='N'  and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC') order by med_name ";
+            string sql_med = " select distinct b.med_cd, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and BPJS_COVER ='N'  and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC') AND RACIKAN ='N' order by med_name ";
             DataTable dt3 = ConnOra.Data_Table_ora(sql_med); 
             dtGlMed = dt3; 
             listMedicine.Clear();
@@ -263,7 +263,7 @@ namespace Clinic
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  JOIN KLINIK.CS_KIR c on(a.ATT3_RECIEPT =  c.KIR_ID) " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and BPJS_COVER ='N' " + 
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and RACIKAN ='N'  and BPJS_COVER ='N'  " + 
                            " and c.KIR_ID = '" + kir_id + "' ";
 
             dtObat = ConnOra.Data_Table_ora(sql_med_load);
@@ -280,7 +280,7 @@ namespace Clinic
             gvObatJual.Columns[6].OptionsColumn.ReadOnly = true;
             gvObatJual.Columns[10].OptionsColumn.ReadOnly = true;
 
-            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and BPJS_COVER ='N' and MINUS_STOK ='Y'  and MED_GROUP in('OBAT','OTC') order by med_name ";
+            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and BPJS_COVER ='N'  and RACIKAN ='N' and MINUS_STOK ='Y'  and MED_GROUP in('OBAT','OTC') order by med_name ";
             DataTable dtf = ConnOra.Data_Table_ora(sql_for);
              
             listFormula2.Clear();
@@ -680,7 +680,7 @@ namespace Clinic
                 med_stok = dt.Rows[0]["stock"].ToString();
                 med_uom = dt.Rows[0]["uom"].ToString();
 
-                sql_for = " select  min(formula_id) formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and BPJS_COVER ='N' and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC')  and  b.med_cd = '" + med_cd + "'   group by  initcap(formula) , initcap(b.med_name) ";
+                sql_for = " select  min(formula_id) formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and BPJS_COVER ='N' and RACIKAN ='N' and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC')  and  b.med_cd = '" + med_cd + "'   group by  initcap(formula) , initcap(b.med_name) ";
                 DataTable dtf = ConnOra.Data_Table_ora(sql_for); 
                 
                 listFormula2.Clear();

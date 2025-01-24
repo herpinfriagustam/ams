@@ -3997,7 +3997,7 @@ namespace Clinic
         {
             dtGlMed.Clear();
             string sql_med = " ", sql_racik ="", sql_medR ="";
-            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name  ";
             sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
             sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
             sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  "; 
@@ -4022,7 +4022,7 @@ namespace Clinic
             {
                 dtGlMedU.Clear();
                 sql_med = "";
-                sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+                sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name  ";
                 sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
                 sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
                 sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   "; 
@@ -4110,7 +4110,7 @@ namespace Clinic
             //sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa   ";
             sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', BB : ' || bb || ', TB : ' || tb || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa    ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) anamnesa,   ";
             sql_load = sql_load + Environment.NewLine + "(select LISTAGG(item_name, ', ') WITHIN GROUP (ORDER BY type_diagnosa asc) diagnosa   ";
@@ -4123,17 +4123,17 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "(select  'Sekarang : ' || disease_now || ', Dahulu : ' || disease_then ||   ";
             sql_load = sql_load + Environment.NewLine + "', Keluarga : ' || disease_family as rp ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) rp, ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_physical   ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) fisik,  ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_other  ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) lain  "; 
             sql_load = sql_load + Environment.NewLine + ", case when b.STATUS = ( select d.TYPE_INS  ";
@@ -6845,7 +6845,7 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "c.rm_no, to_char(b.visit_date,'yyyy-mm-dd') visit_date, que01,  ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa   ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no   ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and ID_VISIT = B.ID_VISIT  ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)  ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) anamnesa,  ";
             sql_load = sql_load + Environment.NewLine + "(select LISTAGG(initcap(item_name), ', ') WITHIN GROUP (ORDER BY type_diagnosa asc) diagnosa  ";
@@ -6877,7 +6877,7 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "and c.status = 'A'  ";
             sql_load = sql_load + Environment.NewLine + "and b.que01 = '" + s_que + "'  ";
             sql_load = sql_load + Environment.NewLine + "and c.group_patient = 'COMM'  ";
-            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "' ";
+            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "'  and B.ID_VISIT = '" + idvisit + "' ";
 
             OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOra = new OleDbDataAdapter(sql_load, oraConnect);
