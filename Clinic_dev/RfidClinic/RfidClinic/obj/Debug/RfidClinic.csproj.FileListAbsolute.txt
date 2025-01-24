@@ -292,3 +292,5 @@ D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\RfidClinic\RfidCl
 D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.licenses
 D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
 D:\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Klinik\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
+D:\App Github\MyBranch\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
+D:\App Github\MyBranch\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
