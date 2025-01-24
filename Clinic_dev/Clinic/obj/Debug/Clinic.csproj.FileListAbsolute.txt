@@ -2934,7 +2934,6 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGr
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
-D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterSchedule.resources

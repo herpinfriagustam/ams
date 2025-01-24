@@ -3048,7 +3048,7 @@ namespace Clinic
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null and a.JENIS_OBAT ='NONE' " +
                            " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='N' " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit +" ";
 
             DataTable dtObatUmum = ConnOra.Data_Table_ora(sql_med_load);
@@ -3211,7 +3211,7 @@ namespace Clinic
            
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "') ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N' ";
             //if(sstatus.ToString().Equals("BPJS"))
             //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
@@ -3288,7 +3288,7 @@ namespace Clinic
                           " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='Y'  " +
                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
@@ -3402,7 +3402,7 @@ namespace Clinic
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null" +
                            " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and d.racikan ='N'  " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
@@ -3515,7 +3515,7 @@ namespace Clinic
 
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "') ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N'  ";
             //if(sstatus.ToString().Equals("BPJS"))
             //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
@@ -3592,7 +3592,7 @@ namespace Clinic
                           " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and racikan ='Y'  " +
                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
@@ -3706,7 +3706,7 @@ namespace Clinic
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null" +
                            " and rm_no = '" + s_rm + "' and a.GRID_NAME ='gvRacik' " + // and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and racikan ='Y'  " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + "  and ATT1_RECIEPT = '" + idracikan + "'";
 
             OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
@@ -3864,7 +3864,7 @@ namespace Clinic
                            " from KLINIK.cs_receipt a  " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  " +
-                           " and rm_no = '" + s_rm + "' and att1 ='UMUM' " +
+                           " and rm_no = '" + s_rm + "' and att1 ='UMUM'  and d.racikan ='N' " +
                            " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "' and GRID_NAME = 'gridView16' " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
@@ -3948,7 +3948,7 @@ namespace Clinic
             gridView16.Columns[3].ColumnEdit = glmedU; 
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM' ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM'  and racikan ='N' ";
              
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
@@ -4000,7 +4000,7 @@ namespace Clinic
             sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
             sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
             sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
-            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   "; 
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  "; 
             //if (sstatus.ToString().Equals("BPJS"))
             //    sql_med = sql_med + Environment.NewLine + "    and BPJS_COVER ='Y' and POLI_CD = '" + spoli.ToString() + "'   ";
             //else
@@ -4025,7 +4025,7 @@ namespace Clinic
                 sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
                 sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
                 sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
-                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   "; 
+                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   "; 
                 sql_med = sql_med + Environment.NewLine + "  order by med_name  ";
 
                 OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
@@ -4047,23 +4047,28 @@ namespace Clinic
                 //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   ";
                 //sql_medR = sql_medR + Environment.NewLine + "  order by med_name  ";
 
+                //Sql = Sql + Environment.NewLine + " select formula_id, initcap(formula) formula, initcap(b.med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name ";
+                //Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1      ";
+                //Sql = Sql + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'    ";
+                //Sql = Sql + Environment.NewLine + "    and POLI_CD ='POL0001'  AND RACIKAN ='Y'   ";
+
                 dtGlMedRacik.Clear();
                 sql_medR = "";
-                sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name   ";
                 sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
-                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'    ";
-                sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
-                sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
-                sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
-                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
-                sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
-                sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
-                sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
-                sql_medR = sql_medR + Environment.NewLine + "                        ) ";
-                sql_medR = sql_medR + Environment.NewLine + "  order by med_name ";
+                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   ";
+                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
+                //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                        ) ";
+                sql_medR = sql_medR + Environment.NewLine + "  order by 2 ";
 
 
                 OleDbConnection sqlConnectR = ConnOra.Create_Connect_Ora();
@@ -4308,7 +4313,7 @@ namespace Clinic
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
                 //}
                  
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y' AND RACIKAN ='N'";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -7969,7 +7974,7 @@ namespace Clinic
                     s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
                 }
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) =  'UMUM' and a.POLI_CD = '" + policd + "'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) =  'UMUM' and a.POLI_CD = '" + policd + "' AND RACIKAN ='N'";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -8572,7 +8577,7 @@ namespace Clinic
                  
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString(); 
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' AND RACIKAN ='N' ";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -9072,17 +9077,17 @@ namespace Clinic
                 sql_for = "";
                 if(s_stat.ToString().Equals("BPJS"))
                 {
-                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'   and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ";
-                    sql_for = sql_for + Environment.NewLine + "   union all ";
-                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd ='" + med_cd + "'  and att1 in('UMUM','ALL')  and a.POLI_CD = '" + policd + "' ";
-                    sql_for = sql_for + Environment.NewLine + "     and b.med_cd not in ( select b.med_cd from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'  and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ) ";
+                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name)|| decode(att1,'BPJS','',' [None BPJS]') med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'    and a.POLI_CD = '" + policd + "' AND RACIKAN ='Y'  ";
+                    //sql_for = sql_for + Environment.NewLine + "   union all ";
+                    //sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    //sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd ='" + med_cd + "'  and att1 in('UMUM','ALL')  and a.POLI_CD = '" + policd + "' ";
+                    //sql_for = sql_for + Environment.NewLine + "     and b.med_cd not in ( select b.med_cd from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    //sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'  and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ) ";
                 }
                 else
                 {
-                    sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'";
+                    sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name)|| decode(att1,'BPJS','',' [None BPJS]') med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'  AND RACIKAN ='Y' ";
                 }
 
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();

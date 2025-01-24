@@ -5566,7 +5566,7 @@ namespace Clinic
             //gvRacik.Columns[1].ColumnEdit = glmedRacik;
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='POL0001' and MINUS_STOK ='Y'  and upper(att1) = decode(upper('" + type_s + "'), 'B', 'BPJS', 'A', 'ASURANSI', 'UMUM')   ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='POL0001' and MINUS_STOK ='Y'  and upper(att1) = decode(upper('" + type_s + "'), 'B', 'BPJS', 'A', 'ASURANSI', 'UMUM')   AND RACIKAN ='N' ";
             //if(sstatus.ToString().Equals("BPJS"))
             //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
