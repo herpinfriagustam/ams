@@ -2287,7 +2287,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2313,7 +2313,7 @@ namespace Clinic
             
             //ObsList();
 
-            //cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+            //cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
             //cnt = gridView5.RowCount;
             //free = cap - cnt;
             //lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2553,7 +2553,7 @@ namespace Clinic
                                 //ObsList();
                                 ObsList();
                                 int cap = 0, free = 0, cnt = 0;
-                                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                                 cnt = gridView5.RowCount;
                                 free = cap - cnt;
                                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -4114,13 +4114,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -6154,7 +6154,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -6319,7 +6319,7 @@ namespace Clinic
 
                 s_cnt = dt.Rows[0]["cnt"].ToString();
 
-                if (Convert.ToInt16(s_cnt) > 0)
+                if (Convert.ToInt32(s_cnt) > 0)
                 {
                     sql_update = "";
 
@@ -7713,13 +7713,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -8043,13 +8043,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -8790,13 +8790,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;

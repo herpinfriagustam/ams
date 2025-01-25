@@ -719,7 +719,7 @@ namespace Clinic
                 mActName.Text = "";
             }
 
-            if (Convert.ToInt16(s_cnt) > 0 || (s_poli.ToString().Equals("Lain-lain")) && (s_confirm.ToString().Equals("N")))
+            if (Convert.ToInt32(s_cnt) > 0 || (s_poli.ToString().Equals("Lain-lain")) && (s_confirm.ToString().Equals("N")))
             {
                 btnConfirm.Enabled = true;
                 simpleButton1.Enabled = true;
@@ -933,7 +933,7 @@ namespace Clinic
         {
             string SQL = "", limit = "";
 
-            if (Convert.ToInt16(txtLimitStok.Text) <= 0)
+            if (Convert.ToInt32(txtLimitStok.Text) <= 0)
             {
                 limit = "5";
                 txtLimitStok.Text = "5";
@@ -1740,19 +1740,19 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) > 20)
+                    else if (Convert.ToInt32(stok) > 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.Green);
                         e.Appearance.ForeColor = Color.White;
@@ -1864,13 +1864,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) <= 0)
+                    if (Convert.ToInt32(stok) <= 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;

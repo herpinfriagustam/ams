@@ -3096,8 +3096,10 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateRes
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
-C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
+C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
+C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
+C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
@@ -3266,8 +3268,6 @@ C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\es\DevExpr
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
-C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
-C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterSchedule.resources
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterAsuransi.resources

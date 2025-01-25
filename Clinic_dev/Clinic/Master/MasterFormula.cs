@@ -129,7 +129,7 @@ namespace Clinic
         {
             string sql_search, stat = "";
             sql_search = "";
-            sql_search = sql_search + Environment.NewLine + "select 'S' action, formula_id, b.MED_GROUP, b.med_cd,  a.med_cd med_name,  upper(formula) formula, qty, base_price, med_price, a.MINUS_STOK, a.POLI_CD Poli, a.ATT1 status  "; //initcap(med_name) 
+            sql_search = sql_search + Environment.NewLine + "select 'S' action, formula_id, b.MED_GROUP, b.med_cd,  a.med_cd med_name,  upper(formula) formula, qty, base_price, med_price, a.MINUS_STOK, a.POLI_CD Poli, a.ATT1 status  , a.ATT2 Kategori "; //initcap(med_name) 
             sql_search = sql_search + Environment.NewLine + "from cs_formula  a, CS_MEDICINE b";
             sql_search = sql_search + Environment.NewLine + "where a.med_cd(+) = b.med_cd  and b.status='A'  ";
             sql_search = sql_search + Environment.NewLine + "order by 4,3,2 ";
@@ -175,6 +175,7 @@ namespace Clinic
                 gridView1.Columns[9].Caption = "Minus Stok";
                 gridView1.Columns[10].Caption = "Poli";
                 gridView1.Columns[11].Caption = "Status";
+                gridView1.Columns[12].Caption = "Kategori";
 
                 gridView1.Columns[0].Width = 25;
                 gridView1.Columns[1].Width = 25;
@@ -188,6 +189,7 @@ namespace Clinic
                 gridView1.Columns[9].Width = 70;
                 gridView1.Columns[10].Width = 85;
                 gridView1.Columns[11].Width = 80;
+                gridView1.Columns[12].Width = 120;
 
                 RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
                 glmed.DataSource = listMedicine;
@@ -251,7 +253,7 @@ namespace Clinic
 
                 glStatus.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
                 glStatus.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-                glStatus.ImmediatePopup = true;
+                //glStatus.ImmediatePopup = true;
                 glStatus.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                 glStatus.NullText = "";
                 gridView1.Columns[11].ColumnEdit = glStatus;
@@ -315,7 +317,7 @@ namespace Clinic
         private void btnSaveDosis_Click(object sender, EventArgs e)
         {
             string sql_insert = "", sql_update = "", sql_cnt = "", p_jumlah = "", p_hargaB = "", p_hargaj = "", p_fstok = "", p_id ="", p_poli ="";
-            string p_kode = "", p_dosis = "", p_status = "", p_action = "";
+            string p_kode = "", p_dosis = "", p_status = "", p_action = "", p_kategori = "";
             
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
@@ -343,8 +345,9 @@ namespace Clinic
                 p_fstok = gridView1.GetRowCellValue(i, gridView1.Columns[9]).ToString();
                 p_poli = gridView1.GetRowCellValue(i, gridView1.Columns[10]).ToString();
                 p_status = gridView1.GetRowCellValue(i, gridView1.Columns[11]).ToString();
+                p_kategori = gridView1.GetRowCellValue(i, gridView1.Columns[12]).ToString();
 
-                 
+
                 if (p_action == "I" && p_id.ToString().Equals(""))
                 {
                     if (p_kode == "")
@@ -366,8 +369,8 @@ namespace Clinic
 
                     sql_insert = "";
 
-                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status) values ";
-                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A') ";
+                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2) values ";
+                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "') ";
 
                     try
                     {
@@ -405,10 +408,10 @@ namespace Clinic
                     {
                         MessageBox.Show("Harga harus diisi"); return;
                     }
-                    sql_insert = "";
 
-                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status) values ";
-                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A') ";
+                    sql_insert = "";
+                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2) values ";
+                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "') ";
 
                     try
                     {
@@ -451,10 +454,9 @@ namespace Clinic
                     sql = sql + " insert into KLINIK.CS_FORMULA_HIS select a.*,  '" + DB.vUserId + "' CREATED_BY, sysdate CREATED_DATE from KLINIK.CS_FORMULA a where  formula_id = '" + p_id + "'  ";
                     ORADB.Execute(ORADB.XE, sql);
                            
-                    sql_update = "";
-
+                    sql_update = ""; 
                     sql_update = sql_update + " update cs_formula set med_cd = '" + p_kode + "', formula = '" + p_dosis + "', BASE_PRICE = '" + p_hargaB + "' , med_price = '" + p_hargaj + "', qty = '" + p_jumlah + "', MINUS_STOK = '" + p_fstok + "', POLI_CD ='" + p_poli + "', ";
-                    sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' , att1 = '" + p_status + "'";
+                    sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' , att1 = '" + p_status + "' , att2 = '" + p_kategori + "'";
                     sql_update = sql_update + " where formula_id = '" + p_id + "' ";
 
                     try
@@ -484,7 +486,7 @@ namespace Clinic
             btnSaveDosis.Enabled = true;
             GridView view = sender as GridView;
 
-            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Status")
+            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori")
             {
                
 
@@ -516,7 +518,7 @@ namespace Clinic
         {
             GridView View = sender as GridView;
 
-            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Poli" || e.Column.Caption == "Status")
+            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Poli" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori")
             {
                 e.Appearance.BackColor = Color.OldLace;
                 e.Appearance.ForeColor = Color.Black;

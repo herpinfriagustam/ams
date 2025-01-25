@@ -3946,17 +3946,17 @@ namespace Clinic
             gridView16.Columns[9].OptionsColumn.ReadOnly = true;
             gridView16.Columns[10].OptionsColumn.ReadOnly = true; 
 
-            RepositoryItemGridLookUpEdit glmedU = new RepositoryItemGridLookUpEdit();
-            glmedU.DataSource = listMedicineU;
-            glmedU.ValueMember = "medicineCode";
-            glmedU.DisplayMember = "medicineName";
+            //RepositoryItemGridLookUpEdit glmedU = new RepositoryItemGridLookUpEdit();
+            //glmedU.DataSource = listMedicineU;
+            //glmedU.ValueMember = "medicineCode";
+            //glmedU.DisplayMember = "medicineName";
 
-            glmedU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmedU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmedU.ImmediatePopup = true;
-            glmedU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmedU.NullText = "";
-            gridView16.Columns[3].ColumnEdit = glmedU; 
+            //glmedU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmedU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmedU.ImmediatePopup = true;
+            //glmedU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmedU.NullText = "";
+            //gridView16.Columns[3].ColumnEdit = glmedU; 
 
             string sql_for = "";
             sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM'  and racikan ='N' ";
@@ -4365,6 +4365,10 @@ namespace Clinic
         {
             btnMedSave.Enabled = true;
             GridView view = sender as GridView;
+
+            if (view.RowCount < 1)
+                return;
+
             string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
             if (a.ToString().Equals(""))
                 return;
@@ -4608,6 +4612,9 @@ namespace Clinic
 
             if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Info" || e.Column.Caption == "Dosis" || e.Column.Caption == "Remark")
             {
+                if (view.RowCount < 1)
+                    return;
+
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
                 if (tmp_stat == "I")
@@ -4637,13 +4644,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;

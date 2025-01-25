@@ -3184,8 +3184,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -3539,8 +3539,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -4050,8 +4050,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -4496,8 +4496,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
