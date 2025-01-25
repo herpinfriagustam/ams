@@ -157,7 +157,7 @@ namespace Clinic
             //mmDokter.ItemIndex = -1;
 
             string SQL2 = "";
-            SQL2 = SQL2 + Environment.NewLine + "select ID_Dokter, initcap(NM_DOKTER) Nama_Dokter ";
+            SQL2 = SQL2 + Environment.NewLine + "select ID_Dokter, NM_DOKTER Nama_Dokter ";
             SQL2 = SQL2 + Environment.NewLine + "from KLINIK.CS_DOKTER ";
             SQL2 = SQL2 + Environment.NewLine + "where 1=1 AND F_AKTIF ='Y' and NM_DOKTER <> 'System' ";
             //SQL = SQL + Environment.NewLine + "and treat_type_id = 'TRT02'  ";
@@ -781,7 +781,7 @@ namespace Clinic
                                    to_char(A.INSP_DATE,'yyyy-MM-dd') INSP_DATE,
                                    initcap(C.NAME) NAME,
                                    DECODE(D.TYPE_PATIENT, 'U', 'Umum','B','BPJS','Swasta') GROUP_PATIENT,
-                                   case when D.STATUS ='PAY' then 'Pembayaran' ELSE DECODE(F.STATUS,'OPN', 'Proses', 'REG', 'Registrasi','CLS','Selesai', 'Batal') END STATUS,
+                                   case when D.STATUS ='PAY' then 'Pembayaran' ELSE DECODE(F.STATUS,'OPN', 'Proses', 'REG', 'Registrasi','CLS','Selesai', 'PAY','Pembayaran','Batal') END STATUS,
                                    nvl((select z.name from KLINIK.cs_guarantor z where z.patient_no=c.patient_no and rownum =1 ),  C.FAMILY_HEAD)  FAMILY_HEAD, A.ID_VISIT, E.HEAD_ID, (select ROOM_NAME||' ['||substr(f.room_id,-2)||']' from CS_ROOM g, CS_BED h where g.room_id = h.room_id  and h.BED_ID = f.room_id ) room_id, f.inpatient_id
                               FROM CS_ANAMNESA A, CS_PATIENT B, CS_PATIENT_INFO C, CS_VISIT D, CS_TREATMENT_HEAD E, KLINIK.cs_inpatient F
                               WHERE A.ID_VISIT = D.ID_VISIT AND D.inpatient_id=f.inpatient_id
@@ -834,8 +834,8 @@ namespace Clinic
                 Sql = Sql + Environment.NewLine + "  select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + fnama + "' as nama, visit_no,  ";
                 Sql = Sql + Environment.NewLine + "         blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, a.bb, a.tb, disease_now ,ID_VISIT, ";
                 Sql = Sql + Environment.NewLine + "         nvl(KELUHAN_UTAMA,disease_now) KELUHAN_UTAMA, 	nvl(PENYAKIT_LALU,DISEASE_THEN) PENYAKIT_LALU,	PERNAH_DIRAWAT,	PERNAH_OPERASI,	nvl(PENYAKIT_KELUARGA,DISEASE_FAMILY) PENYAKIT_KELUARGA,	 ";
-                Sql = Sql + Environment.NewLine + "         TERGANTUNG_THD,	RIWAYAT_PEKERJAAN,	RIWAYAT_ALERGI,	RIWAYAT_OBAT,	nvl(TD,blood_press) TD,	nvl(NADI,pulse) NADI,	P,	nvl(SUHU,temperature) SUHU,	KELUHAN,	BATAS_MAKAN,	GIGI_PALSU,	MUAL,	MUNTAH,	nvl(b.BB,a.bb) BB,	nvl(b.TB,a.tb) TB,round((to_number(nvl(b.BB,a.bb),'9,999.9')/(to_number(nvl(b.TB,a.tb),'9,999.9')*	to_number(nvl(b.TB,a.TB),'9,999.9')))* 10000,2) IMT,					 ";
-                Sql = Sql + Environment.NewLine + "         nvl(GST_KET,KLINIK.CS_IMT(to_number(nvl(b.BB,a.bb),'9,999.9'), to_number(nvl(b.TB,a.tb),'9,999.9'))) GST_KET,	PENDENGARAN,	PENGLIHATAN,	DEFEKASI,	MIKSI,	KULIT,	SKOR_NORTON,	RESIKO_DEKUBITUS,	LOKASI_LUKA,	PERIKSA_FISIK_LAIN,	FORM_PERIKSA_KHUSUS,	STATUS_PSIKOLOGI,	STATUS_MENTAL,	HUBUNGAN_KELUARGA,	TEMPAT_TINGGAL,	NAMA_KERABAT,	HUB_KERABAT,	TLP_KERABAT,	KEG_AGAMA,	KEG_SPIRITUAL,	HAMBATAN_BELAJAR,	BUTUH_PENERJEMAH,	KEBUTUHAN_EDUKASI,	BERSEDIA_DIKUNJUNGI,	RESIKO_CEDERA,	MENERIMA_INFO, a.VITALRR ";
+                Sql = Sql + Environment.NewLine + "         TERGANTUNG_THD,	RIWAYAT_PEKERJAAN,	RIWAYAT_ALERGI,	RIWAYAT_OBAT,	nvl(TD,blood_press) TD,	nvl(NADI,pulse) NADI,	P,	nvl(SUHU,temperature) SUHU,	KELUHAN,	BATAS_MAKAN,	GIGI_PALSU,	MUAL,	MUNTAH,	nvl(a.BB,b.bb) BB,	nvl(a.TB,b.tb) TB,round((to_number(nvl(a.BB,b.bb),'9,999.9')/(to_number(nvl(a.TB,b.tb),'9,999.9')*	to_number(nvl(a.TB,b.TB),'9,999.9')))* 10000,2) IMT,					 ";
+                Sql = Sql + Environment.NewLine + "         nvl(GST_KET,KLINIK.CS_IMT(to_number(nvl(a.BB,b.bb),'9,999.9'), to_number(nvl(a.TB,b.tb),'9,999.9'))) GST_KET,	PENDENGARAN,	PENGLIHATAN,	DEFEKASI,	MIKSI,	KULIT,	SKOR_NORTON,	RESIKO_DEKUBITUS,	LOKASI_LUKA,	PERIKSA_FISIK_LAIN,	FORM_PERIKSA_KHUSUS,	STATUS_PSIKOLOGI,	STATUS_MENTAL,	HUBUNGAN_KELUARGA,	TEMPAT_TINGGAL,	NAMA_KERABAT,	HUB_KERABAT,	TLP_KERABAT,	KEG_AGAMA,	KEG_SPIRITUAL,	HAMBATAN_BELAJAR,	BUTUH_PENERJEMAH,	KEBUTUHAN_EDUKASI,	BERSEDIA_DIKUNJUNGI,	RESIKO_CEDERA,	MENERIMA_INFO, a.VITALRR ";
                 Sql = Sql + Environment.NewLine + "   from  cs_anamnesa a, T1_RAWAT_INAP1 b  ";
                 Sql = Sql + Environment.NewLine + "  where a.ANAMNESA_ID = b.ANAMESA_ID  "; 
                 Sql = Sql + Environment.NewLine + "    and  a.ANAMNESA_ID = " + id + "  ";

@@ -21,19 +21,20 @@ namespace Clinic
         List<Status> TypeStatus = new List<Status>(); List<Stat> listdosis = new List<Stat>();
         List<FlagYn> FlagStok = new List<FlagYn>();
         List<Medicine> listMedicine = new List<Medicine>(); List<Poli> listpoli = new List<Poli>();
+        List<MedGroup> lMedicine = new List<MedGroup>();
         List<CFunction.C_UOM> listMuom = new List<CFunction.C_UOM>();
         DataTable dtGlMed = new DataTable();
         DataTable dt = new DataTable(); DataTable dt_poli = new DataTable();
         DataTable dt_uom = new DataTable();
-        DataTable dt_obat = new DataTable(); 
-
+        DataTable dt_obat = new DataTable();
+        int badd =0;
         public string   v_name = "", sql ="";
         string kate_cd = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         //string today = "2019-11-27";
         RepositoryItemGridLookUpEdit cm_uom = new RepositoryItemGridLookUpEdit();
         RepositoryItemGridLookUpEdit cm_poli = new RepositoryItemGridLookUpEdit();
-
+        RepositoryItemGridLookUpEdit LokObatGrid = new RepositoryItemGridLookUpEdit();
         public MasterFormula()
         {
             InitializeComponent();
@@ -56,18 +57,7 @@ namespace Clinic
 
         private void initData()
         {
-            dtGlMed.Clear();
-            string sql_med = " select med_cd, initcap(med_name) med_name from cs_medicine where status = 'A' order by med_name ";
-            OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adSql3 = new OleDbDataAdapter(sql_med, sqlConnect3);
-            DataTable dt3 = new DataTable();
-            dtGlMed = dt3;
-            adSql3.Fill(dt3);
-            listMedicine.Clear();
-            for (int i = 0; i < dt3.Rows.Count; i++)
-            {
-                listMedicine.Add(new Medicine() { medicineCode = dt3.Rows[i]["med_cd"].ToString(), medicineName = dt3.Rows[i]["med_name"].ToString() });
-            }
+            
 
             FlagStok.Clear();
             FlagStok.Add(new FlagYn() { flagCode = "Y", flagName = "Y" });
@@ -129,9 +119,13 @@ namespace Clinic
         {
             string sql_search, stat = "";
             sql_search = "";
-            sql_search = sql_search + Environment.NewLine + "select 'S' action, formula_id, b.MED_GROUP, b.med_cd,  a.med_cd med_name,  upper(formula) formula, qty, base_price, med_price, a.MINUS_STOK, a.POLI_CD Poli, a.ATT1 status  , a.ATT2 Kategori "; //initcap(med_name) 
+            sql_search = sql_search + Environment.NewLine + "select 'S' action, formula_id, b.MED_GROUP, b.med_cd,  b.med_cd med_name,  upper(formula) formula, qty, base_price, med_price, a.MINUS_STOK, a.POLI_CD Poli, a.ATT1 status  , a.ATT2 Kategori, a.Racikan "; //initcap(med_name) 
             sql_search = sql_search + Environment.NewLine + "from cs_formula  a, CS_MEDICINE b";
             sql_search = sql_search + Environment.NewLine + "where a.med_cd(+) = b.med_cd  and b.status='A'  ";
+            if (rdObat.Checked)
+                sql_search = sql_search + Environment.NewLine + "     and MED_GROUP ='OBAT'  ";
+            else
+                sql_search = sql_search + Environment.NewLine + "     and MED_GROUP ='ALKES'   ";
             sql_search = sql_search + Environment.NewLine + "order by 4,3,2 ";
 
             //loading.ShowWaitForm();
@@ -176,6 +170,7 @@ namespace Clinic
                 gridView1.Columns[10].Caption = "Poli";
                 gridView1.Columns[11].Caption = "Status";
                 gridView1.Columns[12].Caption = "Kategori";
+                gridView1.Columns[13].Caption = "Racikan";
 
                 gridView1.Columns[0].Width = 25;
                 gridView1.Columns[1].Width = 25;
@@ -190,18 +185,59 @@ namespace Clinic
                 gridView1.Columns[10].Width = 85;
                 gridView1.Columns[11].Width = 80;
                 gridView1.Columns[12].Width = 120;
+                gridView1.Columns[13].Width = 70;
+                string sql_med = "";
 
-                RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
-                glmed.DataSource = listMedicine;
-                glmed.ValueMember = "medicineCode";
-                glmed.DisplayMember = "medicineName";
+                sql_med = "";
+                sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name)  Nama_Obat   ";
+                sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a right join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                sql_med = sql_med + Environment.NewLine + "    and b.status = 'A'  ";
+                if(rdObat.Checked)
+                    sql_med = sql_med + Environment.NewLine + "     and MED_GROUP ='OBAT'  ";
+                else
+                    sql_med = sql_med + Environment.NewLine + "     and MED_GROUP ='ALKES'   "; 
+                sql_med = sql_med + Environment.NewLine + "  order by a.att2,3  ";
 
-                glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-                glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-                glmed.ImmediatePopup = true;
-                glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-                glmed.NullText = "";
-                gridView1.Columns[4].ColumnEdit = glmed;
+                OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqlU = new OleDbDataAdapter(sql_med, sqlConnectU);
+                DataTable dtU = new DataTable();
+                dtGlMed = dtU;
+                adSqlU.Fill(dtU);
+                lMedicine.Clear();
+                //dtGlMed.Clear();
+                for (int i = 0; i < dtU.Rows.Count; i++)
+                {
+                    lMedicine.Add(new MedGroup() { Kategori = dtU.Rows[i]["Kategori"].ToString(), Kode_Obat = dtU.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtU.Rows[i]["Nama_Obat"].ToString() });
+                }
+
+
+
+                //dtGlMed.Clear();
+                //string sql_med = " select med_cd, initcap(med_name) med_name from cs_medicine where status = 'A' order by med_name ";
+                //OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
+                //OleDbDataAdapter adSql3 = new OleDbDataAdapter(sql_med, sqlConnect3);
+                //DataTable dt3 = new DataTable();
+                //dtGlMed = dt3;
+                //adSql3.Fill(dt3);
+                //listMedicine.Clear();
+                //for (int i = 0; i < dt3.Rows.Count; i++)
+                //{
+                //    listMedicine.Add(new MedGroup() { medicineCode = dt3.Rows[i]["med_cd"].ToString(), medicineName = dt3.Rows[i]["med_name"].ToString() });
+                //}
+
+                ConnOra.LookUpGroupGridFilter(lMedicine, gridView1, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGrid, 4);
+
+                //RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
+                //glmed.DataSource = listMedicine;
+                //glmed.ValueMember = "medicineCode";
+                //glmed.DisplayMember = "medicineName";
+
+                //glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                //glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+                //glmed.ImmediatePopup = true;
+                //glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+                //glmed.NullText = "";
+                //gridView1.Columns[4].ColumnEdit = glmed;
 
                 RepositoryItemLookUpEdit dLookup = new RepositoryItemLookUpEdit();
                 dLookup.DataSource = diagnosaStatus;
@@ -286,11 +322,16 @@ namespace Clinic
                 return;
 
             Random rand = new Random();
+            badd = 1;
             //DataTable dt = gridControl1.DataSource as DataTable;
             DataRow newRow = dt.NewRow();
             int pos = gridView1.GetDataSourceRowIndex(gridView1.FocusedRowHandle) + 1;
             dt.Rows.InsertAt(newRow, pos);
             gridView1.SetRowCellValue(pos, gridView1.Columns[0], "I");
+            if (rdObat.Checked)
+                gridView1.SetRowCellValue(pos, gridView1.Columns[2], "OBAT");
+            else
+                gridView1.SetRowCellValue(pos, gridView1.Columns[2], "ALKES");
             gridView1.FocusedRowHandle = pos;// DevExpress.XtraGrid.GridControl.NewItemRowHandle;
             gridView1.FocusedColumn = gridView1.VisibleColumns[2];
             gridView1.CloseEditor();
@@ -312,11 +353,15 @@ namespace Clinic
             GridView view = sender as GridView;
 
             view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
+            if(rdObat.Checked)
+                view.SetRowCellValue(e.RowHandle, view.Columns[2], "OBAT");
+            else
+                view.SetRowCellValue(e.RowHandle, view.Columns[2], "ALKES");
         }
 
         private void btnSaveDosis_Click(object sender, EventArgs e)
         {
-            string sql_insert = "", sql_update = "", sql_cnt = "", p_jumlah = "", p_hargaB = "", p_hargaj = "", p_fstok = "", p_id ="", p_poli ="";
+            string sql_insert = "", sql_update = "", sql_cnt = "", p_jumlah = "", p_hargaB = "", p_hargaj = "", p_fstok = "", p_id ="", p_poli ="", p_racikan ="";
             string p_kode = "", p_dosis = "", p_status = "", p_action = "", p_kategori = "";
             
             for (int i = 0; i < gridView1.DataRowCount; i++)
@@ -346,6 +391,7 @@ namespace Clinic
                 p_poli = gridView1.GetRowCellValue(i, gridView1.Columns[10]).ToString();
                 p_status = gridView1.GetRowCellValue(i, gridView1.Columns[11]).ToString();
                 p_kategori = gridView1.GetRowCellValue(i, gridView1.Columns[12]).ToString();
+                p_racikan = gridView1.GetRowCellValue(i, gridView1.Columns[13]).ToString();
 
 
                 if (p_action == "I" && p_id.ToString().Equals(""))
@@ -366,11 +412,12 @@ namespace Clinic
                     {
                         MessageBox.Show("Harga harus diisi"); return;
                     }
-
+                    if(p_fstok.ToString().Equals(""))
+                        p_fstok = gridView1.GetFocusedRowCellDisplayText(gridView1.Columns[9]).ToString();
                     sql_insert = "";
 
-                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2) values ";
-                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "') ";
+                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2, racikan) values ";
+                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "', '" + p_racikan + "') ";
 
                     try
                     {
@@ -409,9 +456,12 @@ namespace Clinic
                         MessageBox.Show("Harga harus diisi"); return;
                     }
 
+                    if (p_fstok.ToString().Equals(""))
+                        p_fstok = gridView1.GetFocusedRowCellDisplayText(gridView1.Columns[9]).ToString();
+
                     sql_insert = "";
-                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2) values ";
-                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "') ";
+                    sql_insert = sql_insert + " insert into cs_formula (formula_id, med_cd, formula, BASE_PRICE, med_price, qty, MINUS_STOK, att1, POLI_CD, ins_date, ins_emp, status, att2, RACIKAN) values ";
+                    sql_insert = sql_insert + " (CS_FORMULA_SEQ.nextval, '" + p_kode + "', '" + p_dosis + "', '" + p_hargaB + "', '" + p_hargaj + "', '" + p_jumlah + "','" + p_fstok + "', '" + p_status + "', '" + p_poli + "', sysdate, '" + DB.vUserId + "', 'A', '" + p_kategori + "', '" + p_racikan + "') ";
 
                     try
                     {
@@ -456,7 +506,7 @@ namespace Clinic
                            
                     sql_update = ""; 
                     sql_update = sql_update + " update cs_formula set med_cd = '" + p_kode + "', formula = '" + p_dosis + "', BASE_PRICE = '" + p_hargaB + "' , med_price = '" + p_hargaj + "', qty = '" + p_jumlah + "', MINUS_STOK = '" + p_fstok + "', POLI_CD ='" + p_poli + "', ";
-                    sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' , att1 = '" + p_status + "' , att2 = '" + p_kategori + "'";
+                    sql_update = sql_update + " upd_date = sysdate, upd_emp = '" + DB.vUserId + "' , att1 = '" + p_status + "' , att2 = '" + p_kategori + "', racikan ='" + p_racikan + "'";
                     sql_update = sql_update + " where formula_id = '" + p_id + "' ";
 
                     try
@@ -486,31 +536,37 @@ namespace Clinic
             btnSaveDosis.Enabled = true;
             GridView view = sender as GridView;
 
-            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori")
-            {
-               
-
-                string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString();
-                if (tmp_stat == "I")
+            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori" || e.Column.Caption == "Racikan")
+            {               
+                if(badd == 1)
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
                 }
                 else
                 {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[0], "U");
-                }
-                
+                    string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString();
+                    if (tmp_stat == "I")
+                    {
+                        view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
+                    }
+                    else
+                    {
+                        view.SetRowCellValue(e.RowHandle, view.Columns[0], "U");
+                    }
+                }  
             }
             if (e.Column.Caption == "Obat")
             {
                 string sql1 = " ", id = "";
                 id = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[4]).ToString();
-
-                sql1 = " ";
-                sql1 = sql1 + " select MED_GROUP, MED_CD from CS_MEDICINE where MED_CD = '" + id + "'  ";
-                dt_obat = ConnOra.Data_Table_ora(sql1);
-                view.SetRowCellValue(e.RowHandle, view.Columns[2], dt_obat.Rows[0][0].ToString());
-                view.SetRowCellValue(e.RowHandle, view.Columns[3], id);
+                if(!id.ToString().Equals(""))
+                {
+                    sql1 = " ";
+                    sql1 = sql1 + " select MED_GROUP, MED_CD from CS_MEDICINE where MED_CD = '" + id + "'  ";
+                    dt_obat = ConnOra.Data_Table_ora(sql1);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[2], dt_obat.Rows[0][0].ToString());
+                    view.SetRowCellValue(e.RowHandle, view.Columns[3], id);
+                } 
             }
         }
 
@@ -518,7 +574,7 @@ namespace Clinic
         {
             GridView View = sender as GridView;
 
-            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Poli" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori")
+            if (e.Column.Caption == "Obat" || e.Column.Caption == "Dosis" || e.Column.Caption == "Jumlah" || e.Column.Caption == "Harga Beli" || e.Column.Caption == "Harga Jual" || e.Column.Caption == "Minus Stok" || e.Column.Caption == "Poli" || e.Column.Caption == "Status" || e.Column.Caption == "Kategori" || e.Column.Caption == "Racikan")
             {
                 e.Appearance.BackColor = Color.OldLace;
                 e.Appearance.ForeColor = Color.Black;

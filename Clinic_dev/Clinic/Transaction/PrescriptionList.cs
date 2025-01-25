@@ -213,6 +213,8 @@ namespace Clinic
             {
                 SQL = SQL + Environment.NewLine + "     and a.status in ('INP','NUR','MED','PAY','DON') and a.id_visit not in ( select id_visit from cs_visit where status='NUR' and plan ='TRT01') ";
             }
+            if (chRequest.Checked)
+                SQL = SQL + Environment.NewLine + "        AND d.CONFIRM ='N' ";
             SQL = SQL + Environment.NewLine + "   group by que02, a.patient_no, b.name, address, gender, poli_name, a.status,  CASE WHEN observation = 'Y' THEN 'Yes' ELSE 'No' END , TO_CHAR (visit_date, 'yyyy-MM-dd') , que01, a.type_patient, a.id_visit, a.PLAN ,round(((sysdate-b.birth_date)/30)/12)  ";
             SQL = SQL + Environment.NewLine + " union all  ";
             SQL = SQL + Environment.NewLine + "select '-' que02,'-' patient_no, initcap(name) NAME, ADDRS address, c.GENDER, 'Lain-lain' poli_name, decode(STAT_PAY,'N','PAY','Y','DON','CLS')  status, 'No' observation, a.confirm,  ";
@@ -233,6 +235,8 @@ namespace Clinic
             {
                 SQL = SQL + Environment.NewLine + "       AND STAT_PAY not in('C','X') ";
             }
+            if(chRequest.Checked)
+                SQL = SQL + Environment.NewLine + "        AND a.CONFIRM ='N' ";
             SQL = SQL + Environment.NewLine + "          ) x ";
             SQL = SQL + Environment.NewLine + "   WHERE 1 = 1 ";
             if (comboBox1.Text.ToString().Equals("Lain-Lain"))

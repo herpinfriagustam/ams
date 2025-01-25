@@ -284,13 +284,6 @@
             this.sHapusRacik = new DevExpress.XtraEditors.SimpleButton();
             this.sSimpanRacik = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.labelControl168 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl162 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.sTambahU = new DevExpress.XtraEditors.SimpleButton();
-            this.sSimpanU = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl16 = new DevExpress.XtraGrid.GridControl();
             this.gridView16 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -299,6 +292,29 @@
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn62 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn63 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn64 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn65 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn66 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn87 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.labelControl168 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl162 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.sTambahU = new DevExpress.XtraEditors.SimpleButton();
+            this.sSimpanU = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.l = new System.Windows.Forms.Panel();
@@ -678,9 +694,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvRacik)).BeginInit();
             this.panel27.SuspendLayout();
             this.xtraTabPage14.SuspendLayout();
-            this.panel29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView16)).BeginInit();
+            this.panel29.SuspendLayout();
             this.xtraTabPage10.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.l.SuspendLayout();
@@ -3721,11 +3737,385 @@
             // 
             // xtraTabPage14
             // 
-            this.xtraTabPage14.Controls.Add(this.panel29);
             this.xtraTabPage14.Controls.Add(this.gridControl16);
+            this.xtraTabPage14.Controls.Add(this.panel29);
             this.xtraTabPage14.Name = "xtraTabPage14";
             this.xtraTabPage14.Size = new System.Drawing.Size(907, 242);
             this.xtraTabPage14.Text = "Resep Tambahan";
+            // 
+            // gridControl16
+            // 
+            this.gridControl16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl16.Location = new System.Drawing.Point(0, 34);
+            this.gridControl16.MainView = this.gridView16;
+            this.gridControl16.Name = "gridControl16";
+            this.gridControl16.Size = new System.Drawing.Size(907, 208);
+            this.gridControl16.TabIndex = 108;
+            this.gridControl16.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView16});
+            // 
+            // gridView16
+            // 
+            this.gridView16.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridView16.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView16.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridView16.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView16.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridView16.Appearance.Row.Options.UseFont = true;
+            this.gridView16.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView16.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridView16.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.gridView16.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridView16.ColumnPanelRowHeight = 30;
+            this.gridView16.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42,
+            this.gridColumn62,
+            this.gridColumn63,
+            this.gridColumn64,
+            this.gridColumn65,
+            this.gridColumn66,
+            this.gridColumn67,
+            this.gridColumn68,
+            this.gridColumn69,
+            this.gridColumn70,
+            this.gridColumn71,
+            this.gridColumn72,
+            this.gridColumn73,
+            this.gridColumn74,
+            this.gridColumn75,
+            this.gridColumn76,
+            this.gridColumn87});
+            this.gridView16.GridControl = this.gridControl16;
+            this.gridView16.IndicatorWidth = 35;
+            this.gridView16.Name = "gridView16";
+            this.gridView16.OptionsView.ShowGroupPanel = false;
+            this.gridView16.RowHeight = 30;
+            this.gridView16.ViewCaption = " Jadwal Pemberian Obat";
+            this.gridView16.ViewCaptionHeight = 35;
+            this.gridView16.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView16_CustomDrawRowIndicator);
+            this.gridView16.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView16_RowCellStyle);
+            this.gridView16.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView16_InitNewRow);
+            this.gridView16.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView16_CellValueChanged);
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn37.AppearanceCell.Options.UseFont = true;
+            this.gridColumn37.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn37.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn37.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.Caption = "receipt_id";
+            this.gridColumn37.FieldName = "RECEIPT_ID";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Width = 38;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn38.AppearanceCell.Options.UseFont = true;
+            this.gridColumn38.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn38.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn38.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn38.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn38.Caption = "Nama Obat";
+            this.gridColumn38.FieldName = "MED_CD";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 0;
+            this.gridColumn38.Width = 340;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn39.AppearanceCell.Options.UseFont = true;
+            this.gridColumn39.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn39.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn39.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn39.Caption = "med_group";
+            this.gridColumn39.FieldName = "MED_GROUP";
+            this.gridColumn39.Name = "gridColumn39";
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn40.AppearanceCell.Options.UseFont = true;
+            this.gridColumn40.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn40.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn40.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn40.Caption = "med_cd";
+            this.gridColumn40.FieldName = "MED_CD";
+            this.gridColumn40.Name = "gridColumn40";
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn41.AppearanceCell.Options.UseFont = true;
+            this.gridColumn41.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn41.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn41.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn41.Caption = "Formula";
+            this.gridColumn41.FieldName = "FORMULA";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 4;
+            this.gridColumn41.Width = 61;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn42.AppearanceCell.Options.UseFont = true;
+            this.gridColumn42.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn42.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn42.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn42.Caption = "Info";
+            this.gridColumn42.FieldName = "TYPE_DRINK";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 5;
+            this.gridColumn42.Width = 137;
+            // 
+            // gridColumn62
+            // 
+            this.gridColumn62.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn62.AppearanceCell.Options.UseFont = true;
+            this.gridColumn62.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn62.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn62.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn62.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn62.Caption = "Stok";
+            this.gridColumn62.FieldName = "STOCK";
+            this.gridColumn62.Name = "gridColumn62";
+            this.gridColumn62.Visible = true;
+            this.gridColumn62.VisibleIndex = 6;
+            this.gridColumn62.Width = 47;
+            // 
+            // gridColumn63
+            // 
+            this.gridColumn63.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn63.AppearanceCell.Options.UseFont = true;
+            this.gridColumn63.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn63.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn63.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn63.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn63.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn63.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn63.Caption = "Qty";
+            this.gridColumn63.FieldName = "MED_QTY";
+            this.gridColumn63.Name = "gridColumn63";
+            this.gridColumn63.Visible = true;
+            this.gridColumn63.VisibleIndex = 2;
+            this.gridColumn63.Width = 41;
+            // 
+            // gridColumn64
+            // 
+            this.gridColumn64.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn64.AppearanceCell.Options.UseFont = true;
+            this.gridColumn64.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn64.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn64.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn64.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn64.Caption = "UOM";
+            this.gridColumn64.FieldName = "UOM";
+            this.gridColumn64.Name = "gridColumn64";
+            // 
+            // gridColumn65
+            // 
+            this.gridColumn65.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn65.AppearanceCell.Options.UseFont = true;
+            this.gridColumn65.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn65.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn65.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn65.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn65.Caption = "action";
+            this.gridColumn65.FieldName = "ACTION";
+            this.gridColumn65.Name = "gridColumn65";
+            // 
+            // gridColumn66
+            // 
+            this.gridColumn66.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn66.AppearanceCell.Options.UseFont = true;
+            this.gridColumn66.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn66.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn66.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn66.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn66.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn66.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn66.Caption = "Confirm";
+            this.gridColumn66.FieldName = "CONFIRM";
+            this.gridColumn66.Name = "gridColumn66";
+            this.gridColumn66.Visible = true;
+            this.gridColumn66.VisibleIndex = 7;
+            this.gridColumn66.Width = 67;
+            // 
+            // gridColumn67
+            // 
+            this.gridColumn67.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn67.AppearanceCell.Options.UseFont = true;
+            this.gridColumn67.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn67.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn67.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn67.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn67.Caption = "DAYS";
+            this.gridColumn67.FieldName = "DAYS";
+            this.gridColumn67.Name = "gridColumn67";
+            // 
+            // gridColumn68
+            // 
+            this.gridColumn68.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn68.AppearanceCell.Options.UseFont = true;
+            this.gridColumn68.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn68.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn68.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn68.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn68.Caption = "PRICE";
+            this.gridColumn68.FieldName = "PRICE";
+            this.gridColumn68.Name = "gridColumn68";
+            // 
+            // gridColumn69
+            // 
+            this.gridColumn69.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn69.AppearanceCell.Options.UseFont = true;
+            this.gridColumn69.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn69.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn69.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn69.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn69.Caption = "qty_day";
+            this.gridColumn69.FieldName = "QTY_DAY";
+            this.gridColumn69.Name = "gridColumn69";
+            // 
+            // gridColumn70
+            // 
+            this.gridColumn70.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn70.AppearanceCell.Options.UseFont = true;
+            this.gridColumn70.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn70.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn70.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn70.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn70.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn70.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn70.Caption = "Dosis";
+            this.gridColumn70.FieldName = "DOSIS";
+            this.gridColumn70.Name = "gridColumn70";
+            this.gridColumn70.Visible = true;
+            this.gridColumn70.VisibleIndex = 1;
+            this.gridColumn70.Width = 46;
+            // 
+            // gridColumn71
+            // 
+            this.gridColumn71.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn71.AppearanceCell.Options.UseFont = true;
+            this.gridColumn71.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn71.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn71.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn71.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn71.Caption = "Remark";
+            this.gridColumn71.FieldName = "REMARK";
+            this.gridColumn71.Name = "gridColumn71";
+            this.gridColumn71.Visible = true;
+            this.gridColumn71.VisibleIndex = 3;
+            this.gridColumn71.Width = 150;
+            // 
+            // gridColumn72
+            // 
+            this.gridColumn72.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn72.AppearanceCell.Options.UseFont = true;
+            this.gridColumn72.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn72.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn72.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn72.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn72.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn72.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn72.Caption = "Tanggal";
+            this.gridColumn72.FieldName = "INSP_DATE";
+            this.gridColumn72.Name = "gridColumn72";
+            this.gridColumn72.Width = 95;
+            // 
+            // gridColumn73
+            // 
+            this.gridColumn73.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn73.AppearanceCell.Options.UseFont = true;
+            this.gridColumn73.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn73.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn73.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn73.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn73.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn73.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn73.Caption = "Jam";
+            this.gridColumn73.FieldName = "INS_JAM";
+            this.gridColumn73.Name = "gridColumn73";
+            this.gridColumn73.Width = 53;
+            // 
+            // gridColumn74
+            // 
+            this.gridColumn74.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn74.AppearanceCell.Options.UseFont = true;
+            this.gridColumn74.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn74.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn74.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn74.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn74.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn74.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn74.Caption = "Jam-2";
+            this.gridColumn74.FieldName = "JAM2";
+            this.gridColumn74.Name = "gridColumn74";
+            this.gridColumn74.Width = 47;
+            // 
+            // gridColumn75
+            // 
+            this.gridColumn75.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn75.AppearanceCell.Options.UseFont = true;
+            this.gridColumn75.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn75.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn75.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn75.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn75.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn75.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn75.Caption = "Jam-3";
+            this.gridColumn75.FieldName = "JAM3";
+            this.gridColumn75.Name = "gridColumn75";
+            this.gridColumn75.Width = 47;
+            // 
+            // gridColumn76
+            // 
+            this.gridColumn76.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn76.AppearanceCell.Options.UseFont = true;
+            this.gridColumn76.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn76.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn76.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn76.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn76.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn76.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn76.Caption = "Jam-4";
+            this.gridColumn76.FieldName = "JAM4";
+            this.gridColumn76.Name = "gridColumn76";
+            this.gridColumn76.Width = 47;
+            // 
+            // gridColumn87
+            // 
+            this.gridColumn87.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn87.AppearanceCell.Options.UseFont = true;
+            this.gridColumn87.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn87.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn87.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn87.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn87.Caption = "Jenis Obat";
+            this.gridColumn87.FieldName = "JENIS_OBAT";
+            this.gridColumn87.Name = "gridColumn87";
+            this.gridColumn87.Width = 98;
             // 
             // panel29
             // 
@@ -3810,94 +4200,6 @@
             this.simpleButton9.TabIndex = 107;
             this.simpleButton9.Text = "Batal";
             this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
-            // 
-            // gridControl16
-            // 
-            this.gridControl16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl16.Location = new System.Drawing.Point(0, 0);
-            this.gridControl16.MainView = this.gridView16;
-            this.gridControl16.Name = "gridControl16";
-            this.gridControl16.Size = new System.Drawing.Size(907, 242);
-            this.gridControl16.TabIndex = 6;
-            this.gridControl16.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView16});
-            // 
-            // gridView16
-            // 
-            this.gridView16.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridView16.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
-            this.gridView16.Appearance.GroupPanel.Options.UseFont = true;
-            this.gridView16.Appearance.GroupPanel.Options.UseForeColor = true;
-            this.gridView16.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.gridView16.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView16.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gridView16.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView16.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.gridView16.Appearance.Row.Options.UseFont = true;
-            this.gridView16.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn37,
-            this.gridColumn38,
-            this.gridColumn39,
-            this.gridColumn40,
-            this.gridColumn41,
-            this.gridColumn42});
-            this.gridView16.GridControl = this.gridControl16;
-            this.gridView16.GroupPanelText = "Daftar List Obat Umum";
-            this.gridView16.IndicatorWidth = 35;
-            this.gridView16.Name = "gridView16";
-            this.gridView16.RowHeight = 30;
-            this.gridView16.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView16_CustomDrawRowIndicator);
-            this.gridView16.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView16_RowCellStyle);
-            this.gridView16.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView16_InitNewRow);
-            this.gridView16.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView16_CellValueChanged);
-            // 
-            // gridColumn37
-            // 
-            this.gridColumn37.Caption = "Nama Obat";
-            this.gridColumn37.Name = "gridColumn37";
-            this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 0;
-            this.gridColumn37.Width = 371;
-            // 
-            // gridColumn38
-            // 
-            this.gridColumn38.Caption = "Stok";
-            this.gridColumn38.Name = "gridColumn38";
-            this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 1;
-            this.gridColumn38.Width = 65;
-            // 
-            // gridColumn39
-            // 
-            this.gridColumn39.Caption = "Dosis";
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 2;
-            this.gridColumn39.Width = 64;
-            // 
-            // gridColumn40
-            // 
-            this.gridColumn40.Caption = "Jumlah";
-            this.gridColumn40.Name = "gridColumn40";
-            this.gridColumn40.Visible = true;
-            this.gridColumn40.VisibleIndex = 3;
-            this.gridColumn40.Width = 68;
-            // 
-            // gridColumn41
-            // 
-            this.gridColumn41.Caption = "Info";
-            this.gridColumn41.Name = "gridColumn41";
-            this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 4;
-            this.gridColumn41.Width = 157;
-            // 
-            // gridColumn42
-            // 
-            this.gridColumn42.Caption = "Remark";
-            this.gridColumn42.Name = "gridColumn42";
-            this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 5;
-            this.gridColumn42.Width = 149;
             // 
             // xtraTabPage10
             // 
@@ -7381,10 +7683,10 @@
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             this.xtraTabPage14.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
-            this.panel29.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView16)).EndInit();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
             this.xtraTabPage10.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.l.ResumeLayout(false);
@@ -7971,14 +8273,6 @@
         private DevExpress.XtraEditors.SimpleButton sHapusRacik;
         private DevExpress.XtraEditors.SimpleButton sSimpanRacik;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage14;
-        private DevExpress.XtraGrid.GridControl gridControl16;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView16;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private System.Windows.Forms.Panel panel26;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
@@ -8047,5 +8341,29 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
+        private DevExpress.XtraGrid.GridControl gridControl16;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn62;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn63;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn64;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn65;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn66;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn87;
     }
 }
