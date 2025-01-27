@@ -484,7 +484,7 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "union all ";
             Sql = Sql + Environment.NewLine + "select  0 treat_item_id,  'TRG05' treat_group_id,  ";
             Sql = Sql + Environment.NewLine + "        initcap(med_name)  ||' ['||d.FORMULA||']' med_name,   ";
-            Sql = Sql + Environment.NewLine + "        to_char(a.insp_date,'yyyy-MM-dd') insp_date,  a.med_qty, a.price,   ";
+            Sql = Sql + Environment.NewLine + "        to_char(a.insp_date,'yyyy-MM-dd') insp_date,  a.med_qty, a.med_qty*a.price price,   ";
             Sql = Sql + Environment.NewLine + "        confirm  remarks, 'N' insu , a.RECEIPT_ID    ";
             Sql = Sql + Environment.NewLine + "  FROM KLINIK.cs_receipt a ";
             Sql = Sql + Environment.NewLine + "       JOIN KLINIK.CS_KIR c ON (a.ATT3_RECIEPT = c.KIR_ID) ";

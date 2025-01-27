@@ -3097,12 +3097,11 @@ C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csp
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 C:\Users\USERNEM\Documents\AMS Klinik\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
-D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
-D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
-D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
@@ -3134,6 +3133,7 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraReports.v1
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\NAudio.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\Interop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -3268,6 +3268,9 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\de\DevExpress.XtraPivotGr
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterSchedule.resources
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterAsuransi.resources

@@ -236,6 +236,9 @@
     <None Include="Resources\Logo Santosa.png" />
     <None Include="Resources\Logo_Santosa-removebg-preview.png" />
     <Content Include="Logo-Clicic.ico" />
+    <None Include="Resources\ASURANSI1.png" />
+    <None Include="Resources\BPJS1.png" />
+    <None Include="Resources\UMUM1.png" />
     <Content Include="santosa.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

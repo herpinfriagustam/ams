@@ -1995,6 +1995,7 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Resources\manFronBack.p
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Clinic.pdb
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.BonusSkins.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Charts.v15.2.Core.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Data.v15.2.dll
@@ -2027,6 +2028,7 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraRichEdit
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\NAudio.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Newtonsoft.Json.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Oracle.ManagedDataAccess.dll
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\Interop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.CodeParser.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraTreeList.v15.2.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -2161,6 +2163,7 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\de\DevExpress.XtraPivot
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\bin\Release\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Interop.WMPLib.dll
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.ResolveComReference.cache
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterSchedule.resources

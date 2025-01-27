@@ -63,6 +63,16 @@ namespace RfidClinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ASURANSI1 {
+            get {
+                object obj = ResourceManager.GetObject("ASURANSI1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap back_64 {
             get {
                 object obj = ResourceManager.GetObject("back_64", resourceCulture);
@@ -76,6 +86,16 @@ namespace RfidClinic.Properties {
         public static System.Drawing.Bitmap bidan {
             get {
                 object obj = ResourceManager.GetObject("bidan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap BPJS1 {
+            get {
+                object obj = ResourceManager.GetObject("BPJS1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +366,16 @@ namespace RfidClinic.Properties {
         public static System.Drawing.Bitmap tick2 {
             get {
                 object obj = ResourceManager.GetObject("tick2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap UMUM1 {
+            get {
+                object obj = ResourceManager.GetObject("UMUM1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

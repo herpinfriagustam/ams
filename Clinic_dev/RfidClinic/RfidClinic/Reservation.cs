@@ -37,7 +37,7 @@ namespace RfidClinic
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         bool p_enable;
         string id = "", poli = "", attr01 = "", attr02 = "", attr03 = "", attr04 = "", attr05 = "", gender = "";
-        string que = "", c_que = "", poliname="";
+        string que = "", c_que = "", poliname="", TPoli ="";
         private PrintDocument printDocument;
 
         // Import untuk mengakses API printer
@@ -117,12 +117,15 @@ namespace RfidClinic
             //string id = "", poli = "", attr01 = "", attr02 = "", attr03 = "", attr04 = "", attr05 = "";
 
             string SQL = "";
+            SQL = "";
             SQL = SQL + Environment.NewLine + "select code_id, code_name,  ";
             SQL = SQL + Environment.NewLine + "attr_01, attr_02, attr_03, attr_04, attr_05 ";
             SQL = SQL + Environment.NewLine + "from CS_CODE_DATA ";
-            SQL = SQL + Environment.NewLine + "where code_class_id='RESV_ITEM' ";
+            SQL = SQL + Environment.NewLine + "where code_class_id='ANTRIAN'  ";
             SQL = SQL + Environment.NewLine + "and status='A' ";
             SQL = SQL + Environment.NewLine + "and attr_01='" + p_attr + "' ";
+            if(p_attr.ToString().Equals("2"))
+                SQL = SQL + Environment.NewLine + "and attr_05 ='" + TPoli + "' AND ATTR_04 ='R'";
             SQL = SQL + Environment.NewLine + "order by sort_order asc ";
 
 
@@ -167,45 +170,45 @@ namespace RfidClinic
                     button.Appearance.Options.UseForeColor = true;
                     //button.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
                     //button.Image = imageCollection1.Images[0];
-                    if (tot <= 2)
+                    if (tot <= 3)
                     {
-                        if (attr05 == "DOC")
+                        if (attr05 == "BPJS")
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.doctor_m256;
+                            button.Image = global::RfidClinic.Properties.Resources.BPJS1;
                         }
-                        else if (attr05 == "MID")
+                        else if (attr05 == "UMUM")
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.doctor_f256;
+                            button.Image = global::RfidClinic.Properties.Resources.UMUM1;
                         }
-                        else if (attr05 == "SWA")
+                        else if (attr05 == "ASURANSI")
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.swab1_256;
+                            button.Image = global::RfidClinic.Properties.Resources.ASURANSI1;
                         }
-                        else if (attr05 == "MCU")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
-                        }
-                        else
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
-                        }
-
+                        //else if (attr05 == "MCU")
+                        //{
+                        //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
+                        //}
+                        //else
+                        //{
+                        //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
+                        //}
+                        //labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
                         button.ImageLocation = ImageLocation.TopCenter;
                         button.Size = new System.Drawing.Size(500, 300);
                     }
                     else
                     {
-                        if (attr05 == "DOC")
+                        if (attr05 == "BPJS")
                         {
                             button.Image = global::RfidClinic.Properties.Resources.doctor_m64;
                         }
-                        else if (attr05 == "MID")
+                        else if (attr05 == "UMUM")
                         {
                             button.Image = global::RfidClinic.Properties.Resources.doctor_f64;
                         }
-                        else if (attr05 == "SWA")
+                        else if (attr05 == "ASURANSI")
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.swab1_64;
+                            button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
                         }
                         else if (attr05 == "MCU")
                         {
@@ -215,7 +218,7 @@ namespace RfidClinic
                         {
                             button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
                         }
-
+                        
                         button.ImageLocation = ImageLocation.Default;
                         button.Size = new System.Drawing.Size(500, 100);
                     }
@@ -236,10 +239,11 @@ namespace RfidClinic
                     itemBtn.SizeConstraintsType = SizeConstraintsType.Custom;
                     //itemBtn.Enabled = true;
                     //itemOKButton.Width = 440;
-                    if (tot <= 2)
+                    if (tot <= 3)
                     {
                         itemBtn.MaxSize = new Size(500, 300);
                         itemBtn.MinSize = new Size(500, 300);
+                        TPoli = ""; button.Text = "";
                     }
                     else
                     {
@@ -251,7 +255,9 @@ namespace RfidClinic
 
                     button.Click += layoutControlItem1_Click;
                 }
-                
+
+                labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
+
                 layoutControl1.Root.Add(group1);
                 //layoutControl1.AddGroup(group1);
                 int aa = group1.Items.Count;
@@ -291,14 +297,23 @@ namespace RfidClinic
                     //MessageBox.Show(attr03);
                     string SQL = "", vcode_id="", vcode_name="", vattr_01="", vattr_02 = "", vattr_03 = "";
                     string vattr_04 = "", vattr_05 = "", vattr_06 = "";
-
+                     
                     SQL = SQL + Environment.NewLine + "select code_id, code_name,  ";
                     SQL = SQL + Environment.NewLine + "attr_01, attr_02, attr_03, attr_04, attr_05, attr_06 ";
                     SQL = SQL + Environment.NewLine + "from CS_CODE_DATA ";
-                    SQL = SQL + Environment.NewLine + "where code_class_id='RESV_ITEM' ";
-                    SQL = SQL + Environment.NewLine + "and status='A' ";
-                    SQL = SQL + Environment.NewLine + "and code_id='" + clickedButton.Name + "' ";
+                    SQL = SQL + Environment.NewLine + "where code_class_id='ANTRIAN' ";
+                    SQL = SQL + Environment.NewLine + "and status='A' AND code_id ='" + clickedButton.Name + "' ";
+                    //SQL = SQL + Environment.NewLine + "and attr_02 ='" + 1 + "' ";
                     SQL = SQL + Environment.NewLine + "order by sort_order asc ";
+
+                    if (clickedButton.Name.ToString().Equals("001"))
+                        TPoli = "BPJS";
+                    else if (clickedButton.Name.ToString().Equals("002"))
+                        TPoli = "UMUM";
+                    else if (clickedButton.Name.ToString().Equals("003"))
+                        TPoli = "ASURANSI";
+                    //else
+                    //    TPoli = "";
 
                     OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
                     OleDbDataAdapter adOra2 = new OleDbDataAdapter(SQL, oraConnect2);
@@ -333,7 +348,8 @@ namespace RfidClinic
                         //MessageBox.Show("Input data");
                         if (vattr_04 == "R")
                         {
-                            typeRsv(vattr_03);
+                            //typeRsv(vattr_03,TPoli);
+                            InsertAntrian(vattr_03, TPoli, clickedButton.Name);
                         }
                         else if (vattr_04 == "A")
                         {
@@ -347,6 +363,87 @@ namespace RfidClinic
                     } 
                 } 
             } 
+        }
+
+        private void InsertAntrian(string policd, string SPoli, string SCode)
+        {
+            string sql_check = "", tmp_purpose = "", tmp_queue = "", sql_check5 = "";
+            string sql_insert = "", sql_cnt = "", rm_number = "", teks = "";
+            int visit, queue, tmp_visit_no = 0;
+
+            //string SQL = " ";
+            //SQL = SQL + Environment.NewLine + "select poli_pic, poli_name  ";
+            //SQL = SQL + Environment.NewLine + "from CS_POLICLINIC ";
+            //SQL = SQL + Environment.NewLine + "where poli_cd = '" + policd + "' ";
+            //SQL = SQL + Environment.NewLine + "and status='A' ";
+
+            //OleDbConnection oraConnect5 = ConnOra.Create_Connect_Ora();
+            //OleDbDataAdapter adOra5 = new OleDbDataAdapter(SQL, oraConnect5);
+            //DataTable dt5 = new DataTable();
+            //adOra5.Fill(dt5);
+
+            //poliname = dt5.Rows[0]["poli_name"].ToString();
+
+            sql_check = " ";
+            sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
+            
+            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOra = new OleDbDataAdapter(sql_check, oraConnect);
+            DataTable dt = new DataTable();
+            adOra.Fill(dt);
+            if (dt.Rows.Count > 0)
+                tmp_queue = dt.Rows[0]["que"].ToString();
+            else
+                return;
+
+
+            teks = "Nomor Antrian " + tmp_queue + " silahkan menuju Pendaftaran";
+
+            sql_insert = "";
+            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE) ";
+            sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + tmp_queue + "','REG','Pendaftaran','" + teks + "','W','Antrian',sysdate, '" + policd + "', decode('" + SPoli + "','BPJS','B','UMUM','U','ASURANSI','A') )";
+
+            //loading.ShowWaitForm();
+            try
+            {
+                OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                OleDbCommand cm = new OleDbCommand(sql_insert, oraConnect2);
+                oraConnect2.Open();
+                cm.ExecuteNonQuery();
+                oraConnect2.Close();
+                cm.Dispose();
+
+                Blinking("RESERVASI BERHASIL", 1);
+                lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
+                lbl_noantrian.Text = tmp_queue;
+                //loading.CloseWaitForm();
+
+
+                PrintDocument printDocument = new PrintDocument();
+
+                printDocument.PrinterSettings.PrinterName = "XP-80";
+                printDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 315);
+                printDocument.DefaultPageSettings.Margins = new Margins(5, 5, 0, 5);
+
+                printDocument.PrintPage += new PrintPageEventHandler(PrintPage);
+                printDocument.EndPrint += new PrintEventHandler(PrintDocument_EndPrint);
+
+                try
+                {
+                    printDocument.Print();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+                loading.CloseWaitForm();
+            }
         }
 
         public void load_List2()
@@ -391,141 +488,7 @@ namespace RfidClinic
             SimpleButton clickedButton = (SimpleButton)sender;
             Process.Start((string)clickedButton.Tag);
         }
-
-        //public void check_rfid()
-        //{
-        //    string temp = "";
-        //    try
-        //    {
-        //        if (serialPort1.IsOpen)
-
-        //        serialPort1.Close();
-        //        temp = temp + " " + Convert.ToString(serialPort1.PortName);
-        //        temp = temp + " " + Convert.ToString(serialPort1.BaudRate);
-        //        temp = temp + " " + Convert.ToString(serialPort1.DataBits);
-        //        temp = temp + " " + Convert.ToString(serialPort1.StopBits);
-        //        temp = temp + " " + Convert.ToString(serialPort1.Parity);
-        //        temp = temp + " " + Convert.ToString(serialPort1.Handshake);
-        //        richTextBox1.Text = temp;
-        //        serialPort1.Open();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("ERROR: " + ex.Message);
-        //        Blinking("Check COM Port RFID!", 0);
-        //    }
-        //}
-
-        //private void port_DataReceived_scanner(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    Thread.Sleep(500);
-        //    InputData_scanner = serialPort1.ReadExisting();
-        //    if (textScanOut.Enabled == true)
-        //    {
-        //        if (InputData_scanner != String.Empty)
-        //        {
-        //            this.BeginInvoke(new SetTextCallback(SetText_scanner), new object[] { InputData_scanner });
-        //        }
-        //    }
-
-        //}
-
-        //private void SetText_scanner(string text)
-        //{
-        //    this.textScanOut.Text = "";
-        //    this.textScanOut.Text = text;
-        //    text = text.Replace("\u0002", "");
-        //    text = text.Replace("\r\n", "");
-        //    //text = text.Replace("\n", "");
-        //    text = text.Replace("\u0003", "");
-        //    this.textRecvTemp.Text = text;
-        //    this.lRfid.Text = text;
-        //}
-
-        //private void textRecvTemp_TextChanged_1(object sender, EventArgs e)
-        //{
-        //    if (textRecvTemp.Text != "")
-        //    {
-        //        check_rfid(textRecvTemp.Text);
-        //    }
-        //}
-
-        //private void check_rfid(string rfid)
-        //{
-        //    string sql_check, sql_cnt;
-
-        //    sql_check = " ";
-        //    //sql_check = sql_check + " select empid, name, lpad(rfid,10,'0') as rfid, gender from tthcm.view_cl_emp@DL_TTERGTOTTHCMIF a where lpad(rfid,10, '0') = '" + rfid + "' ";
-        //    sql_check = sql_check + " select patient_no, name, lpad(rfid_no,10,'0') as rfid, gender from cs_patient_info a where lpad(rfid_no,10, '0') = '" + rfid + "' ";
-
-        //    loading.ShowWaitForm();
-        //    try
-        //    {
-        //        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-        //        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_check, oraConnect);
-        //        DataTable dt = new DataTable();
-        //        adOra.Fill(dt);
-        //        if (dt.Rows.Count > 0)
-        //        {
-
-        //            lEmpid.Text = dt.Rows[0]["patient_no"].ToString();
-        //            lName.Text = dt.Rows[0]["name"].ToString();
-        //            lRfid.Text = dt.Rows[0]["rfid"].ToString();
-        //            gender = dt.Rows[0]["gender"].ToString();
-
-        //            //sql_cnt = " select count(empid) cnt from cs_visit where empid = '" + lEmpid.Text + "' and to_char(visit_date,'yyyy-mm-dd')= '" + today + "' and status not in ('CLS','CAN') ";
-        //            sql_cnt = " select count(a.patient_no) cnt, max(a.que01) que01, max(b.poli_name) poli_name from cs_visit a, cs_policlinic b  where a.poli_cd = b.poli_cd AND b.status = 'A' and a.patient_no = '" + lEmpid.Text + "' and trunc(a.visit_date)= trunc(sysdate) and a.status not in ('CLS','CAN')  ";
-        //            // PRE, RSV, NUR, INS, OBS, MED, CLS, CAN
-
-        //            try
-        //            {
-        //                OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-        //                OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_cnt, oraConnect2);
-        //                DataTable dt2 = new DataTable();
-        //                adOra2.Fill(dt2);
-        //                visit_cnt = dt2.Rows[0]["cnt"].ToString();
-        //                if (Convert.ToInt32(visit_cnt) > 0)
-        //                {
-        //                    lPurpose.Text = dt2.Rows[0]["poli_name"].ToString();
-        //                    Blinking("DALAM PEMERIKSAAN", 0);
-        //                    lInfo.Text = "Scan gagal. Anda dalam proses pemeriksaan. No. Antrian : " + dt2.Rows[0]["que01"].ToString() + "";
-                            
-        //                }
-        //                else
-        //                {
-        //                    Blinking("SCAN ID OK", 1);
-        //                    lInfo.Text = "Silahkan pilih tujuan Anda";
-        //                    load_List("1", true);
-                            
-        //                }
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                //loading.CloseWaitForm();
-        //                MessageBox.Show("ERROR: " + ex.Message);
-        //                loading.CloseWaitForm();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Blinking("DATA TIDAK DITEMUKAN", 0);
-        //            lEmpid.Text = "-";
-        //            lName.Text = "-";
-        //            lRfid.Text = "-";
-        //            lPurpose.Text = "-";
-        //            lInfo.Text = "Silahkan menghubungi petugas reservasi";
-        //            load_List("1", false);
-        //        }
-        //        loading.CloseWaitForm();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //loading.CloseWaitForm();
-        //        MessageBox.Show("ERROR: " + ex.Message);
-        //        loading.CloseWaitForm();
-        //    }
-        //}
+         
 
         private void Blinking(String Message, int mbOk)
         {
@@ -592,7 +555,7 @@ namespace RfidClinic
             lbl_noantrian.Text = "No Antrian";
         }
 
-        private void typeRsv(string policd)
+        private void typeRsv(string policd, string SPoli)
         {
             string purpose = "", sql_cnt = "", v_cnt = "", v_est = "", pic="";
 
@@ -761,77 +724,9 @@ namespace RfidClinic
             adOra5.Fill(dt5); 
 
             poliname = dt5.Rows[0]["poli_name"].ToString();
-
-            // PRE RSV NUR INS MED OBS CLS CAN  
-            //poliname = "";
-            //if (purpose == "DOC")
-            //{
-            //    tmp_purpose = "DOC";
-            //    c_que = "D";
-            //}
-            //else if (purpose == "MID")
-            //{
-            //    tmp_purpose = "MID";
-            //    c_que = "M";
-            //}
-            //else if (purpose == "ETC")
-            //{
-            //    tmp_purpose = "ETC";
-            //    c_que = "E";
-            //}
-
-            //sql_check = " select  nvl(max(to_number(substr(que01,2,3))),0) que from cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "' and purpose = '" + tmp_purpose + "' ";
-
-            //sql_check = " select  nvl(max(to_number(substr(que,2,3))),0) que from cs_call_log where trunc(ins_date)= trunc(sysdate) and POLI_CD = '" + policd + "' ";
-
-            //if (policd == "POL0001") 
-            //    c_que = "D"; 
-            //else if (policd == "POL0002") 
-            //    c_que = "M"; 
-            //else if (policd == "POL0003") 
-            //    c_que = "K";
-            //else if (policd == "POL0006")
-            //    c_que = "G";
-            //else if (purpose == "ETC") 
-            //    c_que = "E"; 
-
-            //sql_check = " ";
-            //sql_check = sql_check + "  select  nvl(max(to_number(substr(que,2,3))),0) que from cs_call_log a, CS_POLICLINIC b ";
-            //sql_check = sql_check + "   where a.POLI_CD = b.POLI_CD ";
-            //sql_check = sql_check + "     and to_char(a.ins_date, 'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') ";
-            //sql_check = sql_check + "     and  a.POLI_CD = '" + policd + "'   ";
-
-            //try
-            //{
-            //    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-            //    OleDbDataAdapter adOra = new OleDbDataAdapter(sql_check, oraConnect);
-            //    DataTable dt = new DataTable();
-            //    adOra.Fill(dt);
-            //    if (dt.Rows.Count > 0)
-            //        tmp_queue = dt.Rows[0]["que"].ToString();
-            //    else
-            //        tmp_queue = "0";
-
-            //    queue = Convert.ToInt32(tmp_queue) + 1;
-            //    que = queue.ToString();
-            //    if (queue < 10)
-            //    {
-            //        que = que.PadLeft(que.Length + 2, '0');
-            //    }
-            //    else if (queue < 100)
-            //    {
-            //        que = que.PadLeft(que.Length + 1, '0');
-            //    }
-            //    //poliname = dt.Rows[0]["POLI_NAME"].ToString();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("ERROR: " + ex.Message);
-            //} 
-
-
+  
             sql_check = " ";
-            sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN('" + policd + "') as que from dual ";
+            sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "') as que from dual ";
             //sql_check = sql_check + "   where a.POLI_CD = b.POLI_CD ";
             //sql_check = sql_check + "     and to_char(a.ins_date, 'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') ";
             //sql_check = sql_check + "     and  a.POLI_CD = '" + policd + "'   ";
@@ -862,24 +757,6 @@ namespace RfidClinic
                 oraConnect2.Close();
                 cm.Dispose();
 
-                //string sql_anamnesa_id = " select cs_anamnesa_seq.nextval cnt from dual";
-                //OleDbConnection oraConnect3 = ConnOra.Create_Connect_Ora();
-                //OleDbDataAdapter adOra3 = new OleDbDataAdapter(sql_anamnesa_id, oraConnect2);
-                //DataTable dt3 = new DataTable();
-                //adOra3.Fill(dt3);
-                //int anamnesa_id = Convert.ToInt32(dt3.Rows[0]["cnt"].ToString());
-
-                //string sql_ins  = " insert into KLINIK.cs_anamnesa (anamnesa_id, rm_no, insp_date, visit_no, ins_date, ins_emp, ID_VISIT) values(" + anamnesa_id + ", '" + rm_number + "', trunc(sysdate), '" + c_que + que + "', sysdate, '" + lEmpid.Text + "', " + tmp_visit_no + ") ";
-
-                //OleDbConnection oraConnec = ConnOra.Create_Connect_Ora();
-                //OleDbCommand cm3 = new OleDbCommand(sql_ins, oraConnec);
-                //oraConnec.Open();
-                //cm3.ExecuteNonQuery();
-                //oraConnec.Close();
-                //cm3.Dispose();
-
-                //MessageBox.Show(sql_insert);
-                //MessageBox.Show("Query Exec : " + sql);
                 Blinking("RESERVASI BERHASIL", 1);
                 lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
                 lbl_noantrian.Text = tmp_queue ;
@@ -905,10 +782,6 @@ namespace RfidClinic
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
-                //Thread.Sleep(1200);
-                //lInfo.Text = "Selamat Datang, Silahkan Tentukan Poli yang Anda Tuju";
-                //lbl_noantrian.Text = "No Antrian";
-                //lInfo.Text = "";
             }
             catch (Exception ex)
             {
