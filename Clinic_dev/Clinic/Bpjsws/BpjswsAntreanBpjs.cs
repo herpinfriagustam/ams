@@ -18,6 +18,7 @@ namespace Clinic.Bpjs
     public partial class BpjswsAntreanBpjs : DevExpress.XtraEditors.XtraForm
     {
         ConnectDb OracleConnection = new ConnectDb();
+        bool InitState = true;
 
         public BpjswsAntreanBpjs()
         {
@@ -34,13 +35,16 @@ namespace Clinic.Bpjs
 
             txtPoliCheckDate.DateTime = 
             txtDokterCheckDate.DateTime =
-            txtAntreanAddCheckDate.DateTime = 
-            txtAntreanCancelCheckDate.DateTime =  DateTime.Now;
+            txtQueueAddCheckDate.DateTime = 
+            txtAntreanCancelCheckDate.DateTime =  
+            txtQueueCallCheckDate.DateTime = DateTime.Now;
 
             grdPoli.DataSource = new List<ModelPoli>();
             grdDokter.DataSource = new List<ModelDokter>();
 
             LoadDataLookup();
+
+            InitState = false;
         }
 
         private void LoadDataLookup()
@@ -64,7 +68,7 @@ namespace Clinic.Bpjs
                 adapter.Fill(dt);
 
                 cboPoli.Properties.DataSource = dt;
-                cboAntreanAddPoli.Properties.DataSource = dt;
+                cboQueueAddPoli.Properties.DataSource = dt;
                 cboAntreanCancelPoli.Properties.DataSource = dt;
             }
             catch(Exception ex)
@@ -77,7 +81,74 @@ namespace Clinic.Bpjs
         {
             if(tab.SelectedTabPageIndex == 2) // add antrian - load data antrean
             {
+                string where = "";
+                if (cboQueueAddPoli.EditValue != null)
+                    where = $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
 
+                string sql = $@"SELECT A.CALL_ID, 
+	                                C.INSU_NO NO_KARTU_BPJS, 		C.NID NIK, 					C.PHONE NO_HP, 
+	                                A.POLI_CD, 						d.POLI_NAME NAMA_POLI, 		E.RM_NO,
+	                                TO_CHAR(A.INS_DATE, 'YYYY-MM-DD') TANGGAL_PERIKSA,
+	                                '' KODE_DOKTER, 				'' NAMA_DOKTER, 			'' JAM_PRAKTEK,
+	                                A.QUE NOMOR_ANTREAN, 			REGEXP_REPLACE(A.QUE, '[^0-9]', '')	ANGKA_ANTREAN,
+	                                '' KETERANGAN, 					a.BPJSWS_STATUS
+                                  FROM CS_CALL_LOG A 
+	                                LEFT JOIN CS_VISIT B ON A.QUE = B.QUE01
+	                                LEFT JOIN CS_PATIENT_INFO C ON B.PATIENT_NO = C.PATIENT_NO 
+	                                LEFT JOIN CS_POLICLINIC D ON A.POLI_CD  = D.POLI_CD 
+	                                LEFT JOIN CS_PATIENT E ON C.PATIENT_NO  = E.PATIENT_NO 
+                                WHERE TRUNC(A.INS_DATE) = TO_DATE('{ txtQueueAddCheckDate.DateTime.ToString("yyyy-MM-dd") }', 'YYYY-MM-DD') { where }
+                               ORDER BY A.BPJSWS_STATUS DESC, A.INS_DATE";
+
+                try
+                {
+                    OleDbConnection connection = OracleConnection.Create_Connect_Ora();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sql, connection);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    grdAntreanAdd.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("LoadDataLookup Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else if (tab.SelectedTabPageIndex == 4) // Panggil antrian - load data antrean
+            {
+                string where = "";
+                if (cboQueueAddPoli.EditValue != null)
+                    where = $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+
+                string sql = $@"SELECT 
+	                                C.INSU_NO NO_KARTU_BPJS, 		C.NID NIK, 					C.PHONE NO_HP, 
+	                                A.POLI_CD, 						d.POLI_NAME NAMA_POLI, 		E.RM_NO,
+	                                TO_CHAR(A.INS_DATE, 'YYYY-MM-DD') TANGGAL_PERIKSA,
+	                                '' KODE_DOKTER, 				'' NAMA_DOKTER, 			'' JAM_PRAKTER,
+	                                A.QUE NOMOR_ANTRIAN, 			REGEXP_REPLACE(A.QUE, '[^0-9]', '')	ANGKA_ANTREAN,
+	                                '' KETERANGAN, 					a.BPJSWS_STATUS
+                                  FROM CS_CALL_LOG A 
+	                                LEFT JOIN CS_VISIT B ON A.QUE = B.QUE01
+	                                LEFT JOIN CS_PATIENT_INFO C ON B.PATIENT_NO = C.PATIENT_NO 
+	                                LEFT JOIN CS_POLICLINIC D ON A.POLI_CD  = D.POLI_CD 
+	                                LEFT JOIN CS_PATIENT E ON C.PATIENT_NO  = E.PATIENT_NO 
+                                WHERE TRUNC(A.INS_DATE) = TO_DATE('{ txtQueueAddCheckDate.DateTime.ToString("yyyy-MM-dd") }', 'YYYY-MM-DD')
+                                    AND A.BPJSWS_STATUS = 1 { where }
+                               ORDER BY A.BPJSWS_STATUS DESC, A.INS_DATE";
+
+                try
+                {
+                    OleDbConnection connection = OracleConnection.Create_Connect_Ora();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sql, connection);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    grdAntreanAdd.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("LoadDataLookup Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -200,7 +271,7 @@ namespace Clinic.Bpjs
                 json["nohp"] = row["NO_HP"]?.ToString();
                 json["kodepoli"] = row["POLI_CD"]?.ToString();
                 json["namapoli"] = row["NAMA_POLI"]?.ToString();
-                json["norm"] = row["NO_RM"]?.ToString();
+                json["norm"] = row["RM_NO"]?.ToString();
                 json["tanggalperiksa"] = row["TANGGAL_PERIKSA"]?.ToString();
                 json["kodedokter"] = row["KODE_DOKTER"]?.ToString();
                 json["namadokter"] = row["NAMA_DOKTER"]?.ToString();
@@ -221,8 +292,27 @@ namespace Clinic.Bpjs
                 {
                     if (response.Metadata.Code == 200)
                     {
-                        LoadData();
-                        MessageBox.Show("Penambahan antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string sql = $"UPDATE CS_CALL_LOG SET BPJSWS_STATUS = 1 WHERE CALL_ID = { row["CALL_ID"]?.ToString() }";
+
+                        OleDbConnection connection = OracleConnection.Create_Connect_Ora();
+                        try
+                        {
+                            connection.Open();
+
+                            OleDbCommand cmd = new OleDbCommand(sql, connection);
+                            cmd.ExecuteNonQuery();
+
+                            connection.Close();
+
+                            LoadData();
+                            MessageBox.Show("Penambahan antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (connection.State == ConnectionState.Open) connection.Close();
+                            LoadData();
+                            MessageBox.Show("Update Call log Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
@@ -367,5 +457,111 @@ namespace Clinic.Bpjs
                     (e.Bounds.Height - font.Height) / 2);
             }
         }
+
+        private void gvwAntreanAdd_CustomDrawEmptyForeground(object sender, DevExpress.XtraGrid.Views.Base.CustomDrawEventArgs e)
+        {
+            if (grdAntreanAdd.DataSource != null && gvwAntreanAdd.RowCount == 0)
+            {
+                // Menggambar teks atau gambar untuk menunjukkan loading
+                string loadingText = "Data kosong";
+                Font font = new Font("Tahoma", 8.25f, FontStyle.Bold);
+                Color textColor = Color.Gray;
+
+                // Menggambar teks
+                e.Graphics.DrawString(loadingText, font, new SolidBrush(textColor),
+                    (e.Bounds.Width - e.Graphics.MeasureString(loadingText, font).Width) / 2,
+                    (e.Bounds.Height - font.Height) / 2);
+            }
+            else if (grdAntreanAdd.DataSource == null)
+            {
+                // Menggambar teks atau gambar untuk menunjukkan loading
+                string loadingText = "Data sedang dimuat...";
+                Font font = new Font("Tahoma", 8.25f, FontStyle.Bold);
+                Color textColor = Color.Gray;
+
+                // Menggambar teks
+                e.Graphics.DrawString(loadingText, font, new SolidBrush(textColor),
+                    (e.Bounds.Width - e.Graphics.MeasureString(loadingText, font).Width) / 2,
+                    (e.Bounds.Height - font.Height) / 2);
+            }
+        }
+
+        private void gvwAntreanCall_CustomDrawEmptyForeground(object sender, DevExpress.XtraGrid.Views.Base.CustomDrawEventArgs e)
+        {
+            if (grdAntreanCall.DataSource != null && gvwAntreanCall.RowCount == 0)
+            {
+                // Menggambar teks atau gambar untuk menunjukkan loading
+                string loadingText = "Data kosong";
+                Font font = new Font("Tahoma", 8.25f, FontStyle.Bold);
+                Color textColor = Color.Gray;
+
+                // Menggambar teks
+                e.Graphics.DrawString(loadingText, font, new SolidBrush(textColor),
+                    (e.Bounds.Width - e.Graphics.MeasureString(loadingText, font).Width) / 2,
+                    (e.Bounds.Height - font.Height) / 2);
+            }
+            else if (grdAntreanCall.DataSource == null)
+            {
+                // Menggambar teks atau gambar untuk menunjukkan loading
+                string loadingText = "Data sedang dimuat...";
+                Font font = new Font("Tahoma", 8.25f, FontStyle.Bold);
+                Color textColor = Color.Gray;
+
+                // Menggambar teks
+                e.Graphics.DrawString(loadingText, font, new SolidBrush(textColor),
+                    (e.Bounds.Width - e.Graphics.MeasureString(loadingText, font).Width) / 2,
+                    (e.Bounds.Height - font.Height) / 2);
+            }
+        }
+
+        private void cboAntreanAddPoli_EditValueChanged(object sender, EventArgs e)
+        {
+            if(InitState == false)
+                LoadData();
+        }
+
+        private void gvwAntreanAdd_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if(e.RowHandle >= 0)
+            {
+                DataRow row = gvwAntreanAdd.GetDataRow(e.RowHandle);
+                if(row != null)
+                {
+                    string bpjswsStatus = row["BPJSWS_STATUS"]?.ToString();
+                    if(bpjswsStatus == "0")
+                        e.Appearance.BackColor = Color.LightPink;
+                }
+            } 
+        }
+
+        private void btnAntreanAddReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void txtAntreanAddCheckDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (InitState == false)
+                LoadData();
+        }
+
+        private void cboQueueCallPoli_EditValueChanged(object sender, EventArgs e)
+        {
+            if (InitState == false)
+                LoadData();
+        }
+
+        private void txtQueueCallCheckDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (InitState == false)
+                LoadData();
+        }
+
+        private void btnQueueCallReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        
     }
 }

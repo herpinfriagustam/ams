@@ -120,8 +120,6 @@ namespace Clinic.Class.Bpjsws
             {
                 if(dataOrQParams.ContainsKey("RAW")) content = dataOrQParams["RAW"];
                 else content = string.Join("&", dataOrQParams.Select(x => string.Join("=", x.Key, Uri.EscapeDataString(x.Value))));
-
-                byte[] dataBytes = Encoding.UTF8.GetBytes(content);
             }
 
 
@@ -129,16 +127,26 @@ namespace Clinic.Class.Bpjsws
             {
                 request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "POST";
+                request.ContentLength = content.Length;
 
-                if(headers != null && headers.Count > 0)
+                if (headers != null && headers.Count > 0)
                     foreach(KeyValuePair<string, string> kv in headers)
                         request.Headers.Add(kv.Key, kv.Value);
 
-                if(dataType == PostDataType.Form) request.ContentType = "application/x-www-form-urlencoded";
-                else if(dataType == PostDataType.Json) request.ContentType = "application/json";
-
                 byte[] dataBytes = Encoding.UTF8.GetBytes(content);
-                request.ContentLength = dataBytes.Length;
+                if (dataType == PostDataType.Form)
+                {
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    
+                }
+                else if (dataType == PostDataType.Json)
+                {
+                    request.ContentType = "application/json";
+                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
+                }
+
+                
+                
             }
             else
             {

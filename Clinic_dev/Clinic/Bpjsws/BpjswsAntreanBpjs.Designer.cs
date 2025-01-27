@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BpjswsAntreanBpjs));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tab = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -83,9 +83,9 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.cboAntreanAddPoli = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboQueueAddPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.txtAntreanAddCheckDate = new DevExpress.XtraEditors.DateEdit();
+            this.txtQueueAddCheckDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
@@ -134,9 +134,9 @@
             this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboQueueCallPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.txtQueueCallCheckDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit3 = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -154,6 +154,8 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtConsId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnQueueAddReload = new DevExpress.XtraEditors.SimpleButton();
+            this.btnQueueCallReload = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tab)).BeginInit();
             this.tab.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -184,9 +186,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAntreanAddPoli.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanAddCheckDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanAddCheckDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueAddPoli.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).BeginInit();
@@ -206,9 +208,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanCall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueCallPoli.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -240,7 +242,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.splitContainerControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(966, 354);
+            this.xtraTabPage1.Size = new System.Drawing.Size(970, 357);
             this.xtraTabPage1.Text = "Referensi Poli";
             // 
             // splitContainerControl1
@@ -255,7 +257,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.txtPoliResponseString);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl1.Size = new System.Drawing.Size(970, 357);
             this.splitContainerControl1.SplitterPosition = 378;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -266,7 +268,7 @@
             this.grdPoli.Location = new System.Drawing.Point(0, 30);
             this.grdPoli.MainView = this.gvwPoli;
             this.grdPoli.Name = "grdPoli";
-            this.grdPoli.Size = new System.Drawing.Size(583, 324);
+            this.grdPoli.Size = new System.Drawing.Size(580, 327);
             this.grdPoli.TabIndex = 0;
             this.grdPoli.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwPoli});
@@ -338,7 +340,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(583, 30);
+            this.panelControl2.Size = new System.Drawing.Size(580, 30);
             this.panelControl2.TabIndex = 1;
             // 
             // labelControl9
@@ -372,14 +374,14 @@
             this.txtPoliResponseString.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPoliResponseString.Location = new System.Drawing.Point(0, 0);
             this.txtPoliResponseString.Name = "txtPoliResponseString";
-            this.txtPoliResponseString.Size = new System.Drawing.Size(378, 354);
+            this.txtPoliResponseString.Size = new System.Drawing.Size(378, 357);
             this.txtPoliResponseString.TabIndex = 0;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.splitContainerControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(966, 354);
+            this.xtraTabPage2.Size = new System.Drawing.Size(970, 357);
             this.xtraTabPage2.Text = "Referensi Dokter";
             // 
             // splitContainerControl2
@@ -394,7 +396,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.txtDokterResponseString);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl2.Size = new System.Drawing.Size(970, 357);
             this.splitContainerControl2.SplitterPosition = 378;
             this.splitContainerControl2.TabIndex = 1;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -405,7 +407,7 @@
             this.grdDokter.Location = new System.Drawing.Point(0, 30);
             this.grdDokter.MainView = this.gvwDokter;
             this.grdDokter.Name = "grdDokter";
-            this.grdDokter.Size = new System.Drawing.Size(583, 324);
+            this.grdDokter.Size = new System.Drawing.Size(580, 327);
             this.grdDokter.TabIndex = 3;
             this.grdDokter.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwDokter});
@@ -483,7 +485,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(583, 30);
+            this.panelControl3.Size = new System.Drawing.Size(580, 30);
             this.panelControl3.TabIndex = 2;
             // 
             // cboPoli
@@ -539,14 +541,14 @@
             this.txtDokterResponseString.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDokterResponseString.Location = new System.Drawing.Point(0, 0);
             this.txtDokterResponseString.Name = "txtDokterResponseString";
-            this.txtDokterResponseString.Size = new System.Drawing.Size(378, 354);
+            this.txtDokterResponseString.Size = new System.Drawing.Size(378, 357);
             this.txtDokterResponseString.TabIndex = 0;
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.splitContainerControl3);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(966, 354);
+            this.xtraTabPage3.Size = new System.Drawing.Size(970, 357);
             this.xtraTabPage3.Text = "Tambah Antrean";
             // 
             // splitContainerControl3
@@ -561,7 +563,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.memoEdit1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl3.Size = new System.Drawing.Size(970, 357);
             this.splitContainerControl3.SplitterPosition = 378;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -572,7 +574,7 @@
             this.grdAntreanAdd.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanAdd.MainView = this.gvwAntreanAdd;
             this.grdAntreanAdd.Name = "grdAntreanAdd";
-            this.grdAntreanAdd.Size = new System.Drawing.Size(583, 324);
+            this.grdAntreanAdd.Size = new System.Drawing.Size(580, 327);
             this.grdAntreanAdd.TabIndex = 0;
             this.grdAntreanAdd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanAdd});
@@ -602,6 +604,8 @@
             this.gvwAntreanAdd.OptionsView.ColumnAutoWidth = false;
             this.gvwAntreanAdd.OptionsView.ShowGroupPanel = false;
             this.gvwAntreanAdd.RowHeight = 23;
+            this.gvwAntreanAdd.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwAntreanAdd_RowCellStyle);
+            this.gvwAntreanAdd.CustomDrawEmptyForeground += new DevExpress.XtraGrid.Views.Base.CustomDrawEventHandler(this.gvwAntreanAdd_CustomDrawEmptyForeground);
             // 
             // gridColumn9
             // 
@@ -670,7 +674,7 @@
             this.gridColumn18.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn18.Caption = "No. Rm";
-            this.gridColumn18.FieldName = "NO_RM";
+            this.gridColumn18.FieldName = "RM_NO";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 8;
@@ -728,7 +732,7 @@
             this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn23.Caption = "No. Antrian";
-            this.gridColumn23.FieldName = "NOMOR_ANTRIAN";
+            this.gridColumn23.FieldName = "NOMOR_ANTREAN";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
             this.gridColumn23.VisibleIndex = 1;
@@ -770,59 +774,62 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.cboAntreanAddPoli);
+            this.panelControl4.Controls.Add(this.btnQueueAddReload);
+            this.panelControl4.Controls.Add(this.cboQueueAddPoli);
             this.panelControl4.Controls.Add(this.labelControl10);
-            this.panelControl4.Controls.Add(this.txtAntreanAddCheckDate);
+            this.panelControl4.Controls.Add(this.txtQueueAddCheckDate);
             this.panelControl4.Controls.Add(this.labelControl12);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(583, 30);
+            this.panelControl4.Size = new System.Drawing.Size(580, 30);
             this.panelControl4.TabIndex = 1;
             // 
-            // cboAntreanAddPoli
+            // cboQueueAddPoli
             // 
-            this.cboAntreanAddPoli.Location = new System.Drawing.Point(60, 5);
-            this.cboAntreanAddPoli.Name = "cboAntreanAddPoli";
-            this.cboAntreanAddPoli.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboQueueAddPoli.Location = new System.Drawing.Point(34, 5);
+            this.cboQueueAddPoli.Name = "cboQueueAddPoli";
+            this.cboQueueAddPoli.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboAntreanAddPoli.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.cboQueueAddPoli.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POLI_DESCRIPTION", 48, "Description")});
-            this.cboAntreanAddPoli.Properties.DisplayMember = "POLI_DESCRIPTION";
-            this.cboAntreanAddPoli.Properties.NullText = "";
-            this.cboAntreanAddPoli.Properties.ValueMember = "POLI_CD";
-            this.cboAntreanAddPoli.Size = new System.Drawing.Size(190, 20);
-            this.cboAntreanAddPoli.TabIndex = 10;
+            this.cboQueueAddPoli.Properties.DisplayMember = "POLI_DESCRIPTION";
+            this.cboQueueAddPoli.Properties.NullText = "";
+            this.cboQueueAddPoli.Properties.ValueMember = "POLI_CD";
+            this.cboQueueAddPoli.Size = new System.Drawing.Size(190, 20);
+            this.cboQueueAddPoli.TabIndex = 10;
+            this.cboQueueAddPoli.EditValueChanged += new System.EventHandler(this.cboAntreanAddPoli_EditValueChanged);
             // 
             // labelControl10
             // 
             this.labelControl10.Location = new System.Drawing.Point(11, 9);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(43, 13);
+            this.labelControl10.Size = new System.Drawing.Size(16, 13);
             this.labelControl10.TabIndex = 9;
-            this.labelControl10.Text = "Kode Poli";
+            this.labelControl10.Text = "Poli";
             // 
-            // txtAntreanAddCheckDate
+            // txtQueueAddCheckDate
             // 
-            this.txtAntreanAddCheckDate.EditValue = null;
-            this.txtAntreanAddCheckDate.Location = new System.Drawing.Point(337, 5);
-            this.txtAntreanAddCheckDate.Name = "txtAntreanAddCheckDate";
-            this.txtAntreanAddCheckDate.Properties.AutoHeight = false;
-            this.txtAntreanAddCheckDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueAddCheckDate.EditValue = null;
+            this.txtQueueAddCheckDate.Location = new System.Drawing.Point(311, 5);
+            this.txtQueueAddCheckDate.Name = "txtQueueAddCheckDate";
+            this.txtQueueAddCheckDate.Properties.AutoHeight = false;
+            this.txtQueueAddCheckDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAntreanAddCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueAddCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAntreanAddCheckDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.txtAntreanAddCheckDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtAntreanAddCheckDate.Properties.EditFormat.FormatString = "yyyy-MM-dd";
-            this.txtAntreanAddCheckDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtAntreanAddCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.txtAntreanAddCheckDate.Size = new System.Drawing.Size(100, 20);
-            this.txtAntreanAddCheckDate.TabIndex = 8;
+            this.txtQueueAddCheckDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueAddCheckDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueAddCheckDate.Properties.EditFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueAddCheckDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueAddCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.txtQueueAddCheckDate.Size = new System.Drawing.Size(100, 20);
+            this.txtQueueAddCheckDate.TabIndex = 8;
+            this.txtQueueAddCheckDate.EditValueChanged += new System.EventHandler(this.txtAntreanAddCheckDate_EditValueChanged);
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(256, 9);
+            this.labelControl12.Location = new System.Drawing.Point(230, 9);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(75, 13);
             this.labelControl12.TabIndex = 7;
@@ -833,14 +840,14 @@
             this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit1.Location = new System.Drawing.Point(0, 0);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(378, 354);
+            this.memoEdit1.Size = new System.Drawing.Size(378, 357);
             this.memoEdit1.TabIndex = 0;
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.splitContainerControl4);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(966, 354);
+            this.xtraTabPage4.Size = new System.Drawing.Size(970, 357);
             this.xtraTabPage4.Text = "Batal Antrean";
             // 
             // splitContainerControl4
@@ -855,7 +862,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.memoEdit2);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl4.Size = new System.Drawing.Size(970, 357);
             this.splitContainerControl4.SplitterPosition = 378;
             this.splitContainerControl4.TabIndex = 2;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -866,7 +873,7 @@
             this.grdAntreanCancel.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanCancel.MainView = this.gvwAntreanCancel;
             this.grdAntreanCancel.Name = "grdAntreanCancel";
-            this.grdAntreanCancel.Size = new System.Drawing.Size(583, 324);
+            this.grdAntreanCancel.Size = new System.Drawing.Size(580, 327);
             this.grdAntreanCancel.TabIndex = 0;
             this.grdAntreanCancel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanCancel});
@@ -1081,7 +1088,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(583, 30);
+            this.panelControl5.Size = new System.Drawing.Size(580, 30);
             this.panelControl5.TabIndex = 1;
             // 
             // cboAntreanCancelPoli
@@ -1137,14 +1144,14 @@
             this.memoEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit2.Location = new System.Drawing.Point(0, 0);
             this.memoEdit2.Name = "memoEdit2";
-            this.memoEdit2.Size = new System.Drawing.Size(378, 354);
+            this.memoEdit2.Size = new System.Drawing.Size(378, 357);
             this.memoEdit2.TabIndex = 0;
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Controls.Add(this.splitContainerControl5);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(966, 354);
+            this.xtraTabPage5.Size = new System.Drawing.Size(970, 357);
             this.xtraTabPage5.Text = "Panggil Antrean";
             // 
             // splitContainerControl5
@@ -1159,7 +1166,7 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.memoEdit3);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl5.Size = new System.Drawing.Size(970, 357);
             this.splitContainerControl5.SplitterPosition = 378;
             this.splitContainerControl5.TabIndex = 2;
             this.splitContainerControl5.Text = "splitContainerControl5";
@@ -1170,7 +1177,7 @@
             this.grdAntreanCall.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanCall.MainView = this.gvwAntreanCall;
             this.grdAntreanCall.Name = "grdAntreanCall";
-            this.grdAntreanCall.Size = new System.Drawing.Size(583, 324);
+            this.grdAntreanCall.Size = new System.Drawing.Size(580, 327);
             this.grdAntreanCall.TabIndex = 0;
             this.grdAntreanCall.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanCall});
@@ -1202,6 +1209,7 @@
             this.gvwAntreanCall.OptionsView.ColumnAutoWidth = false;
             this.gvwAntreanCall.OptionsView.ShowGroupPanel = false;
             this.gvwAntreanCall.RowHeight = 23;
+            this.gvwAntreanCall.CustomDrawEmptyForeground += new DevExpress.XtraGrid.Views.Base.CustomDrawEventHandler(this.gvwAntreanCall_CustomDrawEmptyForeground);
             // 
             // gridColumn38
             // 
@@ -1395,59 +1403,62 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.lookUpEdit1);
+            this.panelControl6.Controls.Add(this.btnQueueCallReload);
+            this.panelControl6.Controls.Add(this.cboQueueCallPoli);
             this.panelControl6.Controls.Add(this.labelControl14);
-            this.panelControl6.Controls.Add(this.dateEdit1);
+            this.panelControl6.Controls.Add(this.txtQueueCallCheckDate);
             this.panelControl6.Controls.Add(this.labelControl15);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(583, 30);
+            this.panelControl6.Size = new System.Drawing.Size(580, 30);
             this.panelControl6.TabIndex = 1;
             // 
-            // lookUpEdit1
+            // cboQueueCallPoli
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(60, 5);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboQueueCallPoli.Location = new System.Drawing.Point(33, 5);
+            this.cboQueueCallPoli.Name = "cboQueueCallPoli";
+            this.cboQueueCallPoli.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.cboQueueCallPoli.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POLI_DESCRIPTION", 48, "Description")});
-            this.lookUpEdit1.Properties.DisplayMember = "POLI_DESCRIPTION";
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.ValueMember = "POLI_CD";
-            this.lookUpEdit1.Size = new System.Drawing.Size(190, 20);
-            this.lookUpEdit1.TabIndex = 10;
+            this.cboQueueCallPoli.Properties.DisplayMember = "POLI_DESCRIPTION";
+            this.cboQueueCallPoli.Properties.NullText = "";
+            this.cboQueueCallPoli.Properties.ValueMember = "POLI_CD";
+            this.cboQueueCallPoli.Size = new System.Drawing.Size(190, 20);
+            this.cboQueueCallPoli.TabIndex = 10;
+            this.cboQueueCallPoli.EditValueChanged += new System.EventHandler(this.cboQueueCallPoli_EditValueChanged);
             // 
             // labelControl14
             // 
             this.labelControl14.Location = new System.Drawing.Point(11, 9);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(43, 13);
+            this.labelControl14.Size = new System.Drawing.Size(16, 13);
             this.labelControl14.TabIndex = 9;
-            this.labelControl14.Text = "Kode Poli";
+            this.labelControl14.Text = "Poli";
             // 
-            // dateEdit1
+            // txtQueueCallCheckDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(337, 5);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.AutoHeight = false;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueCallCheckDate.EditValue = null;
+            this.txtQueueCallCheckDate.Location = new System.Drawing.Point(310, 5);
+            this.txtQueueCallCheckDate.Name = "txtQueueCallCheckDate";
+            this.txtQueueCallCheckDate.Properties.AutoHeight = false;
+            this.txtQueueCallCheckDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueCallCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.EditFormat.FormatString = "yyyy-MM-dd";
-            this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dateEdit1.Size = new System.Drawing.Size(100, 20);
-            this.dateEdit1.TabIndex = 8;
+            this.txtQueueCallCheckDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueCallCheckDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueCallCheckDate.Properties.EditFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueCallCheckDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueCallCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.txtQueueCallCheckDate.Size = new System.Drawing.Size(100, 20);
+            this.txtQueueCallCheckDate.TabIndex = 8;
+            this.txtQueueCallCheckDate.EditValueChanged += new System.EventHandler(this.txtQueueCallCheckDate_EditValueChanged);
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(256, 9);
+            this.labelControl15.Location = new System.Drawing.Point(229, 9);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(75, 13);
             this.labelControl15.TabIndex = 7;
@@ -1458,7 +1469,7 @@
             this.memoEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit3.Location = new System.Drawing.Point(0, 0);
             this.memoEdit3.Name = "memoEdit3";
-            this.memoEdit3.Size = new System.Drawing.Size(378, 354);
+            this.memoEdit3.Size = new System.Drawing.Size(378, 357);
             this.memoEdit3.TabIndex = 0;
             // 
             // panelControl1
@@ -1510,7 +1521,7 @@
             this.txtUnixTime.Name = "txtUnixTime";
             this.txtUnixTime.Properties.AutoHeight = false;
             this.txtUnixTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, true)});
             this.txtUnixTime.Size = new System.Drawing.Size(109, 20);
             this.txtUnixTime.TabIndex = 11;
             this.txtUnixTime.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtUnixTime_ButtonClick);
@@ -1529,7 +1540,7 @@
             this.txtSignature.Name = "txtSignature";
             this.txtSignature.Properties.AutoHeight = false;
             this.txtSignature.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtSignature.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtSignature.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
             this.txtSignature.Size = new System.Drawing.Size(314, 20);
             this.txtSignature.TabIndex = 9;
             this.txtSignature.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSignature_ButtonClick);
@@ -1602,6 +1613,30 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cons ID";
             // 
+            // btnQueueAddReload
+            // 
+            this.btnQueueAddReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQueueAddReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueAddReload.Image")));
+            this.btnQueueAddReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnQueueAddReload.Location = new System.Drawing.Point(554, 4);
+            this.btnQueueAddReload.Name = "btnQueueAddReload";
+            this.btnQueueAddReload.Size = new System.Drawing.Size(23, 23);
+            this.btnQueueAddReload.TabIndex = 14;
+            this.btnQueueAddReload.Text = "Reload";
+            this.btnQueueAddReload.Click += new System.EventHandler(this.btnAntreanAddReload_Click);
+            // 
+            // btnQueueCallReload
+            // 
+            this.btnQueueCallReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQueueCallReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCallReload.Image")));
+            this.btnQueueCallReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnQueueCallReload.Location = new System.Drawing.Point(554, 4);
+            this.btnQueueCallReload.Name = "btnQueueCallReload";
+            this.btnQueueCallReload.Size = new System.Drawing.Size(23, 23);
+            this.btnQueueCallReload.TabIndex = 15;
+            this.btnQueueCallReload.Text = "Reload";
+            this.btnQueueCallReload.Click += new System.EventHandler(this.btnQueueCallReload_Click);
+            // 
             // BpjswsAntreanBpjs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1645,9 +1680,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAntreanAddPoli.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanAddCheckDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanAddCheckDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueAddPoli.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).EndInit();
@@ -1669,9 +1704,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueCallPoli.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -1753,9 +1788,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
-        private DevExpress.XtraEditors.LookUpEdit cboAntreanAddPoli;
+        private DevExpress.XtraEditors.LookUpEdit cboQueueAddPoli;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.DateEdit txtAntreanAddCheckDate;
+        private DevExpress.XtraEditors.DateEdit txtQueueAddCheckDate;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
         private DevExpress.XtraGrid.GridControl grdAntreanCancel;
@@ -1799,12 +1834,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
         private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit cboQueueCallPoli;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit txtQueueCallCheckDate;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.MemoEdit memoEdit3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
+        private DevExpress.XtraEditors.SimpleButton btnQueueAddReload;
+        private DevExpress.XtraEditors.SimpleButton btnQueueCallReload;
     }
 }
