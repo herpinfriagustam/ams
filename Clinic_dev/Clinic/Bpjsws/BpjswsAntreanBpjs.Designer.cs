@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BpjswsAntreanBpjs));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tab = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -83,6 +83,7 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnQueueAddReload = new DevExpress.XtraEditors.SimpleButton();
             this.cboQueueAddPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtQueueAddCheckDate = new DevExpress.XtraEditors.DateEdit();
@@ -108,9 +109,10 @@
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.cboAntreanCancelPoli = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnQueueCancelReload = new DevExpress.XtraEditors.SimpleButton();
+            this.cboQueueCancelPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.txtAntreanCancelCheckDate = new DevExpress.XtraEditors.DateEdit();
+            this.txtQueueCancelCheckDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
@@ -134,6 +136,7 @@
             this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.btnQueueCallReload = new DevExpress.XtraEditors.SimpleButton();
             this.cboQueueCallPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtQueueCallCheckDate = new DevExpress.XtraEditors.DateEdit();
@@ -154,8 +157,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtConsId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnQueueAddReload = new DevExpress.XtraEditors.SimpleButton();
-            this.btnQueueCallReload = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tab)).BeginInit();
             this.tab.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -197,9 +198,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAntreanCancelPoli.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanCancelCheckDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanCancelCheckDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueCancelPoli.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             this.xtraTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
@@ -242,7 +243,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.splitContainerControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(970, 357);
+            this.xtraTabPage1.Size = new System.Drawing.Size(966, 354);
             this.xtraTabPage1.Text = "Referensi Poli";
             // 
             // splitContainerControl1
@@ -257,7 +258,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.txtPoliResponseString);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(970, 357);
+            this.splitContainerControl1.Size = new System.Drawing.Size(966, 354);
             this.splitContainerControl1.SplitterPosition = 378;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -268,7 +269,7 @@
             this.grdPoli.Location = new System.Drawing.Point(0, 30);
             this.grdPoli.MainView = this.gvwPoli;
             this.grdPoli.Name = "grdPoli";
-            this.grdPoli.Size = new System.Drawing.Size(580, 327);
+            this.grdPoli.Size = new System.Drawing.Size(583, 324);
             this.grdPoli.TabIndex = 0;
             this.grdPoli.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwPoli});
@@ -340,7 +341,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(580, 30);
+            this.panelControl2.Size = new System.Drawing.Size(583, 30);
             this.panelControl2.TabIndex = 1;
             // 
             // labelControl9
@@ -374,14 +375,14 @@
             this.txtPoliResponseString.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPoliResponseString.Location = new System.Drawing.Point(0, 0);
             this.txtPoliResponseString.Name = "txtPoliResponseString";
-            this.txtPoliResponseString.Size = new System.Drawing.Size(378, 357);
+            this.txtPoliResponseString.Size = new System.Drawing.Size(378, 354);
             this.txtPoliResponseString.TabIndex = 0;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.splitContainerControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(970, 357);
+            this.xtraTabPage2.Size = new System.Drawing.Size(966, 354);
             this.xtraTabPage2.Text = "Referensi Dokter";
             // 
             // splitContainerControl2
@@ -396,7 +397,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.txtDokterResponseString);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(970, 357);
+            this.splitContainerControl2.Size = new System.Drawing.Size(966, 354);
             this.splitContainerControl2.SplitterPosition = 378;
             this.splitContainerControl2.TabIndex = 1;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -407,7 +408,7 @@
             this.grdDokter.Location = new System.Drawing.Point(0, 30);
             this.grdDokter.MainView = this.gvwDokter;
             this.grdDokter.Name = "grdDokter";
-            this.grdDokter.Size = new System.Drawing.Size(580, 327);
+            this.grdDokter.Size = new System.Drawing.Size(583, 324);
             this.grdDokter.TabIndex = 3;
             this.grdDokter.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwDokter});
@@ -485,7 +486,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(580, 30);
+            this.panelControl3.Size = new System.Drawing.Size(583, 30);
             this.panelControl3.TabIndex = 2;
             // 
             // cboPoli
@@ -541,14 +542,14 @@
             this.txtDokterResponseString.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDokterResponseString.Location = new System.Drawing.Point(0, 0);
             this.txtDokterResponseString.Name = "txtDokterResponseString";
-            this.txtDokterResponseString.Size = new System.Drawing.Size(378, 357);
+            this.txtDokterResponseString.Size = new System.Drawing.Size(378, 354);
             this.txtDokterResponseString.TabIndex = 0;
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.splitContainerControl3);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(970, 357);
+            this.xtraTabPage3.Size = new System.Drawing.Size(966, 354);
             this.xtraTabPage3.Text = "Tambah Antrean";
             // 
             // splitContainerControl3
@@ -563,7 +564,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.memoEdit1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(970, 357);
+            this.splitContainerControl3.Size = new System.Drawing.Size(966, 354);
             this.splitContainerControl3.SplitterPosition = 378;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -574,7 +575,7 @@
             this.grdAntreanAdd.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanAdd.MainView = this.gvwAntreanAdd;
             this.grdAntreanAdd.Name = "grdAntreanAdd";
-            this.grdAntreanAdd.Size = new System.Drawing.Size(580, 327);
+            this.grdAntreanAdd.Size = new System.Drawing.Size(583, 324);
             this.grdAntreanAdd.TabIndex = 0;
             this.grdAntreanAdd.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanAdd});
@@ -678,7 +679,7 @@
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 8;
-            this.gridColumn18.Width = 114;
+            this.gridColumn18.Width = 84;
             // 
             // gridColumn19
             // 
@@ -712,6 +713,7 @@
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.Visible = true;
             this.gridColumn21.VisibleIndex = 10;
+            this.gridColumn21.Width = 197;
             // 
             // gridColumn22
             // 
@@ -724,6 +726,7 @@
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
             this.gridColumn22.VisibleIndex = 11;
+            this.gridColumn22.Width = 132;
             // 
             // gridColumn23
             // 
@@ -782,8 +785,20 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(580, 30);
+            this.panelControl4.Size = new System.Drawing.Size(583, 30);
             this.panelControl4.TabIndex = 1;
+            // 
+            // btnQueueAddReload
+            // 
+            this.btnQueueAddReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQueueAddReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueAddReload.Image")));
+            this.btnQueueAddReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnQueueAddReload.Location = new System.Drawing.Point(557, 4);
+            this.btnQueueAddReload.Name = "btnQueueAddReload";
+            this.btnQueueAddReload.Size = new System.Drawing.Size(23, 23);
+            this.btnQueueAddReload.TabIndex = 14;
+            this.btnQueueAddReload.Text = "Reload";
+            this.btnQueueAddReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // cboQueueAddPoli
             // 
@@ -798,7 +813,7 @@
             this.cboQueueAddPoli.Properties.ValueMember = "POLI_CD";
             this.cboQueueAddPoli.Size = new System.Drawing.Size(190, 20);
             this.cboQueueAddPoli.TabIndex = 10;
-            this.cboQueueAddPoli.EditValueChanged += new System.EventHandler(this.cboAntreanAddPoli_EditValueChanged);
+            this.cboQueueAddPoli.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl10
             // 
@@ -825,7 +840,7 @@
             this.txtQueueAddCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtQueueAddCheckDate.Size = new System.Drawing.Size(100, 20);
             this.txtQueueAddCheckDate.TabIndex = 8;
-            this.txtQueueAddCheckDate.EditValueChanged += new System.EventHandler(this.txtAntreanAddCheckDate_EditValueChanged);
+            this.txtQueueAddCheckDate.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl12
             // 
@@ -840,14 +855,14 @@
             this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit1.Location = new System.Drawing.Point(0, 0);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(378, 357);
+            this.memoEdit1.Size = new System.Drawing.Size(378, 354);
             this.memoEdit1.TabIndex = 0;
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.splitContainerControl4);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(970, 357);
+            this.xtraTabPage4.Size = new System.Drawing.Size(966, 354);
             this.xtraTabPage4.Text = "Batal Antrean";
             // 
             // splitContainerControl4
@@ -862,7 +877,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.memoEdit2);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(970, 357);
+            this.splitContainerControl4.Size = new System.Drawing.Size(966, 354);
             this.splitContainerControl4.SplitterPosition = 378;
             this.splitContainerControl4.TabIndex = 2;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -873,7 +888,7 @@
             this.grdAntreanCancel.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanCancel.MainView = this.gvwAntreanCancel;
             this.grdAntreanCancel.Name = "grdAntreanCancel";
-            this.grdAntreanCancel.Size = new System.Drawing.Size(580, 327);
+            this.grdAntreanCancel.Size = new System.Drawing.Size(583, 324);
             this.grdAntreanCancel.TabIndex = 0;
             this.grdAntreanCancel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanCancel});
@@ -900,10 +915,10 @@
             this.gvwAntreanCancel.GridControl = this.grdAntreanCancel;
             this.gvwAntreanCancel.Name = "gvwAntreanCancel";
             this.gvwAntreanCancel.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
-            this.gvwAntreanCancel.OptionsBehavior.ReadOnly = true;
             this.gvwAntreanCancel.OptionsView.ColumnAutoWidth = false;
             this.gvwAntreanCancel.OptionsView.ShowGroupPanel = false;
             this.gvwAntreanCancel.RowHeight = 23;
+            this.gvwAntreanCancel.CustomDrawEmptyForeground += new DevExpress.XtraGrid.Views.Base.CustomDrawEventHandler(this.gvwAntreanCancel_CustomDrawEmptyForeground);
             // 
             // gridColumn13
             // 
@@ -914,6 +929,7 @@
             this.gridColumn13.Caption = "No. Kartu BPJS";
             this.gridColumn13.FieldName = "NO_KARTU_BPJS";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.ReadOnly = true;
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 3;
             this.gridColumn13.Width = 105;
@@ -927,8 +943,9 @@
             this.gridColumn14.Caption = "NIK";
             this.gridColumn14.FieldName = "NIK";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.ReadOnly = true;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 7;
+            this.gridColumn14.VisibleIndex = 6;
             this.gridColumn14.Width = 137;
             // 
             // gridColumn15
@@ -940,8 +957,9 @@
             this.gridColumn15.Caption = "No. HP";
             this.gridColumn15.FieldName = "NO_HP";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.ReadOnly = true;
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 8;
+            this.gridColumn15.VisibleIndex = 7;
             this.gridColumn15.Width = 129;
             // 
             // gridColumn16
@@ -953,6 +971,7 @@
             this.gridColumn16.Caption = "Kode Poli";
             this.gridColumn16.FieldName = "POLI_CD";
             this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.ReadOnly = true;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 4;
             // 
@@ -961,6 +980,7 @@
             this.gridColumn27.Caption = "Nama Poli";
             this.gridColumn27.FieldName = "NAMA_POLI";
             this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 5;
             this.gridColumn27.Width = 141;
@@ -974,9 +994,10 @@
             this.gridColumn28.Caption = "No. Rm";
             this.gridColumn28.FieldName = "NO_RM";
             this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.ReadOnly = true;
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 9;
-            this.gridColumn28.Width = 114;
+            this.gridColumn28.VisibleIndex = 8;
+            this.gridColumn28.Width = 86;
             // 
             // gridColumn29
             // 
@@ -987,6 +1008,7 @@
             this.gridColumn29.Caption = "Tgl. Periksa";
             this.gridColumn29.FieldName = "TANGGAL_PERIKSA";
             this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.OptionsColumn.ReadOnly = true;
             this.gridColumn29.Visible = true;
             this.gridColumn29.VisibleIndex = 0;
             this.gridColumn29.Width = 99;
@@ -1000,16 +1022,20 @@
             this.gridColumn30.Caption = "Kode Dokter";
             this.gridColumn30.FieldName = "KODE_DOKTER";
             this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.OptionsColumn.ReadOnly = true;
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 10;
+            this.gridColumn30.VisibleIndex = 9;
+            this.gridColumn30.Width = 74;
             // 
             // gridColumn31
             // 
             this.gridColumn31.Caption = "Nama Dokter";
             this.gridColumn31.FieldName = "NAMA_DOKTER";
             this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.OptionsColumn.ReadOnly = true;
             this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 11;
+            this.gridColumn31.VisibleIndex = 10;
+            this.gridColumn31.Width = 149;
             // 
             // gridColumn32
             // 
@@ -1020,8 +1046,10 @@
             this.gridColumn32.Caption = "Jam Praktek";
             this.gridColumn32.FieldName = "JAM_PRAKTEK";
             this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.OptionsColumn.ReadOnly = true;
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 12;
+            this.gridColumn32.VisibleIndex = 11;
+            this.gridColumn32.Width = 122;
             // 
             // gridColumn33
             // 
@@ -1032,6 +1060,7 @@
             this.gridColumn33.Caption = "No. Antrian";
             this.gridColumn33.FieldName = "NOMOR_ANTRIAN";
             this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.OptionsColumn.ReadOnly = true;
             this.gridColumn33.Visible = true;
             this.gridColumn33.VisibleIndex = 1;
             // 
@@ -1044,6 +1073,7 @@
             this.gridColumn34.Caption = "Angka Antrean";
             this.gridColumn34.FieldName = "ANGKA_ANTREAN";
             this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.OptionsColumn.ReadOnly = true;
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 2;
             this.gridColumn34.Width = 89;
@@ -1053,8 +1083,9 @@
             this.gridColumn35.Caption = "Keterangan";
             this.gridColumn35.FieldName = "KETERANGAN";
             this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.OptionsColumn.ReadOnly = true;
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 13;
+            this.gridColumn35.VisibleIndex = 12;
             // 
             // gridColumn36
             // 
@@ -1066,6 +1097,7 @@
             this.gridColumn36.FieldName = "BPJSWS_STATUS";
             this.gridColumn36.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.OptionsColumn.ReadOnly = true;
             this.gridColumn36.Visible = true;
             this.gridColumn36.VisibleIndex = 14;
             this.gridColumn36.Width = 85;
@@ -1074,66 +1106,82 @@
             // 
             this.gridColumn37.Caption = "Alasan";
             this.gridColumn37.FieldName = "ALASAN";
+            this.gridColumn37.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 6;
+            this.gridColumn37.VisibleIndex = 13;
             this.gridColumn37.Width = 205;
             // 
             // panelControl5
             // 
-            this.panelControl5.Controls.Add(this.cboAntreanCancelPoli);
+            this.panelControl5.Controls.Add(this.btnQueueCancelReload);
+            this.panelControl5.Controls.Add(this.cboQueueCancelPoli);
             this.panelControl5.Controls.Add(this.labelControl11);
-            this.panelControl5.Controls.Add(this.txtAntreanCancelCheckDate);
+            this.panelControl5.Controls.Add(this.txtQueueCancelCheckDate);
             this.panelControl5.Controls.Add(this.labelControl13);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(580, 30);
+            this.panelControl5.Size = new System.Drawing.Size(583, 30);
             this.panelControl5.TabIndex = 1;
             // 
-            // cboAntreanCancelPoli
+            // btnQueueCancelReload
             // 
-            this.cboAntreanCancelPoli.Location = new System.Drawing.Point(60, 5);
-            this.cboAntreanCancelPoli.Name = "cboAntreanCancelPoli";
-            this.cboAntreanCancelPoli.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.btnQueueCancelReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQueueCancelReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCancelReload.Image")));
+            this.btnQueueCancelReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnQueueCancelReload.Location = new System.Drawing.Point(557, 4);
+            this.btnQueueCancelReload.Name = "btnQueueCancelReload";
+            this.btnQueueCancelReload.Size = new System.Drawing.Size(23, 23);
+            this.btnQueueCancelReload.TabIndex = 15;
+            this.btnQueueCancelReload.Text = "Reload";
+            this.btnQueueCancelReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // cboQueueCancelPoli
+            // 
+            this.cboQueueCancelPoli.Location = new System.Drawing.Point(33, 6);
+            this.cboQueueCancelPoli.Name = "cboQueueCancelPoli";
+            this.cboQueueCancelPoli.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboAntreanCancelPoli.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.cboQueueCancelPoli.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POLI_DESCRIPTION", 48, "Description")});
-            this.cboAntreanCancelPoli.Properties.DisplayMember = "POLI_DESCRIPTION";
-            this.cboAntreanCancelPoli.Properties.NullText = "";
-            this.cboAntreanCancelPoli.Properties.ValueMember = "POLI_CD";
-            this.cboAntreanCancelPoli.Size = new System.Drawing.Size(190, 20);
-            this.cboAntreanCancelPoli.TabIndex = 10;
+            this.cboQueueCancelPoli.Properties.DisplayMember = "POLI_DESCRIPTION";
+            this.cboQueueCancelPoli.Properties.NullText = "";
+            this.cboQueueCancelPoli.Properties.ValueMember = "POLI_CD";
+            this.cboQueueCancelPoli.Size = new System.Drawing.Size(190, 20);
+            this.cboQueueCancelPoli.TabIndex = 10;
+            this.cboQueueCancelPoli.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl11
             // 
             this.labelControl11.Location = new System.Drawing.Point(11, 9);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(43, 13);
+            this.labelControl11.Size = new System.Drawing.Size(16, 13);
             this.labelControl11.TabIndex = 9;
-            this.labelControl11.Text = "Kode Poli";
+            this.labelControl11.Text = "Poli";
             // 
-            // txtAntreanCancelCheckDate
+            // txtQueueCancelCheckDate
             // 
-            this.txtAntreanCancelCheckDate.EditValue = null;
-            this.txtAntreanCancelCheckDate.Location = new System.Drawing.Point(337, 5);
-            this.txtAntreanCancelCheckDate.Name = "txtAntreanCancelCheckDate";
-            this.txtAntreanCancelCheckDate.Properties.AutoHeight = false;
-            this.txtAntreanCancelCheckDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueCancelCheckDate.EditValue = null;
+            this.txtQueueCancelCheckDate.Location = new System.Drawing.Point(310, 6);
+            this.txtQueueCancelCheckDate.Name = "txtQueueCancelCheckDate";
+            this.txtQueueCancelCheckDate.Properties.AutoHeight = false;
+            this.txtQueueCancelCheckDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAntreanCancelCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtQueueCancelCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAntreanCancelCheckDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.txtAntreanCancelCheckDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtAntreanCancelCheckDate.Properties.EditFormat.FormatString = "yyyy-MM-dd";
-            this.txtAntreanCancelCheckDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtAntreanCancelCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.txtAntreanCancelCheckDate.Size = new System.Drawing.Size(100, 20);
-            this.txtAntreanCancelCheckDate.TabIndex = 8;
+            this.txtQueueCancelCheckDate.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueCancelCheckDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueCancelCheckDate.Properties.EditFormat.FormatString = "yyyy-MM-dd";
+            this.txtQueueCancelCheckDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtQueueCancelCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.txtQueueCancelCheckDate.Size = new System.Drawing.Size(100, 20);
+            this.txtQueueCancelCheckDate.TabIndex = 8;
+            this.txtQueueCancelCheckDate.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(256, 9);
+            this.labelControl13.Location = new System.Drawing.Point(229, 10);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(75, 13);
             this.labelControl13.TabIndex = 7;
@@ -1144,14 +1192,14 @@
             this.memoEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit2.Location = new System.Drawing.Point(0, 0);
             this.memoEdit2.Name = "memoEdit2";
-            this.memoEdit2.Size = new System.Drawing.Size(378, 357);
+            this.memoEdit2.Size = new System.Drawing.Size(378, 354);
             this.memoEdit2.TabIndex = 0;
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Controls.Add(this.splitContainerControl5);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(970, 357);
+            this.xtraTabPage5.Size = new System.Drawing.Size(966, 354);
             this.xtraTabPage5.Text = "Panggil Antrean";
             // 
             // splitContainerControl5
@@ -1166,8 +1214,8 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.memoEdit3);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(970, 357);
-            this.splitContainerControl5.SplitterPosition = 378;
+            this.splitContainerControl5.Size = new System.Drawing.Size(966, 354);
+            this.splitContainerControl5.SplitterPosition = 392;
             this.splitContainerControl5.TabIndex = 2;
             this.splitContainerControl5.Text = "splitContainerControl5";
             // 
@@ -1177,7 +1225,7 @@
             this.grdAntreanCall.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanCall.MainView = this.gvwAntreanCall;
             this.grdAntreanCall.Name = "grdAntreanCall";
-            this.grdAntreanCall.Size = new System.Drawing.Size(580, 327);
+            this.grdAntreanCall.Size = new System.Drawing.Size(569, 324);
             this.grdAntreanCall.TabIndex = 0;
             this.grdAntreanCall.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanCall});
@@ -1282,7 +1330,7 @@
             this.gridColumn43.Name = "gridColumn43";
             this.gridColumn43.Visible = true;
             this.gridColumn43.VisibleIndex = 10;
-            this.gridColumn43.Width = 114;
+            this.gridColumn43.Width = 84;
             // 
             // gridColumn44
             // 
@@ -1316,6 +1364,7 @@
             this.gridColumn46.Name = "gridColumn46";
             this.gridColumn46.Visible = true;
             this.gridColumn46.VisibleIndex = 12;
+            this.gridColumn46.Width = 150;
             // 
             // gridColumn47
             // 
@@ -1328,6 +1377,7 @@
             this.gridColumn47.Name = "gridColumn47";
             this.gridColumn47.Visible = true;
             this.gridColumn47.VisibleIndex = 13;
+            this.gridColumn47.Width = 131;
             // 
             // gridColumn48
             // 
@@ -1411,8 +1461,20 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(580, 30);
+            this.panelControl6.Size = new System.Drawing.Size(569, 30);
             this.panelControl6.TabIndex = 1;
+            // 
+            // btnQueueCallReload
+            // 
+            this.btnQueueCallReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQueueCallReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCallReload.Image")));
+            this.btnQueueCallReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnQueueCallReload.Location = new System.Drawing.Point(543, 4);
+            this.btnQueueCallReload.Name = "btnQueueCallReload";
+            this.btnQueueCallReload.Size = new System.Drawing.Size(23, 23);
+            this.btnQueueCallReload.TabIndex = 15;
+            this.btnQueueCallReload.Text = "Reload";
+            this.btnQueueCallReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // cboQueueCallPoli
             // 
@@ -1427,7 +1489,7 @@
             this.cboQueueCallPoli.Properties.ValueMember = "POLI_CD";
             this.cboQueueCallPoli.Size = new System.Drawing.Size(190, 20);
             this.cboQueueCallPoli.TabIndex = 10;
-            this.cboQueueCallPoli.EditValueChanged += new System.EventHandler(this.cboQueueCallPoli_EditValueChanged);
+            this.cboQueueCallPoli.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl14
             // 
@@ -1454,7 +1516,7 @@
             this.txtQueueCallCheckDate.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.txtQueueCallCheckDate.Size = new System.Drawing.Size(100, 20);
             this.txtQueueCallCheckDate.TabIndex = 8;
-            this.txtQueueCallCheckDate.EditValueChanged += new System.EventHandler(this.txtQueueCallCheckDate_EditValueChanged);
+            this.txtQueueCallCheckDate.EditValueChanged += new System.EventHandler(this.Control_EditValueChanged);
             // 
             // labelControl15
             // 
@@ -1469,7 +1531,7 @@
             this.memoEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit3.Location = new System.Drawing.Point(0, 0);
             this.memoEdit3.Name = "memoEdit3";
-            this.memoEdit3.Size = new System.Drawing.Size(378, 357);
+            this.memoEdit3.Size = new System.Drawing.Size(392, 354);
             this.memoEdit3.TabIndex = 0;
             // 
             // panelControl1
@@ -1521,7 +1583,7 @@
             this.txtUnixTime.Name = "txtUnixTime";
             this.txtUnixTime.Properties.AutoHeight = false;
             this.txtUnixTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
             this.txtUnixTime.Size = new System.Drawing.Size(109, 20);
             this.txtUnixTime.TabIndex = 11;
             this.txtUnixTime.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtUnixTime_ButtonClick);
@@ -1540,7 +1602,7 @@
             this.txtSignature.Name = "txtSignature";
             this.txtSignature.Properties.AutoHeight = false;
             this.txtSignature.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtSignature.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtSignature.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, true)});
             this.txtSignature.Size = new System.Drawing.Size(314, 20);
             this.txtSignature.TabIndex = 9;
             this.txtSignature.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSignature_ButtonClick);
@@ -1613,30 +1675,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cons ID";
             // 
-            // btnQueueAddReload
-            // 
-            this.btnQueueAddReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQueueAddReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueAddReload.Image")));
-            this.btnQueueAddReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnQueueAddReload.Location = new System.Drawing.Point(554, 4);
-            this.btnQueueAddReload.Name = "btnQueueAddReload";
-            this.btnQueueAddReload.Size = new System.Drawing.Size(23, 23);
-            this.btnQueueAddReload.TabIndex = 14;
-            this.btnQueueAddReload.Text = "Reload";
-            this.btnQueueAddReload.Click += new System.EventHandler(this.btnAntreanAddReload_Click);
-            // 
-            // btnQueueCallReload
-            // 
-            this.btnQueueCallReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQueueCallReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCallReload.Image")));
-            this.btnQueueCallReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnQueueCallReload.Location = new System.Drawing.Point(554, 4);
-            this.btnQueueCallReload.Name = "btnQueueCallReload";
-            this.btnQueueCallReload.Size = new System.Drawing.Size(23, 23);
-            this.btnQueueCallReload.TabIndex = 15;
-            this.btnQueueCallReload.Text = "Reload";
-            this.btnQueueCallReload.Click += new System.EventHandler(this.btnQueueCallReload_Click);
-            // 
             // BpjswsAntreanBpjs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1692,9 +1730,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAntreanCancelPoli.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanCancelCheckDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAntreanCancelCheckDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboQueueCancelPoli.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             this.xtraTabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
@@ -1810,9 +1848,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraEditors.PanelControl panelControl5;
-        private DevExpress.XtraEditors.LookUpEdit cboAntreanCancelPoli;
+        private DevExpress.XtraEditors.LookUpEdit cboQueueCancelPoli;
         private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.DateEdit txtAntreanCancelCheckDate;
+        private DevExpress.XtraEditors.DateEdit txtQueueCancelCheckDate;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.MemoEdit memoEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
@@ -1843,5 +1881,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
         private DevExpress.XtraEditors.SimpleButton btnQueueAddReload;
         private DevExpress.XtraEditors.SimpleButton btnQueueCallReload;
+        private DevExpress.XtraEditors.SimpleButton btnQueueCancelReload;
     }
 }
