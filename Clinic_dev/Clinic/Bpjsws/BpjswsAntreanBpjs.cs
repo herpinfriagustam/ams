@@ -650,5 +650,10 @@ namespace Clinic.Bpjs
             if(InitState == false)
                 LoadData();
         }
+
+        private void grdAntreanCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
