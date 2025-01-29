@@ -82,7 +82,10 @@
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.cekQueueAddNotYetOnly = new DevExpress.XtraEditors.CheckEdit();
             this.btnQueueAddReload = new DevExpress.XtraEditors.SimpleButton();
             this.cboQueueAddPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -109,6 +112,7 @@
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.cekQueueCancelNotYetOnly = new DevExpress.XtraEditors.CheckEdit();
             this.btnQueueCancelReload = new DevExpress.XtraEditors.SimpleButton();
             this.cboQueueCancelPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -136,6 +140,7 @@
             this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.cekQueueCallNotYetOnly = new DevExpress.XtraEditors.CheckEdit();
             this.btnQueueCallReload = new DevExpress.XtraEditors.SimpleButton();
             this.cboQueueCallPoli = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -187,6 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueAddNotYetOnly.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueAddPoli.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties)).BeginInit();
@@ -198,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueCancelNotYetOnly.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueCancelPoli.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties)).BeginInit();
@@ -209,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvwAntreanCall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueCallNotYetOnly.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueCallPoli.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties)).BeginInit();
@@ -597,7 +605,9 @@
             this.gridColumn23,
             this.gridColumn24,
             this.gridColumn25,
-            this.gridColumn26});
+            this.gridColumn26,
+            this.gridColumn54,
+            this.gridColumn55});
             this.gvwAntreanAdd.GridControl = this.grdAntreanAdd;
             this.gvwAntreanAdd.Name = "gvwAntreanAdd";
             this.gvwAntreanAdd.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
@@ -618,7 +628,7 @@
             this.gridColumn9.FieldName = "NO_KARTU_BPJS";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 3;
+            this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 105;
             // 
             // gridColumn10
@@ -631,7 +641,7 @@
             this.gridColumn10.FieldName = "NIK";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 4;
+            this.gridColumn10.VisibleIndex = 6;
             this.gridColumn10.Width = 137;
             // 
             // gridColumn11
@@ -644,7 +654,7 @@
             this.gridColumn11.FieldName = "NO_HP";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 5;
+            this.gridColumn11.VisibleIndex = 7;
             this.gridColumn11.Width = 129;
             // 
             // gridColumn12
@@ -657,7 +667,7 @@
             this.gridColumn12.FieldName = "POLI_CD";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 6;
+            this.gridColumn12.VisibleIndex = 8;
             // 
             // gridColumn17
             // 
@@ -665,7 +675,7 @@
             this.gridColumn17.FieldName = "NAMA_POLI";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 7;
+            this.gridColumn17.VisibleIndex = 9;
             this.gridColumn17.Width = 141;
             // 
             // gridColumn18
@@ -678,7 +688,7 @@
             this.gridColumn18.FieldName = "RM_NO";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 8;
+            this.gridColumn18.VisibleIndex = 10;
             this.gridColumn18.Width = 84;
             // 
             // gridColumn19
@@ -691,7 +701,7 @@
             this.gridColumn19.FieldName = "TANGGAL_PERIKSA";
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 0;
+            this.gridColumn19.VisibleIndex = 2;
             this.gridColumn19.Width = 99;
             // 
             // gridColumn20
@@ -704,7 +714,7 @@
             this.gridColumn20.FieldName = "KODE_DOKTER";
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 9;
+            this.gridColumn20.VisibleIndex = 11;
             // 
             // gridColumn21
             // 
@@ -712,7 +722,7 @@
             this.gridColumn21.FieldName = "NAMA_DOKTER";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 10;
+            this.gridColumn21.VisibleIndex = 12;
             this.gridColumn21.Width = 197;
             // 
             // gridColumn22
@@ -725,7 +735,7 @@
             this.gridColumn22.FieldName = "JAM_PRAKTEK";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 11;
+            this.gridColumn22.VisibleIndex = 13;
             this.gridColumn22.Width = 132;
             // 
             // gridColumn23
@@ -738,7 +748,7 @@
             this.gridColumn23.FieldName = "NOMOR_ANTREAN";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 1;
+            this.gridColumn23.VisibleIndex = 3;
             // 
             // gridColumn24
             // 
@@ -750,7 +760,7 @@
             this.gridColumn24.FieldName = "ANGKA_ANTREAN";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 2;
+            this.gridColumn24.VisibleIndex = 4;
             this.gridColumn24.Width = 89;
             // 
             // gridColumn25
@@ -759,7 +769,7 @@
             this.gridColumn25.FieldName = "KETERANGAN";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 12;
+            this.gridColumn25.VisibleIndex = 14;
             // 
             // gridColumn26
             // 
@@ -772,11 +782,38 @@
             this.gridColumn26.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 13;
+            this.gridColumn26.VisibleIndex = 15;
             this.gridColumn26.Width = 85;
+            // 
+            // gridColumn54
+            // 
+            this.gridColumn54.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn54.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn54.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn54.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn54.Caption = "Tipe";
+            this.gridColumn54.FieldName = "TYPE_INS";
+            this.gridColumn54.Name = "gridColumn54";
+            this.gridColumn54.Visible = true;
+            this.gridColumn54.VisibleIndex = 0;
+            this.gridColumn54.Width = 65;
+            // 
+            // gridColumn55
+            // 
+            this.gridColumn55.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn55.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn55.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn55.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn55.Caption = "Flag";
+            this.gridColumn55.FieldName = "FLAG";
+            this.gridColumn55.Name = "gridColumn55";
+            this.gridColumn55.Visible = true;
+            this.gridColumn55.VisibleIndex = 1;
+            this.gridColumn55.Width = 42;
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.cekQueueAddNotYetOnly);
             this.panelControl4.Controls.Add(this.btnQueueAddReload);
             this.panelControl4.Controls.Add(this.cboQueueAddPoli);
             this.panelControl4.Controls.Add(this.labelControl10);
@@ -788,12 +825,21 @@
             this.panelControl4.Size = new System.Drawing.Size(583, 30);
             this.panelControl4.TabIndex = 1;
             // 
+            // cekQueueAddNotYetOnly
+            // 
+            this.cekQueueAddNotYetOnly.Location = new System.Drawing.Point(418, 6);
+            this.cekQueueAddNotYetOnly.Name = "cekQueueAddNotYetOnly";
+            this.cekQueueAddNotYetOnly.Properties.Caption = "Hanya belum terkirim";
+            this.cekQueueAddNotYetOnly.Size = new System.Drawing.Size(133, 19);
+            this.cekQueueAddNotYetOnly.TabIndex = 15;
+            this.cekQueueAddNotYetOnly.CheckedChanged += new System.EventHandler(this.Cek_CheckedChanged);
+            // 
             // btnQueueAddReload
             // 
             this.btnQueueAddReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQueueAddReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueAddReload.Image")));
             this.btnQueueAddReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnQueueAddReload.Location = new System.Drawing.Point(557, 4);
+            this.btnQueueAddReload.Location = new System.Drawing.Point(549, 4);
             this.btnQueueAddReload.Name = "btnQueueAddReload";
             this.btnQueueAddReload.Size = new System.Drawing.Size(23, 23);
             this.btnQueueAddReload.TabIndex = 14;
@@ -1114,6 +1160,7 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.cekQueueCancelNotYetOnly);
             this.panelControl5.Controls.Add(this.btnQueueCancelReload);
             this.panelControl5.Controls.Add(this.cboQueueCancelPoli);
             this.panelControl5.Controls.Add(this.labelControl11);
@@ -1125,12 +1172,21 @@
             this.panelControl5.Size = new System.Drawing.Size(583, 30);
             this.panelControl5.TabIndex = 1;
             // 
+            // cekQueueCancelNotYetOnly
+            // 
+            this.cekQueueCancelNotYetOnly.Location = new System.Drawing.Point(416, 7);
+            this.cekQueueCancelNotYetOnly.Name = "cekQueueCancelNotYetOnly";
+            this.cekQueueCancelNotYetOnly.Properties.Caption = "Hanya belum terkirim";
+            this.cekQueueCancelNotYetOnly.Size = new System.Drawing.Size(133, 19);
+            this.cekQueueCancelNotYetOnly.TabIndex = 16;
+            this.cekQueueCancelNotYetOnly.CheckedChanged += new System.EventHandler(this.Cek_CheckedChanged);
+            // 
             // btnQueueCancelReload
             // 
             this.btnQueueCancelReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQueueCancelReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCancelReload.Image")));
             this.btnQueueCancelReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnQueueCancelReload.Location = new System.Drawing.Point(557, 4);
+            this.btnQueueCancelReload.Location = new System.Drawing.Point(549, 4);
             this.btnQueueCancelReload.Name = "btnQueueCancelReload";
             this.btnQueueCancelReload.Size = new System.Drawing.Size(23, 23);
             this.btnQueueCancelReload.TabIndex = 15;
@@ -1215,7 +1271,7 @@
             this.splitContainerControl5.Panel2.Controls.Add(this.memoEdit3);
             this.splitContainerControl5.Panel2.Text = "Panel2";
             this.splitContainerControl5.Size = new System.Drawing.Size(966, 354);
-            this.splitContainerControl5.SplitterPosition = 392;
+            this.splitContainerControl5.SplitterPosition = 365;
             this.splitContainerControl5.TabIndex = 2;
             this.splitContainerControl5.Text = "splitContainerControl5";
             // 
@@ -1225,7 +1281,7 @@
             this.grdAntreanCall.Location = new System.Drawing.Point(0, 30);
             this.grdAntreanCall.MainView = this.gvwAntreanCall;
             this.grdAntreanCall.Name = "grdAntreanCall";
-            this.grdAntreanCall.Size = new System.Drawing.Size(569, 324);
+            this.grdAntreanCall.Size = new System.Drawing.Size(596, 324);
             this.grdAntreanCall.TabIndex = 0;
             this.grdAntreanCall.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwAntreanCall});
@@ -1453,6 +1509,7 @@
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.cekQueueCallNotYetOnly);
             this.panelControl6.Controls.Add(this.btnQueueCallReload);
             this.panelControl6.Controls.Add(this.cboQueueCallPoli);
             this.panelControl6.Controls.Add(this.labelControl14);
@@ -1461,15 +1518,24 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(569, 30);
+            this.panelControl6.Size = new System.Drawing.Size(596, 30);
             this.panelControl6.TabIndex = 1;
+            // 
+            // cekQueueCallNotYetOnly
+            // 
+            this.cekQueueCallNotYetOnly.Location = new System.Drawing.Point(416, 6);
+            this.cekQueueCallNotYetOnly.Name = "cekQueueCallNotYetOnly";
+            this.cekQueueCallNotYetOnly.Properties.Caption = "Hanya belum terkirim";
+            this.cekQueueCallNotYetOnly.Size = new System.Drawing.Size(133, 19);
+            this.cekQueueCallNotYetOnly.TabIndex = 17;
+            this.cekQueueCallNotYetOnly.CheckedChanged += new System.EventHandler(this.Cek_CheckedChanged);
             // 
             // btnQueueCallReload
             // 
             this.btnQueueCallReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQueueCallReload.Image = ((System.Drawing.Image)(resources.GetObject("btnQueueCallReload.Image")));
             this.btnQueueCallReload.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnQueueCallReload.Location = new System.Drawing.Point(543, 4);
+            this.btnQueueCallReload.Location = new System.Drawing.Point(562, 4);
             this.btnQueueCallReload.Name = "btnQueueCallReload";
             this.btnQueueCallReload.Size = new System.Drawing.Size(23, 23);
             this.btnQueueCallReload.TabIndex = 15;
@@ -1531,7 +1597,7 @@
             this.memoEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit3.Location = new System.Drawing.Point(0, 0);
             this.memoEdit3.Name = "memoEdit3";
-            this.memoEdit3.Size = new System.Drawing.Size(392, 354);
+            this.memoEdit3.Size = new System.Drawing.Size(365, 354);
             this.memoEdit3.TabIndex = 0;
             // 
             // panelControl1
@@ -1718,6 +1784,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueAddNotYetOnly.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueAddPoli.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueAddCheckDate.Properties)).EndInit();
@@ -1730,6 +1797,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueCancelNotYetOnly.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueCancelPoli.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCancelCheckDate.Properties)).EndInit();
@@ -1742,6 +1810,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cekQueueCallNotYetOnly.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboQueueCallPoli.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueueCallCheckDate.Properties)).EndInit();
@@ -1882,5 +1951,10 @@
         private DevExpress.XtraEditors.SimpleButton btnQueueAddReload;
         private DevExpress.XtraEditors.SimpleButton btnQueueCallReload;
         private DevExpress.XtraEditors.SimpleButton btnQueueCancelReload;
+        private DevExpress.XtraEditors.CheckEdit cekQueueAddNotYetOnly;
+        private DevExpress.XtraEditors.CheckEdit cekQueueCancelNotYetOnly;
+        private DevExpress.XtraEditors.CheckEdit cekQueueCallNotYetOnly;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn54;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn55;
     }
 }

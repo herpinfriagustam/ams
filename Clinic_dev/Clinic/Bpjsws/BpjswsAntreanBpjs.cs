@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data.OleDb;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Clinic.Bpjs
 {
@@ -42,6 +43,9 @@ namespace Clinic.Bpjs
 
             grdPoli.DataSource = new List<ModelPoli>();
             grdDokter.DataSource = new List<ModelDokter>();
+            grdAntreanAdd.DataSource = new DataTable();
+            grdAntreanCancel.DataSource = new DataTable();
+            grdAntreanCall.DataSource = new DataTable();
 
             LoadDataLookup();
 
@@ -83,9 +87,14 @@ namespace Clinic.Bpjs
         {
             if(tab.SelectedTabPageIndex == 2) // add antrian - load data antrean
             {
+                grdAntreanAdd.DataSource = null;
+
                 string where = "";
                 if (cboQueueAddPoli.EditValue != null)
-                    where = $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+                    where += $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+
+                if (cekQueueAddNotYetOnly.Checked)
+                    where += " AND A.BPJSWS_STATUS = 0";
 
                 string sql = $@"SELECT A.CALL_ID, 
 	                                C.INSU_NO NO_KARTU_BPJS, 		C.NID NIK, 					C.PHONE NO_HP, 
@@ -94,7 +103,8 @@ namespace Clinic.Bpjs
 	                                G.ID_DOKTER KODE_DOKTER, 		G.NM_DOKTER  NAMA_DOKTER,
                                     CASE WHEN F.ID_JADWAL IS NULL THEN '' ELSE F.JAM_AWAL || ' ~ ' || F.JAM_AKHIR END JAM_PRAKTEK,
 	                                A.QUE NOMOR_ANTREAN, 			TO_NUMBER(REGEXP_REPLACE(A.QUE, '[^0-9]', ''))	ANGKA_ANTREAN,
-	                                '' KETERANGAN, 					a.BPJSWS_STATUS
+	                                '' KETERANGAN, 					a.BPJSWS_STATUS,            A.TYPE_INS,
+	                                A.FLAG
                                   FROM CS_CALL_LOG A 
 	                                LEFT JOIN CS_VISIT B ON A.QUE = B.QUE01
 	                                LEFT JOIN CS_PATIENT_INFO C ON B.PATIENT_NO = C.PATIENT_NO 
@@ -118,14 +128,20 @@ namespace Clinic.Bpjs
                 }
                 catch (Exception ex)
                 {
+                    grdAntreanAdd.DataSource = new DataTable();
                     MessageBox.Show("LoadDataLookup Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (tab.SelectedTabPageIndex == 3) // batal antrian - load data antrean
             {
+                grdAntreanCancel.DataSource = null;
+
                 string where = "";
                 if (cboQueueAddPoli.EditValue != null)
-                    where = $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+                    where += $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+
+                if (cekQueueCancelNotYetOnly.Checked) where += " AND A.BPJSWS_STATUS = 1";
+                else where += " AND (A.BPJSWS_STATUS = 1 OR A.BPJSWS_STATUS >= 1)";
 
                 string sql = $@"SELECT A.CALL_ID, 
 	                                C.INSU_NO NO_KARTU_BPJS, 		C.NID NIK, 					C.PHONE NO_HP, 
@@ -134,7 +150,8 @@ namespace Clinic.Bpjs
 	                                G.ID_DOKTER KODE_DOKTER, 		G.NM_DOKTER  NAMA_DOKTER,
                                     CASE WHEN F.ID_JADWAL IS NULL THEN '' ELSE F.JAM_AWAL || ' ~ ' || F.JAM_AKHIR END JAM_PRAKTEK,
 	                                A.QUE NOMOR_ANTREAN, 			TO_NUMBER(REGEXP_REPLACE(A.QUE, '[^0-9]', ''))	ANGKA_ANTREAN,
-	                                '' ALASAN, 					a.BPJSWS_STATUS
+	                                '' ALASAN, 					a.BPJSWS_STATUS,            A.TYPE_INS,
+	                                A.FLAG
                                   FROM CS_CALL_LOG A 
 	                                LEFT JOIN CS_VISIT B ON A.QUE = B.QUE01
 	                                LEFT JOIN CS_PATIENT_INFO C ON B.PATIENT_NO = C.PATIENT_NO 
@@ -144,8 +161,7 @@ namespace Clinic.Bpjs
                                         AND TRUNC(F.TGL_JADWAL) = TO_DATE('{ txtQueueAddCheckDate.DateTime.ToString("yyyy-MM-dd") }', 'YYYY-MM-DD')
                                         AND TO_CHAR(A.INS_DATE, 'HH24:MI') BETWEEN F.JAM_AWAL AND F.JAM_AKHIR
                                     LEFT JOIN CS_DOKTER G ON F.ID_DOKTER  = G.ID_DOKTER 
-                                WHERE TRUNC(A.INS_DATE) = TO_DATE('{ txtQueueAddCheckDate.DateTime.ToString("yyyy-MM-dd") }', 'YYYY-MM-DD') 
-                                    AND A.BPJSWS_STATUS = 1 { where }
+                                WHERE TRUNC(A.INS_DATE) = TO_DATE('{ txtQueueAddCheckDate.DateTime.ToString("yyyy-MM-dd") }', 'YYYY-MM-DD') { where }
                                ORDER BY A.BPJSWS_STATUS DESC, A.INS_DATE";
 
                 try
@@ -155,18 +171,24 @@ namespace Clinic.Bpjs
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    grdAntreanAdd.DataSource = dt;
+                    grdAntreanCancel.DataSource = dt;
                 }
                 catch (Exception ex)
                 {
+                    grdAntreanCancel.DataSource = new DataTable();
                     MessageBox.Show("LoadDataLookup Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (tab.SelectedTabPageIndex == 4) // Panggil antrian - load data antrean
             {
+                grdAntreanCall.DataSource = null;
+
                 string where = "";
                 if (cboQueueAddPoli.EditValue != null)
-                    where = $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+                    where += $" AND A.POLI_CD = '{ cboQueueAddPoli.EditValue?.ToString() }'";
+
+                if (cekQueueCallNotYetOnly.Checked) where += " AND A.BPJSWS_STATUS = 1";
+                else where += " AND (A.BPJSWS_STATUS = 1 OR A.BPJSWS_STATUS >= 1)";
 
                 string sql = $@"SELECT A.CALL_ID, 
 	                                C.INSU_NO NO_KARTU_BPJS, 		C.NID NIK, 					C.PHONE NO_HP, 
@@ -175,7 +197,8 @@ namespace Clinic.Bpjs
 	                                G.ID_DOKTER KODE_DOKTER, 		G.NM_DOKTER  NAMA_DOKTER,
                                     CASE WHEN F.ID_JADWAL IS NULL THEN '' ELSE F.JAM_AWAL || ' ~ ' || F.JAM_AKHIR END JAM_PRAKTEK,
 	                                A.QUE NOMOR_ANTREAN, 			TO_NUMBER(REGEXP_REPLACE(A.QUE, '[^0-9]', ''))	ANGKA_ANTREAN,
-	                                '' KETERANGAN, 					a.BPJSWS_STATUS
+	                                '' KETERANGAN, 					a.BPJSWS_STATUS,            A.TYPE_INS,
+	                                A.FLAG
                                   FROM CS_CALL_LOG A 
 	                                LEFT JOIN CS_VISIT B ON A.QUE = B.QUE01
 	                                LEFT JOIN CS_PATIENT_INFO C ON B.PATIENT_NO = C.PATIENT_NO 
@@ -196,10 +219,11 @@ namespace Clinic.Bpjs
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    grdAntreanAdd.DataSource = dt;
+                    grdAntreanCall.DataSource = dt;
                 }
                 catch (Exception ex)
                 {
+                    grdAntreanCall.DataSource = new DataTable();
                     MessageBox.Show("LoadDataLookup Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -267,6 +291,7 @@ namespace Clinic.Bpjs
                     }
                     else
                     {
+                        grdPoli.DataSource = new List<ModelPoli>();
                         MessageBox.Show($"code: { response.Metadata.Code + "" } Message: { response.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -282,6 +307,8 @@ namespace Clinic.Bpjs
                 }
                 
                 Cursor = Cursors.WaitCursor;
+
+                grdDokter.DataSource = null;
 
                 string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_REF_DOKTER_URL
                     .Replace(@"{kodepoli}",cboPoli.EditValue?.ToString())
@@ -302,6 +329,7 @@ namespace Clinic.Bpjs
                     }
                     else
                     {
+                        grdDokter.DataSource = new List<ModelDokter>();
                         MessageBox.Show($"code: { response.Metadata.Code + "" } Message: { response.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -319,7 +347,7 @@ namespace Clinic.Bpjs
                 string bpjswsStatus = row["BPJSWS_STATUS"]?.ToString();
                 if(bpjswsStatus != "0")
                 {
-                    MessageBox.Show("Status WS Harus 0", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Status WS Harus 0 (Antrean belum dikirim ke BPJS WS)", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else if (bpjswsStatus == "1")
@@ -398,7 +426,7 @@ namespace Clinic.Bpjs
                 string bpjswsStatus = row["BPJSWS_STATUS"]?.ToString();
                 if (bpjswsStatus != "1")
                 {
-                    MessageBox.Show("Status WS Harus 1", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Status WS Harus 1 (Antrian sudah dikirim ke BPJS WS)", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else if (bpjswsStatus == "-1")
@@ -427,8 +455,27 @@ namespace Clinic.Bpjs
                 {
                     if (response.Metadata.Code == 200)
                     {
-                        LoadData();
-                        MessageBox.Show("Pembatalan antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string sql = $"UPDATE CS_CALL_LOG SET BPJSWS_STATUS = -1 WHERE CALL_ID = { row["CALL_ID"]?.ToString() }";
+
+                        OleDbConnection connection = OracleConnection.Create_Connect_Ora();
+                        try
+                        {
+                            connection.Open();
+
+                            OleDbCommand cmd = new OleDbCommand(sql, connection);
+                            cmd.ExecuteNonQuery();
+
+                            connection.Close();
+
+                            LoadData();
+                            MessageBox.Show("Pembatalan antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (connection.State == ConnectionState.Open) connection.Close();
+                            LoadData();
+                            MessageBox.Show("Cancel Call log Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
@@ -449,7 +496,7 @@ namespace Clinic.Bpjs
                 string bpjswsStatus = row["BPJSWS_STATUS"]?.ToString();
                 if (bpjswsStatus != "1")
                 {
-                    MessageBox.Show("Status WS Harus 1", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Status WS Harus 1 (Antrian sudah dikirim ke BPJS WS)", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else if (bpjswsStatus == "2")
@@ -460,12 +507,14 @@ namespace Clinic.Bpjs
 
                 Cursor = Cursors.WaitCursor;
 
+                string typeIns = row["TYPE_INS"]?.ToString();
+
                 JObject json = new JObject();
                 json["tanggalperiksa"] = row["TANGGAL_PERIKSA"]?.ToString();
                 json["kodepoli"] = row["POLI_CD"]?.ToString();
                 json["nomorkartu"] = row["NO_KARTU_BPJS"]?.ToString();
-                json["status"] = row["STATUS"]?.ToString();
-                json["waktu"] = row["UNIX_TIME"]?.ToString();
+                json["status"] = typeIns == "CAN" ? 0 : 1;
+                json["waktu"] = Bpjsws.CurrentUnixTime;
 
                 string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_CALL_QUEUE_URL;
                 BpjswsResponse response = Bpjsws.Request<BpjswsResponse>(url, Bpjsws.HttpMethodMode.Post, Bpjsws.PostDataType.Json, headers, new Dictionary<string, string>
@@ -479,8 +528,27 @@ namespace Clinic.Bpjs
                 {
                     if (response.Metadata.Code == 200)
                     {
-                        LoadData();
-                        MessageBox.Show("Panggil antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string sql = $"UPDATE CS_CALL_LOG SET BPJSWS_STATUS = 2 WHERE CALL_ID = { row["CALL_ID"]?.ToString() }";
+
+                        OleDbConnection connection = OracleConnection.Create_Connect_Ora();
+                        try
+                        {
+                            connection.Open();
+
+                            OleDbCommand cmd = new OleDbCommand(sql, connection);
+                            cmd.ExecuteNonQuery();
+
+                            connection.Close();
+
+                            LoadData();
+                            MessageBox.Show("Update antrean telah dikirim ke BPJS WS!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (connection.State == ConnectionState.Open) connection.Close();
+                            LoadData();
+                            MessageBox.Show("Update Call log Exception: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
@@ -518,7 +586,9 @@ namespace Clinic.Bpjs
 
         private void EmptyGrid(GridControl grid, DevExpress.XtraGrid.Views.Base.CustomDrawEventArgs e)
         {
-            if (grid.DataSource != null && grid.MainView.RowCount == 0)
+            GridView gvw = grid.MainView as GridView;
+            Console.WriteLine(grid.Name + " DataRowCount " + gvw.DataRowCount);
+            if (grid.DataSource != null && gvw.DataRowCount == 0)
             {
                 // Menggambar teks atau gambar untuk menunjukkan loading
                 string loadingText = "Data kosong";
@@ -575,6 +645,10 @@ namespace Clinic.Bpjs
                 LoadData();
         }
 
-        
+        private void Cek_CheckedChanged(object sender, EventArgs e)
+        {
+            if(InitState == false)
+                LoadData();
+        }
     }
 }

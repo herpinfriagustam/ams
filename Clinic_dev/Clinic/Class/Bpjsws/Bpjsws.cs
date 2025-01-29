@@ -144,9 +144,6 @@ namespace Clinic.Class.Bpjsws
                     request.ContentType = "application/json";
                     request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
                 }
-
-                
-                
             }
             else
             {
