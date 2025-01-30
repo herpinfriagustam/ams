@@ -25,9 +25,9 @@ namespace Clinic
         public string my_IP = "", v_iddokter = "", v_nik = "";
         public OleDbConnection Create_Connect_Ora()
         {
-            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
+            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
             //string _ConnectStringOra = "Provider=MSDAORA.1;Password=klinik;Persist Security Info=True;User ID=klinik;Data Source = localhost:1521/XE";
-            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
 
             try
             {
@@ -157,9 +157,11 @@ namespace Clinic
             lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
             lokup.AppearanceDropDown.Options.UseFont = true;
 
-            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard; 
             lokup.NullText = "";
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
             gridviw.Columns[col].ColumnEdit = lokup;
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
         }
         public void LookUpGroupGridFilter<T>(
                List<T> listsql,
@@ -220,7 +222,7 @@ namespace Clinic
             gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
 
             lokup.PopupFormWidth = 700;
-            lokup.ImmediatePopup = true;
+            lokup.ImmediatePopup = false ;
             lokup.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
             lokup.Appearance.Options.UseFont = true;
             lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
@@ -228,7 +230,9 @@ namespace Clinic
 
             lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lokup.NullText = "";
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
             gridviw.Columns[col].ColumnEdit = lokup;
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
         }
         public void LookUpEditFilter<T>(
                List<T> listsql,
@@ -324,21 +328,21 @@ namespace Clinic
             {
                 if (connection == null)
                 {
-                    //connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
-                    //    (ADDRESS = 
-                    //        (PROTOCOL = TCP)
-                    //        (HOST = localhost )(PORT = 1521))
-                    //    (CONNECT_DATA = (SERVER = DEDICATED)
-                    //        (SERVICE_NAME = XE))
-                    //    );User Id=KLINIK;Password=KLINIK;");
-
                     connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
                         (ADDRESS = 
                             (PROTOCOL = TCP)
-                            (HOST =  192.168.1.99 )(PORT = 1521))
+                            (HOST = localhost )(PORT = 1521))
                         (CONNECT_DATA = (SERVER = DEDICATED)
                             (SERVICE_NAME = XE))
                         );User Id=KLINIK;Password=KLINIK;");
+
+                    //connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
+                    //    (ADDRESS = 
+                    //        (PROTOCOL = TCP)
+                    //        (HOST =  192.168.1.99 )(PORT = 1521))
+                    //    (CONNECT_DATA = (SERVER = DEDICATED)
+                    //        (SERVICE_NAME = XE))
+                    //    );User Id=KLINIK;Password=KLINIK;");
                 }
                 return connection;
             }
@@ -402,8 +406,8 @@ namespace Clinic
 
 
         //private string server = "192.168.1.99"; //  "localhost/XE";// 
-        //private string database = "localhost/XE";// 
-        private string database = "192.168.1.99:1521/XE";
+        private string database = "localhost/XE";// 
+        //private string database = "192.168.1.99:1521/XE";
         private string uid = "KLINIK";
         private string password = "KLINIK";
 
@@ -596,8 +600,8 @@ namespace Clinic
     {
 
         #region DBConncetion
-        //public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
-        public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
+        public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
+        //public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
 
         #endregion
 

@@ -848,55 +848,59 @@ namespace Clinic
             //gldiag.NullText = "";
             //gridView4.Columns[2].ColumnEdit = gldiag;
 
-            LookDiagnosaGrid.DataSource = listDiagnosa;
-            LookDiagnosaGrid.ValueMember = "diagnosaCode";
-            LookDiagnosaGrid.DisplayMember = "diagnosaName";
-            //LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            var gridView = LookDiagnosaGrid.View;
-            gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
-            gridView.OptionsCustomization.AllowSort = true;
+            ConnOra.LookUpGridFilter(listDiagnosa, gridView4, "diagnosaCode", "diagnosaName", LookDiagnosaGrid, 2);
+            LookDiagnosaGrid.ImmediatePopup = false;
+            LookDiagnosaGrid.PopupFilterMode = PopupFilterMode.Contains;
 
-            foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
-            {
-                column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            }
-            if (gridView.Columns["diagnosaCode"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaCode",
-                    Caption = "diagnosaCode",
-                    Visible = true
-                });
-            }
-            if (gridView.Columns["diagnosaName"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaName",
-                    Caption = "diagnosaName",
-                    Visible = true
-                });
-            }
-            gridView.OptionsView.ColumnAutoWidth = false;
-            gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
-            gridView.Columns["diagnosaName"].Width = 530;
-            gridView.RowHeight = 27;
-            gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
-            gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
-            gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.DataSource = listDiagnosa;
+            //LookDiagnosaGrid.ValueMember = "diagnosaCode";
+            //LookDiagnosaGrid.DisplayMember = "diagnosaName";
+            ////LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //var gridView = LookDiagnosaGrid.View;
+            //gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
+            //gridView.OptionsCustomization.AllowSort = true;
 
-            LookDiagnosaGrid.PopupFormWidth = 700;
-            LookDiagnosaGrid.ImmediatePopup = true;
-            LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.Appearance.Options.UseFont = true;
-            // Mengatur ukuran font pada dropdown
-            LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+            //foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
+            //{
+            //    column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            //}
+            //if (gridView.Columns["diagnosaCode"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaCode",
+            //        Caption = "diagnosaCode",
+            //        Visible = true
+            //    });
+            //}
+            //if (gridView.Columns["diagnosaName"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaName",
+            //        Caption = "diagnosaName",
+            //        Visible = true
+            //    });
+            //}
+            //gridView.OptionsView.ColumnAutoWidth = false;
+            //gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
+            //gridView.Columns["diagnosaName"].Width = 530;
+            //gridView.RowHeight = 27;
+            //gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
+            //gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
+            //gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
 
-            LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            LookDiagnosaGrid.NullText = "";
-            gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
+            //LookDiagnosaGrid.PopupFormWidth = 700;
+            //LookDiagnosaGrid.ImmediatePopup = true;
+            //LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.Appearance.Options.UseFont = true;
+            //// Mengatur ukuran font pada dropdown
+            //LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+
+            //LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //LookDiagnosaGrid.NullText = "";
+            //gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
 
 
             RepositoryItemLookUpEdit diagnosaTypeLookup = new RepositoryItemLookUpEdit();
@@ -6252,9 +6256,9 @@ namespace Clinic
             sql_close = "";
 
             sql_close = sql_close + " update KLINIK.cs_visit" +
-                                    " set status = 'PAY', ";
+                                    " set   VISIT_REMARK ='NONE MEDICINE',";
             sql_close = sql_close + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "'";
+            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "' and id_visit  = '" + idvisit + "' ";
 
             try
             {
@@ -6266,7 +6270,7 @@ namespace Clinic
                 cm.Dispose();
 
                 //MessageBox.Show("Query Exec : " + sql_update);
-                LoadDataPasien();
+                //LoadDataPasien();
                 MessageBox.Show("Data Berhasil diupdate");
             }
             catch (Exception ex)
@@ -7341,11 +7345,7 @@ namespace Clinic
                     labelControl173.Text = "Gagal..Diagnosa Belum Di Input.";
                     Blinking(labelControl173, 0);
                     return;
-                }
-
-                sql_ = "";
-                sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                ConnOra.ExeNonQuery(sql_);
+                } 
 
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
@@ -7398,6 +7398,10 @@ namespace Clinic
 
                     ORADB.Execute(ORADB.XE, sql_all);
 
+                    sql_ = "";
+                    sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    ConnOra.ExeNonQuery(sql_);
+
                     stsimpan = 1;
                 }
                 else if (rm_type.ToString().Equals("DOC") && q_no2.ToString().Equals("N"))
@@ -7432,6 +7436,10 @@ namespace Clinic
                     sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql_all);
+
+                    sql_ = "";
+                    sql_ = " update KLINIK.cs_visit set status = 'PAY', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    ConnOra.ExeNonQuery(sql_);
                     stsimpan = 1;
                 }
                 else
@@ -7450,7 +7458,14 @@ namespace Clinic
                 labelControl173.Visible = true;
                 labelControl173.Text = "Successful Patient closed.";
                 Blinking(labelControl173, 1);
+                LoadDataPasien();
+                //gridView1_RowClick(sender, e);
                 simpleButton2.Enabled = false;
+                btnSaveTind.Enabled = false;
+                btnAddTind.Enabled = false;
+                btnSaveTindakan.Enabled = false;
+                btnAddTindakan.Enabled = false;
+                btnDelTindakan.Enabled = false;
             } 
         }
 

@@ -37,7 +37,7 @@ namespace Clinic
         public string    v_name = "",  idvisit = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         int totPay = 0, totPayment = 0, totBill = 0, totcover = 0, ttlcover = 0, ttlsisa = 0;
-        int totSelisih = 0;
+        int totSelisih = 0; string tlimit = "";
         //string today = "2019-11-27";
 
         public BillList()
@@ -154,7 +154,7 @@ namespace Clinic
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadData();
-            LoadDataLimit(); 
+            //LoadDataLimit();
             btnCancel.Enabled = false;
             gridControl2.DataSource = null;
             lTotalPay.Text = "0";
@@ -164,14 +164,6 @@ namespace Clinic
             l_diskon.Text = "0";
         }
 
-        private void PrescriptionList_Load(object sender, EventArgs e)
-        {
-            initData();
-            //LoadData();
-            LoadDataLimit();
-            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "BillList");
-            SoftBlink(labelControl6, Color.LightPink, Color.Red, 1600, false);
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -182,6 +174,7 @@ namespace Clinic
                 LoadData();
                 btnCancel.Enabled = false;
                 gridControl2.DataSource = null;
+                LoadDataLimit("KIR");
                 lTotalPay.Text = "0";
                 lTotalPayment.Text = "0";
             }
@@ -190,7 +183,7 @@ namespace Clinic
                 gridControl1.Visible = true;
                 gridControl4.Visible = false;
                 LoadData();
-                LoadDataLimit();
+                LoadDataLimit("RJ");
                 btnCancel.Enabled = false;
                 gridControl2.DataSource = null;
                 lTotalPay.Text = "0";
@@ -584,6 +577,8 @@ namespace Clinic
                 simpleButton2.Enabled = false;
             }  
             cktransfer();
+            tlimit = "KIR";
+            LoadDataLimit(tlimit);
         }
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
@@ -1009,7 +1004,7 @@ namespace Clinic
             else
                 simpleButton2.Enabled = false;
 
-            LoadDataLimit();
+            LoadDataLimit("RJ");
             cktransfer();
 
             }
@@ -1018,7 +1013,14 @@ namespace Clinic
                 return;
             }
         }
-
+        private void PrescriptionList_Load(object sender, EventArgs e)
+        {
+            initData();
+            //LoadData();
+            LoadDataLimit("RJ");
+            ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "BillList");
+            SoftBlink(labelControl6, Color.LightPink, Color.Red, 1600, false);
+        }
         private void txt_cover_EditValueChanged(object sender, EventArgs e)
         {
             decimal p_cvr = 0, p_sisa = 0, p_paying = 0 ;
@@ -1167,11 +1169,11 @@ namespace Clinic
             }
         }
 
-        private void LoadDataLimit()
+        private void LoadDataLimit(string tlimitna)
         {
             string SQL = "", limit = "", s_head= "", s_pasno="", s_rmno="", s_date="", s_que;
 
-            if (gridView1.RowCount > 0)
+            if (gridView1.RowCount > 0 && tlimitna.ToString().Equals("RJ"))
             {
                 s_head = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
                 s_pasno = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
@@ -1180,7 +1182,11 @@ namespace Clinic
                 s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[3]).ToString();
                 idvisit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[20]).ToString();
             }
-            else
+            else if (gridView4.RowCount > 0 && tlimitna.ToString().Equals("KIR"))
+            {
+                s_head = gridView4.GetRowCellValue(gridView4.FocusedRowHandle, gridView4.Columns[0]).ToString();
+            }
+            else 
             {
                 return;
             }
@@ -1201,8 +1207,10 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "from KLINIK.cs_receipt a ";
             SQL = SQL + Environment.NewLine + "join KLINIK.cs_medicine b on (a.med_cd=b.med_cd) ";
             SQL = SQL + Environment.NewLine + "where 1=1   ";
-            if(!idvisit.ToString().Equals("") && !idvisit.ToString().Equals("0"))
+            if(!idvisit.ToString().Equals("") && !idvisit.ToString().Equals("0") && tlimitna.ToString().Equals("RJ"))
                 SQL = SQL + Environment.NewLine + "  and id_visit = " + idvisit + "  ";
+            if (gridView4.RowCount > 0 && tlimitna.ToString().Equals("KIR"))
+                SQL = SQL + Environment.NewLine + "  and a.ATT3_RECIEPT =  " + s_head + "  ";
             SQL = SQL + Environment.NewLine + "  and confirm='N' ";
             //SQL = SQL + Environment.NewLine + "union ";
             //SQL = SQL + Environment.NewLine + "select 'TRG02' grp, 'nama kamar' nm, sysdate-(sysdate-3) cnt_day,  ";
@@ -2086,6 +2094,12 @@ namespace Clinic
 
                 p_kirid = gridView4.GetRowCellValue(gridView4.FocusedRowHandle, gridView4.Columns[0]).ToString();
                 p_class = gridView4.GetRowCellValue(gridView4.FocusedRowHandle, gridView4.Columns[5]).ToString();
+
+                if (gridView3.RowCount > 0)
+                {
+                    MessageBox.Show("Obat belum dikonfirmasi. Silahkan menghubungi bagian Farmasi.");
+                    return;
+                }
 
                 string sql_update = " ";
 

@@ -353,23 +353,25 @@ namespace Clinic
             sql_search = " "; 
             sql_search = sql_search + Environment.NewLine + " select que01, patient_no, initcap(name)  NAME, gender, age, blood_type, type_patient, status, visit_date, type_mr, ";
             sql_search = sql_search + Environment.NewLine + " (select max(rm_no) from KLINIK.cs_patient where status='A' and patient_no=aa.patient_no) as rm_no, work_accident, vdate,ID_VISIT, POLI_CD ,  decode(type_patient,'B','BPJS','A','Asuransi','Umum') ctype";
-            sql_search = sql_search + Environment.NewLine + "   from (  ";
-            sql_search = sql_search + Environment.NewLine + "          select que01, a.patient_no, b.name, gender,  ";
-            sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-b.birth_date)/30)/12) age,  ";
-            sql_search = sql_search + Environment.NewLine + "                 b.GOL_DARAH blood_type, type_patient, case when a.status='NUR' then 'First Inspection'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='INS' then 'Inspection'  ";
-            //sql_search = sql_search + Environment.NewLine + "when a.status='OBS' then 'Observation'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='MED' then 'Medicine'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='PAY' then 'Payment'  ";
-            sql_search = sql_search + Environment.NewLine + "                 when a.status='CLS' then 'Completed' end status,  ";
-            sql_search = sql_search + Environment.NewLine + "                      to_char(visit_date,'yyyy-mm-dd') as visit_date,  ";
-            sql_search = sql_search + Environment.NewLine + "                case when a.poli_cd = 'POL0002' then 'PREG'   ";
-            sql_search = sql_search + Environment.NewLine + "           when a.poli_cd = 'POL0003' then 'FAMP' else 'COMM' end as type_mr, work_accident,  ";
-            sql_search = sql_search + Environment.NewLine + "                visit_date as vdate, a.ID_VISIT, a.POLI_CD  ";
-            sql_search = sql_search + Environment.NewLine + "           from KLINIK.cs_visit a  ";
-            sql_search = sql_search + Environment.NewLine + "                join KLINIK.cs_patient_info b on a.patient_no = b.patient_no  ";
+            sql_search = sql_search + Environment.NewLine + "   from (  "; 
+            sql_search = sql_search + Environment.NewLine + "          select que01, a.patient_no, b.name, gender,   ";
+            sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-b.birth_date)/30)/12) age,   ";
+            sql_search = sql_search + Environment.NewLine + "                 b.GOL_DARAH blood_type, type_patient, case when a.status='NUR' then 'First Inspection'   ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='INS' then 'Inspection'   ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='MED' then 'Medicine'   ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='PAY' then 'Payment'   ";
+            sql_search = sql_search + Environment.NewLine + "                 when a.status='CLS' then 'Completed' end status,    ";
+            sql_search = sql_search + Environment.NewLine + "                      to_char(A.visit_date,'yyyy-mm-dd') as visit_date,    ";
+            sql_search = sql_search + Environment.NewLine + "                case when a.poli_cd = 'POL0002' then 'PREG'     ";
+            sql_search = sql_search + Environment.NewLine + "           when a.poli_cd = 'POL0003' then 'FAMP' else 'COMM' end as type_mr, work_accident,    ";
+            sql_search = sql_search + Environment.NewLine + "                A.visit_date as vdate, a.ID_VISIT, a.POLI_CD    ";
+            sql_search = sql_search + Environment.NewLine + "           from KLINIK.cs_visit a    ";
+            sql_search = sql_search + Environment.NewLine + "                join KLINIK.cs_patient_info b on a.patient_no = b.patient_no    ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_head C ON (a.id_visit = c.id_visit)  ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_DETAIL D ON (C.head_id = D.head_id)  ";
+            sql_search = sql_search + Environment.NewLine + "                JOIN KLINIK.cs_treatment_item E ON (D.treat_item_id=E.treat_item_id AND UPPER(TREAT_ITEM_NAME) not LIKE '%USG%')  "; 
             sql_search = sql_search + Environment.NewLine + "          where 1 = 1  ";
-            sql_search = sql_search + Environment.NewLine + "            and to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+            sql_search = sql_search + Environment.NewLine + "            and to_char(a.visit_date,'yyyy-mm-dd')= '" + today + "'  ";
             sql_search = sql_search + Environment.NewLine + "            and a.poli_cd in ('POL0002','POL0003') ";
             sql_search = sql_search + Environment.NewLine + "            and purpose = 'MID'  ";
 
@@ -1012,55 +1014,59 @@ namespace Clinic
             //gldiag.NullText = "";
             //gridView4.Columns[2].ColumnEdit = gldiag;
 
-            LookDiagnosaGrid.DataSource = listDiagnosa;
-            LookDiagnosaGrid.ValueMember = "diagnosaCode";
-            LookDiagnosaGrid.DisplayMember = "diagnosaName";
-            //LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            var gridView = LookDiagnosaGrid.View;
-            gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
-            gridView.OptionsCustomization.AllowSort = true;
+            ConnOra.LookUpGridFilter(listDiagnosa, gridView4, "diagnosaCode", "diagnosaName", LookDiagnosaGrid, 2);
+            LookDiagnosaGrid.ImmediatePopup = false;
+            LookDiagnosaGrid.PopupFilterMode = PopupFilterMode.Contains;
 
-            foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
-            {
-                column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            }
-            if (gridView.Columns["diagnosaCode"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaCode",
-                    Caption = "diagnosaCode",
-                    Visible = true
-                });
-            }
-            if (gridView.Columns["diagnosaName"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaName",
-                    Caption = "diagnosaName",
-                    Visible = true
-                });
-            }
-            gridView.OptionsView.ColumnAutoWidth = false;
-            gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
-            gridView.Columns["diagnosaName"].Width = 530;
-            gridView.RowHeight = 27;
-            gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
-            gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
-            gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.DataSource = listDiagnosa;
+            //LookDiagnosaGrid.ValueMember = "diagnosaCode";
+            //LookDiagnosaGrid.DisplayMember = "diagnosaName";
+            ////LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //var gridView = LookDiagnosaGrid.View;
+            //gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
+            //gridView.OptionsCustomization.AllowSort = true;
 
-            LookDiagnosaGrid.PopupFormWidth = 700;
-            LookDiagnosaGrid.ImmediatePopup = true;
-            LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.Appearance.Options.UseFont = true;
-            // Mengatur ukuran font pada dropdown
-            LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+            //foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
+            //{
+            //    column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            //}
+            //if (gridView.Columns["diagnosaCode"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaCode",
+            //        Caption = "diagnosaCode",
+            //        Visible = true
+            //    });
+            //}
+            //if (gridView.Columns["diagnosaName"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaName",
+            //        Caption = "diagnosaName",
+            //        Visible = true
+            //    });
+            //}
+            //gridView.OptionsView.ColumnAutoWidth = false;
+            //gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
+            //gridView.Columns["diagnosaName"].Width = 530;
+            //gridView.RowHeight = 27;
+            //gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
+            //gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
+            //gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
 
-            LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            LookDiagnosaGrid.NullText = "";
-            gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
+            //LookDiagnosaGrid.PopupFormWidth = 700;
+            //LookDiagnosaGrid.ImmediatePopup = true;
+            //LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.Appearance.Options.UseFont = true;
+            //// Mengatur ukuran font pada dropdown
+            //LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+
+            //LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //LookDiagnosaGrid.NullText = "";
+            //gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
 
             RepositoryItemLookUpEdit diagnosaTypeLookup = new RepositoryItemLookUpEdit();
             diagnosaTypeLookup.DataSource = listDiagnosaType;
@@ -6153,9 +6159,9 @@ namespace Clinic
             sql_close = "";
 
             sql_close = sql_close + " update cs_visit" +
-                                    " set status = 'CLS', ";
+                                    " set  VISIT_REMARK ='NONE MEDICINE',";
             sql_close = sql_close + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "'";
+            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "' and id_visit  = '" + idvisit + "' ";
 
             try
             {
@@ -6167,7 +6173,7 @@ namespace Clinic
                 cm.Dispose();
 
                 //MessageBox.Show("Query Exec : " + sql_update);
-                LoadDataPasien();
+                //LoadDataPasien();
                 //MessageBox.Show("Data Berhasil diupdate");
                 labelControl221.Visible = true;
                 labelControl221.Text = "Save Success";
@@ -7316,7 +7322,7 @@ namespace Clinic
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type = "", s_name = "", q_no2 = "", sql_="", sql_diag="", diag_cnt ="";
+            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type = "", s_name = "", q_no2 = "", age="", sql_ ="", sql_diag="", diag_cnt ="";
             int stsimpan = 0;
 
 
@@ -7324,6 +7330,7 @@ namespace Clinic
             p_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             gnder = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[3]).ToString();
             s_name = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[2]).ToString();
+            age = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[4]).ToString();
             policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
             //pasienno = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
 
@@ -7351,9 +7358,9 @@ namespace Clinic
                     return;
                 }
 
-                sql_ = "";
-                sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                ConnOra.ExeNonQuery(sql_);
+                //sql_ = "";
+                //sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                //ConnOra.ExeNonQuery(sql_);
 
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
@@ -7375,45 +7382,81 @@ namespace Clinic
 
                 if (rm_type.ToString().Equals("MID") && !q_no2.ToString().Equals("N"))
                 {
-                    if (gnder.ToString().Equals("P"))
+                    if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
                     {
-                        p1 = "Ibu ";
+                        p1 = " Saudari  ";
                     }
-                    else
+                    else if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 30)
                     {
-                        p1 = "Bapak ";
+                        p1 = " Nyonya  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                    {
+                        p1 = " Saudara  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 30)
+                    {
+                        p1 = " Tuan  ";
                     }
 
-                    p2 = s_name;
+                    if (Convert.ToInt32(age) < 13)
+                    {
+                        p1 = " Anak  ";
+                    }
+
+
+                    p2 = s_name + " ";
 
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " silahkan menuju ke Farmasi";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "'  WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
+                    ORADB.Execute(ORADB.XE, sql_all);
+
+                    sql_all = "";
+                    sql_all = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                     ORADB.Execute(ORADB.XE, sql_all);
 
                     stsimpan = 1;
                 }
                 else if (rm_type.ToString().Equals("MID") && q_no2.ToString().Equals("N"))
                 {
-                    if (gnder.ToString().Equals("P"))
+                    if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
                     {
-                        p1 = "Ibu ";
+                        p1 = " Saudari  ";
                     }
-                    else
+                    else if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 30)
                     {
-                        p1 = "Bapak ";
+                        p1 = " Nyonya  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                    {
+                        p1 = " Saudara  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 30)
+                    {
+                        p1 = " Tuan  ";
                     }
 
-                    p2 = s_name;
+                    if (Convert.ToInt32(age) < 13)
+                    {
+                        p1 = " Anak  ";
+                    }
+
+                    p2 = s_name + " ";
 
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " silahkan menuju ke Kasir";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE  ID_VISIT =" + idvisit + "  ";
 
                     ORADB.Execute(ORADB.XE, sql_all);
+
+                    sql_all = "";
+                    sql_all = " update KLINIK.cs_visit set status = 'PAY', TIME_END=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where  ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    ORADB.Execute(ORADB.XE, sql_all);
+
                     stsimpan = 1;
                 }
                 else

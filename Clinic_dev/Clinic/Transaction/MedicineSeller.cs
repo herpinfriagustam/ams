@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Data.OleDb;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
 
 namespace Clinic
 {
@@ -19,7 +20,8 @@ namespace Clinic
         ConnectDb ConnOra = new ConnectDb();
         List<FlagYn> diagnosaStatus = new List<FlagYn>();
         List<FlagYn> gender = new List<FlagYn>();
-        List<Medicine> listMedicine = new List<Medicine>();
+        //List<Medicine> listMedicine = new List<Medicine>();
+        List<MedGroup> listMedicine = new List<MedGroup>();
         DataTable dtGlMed = new DataTable();
         List<Layanan> listLaya2 = new List<Layanan>();
         List<Formula2> listFormula2 = new List<Formula2>();
@@ -33,11 +35,21 @@ namespace Clinic
         string type = "", sdate = "", edate = "";
         RepositoryItemLookUpEdit LookType = new RepositoryItemLookUpEdit();
         RepositoryItemLookUpEdit LookLynan = new RepositoryItemLookUpEdit();
+        RepositoryItemGridLookUpEdit LokObatGrid = new RepositoryItemGridLookUpEdit();
         //string today = "2019-11-27";
 
         public MedicineSeller()
         {
             InitializeComponent();
+
+            foreach (GridColumn column in gvJualObat.Columns)
+            {
+                if (Type.GetTypeCode(column.ColumnType) == TypeCode.DateTime)
+                {
+                    column.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                    column.DisplayFormat.FormatString = @"yyyy-MM-dd";
+                }
+            }
         }
 
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -89,13 +101,22 @@ namespace Clinic
             }
 
             dtGlMed.Clear();
-            string sql_med = " select distinct b.med_cd, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and BPJS_COVER ='N'  and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC') AND RACIKAN ='N' order by med_name ";
-            DataTable dt3 = ConnOra.Data_Table_ora(sql_med); 
+            //string sql_med = " select distinct b.med_cd, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and MINUS_STOK ='Y' AND RACIKAN ='N' order by med_name ";
+
+            string Sql = "";
+            Sql = Sql + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name)||' ['||a.formula||'] - '|| decode(a.poli_cd,'POL0001','UMUM','OTC')  Nama_Obat    ";
+            Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a right join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+            Sql = Sql + Environment.NewLine + "    and b.status = 'A'   "; 
+            Sql = Sql + Environment.NewLine + "     and a.RACIKAN = 'N' ";
+            Sql = Sql + Environment.NewLine + "     and a.poli_cd in ('POL0001','OTC') ";
+            Sql = Sql + Environment.NewLine + "     and (a.med_cd,a.att1) not in ( select med_cd,'BPJS' from cs_formula where att1 ='UMUM' union all select med_cd,'ASURANSI' from cs_formula where att1 ='UMUM' ) ";
+
+            DataTable dt3 = ConnOra.Data_Table_ora(Sql); 
             dtGlMed = dt3; 
             listMedicine.Clear();
             for (int i = 0; i < dt3.Rows.Count; i++)
             {
-                listMedicine.Add(new Medicine() { medicineCode = dt3.Rows[i]["med_cd"].ToString(), medicineName = dt3.Rows[i]["med_name"].ToString() });
+                listMedicine.Add(new MedGroup() { Kategori = dt3.Rows[i]["Kategori"].ToString(), Kode_Obat = dt3.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dt3.Rows[i]["Nama_Obat"].ToString() });
             }
         }
 
@@ -109,13 +130,13 @@ namespace Clinic
         {
             string sql_search, stat = "";
             sql_search = "";
-            sql_search = sql_search + Environment.NewLine + "select 'S' action, kir_id, regis_date regis_date, ";
+            sql_search = sql_search + Environment.NewLine + "select 'S' action, kir_id, to_date(to_char(regis_date,'yyyy-MM-dd'),'yyyy-MM-dd') regis_date, ";
             sql_search = sql_search + Environment.NewLine + "nid, name, gender, birth_place, birth_date  birth_date, ";
             sql_search = sql_search + Environment.NewLine + "addrs, jobs, purpose, height, weight, blood_press, d_now, d_his, eye_status, ";
             sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Harga, f_type, decode(STAT_PAY,'X','Closed',STAT_PAY) STAT_PAY ";
             sql_search = sql_search + Environment.NewLine + "from cs_kir ";
             sql_search = sql_search + Environment.NewLine + "where 1=1 AND f_type IN ('MED') ";
-            sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-mm-dd') and to_date('" + dDateEnd.Text + "','yyyy-mm-dd') ";
+            sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-MM-dd') and to_date('" + dDateEnd.Text + "','yyyy-MM-dd') ";
             sql_search = sql_search + Environment.NewLine + "order by regis_date, name ";
              
             try
@@ -263,7 +284,7 @@ namespace Clinic
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  JOIN KLINIK.CS_KIR c on(a.ATT3_RECIEPT =  c.KIR_ID) " +
                            " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and RACIKAN ='N'  and BPJS_COVER ='N'  " + 
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and RACIKAN ='N'    " + 
                            " and c.KIR_ID = '" + kir_id + "' ";
 
             dtObat = ConnOra.Data_Table_ora(sql_med_load);
@@ -274,7 +295,8 @@ namespace Clinic
             gvObatJual.OptionsView.ColumnAutoWidth = true;
             gvObatJual.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
             gvObatJual.Appearance.HeaderPanel.FontSizeDelta = 0;
-            gvObatJual.IndicatorWidth = 30;
+            gvObatJual.IndicatorWidth = 35;
+            gvObatJual.RowHeight = 30;
             gvObatJual.BestFitColumns();
 
             gvObatJual.Columns[6].OptionsColumn.ReadOnly = true;
@@ -289,17 +311,19 @@ namespace Clinic
                 listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
             }
 
-            RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
-            glmed.DataSource = listMedicine;
-            glmed.ValueMember = "medicineCode";
-            glmed.DisplayMember = "medicineName";
+            //RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
+            //glmed.DataSource = listMedicine;
+            //glmed.ValueMember = "medicineCode";
+            //glmed.DisplayMember = "medicineName";
 
-            glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmed.ImmediatePopup = true;
-            glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmed.NullText = "";
-            gvObatJual.Columns[1].ColumnEdit = glmed;
+            //glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmed.ImmediatePopup = true;
+            //glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmed.NullText = "";
+            //gvObatJual.Columns[1].ColumnEdit = glmed;
+
+            ConnOra.LookUpGroupGridFilter(listMedicine, gvObatJual, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGrid, 1);
 
             RepositoryItemGridLookUpEdit glfor = new RepositoryItemGridLookUpEdit();
             glfor.DataSource = listFormula2;
@@ -538,7 +562,7 @@ namespace Clinic
         private void gvObatJual_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView view = sender as GridView; 
-            view.SetRowCellValue(e.RowHandle, view.Columns["ACTION"], "I");
+            view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
         }
 
         private void btnMedSave_Click(object sender, EventArgs e)
@@ -680,7 +704,7 @@ namespace Clinic
                 med_stok = dt.Rows[0]["stock"].ToString();
                 med_uom = dt.Rows[0]["uom"].ToString();
 
-                sql_for = " select  min(formula_id) formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and BPJS_COVER ='N' and RACIKAN ='N' and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC')  and  b.med_cd = '" + med_cd + "'   group by  initcap(formula) , initcap(b.med_name) ";
+                sql_for = " select  min(formula_id) formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1   and RACIKAN ='N' and MINUS_STOK ='Y' and MED_GROUP in('OBAT','OTC')  and  b.med_cd = '" + med_cd + "'   group by  initcap(formula) , initcap(b.med_name) ";
                 DataTable dtf = ConnOra.Data_Table_ora(sql_for); 
                 
                 listFormula2.Clear();
@@ -706,7 +730,7 @@ namespace Clinic
                     view.SetRowCellValue(e.RowHandle, view.Columns[2], med_group);
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
                     view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
                     view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
                 }
                 else
@@ -714,7 +738,7 @@ namespace Clinic
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "U"); 
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
                     view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok); 
-                    view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
                     view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
                 }
                 view.Columns[6].OptionsColumn.ReadOnly = true;

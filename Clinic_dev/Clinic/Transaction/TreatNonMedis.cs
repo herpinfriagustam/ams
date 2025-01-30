@@ -121,7 +121,11 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "addrs, jobs, purpose, height, weight, blood_press, d_now, d_his, eye_status, ";
             sql_search = sql_search + Environment.NewLine + "ID_ITEM_LAYANAN Layanan, f_type, decode(STAT_PAY,'Y','Closed','Belum Bayar') STAT_PAY ";
             sql_search = sql_search + Environment.NewLine + "from cs_kir a, cs_treatment_item b ";
-            sql_search = sql_search + Environment.NewLine + "where 1=1 and STAT_PAY <> 'X' AND f_type IN ('KIR','MCU') and a.ID_ITEM_LAYANAN = b.treat_item_id  ";
+            sql_search = sql_search + Environment.NewLine + "where 1=1 and STAT_PAY <> 'X' and a.ID_ITEM_LAYANAN = b.treat_item_id  ";
+            if(radKIR.Checked)
+                sql_search = sql_search + Environment.NewLine + "  AND f_type ='KIR'  ";
+            else
+                sql_search = sql_search + Environment.NewLine + "  AND f_type ='MCU'  ";
             sql_search = sql_search + Environment.NewLine + "and trunc(regis_date) between to_date('" + dDateBgn.Text + "','yyyy-mm-dd') and to_date('" + dDateEnd.Text + "','yyyy-mm-dd') ";
             sql_search = sql_search + Environment.NewLine + "order by regis_date, name ";
 
@@ -222,7 +226,11 @@ namespace Clinic
                 SQL = SQL + Environment.NewLine + "select treat_item_id, initcap(treat_item_name) || ' : ' || to_char(treat_item_price) treat_item_name ";
                 SQL = SQL + Environment.NewLine + "from cs_treatment_item ";
                 SQL = SQL + Environment.NewLine + "where 1=1 ";
-                SQL = SQL + Environment.NewLine + "and treat_group_id in ('TRG13','TRG03')  and TREAT_TYPE_ID = 'TRT01' ";
+                if (radKIR.Checked)
+                    SQL = SQL + Environment.NewLine + "and treat_group_id ='TRG13'  ";
+                else
+                    SQL = SQL + Environment.NewLine + "and treat_group_id = 'TRG03' ";
+                SQL = SQL + Environment.NewLine + "  and TREAT_TYPE_ID = 'TRT01' order by 2";
 
                 OleDbConnection oraConnectly = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraly = new OleDbDataAdapter(SQL, oraConnectly);
@@ -470,7 +478,7 @@ namespace Clinic
 
         private void radMCU_CheckedChanged(object sender, EventArgs e)
         {
-            loadData();
+            //loadData();
         }
 
         private void radKIR_CheckedChanged(object sender, EventArgs e)

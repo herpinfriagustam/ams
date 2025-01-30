@@ -31,10 +31,11 @@ namespace Clinic
         List<Diagnosa> listDiagnosa = new List<Diagnosa>();
         List<DiagnosaType> listDiagnosaType = new List<DiagnosaType>();
         List<Room> listRoom = new List<Room>();
-        List<Medicine> listMedicine = new List<Medicine>();
+        List<Medicine> listMedicine = new List<Medicine>(); List<Medicine> listMedicineU = new List<Medicine>(); List<Medicine> listMedicineRacik = new List<Medicine>();
         List<MedicineInfo> listMedicineInfo = new List<MedicineInfo>();
+
         List<Stat> listHours = new List<Stat>();
-        List<Formula> listFormula = new List<Formula>();
+        List<Formula> listFormula = new List<Formula>(); List<Formula2> listFormulaU = new List<Formula2>();
         List<Formula2> listFormula2 = new List<Formula2>();
         List<Stat> listLayanan = new List<Stat>();
         List<Stat> listGrpLaya = new List<Stat>();
@@ -42,6 +43,7 @@ namespace Clinic
         List<Layanan> listLaya2 = new List<Layanan>();
         List<Layanan> listLaya3 = new List<Layanan>();
         List<Dosis> listDosis = new List<Dosis>();
+        List<Racik> listRacik = new List<Racik>();
 
         DataSet dsRujukan = new DataSet();
         DataSet dsRekomendasi = new DataSet();
@@ -49,12 +51,29 @@ namespace Clinic
         DataSet dsMRUmum = new DataSet();
         DataSet dsAction = new DataSet();
         DataTable dtGlDiag = new DataTable();
-        DataTable dtGlMed = new DataTable();
+        DataTable dtGlMed = new DataTable(); DataTable dtGlMedU = new DataTable(); DataTable dtGlMedRacik = new DataTable();
 
-        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "";
+        RepositoryItemLookUpEdit medicineInfoLookup = new RepositoryItemLookUpEdit();
+        RepositoryItemLookUpEdit dosisLookup = new RepositoryItemLookUpEdit();
+        RepositoryItemLookUpEdit racikLookup = new RepositoryItemLookUpEdit();
+        RepositoryItemLookUpEdit LookDiagnosa = new RepositoryItemLookUpEdit();
+        RepositoryItemGridLookUpEdit LookDiagnosaGrid = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit LokObatGrid = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit LokObatGridU = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit LokObatGridR = new RepositoryItemGridLookUpEdit();
+
+        List<MedGroup> lMedicine = new List<MedGroup>(); List<MedGroup> lMedicineP = new List<MedGroup>();
+        List<MedGroup> lMedicineU = new List<MedGroup>(); List<MedGroup> lMedicineRacik = new List<MedGroup>();
+
+        RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit glmedRacik = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit glfor = new RepositoryItemGridLookUpEdit();
+         
+
+        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "", p_statuscls = "";
         string tmp_now = "", tmp_old = "", tmp_fam = "", tmp_fisik = "", tmp_add = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
-        string pub_nama = ""; string idvisit = "";
+        string pub_nama = ""; string idvisit = "", s_stat = "";
         //string today = "2019-11-27";
         string sql = "";
         int timer = 0, timer2 = 0, cek_interval = 180;
@@ -114,7 +133,7 @@ namespace Clinic
             comboBox1.SelectedIndex = 1;
 
             dtGlDiag.Clear();
-            string sql_poli = " select item_cd, initcap(item_name) item_name from KLINIK.cs_diagnosa_item where status = 'A' and CAT_ID ='CAT030'  and item_cd ='Z34' order by item_name ";
+            string sql_poli = " select item_cd, initcap(item_name) item_name from KLINIK.cs_diagnosa_item where status = 'A'  order by item_name ";
             OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql = new OleDbDataAdapter(sql_poli, sqlConnect);
             DataTable dt = new DataTable();
@@ -557,8 +576,7 @@ namespace Clinic
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
             try
-            {
-
+            { 
            
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
@@ -871,7 +889,7 @@ namespace Clinic
                        " join KLINIK.cs_diagnosa_category c on b.cat_id = c.cat_id " +
                        " where a.rm_no = '" + s_rm + "'  " +
                        " and to_char(a.insp_date,'yyyy-mm-dd') = '" + s_date + "'  " +
-                       " and a.visit_no = '" + s_que + "' AND c.cat_id = 'CAT030' " +
+                       " and a.visit_no = '" + s_que + "'  " +
                        " order by type_diagnosa ";
 
             OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
@@ -910,17 +928,21 @@ namespace Clinic
             //diagnosaLookup.NullText = "";
             //gridView4.Columns[2].ColumnEdit = diagnosaLookup;
 
-            RepositoryItemGridLookUpEdit gldiag = new RepositoryItemGridLookUpEdit();
-            gldiag.DataSource = listDiagnosa;
-            gldiag.ValueMember = "diagnosaCode";
-            gldiag.DisplayMember = "diagnosaName";
+            ConnOra.LookUpGridFilter(listDiagnosa, gridView4, "diagnosaCode", "diagnosaName", LookDiagnosaGrid, 2);
+            LookDiagnosaGrid.ImmediatePopup = false;
+            LookDiagnosaGrid.PopupFilterMode = PopupFilterMode.Contains;
 
-            gldiag.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            gldiag.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            gldiag.ImmediatePopup = true;
-            gldiag.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            gldiag.NullText = "";
-            gridView4.Columns[2].ColumnEdit = gldiag;
+            //RepositoryItemGridLookUpEdit gldiag = new RepositoryItemGridLookUpEdit();
+            //gldiag.DataSource = listDiagnosa;
+            //gldiag.ValueMember = "diagnosaCode";
+            //gldiag.DisplayMember = "diagnosaName";
+
+            //gldiag.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //gldiag.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //gldiag.ImmediatePopup = true;
+            //gldiag.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //gldiag.NullText = "";
+            //gridView4.Columns[2].ColumnEdit = gldiag;
 
             RepositoryItemLookUpEdit diagnosaTypeLookup = new RepositoryItemLookUpEdit();
             diagnosaTypeLookup.DataSource = listDiagnosaType;
@@ -1338,7 +1360,7 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_diagnosa (diagnosa_id, rm_no, insp_date, item_cd, type_diagnosa, remark, visit_no, ins_date, ins_emp,ANAMNESA_ID) values(cs_diagnosa_seq.nextval, '" + rm_no + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + diagnosa + "', '" + tipe + "', '" + remark + "', '" + que + "', sysdate, '" + DB.vUserId + "', " + v_anamnesa +") ";
+                                command.CommandText = " insert into KLINIK.cs_diagnosa (diagnosa_id, rm_no, insp_date, item_cd, type_diagnosa, remark, visit_no, ins_date, ins_emp,ANAMNESA_ID) values(cs_diagnosa_seq.nextval, '" + rm_no + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + diagnosa + "', '" + tipe + "', '" + remark + "', '" + que + "', sysdate, 'Bayu', " + v_anamnesa +") ";
                                 command.ExecuteNonQuery();
 
                                 //command.CommandText = " update cs_visit set status = 'NUR', time_reservation=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where empid = '" + nik + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
@@ -2521,17 +2543,14 @@ namespace Clinic
 
         }
 
-        private void LoadDataResep()
+        private void LoadDataResepUmum()
         {
-            string sql_med_load = "", s_rm="", s_date="", s_que="", sstatus ="", spoli="";
+            string sql_med_load = "", s_rm = "", s_date = "", s_que = "", sstatus = "", spoli = "", sql_racik = "", sql_racik2 = "";
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
-            if (chOUmum.Checked)
-                sstatus = lstsobat.Text;
-            else
-                sstatus = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+            sstatus = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
             spoli = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
 
             sql_med_load = " select a.receipt_id, a.med_cd, b.med_group, a.med_cd, A.formula, type_drink,  " +
@@ -2541,11 +2560,11 @@ namespace Clinic
                            " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  " +
-                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  " +
-                           " and rm_no = '" + s_rm + "'  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
-                           " and visit_no = '" + s_que + "' ";
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null" +
+                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and d.racikan ='N'  " +
+                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_med_load, oraConnect2);
@@ -2584,8 +2603,8 @@ namespace Clinic
 
             gridView6.Columns[4].MinWidth = 80;
             gridView6.Columns[4].MaxWidth = 80;
-            gridView6.Columns[5].MinWidth = 120;
-            gridView6.Columns[5].MaxWidth = 120;
+            gridView6.Columns[5].MinWidth = 150;
+            gridView6.Columns[5].MaxWidth = 150;
             gridView6.Columns[6].MinWidth = 60;
             gridView6.Columns[6].MaxWidth = 60;
             gridView6.Columns[7].MinWidth = 60;
@@ -2617,6 +2636,7 @@ namespace Clinic
             gridView6.Columns[9].OptionsColumn.ReadOnly = true;
             gridView6.Columns[10].OptionsColumn.ReadOnly = true;
 
+
             //RepositoryItemLookUpEdit medicineLookup = new RepositoryItemLookUpEdit();
             //medicineLookup.DataSource = listMedicine;
             //medicineLookup.ValueMember = "medicineCode";
@@ -2629,10 +2649,36 @@ namespace Clinic
             //medicineLookup.NullText = "";
             //gridView6.Columns[3].ColumnEdit = medicineLookup;
 
+            //DataListObat(s_stat, spoli);
+
+
+            glmed.DataSource = listMedicine;
+            glmed.ValueMember = "medicineCode";
+            glmed.DisplayMember = "medicineName";
+
+            glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            glmed.ImmediatePopup = true;
+            glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            glmed.NullText = "";
+            gridView6.Columns[3].ColumnEdit = glmed;
+            //gvRacik.Columns[3].ColumnEdit = glmed;
+
+            glmedRacik.DataSource = listMedicineRacik;
+            glmedRacik.ValueMember = "medicineCode";
+            glmedRacik.DisplayMember = "medicineName";
+
+            glmedRacik.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            glmedRacik.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            glmedRacik.ImmediatePopup = true;
+            glmedRacik.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            glmedRacik.NullText = "";
+
+
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' ";
-            if(sstatus.ToString().Equals("BPJS"))
-                 sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N'  ";
+            //if(sstatus.ToString().Equals("BPJS"))
+            //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
@@ -2645,23 +2691,6 @@ namespace Clinic
                 listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
             }
 
-
-            DataListObat(sstatus, spoli);
-
-
-            RepositoryItemGridLookUpEdit glmed = new RepositoryItemGridLookUpEdit();
-            glmed.DataSource = listMedicine;
-            glmed.ValueMember = "medicineCode";
-            glmed.DisplayMember = "medicineName";
-
-            glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmed.ImmediatePopup = true;
-            glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmed.NullText = "";
-            gridView6.Columns[3].ColumnEdit = glmed;
-
-            RepositoryItemGridLookUpEdit glfor = new RepositoryItemGridLookUpEdit();
             glfor.DataSource = listFormula2;
             glfor.ValueMember = "formulaCode";
             glfor.DisplayMember = "formulaName";
@@ -2672,8 +2701,9 @@ namespace Clinic
             glfor.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             glfor.NullText = "";
             gridView6.Columns[4].ColumnEdit = glfor;
+            //gvRacik.Columns[4].ColumnEdit = glfor;
 
-            RepositoryItemLookUpEdit medicineInfoLookup = new RepositoryItemLookUpEdit();
+
             medicineInfoLookup.DataSource = listMedicineInfo;
             medicineInfoLookup.ValueMember = "medicineInfoCode";
             medicineInfoLookup.DisplayMember = "medicineInfoName";
@@ -2684,13 +2714,21 @@ namespace Clinic
             medicineInfoLookup.AutoSearchColumnIndex = 1;
             medicineInfoLookup.NullText = "";
             gridView6.Columns[5].ColumnEdit = medicineInfoLookup;
+            //gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
 
-            RepositoryItemLookUpEdit dosisLookup = new RepositoryItemLookUpEdit();
+
             dosisLookup.DataSource = listDosis;
             dosisLookup.ValueMember = "DosisCode";
             dosisLookup.DisplayMember = "DosisName";
             dosisLookup.NullText = "";
             gridView6.Columns[14].ColumnEdit = dosisLookup;
+            //gvRacik.Columns[14].ColumnEdit = dosisLookup;
+
+
+            racikLookup.DataSource = listRacik;
+            racikLookup.ValueMember = "RacikCode";
+            racikLookup.DisplayMember = "RacikName";
+            racikLookup.NullText = "";
 
             btnMedAdd.Enabled = true;
             btnNoReceipt.Enabled = true;
@@ -2705,7 +2743,684 @@ namespace Clinic
                 btnMedDel.Enabled = false;
                 btnMedCan.Enabled = true;
             }
+            if (sstatus.ToString().Equals("BPJS"))
+                LoadDataResep2();
+
+            string idracik = "";
+            sql_racik2 = " select distinct a.ATT1_RECIEPT CODE_ID, a.ATT1_RECIEPT RACIKAN, a.DOSIS, type_drink,a.ATT3_RECIEPT jumlah, a.ATT2_RECIEPT REMARK_RACIK, 'S' action  " +
+                          " from KLINIK.cs_receipt a  " +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                          " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
+                          " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
+                          " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and racikan ='Y'  " +
+                          " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
+
+            OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOraR2 = new OleDbDataAdapter(sql_racik2, oraconR2);
+            DataTable dtR2 = new DataTable();
+            adOraR2.Fill(dtR2);
+
+            if (dtR2.Rows.Count > 0)
+            {
+                idracik = dtR2.Rows[0]["CODE_ID"].ToString();
+                LoadResepRacikan(idracik);
+                if (sstatus.ToString().Equals("BPJS"))
+                    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+                else
+                    gvRacik.Columns[3].ColumnEdit = glmed;
+                gvRacik.Columns[4].ColumnEdit = glfor;
+                gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
+                gvRacik.Columns[14].ColumnEdit = dosisLookup;
+            }
+
+
+            gridRacik.DataSource = null;
+            gridHRacik.Columns.Clear();
+            gridRacik.DataSource = dtR2;
+            //gdRacik.DataSource = null;
+            //gvRacik.Columns.Clear();
+            //gdRacik.DataSource = dtR2;
+
+            //gvRacik.OptionsView.ColumnAutoWidth = true;
+            //gvRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            //gvRacik.Appearance.HeaderPanel.FontSizeDelta = 0;
+            //gvRacik.IndicatorWidth = 30;
+            ////gridView17.OptionsBehavior.Editable = true;
+            //gvRacik.BestFitColumns();
+
+            //gvRacik.Columns[0].Caption = "ID";
+            //gvRacik.Columns[1].Caption = "Racikan";
+            //gvRacik.Columns[2].Caption = "Dosis";
+            //gvRacik.Columns[3].Caption = "Info";
+            //gvRacik.Columns[4].Caption = "Jumlah";
+            //gvRacik.Columns[5].Caption = "Remark";
+            //gvRacik.Columns[6].Caption = "Action";
+
+            //gvRacik.Columns[0].Visible = false;
+            //gvRacik.Columns[6].Visible = false;
+
+            //gvRacik.Columns[1].MinWidth = 80;
+            //gvRacik.Columns[1].MaxWidth = 80;
+            //gvRacik.Columns[2].MinWidth = 55;
+            //gvRacik.Columns[2].MaxWidth = 55;
+            //gvRacik.Columns[3].MinWidth = 135;
+            //gvRacik.Columns[3].MaxWidth = 135;
+            //gvRacik.Columns[4].MinWidth = 55;
+            //gvRacik.Columns[4].MaxWidth = 55;
+
+
+            gridHRacik.OptionsView.ColumnAutoWidth = true;
+            gridHRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            gridHRacik.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridHRacik.IndicatorWidth = 30;
+            //gridView17.OptionsBehavior.Editable = true;
+            gridHRacik.BestFitColumns();
+
+            gridHRacik.Columns[0].Caption = "ID";
+            gridHRacik.Columns[1].Caption = "Racikan";
+            gridHRacik.Columns[2].Caption = "Dosis";
+            gridHRacik.Columns[3].Caption = "Info";
+            gridHRacik.Columns[4].Caption = "Jumlah";
+            gridHRacik.Columns[5].Caption = "Remark";
+            gridHRacik.Columns[6].Caption = "Action";
+
+            gridHRacik.Columns[0].Visible = true;
+            gridHRacik.Columns[0].OptionsColumn.AllowEdit = false;
+            gridHRacik.Columns[0].OptionsColumn.ReadOnly = true;
+            gridHRacik.Columns[6].Visible = false;
+
+            gridHRacik.Columns[0].MinWidth = 35;
+            gridHRacik.Columns[0].MaxWidth = 35;
+            gridHRacik.Columns[1].MinWidth = 80;
+            gridHRacik.Columns[1].MaxWidth = 80;
+            gridHRacik.Columns[2].MinWidth = 55;
+            gridHRacik.Columns[2].MaxWidth = 55;
+            gridHRacik.Columns[3].MinWidth = 135;
+            gridHRacik.Columns[3].MaxWidth = 135;
+            gridHRacik.Columns[4].MinWidth = 55;
+            gridHRacik.Columns[4].MaxWidth = 55;
+
+            gridHRacik.Columns[1].ColumnEdit = racikLookup;
+            gridHRacik.Columns[2].ColumnEdit = dosisLookup;
+            gridHRacik.Columns[3].ColumnEdit = medicineInfoLookup;
         }
+
+        private void LoadResepRacikan(string idracikan)
+        {
+            string s_rm = "", s_date = "", s_que = "", sstatus = "", spoli = "";
+
+            s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+            s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+            s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
+            sstatus = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+            spoli = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
+
+            string sql_med = "";
+            sql_med = " select a.receipt_id, a.med_cd, b.med_group, a.med_cd, A.formula, type_drink,  " +
+                           " klinik.FN_CS_INIT_STOCK(a.insp_date,a.med_cd) +  " +
+                           " klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -  " +
+                           " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) - " +
+                           " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
+                           " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
+                           " from KLINIK.cs_receipt a  " +
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null" +
+                           " and rm_no = '" + s_rm + "' and a.GRID_NAME ='gvRacik' " + // and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and racikan ='Y'  " +
+                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + "  and ATT1_RECIEPT = '" + idracikan + "'";
+
+            OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_med, oraConnect2);
+            DataTable dt2 = new DataTable();
+            adOra2.Fill(dt2);
+
+            gdRacik.DataSource = null;
+            gvRacik.Columns.Clear();
+            gdRacik.DataSource = dt2;
+
+            gvRacik.OptionsView.ColumnAutoWidth = true;
+            gvRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            gvRacik.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gvRacik.IndicatorWidth = 30;
+            //gvRacik.OptionsBehavior.Editable = false;
+            gvRacik.BestFitColumns();
+
+            gvRacik.Columns[0].Caption = "ID";
+            gvRacik.Columns[1].Caption = "Kode";
+            gvRacik.Columns[2].Caption = "Group";
+            gvRacik.Columns[3].Caption = "Nama Obat";
+            gvRacik.Columns[4].Caption = "Satuan";
+            gvRacik.Columns[5].Caption = "Info";
+            gvRacik.Columns[6].Caption = "Stok";
+            gvRacik.Columns[7].Caption = "Jumlah";
+            gvRacik.Columns[8].Caption = "Satuan";
+            gvRacik.Columns[9].Caption = "Action";
+            gvRacik.Columns[10].Caption = "Confirm";
+            gvRacik.Columns[11].Caption = "Jml";
+            gvRacik.Columns[12].Caption = "Harga";
+            gvRacik.Columns[13].Caption = "Jumlah per Hari";
+            gvRacik.Columns[14].Caption = "Dosis";
+
+            gvRacik.Columns[3].VisibleIndex = 1;
+            gvRacik.Columns[11].VisibleIndex = 2;
+            gvRacik.Columns[14].VisibleIndex = 3;
+            gvRacik.Columns[4].MinWidth = 80;
+            gvRacik.Columns[4].MaxWidth = 80;
+            gvRacik.Columns[5].MinWidth = 120;
+            gvRacik.Columns[5].MaxWidth = 120;
+            gvRacik.Columns[6].MinWidth = 60;
+            gvRacik.Columns[6].MaxWidth = 60;
+            gvRacik.Columns[7].MinWidth = 60;
+            gvRacik.Columns[7].MaxWidth = 60;
+            gvRacik.Columns[8].MinWidth = 60;
+            gvRacik.Columns[8].MaxWidth = 60;
+            gvRacik.Columns[10].MinWidth = 60;
+            gvRacik.Columns[10].MaxWidth = 60;
+            gvRacik.Columns[11].MinWidth = 60;
+            gvRacik.Columns[11].MaxWidth = 60;
+            gvRacik.Columns[14].MinWidth = 60;
+            gvRacik.Columns[14].MaxWidth = 60;
+
+            //glmed.DataSource = listMedicine;
+            //glmed.ValueMember = "medicineCode";
+            //glmed.DisplayMember = "medicineName";
+
+            //glmed.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmed.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmed.ImmediatePopup = true;
+            //glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmed.NullText = "";
+            //if(sstatus.ToString().Equals("BPJS"))
+            //    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+            //else
+            //    gvRacik.Columns[3].ColumnEdit = glmed;
+
+            ConnOra.LookUpGroupGridFilter(lMedicineRacik, gvRacik, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridR, 3);
+            //gvRacik.Columns[3].ColumnEdit = glmed;
+
+            //string sql_for = "";
+            //sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "') ";
+            ////if(sstatus.ToString().Equals("BPJS"))
+            ////     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
+
+            //OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
+            //OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
+            //DataTable dtf = new DataTable();
+            //adOraf.Fill(dtf);
+            //listFormula.Clear();
+            //listFormula2.Clear();
+            //for (int i = 0; i < dtf.Rows.Count; i++)
+            //{
+            //    listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
+            //}
+
+            //glfor.DataSource = listFormula2;
+            //glfor.ValueMember = "formulaCode";
+            //glfor.DisplayMember = "formulaName";
+
+            //glfor.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glfor.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glfor.ImmediatePopup = true;
+            //glfor.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glfor.NullText = "";
+            gvRacik.Columns[4].ColumnEdit = glfor;
+            //gvRacik.Columns[4].ColumnEdit = glfor;
+
+
+            //medicineInfoLookup.DataSource = listMedicineInfo;
+            //medicineInfoLookup.ValueMember = "medicineInfoCode";
+            //medicineInfoLookup.DisplayMember = "medicineInfoName";
+
+            //medicineInfoLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //medicineInfoLookup.DropDownRows = listMedicineInfo.Count;
+            //medicineInfoLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            //medicineInfoLookup.AutoSearchColumnIndex = 1;
+            //medicineInfoLookup.NullText = "";
+            gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
+            //gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
+
+
+            //dosisLookup.DataSource = listDosis;
+            //dosisLookup.ValueMember = "DosisCode";
+            //dosisLookup.DisplayMember = "DosisName";
+            //dosisLookup.NullText = "";
+            gvRacik.Columns[14].ColumnEdit = dosisLookup;
+
+
+
+            gvRacik.Columns[0].Visible = false;
+            gvRacik.Columns[1].Visible = false;
+            gvRacik.Columns[2].Visible = false; gvRacik.Columns[5].Visible = false;
+            gvRacik.Columns[7].Visible = false;
+            gvRacik.Columns[8].Visible = false;
+            gvRacik.Columns[9].Visible = false;
+            gvRacik.Columns[12].Visible = false;
+            gvRacik.Columns[13].Visible = false; gvRacik.Columns[14].Visible = false;
+            //gvRacik.Columns[10].Visible = false;
+
+            //gvRacik.Columns[3].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[2].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[6].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[7].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[8].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[9].OptionsColumn.ReadOnly = true;
+            gvRacik.Columns[10].OptionsColumn.ReadOnly = true;
+        }
+
+        private void LoadDataResep()
+        {
+            string sql_med_load = "", s_rm="", s_date="", s_que="", sstatus ="", spoli="", sql_racik = "", sql_racik2 = "";
+
+            s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+            s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+            s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString(); 
+            sstatus = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+            spoli = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
+
+            sql_med_load = " select a.receipt_id, a.med_cd, b.med_group, a.med_cd, A.formula, type_drink,  " +
+                          " klinik.FN_CS_INIT_STOCK(a.insp_date,a.med_cd) +  " +
+                          " klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -  " +
+                          " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) - " +
+                          " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
+                          " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis,a.MED_REMARK REMARK	 " +
+                          " from KLINIK.cs_receipt a  " +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                          " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null and a.JENIS_OBAT ='NONE' " +
+                          " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')   and GRID_NAME = 'gridView6' " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='N' " +
+                          " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " order by b.med_name ";
+
+            DataTable dtObatUmum = ConnOra.Data_Table_ora(sql_med_load);
+
+            gridControl6.DataSource = null;
+            gridControl6.DataSource = dtObatUmum;
+
+            gridView6.OptionsView.ColumnAutoWidth = true;
+            gridView6.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            gridView6.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridView6.IndicatorWidth = 33;
+            gridView6.BestFitColumns();
+
+            gridView6.Columns[6].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[10].OptionsColumn.ReadOnly = true;
+             
+            gridView6.Columns[1].VisibleIndex = 1;
+            gridView6.Columns[14].VisibleIndex = 2;
+            gridView6.Columns[7].VisibleIndex = 3;
+            gridView6.Columns[15].VisibleIndex = 4;
+            gridView6.Columns[4].MinWidth = 80;
+            gridView6.Columns[4].MaxWidth = 80;
+            gridView6.Columns[5].MinWidth = 150;
+            gridView6.Columns[5].MaxWidth = 150;
+            //gridView6.Columns[3].MinWidth = 250;
+            //gridView6.Columns[3].MaxWidth = 250;
+            gridView6.Columns[6].MinWidth = 60;
+            gridView6.Columns[6].MaxWidth = 60;
+            gridView6.Columns[7].MinWidth = 60;
+            gridView6.Columns[7].MaxWidth = 60;
+            gridView6.Columns[8].MinWidth = 60;
+            gridView6.Columns[8].MaxWidth = 60;
+            gridView6.Columns[10].MinWidth = 60;
+            gridView6.Columns[10].MaxWidth = 60;
+            gridView6.Columns[11].MinWidth = 60;
+            gridView6.Columns[11].MaxWidth = 60;
+
+            //gridView6.Columns[0].Visible = false;
+            //gridView6.Columns[1].Visible = false;
+            //gridView6.Columns[2].Visible = false;
+            //gridView6.Columns[7].Visible = false;
+            //gridView6.Columns[8].Visible = false;
+            //gridView6.Columns[9].Visible = false;
+            //gridView6.Columns[12].Visible = false;
+            //gridView6.Columns[13].Visible = false;
+            //gridView6.Columns[10].Visible = false;
+
+            //gridView6.Columns[3].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[2].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[6].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[7].OptionsColumn.ReadOnly = false;
+            gridView6.Columns[8].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[9].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[10].OptionsColumn.ReadOnly = true;
+            gridView6.Columns[15].OptionsColumn.ReadOnly = false;
+
+            ConnOra.LookUpGroupGridFilter(lMedicine, gridView6, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGrid, 1);
+
+            //RepositoryItemLookUpEdit medicineLookup = new RepositoryItemLookUpEdit();
+            //medicineLookup.DataSource = listMedicine;
+            //medicineLookup.ValueMember = "medicineCode";
+            //medicineLookup.DisplayMember = "medicineName";
+
+            //medicineLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //medicineLookup.DropDownRows = listMedicine.Count;
+            //medicineLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            //medicineLookup.AutoSearchColumnIndex = 1;
+            //medicineLookup.NullText = "";
+            //gridView6.Columns[3].ColumnEdit = medicineLookup;
+
+            string sql_for = "";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N' ";
+
+            OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
+            DataTable dtf = new DataTable();
+            adOraf.Fill(dtf);
+            listFormula.Clear();
+            listFormula2.Clear();
+            for (int i = 0; i < dtf.Rows.Count; i++)
+            {
+                listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
+            }
+
+
+            glfor.DataSource = listFormula2;
+            glfor.ValueMember = "formulaCode";
+            glfor.DisplayMember = "formulaName";
+
+            glfor.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            glfor.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            glfor.ImmediatePopup = true;
+            glfor.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            glfor.NullText = "";
+            gridView6.Columns[4].ColumnEdit = glfor;
+            //gvRacik.Columns[4].ColumnEdit = glfor;
+
+
+            medicineInfoLookup.DataSource = listMedicineInfo;
+            medicineInfoLookup.ValueMember = "medicineInfoCode";
+            medicineInfoLookup.DisplayMember = "medicineInfoName";
+
+            medicineInfoLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            medicineInfoLookup.DropDownRows = listMedicineInfo.Count;
+            medicineInfoLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            medicineInfoLookup.AutoSearchColumnIndex = 1;
+            medicineInfoLookup.NullText = "";
+            gridView6.Columns[5].ColumnEdit = medicineInfoLookup;
+            //gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
+
+
+            dosisLookup.DataSource = listDosis;
+            dosisLookup.ValueMember = "DosisCode";
+            dosisLookup.DisplayMember = "DosisName";
+            dosisLookup.NullText = "";
+            gridView6.Columns[14].ColumnEdit = dosisLookup;
+            //gvRacik.Columns[14].ColumnEdit = dosisLookup;
+
+
+            racikLookup.DataSource = listRacik;
+            racikLookup.ValueMember = "RacikCode";
+            racikLookup.DisplayMember = "RacikName";
+            racikLookup.NullText = "";
+
+            btnMedAdd.Enabled = true;
+            btnNoReceipt.Enabled = true;
+
+            if (gridView6.RowCount > 0)
+            {
+                btnMedDel.Enabled = true;
+                btnMedCan.Enabled = true;
+            }
+            else
+            {
+                btnMedDel.Enabled = false;
+                btnMedCan.Enabled = true;
+            }
+            if (sstatus.ToString().Equals("BPJS"))
+                LoadDataResep2();
+
+            string idracik = "";
+            sql_racik2 = " select distinct a.ATT1_RECIEPT CODE_ID, a.ATT1_RECIEPT RACIKAN, a.DOSIS, type_drink,a.ATT3_RECIEPT jumlah, a.ATT2_RECIEPT REMARK_RACIK, 'S' action  " +
+                          " from KLINIK.cs_receipt a  " +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                          " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
+                          " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
+                          " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='Y'  " +
+                          " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
+
+            OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOraR2 = new OleDbDataAdapter(sql_racik2, oraconR2);
+            DataTable dtR2 = new DataTable();
+            adOraR2.Fill(dtR2);
+
+            if (dtR2.Rows.Count > 0)
+            {
+                idracik = dtR2.Rows[0]["CODE_ID"].ToString();
+                LoadResepRacikan(idracik); 
+                gvRacik.Columns[4].ColumnEdit = glfor;
+                gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
+                gvRacik.Columns[14].ColumnEdit = dosisLookup; 
+            }
+
+
+            gridRacik.DataSource = null;
+            gridHRacik.Columns.Clear();
+            gridRacik.DataSource = dtR2;
+
+            gdRacik.DataSource = null;
+            gvRacik.Columns.Clear(); 
+
+            gridHRacik.OptionsView.ColumnAutoWidth = true;
+            gridHRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            gridHRacik.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridHRacik.IndicatorWidth = 30;
+            //gridView17.OptionsBehavior.Editable = true;
+            gridHRacik.BestFitColumns();
+
+            gridHRacik.Columns[0].Caption = "ID";
+            gridHRacik.Columns[1].Caption = "Racikan";
+            gridHRacik.Columns[2].Caption = "Dosis";
+            gridHRacik.Columns[3].Caption = "Info";
+            gridHRacik.Columns[4].Caption = "Jumlah";
+            gridHRacik.Columns[5].Caption = "Remark";
+            gridHRacik.Columns[6].Caption = "Action";
+
+            gridHRacik.Columns[0].Visible = true;
+            gridHRacik.Columns[0].OptionsColumn.AllowEdit = false;
+            gridHRacik.Columns[0].OptionsColumn.ReadOnly = true;
+            gridHRacik.Columns[6].Visible = false;
+
+            gridHRacik.Columns[0].MinWidth = 35;
+            gridHRacik.Columns[0].MaxWidth = 35;
+            gridHRacik.Columns[1].MinWidth = 80;
+            gridHRacik.Columns[1].MaxWidth = 80;
+            gridHRacik.Columns[2].MinWidth = 55;
+            gridHRacik.Columns[2].MaxWidth = 55;
+            gridHRacik.Columns[3].MinWidth = 135;
+            gridHRacik.Columns[3].MaxWidth = 135;
+            gridHRacik.Columns[4].MinWidth = 55;
+            gridHRacik.Columns[4].MaxWidth = 55;
+
+            gridHRacik.Columns[1].ColumnEdit = racikLookup;
+            gridHRacik.Columns[2].ColumnEdit = dosisLookup;
+            gridHRacik.Columns[3].ColumnEdit = medicineInfoLookup;
+        }
+
+        private void LoadDataResep2()
+        {
+            string sql_med_load = "", s_rm = "", s_date = "", s_que = "", sstatus = "", spoli = "";
+
+            s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+            s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+            s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
+            sstatus = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+            spoli = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
+
+            sql_med_load = " select a.receipt_id, a.med_cd, b.med_group, a.med_cd, A.formula, type_drink,  " +
+                          " klinik.FN_CS_INIT_STOCK(a.insp_date,a.med_cd) +  " +
+                          " klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -  " +
+                          " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) - " +
+                          " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
+                          " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
+                          " from KLINIK.cs_receipt a  " +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                          " where b.status = 'A'   and D.MINUS_STOK ='Y' AND a.ATT1_RECIEPT IS NULL AND a.JENIS_OBAT = 'NONE' " +
+                          " and rm_no = '" + s_rm + "' and att1 ='UMUM'  and d.racikan ='N' " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "' and GRID_NAME = 'gridView16' " +
+                          " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
+
+            DataTable dtObatUmum2 = ConnOra.Data_Table_ora(sql_med_load);
+
+            gridControl16.DataSource = null;
+            gridControl16.DataSource = dtObatUmum2;
+
+            gridView16.OptionsView.ColumnAutoWidth = true;
+            gridView16.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            gridView16.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridView16.IndicatorWidth = 33;
+            gridView16.BestFitColumns();
+
+            gridView16.Columns[6].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[10].OptionsColumn.ReadOnly = true;
+
+            //gridView6.Columns[15].VisibleIndex = 0;
+            //gridView6.Columns[16].VisibleIndex = 1;
+            gridView16.Columns[1].VisibleIndex = 1;
+            gridView16.Columns[14].VisibleIndex = 2;
+            gridView16.Columns[7].VisibleIndex = 3;
+            gridView16.Columns[15].VisibleIndex = 4;
+
+
+            gridView16.Columns[14].MinWidth = 80;
+            gridView16.Columns[14].MaxWidth = 80;
+            gridView16.Columns[5].MinWidth = 150;
+            gridView16.Columns[5].MaxWidth = 150;
+            gridView16.Columns[3].MinWidth = 350;
+            gridView16.Columns[3].MaxWidth = 350;
+            gridView16.Columns[6].MinWidth = 60;
+            gridView16.Columns[6].MaxWidth = 60;
+            gridView16.Columns[7].MinWidth = 60;
+            gridView16.Columns[7].MaxWidth = 60;
+            gridView16.Columns[8].MinWidth = 60;
+            gridView16.Columns[8].MaxWidth = 60;
+            gridView16.Columns[10].MinWidth = 60;
+            gridView16.Columns[10].MaxWidth = 60;
+            gridView16.Columns[11].MinWidth = 60;
+            gridView16.Columns[11].MaxWidth = 60;
+
+            gridView16.Columns[2].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[6].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[7].OptionsColumn.ReadOnly = false;
+            gridView16.Columns[8].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[9].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[10].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[15].OptionsColumn.ReadOnly = false;
+            gridView16.Columns[15].Visible = false;
+            gridView16.BestFitColumns();
+
+            //gridView16.Columns[0].Caption = "ID";
+            //gridView16.Columns[1].Caption = "Kode";
+            //gridView16.Columns[2].Caption = "Group";
+            //gridView16.Columns[3].Caption = "Nama Obat";
+            //gridView16.Columns[4].Caption = "Kode Dosis";
+            //gridView16.Columns[5].Caption = "Info";
+            //gridView16.Columns[6].Caption = "Stok";
+            //gridView16.Columns[7].Caption = "Jumlah";
+            //gridView16.Columns[8].Caption = "Satuan";
+            //gridView16.Columns[9].Caption = "Action";
+            //gridView16.Columns[10].Caption = "Confirm";
+            //gridView16.Columns[11].Caption = "Jml";
+            //gridView16.Columns[12].Caption = "Harga";
+            //gridView16.Columns[13].Caption = "Jumlah per Hari";
+            //gridView16.Columns[14].Caption = "Dosis";
+
+            //gridView16.Columns[14].VisibleIndex = 5;
+            //gridView16.Columns[11].VisibleIndex = 6;
+
+            //gridView16.Columns[4].MinWidth = 80;
+            //gridView16.Columns[4].MaxWidth = 80;
+            //gridView16.Columns[5].MinWidth = 120;
+            //gridView16.Columns[5].MaxWidth = 120;
+            //gridView16.Columns[6].MinWidth = 60;
+            //gridView16.Columns[6].MaxWidth = 60;
+            //gridView16.Columns[7].MinWidth = 60;
+            //gridView16.Columns[7].MaxWidth = 60;
+            //gridView16.Columns[8].MinWidth = 60;
+            //gridView16.Columns[8].MaxWidth = 60;
+            //gridView16.Columns[10].MinWidth = 60;
+            //gridView16.Columns[10].MaxWidth = 60;
+            //gridView16.Columns[11].MinWidth = 60;
+            //gridView16.Columns[11].MaxWidth = 60;
+            //gridView16.Columns[14].MinWidth = 60;
+            //gridView16.Columns[14].MaxWidth = 60;
+
+            //gridView16.Columns[0].Visible = false;
+            //gridView16.Columns[1].Visible = false;
+            //gridView16.Columns[2].Visible = false;
+            //gridView16.Columns[7].Visible = false;
+            //gridView16.Columns[8].Visible = false;
+            //gridView16.Columns[9].Visible = false;
+            //gridView16.Columns[12].Visible = false;
+            //gridView16.Columns[13].Visible = false; 
+
+            //gridView16.Columns[2].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[6].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[7].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[8].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[9].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[10].OptionsColumn.ReadOnly = true;
+
+            ConnOra.LookUpGroupGridFilter(lMedicineU, gridView16, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridU, 1);
+
+            //RepositoryItemGridLookUpEdit glmedU = new RepositoryItemGridLookUpEdit();
+            //glmedU.DataSource = listMedicineU;
+            //glmedU.ValueMember = "medicineCode";
+            //glmedU.DisplayMember = "medicineName";
+
+            //glmedU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmedU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmedU.ImmediatePopup = true;
+            //glmedU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmedU.NullText = "";
+            //gridView16.Columns[3].ColumnEdit = glmedU; 
+
+            string sql_for = "";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM'  and racikan ='N' ";
+
+            OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
+            DataTable dtf = new DataTable();
+            adOraf.Fill(dtf);
+            listFormulaU.Clear();
+            for (int i = 0; i < dtf.Rows.Count; i++)
+            {
+                listFormulaU.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
+            }
+
+            RepositoryItemGridLookUpEdit glforU = new RepositoryItemGridLookUpEdit();
+            glforU.DataSource = listFormulaU;
+            glforU.ValueMember = "formulaCode";
+            glforU.DisplayMember = "formulaName";
+
+            glforU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            glforU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            glforU.ImmediatePopup = true;
+            glforU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            glforU.NullText = "";
+            gridView16.Columns[4].ColumnEdit = glforU;
+
+            RepositoryItemLookUpEdit medicineInfoLookup = new RepositoryItemLookUpEdit();
+            medicineInfoLookup.DataSource = listMedicineInfo;
+            medicineInfoLookup.ValueMember = "medicineInfoCode";
+            medicineInfoLookup.DisplayMember = "medicineInfoName";
+
+            medicineInfoLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            medicineInfoLookup.DropDownRows = listMedicineInfo.Count;
+            medicineInfoLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            medicineInfoLookup.AutoSearchColumnIndex = 0;
+            medicineInfoLookup.NullText = "";
+            gridView16.Columns[5].ColumnEdit = medicineInfoLookup;
+
+            RepositoryItemLookUpEdit dosisLookup = new RepositoryItemLookUpEdit();
+            dosisLookup.DataSource = listDosis;
+            dosisLookup.ValueMember = "DosisCode";
+            dosisLookup.DisplayMember = "DosisName";
+            dosisLookup.NullText = "";
+            gridView16.Columns[14].ColumnEdit = dosisLookup;
+
+        }
+
         private void DataListObat(string sstatus, string spoli)
         {
             dtGlMed.Clear();
@@ -2728,22 +3443,124 @@ namespace Clinic
                 listMedicine.Add(new Medicine() { medicineCode = dt3.Rows[i]["med_cd"].ToString(), medicineName = dt3.Rows[i]["med_name"].ToString() });
             }
         }
+        private void DataListObatGroup(string sstatus, string spoli)
+        {
+            dtGlMed.Clear();
+            string sql_med = " ", sql_racik = "", sql_medR = "";
+
+            sql_med = "";
+            sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  ";
+            sql_med = sql_med + Environment.NewLine + "  order by a.att2, 3  ";
+
+            OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql3 = new OleDbDataAdapter(sql_med, sqlConnect3);
+            DataTable dt3 = new DataTable();
+            dtGlMed = dt3;
+            adSql3.Fill(dt3);
+            lMedicine.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                lMedicine.Add(new MedGroup() { Kategori = dt3.Rows[i]["Kategori"].ToString(), Kode_Obat = dt3.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dt3.Rows[i]["Nama_Obat"].ToString() });
+            }
+
+            //if (sstatus.ToString().Equals("BPJS"))
+            //{
+            dtGlMedU.Clear();
+            sql_med = "";
+            sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   ";
+            sql_med = sql_med + Environment.NewLine + "  order by a.att2,3  ";
+
+            OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSqlU = new OleDbDataAdapter(sql_med, sqlConnectU);
+            DataTable dtU = new DataTable();
+            dtGlMedU = dtU;
+            adSqlU.Fill(dtU);
+            lMedicineU.Clear();
+            for (int i = 0; i < dtU.Rows.Count; i++)
+            {
+                lMedicineU.Add(new MedGroup() { Kategori = dtU.Rows[i]["Kategori"].ToString(), Kode_Obat = dtU.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtU.Rows[i]["Nama_Obat"].ToString() });
+            }
+
+            //dtGlMedRacik.Clear();
+            //sql_medR = "";
+            //sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+            //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 in('BPJS', 'UMUM','ALL')   ";
+            //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   ";
+            //sql_medR = sql_medR + Environment.NewLine + "  order by med_name  ";
+
+            //Sql = Sql + Environment.NewLine + " select formula_id, initcap(formula) formula, initcap(b.med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name ";
+            //Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1      ";
+            //Sql = Sql + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'    ";
+            //Sql = Sql + Environment.NewLine + "    and POLI_CD ='POL0001'  AND RACIKAN ='Y'   ";
+
+            dtGlMedRacik.Clear();
+            sql_medR = "";
+            sql_medR = sql_medR + Environment.NewLine + " select DISTINCT a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat   ";
+            sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+            sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')    ";
+            sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
+            //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
+            //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+            //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+            //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
+            //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
+            //sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
+            //sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+            //sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
+            //sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
+            //sql_medR = sql_medR + Environment.NewLine + "                        ) ";
+            sql_medR = sql_medR + Environment.NewLine + "  order by a.att2, 3 ";
+
+
+            OleDbConnection sqlConnectR = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSqlR = new OleDbDataAdapter(sql_medR, sqlConnectR);
+            DataTable dtR = new DataTable();
+            dtGlMedRacik = dtR;
+            adSqlR.Fill(dtR);
+            lMedicineRacik.Clear();
+            for (int i = 0; i < dtR.Rows.Count; i++)
+            {
+                lMedicineRacik.Add(new MedGroup() { Kategori = dtR.Rows[i]["Kategori"].ToString(), Kode_Obat = dtR.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtR.Rows[i]["Nama_Obat"].ToString() });
+            }
+            //}
+        }
+
         private void loadResep_Click(object sender, EventArgs e)
         {
             string sql_load = "", sql_resep_luar = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_nik="", p_que2="";
             string p_rp = "", p_pf = "", p_pt = "", p_resep="";
+             
+            if (gridView1.RowCount < 1)
+                return;
+
+            if (idvisit.ToString().Equals(""))
+            {
+                MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
+                return;
+            }
+
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
 
-            sql_load = sql_load + Environment.NewLine + "select a.patient_no, a.name, c.rm_no, to_char(b.visit_date,'yyyy-mm-dd') visit_date, que01, que02,   ";
+            string s_tatus = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[7]);
+            s_stat = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[15]);
+
+            sql_load = sql_load + Environment.NewLine + "select a.patient_no, initcap(a.name) name, c.rm_no, to_char(b.visit_date,'yyyy-mm-dd') visit_date, que01, que02,   ";
             sql_load = sql_load + Environment.NewLine + "(select  'Tensi : ' || blood_press || ', Nadi : ' || pulse ||   ";
             //sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa   ";
             sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', BB : ' || bb || ', TB : ' || tb || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa    ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) anamnesa,   ";
             sql_load = sql_load + Environment.NewLine + "(select LISTAGG(item_name, ', ') WITHIN GROUP (ORDER BY type_diagnosa asc) diagnosa   ";
@@ -2756,27 +3573,34 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "(select  'Sekarang : ' || disease_now || ', Dahulu : ' || disease_then ||   ";
             sql_load = sql_load + Environment.NewLine + "', Keluarga : ' || disease_family as rp ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) rp, ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_physical   ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) fisik,  ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_other  ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) lain  ";
+            sql_load = sql_load + Environment.NewLine + ", case when b.STATUS = ( select d.TYPE_INS  ";
+            sql_load = sql_load + Environment.NewLine + "                           from KLINIK.CS_CALL_LOG d  ";
+            sql_load = sql_load + Environment.NewLine + "                          where d.que = b.que01  ";
+            sql_load = sql_load + Environment.NewLine + "                            AND TRUNC(d.INS_DATE) = TRUNC(SYSDATE) ";
+            sql_load = sql_load + Environment.NewLine + "                            AND TRUNC(d.INS_DATE) = TRUNC(b.VISIT_DATE) ";
+            sql_load = sql_load + Environment.NewLine + "                       ) then 'Y'  ";
+            sql_load = sql_load + Environment.NewLine + "  when b.STATUS = 'PAY' then 'Y' when b.STATUS = 'CLS' then 'Y' else 'N' end st_close, b.POLI_CD ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_patient_info a   ";
             sql_load = sql_load + Environment.NewLine + "join KLINIK.cs_visit b on (a.patient_no = b.patient_no)   ";
             sql_load = sql_load + Environment.NewLine + "join KLINIK.cs_patient c on(b.patient_no = c.patient_no)   ";
             sql_load = sql_load + Environment.NewLine + "where  to_char(b.visit_date, 'yyyy-mm-dd') = '" + s_date + "'   ";
             sql_load = sql_load + Environment.NewLine + "and c.status = 'A'   ";
             sql_load = sql_load + Environment.NewLine + "and b.que01 = '" + s_que + "'   ";
-            sql_load = sql_load + Environment.NewLine + "and c.group_patient = 'COMM'   ";
-            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "' ";
+            sql_load = sql_load + Environment.NewLine + "and c.group_patient in( 'PREG','FAMP')   ";
+            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "' and id_visit = " + idvisit + "  ";
 
 
             OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
@@ -2795,7 +3619,7 @@ namespace Clinic
             p_pf = dt.Rows[0]["fisik"].ToString();
             p_pt = dt.Rows[0]["lain"].ToString();
             p_diagnosa = dt.Rows[0]["diagnosa"].ToString();
-
+            p_statuscls = dt.Rows[0]["st_close"].ToString();
 
             lMedRm.Text = p_rm;
             lMedQue.Text = p_que;
@@ -2810,6 +3634,7 @@ namespace Clinic
             lMedPt.Text = p_pt;
             lMedDiag.Text = p_diagnosa;
 
+            DataListObatGroup(s_stat, dt.Rows[0]["POLI_CD"].ToString());
             LoadDataResep();
 
 
@@ -2830,7 +3655,34 @@ namespace Clinic
                 p_resep = dt2.Rows[0]["med_remark"].ToString();
                 mResepLuar.Text = p_resep;
             }
-            
+            if (p_statuscls == "Y")
+            {
+                btnMedDel.Enabled = false;
+                btnMedAdd.Enabled = false;
+                btnMedCan.Enabled = false;
+                btnNoReceipt.Enabled = false;
+                btnMedSave.Enabled = false;
+                sAddRacik.Enabled = false;
+                sSimpanRacik.Enabled = false;
+                simpleButton10.Enabled = false;
+                simpleButton9.Enabled = false;
+                sTambahU.Enabled = false;
+                sSimpanU.Enabled = false;
+            }
+            else
+            {
+                btnMedDel.Enabled = true;
+                btnMedAdd.Enabled = true;
+                btnMedCan.Enabled = true;
+                btnNoReceipt.Enabled = true;
+                btnMedSave.Enabled = true;
+                sAddRacik.Enabled = true;
+                sSimpanRacik.Enabled = true;
+                simpleButton10.Enabled = true;
+                simpleButton9.Enabled = true;
+                sTambahU.Enabled = true;
+                sSimpanU.Enabled = true;
+            }
 
         }
 
@@ -2842,15 +3694,15 @@ namespace Clinic
             }
         }
 
-        private void btnMedAdd_Click(object sender, EventArgs e)
-        {
-            gridView6.OptionsBehavior.EditingMode = GridEditingMode.Default;
-            gridView6.AddNewRow();
-            if (chOUmum.Checked)
-                chOUmum.Enabled = true;
-            else
-                chOUmum.Enabled = false;
-        }
+        //private void btnMedAdd_Click(object sender, EventArgs e)
+        //{
+        //    gridView6.OptionsBehavior.EditingMode = GridEditingMode.Default;
+        //    gridView6.AddNewRow();
+        //    if (chOUmum.Checked)
+        //        chOUmum.Enabled = true;
+        //    else
+        //        chOUmum.Enabled = false;
+        //}
 
         private void gridView6_InitNewRow(object sender, InitNewRowEventArgs e)
         {
@@ -2865,14 +3717,21 @@ namespace Clinic
         {
             btnMedSave.Enabled = true;
             GridView view = sender as GridView;
-            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
 
-            if (e.Column.Caption == "Nama Obat" && (a.Substring(0,2)=="BP" || a.Substring(0, 2) == "UM" ))
+            if (view.RowCount < 1)
+                return;
+
+            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+            if (a.ToString().Equals(""))
+                return;
+
+
+            if (e.Column.Caption == "Nama Obat" && (a.Substring(0, 2) == "BP" || a.Substring(0, 2) == "UM"))
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
                 string policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
-                string sql_medcd = "", sql_med = "", med_cd = "", med_name = "", med_group = "", med_stok = "", med_uom = "", cek_stok = "",sql_for="";
-
+                string sql_medcd = "", sql_med = "", med_cd = "", med_name = "", med_group = "", med_stok = "", med_uom = "", cek_stok = "", sql_for = "";
+                s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
                 sql_medcd = " select " +
                             " klinik.FN_CS_INIT_STOCK(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') +  " +
                             " klinik.FN_CS_TRX_IN(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') -  " +
@@ -2886,16 +3745,8 @@ namespace Clinic
                 cek_stok = dt0.Rows[0]["stock"].ToString();
 
                 sql_med = " select med_cd, initcap(med_name) med_name, med_group, '" + cek_stok + "' stock, initcap(uom) uom " +
-                          //" stock - (select nvl(SUM(med_qty),0) from cs_receipt  " +
-                          //"           where TO_CHAR(insp_date, 'yyyy-mm-dd') = '" + lMedDate.Text + "'  " +
-                          //"             and confirm = 'N'  " +
-                          //"             and med_cd = a.med_cd) stock, uom  " +
-                          //" klinik.FN_CS_INIT_STOCK(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'"+ medcd + "') +  " +
-                          //" klinik.FN_CS_TRX_IN(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + medcd + "') -  " +
-                          //" klinik.FN_CS_TRX_OUT(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + medcd + "') - " +
-                          //" klinik.FN_CS_REQ_STOCK(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + medcd + "') stock, uom " +
                           " from KLINIK.cs_medicine a  " +
-                          " where status = 'A'  " +
+                          " where status = 'A' and  MED_GROUP ='OBAT' " +
                           " and med_cd = '" + a + "' ";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
@@ -2909,7 +3760,16 @@ namespace Clinic
                 med_stok = dt.Rows[0]["stock"].ToString();
                 med_uom = dt.Rows[0]["uom"].ToString();
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and a.POLI_CD = '" + policd + "'";
+                //if (chOUmum.Checked)
+                //{
+                //    s_stat = lstsobat.Text;
+                //} 
+                //else
+                //{
+                s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+                //}
+
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y' AND RACIKAN ='N'";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -2919,17 +3779,16 @@ namespace Clinic
                 for (int i = 0; i < dtf.Rows.Count; i++)
                 {
                     listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
-                } 
-
-                view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                view.SetRowCellValue(e.RowHandle, view.Columns[4], "");
-                view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                }
+                if (dtf.Rows.Count == 1)
+                    view.SetRowCellValue(e.RowHandle, view.Columns[4], dtf.Rows[0]["formula_id"].ToString());
+                else
+                    view.SetRowCellValue(e.RowHandle, view.Columns[4], "");
+                 
                 if (tmp_stat == "I")
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
                     //view.SetRowCellValue(e.RowHandle, view.Columns[3], med_name);
                     view.SetRowCellValue(e.RowHandle, view.Columns[2], med_group);
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
@@ -2940,18 +3799,21 @@ namespace Clinic
                 else
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
                     view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], "0");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], "0");
                     view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
                     view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
                 }
+                view.SetRowCellValue(e.RowHandle, view.Columns[7], ""); 
+                view.SetRowCellValue(e.RowHandle, view.Columns[14], "3x1");
+
 
                 //dataFormula(policd);
             }
 
-            if (e.Column.Caption == "Kode Dosis")
+            if (e.Column.Caption == "Formula")
             {
                 string medicine_cd = view.GetRowCellValue(e.RowHandle, view.Columns[1]).ToString();
                 string formula_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
@@ -2962,68 +3824,68 @@ namespace Clinic
 
                 string kode = "", sql_pilihan = "";
 
-                if (stat == "I")
-                {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
-                }
-                else
-                {
-                    sql_pilihan = " select med_cd from KLINIK.cs_formula where formula_id = '" + formula_cd + "' ";
-                    OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
-                    OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_pilihan, oraConnectf);
-                    DataTable dtf = new DataTable();
-                    adOraf.Fill(dtf);
+                //if (stat == "I")
+                //{
+                //    view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
+                //    view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
+                //    view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
+                //    view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                //}
+                //else
+                //{
+                sql_pilihan = " select med_cd from KLINIK.cs_formula where formula_id = '" + formula_cd + "' and MINUS_STOK ='Y'";
+                DataTable dtf = ConnOra.Data_Table_ora(sql_pilihan);
 
-                    if (dtf.Rows.Count > 0)
-                    {
-                        kode = dtf.Rows[0]["med_cd"].ToString();
-
-                    }
-                    else
-                    {
-                        kode = "";
-                    }
-
-                    if (kode == medicine_cd)
-                    {
-                        view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                        view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                        view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                        view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kode Formula tidak valid");
-                        return;
-                        //LoadDataResep();
-                    }
-                }
-
-                
-            }
-
-            if (e.Column.Caption == "Jml")
-            {
-                string sql_for = "", med_price = "", qty = "", tmp_stat="";
-                string for_cd = view.GetRowCellValue(e.RowHandle , view.Columns[4]).ToString();
-                string tmp_hari = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
-                int tot_hari = 0, tot_harga = 0;
-
-                tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
-
-                sql_for = " select med_price, qty from KLINIK.cs_formula where formula_id = '" + for_cd + "' ";
-                OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
-                OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
-                DataTable dtf = new DataTable();
-                adOraf.Fill(dtf);
+                //OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
+                //    OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_pilihan, oraConnectf);
+                //    DataTable dtf = new DataTable();
+                //    adOraf.Fill(dtf);
 
                 if (dtf.Rows.Count > 0)
                 {
-                    med_price = dtf.Rows[0]["med_price"].ToString();
-                    qty = dtf.Rows[0]["qty"].ToString();
+                    kode = dtf.Rows[0]["med_cd"].ToString();
+
+                }
+                else
+                {
+                    kode = "";
+                }
+
+                if (kode == medicine_cd)
+                {
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                }
+                else
+                {
+                    MessageBox.Show("Kode Formula tidak valid");
+                    return;
+                    //LoadDataResep();
+                }
+                //}
+
+
+            }
+
+            if (e.Column.Caption == "Qty")
+            {
+                string sql_for = "", med_price = "", qty = "", tmp_stat = "";
+                string for_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
+                string tmp_hari = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
+                string cstock = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
+                int tot_hari = 0, tot_harga = 0, istock = 0;
+
+                tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
+
+                sql_for = " select med_price, qty from KLINIK.cs_formula where formula_id = '" + for_cd + "' and MINUS_STOK ='Y' ";
+                DataTable dtf3 = ConnOra.Data_Table_ora(sql_for);
+
+                if (dtf3.Rows.Count > 0)
+                {
+                    med_price = dtf3.Rows[0]["med_price"].ToString();
+                    qty = dtf3.Rows[0]["qty"].ToString();
                 }
                 else
                 {
@@ -3033,30 +3895,46 @@ namespace Clinic
 
                 if (tmp_hari == "")
                 {
-                    tmp_hari = "0";
+                    tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
-                tot_harga = Convert.ToInt32(Convert.ToInt32(tmp_hari) * Convert.ToDouble(med_price));
+                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
 
-                if (tmp_stat == "I")
+                if (!cstock.ToString().Equals(""))
                 {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], tot_hari.ToString());
-                }
-                else
-                {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], tot_hari.ToString());
+                    istock = Convert.ToInt32(cstock);
+                    if (istock - Convert.ToInt32(qty) < 0)
+                    {
+                        MessageBox.Show("Stok Obat Kosong. Tidak dapat dipilih..!!!");
+                        view.DeleteRow(view.FocusedRowHandle);
+                        return;
+                    }
+                    else
+                    {
+                        if (tmp_stat == "I")
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                        else
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                    }
                 }
             }
 
-            if (e.Column.Caption == "Nama Obat" ||  e.Column.Caption == "Info" || e.Column.Caption == "Dosis")
+            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Info" || e.Column.Caption == "Dosis" || e.Column.Caption == "Remark")
             {
+                if (view.RowCount < 1)
+                    return;
+
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
                 if (tmp_stat == "I")
@@ -3074,7 +3952,7 @@ namespace Clinic
         {
             GridView View = sender as GridView;
 
-            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info" || e.Column.Caption == "Jml")
+            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info" || e.Column.Caption == "Qty")
             {
                 e.Appearance.BackColor = Color.OldLace;
                 e.Appearance.ForeColor = Color.Black;
@@ -3099,7 +3977,7 @@ namespace Clinic
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
                 }
-                
+
             }
 
             if (e.Column.Caption == "Confirm")
@@ -3115,267 +3993,267 @@ namespace Clinic
             }
         }
 
-        private void btnMedSave_Click(object sender, EventArgs e)
-        {
-            string kode="", dosis = "", info = "", jumlah = "", id = "", stok = "", con = "", action="";
-            string sql_cnt = "", med_cnt = "", sql_update = "", sql_diag="", diag_cnt="", harga ="", hari = "", jph = "", info_dosis = "";
-            int stsimpan = 0;
+        //private void btnMedSave_Click(object sender, EventArgs e)
+        //{
+        //    string kode="", dosis = "", info = "", jumlah = "", id = "", stok = "", con = "", action="";
+        //    string sql_cnt = "", med_cnt = "", sql_update = "", sql_diag="", diag_cnt="", harga ="", hari = "", jph = "", info_dosis = "";
+        //    int stsimpan = 0;
 
-            for (int i = 0; i < gridView6.DataRowCount; i++)
-            {
-                id = gridView6.GetRowCellValue(i, gridView6.Columns[0]).ToString();
-                kode = gridView6.GetRowCellValue(i, gridView6.Columns[1]).ToString();
-                dosis = gridView6.GetRowCellValue(i, gridView6.Columns[4]).ToString();
-                info = gridView6.GetRowCellValue(i, gridView6.Columns[5]).ToString();
-                jumlah = gridView6.GetRowCellValue(i, gridView6.Columns[7]).ToString();
-                stok = gridView6.GetRowCellValue(i, gridView6.Columns[6]).ToString();
-                con = gridView6.GetRowCellValue(i, gridView6.Columns[10]).ToString();
-                action = gridView6.GetRowCellValue(i, gridView6.Columns[9]).ToString();
-                harga = gridView6.GetRowCellValue(i, gridView6.Columns[12]).ToString();
-                hari = gridView6.GetRowCellValue(i, gridView6.Columns[11]).ToString();
-                jph = gridView6.GetRowCellValue(i, gridView6.Columns[13]).ToString();
-                info_dosis = gridView6.GetRowCellValue(i, gridView6.Columns[14]).ToString();
+        //    for (int i = 0; i < gridView6.DataRowCount; i++)
+        //    {
+        //        id = gridView6.GetRowCellValue(i, gridView6.Columns[0]).ToString();
+        //        kode = gridView6.GetRowCellValue(i, gridView6.Columns[1]).ToString();
+        //        dosis = gridView6.GetRowCellValue(i, gridView6.Columns[4]).ToString();
+        //        info = gridView6.GetRowCellValue(i, gridView6.Columns[5]).ToString();
+        //        jumlah = gridView6.GetRowCellValue(i, gridView6.Columns[7]).ToString();
+        //        stok = gridView6.GetRowCellValue(i, gridView6.Columns[6]).ToString();
+        //        con = gridView6.GetRowCellValue(i, gridView6.Columns[10]).ToString();
+        //        action = gridView6.GetRowCellValue(i, gridView6.Columns[9]).ToString();
+        //        harga = gridView6.GetRowCellValue(i, gridView6.Columns[12]).ToString();
+        //        hari = gridView6.GetRowCellValue(i, gridView6.Columns[11]).ToString();
+        //        jph = gridView6.GetRowCellValue(i, gridView6.Columns[13]).ToString();
+        //        info_dosis = gridView6.GetRowCellValue(i, gridView6.Columns[14]).ToString();
 
-                if (con == "Y")
-                {
-                    MessageBox.Show("Data tidak bisa dirubah.");
-                }
-                else if (stok == "0")
-                {
-                    MessageBox.Show("Stok obat tidak tersedia.");
-                }
-                else if (jumlah == "" || jumlah == "0")
-                {
-                    MessageBox.Show("Jumlah obat harus diisi.");
-                }
-                else if (Convert.ToInt32(jumlah) > Convert.ToInt32(stok))
-                {
-                    MessageBox.Show("Jumlah melebihi stok");
-                }
-                else if (kode == "")
-                {
-                    MessageBox.Show("Kode obat harus diisi.");
-                }
-                else if (dosis == "")
-                {
-                    MessageBox.Show("Kode Dosis harus diisi.");
-                }
-                else if (hari == "")
-                {
-                    MessageBox.Show("Jumlah harus diisi.");
-                }
-                else if (info == "")
-                {
-                    MessageBox.Show("Info harus diisi.");
-                }
-                else if (info_dosis == "")
-                {
-                    MessageBox.Show("Dosis harus diisi.");
-                }
-                else
-                {
-                    int queue = 0;
-                    string tmp_queue = "", que="", cnt="";
-                    string sql_check = " select  nvl(max(to_number(substr(que02,2,3))),0) que from KLINIK.cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
-                    string sql_check2 = " select  count(0) cnt from KLINIK.cs_receipt where rm_no = '" + lMedRm.Text + "' and to_char(insp_date,'yyyy-mm-dd')= '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "'  ";
+        //        if (con == "Y")
+        //        {
+        //            MessageBox.Show("Data tidak bisa dirubah.");
+        //        }
+        //        else if (stok == "0")
+        //        {
+        //            MessageBox.Show("Stok obat tidak tersedia.");
+        //        }
+        //        else if (jumlah == "" || jumlah == "0")
+        //        {
+        //            MessageBox.Show("Jumlah obat harus diisi.");
+        //        }
+        //        else if (Convert.ToInt32(jumlah) > Convert.ToInt32(stok))
+        //        {
+        //            MessageBox.Show("Jumlah melebihi stok");
+        //        }
+        //        else if (kode == "")
+        //        {
+        //            MessageBox.Show("Kode obat harus diisi.");
+        //        }
+        //        else if (dosis == "")
+        //        {
+        //            MessageBox.Show("Kode Dosis harus diisi.");
+        //        }
+        //        else if (hari == "")
+        //        {
+        //            MessageBox.Show("Jumlah harus diisi.");
+        //        }
+        //        else if (info == "")
+        //        {
+        //            MessageBox.Show("Info harus diisi.");
+        //        }
+        //        else if (info_dosis == "")
+        //        {
+        //            MessageBox.Show("Dosis harus diisi.");
+        //        }
+        //        else
+        //        {
+        //            int queue = 0;
+        //            string tmp_queue = "", que="", cnt="";
+        //            string sql_check = " select  nvl(max(to_number(substr(que02,2,3))),0) que from KLINIK.cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+        //            string sql_check2 = " select  count(0) cnt from KLINIK.cs_receipt where rm_no = '" + lMedRm.Text + "' and to_char(insp_date,'yyyy-mm-dd')= '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "'  ";
 
-                    try
-                    {
-                        OleDbConnection oraConnecta = ConnOra.Create_Connect_Ora();
-                        OleDbDataAdapter adOraa = new OleDbDataAdapter(sql_check, oraConnecta);
-                        DataTable dta = new DataTable();
-                        adOraa.Fill(dta);
+        //            try
+        //            {
+        //                OleDbConnection oraConnecta = ConnOra.Create_Connect_Ora();
+        //                OleDbDataAdapter adOraa = new OleDbDataAdapter(sql_check, oraConnecta);
+        //                DataTable dta = new DataTable();
+        //                adOraa.Fill(dta);
 
-                        tmp_queue = dta.Rows[0]["que"].ToString();
-                        queue = Convert.ToInt32(tmp_queue) + 1;
-                        que = queue.ToString();
-                        if (queue < 10)
-                        {
-                            que = que.PadLeft(que.Length + 2, '0');
-                        }
-                        else if (queue < 100)
-                        {
-                            que = que.PadLeft(que.Length + 1, '0');
-                        }
+        //                tmp_queue = dta.Rows[0]["que"].ToString();
+        //                queue = Convert.ToInt32(tmp_queue) + 1;
+        //                que = queue.ToString();
+        //                if (queue < 10)
+        //                {
+        //                    que = que.PadLeft(que.Length + 2, '0');
+        //                }
+        //                else if (queue < 100)
+        //                {
+        //                    que = que.PadLeft(que.Length + 1, '0');
+        //                }
 
-                        OleDbConnection oraConnectb = ConnOra.Create_Connect_Ora();
-                        OleDbDataAdapter adOrab = new OleDbDataAdapter(sql_check2, oraConnectb);
-                        DataTable dtb = new DataTable();
-                        adOrab.Fill(dtb);
-                        cnt = dtb.Rows[0]["cnt"].ToString();
+        //                OleDbConnection oraConnectb = ConnOra.Create_Connect_Ora();
+        //                OleDbDataAdapter adOrab = new OleDbDataAdapter(sql_check2, oraConnectb);
+        //                DataTable dtb = new DataTable();
+        //                adOrab.Fill(dtb);
+        //                cnt = dtb.Rows[0]["cnt"].ToString();
 
-                        if (cnt == "0")
-                        {
-                            sql_update = "";
+        //                if (cnt == "0")
+        //                {
+        //                    sql_update = "";
 
-                            sql_update = sql_update + " update KLINIK.cs_visit" +
-                                                      " set que02 = 'R" + que + "', ";
-                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-                            sql_update = sql_update + " where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+        //                    sql_update = sql_update + " update KLINIK.cs_visit" +
+        //                                              " set que02 = 'R" + que + "', ";
+        //                    sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+        //                    sql_update = sql_update + " where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
 
-                            try
-                            {
-                                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                                OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
-                                oraConnect.Open();
-                                cm.ExecuteNonQuery();
-                                oraConnect.Close();
-                                cm.Dispose();
+        //                    try
+        //                    {
+        //                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+        //                        OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+        //                        oraConnect.Open();
+        //                        cm.ExecuteNonQuery();
+        //                        oraConnect.Close();
+        //                        cm.Dispose();
 
-                                //MessageBox.Show("Query Exec : " + sql_update);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("ERROR: " + ex.Message);
-                            }
-                        }
+        //                        //MessageBox.Show("Query Exec : " + sql_update);
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        MessageBox.Show("ERROR: " + ex.Message);
+        //                    }
+        //                }
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("ERROR: " + ex.Message);
-                    }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show("ERROR: " + ex.Message);
+        //            }
 
-                    if (action == "I")
-                    {
-                        sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' ";
-                        OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
-                        OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
-                        DataTable dtd = new DataTable();
-                        adOrad.Fill(dtd);
-                        diag_cnt = dtd.Rows[0]["cnt"].ToString();
+        //            if (action == "I")
+        //            {
+        //                sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' ";
+        //                OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+        //                OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+        //                DataTable dtd = new DataTable();
+        //                adOrad.Fill(dtd);
+        //                diag_cnt = dtd.Rows[0]["cnt"].ToString();
 
 
-                        sql_cnt = " select count(0) cnt from KLINIK.cs_receipt where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' " + " and med_cd = '" + kode + "' ";
-                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
-                        DataTable dt = new DataTable();
-                        adOra.Fill(dt);
-                        med_cnt = dt.Rows[0]["cnt"].ToString();
+        //                sql_cnt = " select count(0) cnt from KLINIK.cs_receipt where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' " + " and med_cd = '" + kode + "' ";
+        //                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+        //                OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+        //                DataTable dt = new DataTable();
+        //                adOra.Fill(dt);
+        //                med_cnt = dt.Rows[0]["cnt"].ToString();
 
-                        if (Convert.ToInt32(med_cnt) > 0)
-                        {
-                            //MessageBox.Show("Gagal Disimpan.");
-                        }
-                        else if (diag_cnt == "0")
-                        {
-                            MessageBox.Show("Gagal Disimpan. Diagnosa belum diinput.");
-                        }
-                        else
-                        {
-                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
-                            OleDbCommand command = new OleDbCommand();
-                            OleDbTransaction trans = null;
+        //                if (Convert.ToInt32(med_cnt) > 0)
+        //                {
+        //                    //MessageBox.Show("Gagal Disimpan.");
+        //                }
+        //                else if (diag_cnt == "0")
+        //                {
+        //                    MessageBox.Show("Gagal Disimpan. Diagnosa belum diinput.");
+        //                }
+        //                else
+        //                {
+        //                    OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+        //                    OleDbCommand command = new OleDbCommand();
+        //                    OleDbTransaction trans = null;
 
-                            command.Connection = oraConnectTrans;
-                            oraConnectTrans.Open();
+        //                    command.Connection = oraConnectTrans;
+        //                    oraConnectTrans.Open();
 
-                            try
-                            {
-                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
-                                command.Connection = oraConnectTrans;
-                                command.Transaction = trans;
+        //                    try
+        //                    {
+        //                        trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+        //                        command.Connection = oraConnectTrans;
+        //                        command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT) " +
-                                                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ") ";
-                                command.ExecuteNonQuery();
+        //                        command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT) " +
+        //                                              " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ") ";
+        //                        command.ExecuteNonQuery();
 
-                                //command.CommandText = " update cs_visit set status = 'MED', time_InspectionUSG=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
-                                //command.ExecuteNonQuery();
+        //                        //command.CommandText = " update cs_visit set status = 'MED', time_InspectionUSG=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+        //                        //command.ExecuteNonQuery();
 
-                                trans.Commit();
-                                //MessageBox.Show(sql_insert);
-                                //MessageBox.Show("Query Exec : " + sql_insert);
+        //                        trans.Commit();
+        //                        //MessageBox.Show(sql_insert);
+        //                        //MessageBox.Show("Query Exec : " + sql_insert);
 
-                                //MessageBox.Show("Data Berhasil disimpan.");
-                                stsimpan = 1;
-                            }
-                            catch (Exception ex)
-                            {
-                                trans.Rollback();
-                                MessageBox.Show("ERROR: " + ex.Message);
-                            }
+        //                        //MessageBox.Show("Data Berhasil disimpan.");
+        //                        stsimpan = 1;
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        trans.Rollback();
+        //                        MessageBox.Show("ERROR: " + ex.Message);
+        //                    }
 
-                            oraConnectTrans.Close();
-                        }
-                    }
-                    else if (action == "U")
-                    {
-                        sql_update = "";
+        //                    oraConnectTrans.Close();
+        //                }
+        //            }
+        //            else if (action == "U")
+        //            {
+        //                sql_update = "";
 
-                        sql_update = sql_update + " update KLINIK.cs_receipt" +
-                                                  " set med_cd = '" + kode + "', formula = '" + dosis + "', med_qty = '" + jumlah + "', type_drink = '" + info + "', " +
-                                                  "     price = '" + harga + "', days = '" + hari + "', qty_day = '" + jph + "', dosis = '" + info_dosis + "',";
-                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-                        sql_update = sql_update + " where receipt_id = '" + id + "' and confirm='N' ";
+        //                sql_update = sql_update + " update KLINIK.cs_receipt" +
+        //                                          " set med_cd = '" + kode + "', formula = '" + dosis + "', med_qty = '" + jumlah + "', type_drink = '" + info + "', " +
+        //                                          "     price = '" + harga + "', days = '" + hari + "', qty_day = '" + jph + "', dosis = '" + info_dosis + "',";
+        //                sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+        //                sql_update = sql_update + " where receipt_id = '" + id + "' and confirm='N' ";
 
-                        try
-                        {
-                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                            OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
-                            oraConnect.Open();
-                            cm.ExecuteNonQuery();
-                            oraConnect.Close();
-                            cm.Dispose();
+        //                try
+        //                {
+        //                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+        //                    OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+        //                    oraConnect.Open();
+        //                    cm.ExecuteNonQuery();
+        //                    oraConnect.Close();
+        //                    cm.Dispose();
 
-                            //MessageBox.Show("Query Exec : " + sql_update);
-                            LoadDataResep();
-                            //MessageBox.Show("Data Berhasil diupdate");
-                            stsimpan = 2;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("ERROR: " + ex.Message);
-                        }
-                    }
-                }
-            }
-            if (stsimpan == 1)
-                MessageBox.Show("Data Berhasil disimpan.");
-            else if (stsimpan == 2)
-                MessageBox.Show("Data Berhasil diupdate");
+        //                    //MessageBox.Show("Query Exec : " + sql_update);
+        //                    LoadDataResep();
+        //                    //MessageBox.Show("Data Berhasil diupdate");
+        //                    stsimpan = 2;
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    MessageBox.Show("ERROR: " + ex.Message);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    if (stsimpan == 1)
+        //        MessageBox.Show("Data Berhasil disimpan.");
+        //    else if (stsimpan == 2)
+        //        MessageBox.Show("Data Berhasil diupdate");
 
-            chOUmum.Enabled = true ;
-            LoadDataResep();
-        }
+        //    chOUmum.Enabled = true ;
+        //    LoadDataResep();
+        //}
 
-        private void btnMedDel_Click(object sender, EventArgs e)
-        {
-            string sql_delete = "", id="", confirm="";
+        //private void btnMedDel_Click(object sender, EventArgs e)
+        //{
+        //    string sql_delete = "", id="", confirm="";
 
-            id = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[0]).ToString();
-            confirm = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[10]).ToString();
+        //    id = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[0]).ToString();
+        //    confirm = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[10]).ToString();
 
-            if (confirm == "Y")
-            {
-                MessageBox.Show("Data tidak bisa dihapus.");
-            }
-            else
-            {
-                sql_delete = "";
-                sql_delete = sql_delete + " delete from KLINIK.cs_receipt";
-                sql_delete = sql_delete + " where receipt_id = '" + id + "' and confirm='N' ";
+        //    if (confirm == "Y")
+        //    {
+        //        MessageBox.Show("Data tidak bisa dihapus.");
+        //    }
+        //    else
+        //    {
+        //        sql_delete = "";
+        //        sql_delete = sql_delete + " delete from KLINIK.cs_receipt";
+        //        sql_delete = sql_delete + " where receipt_id = '" + id + "' and confirm='N' ";
 
-                try
-                {
-                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                    OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
-                    oraConnect.Open();
-                    cm.ExecuteNonQuery();
-                    oraConnect.Close();
-                    cm.Dispose();
+        //        try
+        //        {
+        //            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+        //            OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
+        //            oraConnect.Open();
+        //            cm.ExecuteNonQuery();
+        //            oraConnect.Close();
+        //            cm.Dispose();
 
-                    //MessageBox.Show("Query Exec : " + sql_update);
-                    LoadDataResep();
-                    MessageBox.Show("Data Berhasil di hapus");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("ERROR: " + ex.Message);
-                }
-            }
+        //            //MessageBox.Show("Query Exec : " + sql_update);
+        //            LoadDataResep();
+        //            MessageBox.Show("Data Berhasil di hapus");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("ERROR: " + ex.Message);
+        //        }
+        //    }
             
-        }
+        //}
 
         private void loadSKD_Click(object sender, EventArgs e)
         {
@@ -5070,14 +5948,14 @@ namespace Clinic
             
         }
 
-        private void btnMedCan_Click(object sender, EventArgs e)
-        {
-            string stat = gridView6.GetRowCellDisplayText(gridView6.FocusedRowHandle, gridView6.Columns[3]);
-            if (stat == "")
-            {
-                gridView6.DeleteRow(gridView6.FocusedRowHandle);
-            }
-        }
+        //private void btnMedCan_Click(object sender, EventArgs e)
+        //{
+        //    string stat = gridView6.GetRowCellDisplayText(gridView6.FocusedRowHandle, gridView6.Columns[3]);
+        //    if (stat == "")
+        //    {
+        //        gridView6.DeleteRow(gridView6.FocusedRowHandle);
+        //    }
+        //}
 
         private void mRecRek_TextChanged(object sender, EventArgs e)
         {
@@ -5116,9 +5994,9 @@ namespace Clinic
             sql_close = "";
 
             sql_close = sql_close + " update KLINIK.cs_visit" +
-                                    " set status = 'PAY', ";
+                                    " set  VISIT_REMARK ='NONE MEDICINE',";
             sql_close = sql_close + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "'";
+            sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "' and id_visit  = '" + idvisit + "' ";
 
             try
             {
@@ -5130,7 +6008,7 @@ namespace Clinic
                 cm.Dispose();
 
                 //MessageBox.Show("Query Exec : " + sql_update);
-                LoadDataPasien();
+                //LoadDataPasien();
                 MessageBox.Show("Data Berhasil diupdate");
             }
             catch (Exception ex)
@@ -5245,6 +6123,16 @@ namespace Clinic
                 {
                     MessageBox.Show("Data Anamnesa belum disimpan. ");
                 }
+                loadResep_Click(sender, e);
+            }
+
+            if (xtraTabControl2.SelectedTabPage.Text == "Pelayanan")
+            {
+                if (tmp_now != rNow.Text || tmp_old != rOld.Text || tmp_fam != rFam.Text || tmp_fisik != pFisik.Text || tmp_add != pAdd.Text)
+                {
+                    MessageBox.Show("Data Anamnesa belum disimpan. ");
+                }
+                loadTind_Click(sender, e);
             }
         }
 
@@ -6070,12 +6958,13 @@ namespace Clinic
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type="", s_name ="", q_no2="", sql_diag="", diag_cnt ="", sql_ ="";
+            string sql_all = "", gnder = "", p1 = "", p2 = "", teks = "", p_que = "", policd = "", rm_type="", s_name ="", q_no2="", age = "", sql_diag ="", diag_cnt ="", sql_ ="";
             int stsimpan = 0; 
 
             p_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             gnder = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[3]).ToString();
             s_name = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[2]).ToString();
+            age = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[4]).ToString();
             policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
             //pasienno = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
 
@@ -6103,13 +6992,7 @@ namespace Clinic
                     Blinking(labelControl173, 0);
                     return;
                 }
-
-                sql_ = "";
-                sql_ = " update KLINIK.cs_visit set status = 'PAY', time_inspection=sysdate  where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                ConnOra.ExeNonQuery(sql_);
-
-
-
+                 
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
                                    from KLINIK.CS_CALL_LOG a, KLINIK.cs_visit b
@@ -6130,16 +7013,29 @@ namespace Clinic
 
                 if (rm_type.ToString().Equals("MID") && !q_no2.ToString().Equals("N"))
                 {
-                    if (gnder.ToString().Equals("P"))
+                    if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
                     {
-                        p1 = "Ibu ";
+                        p1 = " Saudari  ";
                     }
-                    else
+                    else if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 30)
                     {
-                        p1 = "Bapak ";
+                        p1 = " Nyonya  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                    {
+                        p1 = " Saudara  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 30)
+                    {
+                        p1 = " Tuan  ";
                     }
 
-                    p2 = s_name;
+                    if (Convert.ToInt32(age) < 13)
+                    {
+                        p1 = " Anak  ";
+                    }
+
+                    p2 = s_name + " ";
 
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " silahkan menuju ke Farmasi";
 
@@ -6148,20 +7044,37 @@ namespace Clinic
 
                     ORADB.Execute(ORADB.XE, sql_all);
 
+                    sql_all = "";
+                    sql_all = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    ORADB.Execute(ORADB.XE, sql_all);
+
                     stsimpan = 1;
                 }
                 else if (rm_type.ToString().Equals("MID") && q_no2.ToString().Equals("N"))
                 {
-                    if (gnder.ToString().Equals("P"))
+                    if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
                     {
-                        p1 = "Ibu ";
+                        p1 = " Saudari  ";
                     }
-                    else
+                    else if (gnder.ToString().Equals("P") && Convert.ToInt32(age) > 30)
                     {
-                        p1 = "Bapak ";
+                        p1 = " Nyonya  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 12 && Convert.ToInt32(age) < 31)
+                    {
+                        p1 = " Saudara  ";
+                    }
+                    else if (gnder.ToString().Equals("L") && Convert.ToInt32(age) > 30)
+                    {
+                        p1 = " Tuan  ";
                     }
 
-                    p2 = s_name;
+                    if (Convert.ToInt32(age) < 13)
+                    {
+                        p1 = " Anak  ";
+                    }
+
+                    p2 = s_name + " ";
 
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " silahkan menuju ke Kasir";
 
@@ -6169,19 +7082,35 @@ namespace Clinic
                     sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql_all);
+
+                    sql_all = "";
+                    sql_all = " update KLINIK.cs_visit set status = 'PAY', TIME_END=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where  ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    ORADB.Execute(ORADB.XE, sql_all);
+
                     stsimpan = 1;
                 }
                 else
                 {
-                    MessageBox.Show("Maaf Status Sudah Closed. Data tidak bisa di ubah..!!!");
+                    labelControl173.Visible = true;
+                    labelControl173.Text = "Gagal..Pasien Closed.";
+                    Blinking(labelControl173, 0);
                     return;
                 }
             }
 
             if (stsimpan == 1)
             {
-                MessageBox.Show("Data Pemeriksaan Berhasil di Closed.");
+                labelControl173.Visible = true;
+                labelControl173.Text = "Successful Patient closed.";
+                Blinking(labelControl173, 1);
+                LoadDataPasien();
+                //gridView1_RowClick(sender, e);
                 simpleButton2.Enabled = false;
+                btnSaveTind.Enabled = false;
+                btnAddTind.Enabled = false;
+                btnSaveTindakan.Enabled = false;
+                btnAddTindakan.Enabled = false;
+                btnDelTindakan.Enabled = false;
             } 
         }
 
@@ -6206,6 +7135,1344 @@ namespace Clinic
             } 
         }
 
+        private void btnMedSave_Click(object sender, EventArgs e)
+        {
+            if (gridView6.RowCount < 1) return;
+
+            string kode = "", dosis = "", info = "", jumlah = "", id = "", stok = "", con = "", action = "", remark = "";
+            string sql_cnt = "", med_cnt = "", sql_update = "", sql_diag = "", diag_cnt = "", harga = "", hari = "", jph = "", info_dosis = "";
+            int stsimpan = 0;
+
+            for (int i = 0; i < gridView6.DataRowCount; i++)
+            {
+                id = gridView6.GetRowCellValue(i, gridView6.Columns[0]).ToString();
+                kode = gridView6.GetRowCellValue(i, gridView6.Columns[1]).ToString();
+                dosis = gridView6.GetRowCellValue(i, gridView6.Columns[4]).ToString();
+                info = gridView6.GetRowCellValue(i, gridView6.Columns[5]).ToString();
+                jumlah = gridView6.GetRowCellValue(i, gridView6.Columns[7]).ToString();
+                stok = gridView6.GetRowCellValue(i, gridView6.Columns[6]).ToString();
+                con = gridView6.GetRowCellValue(i, gridView6.Columns[10]).ToString();
+                action = gridView6.GetRowCellValue(i, gridView6.Columns[9]).ToString();
+                harga = gridView6.GetRowCellValue(i, gridView6.Columns[12]).ToString();
+                hari = gridView6.GetRowCellValue(i, gridView6.Columns[11]).ToString();
+                jph = gridView6.GetRowCellValue(i, gridView6.Columns[13]).ToString();
+                info_dosis = gridView6.GetRowCellValue(i, gridView6.Columns[14]).ToString();
+                remark = gridView6.GetRowCellValue(i, gridView6.Columns[15]).ToString();
+
+                if (con == "Y")
+                {
+                    //MessageBox.Show("Data tidak bisa dirubah.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Obat Sudah Confirm!!";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                else if (stok == "0")
+                {
+                    //MessageBox.Show("Stok obat tidak tersedia.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Obat Kosong!!";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                else if (jumlah == "" || jumlah == "0")
+                {
+                    //MessageBox.Show("Jumlah obat harus diisi.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Jumlah Kosong!!";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                else if (Convert.ToInt32(jumlah) > Convert.ToInt32(stok))
+                {
+                    //MessageBox.Show("Jumlah melebihi stok");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Jumlah > Stok";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                else if (kode == "")
+                {
+                    //MessageBox.Show("Kode obat harus diisi.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Tentukan Obat";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                else if (dosis == "")
+                {
+                    //MessageBox.Show("Kode Dosis harus diisi.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Tentukan Dosis";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                //else if (hari == "")
+                //{
+                //    MessageBox.Show("Jumlah harus diisi."); return;
+                //}
+                else if (info == "")
+                {
+                    //MessageBox.Show("Info harus diisi.");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Gagal..Tentukan Info";
+                    Blinking(labelControl165, 0);
+                    return;
+                }
+                //else if (info_dosis == "")
+                //{
+                //    MessageBox.Show("Dosis harus diisi."); return;
+                //}
+                else
+                {
+                    int queue = 0;
+                    string tmp_queue = "", que = "", cnt = "";
+                    string sql_check = " select  nvl(max(to_number(substr(que02,2,3))),0) que from KLINIK.cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+                    string sql_check2 = " select  count(0) cnt from KLINIK.cs_receipt where rm_no = '" + lMedRm.Text + "' and to_char(insp_date,'yyyy-mm-dd')= '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "'  ";
+
+                    try
+                    {
+                        OleDbConnection oraConnecta = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOraa = new OleDbDataAdapter(sql_check, oraConnecta);
+                        DataTable dta = new DataTable();
+                        adOraa.Fill(dta);
+
+                        tmp_queue = dta.Rows[0]["que"].ToString();
+                        queue = Convert.ToInt32(tmp_queue) + 1;
+                        que = queue.ToString();
+                        if (queue < 10)
+                        {
+                            que = que.PadLeft(que.Length + 2, '0');
+                        }
+                        else if (queue < 100)
+                        {
+                            que = que.PadLeft(que.Length + 1, '0');
+                        }
+
+                        OleDbConnection oraConnectb = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrab = new OleDbDataAdapter(sql_check2, oraConnectb);
+                        DataTable dtb = new DataTable();
+                        adOrab.Fill(dtb);
+                        cnt = dtb.Rows[0]["cnt"].ToString();
+
+                        if (cnt == "0")
+                        {
+                            sql_update = "";
+
+                            sql_update = sql_update + " update KLINIK.cs_visit" +
+                                                      " set que02 = 'R" + que + "', ";
+                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + " where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' and ID_VISIT =  " + idvisit + " ";
+
+                            try
+                            {
+                                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                                OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                                oraConnect.Open();
+                                cm.ExecuteNonQuery();
+                                oraConnect.Close();
+                                cm.Dispose();
+
+                                //MessageBox.Show("Query Exec : " + sql_update);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+
+                    if (action == "I")
+                    {
+                        sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' ";
+                        OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+                        DataTable dtd = new DataTable();
+                        adOrad.Fill(dtd);
+                        diag_cnt = dtd.Rows[0]["cnt"].ToString();
+
+
+                        sql_cnt = " select count(0) cnt from KLINIK.cs_receipt where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' " + " and med_cd = '" + kode + "' and ID_VISIT =  " + idvisit + " and GRID_NAME ='gridView6' ";
+                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+                        DataTable dt = new DataTable();
+                        adOra.Fill(dt);
+                        med_cnt = dt.Rows[0]["cnt"].ToString();
+
+                        if (Convert.ToInt32(med_cnt) > 0)
+                        {
+                            //MessageBox.Show("Gagal Disimpan.");
+                        }
+                        else if (diag_cnt == "0")
+                        {
+                            //MessageBox.Show("Gagal Disimpan. Diagnosa belum diinput.");
+                            labelControl165.Visible = true;
+                            labelControl165.Text = "Gagal..Diagnosa Kosong";
+                            Blinking(labelControl165, 0);
+                            return;
+                        }
+                        else
+                        {
+                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                            OleDbCommand command = new OleDbCommand();
+                            OleDbTransaction trans = null;
+
+                            command.Connection = oraConnectTrans;
+                            oraConnectTrans.Open();
+
+                            try
+                            {
+                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                                command.Connection = oraConnectTrans;
+                                command.Transaction = trans;
+
+                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT,GRID_NAME,JENIS_OBAT,MED_REMARK) " +
+                                                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView6','NONE', '" + remark + "') ";
+                                command.ExecuteNonQuery();
+
+                                //command.CommandText = " update cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+                                //command.ExecuteNonQuery();
+
+                                trans.Commit();
+                                //MessageBox.Show(sql_insert);
+                                //MessageBox.Show("Query Exec : " + sql_insert);
+
+                                //MessageBox.Show("Data Berhasil disimpan.");
+                                stsimpan = 1;
+                            }
+                            catch (Exception ex)
+                            {
+                                trans.Rollback();
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+
+                            oraConnectTrans.Close();
+                        }
+                    }
+                    else if (action == "U")
+                    {
+                        sql_update = "";
+
+                        sql_update = sql_update + " update KLINIK.cs_receipt" +
+                                                  " set med_cd = '" + kode + "', formula = '" + dosis + "', med_qty = '" + jumlah + "', type_drink = '" + info + "', " +
+                                                  "     price = '" + harga + "', days = '" + hari + "', qty_day = '" + jph + "', dosis = '" + info_dosis + "',";
+                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate , MED_REMARK = '" + remark + "' ";
+                        sql_update = sql_update + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                        try
+                        {
+                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                            oraConnect.Open();
+                            cm.ExecuteNonQuery();
+                            oraConnect.Close();
+                            cm.Dispose();
+
+                            //MessageBox.Show("Query Exec : " + sql_update);
+                            LoadDataResep();
+                            //MessageBox.Show("Data Berhasil diupdate");
+                            stsimpan = 2;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            if (stsimpan == 1)
+            {
+                labelControl165.Visible = true;
+                labelControl165.Text = "Save Success";
+                Blinking(labelControl165, 1);
+            }
+            else if (stsimpan == 2)
+            {
+                labelControl165.Visible = true;
+                labelControl165.Text = "Updated Success";
+                Blinking(labelControl165, 1);
+            }
+
+            chOUmum.Enabled = true;
+            LoadDataResep();
+        }
+
+        private void btnMedAdd_Click(object sender, EventArgs e)
+        {
+            gridView6.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            gridView6.AddNewRow();
+        }
+
+        private void btnMedDel_Click(object sender, EventArgs e)
+        {
+            string sql_delete = "", id = "", confirm = "";
+
+            id = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[0]).ToString();
+            confirm = gridView6.GetRowCellValue(gridView6.FocusedRowHandle, gridView6.Columns[10]).ToString();
+
+            if (confirm == "Y")
+            {
+                //MessageBox.Show("Data tidak bisa dihapus.");
+                labelControl165.Visible = true;
+                labelControl165.Text = "Gagal..Obat Sudah Confirm!!";
+                Blinking(labelControl165, 0);
+                return;
+            }
+            else
+            {
+                sql_delete = "";
+                sql_delete = sql_delete + " delete from KLINIK.cs_receipt";
+                sql_delete = sql_delete + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                try
+                {
+                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                    OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
+                    oraConnect.Open();
+                    cm.ExecuteNonQuery();
+                    oraConnect.Close();
+                    cm.Dispose();
+
+                    //MessageBox.Show("Query Exec : " + sql_update);
+                    LoadDataResep();
+                    //MessageBox.Show("Data Berhasil di hapus");
+                    labelControl165.Visible = true;
+                    labelControl165.Text = "Hapus Berhasil";
+                    Blinking(labelControl165, 1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnMedCan_Click(object sender, EventArgs e)
+        {
+            string stat = gridView6.GetRowCellDisplayText(gridView6.FocusedRowHandle, gridView6.Columns[3]);
+            if (stat == "" || stat == "I")
+            {
+                gridView6.DeleteRow(gridView6.FocusedRowHandle);
+            }
+        }
+
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            gridHRacik.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            gridHRacik.AddNewRow();
+            simpleButton8.Enabled = true;
+            simpleButton7.Enabled = true;
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            if (gridHRacik.RowCount < 1)
+                return;
+
+            string stat = gridHRacik.GetRowCellDisplayText(gridHRacik.FocusedRowHandle, gridHRacik.Columns[6]);
+            if (stat == "I")
+            {
+                gridHRacik.DeleteRow(gridHRacik.FocusedRowHandle);
+            }
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            if (gridHRacik.RowCount < 1)
+                return;
+
+            string stat = gridHRacik.GetRowCellDisplayText(gridHRacik.FocusedRowHandle, gridHRacik.Columns[6]);
+            if (stat == "I")
+            {
+                //RowClickEventArgs Ee = RowClickEventArgs(gridHRacik.FocusedRowHandle);
+                gridHRacik.SetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[6], "W");
+                gridHRacik.SelectRow(gridHRacik.FocusedRowHandle);
+                gridHRacik.SelectRows(gridHRacik.FocusedRowHandle, gridHRacik.FocusedRowHandle);
+                gridHRacik.Appearance.FocusedRow.BackColor = Color.GreenYellow;
+                gridHRacik.Appearance.FocusedRow.ForeColor = Color.DarkGreen; // for demonstration purposes only
+                gridHRacik.Appearance.SelectedRow.Assign(gridHRacik.Appearance.FocusedRow);
+                gridHRacik.Appearance.FocusedCell.Assign(gridHRacik.Appearance.FocusedRow);
+                SetFocusedAppearance(true);
+                LoadResepRacikan("");
+                labelControl166.Visible = true;
+                labelControl166.Text = "Racikan Diproses";
+                Blinking(labelControl166, 1);
+
+                //gridHRacik.FocusedColumn("ID", "ID");
+                //gridHRacik.Raise("Click", new EventArgs());
+                //gridHRacik_RowClick(sender, gridHRacik.FocusedRowHandle);
+                //gridHRacik.P            
+            }
+        }
+        private void SetFocusedAppearance(bool isFocused)
+        {
+            gridHRacik.OptionsSelection.EnableAppearanceFocusedRow = isFocused;
+            gridHRacik.OptionsSelection.EnableAppearanceFocusedCell = isFocused;
+        }
+        private void sSimpanRacik_Click(object sender, EventArgs e)
+        {
+            if (gridHRacik.RowCount < 1)
+                return;
+
+            string kode = "", dosis = "", info = "", jumlah = "", id = "", stok = "", con = "", action = "";
+            string sql_cnt = "", med_cnt = "", sql_update = "", sql_diag = "", diag_cnt = "", harga = "", hari = "", jph = "", info_dosis = "";
+            int stsimpan = 0;
+            string jnsracik = "", dosisH = "", info_dosisH = "", jumlahH = "", remarkH = "";
+
+            jnsracik = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[1]).ToString();
+            dosisH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[2]).ToString();
+            info_dosisH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[3]).ToString();
+            jumlahH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[4]).ToString();
+            remarkH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[5]).ToString();
+
+            for (int i = 0; i < gvRacik.DataRowCount; i++)
+            {
+                id = gvRacik.GetRowCellValue(i, gvRacik.Columns[0]).ToString();
+                kode = gvRacik.GetRowCellValue(i, gvRacik.Columns[1]).ToString();
+                dosis = gvRacik.GetRowCellValue(i, gvRacik.Columns[4]).ToString();
+                info = gvRacik.GetRowCellValue(i, gvRacik.Columns[5]).ToString();
+                jumlah = gvRacik.GetRowCellValue(i, gvRacik.Columns[7]).ToString();
+                stok = gvRacik.GetRowCellValue(i, gvRacik.Columns[6]).ToString();
+                con = gvRacik.GetRowCellValue(i, gvRacik.Columns[10]).ToString();
+                action = gvRacik.GetRowCellValue(i, gvRacik.Columns[9]).ToString();
+                harga = gvRacik.GetRowCellValue(i, gvRacik.Columns[12]).ToString();
+                hari = gvRacik.GetRowCellValue(i, gvRacik.Columns[11]).ToString();
+                jph = gvRacik.GetRowCellValue(i, gvRacik.Columns[13]).ToString();
+                info_dosis = gvRacik.GetRowCellValue(i, gvRacik.Columns[14]).ToString();
+
+                if (con == "Y")
+                {
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Gagal..Obat Sudah Confirm!!";
+                    Blinking(labelControl167, 0);
+                    return;
+                }
+                else if (stok == "0")
+                {
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Gagal..Obat Kosong!!";
+                    Blinking(labelControl167, 0);
+                    return;
+                }
+                else if (jumlah == "" || jumlah == "0")
+                {
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Gagal..Jumlah Kosong!!";
+                    Blinking(labelControl167, 0);
+                    return;
+                }
+                else if (Convert.ToInt32(jumlah) > Convert.ToInt32(stok))
+                {
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Gagal..Jumlah > Stok";
+                    Blinking(labelControl167, 0);
+                    return;
+                }
+                else if (kode == "")
+                {
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Gagal..Tentukan Obat";
+                    Blinking(labelControl167, 0);
+                    return;
+                }
+                //else if (dosis == "")
+                //{
+                //    MessageBox.Show("Kode Dosis harus diisi."); return;
+                //}
+                //else if (hari == "")
+                //{
+                //    MessageBox.Show("Jumlah harus diisi."); return;
+                //}
+                //else if (info == "")
+                //{
+                //    MessageBox.Show("Info harus diisi."); return;
+                //}
+                //else if (info_dosis == "")
+                //{
+                //    MessageBox.Show("Dosis harus diisi."); return;
+                //}
+                else
+                {
+                    int queue = 0;
+                    string tmp_queue = "", que = "", cnt = "";
+                    string sql_check = " select  nvl(max(to_number(substr(que02,2,3))),0) que from KLINIK.cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+                    string sql_check2 = " select  count(0) cnt from KLINIK.cs_receipt where rm_no = '" + lMedRm.Text + "' and to_char(insp_date,'yyyy-mm-dd')= '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' ";
+
+                    try
+                    {
+                        OleDbConnection oraConnecta = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOraa = new OleDbDataAdapter(sql_check, oraConnecta);
+                        DataTable dta = new DataTable();
+                        adOraa.Fill(dta);
+
+                        tmp_queue = dta.Rows[0]["que"].ToString();
+                        queue = Convert.ToInt32(tmp_queue) + 1;
+                        que = queue.ToString();
+                        if (queue < 10)
+                        {
+                            que = que.PadLeft(que.Length + 2, '0');
+                        }
+                        else if (queue < 100)
+                        {
+                            que = que.PadLeft(que.Length + 1, '0');
+                        }
+
+                        OleDbConnection oraConnectb = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrab = new OleDbDataAdapter(sql_check2, oraConnectb);
+                        DataTable dtb = new DataTable();
+                        adOrab.Fill(dtb);
+                        cnt = dtb.Rows[0]["cnt"].ToString();
+
+                        if (cnt == "0")
+                        {
+                            sql_update = "";
+
+                            sql_update = sql_update + " update KLINIK.cs_visit" +
+                                                      " set que02 = 'R" + que + "', ";
+                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + " where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+
+                            try
+                            {
+                                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                                OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                                oraConnect.Open();
+                                cm.ExecuteNonQuery();
+                                oraConnect.Close();
+                                cm.Dispose();
+
+                                //MessageBox.Show("Query Exec : " + sql_update);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+
+                    if (action == "I")
+                    {
+                        sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' ";
+                        OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+                        DataTable dtd = new DataTable();
+                        adOrad.Fill(dtd);
+                        diag_cnt = dtd.Rows[0]["cnt"].ToString();
+
+
+                        sql_cnt = " select count(0) cnt from KLINIK.cs_receipt where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' " + " and med_cd = '" + kode + "' and ID_VISIT = " + idvisit + " and GRID_NAME = 'gvRacik' ";
+                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+                        DataTable dt = new DataTable();
+                        adOra.Fill(dt);
+                        med_cnt = dt.Rows[0]["cnt"].ToString();
+
+                        if (Convert.ToInt32(med_cnt) > 0)
+                        {
+                            //MessageBox.Show("Gagal Disimpan.");
+                        }
+                        else if (diag_cnt == "0")
+                        {
+                            //MessageBox.Show("Gagal Disimpan. Diagnosa belum diinput.");
+                            labelControl165.Visible = true;
+                            labelControl165.Text = "Gagal..Diagnosa Kosong";
+                            Blinking(labelControl165, 0);
+                            return;
+                        }
+                        else
+                        {
+                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                            OleDbCommand command = new OleDbCommand();
+                            OleDbTransaction trans = null;
+
+                            command.Connection = oraConnectTrans;
+                            oraConnectTrans.Open();
+
+                            try
+                            {
+                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                                command.Connection = oraConnectTrans;
+                                command.Transaction = trans;
+
+
+                                //jnsracik = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[1]).ToString();
+                                //dosisH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[2]).ToString();
+                                //info_dosisH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[3]).ToString();
+                                //jumlahH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[4]).ToString(); 
+                                //remarkH = gridHRacik.GetRowCellValue(gridHRacik.FocusedRowHandle, gridHRacik.Columns[5]).ToString();
+
+                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT, JENIS_OBAT, ATT1_RECIEPT, ATT2_RECIEPT, ATT3_RECIEPT, GRID_NAME ) " +
+                                                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info_dosisH + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + dosisH + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'RACIK', '" + jnsracik + "','" + remarkH + "', " + jumlahH + ", 'gvRacik' ) ";
+                                command.ExecuteNonQuery();
+
+                                //command.CommandText = " update cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+                                //command.ExecuteNonQuery();
+
+                                trans.Commit();
+                                //MessageBox.Show(sql_insert);
+                                //MessageBox.Show("Query Exec : " + sql_insert);
+
+                                //MessageBox.Show("Data Berhasil disimpan.");
+                                stsimpan = 1;
+                            }
+                            catch (Exception ex)
+                            {
+                                trans.Rollback();
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+
+                            oraConnectTrans.Close();
+                        }
+                    }
+                    else if (action == "U")
+                    {
+                        sql_update = "";
+
+                        sql_update = sql_update + " update KLINIK.cs_receipt" +
+                                                  " set med_cd = '" + kode + "', formula = '" + dosis + "', med_qty = '" + jumlah + "', type_drink = '" + info + "', " +
+                                                  "     price = '" + harga + "', days = '" + hari + "', qty_day = '" + jph + "', dosis = '" + info_dosis + "',";
+                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                        sql_update = sql_update + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                        try
+                        {
+                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                            oraConnect.Open();
+                            cm.ExecuteNonQuery();
+                            oraConnect.Close();
+                            cm.Dispose();
+
+                            //MessageBox.Show("Query Exec : " + sql_update);
+                            LoadDataResep();
+                            //MessageBox.Show("Data Berhasil diupdate");
+                            stsimpan = 2;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            if (stsimpan == 1)
+            {
+                labelControl167.Visible = true;
+                labelControl167.Text = "Racikan Berhasil Dibuat";
+                Blinking(labelControl167, 1);
+            }
+            else if (stsimpan == 2)
+            {
+                labelControl167.Visible = true;
+                labelControl167.Text = "Racikan Berhasil Diubah";
+                Blinking(labelControl167, 1);
+            }
+
+            chOUmum.Enabled = true;
+            LoadDataResep();
+            LoadResepRacikan(jnsracik);
+        }
+
+        private void sHapusRacik_Click(object sender, EventArgs e)
+        {
+            string sql_delete = "", id = "", confirm = "";
+
+            id = gvRacik.GetRowCellValue(gvRacik.FocusedRowHandle, gvRacik.Columns[0]).ToString();
+            confirm = gvRacik.GetRowCellValue(gvRacik.FocusedRowHandle, gvRacik.Columns[10]).ToString();
+
+            if (confirm == "Y")
+            {
+                //MessageBox.Show("Data tidak bisa dihapus.");
+                labelControl167.Visible = true;
+                labelControl167.Text = "Gagal..Obat Sudah Confirm!!";
+                Blinking(labelControl167, 0);
+                return;
+            }
+            else
+            {
+                sql_delete = "";
+                sql_delete = sql_delete + " delete from KLINIK.cs_receipt";
+                sql_delete = sql_delete + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                try
+                {
+                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                    OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
+                    oraConnect.Open();
+                    cm.ExecuteNonQuery();
+                    oraConnect.Close();
+                    cm.Dispose();
+
+                    //MessageBox.Show("Query Exec : " + sql_update);
+                    LoadDataResep();
+                    //MessageBox.Show("Data Berhasil di hapus");
+                    labelControl167.Visible = true;
+                    labelControl167.Text = "Hapus Berhasil";
+                    Blinking(labelControl167, 1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
+            }
+        }
+
+        private void sAddRacik_Click(object sender, EventArgs e)
+        {
+            gvRacik.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            gvRacik.AddNewRow();
+        }
+
+        private void sSimpanU_Click(object sender, EventArgs e)
+        {
+            if (gridView16.RowCount < 1) return;
+
+            string kode = "", dosis = "", info = "", jumlah = "", id = "", stok = "", con = "", action = "";
+            string sql_cnt = "", med_cnt = "", sql_update = "", sql_diag = "", diag_cnt = "", harga = "", hari = "", jph = "", info_dosis = "";
+            int stsimpan = 0;
+
+            for (int i = 0; i < gridView16.DataRowCount; i++)
+            {
+
+                id = gridView16.GetRowCellValue(i, gridView16.Columns[0]).ToString();
+                kode = gridView16.GetRowCellValue(i, gridView16.Columns[1]).ToString();
+                dosis = gridView16.GetRowCellValue(i, gridView16.Columns[4]).ToString();
+                info = gridView16.GetRowCellValue(i, gridView16.Columns[5]).ToString();
+                jumlah = gridView16.GetRowCellValue(i, gridView16.Columns[7]).ToString();
+                stok = gridView16.GetRowCellValue(i, gridView16.Columns[6]).ToString();
+                con = gridView16.GetRowCellValue(i, gridView16.Columns[10]).ToString();
+                action = gridView16.GetRowCellValue(i, gridView16.Columns[9]).ToString();
+                harga = gridView16.GetRowCellValue(i, gridView16.Columns[12]).ToString();
+                hari = gridView16.GetRowCellValue(i, gridView16.Columns[11]).ToString();
+                jph = gridView16.GetRowCellValue(i, gridView16.Columns[13]).ToString();
+                info_dosis = gridView16.GetRowCellValue(i, gridView16.Columns[14]).ToString();
+
+                if (con == "Y")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Obat Sudah Confirm!!";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                else if (stok == "0")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Obat Kosong!!";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                else if (jumlah == "" || jumlah == "0")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Jumlah Kosong!!";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                else if (Convert.ToInt32(jumlah) > Convert.ToInt32(stok))
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Jumlah > Stok";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                else if (kode == "")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Tentukan Obat";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                else if (dosis == "")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Tentukan Dosis";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                //else if (hari == "")
+                //{
+                //    MessageBox.Show("Jumlah harus diisi."); return;
+                //}
+                else if (info == "")
+                {
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Gagal..Tentukan Info";
+                    Blinking(labelControl168, 0);
+                    return;
+                }
+                //else if (info_dosis == "")
+                //{
+                //    MessageBox.Show("Dosis harus diisi."); return;
+                //}
+                else
+                {
+                    int queue = 0;
+                    string tmp_queue = "", que = "", cnt = "";
+                    string sql_check = " select  nvl(max(to_number(substr(que02,2,3))),0) que from KLINIK.cs_visit where to_char(visit_date,'yyyy-mm-dd')= '" + today + "'  ";
+                    string sql_check2 = " select  count(0) cnt from KLINIK.cs_receipt where rm_no = '" + lMedRm.Text + "' and to_char(insp_date,'yyyy-mm-dd')= '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "'  ";
+
+                    try
+                    {
+                        OleDbConnection oraConnecta = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOraa = new OleDbDataAdapter(sql_check, oraConnecta);
+                        DataTable dta = new DataTable();
+                        adOraa.Fill(dta);
+
+                        tmp_queue = dta.Rows[0]["que"].ToString();
+                        queue = Convert.ToInt32(tmp_queue) + 1;
+                        que = queue.ToString();
+                        if (queue < 10)
+                        {
+                            que = que.PadLeft(que.Length + 2, '0');
+                        }
+                        else if (queue < 100)
+                        {
+                            que = que.PadLeft(que.Length + 1, '0');
+                        }
+
+                        OleDbConnection oraConnectb = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrab = new OleDbDataAdapter(sql_check2, oraConnectb);
+                        DataTable dtb = new DataTable();
+                        adOrab.Fill(dtb);
+                        cnt = dtb.Rows[0]["cnt"].ToString();
+
+                        if (cnt == "0")
+                        {
+                            sql_update = "";
+
+                            sql_update = sql_update + " update KLINIK.cs_visit" +
+                                                      " set que02 = 'R" + que + "', ";
+                            sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + " where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' and ID_VISIT =  " + idvisit + " ";
+
+                            try
+                            {
+                                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                                OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                                oraConnect.Open();
+                                cm.ExecuteNonQuery();
+                                oraConnect.Close();
+                                cm.Dispose();
+
+                                //MessageBox.Show("Query Exec : " + sql_update);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+
+                    if (action == "I")
+                    {
+                        sql_diag = " select count(0) cnt from KLINIK.cs_diagnosa where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' ";
+                        OleDbConnection oraConnectd = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOrad = new OleDbDataAdapter(sql_diag, oraConnectd);
+                        DataTable dtd = new DataTable();
+                        adOrad.Fill(dtd);
+                        diag_cnt = dtd.Rows[0]["cnt"].ToString();
+
+
+                        sql_cnt = " select count(0) cnt from KLINIK.cs_receipt where to_char(insp_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and visit_no = '" + lMedQue.Text + "' and rm_no = '" + lMedRm.Text + "' " + " and med_cd = '" + kode + "' and ID_VISIT =  " + idvisit + " and GRID_NAME ='gridView16' ";
+                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+                        DataTable dt = new DataTable();
+                        adOra.Fill(dt);
+                        med_cnt = dt.Rows[0]["cnt"].ToString();
+
+                        if (Convert.ToInt32(med_cnt) > 0)
+                        {
+                            //MessageBox.Show("Gagal Disimpan.");
+                        }
+                        else if (diag_cnt == "0")
+                        {
+                            //MessageBox.Show("Gagal Disimpan. Diagnosa belum diinput.");
+                            labelControl168.Visible = true;
+                            labelControl168.Text = "Gagal..Diagnosa Kosong";
+                            Blinking(labelControl168, 0);
+                            return;
+                        }
+                        else
+                        {
+                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                            OleDbCommand command = new OleDbCommand();
+                            OleDbTransaction trans = null;
+
+                            command.Connection = oraConnectTrans;
+                            oraConnectTrans.Open();
+
+                            try
+                            {
+                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                                command.Connection = oraConnectTrans;
+                                command.Transaction = trans;
+
+                                command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT,GRID_NAME,JENIS_OBAT) " +
+                                                     " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView16','NONE') ";
+                                command.ExecuteNonQuery();
+
+                                //command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT,GRID_NAME,JENIS_OBAT) " +
+                                //                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView16','NONE') ";
+                                //command.ExecuteNonQuery();
+
+                                //command.CommandText = " update cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
+                                //command.ExecuteNonQuery();
+
+                                trans.Commit();
+                                //MessageBox.Show(sql_insert);
+                                //MessageBox.Show("Query Exec : " + sql_insert);
+
+                                //MessageBox.Show("Data Berhasil disimpan.");
+                                stsimpan = 1;
+                            }
+                            catch (Exception ex)
+                            {
+                                trans.Rollback();
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
+
+                            oraConnectTrans.Close();
+                        }
+                    }
+                    else if (action == "U")
+                    {
+                        sql_update = "";
+
+                        sql_update = sql_update + " update KLINIK.cs_receipt" +
+                                                  " set med_cd = '" + kode + "', formula = '" + dosis + "', med_qty = '" + jumlah + "', type_drink = '" + info + "', " +
+                                                  "     price = '" + harga + "', days = '" + hari + "', qty_day = '" + jph + "', dosis = '" + info_dosis + "',";
+                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                        sql_update = sql_update + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                        try
+                        {
+                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                            oraConnect.Open();
+                            cm.ExecuteNonQuery();
+                            oraConnect.Close();
+                            cm.Dispose();
+
+                            //MessageBox.Show("Query Exec : " + sql_update);
+                            LoadDataResep();
+                            //MessageBox.Show("Data Berhasil diupdate");
+                            stsimpan = 2;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            if (stsimpan == 1)
+            {
+                labelControl168.Visible = true;
+                labelControl168.Text = "Save Success";
+                Blinking(labelControl168, 1);
+            }
+            else if (stsimpan == 2)
+            {
+                labelControl168.Visible = true;
+                labelControl168.Text = "Updated Success";
+                Blinking(labelControl168, 1);
+            }
+
+            LoadDataResep();
+        }
+
+        private void sTambahU_Click(object sender, EventArgs e)
+        {
+            gridView16.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            gridView16.AddNewRow();
+        }
+
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            string sql_delete = "", id = "", confirm = "";
+
+            id = gridView16.GetRowCellValue(gridView16.FocusedRowHandle, gridView16.Columns[0]).ToString();
+            confirm = gridView16.GetRowCellValue(gridView16.FocusedRowHandle, gridView16.Columns[10]).ToString();
+
+            if (confirm == "Y")
+            {
+                //MessageBox.Show("Data tidak bisa dihapus.");
+                labelControl168.Visible = true;
+                labelControl168.Text = "Gagal..Obat Sudah Confirm!!";
+                Blinking(labelControl168, 0);
+                return;
+            }
+            else
+            {
+                sql_delete = "";
+                sql_delete = sql_delete + " delete from KLINIK.cs_receipt";
+                sql_delete = sql_delete + " where receipt_id = '" + id + "' and confirm='N' ";
+
+                try
+                {
+                    OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                    OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
+                    oraConnect.Open();
+                    cm.ExecuteNonQuery();
+                    oraConnect.Close();
+                    cm.Dispose();
+
+                    //MessageBox.Show("Query Exec : " + sql_update);
+                    LoadDataResep();
+                    labelControl168.Visible = true;
+                    labelControl168.Text = "Berhasil di hapus";
+                    Blinking(labelControl168, 1);
+                    //MessageBox.Show("Data Berhasil di hapus");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
+            }
+        }
+
+        private void gridHRacik_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            simpleButton7.Enabled = true;
+            GridView view = sender as GridView;
+            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+
+            if (e.Column.Caption == "Dosis")
+            {
+                gridHRacik.SetRowCellValue(gridHRacik.FocusedRowHandle, view.Columns[3], "A");
+            }
+        }
+
+        private void gridHRacik_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void gridHRacik_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            view.SetRowCellValue(e.RowHandle, view.Columns[3], "A");
+            //gridView6.Columns[3].OptionsColumn.ReadOnly = false;
+            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+            view.SetFocusedRowCellValue(view.Columns[6], "I");
+        }
+
+        private void gridHRacik_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+
+            if (e.Column.Caption == "Nama Racikan" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info")
+            {
+                e.Appearance.BackColor = Color.OldLace;
+                e.Appearance.ForeColor = Color.Black;
+            }
+        }
+
+        private void gridView16_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            sSimpanU.Enabled = true;
+            GridView view = sender as GridView;
+
+            if (view.RowCount < 1)
+                return;
+
+            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+            if (a.ToString().Equals(""))
+                return;
+
+
+            if (e.Column.Caption == "Nama Obat" && (a.Substring(0, 2) == "BP" || a.Substring(0, 2) == "UM"))
+            {
+                string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
+                string policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[14]).ToString();
+                string sql_medcd = "", sql_med = "", med_cd = "", med_name = "", med_group = "", med_stok = "", med_uom = "", cek_stok = "", sql_for = "";
+                s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+                sql_medcd = " select " +
+                            " klinik.FN_CS_INIT_STOCK(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') +  " +
+                            " klinik.FN_CS_TRX_IN(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') -  " +
+                            " klinik.FN_CS_TRX_OUT(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') - " +
+                            " klinik.FN_CS_REQ_STOCK(to_date('" + lMedDate.Text + "','yyyy-mm-dd'),'" + a + "') stock from dual ";
+
+                OleDbConnection oraConnect0 = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra0 = new OleDbDataAdapter(sql_medcd, oraConnect0);
+                DataTable dt0 = new DataTable();
+                adOra0.Fill(dt0);
+                cek_stok = dt0.Rows[0]["stock"].ToString();
+
+                sql_med = " select med_cd, initcap(med_name) med_name, med_group, '" + cek_stok + "' stock, initcap(uom) uom " +
+                          " from KLINIK.cs_medicine a  " +
+                          " where status = 'A'  " +
+                          " and med_cd = '" + a + "' ";
+
+                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra = new OleDbDataAdapter(sql_med, oraConnect);
+                DataTable dt = new DataTable();
+                adOra.Fill(dt);
+
+                med_cd = dt.Rows[0]["med_cd"].ToString();
+                med_name = dt.Rows[0]["med_name"].ToString();
+                med_group = dt.Rows[0]["med_group"].ToString();
+                med_stok = dt.Rows[0]["stock"].ToString();
+                med_uom = dt.Rows[0]["uom"].ToString();
+
+                //if (chOUmum.Checked)
+                //{
+                //    s_stat = lstsobat.Text;
+                //} 
+                //else
+                //{
+                s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+                //}
+
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' AND att1 ='UMUM' and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y' AND RACIKAN ='N'";
+                OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
+                DataTable dtf = new DataTable();
+                adOraf.Fill(dtf);
+                listFormula.Clear();
+                listFormula2.Clear();
+                for (int i = 0; i < dtf.Rows.Count; i++)
+                {
+                    listFormula2.Add(new Formula2() { formulaCode = dtf.Rows[i]["formula_id"].ToString(), formulaName = dtf.Rows[i]["formula"].ToString(), medicineName = dtf.Rows[i]["med_name"].ToString() });
+                }
+                if (dtf.Rows.Count == 1)
+                    view.SetRowCellValue(e.RowHandle, view.Columns[4], dtf.Rows[0]["formula_id"].ToString());
+                else
+                    view.SetRowCellValue(e.RowHandle, view.Columns[4], "");
+
+
+                if (tmp_stat == "I")
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[3], med_name);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[2], med_group);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
+                    view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
+                }
+                else
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
+                    view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], "0");
+                    view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
+                    view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
+                }
+                view.SetRowCellValue(e.RowHandle, view.Columns[7], "");
+                view.SetRowCellValue(e.RowHandle, view.Columns[14], "3x1");
+            }
+
+            if (e.Column.Caption == "Formula")
+            {
+                string medicine_cd = view.GetRowCellValue(e.RowHandle, view.Columns[1]).ToString();
+                string formula_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
+                string reg_dt = lMedDate.Text;
+                string rm = lMedRm.Text;
+                string que = lMedQue.Text;
+                string stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
+
+                string kode = "", sql_pilihan = "";
+
+                sql_pilihan = " select med_cd from KLINIK.cs_formula where formula_id = '" + formula_cd + "' and MINUS_STOK ='Y'";
+                DataTable dtf = ConnOra.Data_Table_ora(sql_pilihan);
+
+                if (dtf.Rows.Count > 0)
+                {
+                    kode = dtf.Rows[0]["med_cd"].ToString();
+
+                }
+                else
+                {
+                    kode = "";
+                }
+
+                if (kode == medicine_cd)
+                {
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                }
+                else
+                {
+                    MessageBox.Show("Kode Formula tidak valid");
+                    return;
+                    //LoadDataResep();
+                }
+                //} 
+
+            }
+
+            if (e.Column.Caption == "Qty")
+            {
+                string sql_for = "", med_price = "", qty = "", tmp_stat = "";
+                string for_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
+                string tmp_hari = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
+                string cstock = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
+                int tot_hari = 0, tot_harga = 0, istock = 0;
+
+                tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
+
+                sql_for = " select med_price, qty from KLINIK.cs_formula where formula_id = '" + for_cd + "' and MINUS_STOK ='Y' ";
+                DataTable dtf3 = ConnOra.Data_Table_ora(sql_for);
+
+                if (dtf3.Rows.Count > 0)
+                {
+                    med_price = dtf3.Rows[0]["med_price"].ToString();
+                    qty = dtf3.Rows[0]["qty"].ToString();
+                }
+                else
+                {
+                    med_price = "0";
+                    qty = "0";
+                }
+
+                if (tmp_hari == "")
+                {
+                    tmp_hari = "1";
+                }
+
+                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+
+                if (!cstock.ToString().Equals(""))
+                {
+                    istock = Convert.ToInt32(cstock);
+                    if (istock - Convert.ToInt32(qty) < 0)
+                    {
+                        MessageBox.Show("Stok Obat Kosong. Tidak dapat dipilih..!!!");
+                        view.DeleteRow(view.FocusedRowHandle);
+                        return;
+                    }
+                    else
+                    {
+                        if (tmp_stat == "I")
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                        else
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                    }
+                }
+            }
+
+            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Info" || e.Column.Caption == "Dosis" || e.Column.Caption == "Remark")
+            {
+                if (view.RowCount < 1)
+                    return;
+
+                string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
+
+                if (tmp_stat == "I")
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+                }
+                else
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
+                }
+            }
+        }
+
+        private void gridView16_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void gridView16_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+        }
+
+        private void gridView16_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+
+            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info" || e.Column.Caption == "Qty")
+            {
+                e.Appearance.BackColor = Color.OldLace;
+                e.Appearance.ForeColor = Color.Black;
+            }
+
+            if (e.Column.Caption == "Stok")
+            {
+                string stok = View.GetRowCellDisplayText(e.RowHandle, View.Columns[6]);
+
+                if (stok != "")
+                {
+                    if (Convert.ToInt16(stok) == 0)
+                    {
+                        e.Appearance.BackColor = Color.Crimson;
+                        e.Appearance.ForeColor = Color.White;
+                        e.Appearance.FontStyleDelta = FontStyle.Bold;
+                    }
+                    else if (Convert.ToInt16(stok) <= 20)
+                    {
+                        e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
+                        e.Appearance.ForeColor = Color.White;
+                        e.Appearance.FontStyleDelta = FontStyle.Bold;
+                    }
+                }
+
+            }
+
+            if (e.Column.Caption == "Confirm")
+            {
+                string con = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
+
+                if (con == "Y")
+                {
+                    e.Appearance.BackColor = Color.DodgerBlue;
+                    e.Appearance.ForeColor = Color.White;
+                    e.Appearance.FontStyleDelta = FontStyle.Bold;
+                }
+            }
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            string stat = gridView16.GetRowCellDisplayText(gridView16.FocusedRowHandle, gridView16.Columns[3]);
+            if (stat == "")
+            {
+                gridView16.DeleteRow(gridView16.FocusedRowHandle);
+            }
+        }
+  
         private void btnAddTindakan_Click(object sender, EventArgs e)
         {
             gridView14.OptionsBehavior.EditingMode = GridEditingMode.Default;

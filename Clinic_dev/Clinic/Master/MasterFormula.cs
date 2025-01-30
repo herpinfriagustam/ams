@@ -93,7 +93,7 @@ namespace Clinic
         {
             string sql1 = " ";
             sql1 = " ";
-            sql1 = sql1 + " select POLI_CD, POLI_NAME from CS_POLICLINIC where POLI_CD in('POL0001','POL0002','POL0000','POL0006') order by 1  ";
+            sql1 = sql1 + " select POLI_CD, POLI_NAME from CS_POLICLINIC where POLI_CD in('POL0001','POL0002','POL0000','POL0006') UNION ALL select 'OTC' POLI_CD, 'OTC' POLI_NAME from dual order by 1  ";
             dt_poli = ConnOra.Data_Table_ora(sql1);
             lookupna(cm_poli, "POLI_NAME", dt_poli);
 

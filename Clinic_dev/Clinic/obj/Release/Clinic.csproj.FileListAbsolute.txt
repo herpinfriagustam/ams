@@ -2326,3 +2326,8 @@ D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.GenerateR
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe.licenses
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
 D:\App Github\MyBranch\ams\Clinic_dev\Clinic\obj\Release\Clinic.pdb
+D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
+D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Release\Interop.WMPLib.dll
+D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.ResolveComReference.cache
+D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
+D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.pdb

@@ -263,7 +263,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "   UNION ALL ";
             sql_search = sql_search + Environment.NewLine + "   select QUE que01, '' patient_no, '' pasno, '' plan, '' gender,   ";
             sql_search = sql_search + Environment.NewLine + "         0 age,    ";
-            sql_search = sql_search + Environment.NewLine + "         a.poli_cd, 'U' type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'S' action,     ";
+            sql_search = sql_search + Environment.NewLine + "         a.poli_cd, STYPE type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'S' action,     ";
             sql_search = sql_search + Environment.NewLine + "         'No'   AS observation, '' visit_remark, '' rm_no,  ";
             sql_search = sql_search + Environment.NewLine + "         DECODE (TYPE_INS, 'REG', 'Pendaftaran', 'Umum' ) AS type_mr,   ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd, round((nvl(a.INS_DATE,sysdate)-a.INS_DATE) * 24 * 60) wait_time , '' visit_remark, 0 ID_VISIT, 0 ANAMNESA_ID, 0 HEAD_ID, '' PAY_STATUS, '' NIK , a.CALL_ID ,1 stat ";
