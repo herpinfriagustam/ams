@@ -781,7 +781,7 @@ namespace Clinic
                                    to_char(A.INSP_DATE,'yyyy-MM-dd') INSP_DATE,
                                    initcap(C.NAME) NAME,
                                    DECODE(D.TYPE_PATIENT, 'U', 'Umum','B','BPJS','Swasta') GROUP_PATIENT,
-                                   case when D.STATUS ='PAY' then 'Pembayaran' ELSE DECODE(F.STATUS,'OPN', 'Proses', 'REG', 'Registrasi','CLS','Selesai', 'PAY','Pembayaran','Batal') END STATUS,
+                                   case when D.STATUS ='PAY' then 'Pembayaran' ELSE DECODE(d.STATUS,'OPN', 'Proses','NUR', 'Proses','INP', 'Proses', 'REG', 'Registrasi','CLS','Selesai','DON', 'Persiapan Pulang', 'PAY','Pembayaran','Batal') END STATUS,
                                    nvl((select z.name from KLINIK.cs_guarantor z where z.patient_no=c.patient_no and rownum =1 ),  C.FAMILY_HEAD)  FAMILY_HEAD, A.ID_VISIT, E.HEAD_ID, (select ROOM_NAME||' ['||substr(f.room_id,-2)||']' from CS_ROOM g, CS_BED h where g.room_id = h.room_id  and h.BED_ID = f.room_id ) room_id, f.inpatient_id
                               FROM CS_ANAMNESA A, CS_PATIENT B, CS_PATIENT_INFO C, CS_VISIT D, CS_TREATMENT_HEAD E, KLINIK.cs_inpatient F
                               WHERE A.ID_VISIT = D.ID_VISIT AND D.inpatient_id=f.inpatient_id
@@ -793,8 +793,7 @@ namespace Clinic
             //grdMain.DataSource = ORADB.SetData(ORADB.XE, sql); 
 
             grdMain.DataSource = ConnOra.Data_Table_ora(sql);
-            gvwMain.BestFitColumns();
-
+            gvwMain.BestFitColumns(); 
             //RepositoryItemLookUpEdit roomLookup = new RepositoryItemLookUpEdit();
             //roomLookup.DataSource = listRoom;
             //roomLookup.ValueMember = "roomCode";

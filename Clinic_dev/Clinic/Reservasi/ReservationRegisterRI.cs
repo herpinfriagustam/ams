@@ -143,6 +143,9 @@ namespace Clinic
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "REG", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "OPN", statusName = "Proses" });
+            listStat.Add(new Status() { statusCode = "PAY", statusName = "Pembayaran" });
+            listStat.Add(new Status() { statusCode = "DON", statusName = "Persiapan Pulang" });
+            listStat.Add(new Status() { statusCode = "NUR", statusName = "Proses" });
             listStat.Add(new Status() { statusCode = "CLS", statusName = "Selesai" });
             listStat.Add(new Status() { statusCode = "CAN", statusName = "Batal" });
 
@@ -195,13 +198,13 @@ namespace Clinic
 
             sql_search = sql_search + Environment.NewLine + "select 'S' action, a.inpatient_id, b.patient_no, b.que01, a.rm_no, ";
             sql_search = sql_search + Environment.NewLine + " to_char(B.visit_date,'yyyy-MM-dd') visit_date, ";
-            sql_search = sql_search + Environment.NewLine + "b.patient_no pasno, a.gr_no, b.type_patient, a.status, a.room_id, ";
+            sql_search = sql_search + Environment.NewLine + "b.patient_no pasno, a.gr_no, b.type_patient, b.status, a.room_id, ";
             sql_search = sql_search + Environment.NewLine + "to_char(a.date_in , 'YYYY-MM-DD HH24:mm:ss') date_in, ";
             sql_search = sql_search + Environment.NewLine + "a.date_out date_out, a.gr_no grno, a.room_id room_tmp, letter_no, B.ID_VISIT , b.purpose Policlinic";
             sql_search = sql_search + Environment.NewLine + "from cs_inpatient a ";
             sql_search = sql_search + Environment.NewLine + "join cs_visit b on (a.inpatient_id=b.inpatient_id) ";
             sql_search = sql_search + Environment.NewLine + "where 1=1 ";
-            sql_search = sql_search + Environment.NewLine + "and a.status in ('REG','OPN') and b.plan = 'TRT02' ";
+            sql_search = sql_search + Environment.NewLine + "and b.status not in ('CLS','DON','CAN') and b.plan = 'TRT02' ";
             sql_search = sql_search + Environment.NewLine + "order by b.visit_date ";
 
 

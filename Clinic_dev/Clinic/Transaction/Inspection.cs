@@ -89,7 +89,7 @@ namespace Clinic
             ConnOra.InsertHistoryAkses( DB.vUserId , ConnOra.my_IP, "Inspection");
 
             sql = "";
-            sql = " select a.ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' ";
+            sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
              
             try
             {
@@ -549,6 +549,10 @@ namespace Clinic
 
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+             
+
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
             btnDelDiag.Enabled = false;
@@ -738,6 +742,30 @@ namespace Clinic
             s_infop4 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[14]);
             s_infop5 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[15]);
 
+            if(ConnOra.v_iddokter.ToString ().Equals("0") || ConnOra.v_iddokter.ToString().Equals("") )
+            {
+                sql = " ";
+                sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
+
+                try
+                {
+                    OleDbConnection sqlConnectD = ConnOra.Create_Connect_Ora();
+                    OleDbDataAdapter adSqlD = new OleDbDataAdapter(sql, sqlConnectD);
+                    DataTable dtD = new DataTable();
+                    adSqlD.Fill(dtD);
+                    if (dtD.Rows.Count > 0)
+                    {
+                        ConnOra.v_iddokter = dtD.Rows[0]["ID_DOKTER"].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
+
+            }
+
+
             //if (s_infop1 == "")
             //{
             //    checkP1.Checked = false;
@@ -782,7 +810,7 @@ namespace Clinic
             //{
             //    checkP5.Checked = true;
             //}
-             
+
 
             gridView3.BestFitColumns();
 
@@ -2638,7 +2666,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2664,7 +2692,7 @@ namespace Clinic
             
             //ObsList();
 
-            //cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+            //cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
             //cnt = gridView5.RowCount;
             //free = cap - cnt;
             //lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2904,7 +2932,7 @@ namespace Clinic
                                 //ObsList();
                                 ObsList();
                                 int cap = 0, free = 0, cnt = 0;
-                                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                                 cnt = gridView5.RowCount;
                                 free = cap - cnt;
                                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -4236,6 +4264,8 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
@@ -4619,8 +4649,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -6737,7 +6767,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -6902,7 +6932,7 @@ namespace Clinic
 
                 s_cnt = dt.Rows[0]["cnt"].ToString();
 
-                if (Convert.ToInt16(s_cnt) > 0)
+                if (Convert.ToInt32(s_cnt) > 0)
                 {
                     sql_update = "";
 
@@ -6956,6 +6986,9 @@ namespace Clinic
 
         private void xtraTabControl2_Click(object sender, EventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+
             if (xtraTabControl2.SelectedTabPage.Text == "Terapi / Resep")
             {
                 if (tmp_now != rNow.Text || tmp_old != rOld.Text || tmp_fam != rFam.Text || tmp_fisik != pFisik.Text || tmp_add != pAdd.Text)
@@ -6981,6 +7014,15 @@ namespace Clinic
             string sql_load = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_tipe_pas="", p_tipe_des="", p_id_visit="";
             if (gridView1.RowCount < 1) return;
+
+            if (idvisit.ToString().Equals(""))
+            {
+                MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
+                return;
+            }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
+
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
@@ -8254,8 +8296,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals("")) 
                 {
@@ -8326,13 +8368,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -8663,13 +8705,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -9429,13 +9471,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -9970,7 +10012,8 @@ namespace Clinic
                 {
                     if (action == "I")
                     {
-                        sql_cnt = " select count(0) cnt from KLINIK.cs_treatment_detail where head_id = '" + head + "' and to_char(treat_date,'yyyy-mm-dd') = '" + ldate + "' and treat_item_id = '" + nama_laya + "' ";
+                        sql_cnt = "";
+                        sql_cnt = " select count(0) cnt from KLINIK.cs_treatment_detail where head_id = '" + head + "'  and treat_item_id = '" + nama_laya + "' ";
                         OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                         OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
                         DataTable dt = new DataTable();

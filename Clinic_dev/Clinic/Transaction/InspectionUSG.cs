@@ -90,6 +90,27 @@ namespace Clinic
             InitData();
             LoadDataPasien();
             ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "InspectionUSG");
+
+            string sql = ""; 
+
+            sql = "";
+            sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='BIDAN' ";
+
+            try
+            {
+                OleDbConnection sqldok = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqldok = new OleDbDataAdapter(sql, sqldok);
+                DataTable dtdok = new DataTable();
+                adSqldok.Fill(dtdok);
+                if (dtdok.Rows.Count > 0)
+                {
+                    ConnOra.v_iddokter = dtdok.Rows[0]["ID_DOKTER"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
         }
 
         private void InitData()
@@ -576,7 +597,11 @@ namespace Clinic
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
             try
-            { 
+            {
+
+            if (gridView1.RowCount < 1)
+                return;
+
            
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
@@ -592,6 +617,9 @@ namespace Clinic
             tmp_add = "";
 
             GridView View = sender as GridView;
+            if (View.RowCount < 1)
+                return;
+
             string s_nik = "", s_que = "", s_rm = "", s_date = "", p_rnow="", p_rthen= "", p_rfam = "", p_rfisik = "", p_radd = "", s_nama="";
             string s_infop1 = "", s_infop2 = "", s_infop3 = "", s_infop4 = "", s_infop5 = "";
             string sql_his = "", sql_anam = "";
@@ -3537,15 +3565,16 @@ namespace Clinic
             string sql_load = "", sql_resep_luar = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_nik="", p_que2="";
             string p_rp = "", p_pf = "", p_pt = "", p_resep="";
-             
-            if (gridView1.RowCount < 1)
-                return;
+
+            if (gridView1.RowCount < 1) return;
 
             if (idvisit.ToString().Equals(""))
             {
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
 
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
@@ -3898,8 +3927,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -6117,6 +6146,9 @@ namespace Clinic
 
         private void xtraTabControl2_Click(object sender, EventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+
             if (xtraTabControl2.SelectedTabPage.Text == "Terapi / Resep")
             {
                 if (tmp_now != rNow.Text || tmp_old != rOld.Text || tmp_fam != rFam.Text || tmp_fisik != pFisik.Text || tmp_add != pAdd.Text)
@@ -6141,6 +6173,15 @@ namespace Clinic
         {
             string sql_load = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_tipe_pas="", p_tipe_des="", p_id_visit="";
+            if (gridView1.RowCount < 1) return;
+
+            if (idvisit.ToString().Equals(""))
+            {
+                MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
+                return;
+            }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
@@ -8355,8 +8396,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -8435,13 +8476,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;

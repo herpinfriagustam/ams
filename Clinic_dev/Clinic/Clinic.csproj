@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev 1.1\Clinic_dev\Clinic\bin\Clinic\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>..\..\..\..\AMS Program\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />

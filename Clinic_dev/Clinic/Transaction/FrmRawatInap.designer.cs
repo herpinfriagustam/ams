@@ -6822,6 +6822,7 @@
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.OptionsColumn.AllowEdit = false;
             this.gridColumn28.OptionsColumn.ReadOnly = true;
+            this.gridColumn28.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn28.Visible = true;
             this.gridColumn28.VisibleIndex = 0;
             // 
@@ -6840,6 +6841,7 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.OptionsColumn.AllowEdit = false;
             this.gridColumn29.OptionsColumn.ReadOnly = true;
+            this.gridColumn29.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn29.Visible = true;
             this.gridColumn29.VisibleIndex = 1;
             // 
@@ -6859,6 +6861,7 @@
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.OptionsColumn.AllowEdit = false;
             this.gridColumn30.OptionsColumn.ReadOnly = true;
+            this.gridColumn30.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 2;
             // 
@@ -6884,6 +6887,7 @@
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.OptionsColumn.AllowEdit = false;
             this.gridColumn31.OptionsColumn.ReadOnly = true;
+            this.gridColumn31.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn31.Visible = true;
             this.gridColumn31.VisibleIndex = 3;
             // 
@@ -6900,6 +6904,7 @@
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.OptionsColumn.AllowEdit = false;
             this.gridColumn32.OptionsColumn.ReadOnly = true;
+            this.gridColumn32.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn32.Visible = true;
             this.gridColumn32.VisibleIndex = 4;
             // 
@@ -6916,6 +6921,7 @@
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.OptionsColumn.AllowEdit = false;
             this.gridColumn33.OptionsColumn.ReadOnly = true;
+            this.gridColumn33.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn33.Visible = true;
             this.gridColumn33.VisibleIndex = 5;
             // 
@@ -6930,6 +6936,7 @@
             this.gridColumn104.Caption = "RUANGAN";
             this.gridColumn104.FieldName = "ROOM_ID";
             this.gridColumn104.Name = "gridColumn104";
+            this.gridColumn104.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn104.Visible = true;
             this.gridColumn104.VisibleIndex = 6;
             // 
@@ -6946,6 +6953,7 @@
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.OptionsColumn.AllowEdit = false;
             this.gridColumn34.OptionsColumn.ReadOnly = true;
+            this.gridColumn34.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 7;
             // 
@@ -6960,6 +6968,7 @@
             this.gridColumn51.Caption = "ID_VISIT";
             this.gridColumn51.FieldName = "ID_VISIT";
             this.gridColumn51.Name = "gridColumn51";
+            this.gridColumn51.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.gridColumn51.Visible = true;
             this.gridColumn51.VisibleIndex = 8;
             // 
@@ -6974,6 +6983,7 @@
             this.gridColumn35.Caption = "ID";
             this.gridColumn35.FieldName = "ANAMNESA_ID";
             this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             // 
             // gridColumn75
             // 
@@ -6986,6 +6996,7 @@
             this.gridColumn75.Caption = "HEAD_ID";
             this.gridColumn75.FieldName = "HEAD_ID";
             this.gridColumn75.Name = "gridColumn75";
+            this.gridColumn75.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             // 
             // gridColumn118
             // 

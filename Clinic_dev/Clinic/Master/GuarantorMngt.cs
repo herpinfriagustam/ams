@@ -18,6 +18,7 @@ using System.Threading;
 using System.Globalization;
 using Clinic.Report;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraGrid.Columns;
 
 namespace Clinic
 {
@@ -38,6 +39,14 @@ namespace Clinic
         public GuarantorMngt()
         {
             InitializeComponent();
+
+            foreach (GridColumn column in gridView1.Columns)
+            {
+                if (Type.GetTypeCode(column.ColumnType) == TypeCode.String)
+                {
+                    column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+                }
+            }
         }
 
         private void ReservationInput_Load(object sender, EventArgs e)
@@ -66,11 +75,11 @@ namespace Clinic
 
             if (cmbStatus.Text == "Aktif")
             {
-                sql_search = sql_search + Environment.NewLine + "and b.status = 'A' ";
+                sql_search = sql_search + Environment.NewLine + "and C.status NOT IN ('CLS','CAN') ";
             }
             else
             {
-                sql_search = sql_search + Environment.NewLine + "and a.status = 'I' ";
+                sql_search = sql_search + Environment.NewLine + "and a.status = 'I'";
             }
 
             if (cmbSearch.Text == "Nama")
@@ -150,6 +159,7 @@ namespace Clinic
                 glPas.ImmediatePopup = true;
                 glPas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                 glPas.NullText = "";
+                glPas.PopupFilterMode = PopupFilterMode.Contains;
                 gridView1.Columns[2].ColumnEdit = glPas;
 
                 RepositoryItemLookUpEdit jkLookup = new RepositoryItemLookUpEdit();
@@ -161,7 +171,7 @@ namespace Clinic
                 jkLookup.DropDownRows = listjk.Count;
                 jkLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
                 jkLookup.AutoSearchColumnIndex = 1;
-                jkLookup.NullText = "";
+                jkLookup.NullText = ""; 
                 gridView1.Columns[8].ColumnEdit = jkLookup;
 
                 RepositoryItemLookUpEdit stLookup = new RepositoryItemLookUpEdit();

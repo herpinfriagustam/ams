@@ -85,7 +85,7 @@ namespace Clinic
         private void InitData()
         {
             sql = "";
-            sql = " select a.ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' ";
+            sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
 
             try
             {
@@ -541,6 +541,9 @@ namespace Clinic
 
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
             btnDelDiag.Enabled = false;
@@ -3706,14 +3709,16 @@ namespace Clinic
             string sql_load = "", sql_resep_luar = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_nik="", p_que2="";
             string p_rp = "", p_pf = "", p_pt = "", p_resep="";
-            if (gridView1.RowCount < 1)
-                return;
+            if (gridView1.RowCount < 1) return;
 
             if (idvisit.ToString().Equals(""))
             {
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
+
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -6400,6 +6405,15 @@ namespace Clinic
         {
             string sql_load = "";
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_tipe_pas="", p_tipe_des="", p_id_visit="";
+            if (gridView1.RowCount < 1) return;
+
+            if (idvisit.ToString().Equals(""))
+            {
+                MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
+                return;
+            }
+            if (gridView1.FocusedRowHandle < 1)
+                return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
