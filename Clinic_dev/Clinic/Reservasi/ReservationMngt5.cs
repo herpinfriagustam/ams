@@ -291,7 +291,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "     AND TRUNC(A.visit_date) = TRUNC(sysdate)  ";
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
             sql_search = sql_search + Environment.NewLine + "     AND a.status not in ('CAN') ";// IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL')  ";
-            sql_search = sql_search + Environment.NewLine + "   ORDER BY i.SORT_ORDER, a.ins_date   ";
+            sql_search = sql_search + Environment.NewLine + "   ORDER BY a.ID_VISIT,i.SORT_ORDER, a.ins_date   ";
             
             //loading.ShowWaitForm();
             try

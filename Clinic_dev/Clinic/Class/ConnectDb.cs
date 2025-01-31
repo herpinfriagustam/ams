@@ -157,7 +157,7 @@ namespace Clinic
             lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
             lokup.AppearanceDropDown.Options.UseFont = true;
 
-            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard; 
+            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lokup.NullText = "";
             lokup.PopupFilterMode = PopupFilterMode.Contains;
             gridviw.Columns[col].ColumnEdit = lokup;

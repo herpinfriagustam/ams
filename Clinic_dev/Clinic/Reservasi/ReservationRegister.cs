@@ -15,7 +15,7 @@ using System.Net;
 using Clinic.Report;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraEditors;
+using DevExpress.XtraEditors; 
 
 namespace Clinic
 {
@@ -105,7 +105,7 @@ namespace Clinic
 
         private void initData()
         {
-            string sql_poli = " select poli_cd, poli_name from cs_policlinic where status = 'A' and poli_cd not in ('POL0004') ";
+            string sql_poli = " select poli_cd, poli_name from cs_policlinic where status = 'A' and poli_cd not in ('POL0004','POL0008','POL0009') ";
             OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_poli, sqlConnect2);
             DataTable dt2 = new DataTable();
@@ -311,7 +311,7 @@ namespace Clinic
                 gridView1.Columns[3].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[4].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[5].OptionsColumn.AllowEdit = false;
-                gridView1.Columns[6].OptionsColumn.AllowEdit = false;
+                gridView1.Columns[6].OptionsColumn.AllowEdit = true ;
                 gridView1.Columns[8].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[9].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[11].OptionsColumn.AllowEdit = false;
@@ -1431,7 +1431,7 @@ namespace Clinic
                 view.SetRowCellValue(e.RowHandle, view.Columns[5], age);
                 view.SetRowCellValue(e.RowHandle, view.Columns[23], pnik);
 
-                view.SetRowCellValue(e.RowHandle, view.Columns[7], "U");
+                //view.SetRowCellValue(e.RowHandle, view.Columns[7], "U");
                 view.SetRowCellValue(e.RowHandle, view.Columns[8], "N");
                 view.SetRowCellValue(e.RowHandle, view.Columns[10], "RSV");
                 view.SetRowCellValue(e.RowHandle, view.Columns[11], "I");
@@ -1465,85 +1465,89 @@ namespace Clinic
 
             }
 
-            if (e.Column.Caption == "Poli")
-            {
-                string tmp_nik = view.GetRowCellValue(e.RowHandle, view.Columns[1]).ToString();
-                string tmp_grp = "";
-                string tmp_poli = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
-                string tmp_rm = "", sql = "", sql2 = "", purpose = "", sql3 = "", rmk = "";
-                string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
+            //if (e.Column.Caption == "Poli")
+            //{
+            //    string tmp_nik = view.GetRowCellValue(e.RowHandle, view.Columns[1]).ToString();
+            //    string tmp_grp = "";
+            //    string tmp_poli = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
+            //    string tmp_rm = "", sql = "", sql2 = "", purpose = "", sql3 = "", rmk = "";
+            //    string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
+            //    if(!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003") )
+            //    {
+            //        MessageBox.Show("Hanya Poli Kebidanan yang dapat di Ganti..!!"); return;
+            //    }
 
-                gridView1.Columns[18].OptionsColumn.ReadOnly = true;
-                tmp_grp = "COMM";
-                //if (tmp_poli == "POL0001" || tmp_poli == "POL0000")
-                //{
-                //    tmp_grp = "COMM";
-                //}
-                //else if (tmp_poli == "POL0002")
-                //{
-                //    tmp_grp = "PREG";
-                //}
-                //else if (tmp_poli == "POL0003")
-                //{
-                //    tmp_grp = "FAMP";
-                //}
-                //else
-                if (tmp_poli == "POL0007")
-                {
-                    gridView1.Columns[18].OptionsColumn.ReadOnly = false ;
-                    tmp_grp = "COMM";
-                }
-                //else
-                //{
-                //    tmp_grp = "COMM";
-                //}
+            //    gridView1.Columns[18].OptionsColumn.ReadOnly = true;
+            //    tmp_grp = "COMM";
+            //    //if (tmp_poli == "POL0001" || tmp_poli == "POL0000")
+            //    //{
+            //    //    tmp_grp = "COMM";
+            //    //}
+            //    //else if (tmp_poli == "POL0002")
+            //    //{
+            //    //    tmp_grp = "PREG";
+            //    //}
+            //    //else if (tmp_poli == "POL0003")
+            //    //{
+            //    //    tmp_grp = "FAMP";
+            //    //}
+            //    //else
+            //    if (tmp_poli == "POL0007")
+            //    {
+            //        gridView1.Columns[18].OptionsColumn.ReadOnly = false ;
+            //        tmp_grp = "COMM";
+            //    }
+            //    //else
+            //    //{
+            //    //    tmp_grp = "COMM";
+            //    //}
 
               
-                sql2 = " select poli_pic from cs_policlinic where poli_cd = '" + tmp_poli + "'  and status = 'A'  ";
-                OleDbConnection oraConnect3 = ConnOra.Create_Connect_Ora();
-                OleDbDataAdapter adOra3 = new OleDbDataAdapter(sql2, oraConnect3);
-                DataTable dt3 = new DataTable();
-                adOra3.Fill(dt3);
+            //    sql2 = " select poli_pic from cs_policlinic where poli_cd = '" + tmp_poli + "'  and status = 'A'  ";
+            //    OleDbConnection oraConnect3 = ConnOra.Create_Connect_Ora();
+            //    OleDbDataAdapter adOra3 = new OleDbDataAdapter(sql2, oraConnect3);
+            //    DataTable dt3 = new DataTable();
+            //    adOra3.Fill(dt3);
 
-                if (dt3.Rows.Count > 0)
-                {
-                    purpose = dt3.Rows[0]["poli_pic"].ToString();
-                }
-                else
-                {
-                    purpose = "";
-                }
+            //    if (dt3.Rows.Count > 0)
+            //    {
+            //        purpose = dt3.Rows[0]["poli_pic"].ToString();
+            //    }
+            //    else
+            //    {
+            //        purpose = "";
+            //    }
 
-                //if (tmp_poli == "POL0001" || tmp_poli == "POL0000" || tmp_poli == "POL0004")
-                //{
-                //    view.SetRowCellValue(e.RowHandle, view.Columns[9], "DOC");
-                //}
-                //else
-                //{
-                //    view.SetRowCellValue(e.RowHandle, view.Columns[9], "MID");
-                //}
+            //    //if (tmp_poli == "POL0001" || tmp_poli == "POL0000" || tmp_poli == "POL0004")
+            //    //{
+            //    //    view.SetRowCellValue(e.RowHandle, view.Columns[9], "DOC");
+            //    //}
+            //    //else
+            //    //{
+            //    //    view.SetRowCellValue(e.RowHandle, view.Columns[9], "MID");
+            //    //}
 
-                sql3 = " select attr_06 from cs_code_data where code_class_id = 'RESV_ITEM' and attr_03 = '" + tmp_poli + "'  and status = 'A'  ";
-                OleDbConnection oraConnect4 = ConnOra.Create_Connect_Ora();
-                OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql3, oraConnect4);
-                DataTable dt4 = new DataTable();
-                adOra4.Fill(dt4);
+            //    sql3 = " select attr_06 from cs_code_data where code_class_id = 'RESV_ITEM' and attr_03 = '" + tmp_poli + "'  and status = 'A'  ";
+            //    OleDbConnection oraConnect4 = ConnOra.Create_Connect_Ora();
+            //    OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql3, oraConnect4);
+            //    DataTable dt4 = new DataTable();
+            //    adOra4.Fill(dt4);
 
-                if (dt4.Rows.Count > 0)
-                {
-                    rmk = dt4.Rows[0]["attr_06"].ToString();
-                }
-                else
-                {
-                    rmk = "";
-                }
+            //    if (dt4.Rows.Count > 0)
+            //    {
+            //        rmk = dt4.Rows[0]["attr_06"].ToString();
+            //    }
+            //    else
+            //    {
+            //        rmk = "";
+            //    }
 
-                view.SetRowCellValue(e.RowHandle, view.Columns[9], purpose);
-                view.SetRowCellValue(e.RowHandle, view.Columns[10], "RSV");
-                view.SetRowCellValue(e.RowHandle, view.Columns[13], rmk);
+            //    view.SetRowCellValue(e.RowHandle, view.Columns[9], purpose);
+            //    view.SetRowCellValue(e.RowHandle, view.Columns[10], "RSV");
+            //    view.SetRowCellValue(e.RowHandle, view.Columns[13], rmk);
 
                 
-            }
+            //}
 
             if (e.Column.Caption == "Poli" || e.Column.Caption == "Pasien" || e.Column.Caption == "KK" || e.Column.Caption == "Berobat" || e.Column.Caption == "Status" || e.Column.Caption == "Remark" || e.Column.Caption == "Rencana")
             {
@@ -4150,6 +4154,21 @@ namespace Clinic
                 }
             }
         }
+
+        private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.Caption == "Poli")
+            { 
+                string tmp_poli = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[6]).ToString(); 
+                if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
+                {
+                    MessageBox.Show("Hanya Poli Kebidanan yang dapat di Ganti..!!");  
+                    LoadData();
+                    return;
+                } 
+            }
+        }
+  
 
         private void simpleButton13_Click(object sender, EventArgs e)
         {
