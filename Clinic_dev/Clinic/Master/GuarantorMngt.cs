@@ -70,7 +70,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + " from KLINIK.cs_guarantor a  ";
             sql_search = sql_search + Environment.NewLine + " join KLINIK.cs_patient_info b on a.patient_no=b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + " join KLINIK.cs_visit c on a.PATIENT_NO = c.PATIENT_NO and c.STATUS not in('CLS','CAN') ";
-            sql_search = sql_search + Environment.NewLine + " join cs_inpatient d on c.INPATIENT_ID = d.INPATIENT_ID AND D.STATUS not in('CLS','CAN')   ";
+            sql_search = sql_search + Environment.NewLine + " join cs_inpatient d on c.INPATIENT_ID = d.INPATIENT_ID    ";
             sql_search = sql_search + Environment.NewLine + "where 1=1  ";
 
             if (cmbStatus.Text == "Aktif")

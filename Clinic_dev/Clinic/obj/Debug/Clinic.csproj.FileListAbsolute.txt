@@ -3764,10 +3764,12 @@ D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.Generate
 D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 D:\App Github\MyBranchv.1\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Resources\manFronBack.png
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe.config
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Clinic.exe
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Clinic.pdb
+C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Charts.v15.2.Core.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.Data.v15.2.dll
@@ -3799,6 +3801,7 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRe
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\NAudio.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\Interop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.CodeParser.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -4094,5 +4097,3 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache

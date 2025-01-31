@@ -344,6 +344,9 @@ namespace Clinic
                 navBarItem21.Visible = true; // Resep Manajemen
                 navBarItem51.Visible = true; // Rawat Inap Manajemen
                 navBarItem52.Visible = true; // Layanan Manajemen   
+
+                navBarGroup8.Visible = true; // Group Payment
+                navBarItem42.Visible = true; // Daftar Tagihan 
             }
             else if (userStatus == "DOC")
             {

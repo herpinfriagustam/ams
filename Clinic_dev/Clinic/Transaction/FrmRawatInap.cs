@@ -1242,7 +1242,7 @@ namespace Clinic
                     { "diagnose_khusus", FN.getVal(pnlDiagnoseKhusus, 3) },
                     { "lapor_tim_trgz", FN.getVal(pnlLaporTim) },
                     { "mslh_perawat", mmPerawat.Text?.ToString() },
-                    { "mslh_dokter", mmDokter.Text?.ToString() },
+                    { "mslh_dokter", mmDokter.EditValue?.ToString() },
                     { "tujuan_terukur", mmTujuanTerukur.Text?.ToString() },
                     { "susun_rencana_perawat", chkSusunRencana.Checked?"Y":"N" }
                 };

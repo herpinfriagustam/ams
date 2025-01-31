@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRawatInap));
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel3 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel4 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel5 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView5 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel6 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView6 = new DevExpress.XtraCharts.LineSeriesView();
             this.tab5 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPulang1 = new System.Windows.Forms.Panel();
@@ -952,16 +952,16 @@
             this.panel9.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrVital)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView6)).BeginInit();
             this.pnlAsGizi.SuspendLayout();
             this.xtraScrollableControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txMonitoring.Properties)).BeginInit();
@@ -3100,36 +3100,36 @@
             // 
             // chrVital
             // 
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.WholeRange.Auto = false;
-            xyDiagram1.AxisY.WholeRange.MaxValueSerializable = "210";
-            xyDiagram1.AxisY.WholeRange.MinValueSerializable = "10";
-            this.chrVital.Diagram = xyDiagram1;
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.WholeRange.Auto = false;
+            xyDiagram2.AxisY.WholeRange.MaxValueSerializable = "210";
+            xyDiagram2.AxisY.WholeRange.MinValueSerializable = "10";
+            this.chrVital.Diagram = xyDiagram2;
             this.chrVital.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chrVital.Legend.UseCheckBoxes = true;
             this.chrVital.Location = new System.Drawing.Point(3, 3);
             this.chrVital.Name = "chrVital";
-            pointSeriesLabel1.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
-            series1.Label = pointSeriesLabel1;
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Tensi (S)";
-            series1.View = lineSeriesView1;
-            pointSeriesLabel2.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
-            series2.Label = pointSeriesLabel2;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.Name = "Tensi (D)";
-            series2.View = lineSeriesView2;
-            pointSeriesLabel3.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
-            pointSeriesLabel3.TextPattern = "{V} °C";
-            series3.Label = pointSeriesLabel3;
-            series3.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series3.Name = "Suhu (°C)";
-            series3.View = lineSeriesView3;
+            pointSeriesLabel4.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
+            series4.Label = pointSeriesLabel4;
+            series4.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series4.Name = "Tensi (S)";
+            series4.View = lineSeriesView4;
+            pointSeriesLabel5.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
+            series5.Label = pointSeriesLabel5;
+            series5.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series5.Name = "Tensi (D)";
+            series5.View = lineSeriesView5;
+            pointSeriesLabel6.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.JustifyAroundPoint;
+            pointSeriesLabel6.TextPattern = "{V} °C";
+            series6.Label = pointSeriesLabel6;
+            series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series6.Name = "Suhu (°C)";
+            series6.View = lineSeriesView6;
             this.chrVital.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1,
-        series2,
-        series3};
+        series4,
+        series5,
+        series6};
             this.chrVital.Size = new System.Drawing.Size(510, 214);
             this.chrVital.TabIndex = 0;
             // 
@@ -7328,15 +7328,16 @@
             // 
             // rgSedasiAnestesi
             // 
-            this.rgSedasiAnestesi.Location = new System.Drawing.Point(17, 298);
+            this.rgSedasiAnestesi.Location = new System.Drawing.Point(19, 298);
             this.rgSedasiAnestesi.Name = "rgSedasiAnestesi";
             this.rgSedasiAnestesi.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.rgSedasiAnestesi.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Dalam 24 Jam"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Dalam 48 jam"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "> 48 jam atau tidak menjalani pembedahan atau anestesi")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "> 48 jam atau tidak menjalani pembedahan atau anestesi"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Tidak")});
             this.rgSedasiAnestesi.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Column;
-            this.rgSedasiAnestesi.Size = new System.Drawing.Size(427, 60);
+            this.rgSedasiAnestesi.Size = new System.Drawing.Size(639, 60);
             this.rgSedasiAnestesi.TabIndex = 43;
             this.rgSedasiAnestesi.SelectedIndexChanged += new System.EventHandler(this.getScoreAnak);
             // 
@@ -7400,9 +7401,10 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(4, "Riwayat jatuh tempat tidur"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Pasien menggunkan alat bantu/diletakan dalam tempat tidur bayi atau perbot rumah"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Pasien diletakan ditempat tidur"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Area rawat jalan")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Area rawat jalan"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Tidak")});
             this.rgFlingkungan.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Column;
-            this.rgFlingkungan.Size = new System.Drawing.Size(435, 68);
+            this.rgFlingkungan.Size = new System.Drawing.Size(876, 69);
             this.rgFlingkungan.TabIndex = 42;
             this.rgFlingkungan.SelectedIndexChanged += new System.EventHandler(this.getScoreAnak);
             // 
@@ -7619,7 +7621,8 @@
             this.rgstsMental.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.rgstsMental.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Lansia menyadari kondisi dirinya"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(15, "Lansia mengalami keterbatsan daya ingat")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(15, "Lansia mengalami keterbatsan daya ingat"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(16, "Tidak")});
             this.rgstsMental.Size = new System.Drawing.Size(374, 47);
             this.rgstsMental.TabIndex = 101;
             this.rgstsMental.SelectedIndexChanged += new System.EventHandler(this.getScoreDewasa);
@@ -7649,7 +7652,8 @@
             this.rgGayaJalan.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Normal/bed rest/immobile"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(10, "Lemah (tidak bertenaga)"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(20, "Gangguan/tidak normal (pincang/diseret)")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(20, "Gangguan/tidak normal (pincang/diseret)"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(30, "Tidak")});
             this.rgGayaJalan.Size = new System.Drawing.Size(382, 64);
             this.rgGayaJalan.TabIndex = 99;
             this.rgGayaJalan.SelectedIndexChanged += new System.EventHandler(this.getScoreDewasa);
@@ -7855,6 +7859,11 @@
             // btnSaveX
             // 
             this.btnSaveX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveX.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSaveX.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSaveX.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnSaveX.Appearance.Options.UseBackColor = true;
+            this.btnSaveX.Appearance.Options.UseFont = true;
             this.btnSaveX.Location = new System.Drawing.Point(691, 3);
             this.btnSaveX.Name = "btnSaveX";
             this.btnSaveX.Size = new System.Drawing.Size(66, 20);
@@ -8317,7 +8326,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(-483, 1719);
+            this.label9.Location = new System.Drawing.Point(-492, 1727);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 15;
@@ -11330,16 +11339,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.rpTxShu)).EndInit();
             this.panel9.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrVital)).EndInit();
             this.pnlAsGizi.ResumeLayout(false);
             this.xtraScrollableControl6.ResumeLayout(false);

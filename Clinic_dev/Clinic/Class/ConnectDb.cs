@@ -222,15 +222,41 @@ namespace Clinic
             gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
 
             lokup.PopupFormWidth = 700;
-            lokup.ImmediatePopup = false ;
+            //lokup.ImmediatePopup = false ;
             lokup.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
             lokup.Appearance.Options.UseFont = true;
             lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
             lokup.AppearanceDropDown.Options.UseFont = true;
 
             lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lokup.ImmediatePopup = true; // Popup muncul saat mulai mengetik
+            lokup.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lokup.View.OptionsView.ShowAutoFilterRow = true;
+
+            lokup.View.OptionsFind.AlwaysVisible = true; // Menampilkan kolom pencarian di popup GridLookUpEdit
+            lokup.View.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
+            //lokup.View.OptionsFind.FindFilterColumns = "'" + scat + "', '" + scode + "','" + sname + "' "; //,scode,sname; //"Nama,Alamat,Kota";
+            //lokup.View.ActiveFilterString =  "'" + scat + "', '" + scode + "','" + sname + "' ";
+            //lokup.View.CustomRowFilter += (s, e) =>
+            //{
+            //    string keyword = lokup.View.FindFilterText.ToLower();
+
+            //    if (!string.IsNullOrEmpty(keyword))
+            //    {
+            //        string scat1 = scat;
+            //        string scode1 = scode;
+            //        string sname1 = scode;
+
+            //        if (!scat1.Contains(keyword) && !scode1.Contains(keyword) && !sname1.Contains(keyword))
+            //        {
+            //            e.Visible = false;
+            //            e.Handled = true;
+            //        }
+            //    }
+            //};
+            //lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lokup.NullText = "";
-            lokup.PopupFilterMode = PopupFilterMode.Contains;
+            //lokup.PopupFilterMode = PopupFilterMode.Contains;
             gridviw.Columns[col].ColumnEdit = lokup;
             lokup.PopupFilterMode = PopupFilterMode.Contains;
         }

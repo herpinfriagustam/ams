@@ -3573,7 +3573,7 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
-            if (gridView1.FocusedRowHandle < 1)
+            if (gridView1.FocusedRowHandle < 0)
                 return;
 
 
@@ -6180,7 +6180,7 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
-            if (gridView1.FocusedRowHandle < 1)
+            if (gridView1.FocusedRowHandle < 0)
                 return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();

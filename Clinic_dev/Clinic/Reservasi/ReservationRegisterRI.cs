@@ -142,6 +142,7 @@ namespace Clinic
 
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "REG", statusName = "Registrasi" });
+            listStat.Add(new Status() { statusCode = "INP", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "OPN", statusName = "Proses" });
             listStat.Add(new Status() { statusCode = "PAY", statusName = "Pembayaran" });
             listStat.Add(new Status() { statusCode = "DON", statusName = "Persiapan Pulang" });

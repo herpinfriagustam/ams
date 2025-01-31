@@ -143,6 +143,7 @@ namespace Clinic
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "REG", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "OPN", statusName = "Proses" });
+            listStat.Add(new Status() { statusCode = "INP", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "PAY", statusName = "Pembayaran" });
             listStat.Add(new Status() { statusCode = "DON", statusName = "Persiapan Pulang" });
             listStat.Add(new Status() { statusCode = "NUR", statusName = "Proses" });
@@ -1276,7 +1277,7 @@ namespace Clinic
             string sql_check = "", sql_cnt = "", sql_insert = "", sql_update = "", c_que = "", tmp_queue = "", visit_cnt = "", purpose = "", room_tmp = "", lett_no="", poli = "", tglin1 = "", tglout1 = "";
             int queue = 0, visit=0, tmp_visit_no = 0;
             cek = "";
-            
+            int ssimpan = 0;
 
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
@@ -1497,9 +1498,8 @@ namespace Clinic
                                 trans.Commit();
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql);
-                                MessageBox.Show("Data Berhasil disimpan.");
-                                initData();
-                                LoadData();
+                                //MessageBox.Show("Data Berhasil disimpan.");
+                                ssimpan = 1;
                             }
                             catch (Exception ex)
                             {
@@ -1585,9 +1585,9 @@ namespace Clinic
 
                         //MessageBox.Show("Query Exec : " + sql_update);
 
-                        MessageBox.Show("Data Berhasil diupdate");
-                        initData();
-                        LoadData();
+                        //MessageBox.Show("Data Berhasil diupdate");
+                        ssimpan = 2;
+                        
                     }
                     catch (Exception ex)
                     {
@@ -1597,9 +1597,15 @@ namespace Clinic
                     oraConnectTrans.Close();
                 }
             }
+
+            if(ssimpan == 1)
+                MessageBox.Show("Data Berhasil Di Simpan");
+            else if(ssimpan == 2)
+                MessageBox.Show("Data Berhasil Di Update");
             richTextBox1.Text = cek;
             //MessageBox.Show(action);
-           
+            initData();
+            LoadData();
         }
 
 

@@ -995,7 +995,6 @@ C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\Resourc
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\Clinic.pdb
-C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\DevExpress.BonusSkins.v15.2.dll
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Charts.v15.2.Core.dll
 C:\Users\USERNEM\Documents\AMS Program\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Data.v15.2.dll
@@ -2335,6 +2334,7 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Resources\manFr
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Clinic.pdb
+C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.BonusSkins.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Charts.v15.2.Core.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Data.v15.2.dll
@@ -2367,6 +2367,7 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Xtra
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\NAudio.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Newtonsoft.Json.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Oracle.ManagedDataAccess.dll
+C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Interop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.CodeParser.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraTreeList.v15.2.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\DevExpress.XtraVerticalGrid.v15.2.dll
@@ -2663,6 +2664,3 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.G
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe.licenses
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.pdb
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\Interop.WMPLib.dll
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache

@@ -1387,7 +1387,7 @@ namespace Clinic
         private void pelayanandefault()
         {
             string date = "", que = "", rm_no = "", pasno = "", nama_laya = "", status = "", remark = "", action = "", stbyr = "", insu_flag = "", pid_visit = "", headid = "", policd = "", sql_visit = "";
-            string sql_cnt = "", diag_cnt = "", sql_update = "", sstatvisit = "";
+            string sql_cnt = "", diag_cnt = "", sql_update = "", sstatvisit = "", sql_cek = "", seq_va = "";
             int stsimpan = 0;
 
             date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -1425,6 +1425,25 @@ namespace Clinic
                 insu_flag = "U";
             else if (insu_flag.ToString().Equals("BPJS"))
                 insu_flag = "B";
+
+
+            sql_cek = sql_cek + Environment.NewLine + "   select nvl(max(b.detail_id),0) seq ";
+            sql_cek = sql_cek + Environment.NewLine + "    from KLINIK.cs_treatment_head a  ";
+            sql_cek = sql_cek + Environment.NewLine + "    join KLINIK.cs_treatment_detail b on (a.head_id=b.head_id)  ";
+            sql_cek = sql_cek + Environment.NewLine + "    join KLINIK.cs_treatment_item c on (b.treat_item_id=c.treat_item_id)  ";
+            sql_cek = sql_cek + Environment.NewLine + "    where 1=1 ";
+            sql_cek = sql_cek + Environment.NewLine + "    and id_visit =" + idvisit + " ";
+
+            OleDbConnection oraConD = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOra2D = new OleDbDataAdapter(sql_cek, oraConD);
+            DataTable dt2D = new DataTable();
+            adOra2D.Fill(dt2D);
+            seq_va = dt2D.Rows[0]["seq"].ToString();
+
+            if (Convert.ToInt32(seq_va) > 0)
+            {
+                return;
+            }
 
             sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' and ID_VISIT =" + pid_visit + " ";
             OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
@@ -3716,7 +3735,7 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
-            if (gridView1.FocusedRowHandle < 1)
+            if (gridView1.FocusedRowHandle < 0)
                 return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
@@ -6412,7 +6431,7 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
-            if (gridView1.FocusedRowHandle < 1)
+            if (gridView1.FocusedRowHandle < 0)
                 return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
