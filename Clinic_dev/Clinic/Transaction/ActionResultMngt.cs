@@ -73,7 +73,7 @@ namespace Clinic
             listStat.Add(new Stat() { statCode = "INS", statName = "Pemeriksaan" });
             listStat.Add(new Stat() { statCode = "MED", statName = "Obat" });
             listStat.Add(new Stat() { statCode = "CLS", statName = "Selesai" });
-            listStat.Add(new Stat() { statCode = "PAY", statName = "Pembeyaran" });
+            listStat.Add(new Stat() { statCode = "PAY", statName = "Pembayaran" });
             listStat.Add(new Stat() { statCode = "CAN", statName = "Batal" });
 
             listLayanan.Clear();
@@ -149,7 +149,7 @@ namespace Clinic
             //SQL = SQL + Environment.NewLine + "  and USED_BY ='LAB' ";
 
             SQL = "";
-            SQL = SQL + Environment.NewLine + "select action, patient_no, rm_no, visit_date, que01, tgl, name, status, poli_cd, purpose, visit_remark,   ";
+            SQL = SQL + Environment.NewLine + "select distinct action, patient_no, rm_no, visit_date, que01, tgl, name, status, poli_cd, purpose, visit_remark,   ";
             SQL = SQL + Environment.NewLine + "       case when TIME_INSPECTION is null then 'N' else 'Y' end stat_proses, ID_VISIT, TYPE_PATIENT,GENDER  ";
             SQL = SQL + Environment.NewLine + "from (  ";
             SQL = SQL + Environment.NewLine + "        select 'S' action, a.patient_no, c.name, b.rm_no, a.visit_date, a.que01,   ";

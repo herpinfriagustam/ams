@@ -111,7 +111,7 @@
             this.gradientPanel2.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.gradientPanel2.Name = "gradientPanel2";
-            this.gradientPanel2.Size = new System.Drawing.Size(1036, 761);
+            this.gradientPanel2.Size = new System.Drawing.Size(1072, 810);
             this.gradientPanel2.TabIndex = 1;
             this.gradientPanel2.TopColor = System.Drawing.Color.RoyalBlue;
             // 
@@ -134,7 +134,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1036, 761);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1072, 810);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -150,9 +150,9 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1036, 481);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1072, 530);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -162,13 +162,13 @@
             this.tableLayoutPanel5.Controls.Add(this.labelControl3, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbl_noantrian, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(13, 339);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(13, 400);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1020, 139);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1056, 127);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // labelControl3
@@ -180,7 +180,7 @@
             this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl3.Location = new System.Drawing.Point(3, 3);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(1014, 34);
+            this.labelControl3.Size = new System.Drawing.Size(1050, 34);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "No Antrian Anda";
             // 
@@ -214,7 +214,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 336);
+            this.panel2.Size = new System.Drawing.Size(10, 397);
             this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
             // 
@@ -332,7 +332,7 @@
             this.panel3.Location = new System.Drawing.Point(10, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1026, 336);
+            this.panel3.Size = new System.Drawing.Size(1062, 397);
             this.panel3.TabIndex = 5;
             // 
             // panel4
@@ -340,10 +340,10 @@
             this.panel4.Controls.Add(this.pictureEdit2);
             this.panel4.Controls.Add(this.pictureEdit1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 661);
+            this.panel4.Location = new System.Drawing.Point(0, 710);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1036, 100);
+            this.panel4.Size = new System.Drawing.Size(1072, 100);
             this.panel4.TabIndex = 2;
             // 
             // pictureEdit2
@@ -366,7 +366,7 @@
             // 
             this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(947, 17);
+            this.pictureEdit1.Location = new System.Drawing.Point(983, 17);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -384,7 +384,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 80);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1036, 100);
+            this.panel5.Size = new System.Drawing.Size(1072, 100);
             this.panel5.TabIndex = 3;
             // 
             // lInfo
@@ -397,7 +397,7 @@
             this.lInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lInfo.Location = new System.Drawing.Point(0, 0);
             this.lInfo.Name = "lInfo";
-            this.lInfo.Size = new System.Drawing.Size(1036, 100);
+            this.lInfo.Size = new System.Drawing.Size(1072, 100);
             this.lInfo.TabIndex = 2;
             // 
             // gradientPanel1
@@ -410,7 +410,7 @@
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1036, 80);
+            this.gradientPanel1.Size = new System.Drawing.Size(1072, 80);
             this.gradientPanel1.TabIndex = 4;
             this.gradientPanel1.TopColor = System.Drawing.Color.Transparent;
             // 
@@ -422,7 +422,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1036, 80);
+            this.panel7.Size = new System.Drawing.Size(1072, 80);
             this.panel7.TabIndex = 7;
             // 
             // lblPoli
@@ -467,7 +467,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1036, 761);
+            this.ClientSize = new System.Drawing.Size(1072, 810);
             this.ControlBox = false;
             this.Controls.Add(this.gradientPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

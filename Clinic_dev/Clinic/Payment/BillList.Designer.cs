@@ -30,20 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pnlCancel = new System.Windows.Forms.Panel();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.luTipe = new DevExpress.XtraEditors.LookUpEdit();
-            this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
-            this.lNamaPasien = new DevExpress.XtraEditors.LabelControl();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.lNama = new DevExpress.XtraEditors.LabelControl();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -85,8 +72,6 @@
             this.txtLimitStok = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnPayment = new DevExpress.XtraEditors.SimpleButton();
@@ -117,15 +102,55 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.txtselisih = new DevExpress.XtraEditors.TextEdit();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridLayananAdmin = new DevExpress.XtraGrid.GridControl();
+            this.gvLayananAdmin = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repjam1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn61 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn62 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn63 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn64 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn65 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repjam = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+            this.repjam2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.btnDelTindakan = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlCancel = new System.Windows.Forms.Panel();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.luTipe = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
+            this.lNamaPasien = new DevExpress.XtraEditors.LabelControl();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.lNama = new DevExpress.XtraEditors.LabelControl();
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.pnlCancel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.luTipe.Properties)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dResDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -147,8 +172,6 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLimitStok.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -161,14 +184,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_cover.Properties)).BeginInit();
             this.tableLayoutPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtselisih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLayananAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLayananAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam2)).BeginInit();
+            this.panel29.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.pnlCancel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luTipe.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.splitContainerControl1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -178,164 +223,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1494, 964);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panel1
+            // splitContainerControl1
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1488, 44);
-            this.panel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanel4.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1488, 44);
-            this.tableLayoutPanel4.TabIndex = 31;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Controls.Add(this.labelControl1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(812, 38);
-            this.panel3.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(151, 19);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(67, 23);
-            this.btnAdd.TabIndex = 29;
-            this.btnAdd.Text = "Tambah";
-            this.btnAdd.Visible = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(3, 6);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(123, 19);
-            this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Daftar Tagihan";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pnlCancel);
-            this.panel4.Controls.Add(this.lNama);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(821, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(664, 38);
-            this.panel4.TabIndex = 1;
-            // 
-            // pnlCancel
-            // 
-            this.pnlCancel.Controls.Add(this.btnCancel);
-            this.pnlCancel.Controls.Add(this.luTipe);
-            this.pnlCancel.Controls.Add(this.btnConfirm);
-            this.pnlCancel.Controls.Add(this.lNamaPasien);
-            this.pnlCancel.Controls.Add(this.btnSave);
-            this.pnlCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCancel.Location = new System.Drawing.Point(0, 0);
-            this.pnlCancel.Name = "pnlCancel";
-            this.pnlCancel.Size = new System.Drawing.Size(664, 38);
-            this.pnlCancel.TabIndex = 35;
-            this.pnlCancel.Visible = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Enabled = false;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(514, 11);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 23);
-            this.btnCancel.TabIndex = 31;
-            this.btnCancel.Text = "Batal";
-            this.btnCancel.Visible = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // luTipe
-            // 
-            this.luTipe.Location = new System.Drawing.Point(351, 12);
-            this.luTipe.Name = "luTipe";
-            this.luTipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luTipe.Size = new System.Drawing.Size(84, 20);
-            this.luTipe.TabIndex = 35;
-            this.luTipe.Visible = false;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfirm.Enabled = false;
-            this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
-            this.btnConfirm.Location = new System.Drawing.Point(611, 3);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(50, 23);
-            this.btnConfirm.TabIndex = 32;
-            this.btnConfirm.Text = "Konfirmasi";
-            this.btnConfirm.Visible = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // lNamaPasien
-            // 
-            this.lNamaPasien.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNamaPasien.Location = new System.Drawing.Point(295, 15);
-            this.lNamaPasien.Name = "lNamaPasien";
-            this.lNamaPasien.Size = new System.Drawing.Size(52, 14);
-            this.lNamaPasien.TabIndex = 34;
-            this.lNamaPasien.Text = "Pilih Tipe:";
-            this.lNamaPasien.Visible = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(441, 11);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(67, 23);
-            this.btnSave.TabIndex = 28;
-            this.btnSave.Text = "Simpan";
-            this.btnSave.Visible = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lNama
-            // 
-            this.lNama.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNama.Location = new System.Drawing.Point(3, 18);
-            this.lNama.Name = "lNama";
-            this.lNama.Size = new System.Drawing.Size(120, 19);
-            this.lNama.TabIndex = 33;
-            this.lNama.Text = "Detail Tagihan";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel15, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 53);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1488, 908);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Location = new System.Drawing.Point(3, 53);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.tableLayoutPanel7);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.tableLayoutPanel15);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(1488, 908);
+            this.splitContainerControl1.SplitterPosition = 835;
+            this.splitContainerControl1.TabIndex = 30;
+            this.splitContainerControl1.Text = "splitContainerControl1";
             // 
             // tableLayoutPanel7
             // 
@@ -344,13 +244,13 @@
             this.tableLayoutPanel7.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel9, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(812, 902);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(835, 908);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // panel11
@@ -367,14 +267,14 @@
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(812, 30);
+            this.panel11.Size = new System.Drawing.Size(835, 30);
             this.panel11.TabIndex = 2;
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(249, 5);
+            this.comboBox1.Location = new System.Drawing.Point(272, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
             this.comboBox1.TabIndex = 30;
@@ -384,7 +284,7 @@
             // 
             this.aa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.aa.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aa.Location = new System.Drawing.Point(195, 9);
+            this.aa.Location = new System.Drawing.Point(218, 9);
             this.aa.Name = "aa";
             this.aa.Size = new System.Drawing.Size(48, 13);
             this.aa.TabIndex = 109;
@@ -394,7 +294,7 @@
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(352, 9);
+            this.labelControl4.Location = new System.Drawing.Point(375, 9);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(45, 13);
             this.labelControl4.TabIndex = 108;
@@ -405,7 +305,7 @@
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
-            this.btnLoad.Location = new System.Drawing.Point(646, 4);
+            this.btnLoad.Location = new System.Drawing.Point(669, 4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(82, 23);
             this.btnLoad.TabIndex = 30;
@@ -416,7 +316,7 @@
             // 
             this.btnCall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCall.Image = ((System.Drawing.Image)(resources.GetObject("btnCall.Image")));
-            this.btnCall.Location = new System.Drawing.Point(734, 4);
+            this.btnCall.Location = new System.Drawing.Point(757, 4);
             this.btnCall.Name = "btnCall";
             this.btnCall.Size = new System.Drawing.Size(67, 23);
             this.btnCall.TabIndex = 34;
@@ -427,7 +327,7 @@
             // 
             this.dResDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dResDate.EditValue = null;
-            this.dResDate.Location = new System.Drawing.Point(403, 5);
+            this.dResDate.Location = new System.Drawing.Point(426, 5);
             this.dResDate.Name = "dResDate";
             this.dResDate.Properties.AutoHeight = false;
             this.dResDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -443,7 +343,7 @@
             // luStatus
             // 
             this.luStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.luStatus.Location = new System.Drawing.Point(540, 5);
+            this.luStatus.Location = new System.Drawing.Point(563, 5);
             this.luStatus.Name = "luStatus";
             this.luStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -454,7 +354,7 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(497, 9);
+            this.labelControl2.Location = new System.Drawing.Point(520, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(37, 13);
             this.labelControl2.TabIndex = 32;
@@ -467,7 +367,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 33);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(806, 846);
+            this.panel9.Size = new System.Drawing.Size(829, 852);
             this.panel9.TabIndex = 3;
             // 
             // gridControl4
@@ -476,7 +376,7 @@
             this.gridControl4.Location = new System.Drawing.Point(0, 0);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(806, 846);
+            this.gridControl4.Size = new System.Drawing.Size(829, 852);
             this.gridControl4.TabIndex = 3;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -485,6 +385,7 @@
             // gridView4
             // 
             this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.IndicatorWidth = 36;
             this.gridView4.Name = "gridView4";
             this.gridView4.OptionsView.ShowAutoFilterRow = true;
             this.gridView4.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView4_RowClick);
@@ -496,7 +397,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(806, 846);
+            this.gridControl1.Size = new System.Drawing.Size(829, 852);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -504,6 +405,7 @@
             // gridView1
             // 
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.IndicatorWidth = 36;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
@@ -517,12 +419,12 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(821, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(664, 902);
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 908F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(648, 908);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
             // tableLayoutPanel14
@@ -533,13 +435,13 @@
             this.tableLayoutPanel14.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel8, 0, 5);
             this.tableLayoutPanel14.Controls.Add(this.panel8, 0, 9);
-            this.tableLayoutPanel14.Controls.Add(this.gridControl2, 0, 1);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel6, 0, 8);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel13, 0, 7);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel9, 0, 6);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel11, 0, 3);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel12, 0, 4);
+            this.tableLayoutPanel14.Controls.Add(this.xtraTabControl1, 0, 1);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
@@ -555,7 +457,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(658, 896);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(642, 902);
             this.tableLayoutPanel14.TabIndex = 128;
             // 
             // tableLayoutPanel3
@@ -568,19 +470,19 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 295F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(652, 295);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(636, 301);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridControl3
@@ -589,7 +491,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 3);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(646, 289);
+            this.gridControl3.Size = new System.Drawing.Size(630, 295);
             this.gridControl3.TabIndex = 121;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -619,7 +521,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(658, 30);
+            this.panel5.Size = new System.Drawing.Size(642, 30);
             this.panel5.TabIndex = 1;
             // 
             // simpleButton1
@@ -650,7 +552,7 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(489, 8);
+            this.labelControl3.Location = new System.Drawing.Point(473, 8);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(19, 14);
             this.labelControl3.TabIndex = 39;
@@ -670,7 +572,7 @@
             // 
             this.lKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lKelas.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lKelas.Location = new System.Drawing.Point(639, 8);
+            this.lKelas.Location = new System.Drawing.Point(623, 8);
             this.lKelas.Name = "lKelas";
             this.lKelas.Size = new System.Drawing.Size(4, 14);
             this.lKelas.TabIndex = 38;
@@ -690,7 +592,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(602, 8);
+            this.labelControl5.Location = new System.Drawing.Point(586, 8);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 14);
             this.labelControl5.TabIndex = 37;
@@ -702,7 +604,7 @@
             this.lInsuNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lInsuNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lInsuNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lInsuNo.Location = new System.Drawing.Point(499, 7);
+            this.lInsuNo.Location = new System.Drawing.Point(483, 7);
             this.lInsuNo.Name = "lInsuNo";
             this.lInsuNo.Size = new System.Drawing.Size(97, 17);
             this.lInsuNo.TabIndex = 36;
@@ -714,7 +616,7 @@
             this.lTreatType.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTreatType.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lTreatType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lTreatType.Location = new System.Drawing.Point(403, 7);
+            this.lTreatType.Location = new System.Drawing.Point(387, 7);
             this.lTreatType.Name = "lTreatType";
             this.lTreatType.Size = new System.Drawing.Size(75, 17);
             this.lTreatType.TabIndex = 40;
@@ -727,7 +629,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel8.Controls.Add(this.labelControl16, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.labelControl9, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.l_diskon, 2, 0);
@@ -739,7 +641,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(658, 30);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(642, 30);
             this.tableLayoutPanel8.TabIndex = 124;
             // 
             // labelControl16
@@ -824,14 +726,14 @@
             this.panel8.Location = new System.Drawing.Point(0, 561);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(658, 34);
+            this.panel8.Size = new System.Drawing.Size(642, 34);
             this.panel8.TabIndex = 120;
             // 
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(499, 8);
+            this.labelControl7.Location = new System.Drawing.Point(483, 8);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(103, 16);
             this.labelControl7.TabIndex = 40;
@@ -842,7 +744,7 @@
             // 
             this.txtLimitStok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLimitStok.EditValue = "5";
-            this.txtLimitStok.Location = new System.Drawing.Point(605, 6);
+            this.txtLimitStok.Location = new System.Drawing.Point(589, 6);
             this.txtLimitStok.Name = "txtLimitStok";
             this.txtLimitStok.Properties.Mask.EditMask = "n0";
             this.txtLimitStok.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -870,27 +772,6 @@
             this.labelControl6.TabIndex = 35;
             this.labelControl6.Text = "Belum Konfirmasi";
             // 
-            // gridControl2
-            // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 33);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(652, 244);
-            this.gridControl2.TabIndex = 0;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ColumnAutoWidth = false;
-            this.gridView2.OptionsView.RowAutoHeight = true;
-            this.gridView2.OptionsView.ShowFooter = true;
-            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
-            this.gridView2.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView2_RowCellStyle);
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
@@ -904,7 +785,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(658, 50);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(642, 50);
             this.tableLayoutPanel6.TabIndex = 123;
             this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
@@ -922,7 +803,7 @@
             this.btnPrint.LookAndFeel.SkinMaskColor = System.Drawing.Color.DarkGray;
             this.btnPrint.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(323, 44);
+            this.btnPrint.Size = new System.Drawing.Size(315, 44);
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "Cetak Nota";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -937,12 +818,12 @@
             this.btnPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
             this.btnPayment.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnPayment.Location = new System.Drawing.Point(332, 3);
+            this.btnPayment.Location = new System.Drawing.Point(324, 3);
             this.btnPayment.LookAndFeel.SkinMaskColor = System.Drawing.Color.DodgerBlue;
             this.btnPayment.LookAndFeel.SkinName = "DevExpress Dark Style";
             this.btnPayment.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(323, 44);
+            this.btnPayment.Size = new System.Drawing.Size(315, 44);
             this.btnPayment.TabIndex = 9;
             this.btnPayment.Text = "Konfirmasi";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
@@ -962,7 +843,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(658, 41);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(642, 41);
             this.tableLayoutPanel5.TabIndex = 122;
             // 
             // labelControl15
@@ -997,7 +878,7 @@
             this.lTotalPay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lTotalPay.Location = new System.Drawing.Point(353, 3);
             this.lTotalPay.Name = "lTotalPay";
-            this.lTotalPay.Size = new System.Drawing.Size(302, 35);
+            this.lTotalPay.Size = new System.Drawing.Size(286, 35);
             this.lTotalPay.TabIndex = 35;
             this.lTotalPay.Text = "0";
             // 
@@ -1017,7 +898,7 @@
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(658, 60);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(642, 60);
             this.tableLayoutPanel13.TabIndex = 128;
             // 
             // panel7
@@ -1027,7 +908,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(533, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(122, 54);
+            this.panel7.Size = new System.Drawing.Size(106, 54);
             this.panel7.TabIndex = 40;
             // 
             // labelControl17
@@ -1157,7 +1038,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(658, 40);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(642, 40);
             this.tableLayoutPanel9.TabIndex = 125;
             // 
             // lTotalPayment
@@ -1193,7 +1074,7 @@
             this.chTangguh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.chTangguh.Properties.Appearance.Options.UseFont = true;
             this.chTangguh.Properties.Caption = "Ditangguhkan";
-            this.chTangguh.Size = new System.Drawing.Size(122, 34);
+            this.chTangguh.Size = new System.Drawing.Size(106, 34);
             this.chTangguh.TabIndex = 37;
             // 
             // tableLayoutPanel11
@@ -1213,7 +1094,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(658, 30);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(642, 30);
             this.tableLayoutPanel11.TabIndex = 125;
             // 
             // labelControl13
@@ -1277,7 +1158,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(658, 30);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(642, 30);
             this.tableLayoutPanel12.TabIndex = 127;
             // 
             // labelControl18
@@ -1323,6 +1204,490 @@
             this.txtselisih.Size = new System.Drawing.Size(174, 24);
             this.txtselisih.TabIndex = 36;
             // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(3, 33);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(636, 244);
+            this.xtraTabControl1.TabIndex = 129;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            this.xtraTabControl1.Click += new System.EventHandler(this.xtraTabControl1_Click);
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.xtraTabPage1.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPage1.Controls.Add(this.gridControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(630, 213);
+            this.xtraTabPage1.Text = "RINCIAN TAGIHAN PASIEN";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(630, 213);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.IndicatorWidth = 32;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.RowAutoHeight = true;
+            this.gridView2.OptionsView.ShowFooter = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
+            this.gridView2.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView2_RowCellStyle);
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.xtraTabPage2.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPage2.Controls.Add(this.gridLayananAdmin);
+            this.xtraTabPage2.Controls.Add(this.panel29);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(722, 213);
+            this.xtraTabPage2.Text = "Pelayanan Administrasi";
+            // 
+            // gridLayananAdmin
+            // 
+            this.gridLayananAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridLayananAdmin.Location = new System.Drawing.Point(0, 38);
+            this.gridLayananAdmin.MainView = this.gvLayananAdmin;
+            this.gridLayananAdmin.Name = "gridLayananAdmin";
+            this.gridLayananAdmin.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemDateEdit1,
+            this.repjam1,
+            this.repositoryItemComboBox1,
+            this.repositoryItemComboBox2,
+            this.repjam,
+            this.repjam2});
+            this.gridLayananAdmin.Size = new System.Drawing.Size(722, 175);
+            this.gridLayananAdmin.TabIndex = 4;
+            this.gridLayananAdmin.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvLayananAdmin});
+            // 
+            // gvLayananAdmin
+            // 
+            this.gvLayananAdmin.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvLayananAdmin.Appearance.GroupPanel.Options.UseFont = true;
+            this.gvLayananAdmin.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvLayananAdmin.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvLayananAdmin.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gvLayananAdmin.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvLayananAdmin.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.gvLayananAdmin.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gvLayananAdmin.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn52,
+            this.gridColumn42,
+            this.gridColumn41,
+            this.gridColumn43,
+            this.gridColumn44,
+            this.gridColumn61,
+            this.gridColumn62,
+            this.gridColumn63,
+            this.gridColumn64,
+            this.gridColumn65});
+            this.gvLayananAdmin.GridControl = this.gridLayananAdmin;
+            this.gvLayananAdmin.IndicatorWidth = 30;
+            this.gvLayananAdmin.Name = "gvLayananAdmin";
+            this.gvLayananAdmin.OptionsView.ShowGroupPanel = false;
+            this.gvLayananAdmin.RowHeight = 30;
+            this.gvLayananAdmin.ViewCaption = "  Pelayanan Pasien";
+            this.gvLayananAdmin.ViewCaptionHeight = 35;
+            this.gvLayananAdmin.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvLayananAdmin_CustomDrawRowIndicator);
+            this.gvLayananAdmin.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvLayananAdmin_CellValueChanged);
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.Caption = "No";
+            this.gridColumn37.FieldName = "SEQ";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Width = 35;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn38.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn38.Caption = "Tanggal";
+            this.gridColumn38.ColumnEdit = this.repositoryItemDateEdit1;
+            this.gridColumn38.FieldName = "TANGGAL";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Width = 85;
+            // 
+            // repositoryItemDateEdit1
+            // 
+            this.repositoryItemDateEdit1.AutoHeight = false;
+            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn39.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn39.Caption = "Jam";
+            this.gridColumn39.ColumnEdit = this.repjam1;
+            this.gridColumn39.FieldName = "JAM";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Width = 70;
+            // 
+            // repjam1
+            // 
+            this.repjam1.AutoHeight = false;
+            this.repjam1.Mask.EditMask = "90:00";
+            this.repjam1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.repjam1.Name = "repjam1";
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn40.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn40.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn40.Caption = "Nama Pelayanan";
+            this.gridColumn40.ColumnEdit = this.repositoryItemComboBox1;
+            this.gridColumn40.FieldName = "TREAT_ITEM_ID";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 0;
+            this.gridColumn40.Width = 237;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // gridColumn52
+            // 
+            this.gridColumn52.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn52.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn52.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn52.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn52.Caption = "Jumlah";
+            this.gridColumn52.FieldName = "TREAT_QTY";
+            this.gridColumn52.Name = "gridColumn52";
+            this.gridColumn52.Visible = true;
+            this.gridColumn52.VisibleIndex = 1;
+            this.gridColumn52.Width = 67;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn42.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn42.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn42.Caption = "Remark";
+            this.gridColumn42.FieldName = "REMARKS";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 3;
+            this.gridColumn42.Width = 210;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "DETAIL_ID";
+            this.gridColumn41.FieldName = "DETAIL_ID";
+            this.gridColumn41.Name = "gridColumn41";
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "TREAT_GROUP_ID";
+            this.gridColumn43.FieldName = "TREAT_GROUP_ID";
+            this.gridColumn43.Name = "gridColumn43";
+            // 
+            // gridColumn44
+            // 
+            this.gridColumn44.Caption = "TREAT_ITEM_ID";
+            this.gridColumn44.FieldName = "TREAT_ITEM_ID";
+            this.gridColumn44.Name = "gridColumn44";
+            // 
+            // gridColumn61
+            // 
+            this.gridColumn61.Caption = "Harga";
+            this.gridColumn61.FieldName = "TREAT_ITEM_PRICE";
+            this.gridColumn61.Name = "gridColumn61";
+            this.gridColumn61.Visible = true;
+            this.gridColumn61.VisibleIndex = 2;
+            // 
+            // gridColumn62
+            // 
+            this.gridColumn62.Caption = "ACTION";
+            this.gridColumn62.FieldName = "ACTION";
+            this.gridColumn62.Name = "gridColumn62";
+            // 
+            // gridColumn63
+            // 
+            this.gridColumn63.Caption = "HEAD_ID";
+            this.gridColumn63.FieldName = "HEAD_ID";
+            this.gridColumn63.Name = "gridColumn63";
+            // 
+            // gridColumn64
+            // 
+            this.gridColumn64.Caption = "PAY_STATUS";
+            this.gridColumn64.FieldName = "PAY_STATUS";
+            this.gridColumn64.Name = "gridColumn64";
+            // 
+            // gridColumn65
+            // 
+            this.gridColumn65.Caption = "ID_VISIT";
+            this.gridColumn65.FieldName = "ID_VISIT";
+            this.gridColumn65.Name = "gridColumn65";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Items.AddRange(new object[] {
+            "S",
+            "O",
+            "A",
+            "P"});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // repjam
+            // 
+            this.repjam.AutoHeight = false;
+            this.repjam.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repjam.Mask.EditMask = "HH:MM";
+            this.repjam.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.repjam.Name = "repjam";
+            // 
+            // repjam2
+            // 
+            this.repjam2.AutoHeight = false;
+            this.repjam2.DisplayFormat.FormatString = "HH:MM";
+            this.repjam2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repjam2.Name = "repjam2";
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.btnDelTindakan);
+            this.panel29.Controls.Add(this.labelControl20);
+            this.panel29.Controls.Add(this.simpleButton13);
+            this.panel29.Controls.Add(this.simpleButton14);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel29.Location = new System.Drawing.Point(0, 0);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(722, 38);
+            this.panel29.TabIndex = 3;
+            // 
+            // btnDelTindakan
+            // 
+            this.btnDelTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelTindakan.Enabled = false;
+            this.btnDelTindakan.Image = ((System.Drawing.Image)(resources.GetObject("btnDelTindakan.Image")));
+            this.btnDelTindakan.Location = new System.Drawing.Point(577, 7);
+            this.btnDelTindakan.Name = "btnDelTindakan";
+            this.btnDelTindakan.Size = new System.Drawing.Size(67, 23);
+            this.btnDelTindakan.TabIndex = 106;
+            this.btnDelTindakan.Text = "Hapus";
+            this.btnDelTindakan.Click += new System.EventHandler(this.btnDelTindakan_Click);
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl20.Location = new System.Drawing.Point(12, 10);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(249, 19);
+            this.labelControl20.TabIndex = 32;
+            this.labelControl20.Text = "Daftar Pelayanan Administrasi";
+            // 
+            // simpleButton13
+            // 
+            this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton13.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.Image")));
+            this.simpleButton13.Location = new System.Drawing.Point(504, 7);
+            this.simpleButton13.Name = "simpleButton13";
+            this.simpleButton13.Size = new System.Drawing.Size(67, 23);
+            this.simpleButton13.TabIndex = 31;
+            this.simpleButton13.Text = "Tambah";
+            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
+            // 
+            // simpleButton14
+            // 
+            this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton14.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton14.Image")));
+            this.simpleButton14.Location = new System.Drawing.Point(650, 7);
+            this.simpleButton14.Name = "simpleButton14";
+            this.simpleButton14.Size = new System.Drawing.Size(67, 23);
+            this.simpleButton14.TabIndex = 30;
+            this.simpleButton14.Text = "Simpan";
+            this.simpleButton14.Click += new System.EventHandler(this.simpleButton14_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1488, 44);
+            this.panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel4.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1488, 44);
+            this.tableLayoutPanel4.TabIndex = 31;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnAdd);
+            this.panel3.Controls.Add(this.labelControl1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(812, 38);
+            this.panel3.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(300, 9);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(67, 23);
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.Text = "Tambah";
+            this.btnAdd.Visible = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(3, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(123, 19);
+            this.labelControl1.TabIndex = 3;
+            this.labelControl1.Text = "Daftar Tagihan";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pnlCancel);
+            this.panel4.Controls.Add(this.lNama);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(821, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(664, 38);
+            this.panel4.TabIndex = 1;
+            // 
+            // pnlCancel
+            // 
+            this.pnlCancel.Controls.Add(this.btnCancel);
+            this.pnlCancel.Controls.Add(this.luTipe);
+            this.pnlCancel.Controls.Add(this.btnConfirm);
+            this.pnlCancel.Controls.Add(this.lNamaPasien);
+            this.pnlCancel.Controls.Add(this.btnSave);
+            this.pnlCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCancel.Location = new System.Drawing.Point(0, 0);
+            this.pnlCancel.Name = "pnlCancel";
+            this.pnlCancel.Size = new System.Drawing.Size(664, 38);
+            this.pnlCancel.TabIndex = 35;
+            this.pnlCancel.Visible = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(514, 11);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(70, 23);
+            this.btnCancel.TabIndex = 31;
+            this.btnCancel.Text = "Batal";
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // luTipe
+            // 
+            this.luTipe.Location = new System.Drawing.Point(351, 12);
+            this.luTipe.Name = "luTipe";
+            this.luTipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luTipe.Size = new System.Drawing.Size(84, 20);
+            this.luTipe.TabIndex = 35;
+            this.luTipe.Visible = false;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfirm.Enabled = false;
+            this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
+            this.btnConfirm.Location = new System.Drawing.Point(611, 3);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(50, 23);
+            this.btnConfirm.TabIndex = 32;
+            this.btnConfirm.Text = "Konfirmasi";
+            this.btnConfirm.Visible = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // lNamaPasien
+            // 
+            this.lNamaPasien.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNamaPasien.Location = new System.Drawing.Point(295, 15);
+            this.lNamaPasien.Name = "lNamaPasien";
+            this.lNamaPasien.Size = new System.Drawing.Size(52, 14);
+            this.lNamaPasien.TabIndex = 34;
+            this.lNamaPasien.Text = "Pilih Tipe:";
+            this.lNamaPasien.Visible = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(441, 11);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(67, 23);
+            this.btnSave.TabIndex = 28;
+            this.btnSave.Text = "Simpan";
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lNama
+            // 
+            this.lNama.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNama.Location = new System.Drawing.Point(3, 18);
+            this.lNama.Name = "lNama";
+            this.lNama.Size = new System.Drawing.Size(120, 19);
+            this.lNama.TabIndex = 33;
+            this.lNama.Text = "Detail Tagihan";
+            // 
             // loading
             // 
             this.loading.ClosingDelay = 500;
@@ -1339,16 +1704,8 @@
             this.Text = "Daftar Tagihan";
             this.Load += new System.EventHandler(this.PrescriptionList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.pnlCancel.ResumeLayout(false);
-            this.pnlCancel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.luTipe.Properties)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -1373,8 +1730,6 @@
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLimitStok.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
@@ -1390,6 +1745,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_cover.Properties)).EndInit();
             this.tableLayoutPanel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtselisih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridLayananAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLayananAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repjam2)).EndInit();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.pnlCancel.ResumeLayout(false);
+            this.pnlCancel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luTipe.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1402,7 +1783,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -1485,5 +1865,36 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private System.Windows.Forms.Panel panel29;
+        private DevExpress.XtraEditors.SimpleButton btnDelTindakan;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton simpleButton14;
+        private DevExpress.XtraGrid.GridControl gridLayananAdmin;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLayananAdmin;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repjam1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn61;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn62;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn63;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn64;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn65;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repjam;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repjam2;
     }
 }

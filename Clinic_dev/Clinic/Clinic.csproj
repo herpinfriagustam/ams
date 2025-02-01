@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AMS Program\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>..\..\..\..\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -161,6 +161,12 @@
     </Compile>
     <Compile Include="Master\MasterChgPass.Designer.cs">
       <DependentUpon>MasterChgPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\BillList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment\BillList.Designer.cs">
+      <DependentUpon>BillList.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment\BillListv1.cs">
       <SubType>Form</SubType>
@@ -733,11 +739,11 @@
     <Compile Include="Master\PatientInfoMngt.Designer.cs">
       <DependentUpon>PatientInfoMngt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment\BillList.cs">
+    <Compile Include="Payment\BillListv1a.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payment\BillList.Designer.cs">
-      <DependentUpon>BillList.cs</DependentUpon>
+    <Compile Include="Payment\BillListv1a.Designer.cs">
+      <DependentUpon>BillListv1a.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientReport2.cs">
       <SubType>Form</SubType>
@@ -1125,6 +1131,9 @@
     <EmbeddedResource Include="Master\MasterChgPass.resx">
       <DependentUpon>MasterChgPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payment\BillList.resx">
+      <DependentUpon>BillList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment\BillListv1.resx">
       <DependentUpon>BillListv1.cs</DependentUpon>
     </EmbeddedResource>
@@ -1398,8 +1407,8 @@
     <EmbeddedResource Include="Master\PatientInfoMngt.resx">
       <DependentUpon>PatientInfoMngt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment\BillList.resx">
-      <DependentUpon>BillList.cs</DependentUpon>
+    <EmbeddedResource Include="Payment\BillListv1a.resx">
+      <DependentUpon>BillListv1a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientReport2.resx">
       <DependentUpon>PatientReport2.cs</DependentUpon>

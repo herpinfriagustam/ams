@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Globalization;
 using Clinic.Report;
 using DevExpress.XtraReports.UI;
+using DevExpress.Utils.Drawing;
 
 namespace Clinic
 {
@@ -29,11 +30,14 @@ namespace Clinic
         List<Status> listStat4 = new List<Status>();
         List<MedicineInfo> listMedicineInfo = new List<MedicineInfo>();
         List<Layanan> listLaya = new List<Layanan>();
+        List<Layanan> listLaya2 = new List<Layanan>(); 
         List<Stat> listGrpLaya = new List<Stat>();
         Terbilang terbilang = new Terbilang();
         DataSet dsBillRj = new DataSet();
         DataSet dsKwitansi = new DataSet();
+        DataTable dtLayanan;
 
+        RepositoryItemGridLookUpEdit LookUpLayanan = new RepositoryItemGridLookUpEdit();
         public string    v_name = "",  idvisit = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         int totPay = 0, totPayment = 0, totBill = 0, totcover = 0, ttlcover = 0, ttlsisa = 0;
@@ -42,9 +46,9 @@ namespace Clinic
 
         public BillList()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
-
+         
         private void initData()
         {
 
@@ -56,7 +60,7 @@ namespace Clinic
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "PRE", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "RSV", statusName = "Reservasi" });
-            listStat.Add(new Status() { statusCode = "NUR", statusName = "Pemeriksaan Awal" });
+            listStat.Add(new Status() { statusCode = "NUR", statusName = "Pemeriksaan" });
             listStat.Add(new Status() { statusCode = "INP", statusName = "Rawat Inap" });
             listStat.Add(new Status() { statusCode = "INS", statusName = "Pemeriksaan" });
             listStat.Add(new Status() { statusCode = "MED", statusName = "Obat" });
@@ -263,7 +267,7 @@ namespace Clinic
                     gridView1.OptionsView.ColumnAutoWidth = true;
                     gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                     gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
-                    gridView1.IndicatorWidth = 30;
+                    gridView1.IndicatorWidth = 40;
                     gridView1.OptionsBehavior.Editable = false;
                     gridView1.BestFitColumns();
                     //gridView1.OptionsSelection.MultiSelect = true;
@@ -296,7 +300,7 @@ namespace Clinic
                     gridView1.Columns[5].Caption = "Nama";
                     gridView1.Columns[6].Caption = "Alamat";
                     gridView1.Columns[7].Caption = "Pelayanan";
-                    gridView1.Columns[8].Caption = "Pemeriksaan";
+                    gridView1.Columns[8].Caption = "Status";
                     gridView1.Columns[9].Caption = "Pembayaran";
                     gridView1.Columns[10].Caption = "Tipe";
                     gridView1.Columns[11].Caption = "No Asuransi";
@@ -582,430 +586,443 @@ namespace Clinic
         }
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
-            try
-            {
-             GridView View = sender as GridView;
-            string s_head = "", s_que = "", s_date = "", sql_his = "", s_check="", s_cnt="", s_pasno = "", s_action = "", act_cnt = "", act_name ="", s_act="", s_edit="",s_laya="";
-            string s_rmno = "", s_tipe = "", s_insuno = "", s_kelas = "", s_stbyr = "", s_disc="", s_tot="", s_tipe1 = "", s_tipe2 = "", sstatus ="", sremark ="" ;
-
             if (gridView1.RowCount < 1)
                 return;
+            string stipe_p = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[10]);
 
-            s_head = View.GetRowCellDisplayText(e.RowHandle, View.Columns[0]);
-            s_pasno = View.GetRowCellDisplayText(e.RowHandle, View.Columns[1]);
-            s_rmno = View.GetRowCellDisplayText(e.RowHandle, View.Columns[2]);
-            s_que = View.GetRowCellDisplayText(e.RowHandle, View.Columns[3]);
-            s_date = View.GetRowCellDisplayText(e.RowHandle, View.Columns[4]); 
-            s_laya = View.GetRowCellDisplayText(e.RowHandle, View.Columns[7]);
-            sstatus = View.GetRowCellDisplayText(e.RowHandle, View.Columns[8]);
-            s_stbyr = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
-            s_tipe = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
-            s_insuno = View.GetRowCellDisplayText(e.RowHandle, View.Columns[11]);
-            s_kelas = View.GetRowCellDisplayText(e.RowHandle, View.Columns[12]);
-            s_disc = View.GetRowCellDisplayText(e.RowHandle, View.Columns[16]);
-            s_tot = View.GetRowCellDisplayText(e.RowHandle, View.Columns[17]);
-            s_tipe1 = View.GetRowCellDisplayText(e.RowHandle, View.Columns[18]);
-            s_tipe2 = View.GetRowCellDisplayText(e.RowHandle, View.Columns[19]);
-            idvisit = View.GetRowCellDisplayText(e.RowHandle, View.Columns[20]); 
-
-            luTipe.EditValue = s_tipe;
-            lInsuNo.Text = s_insuno;
-            lKelas.Text = s_kelas;
-            lTreatType.Text = s_laya;
-           
-
-            if (luTipe.GetColumnValue("statusCode").ToString() == "")
-            {
-                btnPayment.Enabled = false;
-                btnPrint.Enabled = false;
-            }
+            if (stipe_p.ToString().Equals("B"))
+                xtraTabPage2.PageVisible = false;
             else
-            {
-                btnPayment.Enabled = true;
-                btnPrint.Enabled = true;
-            }
+                xtraTabPage2.PageVisible = true;
+            DataTagihanPasien();
+        }
 
-            if (s_stbyr == "Belum Bayar")
+        private void DataTagihanPasien()
+        {
+            try
             {
-                tDiskon.Enabled = true;
-            }
-            else
-            {
-                tDiskon.Enabled = false;
-            }
+                if (gridView1.RowCount < 1)
+                    return;
+
+                string s_head = "", s_que = "", s_date = "", sql_his = "", s_check = "", s_cnt = "", s_pasno = "", s_action = "", act_cnt = "", act_name = "", s_act = "", s_edit = "", s_laya = "";
+                string s_rmno = "", s_tipe = "", s_insuno = "", s_kelas = "", s_stbyr = "", s_disc = "", s_tot = "", s_tipe1 = "", s_tipe2 = "", sstatus = "", sremark = "";
+                 
+                s_head = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[0]);
+                s_pasno = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[1]);
+                s_rmno = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[2]);
+                s_que = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[3]);
+                s_date = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[4]);
+                s_laya = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[7]);
+                sstatus = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[8]);
+                s_stbyr = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[9]);
+                s_tipe = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[10]);
+                s_insuno = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[11]);
+                s_kelas = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[12]);
+                s_disc = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[16]);
+                s_tot = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[17]);
+                s_tipe1 = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[18]);
+                s_tipe2 = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[19]);
+                idvisit = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[20]);
+
+                luTipe.EditValue = s_tipe;
+                lInsuNo.Text = s_insuno;
+                lKelas.Text = s_kelas;
+                lTreatType.Text = s_laya;
 
 
-            if (s_tipe1 != s_tipe2)
-            {
-                btnPayment.Enabled = false;
-                btnPrint.Enabled = false;
-                MessageBox.Show("Data Tipe Pasien pada menu reservasi dan tagihan tidak sama");
-            }
-            else
-            {
-                btnPayment.Enabled = true;
-                btnPrint.Enabled = true;
-            }
-            if (comboBox1.Text == "Rawat Jalan")
-            {
-                sql_his = " ";
-                sql_his = sql_his + Environment.NewLine + " select a.treat_item_id, a.treat_group_id, a.treat_item_name,  ";
-                sql_his = sql_his + Environment.NewLine + " to_char(treat_date,'yyyy-mm-dd') treat_date, treat_qty, ";
-                sql_his = sql_his + Environment.NewLine + " b.total_price, b.remarks, decode(INSU_FLAG,'U','N','Y') insu,0  receipt_id ";
-                sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_treatment_item a ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_treatment_detail b on (a.treat_item_id=b.treat_item_id) join KLINIK.cs_treatment_head c on (b.head_id=c.head_id) ";
-                sql_his = sql_his + Environment.NewLine + " where b.head_id='" + s_head + "' ";
-                sql_his = sql_his + Environment.NewLine + " union all";
-                sql_his = sql_his + Environment.NewLine + " select 0 treat_item_id, 'TRG05' treat_group_id,   ";
-                sql_his = sql_his + Environment.NewLine + "        case when a.jenis_obat = 'RACIK' then F.CODE_NAME ||' [Qty:'||A.ATT3_RECIEPT||'] - ' ||initcap(med_name)  ||' ['||e.FORMULA||']' else initcap(med_name)  ||' ['||e.FORMULA||']'  END med_name, ";
-                if (s_tipe2 == "U")
+                if (luTipe.GetColumnValue("statusCode").ToString() == "")
                 {
-                    sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,  nvl(d.TRANS_QTY,a.med_qty)  med_qty, nvl(d.TRANS_QTY,a.med_qty)*MED_PRICE price, ";
+                    btnPayment.Enabled = false;
+                    btnPrint.Enabled = false;
                 }
                 else
                 {
-                    sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,   nvl(d.TRANS_QTY,a.med_qty) med_qty, price  price, ";
+                    btnPayment.Enabled = true;
+                    btnPrint.Enabled = true;
                 }
 
-                sql_his = sql_his + Environment.NewLine + " confirm  remarks, ";
-                if (s_tipe2 == "U")
+                if (s_stbyr == "Belum Bayar")
                 {
-                    sql_his = sql_his + Environment.NewLine + " 'N' insu  ";
+                    tDiskon.Enabled = true;
                 }
                 else
                 {
-                    sql_his = sql_his + Environment.NewLine + " decode(d.insu_cover,0,'Y','N') insu  ";
+                    tDiskon.Enabled = false;
                 }
-                sql_his = sql_his + Environment.NewLine + "      ,A.receipt_id  ";
-                sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_receipt a  ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.rm_no = b.rm_no)  ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_medicine c on(a.med_cd = c.med_cd)  ";
-                sql_his = sql_his + Environment.NewLine + " LEFT join KLINIK.cs_medicine_trans d on(a.receipt_id = d.receipt_id)  ";
-                sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID) ";
-                sql_his = sql_his + Environment.NewLine + " LEFT join cs_code_data f on (a.ATT1_RECIEPT = f.CODE_ID and f.CODE_CLASS_ID = 'MED_RACIK')  ";
+
+
+                if (s_tipe1 != s_tipe2)
+                {
+                    btnPayment.Enabled = false;
+                    btnPrint.Enabled = false;
+                    MessageBox.Show("Data Tipe Pasien pada menu reservasi dan tagihan tidak sama");
+                }
+                else
+                {
+                    btnPayment.Enabled = true;
+                    btnPrint.Enabled = true;
+                }
                 if (comboBox1.Text == "Rawat Jalan")
                 {
-
-                }
-                else
-                {
-                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient e on (a.rm_no=e.rm_no and a.visit_dt=e.reg_date)   ";
-                }
-                sql_his = sql_his + Environment.NewLine + " where b.status = 'A'  ";
-                sql_his = sql_his + Environment.NewLine + " and c.status = 'A'  ";
-                sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_pasno + "'  ";
-                if (comboBox1.Text == "Rawat Jalan")
-                {
-                    sql_his = sql_his + Environment.NewLine + " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  ";
-                }
-
-                sql_his = sql_his + Environment.NewLine + " and a.id_visit = " + idvisit + " ";
-
-            }
-            else
-            {
-                sql_his = " ";
-                sql_his = sql_his + Environment.NewLine + "select  a.treat_item_id, a.treat_group_id, a.treat_item_name,    ";
-                sql_his = sql_his + Environment.NewLine + "        to_char(treat_date,'yyyy-mm-dd') treat_date, treat_qty,   ";
-                sql_his = sql_his + Environment.NewLine + "        b.total_price, b.remarks, decode(INSU_FLAG,'U','N','Y') insu,0  receipt_id   ";
-                sql_his = sql_his + Environment.NewLine + "   from KLINIK.cs_treatment_item a   ";
-                sql_his = sql_his + Environment.NewLine + "   join KLINIK.cs_treatment_detail b on (a.treat_item_id=b.treat_item_id) join KLINIK.cs_treatment_head c on (b.head_id=c.head_id)  "; 
-                sql_his = sql_his + Environment.NewLine + " where b.head_id= '" + s_head + "' and c.id_visit =" + idvisit + "  and b.F_ACTIVE ='Y'  ";
-                sql_his = sql_his + Environment.NewLine + " union all  ";
-                sql_his = sql_his + Environment.NewLine + " select 0 treat_item_id, 'TRG05' treat_group_id,  ";
-                sql_his = sql_his + Environment.NewLine + " initcap(med_name)  ||' ['||e.FORMULA||']' med_name,  ";
-                sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,  a.med_qty, price,  ";
-                sql_his = sql_his + Environment.NewLine + " confirm  remarks,  ";
-                sql_his = sql_his + Environment.NewLine + " BPJS_COVER insu , a.RECEIPT_ID  ";
-                sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_visit z   ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_receipt a on (a.id_visit = z.id_visit)    ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.rm_no = b.rm_no)   ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_medicine c on(a.med_cd = c.med_cd)   ";
-                sql_his = sql_his + Environment.NewLine + " LEFT join KLINIK.cs_medicine_trans d on(a.receipt_id = d.receipt_id and a.med_cd = d.med_cd)   ";
-                sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID  )  ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient f on ( z.inpatient_id=f.inpatient_id and f.status in('OPN','REG','CLS','PAY'))    ";
-                sql_his = sql_his + Environment.NewLine + "where 1=1 ";
-                sql_his = sql_his + Environment.NewLine + "  and b.status = 'A' and a.F_ACTIVE ='Y'  ";
-                sql_his = sql_his + Environment.NewLine + "  and b.patient_no = '" + s_pasno + "'  ";
-                sql_his = sql_his + Environment.NewLine + "  and a.id_visit =" + idvisit + " ";
-                sql_his = sql_his + Environment.NewLine + "  UNION ALL "; 
-                sql_his = sql_his + Environment.NewLine + "  select g.ROOM_HIS_ID treat_item_id, 'TRG04' treat_group_id,    ";
-                sql_his = sql_his + Environment.NewLine + "      c.ROOM_NAME  ||' ['||F.BED_ID||']'  med_name,   ";
-                sql_his = sql_his + Environment.NewLine + "      to_char(a.VISIT_DATE,'yyyy-mm-dd') insp_date, "; 
-                sql_his = sql_his + Environment.NewLine + "       case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then   ";
-                sql_his = sql_his + Environment.NewLine + "            case when ((((sysdate - TIME_RESERVATION)*24) ) - floor(((sysdate - TIME_RESERVATION)*24))) > 0.5 then floor((((sysdate - TIME_RESERVATION)*24)/24 ) +1) ";
-                sql_his = sql_his + Environment.NewLine + "              else floor(((sysdate - TIME_RESERVATION)*24)/24 ) end   ";
-                sql_his = sql_his + Environment.NewLine + "       else CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-TIME_RESERVATION))   ";
-                sql_his = sql_his + Environment.NewLine + "        end  med_qty,   ";
-                sql_his = sql_his + Environment.NewLine + "       case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then  ";
-                sql_his = sql_his + Environment.NewLine + "            case when ((((sysdate - TIME_RESERVATION)*24) ) - floor(((sysdate - TIME_RESERVATION)*24))) > 0.5 then floor((((sysdate - TIME_RESERVATION)*24)/24 ) +1) ";
-                sql_his = sql_his + Environment.NewLine + "              else floor(((sysdate - TIME_RESERVATION)*24)/24 ) end * ROOM_PRICE --*CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE))  ";
-                sql_his = sql_his + Environment.NewLine + "        else ROOM_PRICE*CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-TIME_RESERVATION))  ";
-                sql_his = sql_his + Environment.NewLine + "       end   price,  "; 
-                //sql_his = sql_his + Environment.NewLine + "      case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then  CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE)) ";
-                //sql_his = sql_his + Environment.NewLine + "        else CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-VISIT_DATE))  ";
-                //sql_his = sql_his + Environment.NewLine + "        end  med_qty,  ";
-                //sql_his = sql_his + Environment.NewLine + "        case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then CLASS_PRICE*CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE)) ";
-                //sql_his = sql_his + Environment.NewLine + "        else CLASS_PRICE*CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-VISIT_DATE))  ";
-                //sql_his = sql_his + Environment.NewLine + "        end   price,   ";
-                sql_his = sql_his + Environment.NewLine + "      'Ruangan' remarks,   ";
-                sql_his = sql_his + Environment.NewLine + "      decode(TYPE_PATIENT,'B','Y','N') insu ,0  receipt_id    "; 
-                sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_visit a    ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.patient_no = b.patient_no)    ";
-                sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient e on (a.INPATIENT_ID = e.INPATIENT_ID  and e.status in('OPN','REG','CLS','PAY') )    ";
-                sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.cs_bed F on(F.BED_ID = e.ROOM_ID   ) ";
-                sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_ROOM c on(c.ROOM_ID = F.ROOM_ID  ) ";
-                sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_ROOM_CLASS d on(c.CLASS_ID = d.CLASS_ID  )    "; 
-                sql_his = sql_his + Environment.NewLine + " LEFT JOIN (select max(ROOM_HIS_ID) ROOM_HIS_ID ,INPATIENT_ID, max(ROOM_ID) ROOM_ID from KLINIK.CS_ROOM_HIS  ";
-                sql_his = sql_his + Environment.NewLine + "  group by INPATIENT_ID)  g on (e.INPATIENT_ID = g.INPATIENT_ID and F.BED_ID = g.ROOM_ID )  "; 
-                sql_his = sql_his + Environment.NewLine + "where 1=1 ";
-                sql_his = sql_his + Environment.NewLine + "  and b.status = 'A'    ";
-                sql_his = sql_his + Environment.NewLine + "  and b.patient_no ='" + s_pasno + "'  ";
-                sql_his = sql_his + Environment.NewLine + "  and a.id_visit = " + idvisit + " "; 
-
-            }
-            sql_his = sql_his + Environment.NewLine + " order by 2,3  ";
-
-            OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adSql = new OleDbDataAdapter(sql_his, sqlConnect);
-            DataTable dt = new DataTable();
-            adSql.Fill(dt);
-            
-            lTotalPay.Text = "0";
-            totPay = 0;
-            tDiskon.Text = s_disc.ToString();
-            l_diskon.Text = "0";
-            lTotalPayment.Text = "0";
-            totBill = 0;
-            txt_cover.Text = "0";
-            totPayment = 0;
-            ttlcover = 0; ttlsisa = 0;
-
-
-            if (dt.Rows.Count > 0)
-            {
-                string tmp = "", sinsu = "" ;
-                
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    sinsu = dt.Rows[i]["insu"].ToString();
-                    tmp = dt.Rows[i]["total_price"].ToString();
-                    sremark = dt.Rows[i]["remarks"].ToString();
-                    if (comboBox1.Text == "Rawat Inap" && sremark == "Ruangan")
+                    sql_his = " ";
+                    sql_his = sql_his + Environment.NewLine + " select a.treat_item_id, a.treat_group_id, a.treat_item_name,  ";
+                    sql_his = sql_his + Environment.NewLine + " to_char(treat_date,'yyyy-mm-dd') treat_date, treat_qty, ";
+                    sql_his = sql_his + Environment.NewLine + " b.total_price, b.remarks, decode(INSU_FLAG,'U','N','Y') insu,0  receipt_id ";
+                    sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_treatment_item a ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_treatment_detail b on (a.treat_item_id=b.treat_item_id) join KLINIK.cs_treatment_head c on (b.head_id=c.head_id) ";
+                    sql_his = sql_his + Environment.NewLine + " where b.head_id='" + s_head + "' ";
+                    sql_his = sql_his + Environment.NewLine + " union all";
+                    sql_his = sql_his + Environment.NewLine + " select 0 treat_item_id, 'TRG05' treat_group_id,   ";
+                    sql_his = sql_his + Environment.NewLine + "        case when a.jenis_obat = 'RACIK' then F.CODE_NAME ||' [Qty:'||A.ATT3_RECIEPT||'] - ' ||initcap(med_name)  ||' ['||e.FORMULA||']' else initcap(med_name)  ||' ['||e.FORMULA||']'  END med_name, ";
+                    if (s_tipe2 == "U")
                     {
-                        if(tmp == "")
-                        {
-                            MessageBox.Show("Pasien Belum Melakukan Pemeriksaan..!!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
-                        }
-                    }
-                    if (s_tipe.ToString().Equals("B"))
-                    {
-                        if (sinsu.ToString().Equals("Y"))
-                        {
-                            ttlcover = ttlcover + Convert.ToInt32(tmp);
-                        }
-                        else
-                        {
-                            ttlsisa = ttlsisa + Convert.ToInt32(tmp);
-                        }
+                        sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,  nvl(d.TRANS_QTY,a.med_qty)  med_qty, nvl(d.TRANS_QTY,a.med_qty)*MED_PRICE price, ";
                     }
                     else
                     {
-                        ttlcover = ttlcover + Convert.ToInt32(tmp);
-                        ttlsisa = 0;
+                        sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,   nvl(d.TRANS_QTY,a.med_qty) med_qty, price  price, ";
                     }
-                    
-                    totPay = totPay+ Convert.ToInt32(tmp);
-                } 
-            }
 
-            
+                    sql_his = sql_his + Environment.NewLine + " confirm  remarks, ";
+                    if (s_tipe2 == "U")
+                    {
+                        sql_his = sql_his + Environment.NewLine + " 'N' insu  ";
+                    }
+                    else
+                    {
+                        sql_his = sql_his + Environment.NewLine + " decode(d.insu_cover,0,'Y','N') insu  ";
+                    }
+                    sql_his = sql_his + Environment.NewLine + "      ,A.receipt_id  ";
+                    sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_receipt a  ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.rm_no = b.rm_no)  ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_medicine c on(a.med_cd = c.med_cd)  ";
+                    sql_his = sql_his + Environment.NewLine + " LEFT join KLINIK.cs_medicine_trans d on(a.receipt_id = d.receipt_id)  ";
+                    sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID) ";
+                    sql_his = sql_his + Environment.NewLine + " LEFT join cs_code_data f on (a.ATT1_RECIEPT = f.CODE_ID and f.CODE_CLASS_ID = 'MED_RACIK')  ";
+                    if (comboBox1.Text == "Rawat Jalan")
+                    {
 
-            if (s_tipe2.ToString().Equals("B"))
-            {
-                if (ttlsisa.ToString().Equals("0"))
-                {
-                    //totPay = Convert.ToInt32(ttlcover);
-                    tDiskon.Text = "0";
-                    tDiskon.Enabled = false;
-                    tDiskon.BackColor = Color.LightGray;
-                }   
+                    }
+                    else
+                    {
+                        sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient e on (a.rm_no=e.rm_no and a.visit_dt=e.reg_date)   ";
+                    }
+                    sql_his = sql_his + Environment.NewLine + " where b.status = 'A'  ";
+                    sql_his = sql_his + Environment.NewLine + " and c.status = 'A'  ";
+                    sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_pasno + "'  ";
+                    if (comboBox1.Text == "Rawat Jalan")
+                    {
+                        sql_his = sql_his + Environment.NewLine + " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  ";
+                    }
+
+                    sql_his = sql_his + Environment.NewLine + " and a.id_visit = " + idvisit + " ";
+
+                }
                 else
                 {
-                    //totPay = Convert.ToInt32(ttlsisa);
+                    sql_his = " ";
+                    sql_his = sql_his + Environment.NewLine + "select  a.treat_item_id, a.treat_group_id, a.treat_item_name,    ";
+                    sql_his = sql_his + Environment.NewLine + "        to_char(treat_date,'yyyy-mm-dd') treat_date, treat_qty,   ";
+                    sql_his = sql_his + Environment.NewLine + "        b.total_price, b.remarks, decode(INSU_FLAG,'U','N','Y') insu,0  receipt_id   ";
+                    sql_his = sql_his + Environment.NewLine + "   from KLINIK.cs_treatment_item a   ";
+                    sql_his = sql_his + Environment.NewLine + "   join KLINIK.cs_treatment_detail b on (a.treat_item_id=b.treat_item_id) join KLINIK.cs_treatment_head c on (b.head_id=c.head_id)  ";
+                    sql_his = sql_his + Environment.NewLine + " where b.head_id= '" + s_head + "' and c.id_visit =" + idvisit + "  and b.F_ACTIVE ='Y'  ";
+                    sql_his = sql_his + Environment.NewLine + " union all  ";
+                    sql_his = sql_his + Environment.NewLine + " select 0 treat_item_id, 'TRG05' treat_group_id,  ";
+                    sql_his = sql_his + Environment.NewLine + " initcap(med_name)  ||' ['||e.FORMULA||']' med_name,  ";
+                    sql_his = sql_his + Environment.NewLine + " to_char(a.insp_date,'yyyy-mm-dd') insp_date,  a.med_qty, price,  ";
+                    sql_his = sql_his + Environment.NewLine + " confirm  remarks,  ";
+                    sql_his = sql_his + Environment.NewLine + " BPJS_COVER insu , a.RECEIPT_ID  ";
+                    sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_visit z   ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_receipt a on (a.id_visit = z.id_visit)    ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.rm_no = b.rm_no)   ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_medicine c on(a.med_cd = c.med_cd)   ";
+                    sql_his = sql_his + Environment.NewLine + " LEFT join KLINIK.cs_medicine_trans d on(a.receipt_id = d.receipt_id and a.med_cd = d.med_cd)   ";
+                    sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID  )  ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient f on ( z.inpatient_id=f.inpatient_id and f.status in('OPN','REG','CLS','PAY'))    ";
+                    sql_his = sql_his + Environment.NewLine + "where 1=1 ";
+                    sql_his = sql_his + Environment.NewLine + "  and b.status = 'A' and a.F_ACTIVE ='Y'  ";
+                    sql_his = sql_his + Environment.NewLine + "  and b.patient_no = '" + s_pasno + "'  ";
+                    sql_his = sql_his + Environment.NewLine + "  and a.id_visit =" + idvisit + " ";
+                    sql_his = sql_his + Environment.NewLine + "  UNION ALL ";
+                    sql_his = sql_his + Environment.NewLine + "  select g.ROOM_HIS_ID treat_item_id, 'TRG04' treat_group_id,    ";
+                    sql_his = sql_his + Environment.NewLine + "      c.ROOM_NAME  ||' ['||F.BED_ID||']'  med_name,   ";
+                    sql_his = sql_his + Environment.NewLine + "      to_char(a.VISIT_DATE,'yyyy-mm-dd') insp_date, ";
+                    sql_his = sql_his + Environment.NewLine + "       case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then   ";
+                    sql_his = sql_his + Environment.NewLine + "            case when ((((sysdate - TIME_RESERVATION)*24) ) - floor(((sysdate - TIME_RESERVATION)*24))) > 0.5 then floor((((sysdate - TIME_RESERVATION)*24)/24 ) +1) ";
+                    sql_his = sql_his + Environment.NewLine + "              else floor(((sysdate - TIME_RESERVATION)*24)/24 ) end   ";
+                    sql_his = sql_his + Environment.NewLine + "       else CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-TIME_RESERVATION))   ";
+                    sql_his = sql_his + Environment.NewLine + "        end  med_qty,   ";
+                    sql_his = sql_his + Environment.NewLine + "       case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then  ";
+                    sql_his = sql_his + Environment.NewLine + "            case when ((((sysdate - TIME_RESERVATION)*24) ) - floor(((sysdate - TIME_RESERVATION)*24))) > 0.5 then floor((((sysdate - TIME_RESERVATION)*24)/24 ) +1) ";
+                    sql_his = sql_his + Environment.NewLine + "              else floor(((sysdate - TIME_RESERVATION)*24)/24 ) end * ROOM_PRICE --*CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE))  ";
+                    sql_his = sql_his + Environment.NewLine + "        else ROOM_PRICE*CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-TIME_RESERVATION))  ";
+                    sql_his = sql_his + Environment.NewLine + "       end   price,  ";
+                    //sql_his = sql_his + Environment.NewLine + "      case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then  CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE)) ";
+                    //sql_his = sql_his + Environment.NewLine + "        else CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-VISIT_DATE))  ";
+                    //sql_his = sql_his + Environment.NewLine + "        end  med_qty,  ";
+                    //sql_his = sql_his + Environment.NewLine + "        case when to_char(case when a.STATUS ='CLS' then TIME_END else sysdate end,'HH24MISS') < '120000' then CLASS_PRICE*CEIL(TO_NUMBER((case when a.STATUS ='CLS' then TIME_END else sysdate end-1)-VISIT_DATE)) ";
+                    //sql_his = sql_his + Environment.NewLine + "        else CLASS_PRICE*CEIL(TO_NUMBER(case when a.STATUS ='CLS' then TIME_END else sysdate end-VISIT_DATE))  ";
+                    //sql_his = sql_his + Environment.NewLine + "        end   price,   ";
+                    sql_his = sql_his + Environment.NewLine + "      'Ruangan' remarks,   ";
+                    sql_his = sql_his + Environment.NewLine + "      decode(TYPE_PATIENT,'B','Y','N') insu ,0  receipt_id    ";
+                    sql_his = sql_his + Environment.NewLine + " from KLINIK.cs_visit a    ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_patient b on (a.patient_no = b.patient_no)    ";
+                    sql_his = sql_his + Environment.NewLine + " join KLINIK.cs_inpatient e on (a.INPATIENT_ID = e.INPATIENT_ID  and e.status in('OPN','REG','CLS','PAY') )    ";
+                    sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.cs_bed F on(F.BED_ID = e.ROOM_ID   ) ";
+                    sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_ROOM c on(c.ROOM_ID = F.ROOM_ID  ) ";
+                    sql_his = sql_his + Environment.NewLine + " JOIN KLINIK.CS_ROOM_CLASS d on(c.CLASS_ID = d.CLASS_ID  )    ";
+                    sql_his = sql_his + Environment.NewLine + " LEFT JOIN (select max(ROOM_HIS_ID) ROOM_HIS_ID ,INPATIENT_ID, max(ROOM_ID) ROOM_ID from KLINIK.CS_ROOM_HIS  ";
+                    sql_his = sql_his + Environment.NewLine + "  group by INPATIENT_ID)  g on (e.INPATIENT_ID = g.INPATIENT_ID and F.BED_ID = g.ROOM_ID )  ";
+                    sql_his = sql_his + Environment.NewLine + "where 1=1 ";
+                    sql_his = sql_his + Environment.NewLine + "  and b.status = 'A'    ";
+                    sql_his = sql_his + Environment.NewLine + "  and b.patient_no ='" + s_pasno + "'  ";
+                    sql_his = sql_his + Environment.NewLine + "  and a.id_visit = " + idvisit + " ";
+
+                }
+                sql_his = sql_his + Environment.NewLine + " order by 2,3  ";
+
+                OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSql = new OleDbDataAdapter(sql_his, sqlConnect);
+                DataTable dt = new DataTable();
+                adSql.Fill(dt);
+
+                lTotalPay.Text = "0";
+                totPay = 0;
+                tDiskon.Text = s_disc.ToString();
+                l_diskon.Text = "0";
+                lTotalPayment.Text = "0";
+                totBill = 0;
+                txt_cover.Text = "0";
+                totPayment = 0;
+                ttlcover = 0; ttlsisa = 0;
+
+
+                if (dt.Rows.Count > 0)
+                {
+                    string tmp = "", sinsu = "";
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        sinsu = dt.Rows[i]["insu"].ToString();
+                        tmp = dt.Rows[i]["total_price"].ToString();
+                        sremark = dt.Rows[i]["remarks"].ToString();
+                        if (comboBox1.Text == "Rawat Inap" && sremark == "Ruangan")
+                        {
+                            if (tmp == "")
+                            {
+                                MessageBox.Show("Pasien Belum Melakukan Pemeriksaan..!!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+                            }
+                        }
+                        if (s_tipe.ToString().Equals("B"))
+                        {
+                            if (sinsu.ToString().Equals("Y"))
+                            {
+                                ttlcover = ttlcover + Convert.ToInt32(tmp);
+                            }
+                            else
+                            {
+                                ttlsisa = ttlsisa + Convert.ToInt32(tmp);
+                            }
+                        }
+                        else
+                        {
+                            ttlcover = ttlcover + Convert.ToInt32(tmp);
+                            ttlsisa = 0;
+                        }
+
+                        totPay = totPay + Convert.ToInt32(tmp);
+                    }
+                }
+
+
+                if (s_tipe2.ToString().Equals("B"))
+                {
+                    if (ttlsisa.ToString().Equals("0"))
+                    {
+                        //totPay = Convert.ToInt32(ttlcover);
+                        tDiskon.Text = "0";
+                        tDiskon.Enabled = false;
+                        tDiskon.BackColor = Color.LightGray;
+                    }
+                    else
+                    {
+                        //totPay = Convert.ToInt32(ttlsisa);
+                        tDiskon.Enabled = true;
+                        tDiskon.BackColor = Color.SandyBrown;
+                    }
+                    txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
+                }
+                else if (s_tipe2.ToString().Equals("U"))
+                {
+                    //totPay = totPay + Convert.ToInt32(totPay);
                     tDiskon.Enabled = true;
                     tDiskon.BackColor = Color.SandyBrown;
-                }
-                txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
-            }
-            else if (s_tipe2.ToString().Equals("U"))
-            {
-                //totPay = totPay + Convert.ToInt32(totPay);
-                tDiskon.Enabled = true;
-                tDiskon.BackColor = Color.SandyBrown;
-                if(s_stbyr.ToString().Equals("Selesai"))
-                {
-                    txtselisih.Text = "0";
+                    if (s_stbyr.ToString().Equals("Selesai"))
+                    {
+                        txtselisih.Text = "0";
+                    }
+                    else
+                    {
+                        txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
+                    }
                 }
                 else
                 {
-                    txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-                } 
-            }
-            else  
-            {
-                //totPay = totPay + Convert.ToInt32(totPay);
-                tDiskon.Enabled = true;
-                tDiskon.BackColor = Color.SandyBrown;
-                txtselisih.Text = "0";
-            }
+                    //totPay = totPay + Convert.ToInt32(totPay);
+                    tDiskon.Enabled = true;
+                    tDiskon.BackColor = Color.SandyBrown;
+                    txtselisih.Text = "0";
+                }
 
 
-            lTotalPay.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-           
+                lTotalPay.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
 
-            if (s_disc == "0")
-            {
-                tDiskon.Text = "0"; 
-                
 
-                if ( s_tipe2 == "B")
+                if (s_disc == "0")
                 {
-                    txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlcover);
-                    txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
+                    tDiskon.Text = "0";
 
-                    lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
+
+                    if (s_tipe2 == "B")
+                    {
+                        txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlcover);
+                        txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
+
+                        lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", ttlsisa);
+                        totBill = ttlsisa;
+                        totPayment = ttlsisa;
+
+                    }
+                    else if (s_tipe2 == "P")
+                    {
+                        txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
+                        txtselisih.Text = "0";
+
+                        lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
+                        totBill = totPay;
+                        totPayment = totPay;
+                    }
+                    else
+                    {
+                        txt_cover.Text = "0";
+                        txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
+
+                        lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
+                        totBill = totPay;
+                        totPayment = totPay;
+                    }
+                }
+                else
+                {
+                    tDiskon.Text = s_disc.ToString();
+                    if (s_stbyr.ToString().Equals("Selesai"))
+                    {
+                        totPayment = Convert.ToInt32(totPay - ((Convert.ToDecimal(tDiskon.Text) / 100) * totPay));
+                        lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", Convert.ToInt32(totPayment));
+                    }
+                    else
+                    {
+                        totPayment = ttlsisa;
+                        lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", Convert.ToInt32(ttlsisa));
+                    }
                     totBill = ttlsisa;
-                    totPayment = ttlsisa;
 
+                    if (s_tipe2 != "U")
+                    {
+                        txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", (totPay - totBill));
+                        chTangguh.CheckState = CheckState.Checked;
+                    }
+                    else
+                    {
+                        txt_cover.Text = "0";
+                        l_diskon.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", (totPay - Convert.ToInt32(totPayment)));
+                        chTangguh.CheckState = CheckState.Unchecked;
+                    }
                 }
-                else if (s_tipe2 == "P" )
-                {
-                    txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-                    txtselisih.Text = "0";
 
-                    lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-                    totBill = totPay;
-                    totPayment = totPay;
-                }
-                else
+                if (s_tipe2 == "U" || s_tipe2 == "B")
                 {
-                    txt_cover.Text = "0";
-                    txtselisih.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-
-                    lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", totPay);
-                    totBill = totPay;
-                    totPayment = totPay;
-                } 
-            }
-            else
-            {
-                tDiskon.Text = s_disc.ToString();
-                if (s_stbyr.ToString().Equals("Selesai"))
-                {
-                    totPayment = Convert.ToInt32(totPay - ((Convert.ToDecimal(tDiskon.Text)/100) * totPay));
-                    lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", Convert.ToInt32(totPayment));
-                }
-                else
-                {
-                    totPayment = ttlsisa;
-                    lTotalPayment.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", Convert.ToInt32(ttlsisa));
-                } 
-                totBill = ttlsisa;
-                
-                if (s_tipe2 != "U")
-                { 
-                    txt_cover.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", (totPay- totBill));                    
-                    chTangguh.CheckState = CheckState.Checked;
-                }
-                else
-                {
-                    txt_cover.Text = "0";
-                    l_diskon.Text = String.Format(CultureInfo.GetCultureInfo("id-ID"), "{0:N0}", (totPay - Convert.ToInt32(totPayment)));
                     chTangguh.CheckState = CheckState.Unchecked;
+                    chTangguh.Enabled = false;
                 }
-            }
+                else
+                {
+                    chTangguh.Enabled = true;
+                }
 
-            if (s_tipe2 == "U" || s_tipe2 == "B")
-            {
-                chTangguh.CheckState = CheckState.Unchecked;
-                chTangguh.Enabled = false;
-            }
-            else
-            {
-                chTangguh.Enabled = true ;
-            }
+                gridControl2.DataSource = null;
+                gridView2.Columns.Clear();
+                gridControl2.DataSource = dt;
 
-            gridControl2.DataSource = null;
-            gridView2.Columns.Clear();
-            gridControl2.DataSource = dt;
+                gridView2.OptionsView.ColumnAutoWidth = true;
+                gridView2.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+                gridView2.Appearance.HeaderPanel.FontSizeDelta = 0;
+                gridView2.IndicatorWidth = 30;
+                gridView2.OptionsBehavior.Editable = false;
+                gridView2.BestFitColumns();
 
-            gridView2.OptionsView.ColumnAutoWidth = true;
-            gridView2.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            gridView2.Appearance.HeaderPanel.FontSizeDelta = 0;
-            gridView2.IndicatorWidth = 30;
-            gridView2.OptionsBehavior.Editable = false;
-            gridView2.BestFitColumns();
+                gridView2.Columns[0].Caption = "Item ID";
+                gridView2.Columns[1].Caption = "Group";
+                gridView2.Columns[2].Caption = "Layanan";
+                gridView2.Columns[3].Caption = "Tanggal";
+                gridView2.Columns[4].Caption = "Jumlah";
+                gridView2.Columns[5].Caption = "Harga";
+                gridView2.Columns[6].Caption = "Remarks";
+                gridView2.Columns[7].Caption = "Insu";
+                gridView2.Columns[8].Caption = "receipt_id";
+                //gridView2.Columns[7].VisibleIndex = 0;
 
-            gridView2.Columns[0].Caption = "Item ID";
-            gridView2.Columns[1].Caption = "Group";
-            gridView2.Columns[2].Caption = "Layanan";
-            gridView2.Columns[3].Caption = "Tanggal";
-            gridView2.Columns[4].Caption = "Jumlah";
-            gridView2.Columns[5].Caption = "Harga";
-            gridView2.Columns[6].Caption = "Remarks";
-            gridView2.Columns[7].Caption = "Insu";
-            gridView2.Columns[8].Caption = "receipt_id";
-            //gridView2.Columns[7].VisibleIndex = 0;
+                gridView2.Columns[0].Visible = false;
+                gridView2.Columns[7].Visible = true;
+                gridView2.Columns[8].Visible = false;
+                RepositoryItemLookUpEdit grpLookup = new RepositoryItemLookUpEdit();
+                grpLookup.DataSource = listGrpLaya;
+                grpLookup.ValueMember = "statCode";
+                grpLookup.DisplayMember = "statName";
 
-            gridView2.Columns[0].Visible = false;
-            gridView2.Columns[7].Visible = true ;
-            gridView2.Columns[8].Visible = false;
-            RepositoryItemLookUpEdit grpLookup = new RepositoryItemLookUpEdit();
-            grpLookup.DataSource = listGrpLaya;
-            grpLookup.ValueMember = "statCode";
-            grpLookup.DisplayMember = "statName";
+                grpLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                grpLookup.DropDownRows = listGrpLaya.Count;
+                grpLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                grpLookup.AutoSearchColumnIndex = 1;
+                grpLookup.NullText = "";
+                gridView2.Columns[1].ColumnEdit = grpLookup;
 
-            grpLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            grpLookup.DropDownRows = listGrpLaya.Count;
-            grpLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            grpLookup.AutoSearchColumnIndex = 1;
-            grpLookup.NullText = "";
-            gridView2.Columns[1].ColumnEdit = grpLookup;
+                gridView2.Columns[5].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
 
-            gridView2.Columns[5].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum; 
+                gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                gridView2.Columns[5].DisplayFormat.FormatString = "#,#";
 
-            gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView2.Columns[5].DisplayFormat.FormatString = "#,#";
+                ListDataLayanan(idvisit, s_tipe2);
 
-            if (s_stbyr == "CLS")
-            {
-                btnConfirm.Enabled = false;
-                btnCancel.Enabled = true;
-            }
-            else
-            {
-                btnConfirm.Enabled = true;
-                btnCancel.Enabled = false;
-            }
+                if (s_stbyr == "CLS")
+                {
+                    btnConfirm.Enabled = false;
+                    btnCancel.Enabled = true;
+                }
+                else
+                {
+                    btnConfirm.Enabled = true;
+                    btnCancel.Enabled = false;
+                }
 
-            if (s_stbyr == "Belum Bayar")
-            {
-                btnPayment.Enabled = true;
-                btnPrint.Enabled = false;
-            }
-            else
-            {
-                btnPayment.Enabled = false;
-                btnPrint.Enabled = true;
-            }
-            if (sstatus.ToString().Equals("Sudah Bayar") && s_stbyr.ToString().Equals("Selesai"))
-                simpleButton2.Enabled = true;
-            else
-                simpleButton2.Enabled = false;
+                if (s_stbyr == "Belum Bayar")
+                {
+                    btnPayment.Enabled = true;
+                    btnPrint.Enabled = false;
+                }
+                else
+                {
+                    btnPayment.Enabled = false;
+                    btnPrint.Enabled = true;
+                }
+                if (sstatus.ToString().Equals("Sudah Bayar") && s_stbyr.ToString().Equals("Selesai"))
+                    simpleButton2.Enabled = true;
+                else
+                    simpleButton2.Enabled = false;
 
-            LoadDataLimit("RJ");
-            cktransfer();
+                LoadDataLimit("RJ");
+                cktransfer();
 
             }
             catch
@@ -1898,6 +1915,7 @@ namespace Clinic
             cktransfer();
         }
 
+
         private void rdTransfer_CheckedChanged(object sender, EventArgs e)
         {
             cktransfer();
@@ -1935,6 +1953,7 @@ namespace Clinic
 
         }
 
+       
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string s_nik = "", s_que = "", s_date = "", sql_his = "", sql_user = "", id_visit = "", s_head ="";
@@ -2537,6 +2556,282 @@ namespace Clinic
                     return;
                 }
             }  
+        }
+
+        private void xtraTabControl1_Click(object sender, EventArgs e)
+        {
+            if (xtraTabControl1.SelectedTabPage.Text == "RINCIAN TAGIHAN PASIEN")
+            {
+                DataTagihanPasien();
+            }
+        }
+
+        private void gvLayananAdmin_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            string a = "", tmp_stat = "", date = "", que = "", rm_no = "", no_visit = "";
+             
+            if (e.Column.Caption == "Nama Pelayanan")
+            {
+                a = view.GetRowCellValue(e.RowHandle, view.Columns["TREAT_ITEM_ID"]).ToString();
+                no_visit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[20]).ToString();
+                tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns["ACTION"]).ToString();
+
+                string sql_ = "", sql_head = "", group_id = "", price = "", head_id = "", stbyr = "";
+                sql_ = " select treat_group_id, treat_item_price from KLINIK.cs_treatment_item where treat_item_id = " + a + " ";
+
+                OleDbConnection oraConnect0 = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra0 = new OleDbDataAdapter(sql_, oraConnect0);
+                DataTable dt0 = new DataTable();
+                adOra0.Fill(dt0);
+                if (dt0.Rows.Count > 0)
+                {
+                    group_id = dt0.Rows[0]["TREAT_GROUP_ID"].ToString();
+                    price = dt0.Rows[0]["TREAT_ITEM_PRICE"].ToString();
+                }
+
+                sql_head = " select head_id, pay_status from KLINIK.cs_treatment_head where ID_VISIT = '" + no_visit + "'  ";
+
+                OleDbConnection oraConnect1 = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra1 = new OleDbDataAdapter(sql_head, oraConnect1);
+                DataTable dt1 = new DataTable();
+                adOra1.Fill(dt1);
+                if (dt1.Rows.Count > 0)
+                {
+                    head_id = dt1.Rows[0]["HEAD_ID"].ToString();
+                    stbyr = dt1.Rows[0]["PAY_STATUS"].ToString();
+                }
+                if(stbyr.ToString().Equals("CLS"))
+                {
+                    MessageBox.Show("Data Tidak Dapat di Tambah. Karena status sudah bayar");
+                }
+                if (tmp_stat == "I")
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns["ACTION"], "I");
+                    view.SetRowCellValue(e.RowHandle, view.Columns["HEAD_ID"], head_id);
+                    view.SetRowCellValue(e.RowHandle, view.Columns["TREAT_GROUP_ID"], group_id);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[2], a);
+                    view.SetRowCellValue(e.RowHandle, view.Columns["TREAT_QTY"], "1");
+                    view.SetRowCellValue(e.RowHandle, view.Columns["TREAT_ITEM_PRICE"], price);
+                    view.SetRowCellValue(e.RowHandle, view.Columns["PAY_STATUS"], stbyr);
+                }
+                else
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns["ACTION"], "U");
+                }
+            }
+
+            if (e.Column.Caption == "Remark")
+            {
+                string tmp_stat2 = view.GetRowCellValue(e.RowHandle, view.Columns["ACTION"]).ToString();
+                if (tmp_stat2 == "I")
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns["ACTION"], "I");
+                }
+                else
+                {
+                    view.SetRowCellValue(e.RowHandle, view.Columns["ACTION"], "U");
+                }
+            }
+        }
+
+        private void gvLayananAdmin_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void simpleButton13_Click(object sender, EventArgs e)
+        {
+            if (dtLayanan == null) return;
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            string tojam = DateTime.Now.ToString("hh:mm");
+            string headid = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+            DataRow newRow = dtLayanan.NewRow();
+
+            newRow["SEQ"] = ((gvLayananAdmin.RowCount) + 1).ToString();
+            newRow["HEAD_ID"] = headid;
+            newRow["TANGGAL"] = today;
+            newRow["JAM"] = tojam;
+            newRow["ID_VISIT"] = idvisit;
+            newRow["ACTION"] = "I";
+            dtLayanan.Rows.Add(newRow);
+
+            gridLayananAdmin.DataSource = dtLayanan;
+            gvLayananAdmin.Columns[10].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gvLayananAdmin.Columns[10].DisplayFormat.FormatString = "yyyy-MM-dd";
+        }
+
+        private void btnDelTindakan_Click(object sender, EventArgs e)
+        {
+            string stbyr = "";
+            if (gvLayananAdmin.RowCount > 0)
+            {
+                stbyr = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[22]).ToString();
+
+                if (MessageBox.Show("Anda yakin akan menghapus data?",
+                    "Message",
+                     MessageBoxButtons.YesNo,
+                     MessageBoxIcon.Information) == DialogResult.No)
+                {
+
+                }
+                else
+                {
+                    string id = "", payst = "", s_idvisit = "";
+
+                    id = gvLayananAdmin.GetRowCellValue(gvLayananAdmin.FocusedRowHandle, gvLayananAdmin.Columns[6]).ToString();
+                    payst = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+                    s_idvisit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[19]).ToString();
+
+                    OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                    OleDbCommand command = new OleDbCommand();
+                    OleDbTransaction trans = null;
+
+                    command.Connection = oraConnectTrans;
+                    oraConnectTrans.Open();
+
+                    try
+                    {
+                        if (payst != "CLS")
+                        {
+                            trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                            command.Connection = oraConnectTrans;
+                            command.Transaction = trans;
+
+                            command.CommandText = " delete KLINIK.cs_treatment_detail where detail_id = '" + id + "' ";
+                            command.ExecuteNonQuery(); 
+
+                            trans.Commit();
+                            gvLayananAdmin.DeleteRow(gvLayananAdmin.FocusedRowHandle);
+                            MessageBox.Show("Data Berhasil di Hapus.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data Tidak Dapat Dihapus. Karena status sudah bayar");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+                    oraConnectTrans.Close(); 
+                }
+            }
+        }
+
+        private void simpleButton14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvLayananAdmin.RowCount > 0)
+                {
+                    try
+                    {
+                        string sql = " "; bool save = false; //insert all 
+                        for (int i = 0; i < gvLayananAdmin.RowCount; i++)
+                        {
+                            string dte = "", detailid = "", spay = "";
+                            object tgl = gvLayananAdmin.GetRowCellValue(i, "TANGGAL");
+                            detailid = FN.strVal(gvLayananAdmin, i, "DETAIL_ID");
+                            spay = FN.strVal(gvLayananAdmin, i, "PAY_STATUS");
+                            if (tgl != null && tgl is DateTime)
+                            {
+                                DateTime selectedDateTime = (DateTime)tgl;
+                                dte = selectedDateTime.ToString("yyyy-MM-dd");
+                            }
+                            else
+                            {
+                                DateTime selectedDateTime = DateTime.Now;
+                                dte = selectedDateTime.ToString("yyyy-MM-dd");
+                            }
+
+                            if (detailid.ToString().Equals(""))
+                            {
+                                sql = "";
+                                sql = sql + " insert into KLINIK.cs_treatment_detail (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( ";
+                                sql = sql + " CS_TREATMENT_DETAIL_SEQ.nextval ,'" + FN.strVal(gvLayananAdmin, i, "HEAD_ID") + "','" + FN.strVal(gvLayananAdmin, i, "TREAT_ITEM_ID") + "'  ,";
+                                sql = sql + " TO_DATE('" + dte + "', 'yyyy-MM-dd'), '" + FN.strVal(gvLayananAdmin, i, "TREAT_QTY") + "', '" + FN.strVal(gvLayananAdmin, i, "TREAT_ITEM_PRICE") + "', " + Convert.ToInt32(FN.strVal(gvLayananAdmin, i, "TREAT_QTY")) * Convert.ToInt32(FN.strVal(gvLayananAdmin, i, "TREAT_ITEM_PRICE")) + ", ";
+                                sql = sql + " '" + FN.strVal(gvLayananAdmin, i, "REMARKS") + "' ,  sysdate, '" + DB.vUserId + "', '" + FN.strVal(gvLayananAdmin, i, "JAM") + "' , 'gvLayananAdmin' )";
+                            }
+                            else
+                            {
+                                sql = "";
+                                sql = sql + " update KLINIK.cs_treatment_detail  set treat_date =  TO_DATE('" + dte + "', 'yyyy-MM-dd'), TREAT_JAM = '" + FN.strVal(gvLayananAdmin, i, "JAM") + "', ";
+                                sql = sql + "        remarks   = '" + FN.strVal(gvLayananAdmin, i, "REMARKS") + "', UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "'  ";
+                                sql = sql + "  where detail_id   = " + detailid + " ";
+                            }
+                            save = ORADB.Execute(ORADB.XE, sql);
+                        } 
+                        if (save)
+                        {
+                            MessageBox.Show("Data Pelayanan Berhasil disimpan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //labelControl103.Visible = true;
+                            //labelControl103.Text = "Berhasil Disimpan";
+                            //Blinking(labelControl103, 1);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        FN.errosMsg(ex.Message, "Error");
+                    }
+                    DataTagihanPasien();
+                } 
+            }
+            catch (Exception ex)
+            {
+                FN.errosMsg(ex.Message, "Error");
+            }
+        }
+
+
+        void ListDataLayanan(string idvisit, string fstat)
+        {
+            
+            string SQL = " ";
+            SQL = SQL + Environment.NewLine + " select ROWNUM SEQ, b.detail_id, c.treat_group_id, b.treat_item_id, c.TREAT_ITEM_NAME, b.treat_qty, b.treat_item_price,  ";
+            SQL = SQL + Environment.NewLine + "         b.remarks, 'S' action, a.head_id, b.treat_date  TANGGAL, TREAT_JAM JAM, a.pay_status ,a.ID_VISIT ";
+            SQL = SQL + Environment.NewLine + "    from KLINIK.cs_treatment_head a  ";
+            SQL = SQL + Environment.NewLine + "    join KLINIK.cs_treatment_detail b on (a.head_id=b.head_id)  ";
+            SQL = SQL + Environment.NewLine + "    join KLINIK.cs_treatment_item c on (b.treat_item_id=c.treat_item_id)  ";
+            SQL = SQL + Environment.NewLine + "    JOIN KLINIK.cs_visit d ON (a.ID_VISIT = d.ID_VISIT)  ";
+            SQL = SQL + Environment.NewLine + "   where a.ID_VISIT = '" + idvisit + "'   and b.ID_DOKTER is  null and GRID_NAME ='gvLayananAdmin' ";
+
+            dtLayanan = ConnOra.Data_Table_ora(SQL);
+            gridLayananAdmin.DataSource = dtLayanan;
+
+            ConnOra.LookUpGridFilter(listLaya2, gvLayananAdmin, "layananCode", "layananName", LookUpLayanan, 3); 
+
+            if (dtLayanan.Rows.Count > 0)
+                btnDelTindakan.Enabled = true; 
+
+            SQL = " ";
+            SQL = SQL + Environment.NewLine + "select treat_item_id, initcap(treat_item_name) treat_item_name  ";
+            SQL = SQL + Environment.NewLine + "  from KLINIK.cs_treatment_item ";
+            SQL = SQL + Environment.NewLine + " where 1=1 and  TREAT_GROUP_ID ='TRG04' ";
+            if (comboBox1.Text == "Rawat Jalan")
+                SQL = SQL + Environment.NewLine + "   and treat_type_id = 'TRT01'   "; 
+            else if (comboBox1.Text == "Rawat Inap")
+                SQL = SQL + Environment.NewLine + "   and treat_type_id = 'TRT02'   ";
+            SQL = SQL + Environment.NewLine + "   and STATUS = 'A' and F_STATUS ='" + fstat + "' "; 
+            SQL = SQL + Environment.NewLine + " order by 2 ";
+
+            OleDbConnection oraConnectly = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOraly = new OleDbDataAdapter(SQL, oraConnectly);
+            DataTable dtly = new DataTable();
+            adOraly.Fill(dtly);
+            listLaya2.Clear();
+            for (int i = 0; i < dtly.Rows.Count; i++)
+            {
+                listLaya2.Add(new Layanan() { layananCode = dtly.Rows[i]["treat_item_id"].ToString(), layananName = dtly.Rows[i]["treat_item_name"].ToString() });
+            }
+             
+
         }
     }
 }

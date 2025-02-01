@@ -68,7 +68,7 @@ namespace Clinic
         RepositoryItemGridLookUpEdit LokObatGridU = new RepositoryItemGridLookUpEdit();
         RepositoryItemGridLookUpEdit LokObatGridR = new RepositoryItemGridLookUpEdit();
 
-        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "", p_statuscls = "";
+        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "", p_statuscls = "", v_iddokter ="";
         string tmp_now = "", tmp_old = "", tmp_fam = "", tmp_fisik = "", tmp_add = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         string pub_nama = ""; string idvisit = "", s_stat ="";
@@ -99,7 +99,7 @@ namespace Clinic
                 adSql.Fill(dt); 
                 if (dt.Rows.Count > 0)
                 {
-                    ConnOra.v_iddokter = dt.Rows[0]["ID_DOKTER"].ToString(); 
+                    v_iddokter = dt.Rows[0]["ID_DOKTER"].ToString(); 
                 }
             }
             catch (Exception ex)
@@ -335,6 +335,7 @@ namespace Clinic
         {
             today = DateTime.Now.ToString("yyyy-MM-dd");
             LoadDataPasien();
+            subclear();
         }
 
         private void LoadDataPasien()
@@ -546,6 +547,18 @@ namespace Clinic
                 //}
             }
         }
+        private void subclear()
+        {
+            gridControl2.DataSource = null;
+            gridControl3.DataSource = null;
+            gridControl4.DataSource = null;
+            gridControl6.DataSource = null;
+            gridControl16.DataSource = null;
+            gridRacik.DataSource = null;
+            gdRacik.DataSource = null;
+            gridControl13.DataSource = null;
+            gridControl14.DataSource = null;
+        }
 
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
@@ -742,7 +755,7 @@ namespace Clinic
             s_infop4 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[14]);
             s_infop5 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[15]);
 
-            if(ConnOra.v_iddokter.ToString ().Equals("0") || ConnOra.v_iddokter.ToString().Equals("") )
+            if(v_iddokter.ToString ().Equals("0") || v_iddokter.ToString().Equals("") )
             {
                 sql = " ";
                 sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
@@ -755,7 +768,7 @@ namespace Clinic
                     adSqlD.Fill(dtD);
                     if (dtD.Rows.Count > 0)
                     {
-                        ConnOra.v_iddokter = dtD.Rows[0]["ID_DOKTER"].ToString();
+                        v_iddokter = dtD.Rows[0]["ID_DOKTER"].ToString();
                     }
                 }
                 catch (Exception ex)
@@ -1592,7 +1605,7 @@ namespace Clinic
                     sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                     sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
                     sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
+                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
                     sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -1656,7 +1669,7 @@ namespace Clinic
                     sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                     sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
                     sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                    sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
+                    sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
                     sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
                     sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                     sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7256,7 +7269,7 @@ namespace Clinic
                                 sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                 sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
                                 sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
+                                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
                                 sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
                                 sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                 sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7349,7 +7362,7 @@ namespace Clinic
                                 sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                 sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
                                 sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
+                                sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
                                 sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
                                 sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                 sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7484,7 +7497,7 @@ namespace Clinic
                                     sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                     sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
                                     sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
+                                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
                                     sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7745,8 +7758,8 @@ namespace Clinic
                     return;
                 }
 
-               
 
+                pelayanandefault();
 
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
@@ -9820,7 +9833,7 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_treatment_detail (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, ID_DOKTER) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ConnOra.v_iddokter + "') ";
+                                command.CommandText = " insert into KLINIK.cs_treatment_detail (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, ID_DOKTER) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + v_iddokter + "') ";
                                 command.ExecuteNonQuery();
 
                                 command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + ldate + "', 'yyyy-mm-dd'), to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
@@ -9846,7 +9859,7 @@ namespace Clinic
                         sql_update = "";
 
                         sql_update = sql_update + " update KLINIK.cs_treatment_detail" +
-                                                  " set remarks = '" + remarks + "', ID_DOKTER  = '" + ConnOra.v_iddokter + "',";
+                                                  " set remarks = '" + remarks + "', ID_DOKTER  = '" + v_iddokter + "',";
                         sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                         sql_update = sql_update + " where detail_id = '" + detail + "' ";
 

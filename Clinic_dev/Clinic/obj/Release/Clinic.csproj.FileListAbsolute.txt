@@ -2668,6 +2668,7 @@ D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\Resources\manFronBack.png
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe.config
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\Clinic.exe
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\Clinic.pdb
+D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\AxInterop.WMPLib.dll
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\DevExpress.BonusSkins.v15.2.dll
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Charts.v15.2.Core.dll
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\bin\Release\DevExpress.Data.v15.2.dll
@@ -2842,6 +2843,7 @@ D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterSchedule.resource
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterDokter.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterAsuransi.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterChgPass.resources
+D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.BillList.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.BillListv1.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.Lap_PenggunaApp.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.Lap_KasHarian.resources
@@ -2934,7 +2936,7 @@ D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.MasterTreatment.resourc
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.InPatientReport.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.OutPatientReport.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.PatientInfoMngt.resources
-D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.BillList.resources
+D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.BillListv1a.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.PatientReport2.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.Report.ReportKetRanap.resources
 D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Release\Clinic.Report.ReportAgreement.resources

@@ -482,8 +482,9 @@ D:\App Github\MyBranchv.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidCli
 D:\App Github\MyBranchv.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.Warning.resources
 D:\App Github\MyBranchv.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csproj.GenerateResource.Cache
 D:\App Github\MyBranchv.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.licenses
-D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
-D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\ASURANSI1.png
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\BPJS1.png
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\UMUM1.png
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\RfidClinic.exe
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\RfidClinic.pdb
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\DevExpress.BonusSkins.v15.2.dll
@@ -577,3 +578,5 @@ D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.WaitFo
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.Warning.resources
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csproj.GenerateResource.Cache
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.licenses
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb

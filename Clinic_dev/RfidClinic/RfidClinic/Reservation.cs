@@ -220,7 +220,7 @@ namespace RfidClinic
                         }
                         
                         button.ImageLocation = ImageLocation.Default;
-                        button.Size = new System.Drawing.Size(500, 100);
+                        button.Size = new System.Drawing.Size(350, 100);
                     }
                     button.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
                     button.LookAndFeel.SkinMaskColor = System.Drawing.Color.GhostWhite;
@@ -241,14 +241,14 @@ namespace RfidClinic
                     //itemOKButton.Width = 440;
                     if (tot <= 3)
                     {
-                        itemBtn.MaxSize = new Size(500, 300);
-                        itemBtn.MinSize = new Size(500, 300);
+                        itemBtn.MaxSize = new Size(450, 170);
+                        itemBtn.MinSize = new Size(450, 170);
                         TPoli = ""; button.Text = "";
                     }
                     else
                     {
-                        itemBtn.MaxSize = new Size(500, 100);
-                        itemBtn.MinSize = new Size(500, 100);
+                        itemBtn.MaxSize = new Size(300, 180);
+                        itemBtn.MinSize = new Size(300, 180);
                     }
                     p_enable = p_bol;
                     itemBtn.StartNewLine = false;

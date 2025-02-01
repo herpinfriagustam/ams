@@ -284,14 +284,14 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "         END AS observation, visit_remark, D.rm_no, "; 
             sql_search = sql_search + Environment.NewLine + "         DECODE (c.poli_group, 'PREG', 'Ibu Hamil', 'FAMP', 'KB', 'Umum' ) AS type_mr,  ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd, round((nvl(start_hold,sysdate)-A.visit_date) * 24 * 60) wait_time , visit_remark Layanan, a.ID_VISIT, e.ANAMNESA_ID, F.HEAD_ID, nvl(F.PAY_STATUS,'N') PAY_STATUS  ";
-            sql_search = sql_search + Environment.NewLine + "    FROM cs_visit a JOIN cs_patient_info b ON a.patient_no = b.patient_no  ";
-            sql_search = sql_search + Environment.NewLine + "         join cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
+            sql_search = sql_search + Environment.NewLine + "    FROM KLINIK.cs_visit a JOIN KLINIK.cs_patient_info b ON a.patient_no = b.patient_no  ";
+            sql_search = sql_search + Environment.NewLine + "         join KLINIK.cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN KLINIK.cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN KLINIK.CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "         LEFT JOIN KLINIK.cs_treatment_head F ON  (a.ID_VISIT = F.ID_VISIT)  JOIN KLINIK.cs_code_data i on i.code_id = a.status and i.CODE_CLASS_ID = 'ST_PASIEN' ";
             sql_search = sql_search + Environment.NewLine + "   WHERE 1 = 1  ";
             sql_search = sql_search + Environment.NewLine + "     AND TRUNC(A.visit_date) = TRUNC(sysdate)  ";
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
             sql_search = sql_search + Environment.NewLine + "     AND a.status not in ('CAN') ";// IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL')  ";
-            sql_search = sql_search + Environment.NewLine + "   ORDER BY a.ID_VISIT,i.SORT_ORDER, a.ins_date   ";
+            sql_search = sql_search + Environment.NewLine + "   ORDER BY  decode( a.status,'CLS','A9','DON','A8','PAY','A7','INP','A6','NUR','A5','INS','A4','A1'), a.ID_VISIT,i.SORT_ORDER, a.ins_date   ";
             
             //loading.ShowWaitForm();
             try
@@ -1134,6 +1134,7 @@ namespace Clinic
                 string kk = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
                 string kk1 = View.GetRowCellValue(e.RowHandle, View.Columns[10]).ToString();
                 string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
+                string pol = View.GetRowCellDisplayText(e.RowHandle, View.Columns[6]);
 
                 if (kk == "Inspection" && pur == "Dokter")
                 {
@@ -1154,6 +1155,11 @@ namespace Clinic
                     e.Appearance.BackColor = Color.FromArgb(75, Color.LightSalmon);
                     e.Appearance.BackColor2 = Color.FromArgb(75, Color.DodgerBlue);
                 }
+                else if (kk == "First Inspection" &&  pur == "Lain2")
+                {
+                    e.Appearance.BackColor = Color.FromArgb(75, Color.DarkSlateBlue);
+                    e.Appearance.BackColor2 = Color.FromArgb(75, Color.DarkSlateGray);
+                }
                 else if (kk == "First Inspection" && pur == "Bidan")
                 {
                     e.Appearance.BackColor = Color.FromArgb(75, Color.DodgerBlue);
@@ -1161,7 +1167,7 @@ namespace Clinic
                 }
                 else if (kk == "Medicine" || kk == "Payment")
                 {
-                    e.Appearance.BackColor = Color.FromArgb(175, Color.LightGray);
+                    e.Appearance.BackColor = Color.FromArgb(175, Color.DarkRed);
                     e.Appearance.BackColor2 = Color.FromArgb(75, Color.DarkGoldenrod);
                 }
                 else if ( kk1 == "MED")
@@ -1291,6 +1297,7 @@ namespace Clinic
             {
                 string kk = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
                 string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
+                string pol = View.GetRowCellDisplayText(e.RowHandle, View.Columns[6]);
 
                 if (kk == "Inspection" && pur == "Dokter")
                 {
@@ -1315,6 +1322,11 @@ namespace Clinic
                 {
                     e.Appearance.BackColor = Color.FromArgb(75, Color.LightCoral);
                     e.Appearance.BackColor2 = Color.FromArgb(75, Color.LightCoral);
+                }
+                else if (kk == "First Inspection" && pur == "Lain2")
+                {
+                    e.Appearance.BackColor = Color.FromArgb(75, Color.BlanchedAlmond);
+                    e.Appearance.BackColor2 = Color.FromArgb(75, Color.BurlyWood);
                 }
                 else if (kk == "Reservation" && pur == "Dokter")
                 {
@@ -3281,7 +3293,7 @@ namespace Clinic
             else if (slayanan.ToString().Equals("UGD"))
                 SQL = SQL + Environment.NewLine + "  AND treat_group_id in ('TRG12', 'TRG08' ) ";
             else if (s_policd.ToString().Equals("POL0007")) 
-                SQL = SQL + Environment.NewLine + "   AND treat_group_id = 'TRG08' and USED_BY = 'LAB' ";
+                SQL = SQL + Environment.NewLine + "   AND treat_group_id = 'TRG08'  ";
             else if (s_policd.ToString().Equals("POL0006"))
                 SQL = SQL + Environment.NewLine + "   AND treat_group_id in ( 'TRG06', 'TRG08' ) ";
             else if (s_policd.ToString().Equals("POL0002"))
@@ -4045,7 +4057,7 @@ namespace Clinic
 
             string sql_addinfo = "", sql_info = "", p_col = "";
 
-            sql_addinfo = " select info_cd, description from cs_add_info where status = 'A' and poli_cd = '" + s_poli + "' ";
+            sql_addinfo = " select info_cd, description from cs_add_info where status = 'A' and poli_cd = '" + s_policd + "' ";
 
             OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_addinfo, sqlConnect2);

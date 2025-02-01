@@ -254,6 +254,8 @@ namespace Clinic
                 gridView1.Columns[1].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 gridView1.Columns[2].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
                 gridView1.Columns[22].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gridView1.Columns[3].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gridView1.Columns[5].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
                 gridView1.Columns[22].VisibleIndex = 1;
 
