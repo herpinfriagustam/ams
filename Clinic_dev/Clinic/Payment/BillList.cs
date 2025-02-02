@@ -488,8 +488,7 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "       JOIN KLINIK.cs_medicine b ON (a.med_cd = b.med_cd) ";
             Sql = Sql + Environment.NewLine + "       JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) ";
             Sql = Sql + Environment.NewLine + " WHERE     b.status = 'A' ";
-            Sql = Sql + Environment.NewLine + "       AND D.MINUS_STOK = 'Y' ";
-            Sql = Sql + Environment.NewLine + "       AND BPJS_COVER = 'N' ";
+            Sql = Sql + Environment.NewLine + "       AND D.MINUS_STOK = 'Y' "; 
             Sql = Sql + Environment.NewLine + "       AND c.KIR_ID = " + s_kir_id + " ";
             Sql = Sql + Environment.NewLine + "order by 2, 3   ";
 
@@ -564,7 +563,10 @@ namespace Clinic
             gridView2.Columns[8].Visible = false;
 
             chTangguh.CheckState = CheckState.Unchecked;
-            chTangguh.Enabled = false; 
+            chTangguh.Enabled = false;
+
+            gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns[5].DisplayFormat.FormatString = "n0";
 
             if (s_pay == "PAY" || s_pay == "Selesai" )
             {
@@ -991,7 +993,7 @@ namespace Clinic
                 gridView2.Columns[5].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
 
                 gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                gridView2.Columns[5].DisplayFormat.FormatString = "#,#";
+                gridView2.Columns[5].DisplayFormat.FormatString = "n0";
 
                 ListDataLayanan(idvisit, s_tipe2);
 
@@ -2154,6 +2156,8 @@ namespace Clinic
                         }
                     }
 
+                    if (p_class.ToString().Equals("MED"))
+                        p_class = " Penjualan Obat ";
 
                     MessageBox.Show("Pembayaran Pelayanan " + p_class + "  Berhasil.");
                 }
@@ -2389,7 +2393,7 @@ namespace Clinic
 
                             teks = "Nomor Antrian " + s_que + " " + p1 + p2 + " Silahkan Menuju Ke Farmasi";
 
-                            command.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Closed', param = '" + teks + "' WHERE CALL_ID = " + callid + " ";
+                            command.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Closed', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE CALL_ID = " + callid + " ";
                             command.ExecuteNonQuery();
                         }
                     }
@@ -2494,7 +2498,7 @@ namespace Clinic
 
                     if (PoliCd.ToString().Equals("POL0007"))
                     {
-                        command.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'Y', type_ins ='ETC', stat ='Closed'  WHERE CALL_ID = " + callid + " ";
+                        command.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'Y', type_ins ='ETC', stat ='Closed', UPD_ANTRIAN = sysdate  WHERE CALL_ID = " + callid + " ";
                         command.ExecuteNonQuery();
                     }
 
@@ -2546,7 +2550,7 @@ namespace Clinic
                 if (rm_number.ToString().Equals("PAY"))
                 {
                     sql1 = " ";
-                    sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' and TYPE_INS ='PAY' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' and TYPE_INS ='PAY' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql1);
                 }

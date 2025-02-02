@@ -967,7 +967,7 @@ namespace Clinic
 
             if(rm_number.ToString().Equals("REG"))
             {
-                string sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', INS_DATE = sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                string sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                 OleDbCommand cm = new OleDbCommand(sql, oraConnect);
@@ -1600,6 +1600,11 @@ namespace Clinic
                         MessageBox.Show("Tujuan Berobat harus diisi");
                         return;
                     }
+                    else if (age == "")
+                    {
+                        MessageBox.Show("Tanggal Lahir Belum di input. Pasien tidak dapat di proses..!!!");
+                        return;
+                    }
                     else if (poli == "")
                     {
                         MessageBox.Show("Silahkan Tentukan Poli yang Anda Tuju..!!"); return;
@@ -1762,7 +1767,7 @@ namespace Clinic
 
                                     teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Menuju Ke Bagian Perawat";
 
-                                    command.CommandText = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PWT', stat ='Perawat', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                                    command.CommandText = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PWT', stat ='Perawat', param = '" + teks + "', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                                     command.ExecuteNonQuery();
                                 }
                                  
@@ -1786,7 +1791,7 @@ namespace Clinic
                 {
                     if(idvisit.ToString().Equals("0"))
                     {
-                        sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                        sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                         ORADB.Execute(ORADB.XE, sql_update);
                         LoadData();
                         return;
@@ -1875,7 +1880,7 @@ namespace Clinic
 
                         ORADB.Execute(ORADB.XE, sql_insert);
 
-                        sql_update =  @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'GANTI POLI' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                        sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'GANTI POLI', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                         ORADB.Execute(ORADB.XE, sql_update);
 
                     }

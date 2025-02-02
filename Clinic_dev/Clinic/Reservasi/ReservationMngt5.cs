@@ -981,7 +981,7 @@ namespace Clinic
 
             if (rm_number.ToString().Equals("PWT"))
             {
-                string sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                string sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                 OleDbCommand cm = new OleDbCommand(sql, oraConnect);
@@ -1945,7 +1945,7 @@ namespace Clinic
 
                             teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Senuju Ke " + tmp_poli + "";
 
-                            sql_check = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + tmp_pc + "', stat ='" + tmp_poli + "', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                            sql_check = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + tmp_pc + "', stat ='" + tmp_poli + "', param = '" + teks + "', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                             OleDbConnection oraConnect1 = ConnOra.Create_Connect_Ora();
                             OleDbCommand cm1 = new OleDbCommand(sql_check, oraConnect1);
@@ -2144,7 +2144,7 @@ namespace Clinic
                                 teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Menuju Ke " + poli + "";
 
 
-                                command.CommandText = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + purpse + "', stat ='" + fdokter + "', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                                command.CommandText = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + purpse + "', stat ='" + fdokter + "', param = '" + teks + "', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                                 command.ExecuteNonQuery();
 
                                 trans.Commit();
@@ -2245,7 +2245,7 @@ namespace Clinic
                                 teks = "Nomor Antrian " + que + " " + p1 + p2 + " Silahkan Menuju Ke " + poli + "";
 
                                 sql_all = "";
-                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + purpse + "', stat ='" + fdokter + "', param = '" + teks + "' WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + purpse + "', stat ='" + fdokter + "', param = '" + teks + "', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                               
                                 ORADB.Execute(ORADB.XE, sql_all);
 

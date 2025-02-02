@@ -5810,7 +5810,7 @@ namespace Clinic
             if (rm_number.ToString().Equals("DOC"))
             {
                 sql1 = " ";
-                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 ORADB.Execute(ORADB.XE, sql1);
 
@@ -7427,7 +7427,7 @@ namespace Clinic
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " Silahkan Menuju Ke Farmasi";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql_all);
 
@@ -7466,7 +7466,7 @@ namespace Clinic
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " Silahkan Menuju Ke Kasir";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql_all);
 

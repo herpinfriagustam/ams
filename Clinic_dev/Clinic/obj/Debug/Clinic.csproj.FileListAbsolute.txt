@@ -4097,3 +4097,4 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.WaitForm1.
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.GenerateResource.Cache
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
+D:\gtme\ams v.1\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Reports.IV_III_MIX.resources

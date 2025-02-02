@@ -504,7 +504,7 @@ namespace Clinic
 
                         teks = "Nomor Antrian " + s_visitno + " " + p1 + p2 + " silahkan menuju ke Kasir";
 
-                        command2.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + vstatus + "', stat ='Open', param = '" + teks + "' WHERE CALL_ID = " + callid + " ";
+                        command2.CommandText = " UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='" + vstatus + "', stat ='Open', param = '" + teks + "', UPD_ANTRIAN =sysdate WHERE CALL_ID = " + callid + " ";
                         command2.ExecuteNonQuery(); 
 
                         //MessageBox.Show("Employee ID " + nik + " sudah terdaftar.");
@@ -877,7 +877,7 @@ namespace Clinic
             if (rm_number.ToString().Equals("PAY"))
             {
                 sql1 = " ";
-                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' and TYPE_INS ='PAY' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' and TYPE_INS ='PAY' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 ORADB.Execute(ORADB.XE, sql1);
             }

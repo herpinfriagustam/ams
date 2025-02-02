@@ -239,8 +239,8 @@ namespace Clinic
                                                           'PWT','PERAWAT',
                                                           'PAY','KASIR',
                                                           'REG','REGISTRASI') POLI_NAME, 
-                                     CASE WHEN NVL (MAX(TO_CHAR(B.INS_DATE,'YYYYMMDDHH24MISS')||QUE), '-') = '-' THEN '-'
-                                          ELSE SUBSTR(MAX(TO_CHAR(B.INS_DATE,'YYYYMMDDHH24MISS')||QUE),-4)
+                                     CASE WHEN NVL (MAX(TO_CHAR(B.UPD_ANTRIAN,'YYYYMMDDHH24MISS')||QUE), '-') = '-' THEN '-'
+                                          ELSE SUBSTR(MAX(TO_CHAR(B.UPD_ANTRIAN,'YYYYMMDDHH24MISS')||QUE),-4)
                                      END ANTRIAN_NO
                                 FROM KLINIK.CS_CODE_DATA A, KLINIK.CS_CALL_LOG B
                                WHERE A.CODE_ID = B.TYPE_INS(+)

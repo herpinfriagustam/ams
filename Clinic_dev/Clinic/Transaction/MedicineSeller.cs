@@ -302,7 +302,7 @@ namespace Clinic
             gvObatJual.Columns[6].OptionsColumn.ReadOnly = true;
             gvObatJual.Columns[10].OptionsColumn.ReadOnly = true;
 
-            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and BPJS_COVER ='N'  and RACIKAN ='N' and MINUS_STOK ='Y'  and MED_GROUP in('OBAT','OTC') order by med_name ";
+            string sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and RACIKAN ='N' and MINUS_STOK ='Y'  and MED_GROUP in('OBAT','OTC') order by med_name ";
             DataTable dtf = ConnOra.Data_Table_ora(sql_for);
              
             listFormula2.Clear();
@@ -626,7 +626,7 @@ namespace Clinic
                                 {
                                     sql = "";
                                     sql = sql + " Update  KLINIK.cs_receipt ";
-                                    sql = sql + "    set  insp_date = to_date('" + dte + "', 'yyyy-MM-dd'),  INS_JAM = '" + FN.strVal(gvObatJual, i, "INS_JAM") + "' , med_qty = '" + jumlah + "', dosis =  '" + info_dosis + "', UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "'  ";
+                                    sql = sql + "    set  insp_date = to_date('" + dte + "', 'yyyy-MM-dd'),  INS_JAM = '" + FN.strVal(gvObatJual, i, "INS_JAM") + "' , med_qty = '" + jumlah + "', dosis =  '" + info_dosis + "', UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "'   "; 
                                     sql = sql + "  where  RECEIPT_ID =  '" + r_id + "'  and ATT3_RECIEPT =  " + kir_id + "   ";
 
                                     ORADB.Execute(ORADB.XE, sql);
