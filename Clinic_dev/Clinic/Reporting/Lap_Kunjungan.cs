@@ -158,7 +158,9 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "          where bd.status = 'A'    ";
             Sql = Sql + Environment.NewLine + "           and ad.ANAMNESA_ID = e.ANAMNESA_ID  ";
             Sql = Sql + Environment.NewLine + "           ) diagnosa ";
-            Sql = Sql + Environment.NewLine + "       ,g.NAME dokter, H.CODE_NAME STATUS "; 
+            Sql = Sql + Environment.NewLine + "       ,g.NAME dokter ";
+            Sql = Sql + Environment.NewLine + "       , d.BLOOD_PRESS tensi, d.PULSE nadi,  d.TEMPERATURE suhu,  d.bb, d.tb,j.ALERGI_MKN, d.ALLERGY, j.ALERGI_OBAT, d.ANAMNESA Keluhan,d.DISEASE_NOW rwyt_sekarang ";
+            Sql = Sql + Environment.NewLine + "       ,d.DISEASE_THEN rwyt_dulu, d.DISEASE_FAMILY rwyt_kel, d.ANAMNESA_PHYSICAL fisik, d.ANAMNESA_OTHER lain , H.CODE_NAME STATUS ";
             Sql = Sql + Environment.NewLine + "       ,(SELECT NAME  ";
             Sql = Sql + Environment.NewLine + "           FROM cs_user ";
             Sql = Sql + Environment.NewLine + "          WHERE a.INS_EMP = USER_ID ";
@@ -185,7 +187,7 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "join KLINIK.cs_patient_info b on (a.PATIENT_NO=b.PATIENT_NO)    ";
             Sql = Sql + Environment.NewLine + "join KLINIK.cs_patient c on (b.PATIENT_NO=c.PATIENT_NO)  ";
             Sql = Sql + Environment.NewLine + "left join KLINIK.cs_anamnesa d on (c.rm_no=d.rm_no and a.ID_VISIT=d.ID_VISIT )  ";
-            Sql = Sql + Environment.NewLine + "left join KLINIK.cs_diagnosa e on (d.ANAMNESA_ID=e.ANAMNESA_ID  )  ";
+            Sql = Sql + Environment.NewLine + "left join KLINIK.cs_diagnosa e on (d.ANAMNESA_ID=e.ANAMNESA_ID  ) left join KLINIK.cs_anamnesa_dtl j on (d.ANAMNESA_ID=j.ANAMNESA_ID)  ";
             Sql = Sql + Environment.NewLine + "left join KLINIK.CS_DIAGNOSA_ITEM f on (f.ITEM_CD=e.ITEM_CD )  ";
             Sql = Sql + Environment.NewLine + "left join KLINIK.cs_user g on (e.INS_EMP=g.USER_ID and g.STATUS ='A')   ";
             Sql = Sql + Environment.NewLine + "JOIN KLINIK.CS_CODE_DATA H ON (H.CODE_ID = A.STATUS AND H.CODE_CLASS_ID = 'ST_PASIEN') ";
@@ -241,13 +243,13 @@ namespace Clinic
                 gridView1.Columns[13].Caption = "POLI";
                 gridView1.Columns[14].Caption = "DIAGNOSA";
                 gridView1.Columns[15].Caption = "DOKTER";
-                gridView1.Columns[16].Caption = "STATUS";
-                gridView1.Columns[17].Caption = "ADMIN";
-                gridView1.Columns[18].Caption = "PERAWAT";
-                gridView1.Columns[19].Caption = "FARMASI";
-                gridView1.Columns[20].Caption = "KASIR";
-                gridView1.Columns[21].Visible = false;
-                gridView1.Columns[22].Caption = "NO ANTRIAN";
+                //gridView1.Columns[16].Caption = "STATUS";
+                //gridView1.Columns[17].Caption = "ADMIN";
+                //gridView1.Columns[18].Caption = "PERAWAT";
+                //gridView1.Columns[19].Caption = "FARMASI";
+                //gridView1.Columns[20].Caption = "KASIR";
+                //gridView1.Columns[21].Visible = false;
+                //gridView1.Columns[22].Caption = "NO ANTRIAN";
 
                 gridView1.FixedLineWidth = 3;
                 gridView1.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
