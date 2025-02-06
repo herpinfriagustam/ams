@@ -94,6 +94,7 @@ namespace Clinic
         DashboardAntrian DashboardAntrian = null;
         AntrianPoli AntrianPoli = null;
         MasterChgPass MasterChgPass = null;
+        Bpjs.BpjswsAntreanBpjs frmBpjswsAntreanBpjs = null;
 
         Lap_Kunjungan Lap_Kunjungan = null;
         Lap_KunjunganRI Lap_KunjunganRI = null;
@@ -538,6 +539,7 @@ namespace Clinic
 
                 navBarGroup8.Visible = true; // Group Payment
                 navBarItem42.Visible = true; // Daftar Tagihan 
+                 
             }
             navBarItem71.Visible = true; // Pergantian Password
         }
@@ -2176,6 +2178,27 @@ namespace Clinic
                 Lap_PenggunaApp.WindowState = FormWindowState.Maximized;
                 Lap_PenggunaApp.Show();
                 Lap_PenggunaApp.Focus();
+            }
+        }
+
+        private void navBarItem78_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (frmBpjswsAntreanBpjs == null || frmBpjswsAntreanBpjs.Text == "")
+            {
+                frmBpjswsAntreanBpjs = new Bpjs.BpjswsAntreanBpjs();
+                frmBpjswsAntreanBpjs.MdiParent = this;
+                //treatNonMedis.v_empid = userEmpid;
+                frmBpjswsAntreanBpjs.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide();
+
+
+            }
+            else if (CheckOpened(frmBpjswsAntreanBpjs.Text))
+            {
+                frmBpjswsAntreanBpjs.WindowState = FormWindowState.Maximized;
+                frmBpjswsAntreanBpjs.Show();
+                frmBpjswsAntreanBpjs.Focus();
             }
         }
 

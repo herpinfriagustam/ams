@@ -303,7 +303,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel3);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(830, 560);
+            this.xtraTabPage3.Size = new System.Drawing.Size(834, 563);
             this.xtraTabPage3.Text = "Layanan";
             // 
             // tableLayoutPanel3
@@ -319,7 +319,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(830, 560);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(834, 563);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridControl3
@@ -328,7 +328,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 53);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(824, 504);
+            this.gridControl3.Size = new System.Drawing.Size(828, 507);
             this.gridControl3.TabIndex = 2;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -356,7 +356,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(830, 50);
+            this.panel3.Size = new System.Drawing.Size(834, 50);
             this.panel3.TabIndex = 0;
             // 
             // btnDelItem
@@ -373,7 +373,7 @@
             // 
             this.btnDownItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDownItem.Image")));
-            this.btnDownItem.Location = new System.Drawing.Point(766, 17);
+            this.btnDownItem.Location = new System.Drawing.Point(770, 17);
             this.btnDownItem.Name = "btnDownItem";
             this.btnDownItem.Size = new System.Drawing.Size(61, 23);
             this.btnDownItem.TabIndex = 42;
@@ -384,7 +384,7 @@
             // 
             this.btnLoadItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadItem.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadItem.Image")));
-            this.btnLoadItem.Location = new System.Drawing.Point(677, 17);
+            this.btnLoadItem.Location = new System.Drawing.Point(681, 17);
             this.btnLoadItem.Name = "btnLoadItem";
             this.btnLoadItem.Size = new System.Drawing.Size(87, 23);
             this.btnLoadItem.TabIndex = 41;

@@ -137,6 +137,8 @@
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem71 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem72 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem78 = new DevExpress.XtraNavBar.NavBarItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarItem30 = new DevExpress.XtraNavBar.NavBarItem();
@@ -354,7 +356,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup9;
+            this.navBarControl1.ActiveGroup = this.navBarGroup10;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup9,
@@ -366,7 +368,8 @@
             this.navBarGroup6,
             this.navBarGroup7,
             this.navBarGroup8,
-            this.navBarGroup3});
+            this.navBarGroup3,
+            this.navBarGroup10});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
             this.navBarItem2,
@@ -441,7 +444,8 @@
             this.navBarItem74,
             this.navBarItem75,
             this.navBarItem76,
-            this.navBarItem77});
+            this.navBarItem77,
+            this.navBarItem78});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 192;
@@ -636,7 +640,6 @@
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "Pemeriksaan";
-            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4),
@@ -1415,7 +1418,6 @@
             // navBarGroup8
             // 
             this.navBarGroup8.Caption = "Payment";
-            this.navBarGroup8.Expanded = true;
             this.navBarGroup8.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem42)});
             this.navBarGroup8.Name = "navBarGroup8";
@@ -1437,7 +1439,6 @@
             // navBarGroup3
             // 
             this.navBarGroup3.Caption = "Utility";
-            this.navBarGroup3.Expanded = true;
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem71),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem72)});
@@ -1467,6 +1468,22 @@
             this.navBarItem72.Caption = "Logout";
             this.navBarItem72.Name = "navBarItem72";
             this.navBarItem72.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem72_LinkClicked);
+            // 
+            // navBarGroup10
+            // 
+            this.navBarGroup10.Caption = "BPJS WS";
+            this.navBarGroup10.Expanded = true;
+            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem78)});
+            this.navBarGroup10.Name = "navBarGroup10";
+            // 
+            // navBarItem78
+            // 
+            this.navBarItem78.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem78.Appearance.Options.UseFont = true;
+            this.navBarItem78.Caption = "API Interface";
+            this.navBarItem78.Name = "navBarItem78";
+            this.navBarItem78.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem78_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -1663,5 +1680,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem75;
         private DevExpress.XtraNavBar.NavBarItem navBarItem76;
         private DevExpress.XtraNavBar.NavBarItem navBarItem77;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup10;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem78;
     }
 }
