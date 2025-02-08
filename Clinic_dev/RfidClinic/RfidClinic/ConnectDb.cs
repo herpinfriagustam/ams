@@ -31,7 +31,6 @@ namespace RfidClinic
             {
                 if (_ConnectOra != null) _ConnectOra.Close();
             }
-
         }
     }
 }

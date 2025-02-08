@@ -4156,6 +4156,7 @@ namespace Clinic
             {
                 xtraTabPage6.PageVisible = false ;
             }
+
             if (!visitid.ToString().Equals(""))
             {
                 string sql_anam = "";
@@ -4172,12 +4173,9 @@ namespace Clinic
                 gridControl2.DataSource = null;
                 gridView2.Columns.Clear();
                 gridControl2.DataSource = dt;
-
-
-
+                
                 if (dt.Rows.Count > 0)
-                {
-
+                { 
                     v_ptnumber = dt.Rows[0]["ANAMNESA_ID"].ToString();
                     dtJadwalObat = ORADB.SetData(ORADB.XE, "select * from T1_JADWAL_BERI_OBAT where anamesa_id =" + v_ptnumber + " AND F_AKTIF ='Y'");
                     gcJadwalObat.DataSource = dtJadwalObat;
@@ -4195,9 +4193,7 @@ namespace Clinic
                     //dtJadwalObat.Reset();
                     gcJadwalObat.DataSource = null;
                     return;
-                }
-
-
+                } 
 
                 //gridView2.OptionsView.ColumnAutoWidth = true;
                 gridView2.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;

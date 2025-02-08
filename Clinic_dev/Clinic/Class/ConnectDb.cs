@@ -25,9 +25,9 @@ namespace Clinic
         public string my_IP = "", v_iddokter = "", v_nik = "";
         public OleDbConnection Create_Connect_Ora()
         {
-            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
             //string _ConnectStringOra = "Provider=MSDAORA.1;Password=klinik;Persist Security Info=True;User ID=klinik;Data Source = localhost:1521/XE";
-            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
+            string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
 
             try
             {
@@ -354,21 +354,21 @@ namespace Clinic
             {
                 if (connection == null)
                 {
-                    connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
-                        (ADDRESS = 
-                            (PROTOCOL = TCP)
-                            (HOST = localhost )(PORT = 1521))
-                        (CONNECT_DATA = (SERVER = DEDICATED)
-                            (SERVICE_NAME = XE))
-                        );User Id=KLINIK;Password=KLINIK;");
-
                     //connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
                     //    (ADDRESS = 
                     //        (PROTOCOL = TCP)
-                    //        (HOST =  192.168.1.99 )(PORT = 1521))
+                    //        (HOST = localhost )(PORT = 1521))
                     //    (CONNECT_DATA = (SERVER = DEDICATED)
                     //        (SERVICE_NAME = XE))
                     //    );User Id=KLINIK;Password=KLINIK;");
+
+                    connection = new Oracle.ManagedDataAccess.Client.OracleConnection(@"Data Source=(DESCRIPTION = 
+                        (ADDRESS = 
+                            (PROTOCOL = TCP)
+                            (HOST =  192.168.1.99 )(PORT = 1521))
+                        (CONNECT_DATA = (SERVER = DEDICATED)
+                            (SERVICE_NAME = XE))
+                        );User Id=KLINIK;Password=KLINIK;");
                 }
                 return connection;
             }
@@ -432,8 +432,8 @@ namespace Clinic
 
 
         //private string server = "192.168.1.99"; //  "localhost/XE";// 
-        private string database = "localhost/XE";// 
-        //private string database = "192.168.1.99:1521/XE";
+        //private string database = "localhost/XE";// 
+        private string database = "192.168.1.99:1521/XE";
         private string uid = "KLINIK";
         private string password = "KLINIK";
 
@@ -626,8 +626,8 @@ namespace Clinic
     {
 
         #region DBConncetion
-        public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
-        //public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
+        //public static OleDbConnection XE = NewConnection("localhost:1521/XE", "KLINIK", "KLINIK");
+        public static OleDbConnection XE = NewConnection("192.168.1.99:1521/XE", "KLINIK", "KLINIK");
 
         #endregion
 

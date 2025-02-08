@@ -569,7 +569,6 @@ D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\de\DevExpress.Pdf
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
-D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csprojResolveAssemblyReference.cache
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.Reservation.resources
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.ReservationScan.resources
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.Properties.Resources.resources
@@ -580,3 +579,4 @@ D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csproj
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.licenses
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
+D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csprojResolveAssemblyReference.cache
