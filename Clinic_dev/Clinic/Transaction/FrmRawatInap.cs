@@ -115,7 +115,7 @@ namespace Clinic
         private void InitData()
         {  
             dtGlDiag.Clear();
-            string sql_poli = " select item_cd, initcap(item_name) item_name from KLINIK.cs_diagnosa_item where status = 'A' order by item_name ";
+            string sql_poli = " select '' item_cd, '' item_name from dual union all select item_cd, initcap(item_name) item_name from KLINIK.cs_diagnosa_item where status = 'A' order by 1 ";
             OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql = new OleDbDataAdapter(sql_poli, sqlConnect);
             DataTable dt = new DataTable();
@@ -857,7 +857,7 @@ namespace Clinic
                     mmKeluhan.Text = FN.rowVal(dt1, "ANAMNESA");
                     //FN.splitVal1(FN.rowVal(dt1, "KELUHAN_UTAMA"), rgSakitLalu, mmKeluhan);
                     FN.splitVal1(FN.rowVal(dt1, "PENYAKIT_LALU"),rgSakitLalu, txSakitLalu);
-                    FN.splitVal3(FN.rowVal(dt1, "PERNAH_DIRAWAT"),rgPernahRawat, txDiagnosa, txKapanRawat, txRawatDi);
+                    FN.splitVal5(FN.rowVal(dt1, "PERNAH_DIRAWAT"),rgPernahRawat, txDiagnosa, txKapanRawat, txRawatDi);
                     FN.splitVal1(FN.rowVal(dt1, "PERNAH_OPERASI"), rgPrnhOperasi, txJnsOperasi);
                     FN.splitVal4(FN.rowVal(dt1, "PENYAKIT_KELUARGA"),gbRwSakitKlrg, rgRwSktKlrg, txSakitKlrga); 
                     FN.splitVal4(FN.rowVal(dt1, "TERGANTUNG_THD"),gbTergantungThdp, rgKetergantungan, txketergantungan);
@@ -980,7 +980,14 @@ namespace Clinic
                     txWaktu.Text = FN.rowVal(dt5, "waktu_frekuensi_rawat");
                     txUnitKesehatan.Text = FN.rowVal(dt5, "unit_kesehatan");
                     txTindakan.Text = FN.rowVal(dt5, "tindakan_darurat");
-                    txControlLanjutan.Text = FN.rowVal(dt5, "tgl_kontrol_lanjutan");
+                    if (DateTime.TryParseExact(FN.rowVal(dt5, "tgl_kontrol_lanjutan"), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dte))
+                    {
+                        if (FN.rowVal(dt5, "tgl_kontrol_lanjutan").ToString() == "0001-01-01")
+                            txControlLanjutan.EditValue = null;
+                        else
+                            txControlLanjutan.EditValue = dte;
+                    }
+                    //txControlLanjutan.Text = FN.rowVal(dt5, "tgl_kontrol_lanjutan");
                     txDokterDituju.Text = FN.rowVal(dt5, "dokter_dituju");
                     setDocPulang(FN.rowVal(dt5, "dokumen_dibawa"));
 
@@ -1269,7 +1276,7 @@ namespace Clinic
                     { "waktu_frekuensi_rawat", txWaktu.Text?.ToString() },
                     { "unit_kesehatan", txUnitKesehatan.Text?.ToString() },
                     { "tindakan_darurat", txTindakan.Text?.ToString() },
-                    { "tgl_kontrol_lanjutan", txControlLanjutan.Text?.ToString() },
+                    { "tgl_kontrol_lanjutan",  txControlLanjutan.DateTime.ToString("yyyy-MM-dd")   },
                     { "dokter_dituju", txDokterDituju.Text?.ToString() },
                     { "dokumen_dibawa", getDocPulang() }
                 };

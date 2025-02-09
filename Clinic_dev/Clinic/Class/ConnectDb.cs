@@ -856,6 +856,25 @@ namespace Clinic
             }
         }
 
+        public static void splitVal5(string data, RadioGroup rg, TextBox tx, TextBox tx2, TextBox tx3)
+        {
+            string[] dt = data.Split(new string[] { "::" }, StringSplitOptions.None);
+            if (dt.Length == 3)
+            {
+                rg.SelectedIndex = Convert.ToInt32(dt[0]);
+                if (dt[2].ToString() == "")
+                {
+                    tx.Text = tx2.Text = tx3.Text = "";
+                }
+                else
+                {
+                    string[] dt1 = dt[2].Split(new string[] { "=>" }, StringSplitOptions.None);
+                    tx.Text = dt1[0]?.ToString();
+                    tx2.Text = dt1[1]?.ToString();
+                    tx3.Text = dt1[2]?.ToString();
+                }
+            }
+        }
         public static void splitVal4(string data, Control containerControl, RadioGroup rg, TextBox tx)
         {
             string[] dt = data.Split(new string[] { "::" }, StringSplitOptions.None);
