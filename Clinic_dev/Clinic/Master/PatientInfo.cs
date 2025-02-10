@@ -766,7 +766,7 @@ namespace Clinic
                             MessageBox.Show("ERROR: " + ex.Message);
                         }
                         oraConnectTrans.Close();
-                        LoadData();
+                        //LoadData();
                     } 
                 } 
             }
@@ -843,7 +843,7 @@ namespace Clinic
 
 
                     MessageBox.Show("Data Berhasil diupdate");
-                    LoadData();
+                    //LoadData();
                 }
                 catch (Exception ex)
                 {

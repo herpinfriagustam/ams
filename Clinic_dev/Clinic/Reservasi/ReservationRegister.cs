@@ -252,7 +252,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "         END AS observation, visit_remark, D.rm_no, "; 
             sql_search = sql_search + Environment.NewLine + "         DECODE (c.poli_group, 'PREG', 'Ibu Hamil', 'FAMP', 'KB', 'Umum' ) AS type_mr,  ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd policd, round((nvl(start_hold,sysdate)-A.visit_date) * 24 * 60) wait_time , visit_remark resmark, a.ID_VISIT, e.ANAMNESA_ID, F.HEAD_ID, F.PAY_STATUS, b.NID NIK";
-            sql_search = sql_search + Environment.NewLine + "         ,(select CALL_ID from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd')   )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat  ";
+            sql_search = sql_search + Environment.NewLine + "         ,(select  max(z.CALL_ID) from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)  )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat  ";
             sql_search = sql_search + Environment.NewLine + "    FROM cs_visit a JOIN cs_patient_info b ON a.patient_no = b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + "         join cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "         LEFT JOIN KLINIK.cs_treatment_head F ON  (a.ID_VISIT = F.ID_VISIT) ";
