@@ -747,7 +747,7 @@ namespace Clinic
             sql_medR = "";
             sql_medR = sql_medR + Environment.NewLine + " select a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat    ";
             sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-            sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   ";
+            sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('BPJS' ,'UMUM')  ";
             sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='POL0001' AND RACIKAN ='Y'   ";
             //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
             //sql_medR = sql_medR + Environment.NewLine + " select a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || ' [None BPJS]' Nama_Obat   ";
@@ -5296,6 +5296,7 @@ namespace Clinic
                     sql.Add("insert into T1_RESUME_PULANG (id, anamesa_id) values (" + newId + "," + anamesaID + ")");
                     sql.Add("insert into T1_ASESMEN_GIZI (anamesa_id) values (" + anamesaID + ")");
                     ORADB.DbTrans(ORADB.XE, sql);
+                    getData(anamesaID);
                 }
                 btnInputData.Enabled = false;
                 LoadItemLayananType(type_s);

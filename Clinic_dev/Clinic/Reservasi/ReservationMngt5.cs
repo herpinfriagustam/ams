@@ -1976,7 +1976,7 @@ namespace Clinic
         private void btnSaveAnam_Click(object sender, EventArgs e)
         {
             string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", age ="";
-            string chol = "", bsugar = "", uacid = "", r_now = "", r_then = "", r_fam = "", anam_physical = "", anam_other = "", vhr = "", vrr = "";
+            string chol = "", bsugar = "", uacid = "", r_now = "", r_then = "", r_fam = "", anam_physical = "", anam_other = "", vhr = "", vrr = "", lkr_perut="";
             string teks = "", p1 = "", p2 = "", nama ="", gnder = "", poli ="", purpse ="", fdokter="";
             string sql_update2 = "", sql_cnt = "", stat_rsv = "", sql_update = "", anam_cnt = "";
 
@@ -2010,6 +2010,7 @@ namespace Clinic
                 r_fam = gridView2.GetRowCellValue(i, gridView2.Columns[20]).ToString();
                 anam_physical = gridView2.GetRowCellValue(i, gridView2.Columns[21]).ToString();
                 anam_other = gridView2.GetRowCellValue(i, gridView2.Columns[22]).ToString();
+                lkr_perut = gridView2.GetRowCellValue(i, gridView2.Columns[24]).ToString();
                 stat_rsv = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
 
                 if (tensi == "")
@@ -2088,7 +2089,7 @@ namespace Clinic
                                 SQL = SQL + Environment.NewLine + "( ";
                                 SQL = SQL + Environment.NewLine + "anamnesa_id, rm_no, insp_date, blood_press, pulse, temperature, allergy, anamnesa, visit_no, info_k, bb, tb, ";
                                 SQL = SQL + Environment.NewLine + "cholesterol, blood_sugar, uric_acid, disease_now, disease_then, disease_family, anamnesa_physical, anamnesa_other, VITALHR,VITALRR,";
-                                SQL = SQL + Environment.NewLine + "ins_date, ins_emp ";
+                                SQL = SQL + Environment.NewLine + "ins_date, ins_emp, ling_perut , ID_PERAWAT ";
                                 SQL = SQL + Environment.NewLine + ") ";
                                 SQL = SQL + Environment.NewLine + "values  ";
                                 SQL = SQL + Environment.NewLine + "( ";
@@ -2096,7 +2097,7 @@ namespace Clinic
                                 SQL = SQL + Environment.NewLine + "', '" + alergi + "', '" + keluhan + "', '" + que + "', '" + infok + "','" + bb + "','" + tb;
                                 SQL = SQL + Environment.NewLine + "', '" + chol + "', '" + bsugar + "', '" + uacid + "', '" + r_now + "','" + r_then + "','" + r_fam;
                                 SQL = SQL + Environment.NewLine + "', '" + anam_physical + "', '" + anam_other + "', '" + tensi + "', '" + vrr;
-                                SQL = SQL + Environment.NewLine + "', sysdate, '" + DB.vUserId + "'  ";
+                                SQL = SQL + Environment.NewLine + "', sysdate, '" + DB.vUserId + "' , '" + lkr_perut + "' , '" + DB.vUserId + "' ";
                                 SQL = SQL + Environment.NewLine + ") ";
 
                                 command.CommandText = SQL;
@@ -2169,7 +2170,7 @@ namespace Clinic
                                      " set blood_press = '" + tensi + "', pulse = '" + nadi + "', bb = '" + bb + "', tb = '" + tb + "', " +
                                      " temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "', VITALHR = '" + tensi + "',VITALRR = '" + vrr + "', " +
                                      " cholesterol = '" + chol + "', blood_sugar = '" + bsugar + "', uric_acid = '" + uacid + "', disease_now = '" + r_now + "',  " +
-                                     " disease_then = '" + r_then + "', disease_family = '" + r_fam + "', anamnesa_physical = '" + anam_physical + "', anamnesa_other = '" + anam_other + "',  ";
+                                     " disease_then = '" + r_then + "', disease_family = '" + r_fam + "', anamnesa_physical = '" + anam_physical + "', anamnesa_other = '" + anam_other + "', ling_perut = '" + lkr_perut + "' , ";
                         sql_update = sql_update + "  INS_EMP = '" + DB.vUserId + "', INS_DATE  = sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                         sql_update = sql_update + " where  ANAMNESA_ID = " + v_ptnumber + "";
 
@@ -4161,9 +4162,15 @@ namespace Clinic
             {
                 string sql_anam = "";
                 sql_anam = " select to_date(to_char(insp_date,'yyyy-MM-dd'),'yyyy-MM-dd') as insp_date, '" + s_nama + "' as nama, visit_no, " +
-                           " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'S' action, rm_no, bb, tb, " +
-                           " cholesterol, blood_sugar, uric_acid, VITALHR, VITALRR, disease_now, disease_then, disease_family, anamnesa_physical, anamnesa_other, ANAMNESA_ID" +
-                           " from cs_anamnesa where ID_VISIT =  " + visitid + "  ";
+                           " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'S' action, rm_no, " +
+                           " nvl(bb,(SELECT BB FROM klinik.cs_anamnesa z where rm_no =rm_no " +
+                           "            and ANAMNESA_ID = (select max(x.ANAMNESA_ID) from klinik.cs_anamnesa x where z.rm_no = x.rm_no) and rownum =1 )) bb, " +
+                           " nvl(tb,(SELECT tb FROM klinik.cs_anamnesa z where rm_no =rm_no " +
+                           "            and ANAMNESA_ID = (select max(x.ANAMNESA_ID) from klinik.cs_anamnesa x where z.rm_no = x.rm_no) and rownum =1 )) tb, " +
+                           " cholesterol, blood_sugar, uric_acid, VITALHR, VITALRR, disease_now, disease_then, disease_family, anamnesa_physical, anamnesa_other, ANAMNESA_ID ,  " +
+                           " nvl(ling_perut,(SELECT ling_perut FROM klinik.cs_anamnesa z where rm_no =rm_no " +
+                           "                    and ANAMNESA_ID = (select max(x.ANAMNESA_ID) from klinik.cs_anamnesa x where z.rm_no = x.rm_no) and rownum =1 )) ling_perut " +
+                           " from klinik.cs_anamnesa where ID_VISIT =  " + visitid + "  ";
 
                 OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adSql = new OleDbDataAdapter(sql_anam, sqlConnect);
@@ -4199,10 +4206,7 @@ namespace Clinic
                 gridView2.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView2.Appearance.HeaderPanel.FontSizeDelta = 0;
                 //gridView2.BestFitColumns();
-                gridView2.FixedLineWidth = 3;
-                gridView2.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-                gridView2.Columns[1].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-                gridView2.Columns[2].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+               
 
                 gridView2.Columns[0].Caption = "Tanggal";
                 gridView2.Columns[1].Caption = "Nama";
@@ -4227,6 +4231,13 @@ namespace Clinic
                 gridView2.Columns[20].Caption = "R.Keluarga";
                 gridView2.Columns[21].Caption = "Pem.Fisik";
                 gridView2.Columns[22].Caption = "Pem.Lain";
+                gridView2.Columns[24].Caption = "Lkr. Perut";
+                
+
+                gridView2.FixedLineWidth = 3;
+                gridView2.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gridView2.Columns[1].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                gridView2.Columns[2].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
                 gridView2.Columns[0].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
                 gridView2.Columns[0].DisplayFormat.FormatString = "yyyy-MM-dd";
@@ -4261,6 +4272,7 @@ namespace Clinic
                 gridView2.Columns[11].VisibleIndex = 6;
                 gridView2.Columns[12].VisibleIndex = 7;
                 gridView2.Columns[17].VisibleIndex = 5;
+                gridView2.Columns[24].VisibleIndex = 9;
                 gridView2.BestFitColumns();
 
                 if (gridView2.RowCount > 0)

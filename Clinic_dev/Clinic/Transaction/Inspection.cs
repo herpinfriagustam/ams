@@ -4007,7 +4007,7 @@ namespace Clinic
                 sql_medR = "";
                 sql_medR = sql_medR + Environment.NewLine + " select DISTINCT a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat   ";
                 sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')    ";
+                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
                 sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
                 //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
                 //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
@@ -4223,11 +4223,17 @@ namespace Clinic
             if (view.RowCount < 1)
                 return;
 
-            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+            //if (e.RowHandle < 0)
+            //    return;
+
+            string a = Convert.ToString(view.GetRowCellValue(e.RowHandle, view.Columns[3]));
             if (a.ToString().Equals(""))
                 return;
 
+            try
+            {
 
+            
             if (e.Column.Caption == "Nama Obat" && (a.Substring(0,2)=="BP" || a.Substring(0, 2) == "UM" ))
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
@@ -4479,6 +4485,11 @@ namespace Clinic
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
                 }
+            }
+            }
+            catch
+            {
+                return;
             }
         }
 
@@ -4823,9 +4834,9 @@ namespace Clinic
                     cm.ExecuteNonQuery();
                     oraConnect.Close();
                     cm.Dispose();
-
+                    gridView6.DeleteRow(gridView6.FocusedRowHandle);
                     //MessageBox.Show("Query Exec : " + sql_update);
-                    LoadDataResep();
+                    //LoadDataResep();
                     //MessageBox.Show("Data Berhasil di hapus");
                     labelControl165.Visible = true;
                     labelControl165.Text = "Hapus Berhasil";
@@ -9664,7 +9675,7 @@ namespace Clinic
 
         private void gvRacik_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-            gvRacik.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvRacik_RowUpdated);
+            //gvRacik.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvRacik_RowUpdated);
         }
 
         private void chOUmum_CheckedChanged(object sender, EventArgs e)
@@ -9728,9 +9739,9 @@ namespace Clinic
                     cm.ExecuteNonQuery();
                     oraConnect.Close();
                     cm.Dispose();
-
+                    gvRacik.DeleteRow(gvRacik.FocusedRowHandle);
                     //MessageBox.Show("Query Exec : " + sql_update);
-                    LoadDataResep();
+                    //LoadDataResep();
                     //MessageBox.Show("Data Berhasil di hapus");
                     labelControl167.Visible = true;
                     labelControl167.Text = "Hapus Berhasil";

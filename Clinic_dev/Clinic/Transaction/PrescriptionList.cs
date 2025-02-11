@@ -495,12 +495,12 @@ namespace Clinic
                     }
                     else
                     {
-                        sql_his = sql_his + Environment.NewLine + " c.bpjs_cover bpjs, ";
+                        sql_his = sql_his + Environment.NewLine + " nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')  bpjs, ";
                     }
                 }
                 else
                 {
-                    sql_his = sql_his + Environment.NewLine + " nvl(decode(insu_cover,0,'Y','N'),c.BPJS_COVER) bpjs,  ";
+                    sql_his = sql_his + Environment.NewLine + " nvl(decode(insu_cover,0,'Y','N'),nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')) bpjs,  ";
                     //sql_his = sql_his + Environment.NewLine + "  (select decode(insu_cover,0,'Y','N')  from cs_medicine_trans where receipt_id = a.receipt_id and a.MED_CD = MED_CD) bpjs, ";
                 }
 
@@ -510,14 +510,15 @@ namespace Clinic
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -  ";
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) stok, ";
                 sql_his = sql_his + Environment.NewLine + " confirm, a.receipt_id,a.med_cd , e.MINUS_STOK ,f.TRANS_ID, nvl(f.TRANS_REMARK, a.TYPE_DRINK) CARA ,a.MED_REMARK REMARK ";
-                sql_his = sql_his + Environment.NewLine + " from cs_receipt a ";
-                sql_his = sql_his + Environment.NewLine + " join cs_patient b on (a.rm_no = b.rm_no) ";
-                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd) ";
-                sql_his = sql_his + Environment.NewLine + "  left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)  ";
-                sql_his = sql_his + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+                sql_his = sql_his + Environment.NewLine + " from klinik.cs_receipt a ";
+                sql_his = sql_his + Environment.NewLine + " join klinik.cs_patient b on (a.rm_no = b.rm_no) ";
+                sql_his = sql_his + Environment.NewLine + "  join klinik.cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd) ";
+                sql_his = sql_his + Environment.NewLine + "  left JOIN klinik.cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)  ";
+                sql_his = sql_his + Environment.NewLine + "    join klinik.cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+                sql_his = sql_his + Environment.NewLine + "    join klinik.cs_visit h on (h.id_visit = a.id_visit )  ";
                 sql_his = sql_his + Environment.NewLine + " where b.status = 'A' ";
                 sql_his = sql_his + Environment.NewLine + " and c.status = 'A' and a.jenis_obat ='NONE' ";
-                sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_nik + "' and id_visit = " + visitid + " ";
+                sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_nik + "' and a.id_visit = " + visitid + " ";
                 //if (s_poli.ToString().Equals("Rawat Inap"))
                 //{
                 //    sql_his = sql_his + Environment.NewLine + "  AND A.GRID_NAME ='gvObtPlng' ";
@@ -754,7 +755,7 @@ namespace Clinic
         {
             string Sql = "";
             Sql = Sql + Environment.NewLine + "  select distinct initcap(med_name) med_name, a.formula, dosis,  ";
-            Sql = Sql + Environment.NewLine + "         nvl(decode(insu_cover,0,'Y','N'),c.BPJS_COVER) bpjs,  ";
+            Sql = Sql + Environment.NewLine + "         nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')  bpjs,  ";
             Sql = Sql + Environment.NewLine + "         nvl(f.TRANS_QTY,a.med_qty)  med_qty,   ";
             Sql = Sql + Environment.NewLine + "         klinik.FN_CS_INIT_STOCK(a.insp_date,a.med_cd) +   ";
             Sql = Sql + Environment.NewLine + "         klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -   ";
@@ -765,10 +766,10 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "    join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd)  ";
             Sql = Sql + Environment.NewLine + "    left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)   ";
             Sql = Sql + Environment.NewLine + "    join cs_code_data d on (a.ATT1_RECIEPT = d.CODE_ID and d.CODE_CLASS_ID = 'MED_RACIK') ";
-            Sql = Sql + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+            Sql = Sql + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE')  join klinik.cs_visit h on (h.id_visit = a.id_visit )  ";
             Sql = Sql + Environment.NewLine + " where b.status = 'A'  ";
             Sql = Sql + Environment.NewLine + "   and c.status = 'A' and a.jenis_obat = 'RACIK' ";
-            Sql = Sql + Environment.NewLine + "   and b.patient_no = '" + idpasien + "' and id_visit = " + idvisit + "  ";
+            Sql = Sql + Environment.NewLine + "   and b.patient_no = '" + idpasien + "' and a.id_visit = " + idvisit + "  ";
             Sql = Sql + Environment.NewLine + " order by d.CODE_ID, initcap(med_name) ";
 
             OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
