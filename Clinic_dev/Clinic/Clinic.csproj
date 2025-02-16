@@ -147,6 +147,7 @@
     <Compile Include="Class\Bpjsws\ModelAntrian.cs" />
     <Compile Include="Class\Bpjsws\ModelDokter.cs" />
     <Compile Include="Class\Bpjsws\ModelPoli.cs" />
+    <Compile Include="Class\MedKategori.cs" />
     <Compile Include="Class\MedGroup.cs" />
     <Compile Include="Class\Racik.cs" />
     <Compile Include="Class\MedicineGroup.cs" />

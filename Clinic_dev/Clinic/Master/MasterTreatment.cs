@@ -19,8 +19,12 @@ namespace Clinic
         ConnectDb ConnOra = new ConnectDb();
         List<FlagYn> diagnosaStatus = new List<FlagYn>();
         List<Layanan> listTipe = new List<Layanan>();
+        List<Layanan> listMap = new List<Layanan>();
         List<Layanan> listGroup = new List<Layanan>();
         List<Status> listStat2 = new List<Status>();
+        List<MedKategori> listMedicine = new List<MedKategori>();
+        RepositoryItemGridLookUpEdit LokObatGrid = new RepositoryItemGridLookUpEdit();
+
         public string  v_name = "";
         string kate_cd = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
@@ -85,6 +89,20 @@ namespace Clinic
 
             }
 
+            string sql_map = " select  a.treat_item_name , a.treat_item_name nama_layanan from klinik.CS_TREATMENT_ITEM a where a.STATUS ='A' and TREAT_GROUP_ID not in ('TRG03', 'TRG04','TRG09','TRG11','TRG13','TRG14','TRG15')  group by a.TREAT_ITEM_NAME order by 1 ";
+            OleDbConnection sqlConM  = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSqlM = new OleDbDataAdapter(sql_map, sqlConM);
+            DataTable dtM = new DataTable();
+            adSqlM.Fill(dtM);
+            listMap.Clear();
+
+            listMap.Add(new Layanan() { layananCode = "", layananName = "Pilih" });
+            for (int i = 0; i < dtM.Rows.Count; i++)
+            {
+                listMap.Add(new Layanan() { layananCode = dtM.Rows[i]["treat_item_name"].ToString(), layananName = dtM.Rows[i]["nama_layanan"].ToString() });
+
+            }
+
             string sql_group = " select treat_group_id, treat_group_name from cs_treatment_group  order by treat_group_order ";
             OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_group, sqlConnect2);
@@ -101,6 +119,17 @@ namespace Clinic
             listStat2.Add(new Status() { statusCode = "U", statusName = "Umum" });
             listStat2.Add(new Status() { statusCode = "B", statusName = "BPJS" });
             listStat2.Add(new Status() { statusCode = "A", statusName = "Asuransi" });
+
+            string Sql = "";
+            Sql = Sql + Environment.NewLine + " select DISTINCT MED_GROUP KATEGORI, b.med_cd KODE , initcap(med_name)   NAMA      ";
+            Sql = Sql + Environment.NewLine + "   from KLINIK.cs_medicine b    where 1=1  and b.status = 'A'  order by 1,3  "; 
+
+            DataTable dt3 = ConnOra.Data_Table_ora(Sql); 
+            listMedicine.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                listMedicine.Add(new MedKategori() { Kategori = dt3.Rows[i]["KATEGORI"].ToString(), Kode  = dt3.Rows[i]["KODE"].ToString(), Nama  = dt3.Rows[i]["NAMA"].ToString() });
+            }
 
         }
 
@@ -130,8 +159,7 @@ namespace Clinic
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
                 gridView1.IndicatorWidth = 40;
                 gridView1.OptionsBehavior.Editable = false;
-
-
+                 
                 //gridView1.OptionsSelection.MultiSelect = true;
                 //gridView1.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
                 //gridView1.VisibleColumns[0].Width = 20;
@@ -168,8 +196,9 @@ namespace Clinic
             }
             catch (Exception ex)
             {
+                return;
                 //loading.CloseWaitForm();
-                MessageBox.Show("ERROR: " + ex.Message);
+                //MessageBox.Show("ERROR: " + ex.Message);
             }
         }
 
@@ -237,8 +266,9 @@ namespace Clinic
             }
             catch (Exception ex)
             {
+                return;
                 //loading.CloseWaitForm();
-                MessageBox.Show("ERROR: " + ex.Message);
+                //MessageBox.Show("ERROR: " + ex.Message);
             }
         }
 
@@ -269,16 +299,7 @@ namespace Clinic
                 gridView3.Appearance.HeaderPanel.FontSizeDelta = 0;
                 gridView3.IndicatorWidth = 40;
                 gridView3.OptionsBehavior.Editable = true;
-
-
-                //gridView3.OptionsSelection.MultiSelect = true;
-                //gridView3.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
-                //gridView3.VisibleColumns[0].Width = 20;
-                //gridView3.Columns[0].OptionsColumn.ReadOnly = true;
-                //gridView3.Columns[0].OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-
-                //gridView3.Columns[0].OptionsColumn.ReadOnly = true;
-                //gridView3.Columns[4].Visible = false;
+                 
 
                 gridView3.Columns[0].Caption = "Action";
                 gridView3.Columns[1].Caption = "Kode";
@@ -349,8 +370,9 @@ namespace Clinic
             }
             catch (Exception ex)
             {
+                return;
                 //loading.CloseWaitForm();
-                MessageBox.Show("ERROR: " + ex.Message);
+                //MessageBox.Show("ERROR: " + ex.Message);
             }
         }
 
@@ -382,17 +404,7 @@ namespace Clinic
                 gridView4.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView4.Appearance.HeaderPanel.FontSizeDelta = 0;
                 gridView4.IndicatorWidth = 40;
-                gridView4.OptionsBehavior.Editable = true;
-
-
-                //gridView4.OptionsSelection.MultiSelect = true;
-                //gridView4.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
-                //gridView4.VisibleColumns[0].Width = 20;
-                //gridView4.Columns[0].OptionsColumn.ReadOnly = true;
-                //gridView4.Columns[0].OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-
-                //gridView4.Columns[0].OptionsColumn.ReadOnly = true;
-                //gridView4.Columns[4].Visible = false;
+                gridView4.OptionsBehavior.Editable = true; 
 
                 gridView4.Columns[0].Caption = "Action";
                 gridView4.Columns[1].Caption = "Kode Kelas";
@@ -417,18 +429,132 @@ namespace Clinic
             }
             catch (Exception ex)
             {
+                return;
+                //loading.CloseWaitForm();
+                //MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void loadDataMap()
+        { 
+            string SQL = " select 'S' action, a.TREAT_ITEM_NAME, count(b.MED_CD) Jumlah_Item  " +
+                            "  from klinik.CS_TREATMENT_ITEM a " +
+                            "   join klinik.CS_TREATMENT_MED b on (a.treat_item_id = b.treat_item_id) " +
+                            "  join klinik.cs_treatment_group c on (a.TREAT_GROUP_ID = c.TREAT_GROUP_ID) " +
+                            "where a.STATUS ='A' and MAP_TYPE ='Y'" +
+                            "  and a.TREAT_GROUP_ID not in ('TRG03', 'TRG04','TRG09','TRG11','TRG13','TRG14','TRG15') " +
+                            "group by a.TREAT_ITEM_NAME  " +
+                            "order by 2 ";
+
+             
+            try
+            {
+                OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSql = new OleDbDataAdapter(SQL, sqlConnect);
+                DataTable dt = new DataTable();
+                adSql.Fill(dt);
+
+                gMapLayanan.DataSource = null;
+                gvMap.Columns.Clear();
+                gMapLayanan.DataSource = dt;
+                 
+                gvMap.OptionsView.ColumnAutoWidth = true;
+                gvMap.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+                gvMap.Appearance.HeaderPanel.FontSizeDelta = 0;
+                gvMap.IndicatorWidth = 35;
+                gvMap.OptionsBehavior.Editable = true;
+
+                gvMap.Columns[0].Caption = "Action";
+                gvMap.Columns[1].Caption = "Nama Layanan";
+
+                gvMap.Columns[0].Visible = false;
+                RepositoryItemLookUpEdit tLookupM = new RepositoryItemLookUpEdit();
+                tLookupM.DataSource = listMap;
+                tLookupM.ValueMember = "layananCode";
+                tLookupM.DisplayMember = "layananName";
+
+                tLookupM.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                tLookupM.DropDownRows = listTipe.Count;
+                tLookupM.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                tLookupM.AutoSearchColumnIndex = 1;
+                tLookupM.NullText = "";
+                gvMap.Columns[1].ColumnEdit = tLookupM;
+
+
+            }
+            catch (Exception ex)
+            {
+                return;
+                //loading.CloseWaitForm();
+                //MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+        private void loadDataObat(string kode)
+        {
+            string SQL
+                         = "  select 'S' action, a.TREAT_ITEM_NAME NAMA_LAYANAN,b.MED_CD KODE,B.MED_QTY QTY" +
+                             "  from klinik.CS_TREATMENT_ITEM a  " +
+                             "   join klinik.CS_TREATMENT_MED b on (a.treat_item_id = b.treat_item_id)  " +
+                             "   join klinik.cs_treatment_group c on (a.TREAT_GROUP_ID = c.TREAT_GROUP_ID)  " +
+                             "   join KLINIK.cs_medicine d on (b.MED_CD  = d.MED_CD )  " +
+                             "where a.STATUS ='A' and MAP_TYPE ='Y' " +
+                             "  and a.TREAT_GROUP_ID not in ('TRG03', 'TRG04','TRG09','TRG11','TRG13','TRG14','TRG15')  " +
+                             "  and a.TREAT_ITEM_NAME ='" + kode + "' " +
+                             "group by  a.TREAT_ITEM_NAME ,b.MED_CD , d.med_name, B.MED_QTY " +
+                             "order by 2  ";
+
+
+            try
+            {
+                OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSql = new OleDbDataAdapter(SQL, sqlConnect);
+                DataTable dt = new DataTable();
+                adSql.Fill(dt);
+
+                gObatJual.DataSource = null;
+                gvObatJual.Columns.Clear();
+                gObatJual.DataSource = dt;
+
+                gvObatJual.OptionsView.ColumnAutoWidth = true;
+                gvObatJual.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+                gvObatJual.Appearance.HeaderPanel.FontSizeDelta = 0;
+                gvObatJual.IndicatorWidth = 35;
+                gvObatJual.OptionsBehavior.Editable = true;
+
+                gvObatJual.Columns[0].Caption = "Action";
+                gvObatJual.Columns[1].Caption = "NAMA LAYANAN";
+                gvObatJual.Columns[2].Caption = "NAMA ALKES/OBAT";
+
+                gvObatJual.Columns[0].Visible = false;
+                ConnOra.LookUpGroupGridFilter(listMedicine, gvObatJual, "Kategori", "Kode", "Nama", LokObatGrid, 2);
+
+                //RepositoryItemLookUpEdit tLookupO = new RepositoryItemLookUpEdit();
+                //tLookupO.DataSource = listMedicine;
+                ////tLookupO.ValueMember = "kode";
+                ////tLookupO.DisplayMember = "Nama Obat/Alkes";
+
+                //tLookupO.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                //tLookupO.DropDownRows = listTipe.Count;
+                //tLookupO.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                //tLookupO.AutoSearchColumnIndex = 1;
+                //tLookupO.NullText = "";
+                //gvObatJual.Columns[2].ColumnEdit = tLookupO;
+
+
+            }
+            catch (Exception ex)
+            {
                 //loading.CloseWaitForm();
                 MessageBox.Show("ERROR: " + ex.Message);
             }
         }
-
         private void MasterTreatment_Load(object sender, EventArgs e)
         {
             initData();
             loadDataTrType();
             loadDataTrGroup();
             loadDataTrItem();
-            loadDataRsv();
+            loadDataRsv(); loadDataMap();
             ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterTreatment");
         }
 
@@ -1058,6 +1184,125 @@ namespace Clinic
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            gvMap.OptionsBehavior.EditingMode = GridEditingMode.Default; 
+            gvMap.AddNewRow();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            loadDataMap();
+        }
+
+        private void gvMap_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            string sql_insert = "",   p_action = "", p_mapname = "" ; 
+            int simpanL = 0;
+
+            for (int i = 0; i < gvMap.DataRowCount; i++)
+            {
+
+                p_action = gvMap.GetRowCellValue(i, gvMap.Columns[0]).ToString();
+                p_mapname = gvMap.GetRowCellValue(i, gvMap.Columns[1]).ToString(); 
+
+                if (p_mapname == "")
+                {
+                    MessageBox.Show("Type harus di Tentukan");
+                } 
+                else
+                {
+                    
+                    if (p_action == "I")
+                    {
+                        sql_insert = "";
+
+                        sql_insert = sql_insert + " update  klinik.CS_TREATMENT_ITEM set  MAP_TYPE ='Y' ";
+                        sql_insert = sql_insert + " where treat_item_name = '" + p_mapname + "'";
+
+                        try
+                        {
+                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm = new OleDbCommand(sql_insert, oraConnect);
+                            oraConnect.Open();
+                            cm.ExecuteNonQuery();
+                            oraConnect.Close();
+                            cm.Dispose();
+
+                            simpanL = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR: " + ex.Message);
+                        }
+                    } 
+                }
+            }
+
+            if(simpanL == 1)
+            {
+                MessageBox.Show("Data Pelayanan Berhasil di Tentukan");
+                btnMedAdd.Enabled = true;
+                btnMedCan.Enabled = true;
+                btnMedDel.Enabled = true;
+                btnMedSave.Enabled = true;
+            }
+               
+        }
+
+        private void gvMap_RowClick(object sender, RowClickEventArgs e)
+        {
+            string kd_pelayanan = "";
+            kd_pelayanan = gvMap.GetRowCellValue(gvMap.FocusedRowHandle, gvMap.Columns[1]).ToString();
+            loadDataObat(kd_pelayanan);
+        }
+
+        private void gvObatJual_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void btnMedAdd_Click(object sender, EventArgs e)
+        {
+            gvObatJual.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            gvObatJual.AddNewRow();
+        }
+
+        private void btnMedSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvObatJual_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+
+        }
+
+        private void gvMap_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
+        }
+
+        private void gvObatJual_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
         }
     }
 }
