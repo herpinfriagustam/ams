@@ -53,6 +53,8 @@
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem78 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem62 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem41 = new DevExpress.XtraNavBar.NavBarItem();
@@ -137,8 +139,6 @@
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem71 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem72 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem78 = new DevExpress.XtraNavBar.NavBarItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.navBarItem30 = new DevExpress.XtraNavBar.NavBarItem();
@@ -146,6 +146,7 @@
             this.navBarItem33 = new DevExpress.XtraNavBar.NavBarItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.navBarItem79 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -445,7 +446,8 @@
             this.navBarItem75,
             this.navBarItem76,
             this.navBarItem77,
-            this.navBarItem78});
+            this.navBarItem78,
+            this.navBarItem79});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 192;
@@ -453,6 +455,23 @@
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
+            // 
+            // navBarGroup10
+            // 
+            this.navBarGroup10.Caption = "BPJS WS";
+            this.navBarGroup10.Expanded = true;
+            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem78),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem79)});
+            this.navBarGroup10.Name = "navBarGroup10";
+            // 
+            // navBarItem78
+            // 
+            this.navBarItem78.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem78.Appearance.Options.UseFont = true;
+            this.navBarItem78.Caption = "API Interface";
+            this.navBarItem78.Name = "navBarItem78";
+            this.navBarItem78.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem78_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -1469,22 +1488,6 @@
             this.navBarItem72.Name = "navBarItem72";
             this.navBarItem72.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem72_LinkClicked);
             // 
-            // navBarGroup10
-            // 
-            this.navBarGroup10.Caption = "BPJS WS";
-            this.navBarGroup10.Expanded = true;
-            this.navBarGroup10.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem78)});
-            this.navBarGroup10.Name = "navBarGroup10";
-            // 
-            // navBarItem78
-            // 
-            this.navBarItem78.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.navBarItem78.Appearance.Options.UseFont = true;
-            this.navBarItem78.Caption = "API Interface";
-            this.navBarItem78.Name = "navBarItem78";
-            this.navBarItem78.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem78_LinkClicked);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1529,6 +1532,12 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
+            // 
+            // navBarItem79
+            // 
+            this.navBarItem79.Caption = "Tool API BPJS";
+            this.navBarItem79.Name = "navBarItem79";
+            this.navBarItem79.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem79_LinkClicked);
             // 
             // ClinicMngt
             // 
@@ -1682,5 +1691,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem77;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup10;
         private DevExpress.XtraNavBar.NavBarItem navBarItem78;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem79;
     }
 }

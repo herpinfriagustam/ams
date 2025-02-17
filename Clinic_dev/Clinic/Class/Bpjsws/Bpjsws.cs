@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Clinic.Class.Bpjsws
     {
         public enum HttpMethodMode
         {
-            Post, Get
+            Post, Get, Delete, Put
         }
 
         public enum PostDataType
@@ -27,12 +28,26 @@ namespace Clinic.Class.Bpjsws
         public const string AUTHORIZATION = "c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
+
+        // Antro
         public const string BASE_URL_ANTREAN_FKTP = BASE_URL + "/antreanfktp_dev";
         public const string WS_ANTREAN_FKTP_BPJS_REF_POLI_URL = BASE_URL_ANTREAN_FKTP + "/ref/poli/tanggal/{tanggal}";
         public const string WS_ANTREAN_FKTP_BPJS_REF_DOKTER_URL = BASE_URL_ANTREAN_FKTP + "/ref/dokter/kodepoli/{kodepoli}/tanggal/{tanggal}";
         public const string WS_ANTREAN_FKTP_BPJS_ADD_QUEUE_URL = BASE_URL_ANTREAN_FKTP + "/antrean/add";
         public const string WS_ANTREAN_FKTP_BPJS_CANCEL_QUEUE_URL = BASE_URL_ANTREAN_FKTP + "/antrean/batal";
         public const string WS_ANTREAN_FKTP_BPJS_CALL_QUEUE_URL = BASE_URL_ANTREAN_FKTP + "/antrean/panggil";
+
+        // pcare
+        public const string BASE_URL_PCARE = BASE_URL + "/pcare-rest-dev";
+        public const string WS_PCARE_DIAGNOSA_GET_DIAGNOSA_URL = BASE_URL_PCARE + "/diagnosa/{Parameter 1}/{Parameter 2}/{Parameter 3}";
+        public const string WS_PCARE_DOKTER_GET_URL = BASE_URL_PCARE + "/dokter/{Parameter 1}/{Parameter 2}";
+        public const string WS_PCARE_GROUP_GET_CLUB_PROTANIS_URL = BASE_URL_PCARE + "/kelompok/club/{Parameter 1}";
+        public const string WS_PCARE_GROUP_GET_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/kegiatan/{Parameter 1}";
+        public const string WS_PCARE_GROUP_GET_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta/{Parameter 1}";
+        public const string WS_PCARE_GROUP_POST_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/kegiatan";
+        public const string WS_PCARE_GROUP_POST_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta";
+        public const string WS_PCARE_GROUP_DELETE_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/kegiatan/{Parameter 1}";
+        public const string WS_PCARE_GROUP_DELETE_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta/{Parameter 1}/{Parameter 2}";
 
         public static long CurrentUnixTime
         {
@@ -42,6 +57,16 @@ namespace Clinic.Class.Bpjsws
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                 return ((long)(currentTime - unixEpoch).TotalSeconds);
             }
+        }
+
+        public static string CreateDecryptKey(string unixTime)
+        {
+            return CONS_ID + CONS_SECRET + unixTime;
+        }
+
+        public static string CreateSignature()
+        {
+            return CreateSignature(CONS_ID, CONS_SECRET, CurrentUnixTime.ToString());
         }
 
         public static string CreateSignature(long unixTime)
@@ -154,8 +179,6 @@ namespace Clinic.Class.Bpjsws
                 if (headers != null && headers.Count > 0)
                     foreach (KeyValuePair<string, string> kv in headers)
                         request.Headers.Add(kv.Key, kv.Value);
-
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             }
 
 
@@ -166,6 +189,22 @@ namespace Clinic.Class.Bpjsws
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
                 return responseString;
+            }
+            catch(WebException wex)
+            {
+                if(wex.Response != null)
+                {
+                    string jr = "";
+                    using (HttpWebResponse r = wex.Response as HttpWebResponse)
+                    {
+                        jr = "{ \"response\": null, \"metadata\": { \"code\": "+ (int)r.StatusCode  +", \"message\": \"" + wex.Message + "\"}}";
+                    }
+
+                    return jr;
+                }
+
+                Console.WriteLine($"Request Exception: { wex.Message }");
+                return "";
             }
             catch (Exception ex)
             {

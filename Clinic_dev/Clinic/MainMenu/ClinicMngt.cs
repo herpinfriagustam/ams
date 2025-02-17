@@ -94,8 +94,8 @@ namespace Clinic
         DashboardAntrian DashboardAntrian = null;
         AntrianPoli AntrianPoli = null;
         MasterChgPass MasterChgPass = null;
-        Bpjs.BpjswsAntreanBpjs frmBpjswsAntreanBpjs = null;
-
+        //Bpjs.BpjswsAntreanBpjs frmBpjswsAntreanBpjs = null;
+        Bpjsws.BpjswsTool frmBpjswsTool = null;
         Lap_Kunjungan Lap_Kunjungan = null;
         Lap_KunjunganRI Lap_KunjunganRI = null;
         Lap_KasHarian Lap_KasHarian = null;
@@ -2183,22 +2183,43 @@ namespace Clinic
 
         private void navBarItem78_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (frmBpjswsAntreanBpjs == null || frmBpjswsAntreanBpjs.Text == "")
+            //if (frmBpjswsAntreanBpjs == null || frmBpjswsAntreanBpjs.Text == "")
+            //{
+            //    frmBpjswsAntreanBpjs = new Bpjs.BpjswsAntreanBpjs();
+            //    frmBpjswsAntreanBpjs.MdiParent = this;
+            //    //treatNonMedis.v_empid = userEmpid;
+            //    frmBpjswsAntreanBpjs.Show();
+            //    this.panel1.Hide();
+            //    this.pictureBox1.Hide();
+
+
+            //}
+            //else if (CheckOpened(frmBpjswsAntreanBpjs.Text))
+            //{
+            //    frmBpjswsAntreanBpjs.WindowState = FormWindowState.Maximized;
+            //    frmBpjswsAntreanBpjs.Show();
+            //    frmBpjswsAntreanBpjs.Focus();
+            //}
+        }
+
+        private void navBarItem79_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (frmBpjswsTool == null || frmBpjswsTool.Text == "")
             {
-                frmBpjswsAntreanBpjs = new Bpjs.BpjswsAntreanBpjs();
-                frmBpjswsAntreanBpjs.MdiParent = this;
+                frmBpjswsTool = new Bpjsws.BpjswsTool();
+                frmBpjswsTool.MdiParent = this;
                 //treatNonMedis.v_empid = userEmpid;
-                frmBpjswsAntreanBpjs.Show();
+                frmBpjswsTool.Show();
                 this.panel1.Hide();
                 this.pictureBox1.Hide();
 
 
             }
-            else if (CheckOpened(frmBpjswsAntreanBpjs.Text))
+            else if (CheckOpened(frmBpjswsTool.Text))
             {
-                frmBpjswsAntreanBpjs.WindowState = FormWindowState.Maximized;
-                frmBpjswsAntreanBpjs.Show();
-                frmBpjswsAntreanBpjs.Focus();
+                frmBpjswsTool.WindowState = FormWindowState.Maximized;
+                frmBpjswsTool.Show();
+                frmBpjswsTool.Focus();
             }
         }
 

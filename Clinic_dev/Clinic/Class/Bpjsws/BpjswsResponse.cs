@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,33 @@ namespace Clinic.Class.Bpjsws
         public T GetResponse<T>(string str) {
             return BpjswsResponseConvert.Convert<T>(str);
         }
-             
+
+        public JObject GetResponseJO()
+        {
+            if (Response != null && Response != null)
+            {
+                try
+                {
+                    JObject obj = JObject.Parse(this.GetResponseString());
+                    return obj;
+                }
+                catch (Exception ex) { }
+            }
+
+            return null;
+        }
+
+        public string GetResponseString()
+        {
+            try { 
+                if(this.Response != null)
+                    this.Response = JObject.Parse(this.Response).ToString(Formatting.Indented);
+            }
+            catch (Exception ex) { }
+
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
         public class MetaData
         {
             public int Code { get; set; }
@@ -29,6 +57,11 @@ namespace Clinic.Class.Bpjsws
         public T GetResponse(string str)
         {
             return BpjswsResponseConvert.Convert<T>(str);
+        }
+
+        public string GetResponseString()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
 
         public class MetaData
@@ -50,7 +83,7 @@ namespace Clinic.Class.Bpjsws
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"GetResponse Exceptin: { ex.Message }");
+                Console.WriteLine($"GetResponse Exception: { ex.Message }");
             }
 
             return default(T);

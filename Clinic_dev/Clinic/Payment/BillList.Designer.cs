@@ -424,7 +424,7 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 908F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(648, 908);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(641, 908);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
             // tableLayoutPanel14
@@ -457,7 +457,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(642, 902);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(635, 902);
             this.tableLayoutPanel14.TabIndex = 128;
             // 
             // tableLayoutPanel3
@@ -482,7 +482,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(636, 301);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(629, 301);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridControl3
@@ -491,7 +491,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 3);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(630, 295);
+            this.gridControl3.Size = new System.Drawing.Size(623, 295);
             this.gridControl3.TabIndex = 121;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -521,7 +521,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(642, 30);
+            this.panel5.Size = new System.Drawing.Size(635, 30);
             this.panel5.TabIndex = 1;
             // 
             // simpleButton1
@@ -552,7 +552,7 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(473, 8);
+            this.labelControl3.Location = new System.Drawing.Point(466, 8);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(19, 14);
             this.labelControl3.TabIndex = 39;
@@ -572,7 +572,7 @@
             // 
             this.lKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lKelas.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lKelas.Location = new System.Drawing.Point(623, 8);
+            this.lKelas.Location = new System.Drawing.Point(616, 8);
             this.lKelas.Name = "lKelas";
             this.lKelas.Size = new System.Drawing.Size(4, 14);
             this.lKelas.TabIndex = 38;
@@ -592,7 +592,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(586, 8);
+            this.labelControl5.Location = new System.Drawing.Point(579, 8);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 14);
             this.labelControl5.TabIndex = 37;
@@ -604,7 +604,7 @@
             this.lInsuNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lInsuNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lInsuNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lInsuNo.Location = new System.Drawing.Point(483, 7);
+            this.lInsuNo.Location = new System.Drawing.Point(476, 7);
             this.lInsuNo.Name = "lInsuNo";
             this.lInsuNo.Size = new System.Drawing.Size(97, 17);
             this.lInsuNo.TabIndex = 36;
@@ -616,7 +616,7 @@
             this.lTreatType.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTreatType.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lTreatType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lTreatType.Location = new System.Drawing.Point(387, 7);
+            this.lTreatType.Location = new System.Drawing.Point(380, 7);
             this.lTreatType.Name = "lTreatType";
             this.lTreatType.Size = new System.Drawing.Size(75, 17);
             this.lTreatType.TabIndex = 40;
@@ -641,7 +641,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(642, 30);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(635, 30);
             this.tableLayoutPanel8.TabIndex = 124;
             // 
             // labelControl16
@@ -726,14 +726,14 @@
             this.panel8.Location = new System.Drawing.Point(0, 561);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(642, 34);
+            this.panel8.Size = new System.Drawing.Size(635, 34);
             this.panel8.TabIndex = 120;
             // 
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(483, 8);
+            this.labelControl7.Location = new System.Drawing.Point(476, 8);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(103, 16);
             this.labelControl7.TabIndex = 40;
@@ -744,7 +744,7 @@
             // 
             this.txtLimitStok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLimitStok.EditValue = "5";
-            this.txtLimitStok.Location = new System.Drawing.Point(589, 6);
+            this.txtLimitStok.Location = new System.Drawing.Point(582, 6);
             this.txtLimitStok.Name = "txtLimitStok";
             this.txtLimitStok.Properties.Mask.EditMask = "n0";
             this.txtLimitStok.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -785,7 +785,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(642, 50);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(635, 50);
             this.tableLayoutPanel6.TabIndex = 123;
             this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
@@ -803,7 +803,7 @@
             this.btnPrint.LookAndFeel.SkinMaskColor = System.Drawing.Color.DarkGray;
             this.btnPrint.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(315, 44);
+            this.btnPrint.Size = new System.Drawing.Size(311, 44);
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "Cetak Nota";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -818,12 +818,12 @@
             this.btnPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
             this.btnPayment.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnPayment.Location = new System.Drawing.Point(324, 3);
+            this.btnPayment.Location = new System.Drawing.Point(320, 3);
             this.btnPayment.LookAndFeel.SkinMaskColor = System.Drawing.Color.DodgerBlue;
             this.btnPayment.LookAndFeel.SkinName = "DevExpress Dark Style";
             this.btnPayment.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(315, 44);
+            this.btnPayment.Size = new System.Drawing.Size(312, 44);
             this.btnPayment.TabIndex = 9;
             this.btnPayment.Text = "Konfirmasi";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
@@ -843,7 +843,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(642, 41);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(635, 41);
             this.tableLayoutPanel5.TabIndex = 122;
             // 
             // labelControl15
@@ -878,7 +878,7 @@
             this.lTotalPay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lTotalPay.Location = new System.Drawing.Point(353, 3);
             this.lTotalPay.Name = "lTotalPay";
-            this.lTotalPay.Size = new System.Drawing.Size(286, 35);
+            this.lTotalPay.Size = new System.Drawing.Size(279, 35);
             this.lTotalPay.TabIndex = 35;
             this.lTotalPay.Text = "0";
             // 
@@ -898,7 +898,7 @@
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(642, 60);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(635, 60);
             this.tableLayoutPanel13.TabIndex = 128;
             // 
             // panel7
@@ -908,7 +908,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(533, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(106, 54);
+            this.panel7.Size = new System.Drawing.Size(99, 54);
             this.panel7.TabIndex = 40;
             // 
             // labelControl17
@@ -1038,7 +1038,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(642, 40);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(635, 40);
             this.tableLayoutPanel9.TabIndex = 125;
             // 
             // lTotalPayment
@@ -1074,7 +1074,7 @@
             this.chTangguh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.chTangguh.Properties.Appearance.Options.UseFont = true;
             this.chTangguh.Properties.Caption = "Ditangguhkan";
-            this.chTangguh.Size = new System.Drawing.Size(106, 34);
+            this.chTangguh.Size = new System.Drawing.Size(99, 34);
             this.chTangguh.TabIndex = 37;
             // 
             // tableLayoutPanel11
@@ -1094,7 +1094,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(642, 30);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(635, 30);
             this.tableLayoutPanel11.TabIndex = 125;
             // 
             // labelControl13
@@ -1158,7 +1158,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(642, 30);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(635, 30);
             this.tableLayoutPanel12.TabIndex = 127;
             // 
             // labelControl18
@@ -1210,7 +1210,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(3, 33);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(636, 244);
+            this.xtraTabControl1.Size = new System.Drawing.Size(629, 244);
             this.xtraTabControl1.TabIndex = 129;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -1223,7 +1223,7 @@
             this.xtraTabPage1.Appearance.Header.Options.UseFont = true;
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(630, 213);
+            this.xtraTabPage1.Size = new System.Drawing.Size(627, 216);
             this.xtraTabPage1.Text = "RINCIAN TAGIHAN PASIEN";
             // 
             // gridControl2
@@ -1232,7 +1232,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(630, 213);
+            this.gridControl2.Size = new System.Drawing.Size(627, 216);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1256,7 +1256,7 @@
             this.xtraTabPage2.Controls.Add(this.gridLayananAdmin);
             this.xtraTabPage2.Controls.Add(this.panel29);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(722, 213);
+            this.xtraTabPage2.Size = new System.Drawing.Size(630, 213);
             this.xtraTabPage2.Text = "Pelayanan Administrasi";
             // 
             // gridLayananAdmin
@@ -1272,7 +1272,7 @@
             this.repositoryItemComboBox2,
             this.repjam,
             this.repjam2});
-            this.gridLayananAdmin.Size = new System.Drawing.Size(722, 175);
+            this.gridLayananAdmin.Size = new System.Drawing.Size(630, 175);
             this.gridLayananAdmin.TabIndex = 4;
             this.gridLayananAdmin.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLayananAdmin});
@@ -1499,7 +1499,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(722, 38);
+            this.panel29.Size = new System.Drawing.Size(630, 38);
             this.panel29.TabIndex = 3;
             // 
             // btnDelTindakan
@@ -1507,7 +1507,7 @@
             this.btnDelTindakan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelTindakan.Enabled = false;
             this.btnDelTindakan.Image = ((System.Drawing.Image)(resources.GetObject("btnDelTindakan.Image")));
-            this.btnDelTindakan.Location = new System.Drawing.Point(577, 7);
+            this.btnDelTindakan.Location = new System.Drawing.Point(485, 7);
             this.btnDelTindakan.Name = "btnDelTindakan";
             this.btnDelTindakan.Size = new System.Drawing.Size(67, 23);
             this.btnDelTindakan.TabIndex = 106;
@@ -1527,7 +1527,7 @@
             // 
             this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton13.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.Image")));
-            this.simpleButton13.Location = new System.Drawing.Point(504, 7);
+            this.simpleButton13.Location = new System.Drawing.Point(412, 7);
             this.simpleButton13.Name = "simpleButton13";
             this.simpleButton13.Size = new System.Drawing.Size(67, 23);
             this.simpleButton13.TabIndex = 31;
@@ -1538,7 +1538,7 @@
             // 
             this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton14.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton14.Image")));
-            this.simpleButton14.Location = new System.Drawing.Point(650, 7);
+            this.simpleButton14.Location = new System.Drawing.Point(558, 7);
             this.simpleButton14.Name = "simpleButton14";
             this.simpleButton14.Size = new System.Drawing.Size(67, 23);
             this.simpleButton14.TabIndex = 30;

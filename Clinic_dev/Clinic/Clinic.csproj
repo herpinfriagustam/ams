@@ -136,16 +136,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bpjsws\BpjswsAntreanBpjs.cs">
+    <Compile Include="Bpjsws\BpjswsTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bpjsws\BpjswsAntreanBpjs.designer.cs">
-      <DependentUpon>BpjswsAntreanBpjs.cs</DependentUpon>
+    <Compile Include="Bpjsws\BpjswsTool.designer.cs">
+      <DependentUpon>BpjswsTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Bpjsws\Bpjsws.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsAntrol.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsPcare.cs" />
     <Compile Include="Class\Bpjsws\BpjswsResponse.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsResponseList.cs" />
     <Compile Include="Class\Bpjsws\ModelAntrian.cs" />
+    <Compile Include="Class\Bpjsws\ModelDiagnosa.cs" />
     <Compile Include="Class\Bpjsws\ModelDokter.cs" />
+    <Compile Include="Class\Bpjsws\ModelDokterPcare.cs" />
     <Compile Include="Class\Bpjsws\ModelPoli.cs" />
     <Compile Include="Class\MedKategori.cs" />
     <Compile Include="Class\MedGroup.cs" />
@@ -1134,8 +1139,8 @@
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\WorkAccident.cs" />
-    <EmbeddedResource Include="Bpjsws\BpjswsAntreanBpjs.resx">
-      <DependentUpon>BpjswsAntreanBpjs.cs</DependentUpon>
+    <EmbeddedResource Include="Bpjsws\BpjswsTool.resx">
+      <DependentUpon>BpjswsTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\MasterSchedule.resx">
       <DependentUpon>MasterSchedule.cs</DependentUpon>

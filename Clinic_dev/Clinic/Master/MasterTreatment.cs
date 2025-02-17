@@ -24,8 +24,9 @@ namespace Clinic
         List<Status> listStat2 = new List<Status>();
         List<MedKategori> listMedicine = new List<MedKategori>();
         RepositoryItemGridLookUpEdit LokObatGrid = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit LokLayanan = new RepositoryItemGridLookUpEdit();
 
-        public string  v_name = "";
+        public string  v_name = "", kd_pelayanan = "";
         string kate_cd = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
 
@@ -96,7 +97,7 @@ namespace Clinic
             adSqlM.Fill(dtM);
             listMap.Clear();
 
-            listMap.Add(new Layanan() { layananCode = "", layananName = "Pilih" });
+            //listMap.Add(new Layanan() { layananCode = "", layananName = "Pilih" });
             for (int i = 0; i < dtM.Rows.Count; i++)
             {
                 listMap.Add(new Layanan() { layananCode = dtM.Rows[i]["treat_item_name"].ToString(), layananName = dtM.Rows[i]["nama_layanan"].ToString() });
@@ -437,7 +438,7 @@ namespace Clinic
 
         private void loadDataMap()
         { 
-            string SQL = " select 'S' action, a.TREAT_ITEM_NAME, count(b.MED_CD) Jumlah_Item  " +
+            string SQL = " select 'S' action, a.TREAT_ITEM_NAME, count(distinct b.MED_CD) Jumlah_Item  " +
                             "  from klinik.CS_TREATMENT_ITEM a " +
                             "   join klinik.CS_TREATMENT_MED b on (a.treat_item_id = b.treat_item_id) " +
                             "  join klinik.cs_treatment_group c on (a.TREAT_GROUP_ID = c.TREAT_GROUP_ID) " +
@@ -468,18 +469,21 @@ namespace Clinic
                 gvMap.Columns[1].Caption = "Nama Layanan";
 
                 gvMap.Columns[0].Visible = false;
-                RepositoryItemLookUpEdit tLookupM = new RepositoryItemLookUpEdit();
-                tLookupM.DataSource = listMap;
-                tLookupM.ValueMember = "layananCode";
-                tLookupM.DisplayMember = "layananName";
 
-                tLookupM.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-                tLookupM.DropDownRows = listTipe.Count;
-                tLookupM.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-                tLookupM.AutoSearchColumnIndex = 1;
-                tLookupM.NullText = "";
-                gvMap.Columns[1].ColumnEdit = tLookupM;
+                ConnOra.LookUpGridFilter(listMap, gvMap, "layananCode", "layananName", LokLayanan, 1);
 
+                //RepositoryItemLookUpEdit tLookupM = new RepositoryItemLookUpEdit();
+                //tLookupM.DataSource = listMap;
+                //tLookupM.ValueMember = "layananCode";
+                //tLookupM.DisplayMember = "layananName";
+
+                //tLookupM.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                //tLookupM.DropDownRows = listTipe.Count;
+                //tLookupM.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                //tLookupM.AutoSearchColumnIndex = 1;
+                //tLookupM.NullText = "";
+                //gvMap.Columns[1].ColumnEdit = tLookupM;
+                gvMap.BestFitColumns();
 
             }
             catch (Exception ex)
@@ -517,7 +521,8 @@ namespace Clinic
 
                 gvObatJual.OptionsView.ColumnAutoWidth = true;
                 gvObatJual.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
-                gvObatJual.Appearance.HeaderPanel.FontSizeDelta = 0;
+                gvObatJual.Appearance.HeaderPanel.FontSizeDelta = 0; 
+                gvObatJual.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 gvObatJual.IndicatorWidth = 35;
                 gvObatJual.OptionsBehavior.Editable = true;
 
@@ -527,7 +532,14 @@ namespace Clinic
 
                 gvObatJual.Columns[0].Visible = false;
                 ConnOra.LookUpGroupGridFilter(listMedicine, gvObatJual, "Kategori", "Kode", "Nama", LokObatGrid, 2);
-
+                gvObatJual.BestFitColumns();
+                if (dt.Rows.Count > 0)
+                {
+                    btnMedAdd.Enabled = true;
+                    btnMedCan.Enabled = true;
+                    btnMedDel.Enabled = true;
+                    btnMedSave.Enabled = true;
+                }
                 //RepositoryItemLookUpEdit tLookupO = new RepositoryItemLookUpEdit();
                 //tLookupO.DataSource = listMedicine;
                 ////tLookupO.ValueMember = "kode";
@@ -1244,6 +1256,7 @@ namespace Clinic
                         catch (Exception ex)
                         {
                             MessageBox.Show("ERROR: " + ex.Message);
+                            return;
                         }
                     } 
                 }
@@ -1262,7 +1275,7 @@ namespace Clinic
 
         private void gvMap_RowClick(object sender, RowClickEventArgs e)
         {
-            string kd_pelayanan = "";
+            
             kd_pelayanan = gvMap.GetRowCellValue(gvMap.FocusedRowHandle, gvMap.Columns[1]).ToString();
             loadDataObat(kd_pelayanan);
         }
@@ -1283,7 +1296,90 @@ namespace Clinic
 
         private void btnMedSave_Click(object sender, EventArgs e)
         {
+            string sqlp = "", id_lynan = "" ;
+            int ssimpan = 0;
+            kd_pelayanan = gvMap.GetRowCellValue(gvMap.FocusedRowHandle, gvMap.Columns[1]).ToString();
 
+            sqlp = "";
+            sqlp = sqlp + " select  TREAT_ITEM_ID from  klinik.CS_TREATMENT_ITEM   ";
+            sqlp = sqlp + " where 1=1 and MAP_TYPE ='Y' and treat_item_name = '" + kd_pelayanan + "'";
+
+            OleDbConnection sqlCon = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql = new OleDbDataAdapter(sqlp, sqlCon);
+            DataTable dt = new DataTable();
+            adSql.Fill(dt); 
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //listGroup.Add(new Layanan() { layananCode = dt2.Rows[i]["treat_group_id"].ToString(), layananName = dt2.Rows[i]["treat_group_name"].ToString() });
+                id_lynan = dt.Rows[i]["treat_item_id"].ToString();
+
+                for (int j = 0; j < gvObatJual.RowCount; j++)
+                {
+                    string temp_code = "", temp_q = "", sql_all = "";
+
+                    temp_code = gvObatJual.GetRowCellValue(j, gvObatJual.Columns[2]).ToString();
+                    temp_q = gvObatJual.GetRowCellValue(j, gvObatJual.Columns[3]).ToString();
+                    //temp_id = gvObatJual.GetRowCellValue(j, gvObatJual.Columns[7]).ToString(); 
+
+                    sql_all = " ";
+                    sql_all = " insert into  klinik.CS_TREATMENT_MED (TREAT_MED_ID, TREAT_ITEM_ID, MED_CD, MED_QTY, STATUS, INS_DATE, INS_EMP ) values " +
+                                " (klinik.CS_TREATMED_SEQ.nextval,'" + id_lynan + "','" + temp_code + "','" + temp_q + "', 'A', sysdate,'" + DB.vUserId + "'  ) ";
+                     
+                    //sql_all = " ";
+                    //sql_all = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+                    //          " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+
+                    ORADB.Execute(ORADB.XE, sql_all);
+
+                    ssimpan = 1;
+                }
+
+            }
+
+            if(ssimpan == 1)
+            {
+                MessageBox.Show("Data Obat/Alkes Berhasil di Mapping.");
+                btnMedAdd.Enabled = true;
+                btnMedCan.Enabled = true;
+                btnMedDel.Enabled = true;
+                btnMedSave.Enabled = true;
+            }
+            // view.GetRowCellValue(e.RowHandle, view.Columns[14]).ToString();
+
+            //for (int i = 0; i < gridView2.RowCount; i++)
+            //{
+            //    string temp_bpjs = "", temp_id = "", temp_cover = "", temp_code = "", temp_q = "", temp_confrm = "";
+
+            //    temp_code = gridView2.GetRowCellValue(i, gridView2.Columns[8]).ToString();
+            //    temp_q = gridView2.GetRowCellValue(i, gridView2.Columns[4]).ToString();
+            //    temp_id = gridView2.GetRowCellValue(i, gridView2.Columns[7]).ToString();
+            //    temp_bpjs = gridView2.GetRowCellValue(i, gridView2.Columns[3]).ToString();
+            //    temp_confrm = gridView2.GetRowCellValue(i, gridView2.Columns[6]).ToString();
+            //    //tdrink = gridView2.GetRowCellValue(i, gridView2.Columns[11]).ToString();
+            //    //if (temp_bpjs == "Y")
+            //    //{
+            //    //    temp_cover = "0";
+            //    //}
+            //    //else
+            //    //{
+            //    //    temp_cover = "1";
+            //    //} 
+            //    //try
+            //    //{
+            //    //    if (temp_confrm.ToString().Equals("N"))
+            //    //    {
+            //    //        command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+            //    //                    " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+
+            //    //        command.ExecuteNonQuery();
+            //    //    } 
+
+            //    //}
+            //    //catch (Exception ex)
+            //    //{
+            //    //    MessageBox.Show("ERROR: " + ex.Message);
+            //    //}
+            //}
         }
 
         private void gvObatJual_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -1296,6 +1392,11 @@ namespace Clinic
             GridView view = sender as GridView;
 
             view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
+        }
+
+        private void btnMedCan_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void gvObatJual_InitNewRow(object sender, InitNewRowEventArgs e)

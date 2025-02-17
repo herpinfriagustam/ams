@@ -161,7 +161,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1148, 560);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1152, 563);
             this.xtraTabPage1.Text = "Tipe Layanan";
             // 
             // tableLayoutPanel1
@@ -177,7 +177,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1148, 560);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1152, 563);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -189,14 +189,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 50);
+            this.panel1.Size = new System.Drawing.Size(1152, 50);
             this.panel1.TabIndex = 0;
             // 
             // btnDownType
             // 
             this.btnDownType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownType.Image = ((System.Drawing.Image)(resources.GetObject("btnDownType.Image")));
-            this.btnDownType.Location = new System.Drawing.Point(1084, 17);
+            this.btnDownType.Location = new System.Drawing.Point(1088, 17);
             this.btnDownType.Name = "btnDownType";
             this.btnDownType.Size = new System.Drawing.Size(61, 23);
             this.btnDownType.TabIndex = 44;
@@ -207,7 +207,7 @@
             // 
             this.btnLoadType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadType.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadType.Image")));
-            this.btnLoadType.Location = new System.Drawing.Point(995, 17);
+            this.btnLoadType.Location = new System.Drawing.Point(999, 17);
             this.btnLoadType.Name = "btnLoadType";
             this.btnLoadType.Size = new System.Drawing.Size(87, 23);
             this.btnLoadType.TabIndex = 43;
@@ -229,7 +229,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 53);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1142, 504);
+            this.gridControl1.Size = new System.Drawing.Size(1146, 507);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -244,7 +244,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.tableLayoutPanel2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1148, 560);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1152, 563);
             this.xtraTabPage2.Text = "Grup Layanan";
             // 
             // tableLayoutPanel2
@@ -260,7 +260,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1148, 560);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1152, 563);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // gridControl2
@@ -269,7 +269,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 53);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1142, 504);
+            this.gridControl2.Size = new System.Drawing.Size(1146, 507);
             this.gridControl2.TabIndex = 2;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -294,14 +294,14 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1148, 50);
+            this.panel2.Size = new System.Drawing.Size(1152, 50);
             this.panel2.TabIndex = 0;
             // 
             // btnDownGroup
             // 
             this.btnDownGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnDownGroup.Image")));
-            this.btnDownGroup.Location = new System.Drawing.Point(1085, 17);
+            this.btnDownGroup.Location = new System.Drawing.Point(1089, 17);
             this.btnDownGroup.Name = "btnDownGroup";
             this.btnDownGroup.Size = new System.Drawing.Size(61, 23);
             this.btnDownGroup.TabIndex = 42;
@@ -312,7 +312,7 @@
             // 
             this.btnLoadGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadGroup.Image")));
-            this.btnLoadGroup.Location = new System.Drawing.Point(996, 17);
+            this.btnLoadGroup.Location = new System.Drawing.Point(1000, 17);
             this.btnLoadGroup.Name = "btnLoadGroup";
             this.btnLoadGroup.Size = new System.Drawing.Size(87, 23);
             this.btnLoadGroup.TabIndex = 41;
@@ -352,7 +352,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel3);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1148, 560);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1152, 563);
             this.xtraTabPage3.Text = "Layanan";
             // 
             // tableLayoutPanel3
@@ -368,7 +368,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1148, 560);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1152, 563);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // gridControl3
@@ -404,7 +404,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1148, 50);
+            this.panel3.Size = new System.Drawing.Size(1152, 50);
             this.panel3.TabIndex = 0;
             // 
             // btnDelItem
@@ -421,7 +421,7 @@
             // 
             this.btnDownItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDownItem.Image")));
-            this.btnDownItem.Location = new System.Drawing.Point(1084, 17);
+            this.btnDownItem.Location = new System.Drawing.Point(1088, 17);
             this.btnDownItem.Name = "btnDownItem";
             this.btnDownItem.Size = new System.Drawing.Size(61, 23);
             this.btnDownItem.TabIndex = 42;
@@ -432,7 +432,7 @@
             // 
             this.btnLoadItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadItem.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadItem.Image")));
-            this.btnLoadItem.Location = new System.Drawing.Point(995, 17);
+            this.btnLoadItem.Location = new System.Drawing.Point(999, 17);
             this.btnLoadItem.Name = "btnLoadItem";
             this.btnLoadItem.Size = new System.Drawing.Size(87, 23);
             this.btnLoadItem.TabIndex = 41;
@@ -472,7 +472,7 @@
             // 
             this.xtraTabPage4.Controls.Add(this.tableLayoutPanel4);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1148, 560);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1152, 563);
             this.xtraTabPage4.Text = "Layanan Reservasi";
             // 
             // tableLayoutPanel4
@@ -488,7 +488,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1148, 560);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1152, 563);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel4
@@ -503,7 +503,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1148, 50);
+            this.panel4.Size = new System.Drawing.Size(1152, 50);
             this.panel4.TabIndex = 1;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -521,7 +521,7 @@
             // 
             this.btnDownloadRsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownloadRsv.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadRsv.Image")));
-            this.btnDownloadRsv.Location = new System.Drawing.Point(1084, 17);
+            this.btnDownloadRsv.Location = new System.Drawing.Point(1088, 17);
             this.btnDownloadRsv.Name = "btnDownloadRsv";
             this.btnDownloadRsv.Size = new System.Drawing.Size(61, 23);
             this.btnDownloadRsv.TabIndex = 42;
@@ -532,7 +532,7 @@
             // 
             this.btnLoadRsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadRsv.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadRsv.Image")));
-            this.btnLoadRsv.Location = new System.Drawing.Point(995, 17);
+            this.btnLoadRsv.Location = new System.Drawing.Point(999, 17);
             this.btnLoadRsv.Name = "btnLoadRsv";
             this.btnLoadRsv.Size = new System.Drawing.Size(87, 23);
             this.btnLoadRsv.TabIndex = 41;
@@ -574,7 +574,7 @@
             this.gridControl4.Location = new System.Drawing.Point(3, 53);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(1142, 504);
+            this.gridControl4.Size = new System.Drawing.Size(1146, 507);
             this.gridControl4.TabIndex = 2;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -593,8 +593,8 @@
             this.xtraTabPage5.Controls.Add(this.splitContainerControl1);
             this.xtraTabPage5.Controls.Add(this.panel5);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1148, 560);
-            this.xtraTabPage5.Text = "Mapping Layanan Alkes";
+            this.xtraTabPage5.Size = new System.Drawing.Size(1152, 563);
+            this.xtraTabPage5.Text = "Mapping Layanan Alkes/Obat";
             // 
             // splitContainerControl1
             // 
@@ -606,7 +606,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.gObatJual);
             this.splitContainerControl1.Panel2.Controls.Add(this.panel12);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1148, 510);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1152, 513);
             this.splitContainerControl1.SplitterPosition = 557;
             this.splitContainerControl1.TabIndex = 115;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -617,7 +617,7 @@
             this.gMapLayanan.Location = new System.Drawing.Point(0, 0);
             this.gMapLayanan.MainView = this.gvMap;
             this.gMapLayanan.Name = "gMapLayanan";
-            this.gMapLayanan.Size = new System.Drawing.Size(557, 510);
+            this.gMapLayanan.Size = new System.Drawing.Size(557, 513);
             this.gMapLayanan.TabIndex = 1;
             this.gMapLayanan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMap});
@@ -642,7 +642,7 @@
             this.gObatJual.Location = new System.Drawing.Point(0, 34);
             this.gObatJual.MainView = this.gvObatJual;
             this.gObatJual.Name = "gObatJual";
-            this.gObatJual.Size = new System.Drawing.Size(586, 476);
+            this.gObatJual.Size = new System.Drawing.Size(583, 479);
             this.gObatJual.TabIndex = 4;
             this.gObatJual.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvObatJual});
@@ -651,6 +651,8 @@
             // 
             this.gvObatJual.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
             this.gvObatJual.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvObatJual.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gvObatJual.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gvObatJual.Appearance.ViewCaption.Options.UseTextOptions = true;
             this.gvObatJual.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gvObatJual.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -890,7 +892,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(586, 34);
+            this.panel12.Size = new System.Drawing.Size(583, 34);
             this.panel12.TabIndex = 3;
             // 
             // btnMedCan
@@ -902,6 +904,7 @@
             this.btnMedCan.Size = new System.Drawing.Size(67, 23);
             this.btnMedCan.TabIndex = 107;
             this.btnMedCan.Text = "Batal";
+            this.btnMedCan.Click += new System.EventHandler(this.btnMedCan_Click);
             // 
             // btnMedDel
             // 
@@ -918,7 +921,7 @@
             this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedSave.Enabled = false;
             this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
-            this.btnMedSave.Location = new System.Drawing.Point(511, 5);
+            this.btnMedSave.Location = new System.Drawing.Point(508, 5);
             this.btnMedSave.Name = "btnMedSave";
             this.btnMedSave.Size = new System.Drawing.Size(67, 23);
             this.btnMedSave.TabIndex = 102;
@@ -930,7 +933,7 @@
             this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedAdd.Enabled = false;
             this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
-            this.btnMedAdd.Location = new System.Drawing.Point(439, 5);
+            this.btnMedAdd.Location = new System.Drawing.Point(436, 5);
             this.btnMedAdd.Name = "btnMedAdd";
             this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
             this.btnMedAdd.TabIndex = 101;
@@ -949,7 +952,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1148, 50);
+            this.panel5.Size = new System.Drawing.Size(1152, 50);
             this.panel5.TabIndex = 1;
             // 
             // btnDelDosis
@@ -965,7 +968,7 @@
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1085, 17);
+            this.simpleButton1.Location = new System.Drawing.Point(1089, 17);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(61, 23);
             this.simpleButton1.TabIndex = 42;
@@ -975,7 +978,7 @@
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(996, 17);
+            this.simpleButton2.Location = new System.Drawing.Point(1000, 17);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(87, 23);
             this.simpleButton2.TabIndex = 41;
@@ -1007,9 +1010,9 @@
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Location = new System.Drawing.Point(11, 17);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(271, 19);
+            this.labelControl5.Size = new System.Drawing.Size(203, 19);
             this.labelControl5.TabIndex = 7;
-            this.labelControl5.Text = "Master Mapping Layanan && Alkes";
+            this.labelControl5.Text = "Master Mapping Layanan";
             // 
             // MasterTreatment
             // 

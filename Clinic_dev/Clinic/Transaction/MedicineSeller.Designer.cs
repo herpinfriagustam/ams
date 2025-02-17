@@ -35,22 +35,6 @@
             this.gvJualObat = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gObatJual = new DevExpress.XtraGrid.GridControl();
             this.gvObatJual = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.btnMedCan = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMedDel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMedSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMedAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dDateEnd = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.dDateBgn = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.btnDelDosis = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLoadDosis = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSaveDosis = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddDosis = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,6 +56,22 @@
             this.gridColumn115 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn116 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn117 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnMedCan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMedDel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMedSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMedAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dDateEnd = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.dDateBgn = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.btnDelDosis = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLoadDosis = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveDosis = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddDosis = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -191,194 +191,6 @@
             this.gvObatJual.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvObatJual_RowCellStyle);
             this.gvObatJual.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvObatJual_InitNewRow);
             this.gvObatJual.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvObatJual_CellValueChanged);
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.btnMedCan);
-            this.panel12.Controls.Add(this.btnMedDel);
-            this.panel12.Controls.Add(this.btnMedSave);
-            this.panel12.Controls.Add(this.btnMedAdd);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(739, 34);
-            this.panel12.TabIndex = 3;
-            // 
-            // btnMedCan
-            // 
-            this.btnMedCan.Enabled = false;
-            this.btnMedCan.Image = ((System.Drawing.Image)(resources.GetObject("btnMedCan.Image")));
-            this.btnMedCan.Location = new System.Drawing.Point(7, 5);
-            this.btnMedCan.Name = "btnMedCan";
-            this.btnMedCan.Size = new System.Drawing.Size(67, 23);
-            this.btnMedCan.TabIndex = 107;
-            this.btnMedCan.Text = "Batal";
-            // 
-            // btnMedDel
-            // 
-            this.btnMedDel.Enabled = false;
-            this.btnMedDel.Image = ((System.Drawing.Image)(resources.GetObject("btnMedDel.Image")));
-            this.btnMedDel.Location = new System.Drawing.Point(80, 5);
-            this.btnMedDel.Name = "btnMedDel";
-            this.btnMedDel.Size = new System.Drawing.Size(67, 23);
-            this.btnMedDel.TabIndex = 103;
-            this.btnMedDel.Text = "Hapus";
-            // 
-            // btnMedSave
-            // 
-            this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMedSave.Enabled = false;
-            this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
-            this.btnMedSave.Location = new System.Drawing.Point(664, 5);
-            this.btnMedSave.Name = "btnMedSave";
-            this.btnMedSave.Size = new System.Drawing.Size(67, 23);
-            this.btnMedSave.TabIndex = 102;
-            this.btnMedSave.Text = "Simpan";
-            this.btnMedSave.Click += new System.EventHandler(this.btnMedSave_Click);
-            // 
-            // btnMedAdd
-            // 
-            this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMedAdd.Enabled = false;
-            this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
-            this.btnMedAdd.Location = new System.Drawing.Point(592, 5);
-            this.btnMedAdd.Name = "btnMedAdd";
-            this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
-            this.btnMedAdd.TabIndex = 101;
-            this.btnMedAdd.Text = "Tambah";
-            this.btnMedAdd.Click += new System.EventHandler(this.btnMedAdd_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dDateEnd);
-            this.panel1.Controls.Add(this.labelControl4);
-            this.panel1.Controls.Add(this.dDateBgn);
-            this.panel1.Controls.Add(this.labelControl3);
-            this.panel1.Controls.Add(this.btnDelDosis);
-            this.panel1.Controls.Add(this.btnDownload);
-            this.panel1.Controls.Add(this.btnLoadDosis);
-            this.panel1.Controls.Add(this.btnSaveDosis);
-            this.panel1.Controls.Add(this.btnAddDosis);
-            this.panel1.Controls.Add(this.labelControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1492, 70);
-            this.panel1.TabIndex = 0;
-            // 
-            // dDateEnd
-            // 
-            this.dDateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dDateEnd.EditValue = null;
-            this.dDateEnd.Location = new System.Drawing.Point(1244, 39);
-            this.dDateEnd.Name = "dDateEnd";
-            this.dDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dDateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dDateEnd.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dDateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dDateEnd.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dDateEnd.Size = new System.Drawing.Size(85, 20);
-            this.dDateEnd.TabIndex = 113;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(1235, 42);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(5, 13);
-            this.labelControl4.TabIndex = 112;
-            this.labelControl4.Text = "-";
-            // 
-            // dDateBgn
-            // 
-            this.dDateBgn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dDateBgn.EditValue = null;
-            this.dDateBgn.Location = new System.Drawing.Point(1146, 39);
-            this.dDateBgn.Name = "dDateBgn";
-            this.dDateBgn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dDateBgn.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dDateBgn.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.dDateBgn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dDateBgn.Properties.Mask.EditMask = "yyyy-MM-dd";
-            this.dDateBgn.Size = new System.Drawing.Size(85, 20);
-            this.dDateBgn.TabIndex = 111;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(1091, 42);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(51, 13);
-            this.labelControl3.TabIndex = 110;
-            this.labelControl3.Text = "Tanggal :";
-            // 
-            // btnDelDosis
-            // 
-            this.btnDelDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnDelDosis.Image")));
-            this.btnDelDosis.Location = new System.Drawing.Point(158, 37);
-            this.btnDelDosis.Name = "btnDelDosis";
-            this.btnDelDosis.Size = new System.Drawing.Size(67, 23);
-            this.btnDelDosis.TabIndex = 43;
-            this.btnDelDosis.Text = "Hapus";
-            this.btnDelDosis.Click += new System.EventHandler(this.btnDelDosis_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(1428, 37);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(61, 23);
-            this.btnDownload.TabIndex = 42;
-            this.btnDownload.Text = "Unduh";
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnLoadDosis
-            // 
-            this.btnLoadDosis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoadDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadDosis.Image")));
-            this.btnLoadDosis.Location = new System.Drawing.Point(1335, 37);
-            this.btnLoadDosis.Name = "btnLoadDosis";
-            this.btnLoadDosis.Size = new System.Drawing.Size(87, 23);
-            this.btnLoadDosis.TabIndex = 41;
-            this.btnLoadDosis.Text = "Refresh";
-            this.btnLoadDosis.Click += new System.EventHandler(this.btnLoadDosis_Click);
-            // 
-            // btnSaveDosis
-            // 
-            this.btnSaveDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveDosis.Image")));
-            this.btnSaveDosis.Location = new System.Drawing.Point(85, 37);
-            this.btnSaveDosis.Name = "btnSaveDosis";
-            this.btnSaveDosis.Size = new System.Drawing.Size(67, 23);
-            this.btnSaveDosis.TabIndex = 40;
-            this.btnSaveDosis.Text = "Simpan";
-            this.btnSaveDosis.Click += new System.EventHandler(this.btnSaveDosis_Click);
-            // 
-            // btnAddDosis
-            // 
-            this.btnAddDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDosis.Image")));
-            this.btnAddDosis.Location = new System.Drawing.Point(12, 37);
-            this.btnAddDosis.Name = "btnAddDosis";
-            this.btnAddDosis.Size = new System.Drawing.Size(67, 23);
-            this.btnAddDosis.TabIndex = 39;
-            this.btnAddDosis.Text = "Tambah";
-            this.btnAddDosis.Click += new System.EventHandler(this.btnAddDosis_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(12, 10);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(204, 19);
-            this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Pengeluaran Obat Umum";
             // 
             // gridColumn53
             // 
@@ -576,6 +388,194 @@
             this.gridColumn117.FieldName = "JENIS_OBAT";
             this.gridColumn117.Name = "gridColumn117";
             this.gridColumn117.Width = 98;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnMedCan);
+            this.panel12.Controls.Add(this.btnMedDel);
+            this.panel12.Controls.Add(this.btnMedSave);
+            this.panel12.Controls.Add(this.btnMedAdd);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(739, 34);
+            this.panel12.TabIndex = 3;
+            // 
+            // btnMedCan
+            // 
+            this.btnMedCan.Enabled = false;
+            this.btnMedCan.Image = ((System.Drawing.Image)(resources.GetObject("btnMedCan.Image")));
+            this.btnMedCan.Location = new System.Drawing.Point(7, 5);
+            this.btnMedCan.Name = "btnMedCan";
+            this.btnMedCan.Size = new System.Drawing.Size(67, 23);
+            this.btnMedCan.TabIndex = 107;
+            this.btnMedCan.Text = "Batal";
+            // 
+            // btnMedDel
+            // 
+            this.btnMedDel.Enabled = false;
+            this.btnMedDel.Image = ((System.Drawing.Image)(resources.GetObject("btnMedDel.Image")));
+            this.btnMedDel.Location = new System.Drawing.Point(80, 5);
+            this.btnMedDel.Name = "btnMedDel";
+            this.btnMedDel.Size = new System.Drawing.Size(67, 23);
+            this.btnMedDel.TabIndex = 103;
+            this.btnMedDel.Text = "Hapus";
+            // 
+            // btnMedSave
+            // 
+            this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMedSave.Enabled = false;
+            this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
+            this.btnMedSave.Location = new System.Drawing.Point(664, 5);
+            this.btnMedSave.Name = "btnMedSave";
+            this.btnMedSave.Size = new System.Drawing.Size(67, 23);
+            this.btnMedSave.TabIndex = 102;
+            this.btnMedSave.Text = "Simpan";
+            this.btnMedSave.Click += new System.EventHandler(this.btnMedSave_Click);
+            // 
+            // btnMedAdd
+            // 
+            this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMedAdd.Enabled = false;
+            this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
+            this.btnMedAdd.Location = new System.Drawing.Point(592, 5);
+            this.btnMedAdd.Name = "btnMedAdd";
+            this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
+            this.btnMedAdd.TabIndex = 101;
+            this.btnMedAdd.Text = "Tambah";
+            this.btnMedAdd.Click += new System.EventHandler(this.btnMedAdd_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dDateEnd);
+            this.panel1.Controls.Add(this.labelControl4);
+            this.panel1.Controls.Add(this.dDateBgn);
+            this.panel1.Controls.Add(this.labelControl3);
+            this.panel1.Controls.Add(this.btnDelDosis);
+            this.panel1.Controls.Add(this.btnDownload);
+            this.panel1.Controls.Add(this.btnLoadDosis);
+            this.panel1.Controls.Add(this.btnSaveDosis);
+            this.panel1.Controls.Add(this.btnAddDosis);
+            this.panel1.Controls.Add(this.labelControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1492, 70);
+            this.panel1.TabIndex = 0;
+            // 
+            // dDateEnd
+            // 
+            this.dDateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dDateEnd.EditValue = null;
+            this.dDateEnd.Location = new System.Drawing.Point(1244, 39);
+            this.dDateEnd.Name = "dDateEnd";
+            this.dDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateEnd.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dDateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dDateEnd.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dDateEnd.Size = new System.Drawing.Size(85, 20);
+            this.dDateEnd.TabIndex = 113;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(1235, 42);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(5, 13);
+            this.labelControl4.TabIndex = 112;
+            this.labelControl4.Text = "-";
+            // 
+            // dDateBgn
+            // 
+            this.dDateBgn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dDateBgn.EditValue = null;
+            this.dDateBgn.Location = new System.Drawing.Point(1146, 39);
+            this.dDateBgn.Name = "dDateBgn";
+            this.dDateBgn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateBgn.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateBgn.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dDateBgn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dDateBgn.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dDateBgn.Size = new System.Drawing.Size(85, 20);
+            this.dDateBgn.TabIndex = 111;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(1091, 42);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(51, 13);
+            this.labelControl3.TabIndex = 110;
+            this.labelControl3.Text = "Tanggal :";
+            // 
+            // btnDelDosis
+            // 
+            this.btnDelDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnDelDosis.Image")));
+            this.btnDelDosis.Location = new System.Drawing.Point(158, 37);
+            this.btnDelDosis.Name = "btnDelDosis";
+            this.btnDelDosis.Size = new System.Drawing.Size(67, 23);
+            this.btnDelDosis.TabIndex = 43;
+            this.btnDelDosis.Text = "Hapus";
+            this.btnDelDosis.Click += new System.EventHandler(this.btnDelDosis_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
+            this.btnDownload.Location = new System.Drawing.Point(1428, 37);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(61, 23);
+            this.btnDownload.TabIndex = 42;
+            this.btnDownload.Text = "Unduh";
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // btnLoadDosis
+            // 
+            this.btnLoadDosis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadDosis.Image")));
+            this.btnLoadDosis.Location = new System.Drawing.Point(1335, 37);
+            this.btnLoadDosis.Name = "btnLoadDosis";
+            this.btnLoadDosis.Size = new System.Drawing.Size(87, 23);
+            this.btnLoadDosis.TabIndex = 41;
+            this.btnLoadDosis.Text = "Refresh";
+            this.btnLoadDosis.Click += new System.EventHandler(this.btnLoadDosis_Click);
+            // 
+            // btnSaveDosis
+            // 
+            this.btnSaveDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveDosis.Image")));
+            this.btnSaveDosis.Location = new System.Drawing.Point(85, 37);
+            this.btnSaveDosis.Name = "btnSaveDosis";
+            this.btnSaveDosis.Size = new System.Drawing.Size(67, 23);
+            this.btnSaveDosis.TabIndex = 40;
+            this.btnSaveDosis.Text = "Simpan";
+            this.btnSaveDosis.Click += new System.EventHandler(this.btnSaveDosis_Click);
+            // 
+            // btnAddDosis
+            // 
+            this.btnAddDosis.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDosis.Image")));
+            this.btnAddDosis.Location = new System.Drawing.Point(12, 37);
+            this.btnAddDosis.Name = "btnAddDosis";
+            this.btnAddDosis.Size = new System.Drawing.Size(67, 23);
+            this.btnAddDosis.TabIndex = 39;
+            this.btnAddDosis.Text = "Tambah";
+            this.btnAddDosis.Click += new System.EventHandler(this.btnAddDosis_Click);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(12, 10);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(204, 19);
+            this.labelControl1.TabIndex = 7;
+            this.labelControl1.Text = "Pengeluaran Obat Umum";
             // 
             // MedicineSeller
             // 
