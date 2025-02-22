@@ -79,7 +79,7 @@ namespace Clinic
             }
             else
             {
-                sql_search = sql_search + Environment.NewLine + "and a.status = 'I'";
+                sql_search = sql_search + Environment.NewLine + "and c.status  IN ('CLS','CAN')  ";
             }
 
             if (cmbSearch.Text == "Nama")
@@ -391,7 +391,7 @@ namespace Clinic
             GridView view = sender as GridView;
             view.SetRowCellValue(e.RowHandle, view.Columns[12], "A");
             view.SetRowCellValue(e.RowHandle, view.Columns[13], "I");
-            view.Columns[9].OptionsColumn.ReadOnly = true;
+            //view.Columns[9].OptionsColumn.ReadOnly = true;
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

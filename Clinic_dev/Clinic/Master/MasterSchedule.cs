@@ -19,9 +19,13 @@ namespace Clinic
         ConnectDb ConnOra = new ConnectDb();
         List<FlagYn> userStatus = new List<FlagYn>();
         List<Stat> listBagian = new List<Stat>();
+        List<Poli> listPoli = new List<Poli>(); List<Dokter> listDokter = new List<Dokter>();
         DataTable dtGlRole = new DataTable();
         RepositoryItemLookUpEdit glRole = new RepositoryItemLookUpEdit();
         RepositoryItemLookUpEdit glStatus = new RepositoryItemLookUpEdit();
+
+        RepositoryItemGridLookUpEdit LokPoli = new RepositoryItemGridLookUpEdit();
+        RepositoryItemGridLookUpEdit LokDokter = new RepositoryItemGridLookUpEdit(); 
 
         public string   v_name = "";
         string kate_cd = "";
@@ -57,15 +61,37 @@ namespace Clinic
             userStatus.Add(new FlagYn() { flagCode = "Y", flagName = "Aktif" });
             userStatus.Add(new FlagYn() { flagCode = "N", flagName = "Tidak Aktif" });
 
-            string sql_poli = " select CODE_ID, CODE_NAME from CS_CODE_DATA where status = 'A' and CODE_CLASS_ID ='DOC_BAGIAN' ";
-            OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_poli, sqlConnect2);
+            //string sql_bag  = " select CODE_ID, CODE_NAME from CS_CODE_DATA where status = 'A' and CODE_CLASS_ID ='DOC_BAGIAN' ";
+            //OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
+            //OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_bag, sqlConnect2);
+            //DataTable dt2 = new DataTable();
+            //adSql2.Fill(dt2);
+            //listBagian.Clear();
+            //for (int i = 0; i < dt2.Rows.Count; i++)
+            //{
+            //    listBagian.Add(new Stat() { statCode = dt2.Rows[i]["CODE_ID"].ToString(), statName = dt2.Rows[i]["CODE_NAME"].ToString() }); 
+            //}
+
+            string sql_poli = " select POLI_CD, POLI_NAME from CS_POLICLINIC where STATUS = 'A'   ";
+            OleDbConnection sqlCon1 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql1 = new OleDbDataAdapter(sql_poli, sqlCon1);
+            DataTable dt1 = new DataTable();
+            adSql1.Fill(dt1);
+            listPoli.Clear();
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                listPoli.Add(new Poli() { poliCode = dt1.Rows[i]["POLI_CD"].ToString(), poliName = dt1.Rows[i]["POLI_NAME"].ToString() });
+            }
+
+            string sql_dokter = " select ID_DOKTER, NM_DOKTER from CS_DOKTER where F_AKTIF = 'Y'   ";
+            OleDbConnection sqlCon2 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_dokter, sqlCon2);
             DataTable dt2 = new DataTable();
             adSql2.Fill(dt2);
-            listBagian.Clear();
+            listDokter.Clear();
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
-                listBagian.Add(new Stat() { statCode = dt2.Rows[i]["CODE_ID"].ToString(), statName = dt2.Rows[i]["CODE_NAME"].ToString() }); 
+                listDokter.Add(new Dokter() { ID_Dokter = dt2.Rows[i]["ID_DOKTER"].ToString(), Nama_Dokter = dt2.Rows[i]["NM_DOKTER"].ToString() });
             }
         }
 
@@ -80,13 +106,13 @@ namespace Clinic
             string Sql ="" ;
 
             Sql = "";
-            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, a.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
-            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP ";
+            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, a.POLI_CD, a.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
+            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
             Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
-            Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c ";
+            Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
             Sql = Sql + Environment.NewLine + " where a.ID_DOKTER = b.ID_DOKTER ";
-            Sql = Sql + Environment.NewLine + "   and a.ID_DOKTER = c.ID_DOKTER(+)    ";
+            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+)  and a.POLI_CD = d.POLI_CD    ";
             Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
              
             //loading.ShowWaitForm();
@@ -111,30 +137,55 @@ namespace Clinic
                 gridView1.Columns[0].Caption = "Action";
                 gridView1.Columns[1].Caption = "ID JADWAL";
                 gridView1.Columns[2].Caption = "TGL JADWAL";
-                gridView1.Columns[2].Caption = "JAM AWAL";
-                gridView1.Columns[2].Caption = "JAM AWAL";
-                gridView1.Columns[3].Caption = "ID DOKTER";
-                gridView1.Columns[3].Caption = "NAMA DOKTER";
-                gridView1.Columns[4].Caption = "SPESIALIS";
-                gridView1.Columns[4].Caption = "BAGIAN";
-                gridView1.Columns[5].Caption = "Tanggal Register";
-                gridView1.Columns[6].Caption = "ID Register";
-                gridView1.Columns[7].Caption = "Status";
-                gridView1.Columns[8].Caption = "NIK";
+                gridView1.Columns[3].Caption = "JAM AWAL";
+                gridView1.Columns[4].Caption = "JAM AKHIR";
+                gridView1.Columns[5].Caption = "POLI";
+                gridView1.Columns[6].Caption = "ID DOKTER";
+                gridView1.Columns[7].Caption = "NAMA DOKTER";
+                gridView1.Columns[8].Caption = "SPESIALIS";
+                gridView1.Columns[9].Caption = "NIK";
+                gridView1.Columns[10].Caption = "DOKTER PENGGANTI";
+                gridView1.Columns[11].Caption = "NAMA DOKTER PENGGANTI";
+                gridView1.Columns[12].Caption = "SPESIALIS";
+                gridView1.Columns[13].Caption = "NIK PENGGANTI";
+                gridView1.Columns[14].Caption = "NREMARK";
+                gridView1.Columns[15].Caption = "LIMIT";
+                gridView1.Columns[16].Caption = "Tgl Register";
+                gridView1.Columns[17].Caption = "ID Register";
+                gridView1.Columns[18].Caption = "Status"; 
 
-                gridView1.Columns[8].VisibleIndex = 5;
+                //gridView1.Columns[8].VisibleIndex = 5;
 
-                //RepositoryItemGridLookUpEdit glRole = new RepositoryItemGridLookUpEdit();
-                glRole.DataSource = listBagian;
-                glRole.ValueMember = "statCode";
-                glRole.DisplayMember = "statName";
+                ConnOra.LookUpGridFilter(listPoli, gridView1, "poliCode", "poliName", LokPoli, 5);
+                ConnOra.LookUpGridFilter(listDokter, gridView1, "ID_Dokter", "Nama_Dokter", LokDokter, 6);
+                ConnOra.LookUpGridFilter(listDokter, gridView1, "ID_Dokter", "Nama_Dokter", LokDokter, 10);
 
-                glRole.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-                glRole.AutoSearchColumnIndex = 1;
-                glRole.ImmediatePopup = true;
-                glRole.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-                glRole.NullText = "";
-                gridView1.Columns[4].ColumnEdit = glRole;
+                RepositoryItemDateEdit rptanggal = new RepositoryItemDateEdit();
+                rptanggal.DisplayFormat.FormatString = "yyyy-MM-dd";
+                rptanggal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                rptanggal.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+                rptanggal.Mask.EditMask = "yyyy-MM-dd";
+                rptanggal.Mask.UseMaskAsDisplayFormat = true;
+                gridView1.Columns[2].ColumnEdit = rptanggal;
+
+                RepositoryItemTextEdit rpjam = new RepositoryItemTextEdit();
+                rpjam.Mask.EditMask = "90:00";
+                rpjam.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+                gridView1.Columns[3].ColumnEdit = rpjam;
+                gridView1.Columns[4].ColumnEdit = rpjam; 
+
+
+                ////RepositoryItemGridLookUpEdit glRole = new RepositoryItemGridLookUpEdit();
+                //glRole.DataSource = listBagian;
+                //glRole.ValueMember = "statCode";
+                //glRole.DisplayMember = "statName";
+
+                //glRole.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                //glRole.AutoSearchColumnIndex = 1;
+                //glRole.ImmediatePopup = true;
+                //glRole.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+                //glRole.NullText = "";
+                //gridView1.Columns[4].ColumnEdit = glRole;
 
                 glStatus.DataSource = userStatus;
                 glStatus.ValueMember = "flagCode";
@@ -145,13 +196,13 @@ namespace Clinic
                 glStatus.ImmediatePopup = true;
                 glStatus.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                 glStatus.NullText = "";
-                gridView1.Columns[7].ColumnEdit = glStatus;
+                gridView1.Columns[18].ColumnEdit = glStatus;
 
                 gridView1.Columns[0].Visible = false;
                 gridView1.Columns[1].OptionsColumn.ReadOnly = true;
-                gridView1.Columns[5].OptionsColumn.ReadOnly = true;
-                gridView1.Columns[6].OptionsColumn.ReadOnly = true; 
-                gridView1.Columns[7].OptionsColumn.ReadOnly = false;  
+                gridView1.Columns[7].OptionsColumn.ReadOnly = true;
+                gridView1.Columns[8].OptionsColumn.ReadOnly = true; 
+                gridView1.Columns[9].OptionsColumn.ReadOnly = false;  
                 gridView1.BestFitColumns();
                 //loading.CloseWaitForm();
             }

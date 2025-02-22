@@ -76,6 +76,7 @@ namespace Clinic
         MasterPoli masterPoli = null;
         MasterFormula masterFormula = null;
         MasterRoom masterRoom = null;
+        MasterSchedule masterSchedule = null;
         MasterTreatment masterTreatment = null;
         InpatientMngt inpatientMngt = null;
         PatientReport2 patientReport2 = null;
@@ -269,6 +270,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -330,6 +332,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -521,6 +524,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -539,7 +543,7 @@ namespace Clinic
 
                 navBarGroup8.Visible = true; // Group Payment
                 navBarItem42.Visible = true; // Daftar Tagihan 
-                 
+                navBarGroup10.Visible = true; // Tool BPJS
             }
             navBarItem71.Visible = true; // Pergantian Password
         }
@@ -2220,6 +2224,24 @@ namespace Clinic
                 frmBpjswsTool.WindowState = FormWindowState.Maximized;
                 frmBpjswsTool.Show();
                 frmBpjswsTool.Focus();
+            }
+        }
+
+        private void navBarItem80_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (masterSchedule == null || masterSchedule.Text == "")
+            {
+                masterSchedule = new MasterSchedule();
+                masterSchedule.MdiParent = this;
+                masterSchedule.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide(); 
+            }
+            else if (CheckOpened(masterSchedule.Text))
+            {
+                masterSchedule.WindowState = FormWindowState.Maximized;
+                masterSchedule.Show();
+                masterSchedule.Focus();
             }
         }
 

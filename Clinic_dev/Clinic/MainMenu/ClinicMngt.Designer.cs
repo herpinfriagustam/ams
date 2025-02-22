@@ -55,6 +55,7 @@
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup10 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem78 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem79 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup9 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem62 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem41 = new DevExpress.XtraNavBar.NavBarItem();
@@ -146,7 +147,7 @@
             this.navBarItem33 = new DevExpress.XtraNavBar.NavBarItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.navBarItem79 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem80 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -447,7 +448,8 @@
             this.navBarItem76,
             this.navBarItem77,
             this.navBarItem78,
-            this.navBarItem79});
+            this.navBarItem79,
+            this.navBarItem80});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 192;
@@ -464,6 +466,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem78),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem79)});
             this.navBarGroup10.Name = "navBarGroup10";
+            this.navBarGroup10.Visible = false;
             // 
             // navBarItem78
             // 
@@ -472,6 +475,12 @@
             this.navBarItem78.Caption = "API Interface";
             this.navBarItem78.Name = "navBarItem78";
             this.navBarItem78.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem78_LinkClicked);
+            // 
+            // navBarItem79
+            // 
+            this.navBarItem79.Caption = "Tool API BPJS";
+            this.navBarItem79.Name = "navBarItem79";
+            this.navBarItem79.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem79_LinkClicked);
             // 
             // navBarGroup9
             // 
@@ -1100,6 +1109,7 @@
             // navBarGroup5
             // 
             this.navBarGroup5.Caption = "Master Data";
+            this.navBarGroup5.Expanded = true;
             this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem12),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
@@ -1111,7 +1121,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem56),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem57),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem74),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem69)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem69),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem80)});
             this.navBarGroup5.Name = "navBarGroup5";
             this.navBarGroup5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup5.SmallImage")));
             this.navBarGroup5.Visible = false;
@@ -1533,11 +1544,18 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
-            // navBarItem79
+            // navBarItem80
             // 
-            this.navBarItem79.Caption = "Tool API BPJS";
-            this.navBarItem79.Name = "navBarItem79";
-            this.navBarItem79.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem79_LinkClicked);
+            this.navBarItem80.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.navBarItem80.Appearance.Options.UseFont = true;
+            this.navBarItem80.AppearanceHotTracked.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem80.AppearanceHotTracked.Options.UseFont = true;
+            this.navBarItem80.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.navBarItem80.AppearancePressed.Options.UseFont = true;
+            this.navBarItem80.Caption = "Master Schedule";
+            this.navBarItem80.Name = "navBarItem80";
+            this.navBarItem80.Visible = false;
+            this.navBarItem80.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem80_LinkClicked);
             // 
             // ClinicMngt
             // 
@@ -1692,5 +1710,6 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup10;
         private DevExpress.XtraNavBar.NavBarItem navBarItem78;
         private DevExpress.XtraNavBar.NavBarItem navBarItem79;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem80;
     }
 }

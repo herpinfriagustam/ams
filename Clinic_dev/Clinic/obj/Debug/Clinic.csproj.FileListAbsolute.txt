@@ -4607,6 +4607,7 @@ C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\bin\Debug\de\DevE
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\bin\Debug\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
+C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Bpjsws.BpjswsTool.resources
@@ -4771,4 +4772,3 @@ C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
-C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache

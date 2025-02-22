@@ -569,14 +569,30 @@ namespace Clinic
             }
 
 
-            string sql_anam = "";
-            sql_anam = "";
-            sql_anam = sql_anam + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no, ";
-            sql_anam = sql_anam + Environment.NewLine + " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, bb, tb, disease_now,VITALRR ";
-            sql_anam = sql_anam + Environment.NewLine + " from cs_anamnesa where rm_no = '" + s_rm + "' and ID_VISIT = " + idvisit + " ";
+            //string sql_anam = "";
+            //sql_anam = "";
+            //sql_anam = sql_anam + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no, ";
+            //sql_anam = sql_anam + Environment.NewLine + " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, bb, tb, disease_now,VITALRR ";
+            //sql_anam = sql_anam + Environment.NewLine + " from cs_anamnesa where rm_no = '" + s_rm + "' and ID_VISIT = " + idvisit + " ";
+
+            string SQL = "";
+            SQL = SQL + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no,  ";
+            SQL = SQL + Environment.NewLine + "     nvl(blood_press,b.bp) blood_press, nvl(pulse,b.pl) pulse, nvl(temperature,b.tmp) temperature, nvl(allergy,b.alrgy) allergy,  ";
+            SQL = SQL + Environment.NewLine + "     nvl(a.anamnesa,b.anamnesa) anamnesa, nvl(info_k,b.ik) info_k, 'U' action, a.rm_no, nvl(a.bb,b.bb) bb, nvl(a.tb,b.tb) tb, nvl(a.disease_now,b.disease_now) disease_now, nvl(a.VITALRR,b.VITALRR ) VITALRR,nvl(a.LING_PERUT,b.LING_PERUT) LING_PERUT ";
+            SQL = SQL + Environment.NewLine + " from klinik.cs_anamnesa a, ";
+            SQL = SQL + Environment.NewLine + "      (  ";
+            SQL = SQL + Environment.NewLine + "        select  blood_press bp, pulse pl, temperature tmp, allergy alrgy, anamnesa, info_k ik, rm_no, bb, tb, disease_now,VITALRR,LING_PERUT  ";
+            SQL = SQL + Environment.NewLine + "         from klinik.cs_anamnesa ";
+            SQL = SQL + Environment.NewLine + "         where ID_VISIT in ( SELECT max(a.ID_VISIT) FROM klinik.cs_visit a   WHERE PATIENT_NO = '" + s_pasno + "' and PLAN ='TRT01' and rownum =1 ) ";
+            SQL = SQL + Environment.NewLine + "      )   b  ";
+            SQL = SQL + Environment.NewLine + "where a.rm_no = b.rm_no ";
+            SQL = SQL + Environment.NewLine + "  and a.rm_no =  '" + s_rm + "' and ID_VISIT = " + idvisit + "  ";
+
+
+
 
             OleDbConnection sqlConnect1 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adSql1 = new OleDbDataAdapter(sql_anam, sqlConnect1);
+            OleDbDataAdapter adSql1 = new OleDbDataAdapter(SQL, sqlConnect1);
             DataTable dt1 = new DataTable();
             adSql1.Fill(dt1);
 

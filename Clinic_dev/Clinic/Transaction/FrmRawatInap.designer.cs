@@ -3239,9 +3239,9 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 574);
+            this.panel20.Location = new System.Drawing.Point(0, 598);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(762, 17);
+            this.panel20.Size = new System.Drawing.Size(745, 17);
             this.panel20.TabIndex = 292;
             // 
             // labelControl75
@@ -4075,17 +4075,17 @@
             this.formLayout.Name = "formLayout";
             this.formLayout.RowCount = 1;
             this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
             this.formLayout.Size = new System.Drawing.Size(1552, 629);
             this.formLayout.TabIndex = 0;
             // 
@@ -7059,8 +7059,8 @@
             this.tableLayoutPanel7.Location = new System.Drawing.Point(779, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.99037F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.00963F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(770, 623);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
@@ -7072,7 +7072,7 @@
             this.groupBox18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox18.Location = new System.Drawing.Point(3, 3);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(764, 118);
+            this.groupBox18.Size = new System.Drawing.Size(764, 131);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Daftar Masalah Keperawatan Prioritas";
@@ -7221,9 +7221,9 @@
             this.pnlRisikoJatuh.Controls.Add(this.panel12);
             this.pnlRisikoJatuh.Controls.Add(this.labelControl100);
             this.pnlRisikoJatuh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlRisikoJatuh.Location = new System.Drawing.Point(3, 127);
+            this.pnlRisikoJatuh.Location = new System.Drawing.Point(3, 140);
             this.pnlRisikoJatuh.Name = "pnlRisikoJatuh";
-            this.pnlRisikoJatuh.Size = new System.Drawing.Size(764, 493);
+            this.pnlRisikoJatuh.Size = new System.Drawing.Size(764, 480);
             this.pnlRisikoJatuh.TabIndex = 1;
             // 
             // pnlRJAnak
@@ -7233,7 +7233,7 @@
             this.pnlRJAnak.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRJAnak.Location = new System.Drawing.Point(0, 53);
             this.pnlRJAnak.Name = "pnlRJAnak";
-            this.pnlRJAnak.Size = new System.Drawing.Size(764, 440);
+            this.pnlRJAnak.Size = new System.Drawing.Size(764, 427);
             this.pnlRJAnak.TabIndex = 11;
             // 
             // xtraScrollableControl7
@@ -7256,7 +7256,7 @@
             this.xtraScrollableControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl7.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl7.Name = "xtraScrollableControl7";
-            this.xtraScrollableControl7.Size = new System.Drawing.Size(762, 438);
+            this.xtraScrollableControl7.Size = new System.Drawing.Size(762, 425);
             this.xtraScrollableControl7.TabIndex = 0;
             // 
             // panel22
@@ -7501,7 +7501,7 @@
             this.pnlRJDewasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRJDewasa.Location = new System.Drawing.Point(0, 53);
             this.pnlRJDewasa.Name = "pnlRJDewasa";
-            this.pnlRJDewasa.Size = new System.Drawing.Size(764, 440);
+            this.pnlRJDewasa.Size = new System.Drawing.Size(764, 427);
             this.pnlRJDewasa.TabIndex = 11;
             this.pnlRJDewasa.Visible = false;
             // 
@@ -7523,7 +7523,7 @@
             this.xScrolJatuhDwasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xScrolJatuhDwasa.Location = new System.Drawing.Point(0, 0);
             this.xScrolJatuhDwasa.Name = "xScrolJatuhDwasa";
-            this.xScrolJatuhDwasa.Size = new System.Drawing.Size(762, 438);
+            this.xScrolJatuhDwasa.Size = new System.Drawing.Size(762, 425);
             this.xScrolJatuhDwasa.TabIndex = 0;
             // 
             // panel21
@@ -7922,9 +7922,9 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.22523F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.77477F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 247F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(770, 623);
             this.tableLayoutPanel6.TabIndex = 2;
@@ -7940,7 +7940,7 @@
             this.gbStsFungsi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStsFungsi.Location = new System.Drawing.Point(3, 3);
             this.gbStsFungsi.Name = "gbStsFungsi";
-            this.gbStsFungsi.Size = new System.Drawing.Size(764, 88);
+            this.gbStsFungsi.Size = new System.Drawing.Size(764, 48);
             this.gbStsFungsi.TabIndex = 1;
             this.gbStsFungsi.TabStop = false;
             this.gbStsFungsi.Text = "Status Fungsional (Isi formulir Barthel Index)";
@@ -8003,9 +8003,9 @@
             this.groupBox16.Controls.Add(this.xtraScrollableControl10);
             this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(3, 97);
+            this.groupBox16.Location = new System.Drawing.Point(3, 57);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(764, 275);
+            this.groupBox16.Size = new System.Drawing.Size(764, 292);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Skala Nyeri";
@@ -8020,7 +8020,7 @@
             this.xtraScrollableControl10.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl10.Name = "xtraScrollableControl10";
             this.xtraScrollableControl10.ScrollBarSmallChange = 1;
-            this.xtraScrollableControl10.Size = new System.Drawing.Size(758, 255);
+            this.xtraScrollableControl10.Size = new System.Drawing.Size(758, 272);
             this.xtraScrollableControl10.TabIndex = 0;
             // 
             // pnlSkalaNyeri
@@ -8326,7 +8326,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(-492, 1727);
+            this.label9.Location = new System.Drawing.Point(-492, 1736);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 15;
@@ -8352,9 +8352,9 @@
             this.xtraScrollableControl5.Controls.Add(this.labelControl95);
             this.xtraScrollableControl5.Controls.Add(this.panel11);
             this.xtraScrollableControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControl5.Location = new System.Drawing.Point(3, 378);
+            this.xtraScrollableControl5.Location = new System.Drawing.Point(3, 355);
             this.xtraScrollableControl5.Name = "xtraScrollableControl5";
-            this.xtraScrollableControl5.Size = new System.Drawing.Size(764, 242);
+            this.xtraScrollableControl5.Size = new System.Drawing.Size(764, 265);
             this.xtraScrollableControl5.TabIndex = 2;
             // 
             // labelControl95
@@ -8385,7 +8385,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(764, 242);
+            this.panel11.Size = new System.Drawing.Size(764, 265);
             this.panel11.TabIndex = 9;
             // 
             // labelControl96
@@ -8584,7 +8584,7 @@
             this.pnlLaporTim.Controls.Add(this.label24);
             this.pnlLaporTim.Controls.Add(this.label23);
             this.pnlLaporTim.Controls.Add(this.rgLapor_tr_Gizi);
-            this.pnlLaporTim.Location = new System.Drawing.Point(69, 208);
+            this.pnlLaporTim.Location = new System.Drawing.Point(69, 219);
             this.pnlLaporTim.Name = "pnlLaporTim";
             this.pnlLaporTim.Size = new System.Drawing.Size(612, 30);
             this.pnlLaporTim.TabIndex = 12;
@@ -8601,7 +8601,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(280, 8);
+            this.label24.Location = new System.Drawing.Point(280, 9);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(68, 13);
             this.label24.TabIndex = 11;
