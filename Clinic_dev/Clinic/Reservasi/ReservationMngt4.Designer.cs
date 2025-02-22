@@ -127,7 +127,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 53);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1114, 110);
+            this.gridControl2.Size = new System.Drawing.Size(1118, 113);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -304,14 +304,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1114, 44);
+            this.panel2.Size = new System.Drawing.Size(1118, 44);
             this.panel2.TabIndex = 2;
             // 
             // btnAddAnam
             // 
             this.btnAddAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnam.Image")));
-            this.btnAddAnam.Location = new System.Drawing.Point(965, 12);
+            this.btnAddAnam.Location = new System.Drawing.Point(969, 12);
             this.btnAddAnam.Name = "btnAddAnam";
             this.btnAddAnam.Size = new System.Drawing.Size(67, 23);
             this.btnAddAnam.TabIndex = 28;
@@ -323,7 +323,7 @@
             // 
             this.btnSaveInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveInfo.Image")));
-            this.btnSaveInfo.Location = new System.Drawing.Point(1038, 12);
+            this.btnSaveInfo.Location = new System.Drawing.Point(1042, 12);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(67, 23);
             this.btnSaveInfo.TabIndex = 27;
@@ -477,7 +477,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel3);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1120, 166);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1124, 169);
             this.xtraTabPage1.Text = "Informasi Tambahan";
             // 
             // tableLayoutPanel3
@@ -493,14 +493,14 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1120, 166);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1124, 169);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.tableLayoutPanel2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1120, 166);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1124, 169);
             this.xtraTabPage2.Text = "Anamnesa";
             // 
             // tableLayoutPanel2
@@ -516,7 +516,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1120, 166);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1124, 169);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // gridControl3
@@ -525,7 +525,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 53);
             this.gridControl3.MainView = this.gridView3a;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1114, 110);
+            this.gridControl3.Size = new System.Drawing.Size(1118, 113);
             this.gridControl3.TabIndex = 4;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3a});
@@ -548,14 +548,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1114, 44);
+            this.panel3.Size = new System.Drawing.Size(1118, 44);
             this.panel3.TabIndex = 3;
             // 
             // btnSaveAnam
             // 
             this.btnSaveAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAnam.Image")));
-            this.btnSaveAnam.Location = new System.Drawing.Point(1035, 12);
+            this.btnSaveAnam.Location = new System.Drawing.Point(1039, 12);
             this.btnSaveAnam.Name = "btnSaveAnam";
             this.btnSaveAnam.Size = new System.Drawing.Size(67, 23);
             this.btnSaveAnam.TabIndex = 28;
@@ -575,7 +575,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel4);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1120, 166);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1124, 169);
             this.xtraTabPage3.Text = "Info Pasien";
             // 
             // tableLayoutPanel4
@@ -591,7 +591,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1120, 166);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1124, 169);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // gridControl4
@@ -600,7 +600,7 @@
             this.gridControl4.Location = new System.Drawing.Point(3, 53);
             this.gridControl4.MainView = this.gridView4a;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(1114, 110);
+            this.gridControl4.Size = new System.Drawing.Size(1118, 113);
             this.gridControl4.TabIndex = 5;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4a});
@@ -621,7 +621,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1114, 44);
+            this.panel4.Size = new System.Drawing.Size(1118, 44);
             this.panel4.TabIndex = 4;
             // 
             // labelControl3
@@ -637,7 +637,7 @@
             // 
             this.xtraTabPage4.Controls.Add(this.tableLayoutPanel5);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1120, 166);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1124, 169);
             this.xtraTabPage4.Text = "Info Penjamin";
             // 
             // tableLayoutPanel5
@@ -653,7 +653,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1120, 166);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1124, 169);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // gridControl5
@@ -662,7 +662,7 @@
             this.gridControl5.Location = new System.Drawing.Point(3, 53);
             this.gridControl5.MainView = this.gridView5a;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(1114, 110);
+            this.gridControl5.Size = new System.Drawing.Size(1118, 113);
             this.gridControl5.TabIndex = 6;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5a});
@@ -683,7 +683,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1114, 44);
+            this.panel5.Size = new System.Drawing.Size(1118, 44);
             this.panel5.TabIndex = 5;
             // 
             // labelControl4

@@ -242,7 +242,7 @@ namespace Clinic
                 gridView1.OptionsView.ColumnAutoWidth = true;
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
-                gridView1.IndicatorWidth = 30;
+                gridView1.IndicatorWidth = 40;
                 //gridView1.OptionsBehavior.Editable = false;
                 gridView1.BestFitColumns();
                 //gridView1.OptionsSelection.MultiSelect = true;
@@ -603,6 +603,7 @@ namespace Clinic
             //gridView3a.OptionsView.ColumnAutoWidth = true;
             gridView3a.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
             gridView3a.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridView3a.IndicatorWidth = 40;
             //gridView3a.BestFitColumns();
             gridView3a.FixedLineWidth = 3;
             gridView3a.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -624,6 +625,7 @@ namespace Clinic
             gridView3a.Columns[12].Caption = "TB (Cm)";
             gridView3a.Columns[13].Caption = "Riwayat";
             gridView3a.Columns[14].Caption = "RR (x/m)";
+            gridView3a.Columns[15].Caption = "Lkr. Perut";
 
             gridView3a.Columns[0].OptionsColumn.AllowEdit = false;
             gridView3a.Columns[1].OptionsColumn.AllowEdit = false;
@@ -1684,7 +1686,7 @@ namespace Clinic
         private void btnSaveAnam_Click_1(object sender, EventArgs e)
         {
             string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", trr="";
-            string sql_update2 = "", sql_cnt = "", sql_insert = "", sql_update = "", inpasien_id = "", rw = "", id_visit = "";
+            string sql_update2 = "", sql_cnt = "", sql_insert = "", sql_update = "", inpasien_id = "", rw = "", id_visit = "", lkprut ="";
 
             id_visit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[16]).ToString();
             inpasien_id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
@@ -1706,7 +1708,7 @@ namespace Clinic
                 tb = gridView3a.GetRowCellValue(i, gridView3a.Columns[12]).ToString();
                 rw = gridView3a.GetRowCellValue(i, gridView3a.Columns[13]).ToString();
                 trr = gridView3a.GetRowCellValue(i, gridView3a.Columns[14]).ToString();
-
+                lkprut = gridView3a.GetRowCellValue(i, gridView3a.Columns[15]).ToString();
                 if (tensi == "")
                 {
                     MessageBox.Show("Tensi harus diisi");
@@ -1755,7 +1757,7 @@ namespace Clinic
                             sql_update = sql_update + " update cs_anamnesa";
                             sql_update = sql_update + " set blood_press = '" + tensi + "', pulse = '" + nadi + "', bb = '" + bb + "', tb = '" + tb + "', ";
                             sql_update = sql_update + "     temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "',  disease_now = '" + rw + "', VITALRR = '" + trr + "',";
-                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate, LING_PERUT = '" + lkprut + "' ";
                             sql_update = sql_update + " where rm_no = '" + rm_no + "' and  ID_VISIT = " + id_visit + " ";
 
                             command.CommandText = sql_update;

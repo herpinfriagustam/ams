@@ -311,7 +311,7 @@ namespace Clinic
                 gridView1.OptionsView.ColumnAutoWidth = true;
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
-                gridView1.IndicatorWidth = 35;
+                gridView1.IndicatorWidth = 40;
                 //gridView1.OptionsBehavior.Editable = false;
                 gridView1.BestFitColumns();
                 //gridView1.OptionsSelection.MultiSelect = true;
@@ -1978,7 +1978,7 @@ namespace Clinic
             string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", age ="";
             string chol = "", bsugar = "", uacid = "", r_now = "", r_then = "", r_fam = "", anam_physical = "", anam_other = "", vhr = "", vrr = "", lkr_perut="";
             string teks = "", p1 = "", p2 = "", nama ="", gnder = "", poli ="", purpse ="", fdokter="";
-            string sql_update2 = "", sql_cnt = "", stat_rsv = "", sql_update = "", anam_cnt = "";
+            string sql_update2 = "", sql_cnt = "", stat_rsv = "", sql_update = "", anam_cnt = "", tlnperut ="";
 
             for (int i = 0; i < gridView2.DataRowCount; i++)
             {
@@ -2011,7 +2011,7 @@ namespace Clinic
                 anam_physical = gridView2.GetRowCellValue(i, gridView2.Columns[21]).ToString();
                 anam_other = gridView2.GetRowCellValue(i, gridView2.Columns[22]).ToString();
                 lkr_perut = gridView2.GetRowCellValue(i, gridView2.Columns[24]).ToString();
-                stat_rsv = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
+                stat_rsv = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString(); 
 
                 if (tensi == "")
                 {
@@ -2097,7 +2097,7 @@ namespace Clinic
                                 SQL = SQL + Environment.NewLine + "', '" + alergi + "', '" + keluhan + "', '" + que + "', '" + infok + "','" + bb + "','" + tb;
                                 SQL = SQL + Environment.NewLine + "', '" + chol + "', '" + bsugar + "', '" + uacid + "', '" + r_now + "','" + r_then + "','" + r_fam;
                                 SQL = SQL + Environment.NewLine + "', '" + anam_physical + "', '" + anam_other + "', '" + tensi + "', '" + vrr;
-                                SQL = SQL + Environment.NewLine + "', sysdate, '" + DB.vUserId + "' , '" + lkr_perut + "' , '" + DB.vUserId + "' ";
+                                SQL = SQL + Environment.NewLine + "', sysdate, '" + DB.vUserId + "' , '" + lkr_perut + "' , '" + DB.vUserId + "'  ";
                                 SQL = SQL + Environment.NewLine + ") ";
 
                                 command.CommandText = SQL;

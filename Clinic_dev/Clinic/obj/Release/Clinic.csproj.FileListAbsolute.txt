@@ -3340,3 +3340,4 @@ C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Release\Clini
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe.licenses
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Release\Clinic.exe
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Release\Clinic.pdb
+C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache

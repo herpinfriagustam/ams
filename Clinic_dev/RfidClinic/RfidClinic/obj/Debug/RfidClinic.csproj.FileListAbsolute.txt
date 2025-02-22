@@ -580,8 +580,6 @@ D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.li
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
 D:\gtme\ams v.1\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csprojResolveAssemblyReference.cache
-C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
-C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\ASURANSI1.png
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\BPJS1.png
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\bin\Debug\Resources\UMUM1.png
@@ -678,3 +676,5 @@ C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\ob
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.Warning.resources
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.csproj.GenerateResource.Cache
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe.licenses
+C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.exe
+C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\RfidClinic\RfidClinic\obj\Debug\RfidClinic.pdb

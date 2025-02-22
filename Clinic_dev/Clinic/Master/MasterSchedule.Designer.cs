@@ -82,7 +82,7 @@
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Controls.Add(this.panel1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(933, 489);
+            this.xtraTabPage1.Size = new System.Drawing.Size(937, 492);
             this.xtraTabPage1.Text = "Jadwal Dokter";
             // 
             // gridControl1
@@ -91,7 +91,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 67);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(933, 422);
+            this.gridControl1.Size = new System.Drawing.Size(937, 425);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -115,7 +115,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(933, 67);
+            this.panel1.Size = new System.Drawing.Size(937, 67);
             this.panel1.TabIndex = 0;
             // 
             // btnDelUser
@@ -132,7 +132,7 @@
             // 
             this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(869, 37);
+            this.btnDownload.Location = new System.Drawing.Point(873, 37);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(61, 23);
             this.btnDownload.TabIndex = 42;
@@ -143,7 +143,7 @@
             // 
             this.btnLoadUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadUser.Image")));
-            this.btnLoadUser.Location = new System.Drawing.Point(776, 37);
+            this.btnLoadUser.Location = new System.Drawing.Point(780, 37);
             this.btnLoadUser.Name = "btnLoadUser";
             this.btnLoadUser.Size = new System.Drawing.Size(87, 23);
             this.btnLoadUser.TabIndex = 41;
