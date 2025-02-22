@@ -150,7 +150,7 @@
             this.gObatJual.Location = new System.Drawing.Point(0, 34);
             this.gObatJual.MainView = this.gvObatJual;
             this.gObatJual.Name = "gObatJual";
-            this.gObatJual.Size = new System.Drawing.Size(739, 451);
+            this.gObatJual.Size = new System.Drawing.Size(746, 451);
             this.gObatJual.TabIndex = 4;
             this.gObatJual.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvObatJual});
@@ -398,7 +398,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(739, 34);
+            this.panel12.Size = new System.Drawing.Size(746, 34);
             this.panel12.TabIndex = 3;
             // 
             // btnMedCan
@@ -426,7 +426,7 @@
             this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedSave.Enabled = false;
             this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
-            this.btnMedSave.Location = new System.Drawing.Point(664, 5);
+            this.btnMedSave.Location = new System.Drawing.Point(671, 5);
             this.btnMedSave.Name = "btnMedSave";
             this.btnMedSave.Size = new System.Drawing.Size(67, 23);
             this.btnMedSave.TabIndex = 102;
@@ -438,7 +438,7 @@
             this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedAdd.Enabled = false;
             this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
-            this.btnMedAdd.Location = new System.Drawing.Point(592, 5);
+            this.btnMedAdd.Location = new System.Drawing.Point(599, 5);
             this.btnMedAdd.Name = "btnMedAdd";
             this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
             this.btnMedAdd.TabIndex = 101;

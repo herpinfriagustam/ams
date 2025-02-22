@@ -528,8 +528,8 @@ namespace Clinic
                         tmp_batch = gridView1.GetRowCellValue(a, gridView1.Columns[3]).ToString();
                         tmp_expire = gridView1.GetRowCellValue(a, gridView1.Columns[4]).ToString();
 
-                        command.CommandText = " insert into CS_MEDICINE_TRANS (trans_id, med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, ins_date, ins_emp) " +
-                                              " values (cs_medtrans_seq.nextval,'" + tmp_med_cd + "', 'IN', sysdate,'" + tmp_jumlah + "','" + tmp_batch + "', to_date('" + tmp_expire + "','yyyy-mm'), sysdate,'" + v_empid + "') ";
+                        command.CommandText = " insert into CS_MEDICINE_TRANS ( med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, ins_date, ins_emp) " +
+                                              " values ('" + tmp_med_cd + "', 'IN', sysdate,'" + tmp_jumlah + "','" + tmp_batch + "', to_date('" + tmp_expire + "','yyyy-mm'), sysdate,'" + v_empid + "') ";
                         command.ExecuteNonQuery();
 
                     }

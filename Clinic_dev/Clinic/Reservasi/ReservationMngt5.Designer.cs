@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationMngt5));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repositoryItemDateEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -398,6 +398,8 @@
             this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
             this.timerObs = new System.Windows.Forms.Timer(this.components);
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -748,7 +750,7 @@
             // 
             this.replayanan.AutoHeight = false;
             this.replayanan.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("replayanan.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("replayanan.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
             this.replayanan.Name = "replayanan";
             this.replayanan.NullText = "";
             this.replayanan.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -995,7 +997,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1378, 468);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1378, 475);
             this.xtraTabControl1.TabIndex = 4;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -1009,7 +1011,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel6);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1376, 443);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1372, 447);
             this.xtraTabPage1.Text = "Anamnesa";
             this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
@@ -1029,16 +1031,16 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1376, 443);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1372, 447);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // gridControl6
             // 
             this.gridControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl6.Location = new System.Drawing.Point(3, 277);
+            this.gridControl6.Location = new System.Drawing.Point(3, 278);
             this.gridControl6.MainView = this.gridView6;
             this.gridControl6.Name = "gridControl6";
-            this.gridControl6.Size = new System.Drawing.Size(1370, 163);
+            this.gridControl6.Size = new System.Drawing.Size(1366, 166);
             this.gridControl6.TabIndex = 5;
             this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6,
@@ -1064,7 +1066,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 56);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1370, 162);
+            this.gridControl2.Size = new System.Drawing.Size(1366, 163);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2,
@@ -1096,14 +1098,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1370, 47);
+            this.panel2.Size = new System.Drawing.Size(1366, 47);
             this.panel2.TabIndex = 2;
             // 
             // btnAddAnam
             // 
             this.btnAddAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnam.Image")));
-            this.btnAddAnam.Location = new System.Drawing.Point(1221, 6);
+            this.btnAddAnam.Location = new System.Drawing.Point(1217, 6);
             this.btnAddAnam.Name = "btnAddAnam";
             this.btnAddAnam.Size = new System.Drawing.Size(67, 23);
             this.btnAddAnam.TabIndex = 28;
@@ -1115,7 +1117,7 @@
             // 
             this.btnSaveAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAnam.Image")));
-            this.btnSaveAnam.Location = new System.Drawing.Point(1294, 6);
+            this.btnSaveAnam.Location = new System.Drawing.Point(1290, 6);
             this.btnSaveAnam.Name = "btnSaveAnam";
             this.btnSaveAnam.Size = new System.Drawing.Size(67, 23);
             this.btnSaveAnam.TabIndex = 27;
@@ -1138,16 +1140,16 @@
             this.panel6.Controls.Add(this.btnSaveAdd);
             this.panel6.Controls.Add(this.labelControl5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 224);
+            this.panel6.Location = new System.Drawing.Point(3, 225);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1370, 47);
+            this.panel6.Size = new System.Drawing.Size(1366, 47);
             this.panel6.TabIndex = 4;
             // 
             // simpleButton5
             // 
             this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton5.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(1221, 6);
+            this.simpleButton5.Location = new System.Drawing.Point(1217, 6);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(67, 23);
             this.simpleButton5.TabIndex = 28;
@@ -1158,7 +1160,7 @@
             // 
             this.btnSaveAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAdd.Image")));
-            this.btnSaveAdd.Location = new System.Drawing.Point(1294, 6);
+            this.btnSaveAdd.Location = new System.Drawing.Point(1290, 6);
             this.btnSaveAdd.Name = "btnSaveAdd";
             this.btnSaveAdd.Size = new System.Drawing.Size(67, 23);
             this.btnSaveAdd.TabIndex = 27;
@@ -1196,17 +1198,17 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1372, 447);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -2234,7 +2236,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 25);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(599, 208);
+            this.panelControl4.Size = new System.Drawing.Size(606, 208);
             this.panelControl4.TabIndex = 11;
             // 
             // txt_ssaran
@@ -2440,7 +2442,7 @@
             this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.label17.Location = new System.Drawing.Point(0, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(599, 25);
+            this.label17.Size = new System.Drawing.Size(606, 25);
             this.label17.TabIndex = 1;
             this.label17.Text = "SKRINNING GIZI";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2915,7 +2917,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 443F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 447F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1372, 447);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
@@ -3304,7 +3306,7 @@
             this.cbJnisObaT,
             this.rpDate,
             this.rpTimetx});
-            this.gcJadwalObat.Size = new System.Drawing.Size(745, 236);
+            this.gcJadwalObat.Size = new System.Drawing.Size(752, 236);
             this.gcJadwalObat.TabIndex = 52;
             this.gcJadwalObat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvJadwalObat});
@@ -3510,14 +3512,14 @@
             this.panel25.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.panel25.Location = new System.Drawing.Point(0, 172);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(745, 33);
+            this.panel25.Size = new System.Drawing.Size(752, 33);
             this.panel25.TabIndex = 49;
             // 
             // simpleButton9
             // 
             this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton9.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.Image")));
-            this.simpleButton9.Location = new System.Drawing.Point(673, 5);
+            this.simpleButton9.Location = new System.Drawing.Point(680, 5);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(67, 23);
             this.simpleButton9.TabIndex = 46;
@@ -3528,7 +3530,7 @@
             // 
             this.btnr_obat_p.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnr_obat_p.Image = ((System.Drawing.Image)(resources.GetObject("btnr_obat_p.Image")));
-            this.btnr_obat_p.Location = new System.Drawing.Point(527, 5);
+            this.btnr_obat_p.Location = new System.Drawing.Point(534, 5);
             this.btnr_obat_p.Name = "btnr_obat_p";
             this.btnr_obat_p.Size = new System.Drawing.Size(67, 23);
             this.btnr_obat_p.TabIndex = 45;
@@ -3539,7 +3541,7 @@
             // 
             this.bsave_obat_p.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bsave_obat_p.Image = ((System.Drawing.Image)(resources.GetObject("bsave_obat_p.Image")));
-            this.bsave_obat_p.Location = new System.Drawing.Point(600, 5);
+            this.bsave_obat_p.Location = new System.Drawing.Point(607, 5);
             this.bsave_obat_p.Name = "bsave_obat_p";
             this.bsave_obat_p.Size = new System.Drawing.Size(67, 23);
             this.bsave_obat_p.TabIndex = 44;
@@ -3680,7 +3682,7 @@
             this.label28.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.label28.Location = new System.Drawing.Point(0, 25);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(745, 147);
+            this.label28.Size = new System.Drawing.Size(752, 147);
             this.label28.TabIndex = 3;
             this.label28.Text = "SARAN";
             // 
@@ -3690,7 +3692,7 @@
             this.label27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.label27.Location = new System.Drawing.Point(0, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(745, 25);
+            this.label27.Size = new System.Drawing.Size(752, 25);
             this.label27.TabIndex = 2;
             this.label27.Text = "DISCHARGE PLANNING";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4251,7 +4253,8 @@
             this.gridColumn62,
             this.gridColumn63,
             this.gridColumn64,
-            this.gridColumn65});
+            this.gridColumn65,
+            this.gridColumn33});
             this.gvMedisPeriksa.GridControl = this.gridMedisPeriksa;
             this.gvMedisPeriksa.Name = "gvMedisPeriksa";
             this.gvMedisPeriksa.OptionsView.ShowGroupPanel = false;
@@ -4476,7 +4479,8 @@
             this.gridColumn22,
             this.gridColumn23,
             this.gridColumn24,
-            this.gridColumn25});
+            this.gridColumn25,
+            this.gridColumn34});
             this.gvMedisPeriksaU.GridControl = this.gridMedisPeriksaU;
             this.gvMedisPeriksaU.Name = "gvMedisPeriksaU";
             this.gvMedisPeriksaU.OptionsView.ShowGroupPanel = false;
@@ -4666,6 +4670,18 @@
             // 
             this.timerObs.Interval = 1000;
             this.timerObs.Tick += new System.EventHandler(this.timerObs_Tick);
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.Caption = "MAP_TYPE";
+            this.gridColumn33.FieldName = "MAP_TYPE";
+            this.gridColumn33.Name = "gridColumn33";
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "MAP_TYPE";
+            this.gridColumn34.FieldName = "MAP_TYPE";
+            this.gridColumn34.Name = "gridColumn34";
             // 
             // ReservationMngt5
             // 
@@ -5258,5 +5274,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
     }
 }

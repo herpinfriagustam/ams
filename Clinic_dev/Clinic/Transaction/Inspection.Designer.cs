@@ -817,7 +817,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(498, 608);
+            this.xtraTabPage1.Size = new System.Drawing.Size(494, 605);
             this.xtraTabPage1.Text = "Pasien";
             // 
             // tableLayoutPanel1
@@ -836,7 +836,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 608);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 605);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gridControl1
@@ -845,7 +845,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 53);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(492, 248);
+            this.gridControl1.Size = new System.Drawing.Size(488, 246);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -938,7 +938,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 44);
+            this.panel1.Size = new System.Drawing.Size(488, 44);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -946,7 +946,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(251, 16);
+            this.labelControl5.Location = new System.Drawing.Point(247, 16);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(36, 16);
             this.labelControl5.TabIndex = 37;
@@ -956,7 +956,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(291, 14);
+            this.comboBox1.Location = new System.Drawing.Point(287, 14);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
             this.comboBox1.TabIndex = 36;
@@ -966,7 +966,7 @@
             // 
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshList.Image")));
-            this.btnRefreshList.Location = new System.Drawing.Point(394, 13);
+            this.btnRefreshList.Location = new System.Drawing.Point(390, 13);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(95, 23);
             this.btnRefreshList.TabIndex = 35;
@@ -987,16 +987,16 @@
             this.panel2.Controls.Add(this.btnCreate);
             this.panel2.Controls.Add(this.labelControl2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 307);
+            this.panel2.Location = new System.Drawing.Point(3, 305);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(492, 44);
+            this.panel2.Size = new System.Drawing.Size(488, 44);
             this.panel2.TabIndex = 2;
             // 
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
-            this.btnCreate.Location = new System.Drawing.Point(343, 13);
+            this.btnCreate.Location = new System.Drawing.Point(339, 13);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(146, 23);
             this.btnCreate.TabIndex = 35;
@@ -1015,10 +1015,10 @@
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 357);
+            this.gridControl2.Location = new System.Drawing.Point(3, 355);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(492, 248);
+            this.gridControl2.Size = new System.Drawing.Size(488, 247);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1846,7 +1846,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-            this.xtraTabControl2.Size = new System.Drawing.Size(918, 633);
+            this.xtraTabControl2.Size = new System.Drawing.Size(925, 633);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
@@ -1863,7 +1863,7 @@
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel2);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(916, 608);
+            this.xtraTabPage3.Size = new System.Drawing.Size(919, 605);
             this.xtraTabPage3.Text = "Anamnesa";
             // 
             // tableLayoutPanel2
@@ -1886,7 +1886,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 608);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(919, 605);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // gridControl3
@@ -1895,7 +1895,7 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 53);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(910, 104);
+            this.gridControl3.Size = new System.Drawing.Size(913, 104);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1963,7 +1963,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(910, 44);
+            this.panel3.Size = new System.Drawing.Size(913, 44);
             this.panel3.TabIndex = 1;
             // 
             // labelControl164
@@ -1971,7 +1971,7 @@
             this.labelControl164.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl164.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl164.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl164.Location = new System.Drawing.Point(297, 12);
+            this.labelControl164.Location = new System.Drawing.Point(300, 12);
             this.labelControl164.Name = "labelControl164";
             this.labelControl164.Size = new System.Drawing.Size(144, 19);
             this.labelControl164.TabIndex = 42;
@@ -1982,7 +1982,7 @@
             // 
             this.btnDoInsp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoInsp.Image = ((System.Drawing.Image)(resources.GetObject("btnDoInsp.Image")));
-            this.btnDoInsp.Location = new System.Drawing.Point(653, 9);
+            this.btnDoInsp.Location = new System.Drawing.Point(656, 9);
             this.btnDoInsp.Name = "btnDoInsp";
             this.btnDoInsp.Size = new System.Drawing.Size(112, 23);
             this.btnDoInsp.TabIndex = 41;
@@ -1993,7 +1993,7 @@
             // 
             this.btnCall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCall.Image = ((System.Drawing.Image)(resources.GetObject("btnCall.Image")));
-            this.btnCall.Location = new System.Drawing.Point(580, 9);
+            this.btnCall.Location = new System.Drawing.Point(583, 9);
             this.btnCall.Name = "btnCall";
             this.btnCall.Size = new System.Drawing.Size(67, 23);
             this.btnCall.TabIndex = 40;
@@ -2004,7 +2004,7 @@
             // 
             this.btnAddAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnam.Image")));
-            this.btnAddAnam.Location = new System.Drawing.Point(770, 9);
+            this.btnAddAnam.Location = new System.Drawing.Point(773, 9);
             this.btnAddAnam.Name = "btnAddAnam";
             this.btnAddAnam.Size = new System.Drawing.Size(67, 23);
             this.btnAddAnam.TabIndex = 39;
@@ -2016,7 +2016,7 @@
             this.btnSaveAnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAnam.Enabled = false;
             this.btnSaveAnam.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAnam.Image")));
-            this.btnSaveAnam.Location = new System.Drawing.Point(843, 9);
+            this.btnSaveAnam.Location = new System.Drawing.Point(846, 9);
             this.btnSaveAnam.Name = "btnSaveAnam";
             this.btnSaveAnam.Size = new System.Drawing.Size(63, 23);
             this.btnSaveAnam.TabIndex = 38;
@@ -2039,7 +2039,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 343);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(910, 217);
+            this.groupBox1.Size = new System.Drawing.Size(913, 214);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Assesment";
@@ -2056,7 +2056,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(904, 197);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(907, 194);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // gridControl4
@@ -2065,7 +2065,7 @@
             this.gridControl4.Location = new System.Drawing.Point(3, 43);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(898, 151);
+            this.gridControl4.Size = new System.Drawing.Size(901, 148);
             this.gridControl4.TabIndex = 1;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2140,7 +2140,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(898, 34);
+            this.panel4.Size = new System.Drawing.Size(901, 34);
             this.panel4.TabIndex = 0;
             // 
             // labelControl163
@@ -2148,7 +2148,7 @@
             this.labelControl163.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl163.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl163.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl163.Location = new System.Drawing.Point(270, 6);
+            this.labelControl163.Location = new System.Drawing.Point(273, 6);
             this.labelControl163.Name = "labelControl163";
             this.labelControl163.Size = new System.Drawing.Size(144, 19);
             this.labelControl163.TabIndex = 40;
@@ -2159,7 +2159,7 @@
             // 
             this.btnCanDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCanDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnCanDiag.Image")));
-            this.btnCanDiag.Location = new System.Drawing.Point(609, 6);
+            this.btnCanDiag.Location = new System.Drawing.Point(612, 6);
             this.btnCanDiag.Name = "btnCanDiag";
             this.btnCanDiag.Size = new System.Drawing.Size(67, 23);
             this.btnCanDiag.TabIndex = 39;
@@ -2170,7 +2170,7 @@
             // 
             this.btnDelDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnDelDiag.Image")));
-            this.btnDelDiag.Location = new System.Drawing.Point(682, 6);
+            this.btnDelDiag.Location = new System.Drawing.Point(685, 6);
             this.btnDelDiag.Name = "btnDelDiag";
             this.btnDelDiag.Size = new System.Drawing.Size(67, 23);
             this.btnDelDiag.TabIndex = 38;
@@ -2181,7 +2181,7 @@
             // 
             this.btnSaveDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveDiag.Image")));
-            this.btnSaveDiag.Location = new System.Drawing.Point(828, 6);
+            this.btnSaveDiag.Location = new System.Drawing.Point(831, 6);
             this.btnSaveDiag.Name = "btnSaveDiag";
             this.btnSaveDiag.Size = new System.Drawing.Size(67, 23);
             this.btnSaveDiag.TabIndex = 37;
@@ -2193,7 +2193,7 @@
             this.btnAddDiag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddDiag.Enabled = false;
             this.btnAddDiag.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDiag.Image")));
-            this.btnAddDiag.Location = new System.Drawing.Point(755, 6);
+            this.btnAddDiag.Location = new System.Drawing.Point(758, 6);
             this.btnAddDiag.Name = "btnAddDiag";
             this.btnAddDiag.Size = new System.Drawing.Size(67, 23);
             this.btnAddDiag.TabIndex = 36;
@@ -2219,7 +2219,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 263);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(910, 74);
+            this.groupBox2.Size = new System.Drawing.Size(913, 74);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Objektif";
@@ -2256,7 +2256,7 @@
             this.pAdd.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.pAdd.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.pAdd.Properties.NullText = "Pemeriksaan Tambahan";
-            this.pAdd.Size = new System.Drawing.Size(752, 20);
+            this.pAdd.Size = new System.Drawing.Size(755, 20);
             this.pAdd.TabIndex = 3;
             // 
             // pFisik
@@ -2271,7 +2271,7 @@
             this.pFisik.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.pFisik.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.pFisik.Properties.NullText = "Pemeriksaan Fisik";
-            this.pFisik.Size = new System.Drawing.Size(752, 20);
+            this.pFisik.Size = new System.Drawing.Size(755, 20);
             this.pFisik.TabIndex = 2;
             // 
             // groupBox3
@@ -2282,7 +2282,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(3, 163);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(910, 94);
+            this.groupBox3.Size = new System.Drawing.Size(913, 94);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Subjektif";
@@ -2299,7 +2299,7 @@
             this.panel25.Controls.Add(this.labelControl6);
             this.panel25.Location = new System.Drawing.Point(3, 17);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(730, 74);
+            this.panel25.Size = new System.Drawing.Size(733, 74);
             this.panel25.TabIndex = 8;
             // 
             // rNow
@@ -2316,7 +2316,7 @@
             this.rNow.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rNow.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rNow.Properties.NullText = "Riwayat penyakit sekarang";
-            this.rNow.Size = new System.Drawing.Size(572, 20);
+            this.rNow.Size = new System.Drawing.Size(575, 20);
             this.rNow.TabIndex = 1;
             // 
             // rOld
@@ -2331,7 +2331,7 @@
             this.rOld.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rOld.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rOld.Properties.NullText = "Riwayat penyakit dahulu";
-            this.rOld.Size = new System.Drawing.Size(572, 20);
+            this.rOld.Size = new System.Drawing.Size(575, 20);
             this.rOld.TabIndex = 2;
             // 
             // labelControl8
@@ -2356,7 +2356,7 @@
             this.rFam.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.rFam.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.rFam.Properties.NullText = "Riwayat penyakit keluarga";
-            this.rFam.Size = new System.Drawing.Size(572, 20);
+            this.rFam.Size = new System.Drawing.Size(575, 20);
             this.rFam.TabIndex = 3;
             // 
             // labelControl7
@@ -2384,7 +2384,7 @@
             this.groupBox13.Controls.Add(this.taobat);
             this.groupBox13.Controls.Add(this.tmknan);
             this.groupBox13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox13.Location = new System.Drawing.Point(742, 17);
+            this.groupBox13.Location = new System.Drawing.Point(745, 17);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(165, 74);
             this.groupBox13.TabIndex = 7;
@@ -2417,9 +2417,9 @@
             this.groupBox4.Controls.Add(this.checkAll);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(3, 566);
+            this.groupBox4.Location = new System.Drawing.Point(3, 563);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(910, 39);
+            this.groupBox4.Size = new System.Drawing.Size(913, 39);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Plan";
@@ -2956,7 +2956,7 @@
             this.xtraTabPage12.Controls.Add(this.gridControl6);
             this.xtraTabPage12.Controls.Add(this.panel28);
             this.xtraTabPage12.Name = "xtraTabPage12";
-            this.xtraTabPage12.Size = new System.Drawing.Size(911, 245);
+            this.xtraTabPage12.Size = new System.Drawing.Size(907, 242);
             this.xtraTabPage12.Text = "Resep Obat";
             // 
             // gridControl6
@@ -2965,7 +2965,7 @@
             this.gridControl6.Location = new System.Drawing.Point(0, 34);
             this.gridControl6.MainView = this.gridView6;
             this.gridControl6.Name = "gridControl6";
-            this.gridControl6.Size = new System.Drawing.Size(911, 211);
+            this.gridControl6.Size = new System.Drawing.Size(907, 208);
             this.gridControl6.TabIndex = 107;
             this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3344,7 +3344,7 @@
             this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel28.Location = new System.Drawing.Point(0, 0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(911, 34);
+            this.panel28.Size = new System.Drawing.Size(907, 34);
             this.panel28.TabIndex = 106;
             // 
             // labelControl165
@@ -3352,7 +3352,7 @@
             this.labelControl165.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl165.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl165.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl165.Location = new System.Drawing.Point(385, 8);
+            this.labelControl165.Location = new System.Drawing.Point(381, 8);
             this.labelControl165.Name = "labelControl165";
             this.labelControl165.Size = new System.Drawing.Size(144, 19);
             this.labelControl165.TabIndex = 109;
@@ -3375,7 +3375,7 @@
             this.btnMedDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedDel.Enabled = false;
             this.btnMedDel.Image = ((System.Drawing.Image)(resources.GetObject("btnMedDel.Image")));
-            this.btnMedDel.Location = new System.Drawing.Point(692, 6);
+            this.btnMedDel.Location = new System.Drawing.Point(688, 6);
             this.btnMedDel.Name = "btnMedDel";
             this.btnMedDel.Size = new System.Drawing.Size(67, 23);
             this.btnMedDel.TabIndex = 103;
@@ -3387,7 +3387,7 @@
             this.btnMedAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedAdd.Enabled = false;
             this.btnMedAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMedAdd.Image")));
-            this.btnMedAdd.Location = new System.Drawing.Point(765, 6);
+            this.btnMedAdd.Location = new System.Drawing.Point(761, 6);
             this.btnMedAdd.Name = "btnMedAdd";
             this.btnMedAdd.Size = new System.Drawing.Size(67, 23);
             this.btnMedAdd.TabIndex = 101;
@@ -3399,7 +3399,7 @@
             this.btnMedSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedSave.Enabled = false;
             this.btnMedSave.Image = ((System.Drawing.Image)(resources.GetObject("btnMedSave.Image")));
-            this.btnMedSave.Location = new System.Drawing.Point(837, 6);
+            this.btnMedSave.Location = new System.Drawing.Point(833, 6);
             this.btnMedSave.Name = "btnMedSave";
             this.btnMedSave.Size = new System.Drawing.Size(67, 23);
             this.btnMedSave.TabIndex = 102;
@@ -3411,7 +3411,7 @@
             this.btnMedCan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMedCan.Enabled = false;
             this.btnMedCan.Image = ((System.Drawing.Image)(resources.GetObject("btnMedCan.Image")));
-            this.btnMedCan.Location = new System.Drawing.Point(619, 6);
+            this.btnMedCan.Location = new System.Drawing.Point(615, 6);
             this.btnMedCan.Name = "btnMedCan";
             this.btnMedCan.Size = new System.Drawing.Size(67, 23);
             this.btnMedCan.TabIndex = 107;

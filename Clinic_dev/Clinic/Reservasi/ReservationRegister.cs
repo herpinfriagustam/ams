@@ -1484,7 +1484,7 @@ namespace Clinic
                 string tmp_poli = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
                 string tmp_poli2 = view.GetRowCellValue(e.RowHandle, view.Columns[16]).ToString();
 
-                if (tmp_poli != tmp_poli2 && (!visitid.ToString().Equals("0")&&!visitid.ToString().Equals("")))
+                if (tmp_poli != tmp_poli2 && (!visitid.ToString().Equals("0") ||!visitid.ToString().Equals("")))
                 //if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
                 {
                     if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
@@ -1603,6 +1603,11 @@ namespace Clinic
                     else if (age == "")
                     {
                         MessageBox.Show("Tanggal Lahir Belum di input. Pasien tidak dapat di proses..!!!");
+                        return;
+                    }
+                    else if (pasien == "")
+                    {
+                        MessageBox.Show("Status Type Pasien belum ditentukan.");
                         return;
                     }
                     else if (poli == "")
@@ -1811,7 +1816,12 @@ namespace Clinic
                     {
                         MessageBox.Show("Silahkan Tentukan Poli yang Anda Tuju..!!"); return;
                     }
-                     
+                    else if (pasien == "")
+                    {
+                        MessageBox.Show("Status Type Pasien belum ditentukan.");
+                        return;
+                    }
+
 
                     string sql_head = "", typehead ="" ;
 
@@ -4115,13 +4125,24 @@ namespace Clinic
         {
             if (e.Column.Caption == "Poli")
             { 
-                string tmp_poli = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[16]).ToString(); 
-                if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
+                string tmp_poli = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[16]).ToString();
+                string tmp_pasien = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[7]).ToString();
+                if (!tmp_pasien.ToString().Equals("B"))
                 {
-                    MessageBox.Show("Hanya Poli Kebidanan & Poli KB yang dapat di Ganti..!!");
+                    MessageBox.Show("Hanya Poli Kebidanan & Poli KB Type BPJS yang dapat di Ganti..!!");
                     gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
                     LoadData();
                     return;
+                }
+                else
+                { 
+                    if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")) )
+                    {
+                        MessageBox.Show("Hanya Poli Kebidanan & Poli KB Type BPJS yang dapat di Ganti..!!");
+                        gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
+                        LoadData();
+                        return;
+                    } 
                 } 
             }
             if (e.Column.Caption == "Pasien")
@@ -4140,13 +4161,25 @@ namespace Clinic
                 string tidvis = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[19]).ToString();
                 if (!tidvis.ToString().Equals("0") && !tidvis.ToString().Equals(""))
                 {
-                    MessageBox.Show("Pasien Tidak Dapat di Ganti Setelah di Registrasi...!!");
                     LoadData();
+                    MessageBox.Show("Pasien Tidak Dapat di Ganti Setelah di Registrasi...!!"); 
                     return;
                 }
             }
         }
-  
+
+        private void gridView1_LostFocus(object sender, EventArgs e)
+        {
+            //string tmp_poli = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
+
+            //if (tmp_poli != "POL0002" && tmp_poli != "POL0003")
+            //{
+            //    LoadData();
+            //    MessageBox.Show("Hanya Poli Kebidanan & Poli KB Type BPJS yang dapat di Ganti..!!"); 
+            //    //return;
+            //}
+
+        }
 
         private void simpleButton13_Click(object sender, EventArgs e)
         {

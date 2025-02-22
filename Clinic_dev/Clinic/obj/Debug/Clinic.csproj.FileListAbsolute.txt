@@ -4771,3 +4771,4 @@ C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe.licenses
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.exe
 C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.pdb
+C:\Users\herpi\OneDrive\Documents\GitHub\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csprojResolveAssemblyReference.cache

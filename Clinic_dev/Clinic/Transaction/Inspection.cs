@@ -9778,7 +9778,7 @@ namespace Clinic
             if (gridView14.RowCount < 1) return;
 
             string date = "", pasno = "", rm_no = "", que = "", nama_laya = "", head = "", detail = "", ldate = "", qty = "", price = "", remarks = "", action = "", stbyr = "";
-            string sql_cnt = "", diag_cnt = "", sql_update = "";
+            string sql_cnt = "", diag_cnt = "", sql_update = "" ;
             int stsimpan = 0;
 
             date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -9796,7 +9796,7 @@ namespace Clinic
                 price = gridView14.GetRowCellValue(i, gridView14.Columns[4]).ToString();
                 remarks = gridView14.GetRowCellValue(i, gridView14.Columns[5]).ToString();
                 action = gridView14.GetRowCellValue(i, gridView14.Columns[6]).ToString();
-                stbyr = gridView14.GetRowCellValue(i, gridView14.Columns[9]).ToString();
+                stbyr = gridView14.GetRowCellValue(i, gridView14.Columns[9]).ToString(); 
 
                 if (nama_laya == "")
                 {
@@ -9849,7 +9849,7 @@ namespace Clinic
 
                                 command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + ldate + "', 'yyyy-mm-dd'), to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
                                 command.ExecuteNonQuery();
-
+                                  
                                 trans.Commit();
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql_insert);

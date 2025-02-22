@@ -2888,7 +2888,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(771, 254);
+            this.panel17.Size = new System.Drawing.Size(771, 261);
             this.panel17.TabIndex = 0;
             // 
             // splitContainerControl4
@@ -2900,7 +2900,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.panel7);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(771, 254);
+            this.splitContainerControl4.Size = new System.Drawing.Size(771, 261);
             this.splitContainerControl4.SplitterPosition = 0;
             this.splitContainerControl4.TabIndex = 0;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -2911,7 +2911,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(771, 242);
+            this.panel7.Size = new System.Drawing.Size(771, 256);
             this.panel7.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -2924,7 +2924,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(771, 242);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(771, 256);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // splitContainerControl5
@@ -2936,7 +2936,7 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.panel9);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(765, 236);
+            this.splitContainerControl5.Size = new System.Drawing.Size(765, 250);
             this.splitContainerControl5.SplitterPosition = 244;
             this.splitContainerControl5.TabIndex = 0;
             this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2949,7 +2949,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(244, 236);
+            this.panel8.Size = new System.Drawing.Size(244, 250);
             this.panel8.TabIndex = 0;
             // 
             // btnSaveV
@@ -2983,7 +2983,7 @@
             this.gcVt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpDateVx,
             this.rpTxShu});
-            this.gcVt.Size = new System.Drawing.Size(244, 236);
+            this.gcVt.Size = new System.Drawing.Size(244, 250);
             this.gcVt.TabIndex = 1;
             this.gcVt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVt});
@@ -3082,7 +3082,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(509, 236);
+            this.panel9.Size = new System.Drawing.Size(516, 250);
             this.panel9.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -3095,7 +3095,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(509, 206);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(516, 220);
             this.tableLayoutPanel12.TabIndex = 2;
             // 
             // chrVital
@@ -3130,7 +3130,7 @@
         series1,
         series2,
         series3};
-            this.chrVital.Size = new System.Drawing.Size(503, 200);
+            this.chrVital.Size = new System.Drawing.Size(510, 214);
             this.chrVital.TabIndex = 0;
             // 
             // labelControl98
@@ -3143,7 +3143,7 @@
             this.labelControl98.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl98.Location = new System.Drawing.Point(0, 0);
             this.labelControl98.Name = "labelControl98";
-            this.labelControl98.Size = new System.Drawing.Size(509, 30);
+            this.labelControl98.Size = new System.Drawing.Size(516, 30);
             this.labelControl98.TabIndex = 1;
             this.labelControl98.Text = "Grafik Tanda Vital";
             // 
@@ -3155,7 +3155,7 @@
             this.pnlAsGizi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAsGizi.Location = new System.Drawing.Point(0, 0);
             this.pnlAsGizi.Name = "pnlAsGizi";
-            this.pnlAsGizi.Size = new System.Drawing.Size(757, 623);
+            this.pnlAsGizi.Size = new System.Drawing.Size(764, 623);
             this.pnlAsGizi.TabIndex = 0;
             // 
             // xtraScrollableControl6
@@ -3233,7 +3233,7 @@
             this.xtraScrollableControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl6.Location = new System.Drawing.Point(0, 30);
             this.xtraScrollableControl6.Name = "xtraScrollableControl6";
-            this.xtraScrollableControl6.Size = new System.Drawing.Size(755, 591);
+            this.xtraScrollableControl6.Size = new System.Drawing.Size(762, 591);
             this.xtraScrollableControl6.TabIndex = 1;
             // 
             // panel20
@@ -3241,7 +3241,7 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel20.Location = new System.Drawing.Point(0, 574);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(755, 17);
+            this.panel20.Size = new System.Drawing.Size(762, 17);
             this.panel20.TabIndex = 292;
             // 
             // labelControl75
@@ -4028,7 +4028,7 @@
             this.labelControl36.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl36.Location = new System.Drawing.Point(0, 0);
             this.labelControl36.Name = "labelControl36";
-            this.labelControl36.Size = new System.Drawing.Size(755, 30);
+            this.labelControl36.Size = new System.Drawing.Size(762, 30);
             this.labelControl36.TabIndex = 0;
             this.labelControl36.Text = "ASESMEN GIZI";
             // 
@@ -4057,7 +4057,7 @@
             // 
             this.tab1.Controls.Add(this.formLayout);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(1556, 625);
+            this.tab1.Size = new System.Drawing.Size(1552, 629);
             this.tab1.Text = "A1. Pengkajian Awal Medis";
             // 
             // formLayout
@@ -4075,18 +4075,18 @@
             this.formLayout.Name = "formLayout";
             this.formLayout.RowCount = 1;
             this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.formLayout.Size = new System.Drawing.Size(1556, 625);
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 625F));
+            this.formLayout.Size = new System.Drawing.Size(1552, 629);
             this.formLayout.TabIndex = 0;
             // 
             // panel3
@@ -4095,7 +4095,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1550, 619);
+            this.panel3.Size = new System.Drawing.Size(1546, 623);
             this.panel3.TabIndex = 0;
             // 
             // frmLayout1
@@ -4112,7 +4112,7 @@
             this.frmLayout1.Name = "frmLayout1";
             this.frmLayout1.RowCount = 1;
             this.frmLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.frmLayout1.Size = new System.Drawing.Size(1550, 619);
+            this.frmLayout1.Size = new System.Drawing.Size(1546, 623);
             this.frmLayout1.TabIndex = 0;
             // 
             // layout123
@@ -4129,7 +4129,7 @@
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.94736F));
             this.layout123.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.layout123.Size = new System.Drawing.Size(474, 613);
+            this.layout123.Size = new System.Drawing.Size(473, 617);
             this.layout123.TabIndex = 1;
             // 
             // gbRwObat
@@ -4139,9 +4139,9 @@
             this.gbRwObat.Controls.Add(this.rgRiwayatObat);
             this.gbRwObat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbRwObat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbRwObat.Location = new System.Drawing.Point(3, 560);
+            this.gbRwObat.Location = new System.Drawing.Point(3, 564);
             this.gbRwObat.Name = "gbRwObat";
-            this.gbRwObat.Size = new System.Drawing.Size(468, 50);
+            this.gbRwObat.Size = new System.Drawing.Size(467, 50);
             this.gbRwObat.TabIndex = 38;
             this.gbRwObat.TabStop = false;
             this.gbRwObat.Text = "Riwayat Penggunaan Obat";
@@ -4154,7 +4154,7 @@
             this.txRiwayatObat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txRiwayatObat.Location = new System.Drawing.Point(219, 19);
             this.txRiwayatObat.Name = "txRiwayatObat";
-            this.txRiwayatObat.Size = new System.Drawing.Size(238, 21);
+            this.txRiwayatObat.Size = new System.Drawing.Size(237, 21);
             this.txRiwayatObat.TabIndex = 40;
             // 
             // label35
@@ -4190,7 +4190,7 @@
             this.g1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.g1.Location = new System.Drawing.Point(3, 3);
             this.g1.Name = "g1";
-            this.g1.Size = new System.Drawing.Size(468, 111);
+            this.g1.Size = new System.Drawing.Size(467, 112);
             this.g1.TabIndex = 0;
             this.g1.TabStop = false;
             this.g1.Text = "Keluhan Utama";
@@ -4199,7 +4199,7 @@
             // 
             this.simpleButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton8.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.Image")));
-            this.simpleButton8.Location = new System.Drawing.Point(388, 42);
+            this.simpleButton8.Location = new System.Drawing.Point(387, 42);
             this.simpleButton8.Name = "simpleButton8";
             this.simpleButton8.Size = new System.Drawing.Size(62, 23);
             this.simpleButton8.TabIndex = 28;
@@ -4210,7 +4210,7 @@
             // 
             this.chDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chDefault.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDefault.Location = new System.Drawing.Point(389, 12);
+            this.chDefault.Location = new System.Drawing.Point(388, 12);
             this.chDefault.Name = "chDefault";
             this.chDefault.Size = new System.Drawing.Size(84, 31);
             this.chDefault.TabIndex = 17;
@@ -4222,7 +4222,7 @@
             this.mmKeluhan.Dock = System.Windows.Forms.DockStyle.Left;
             this.mmKeluhan.Location = new System.Drawing.Point(3, 17);
             this.mmKeluhan.Name = "mmKeluhan";
-            this.mmKeluhan.Size = new System.Drawing.Size(345, 91);
+            this.mmKeluhan.Size = new System.Drawing.Size(345, 92);
             this.mmKeluhan.TabIndex = 1;
             // 
             // g2
@@ -4230,9 +4230,9 @@
             this.g2.Controls.Add(this.xtraScrollableControl1);
             this.g2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.g2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.g2.Location = new System.Drawing.Point(3, 120);
+            this.g2.Location = new System.Drawing.Point(3, 121);
             this.g2.Name = "g2";
-            this.g2.Size = new System.Drawing.Size(468, 434);
+            this.g2.Size = new System.Drawing.Size(467, 437);
             this.g2.TabIndex = 2;
             this.g2.TabStop = false;
             this.g2.Text = "Riwayat Kesehatan";
@@ -4249,7 +4249,7 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(462, 414);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(461, 417);
             this.xtraScrollableControl1.TabIndex = 0;
             // 
             // gbPernahDirawat
@@ -4266,7 +4266,7 @@
             this.gbPernahDirawat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahDirawat.Location = new System.Drawing.Point(3, 45);
             this.gbPernahDirawat.Name = "gbPernahDirawat";
-            this.gbPernahDirawat.Size = new System.Drawing.Size(493, 94);
+            this.gbPernahDirawat.Size = new System.Drawing.Size(492, 94);
             this.gbPernahDirawat.TabIndex = 6;
             this.gbPernahDirawat.TabStop = false;
             this.gbPernahDirawat.Text = "Pernah Dirawat ?";
@@ -4278,7 +4278,7 @@
             this.txRawatDi.Enabled = false;
             this.txRawatDi.Location = new System.Drawing.Point(128, 66);
             this.txRawatDi.Name = "txRawatDi";
-            this.txRawatDi.Size = new System.Drawing.Size(311, 21);
+            this.txRawatDi.Size = new System.Drawing.Size(310, 21);
             this.txRawatDi.TabIndex = 10;
             // 
             // txKapanRawat
@@ -4288,7 +4288,7 @@
             this.txKapanRawat.Enabled = false;
             this.txKapanRawat.Location = new System.Drawing.Point(128, 42);
             this.txKapanRawat.Name = "txKapanRawat";
-            this.txKapanRawat.Size = new System.Drawing.Size(311, 21);
+            this.txKapanRawat.Size = new System.Drawing.Size(310, 21);
             this.txKapanRawat.TabIndex = 9;
             // 
             // label4
@@ -4321,7 +4321,7 @@
             this.txDiagnosa.Enabled = false;
             this.txDiagnosa.Location = new System.Drawing.Point(128, 18);
             this.txDiagnosa.Name = "txDiagnosa";
-            this.txDiagnosa.Size = new System.Drawing.Size(311, 21);
+            this.txDiagnosa.Size = new System.Drawing.Size(310, 21);
             this.txDiagnosa.TabIndex = 8;
             // 
             // label3
@@ -4352,7 +4352,7 @@
             this.gbRwkerja.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwkerja.Location = new System.Drawing.Point(3, 334);
             this.gbRwkerja.Name = "gbRwkerja";
-            this.gbRwkerja.Size = new System.Drawing.Size(493, 48);
+            this.gbRwkerja.Size = new System.Drawing.Size(492, 48);
             this.gbRwkerja.TabIndex = 29;
             this.gbRwkerja.TabStop = false;
             this.gbRwkerja.Text = "Riwayat Pekerjaan (Berhubungan dengan zat berbahaya?)";
@@ -4364,7 +4364,7 @@
             this.txRwytKerja.Enabled = false;
             this.txRwytKerja.Location = new System.Drawing.Point(170, 19);
             this.txRwytKerja.Name = "txRwytKerja";
-            this.txRwytKerja.Size = new System.Drawing.Size(269, 21);
+            this.txRwytKerja.Size = new System.Drawing.Size(268, 21);
             this.txRwytKerja.TabIndex = 31;
             // 
             // label33
@@ -4402,7 +4402,7 @@
             this.gbRwAlergi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwAlergi.Location = new System.Drawing.Point(3, 383);
             this.gbRwAlergi.Name = "gbRwAlergi";
-            this.gbRwAlergi.Size = new System.Drawing.Size(493, 63);
+            this.gbRwAlergi.Size = new System.Drawing.Size(492, 63);
             this.gbRwAlergi.TabIndex = 32;
             this.gbRwAlergi.TabStop = false;
             this.gbRwAlergi.Text = "Riwayat Alergi";
@@ -4426,7 +4426,7 @@
             this.txAlergi.Enabled = false;
             this.txAlergi.Location = new System.Drawing.Point(169, 35);
             this.txAlergi.Name = "txAlergi";
-            this.txAlergi.Size = new System.Drawing.Size(270, 21);
+            this.txAlergi.Size = new System.Drawing.Size(269, 21);
             this.txAlergi.TabIndex = 37;
             this.txAlergi.Tag = "etc";
             // 
@@ -4482,7 +4482,7 @@
             this.gbTergantungThdp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTergantungThdp.Location = new System.Drawing.Point(3, 258);
             this.gbTergantungThdp.Name = "gbTergantungThdp";
-            this.gbTergantungThdp.Size = new System.Drawing.Size(493, 70);
+            this.gbTergantungThdp.Size = new System.Drawing.Size(492, 70);
             this.gbTergantungThdp.TabIndex = 22;
             this.gbTergantungThdp.TabStop = false;
             this.gbTergantungThdp.Text = "Ketergantungan Terhadap";
@@ -4494,7 +4494,7 @@
             this.txketergantungan.Enabled = false;
             this.txketergantungan.Location = new System.Drawing.Point(176, 41);
             this.txketergantungan.Name = "txketergantungan";
-            this.txketergantungan.Size = new System.Drawing.Size(263, 21);
+            this.txketergantungan.Size = new System.Drawing.Size(262, 21);
             this.txketergantungan.TabIndex = 28;
             this.txketergantungan.Tag = "etc";
             // 
@@ -4575,7 +4575,7 @@
             this.gbRwSakitKlrg.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwSakitKlrg.Location = new System.Drawing.Point(3, 190);
             this.gbRwSakitKlrg.Name = "gbRwSakitKlrg";
-            this.gbRwSakitKlrg.Size = new System.Drawing.Size(493, 67);
+            this.gbRwSakitKlrg.Size = new System.Drawing.Size(492, 67);
             this.gbRwSakitKlrg.TabIndex = 14;
             this.gbRwSakitKlrg.TabStop = false;
             this.gbRwSakitKlrg.Text = "Riwayat Penyakit Keluarga";
@@ -4599,7 +4599,7 @@
             this.txSakitKlrga.Enabled = false;
             this.txSakitKlrga.Location = new System.Drawing.Point(139, 40);
             this.txSakitKlrga.Name = "txSakitKlrga";
-            this.txSakitKlrga.Size = new System.Drawing.Size(300, 21);
+            this.txSakitKlrga.Size = new System.Drawing.Size(299, 21);
             this.txSakitKlrga.TabIndex = 21;
             this.txSakitKlrga.Tag = "etc";
             // 
@@ -4676,7 +4676,7 @@
             this.gbPernahOperasi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPernahOperasi.Location = new System.Drawing.Point(3, 145);
             this.gbPernahOperasi.Name = "gbPernahOperasi";
-            this.gbPernahOperasi.Size = new System.Drawing.Size(493, 44);
+            this.gbPernahOperasi.Size = new System.Drawing.Size(492, 44);
             this.gbPernahOperasi.TabIndex = 11;
             this.gbPernahOperasi.TabStop = false;
             this.gbPernahOperasi.Text = "Pernah Operasi ?";
@@ -4702,7 +4702,7 @@
             this.txJnsOperasi.Enabled = false;
             this.txJnsOperasi.Location = new System.Drawing.Point(190, 17);
             this.txJnsOperasi.Name = "txJnsOperasi";
-            this.txJnsOperasi.Size = new System.Drawing.Size(249, 21);
+            this.txJnsOperasi.Size = new System.Drawing.Size(248, 21);
             this.txJnsOperasi.TabIndex = 13;
             // 
             // label5
@@ -4724,7 +4724,7 @@
             this.gbRwPenyakitlalu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRwPenyakitlalu.Location = new System.Drawing.Point(3, 1);
             this.gbRwPenyakitlalu.Name = "gbRwPenyakitlalu";
-            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(493, 44);
+            this.gbRwPenyakitlalu.Size = new System.Drawing.Size(492, 44);
             this.gbRwPenyakitlalu.TabIndex = 3;
             this.gbRwPenyakitlalu.TabStop = false;
             this.gbRwPenyakitlalu.Text = "Riwayat Penyakit Lalu";
@@ -4750,7 +4750,7 @@
             this.txSakitLalu.Enabled = false;
             this.txSakitLalu.Location = new System.Drawing.Point(167, 17);
             this.txSakitLalu.Name = "txSakitLalu";
-            this.txSakitLalu.Size = new System.Drawing.Size(272, 21);
+            this.txSakitLalu.Size = new System.Drawing.Size(271, 21);
             this.txSakitLalu.TabIndex = 5;
             // 
             // label1
@@ -4768,11 +4768,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox6, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(483, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(482, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(552, 613);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(550, 617);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // groupBox6
@@ -4782,7 +4782,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(546, 607);
+            this.groupBox6.Size = new System.Drawing.Size(544, 611);
             this.groupBox6.TabIndex = 41;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pemeriksaan Fisik";
@@ -4811,7 +4811,7 @@
             this.Scroll2.Location = new System.Drawing.Point(3, 17);
             this.Scroll2.Name = "Scroll2";
             this.Scroll2.ScrollBarSmallChange = 1;
-            this.Scroll2.Size = new System.Drawing.Size(540, 587);
+            this.Scroll2.Size = new System.Drawing.Size(538, 591);
             this.Scroll2.TabIndex = 0;
             // 
             // groupBox11
@@ -4827,7 +4827,7 @@
             this.groupBox11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox11.Location = new System.Drawing.Point(3, 413);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(554, 169);
+            this.groupBox11.Size = new System.Drawing.Size(552, 169);
             this.groupBox11.TabIndex = 83;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Lokasi Luka / Lesi Lain";
@@ -4851,7 +4851,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txPeriksaFisik.Location = new System.Drawing.Point(186, 40);
             this.txPeriksaFisik.Name = "txPeriksaFisik";
-            this.txPeriksaFisik.Size = new System.Drawing.Size(348, 21);
+            this.txPeriksaFisik.Size = new System.Drawing.Size(346, 21);
             this.txPeriksaFisik.TabIndex = 85;
             // 
             // label70
@@ -4954,7 +4954,7 @@
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(2, 334);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(554, 76);
+            this.groupBox10.Size = new System.Drawing.Size(552, 76);
             this.groupBox10.TabIndex = 76;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Kulit Dan Kelamin";
@@ -4969,7 +4969,7 @@
             this.pnlKulit.Controls.Add(this.label64);
             this.pnlKulit.Location = new System.Drawing.Point(7, 15);
             this.pnlKulit.Name = "pnlKulit";
-            this.pnlKulit.Size = new System.Drawing.Size(543, 26);
+            this.pnlKulit.Size = new System.Drawing.Size(541, 26);
             this.pnlKulit.TabIndex = 77;
             // 
             // txKulitDtl
@@ -4979,7 +4979,7 @@
             this.txKulitDtl.Enabled = false;
             this.txKulitDtl.Location = new System.Drawing.Point(292, 3);
             this.txKulitDtl.Name = "txKulitDtl";
-            this.txKulitDtl.Size = new System.Drawing.Size(236, 21);
+            this.txKulitDtl.Size = new System.Drawing.Size(234, 21);
             this.txKulitDtl.TabIndex = 79;
             // 
             // label65
@@ -5026,7 +5026,7 @@
             this.pnlDekubitus.Controls.Add(this.label66);
             this.pnlDekubitus.Location = new System.Drawing.Point(7, 42);
             this.pnlDekubitus.Name = "pnlDekubitus";
-            this.pnlDekubitus.Size = new System.Drawing.Size(543, 26);
+            this.pnlDekubitus.Size = new System.Drawing.Size(541, 26);
             this.pnlDekubitus.TabIndex = 80;
             // 
             // txSkorNorton
@@ -5035,7 +5035,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txSkorNorton.Location = new System.Drawing.Point(292, 3);
             this.txSkorNorton.Name = "txSkorNorton";
-            this.txSkorNorton.Size = new System.Drawing.Size(210, 21);
+            this.txSkorNorton.Size = new System.Drawing.Size(208, 21);
             this.txSkorNorton.TabIndex = 82;
             // 
             // label63
@@ -5075,7 +5075,7 @@
             // 
             this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(500, 6);
+            this.label66.Location = new System.Drawing.Point(498, 6);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(23, 13);
             this.label66.TabIndex = 2;
@@ -5090,7 +5090,7 @@
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(3, 257);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(554, 76);
+            this.groupBox9.Size = new System.Drawing.Size(552, 76);
             this.groupBox9.TabIndex = 69;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Eleminasi";
@@ -5105,7 +5105,7 @@
             this.pnlMiksi.Controls.Add(this.label58);
             this.pnlMiksi.Location = new System.Drawing.Point(7, 42);
             this.pnlMiksi.Name = "pnlMiksi";
-            this.pnlMiksi.Size = new System.Drawing.Size(541, 26);
+            this.pnlMiksi.Size = new System.Drawing.Size(539, 26);
             this.pnlMiksi.TabIndex = 73;
             // 
             // txMiksiDtl
@@ -5115,7 +5115,7 @@
             this.txMiksiDtl.Enabled = false;
             this.txMiksiDtl.Location = new System.Drawing.Point(292, 3);
             this.txMiksiDtl.Name = "txMiksiDtl";
-            this.txMiksiDtl.Size = new System.Drawing.Size(235, 21);
+            this.txMiksiDtl.Size = new System.Drawing.Size(233, 21);
             this.txMiksiDtl.TabIndex = 75;
             // 
             // label59
@@ -5161,7 +5161,7 @@
             this.pnlDefekasi.Controls.Add(this.label60);
             this.pnlDefekasi.Location = new System.Drawing.Point(7, 15);
             this.pnlDefekasi.Name = "pnlDefekasi";
-            this.pnlDefekasi.Size = new System.Drawing.Size(541, 26);
+            this.pnlDefekasi.Size = new System.Drawing.Size(539, 26);
             this.pnlDefekasi.TabIndex = 70;
             // 
             // txDefekasiDtl
@@ -5171,7 +5171,7 @@
             this.txDefekasiDtl.Enabled = false;
             this.txDefekasiDtl.Location = new System.Drawing.Point(292, 3);
             this.txDefekasiDtl.Name = "txDefekasiDtl";
-            this.txDefekasiDtl.Size = new System.Drawing.Size(235, 21);
+            this.txDefekasiDtl.Size = new System.Drawing.Size(233, 21);
             this.txDefekasiDtl.TabIndex = 72;
             // 
             // label61
@@ -5216,7 +5216,7 @@
             this.groupBox8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(2, 180);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(554, 76);
+            this.groupBox8.Size = new System.Drawing.Size(552, 76);
             this.groupBox8.TabIndex = 62;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Neurosemsori";
@@ -5231,7 +5231,7 @@
             this.pnlPenglihatan.Controls.Add(this.label56);
             this.pnlPenglihatan.Location = new System.Drawing.Point(7, 42);
             this.pnlPenglihatan.Name = "pnlPenglihatan";
-            this.pnlPenglihatan.Size = new System.Drawing.Size(542, 26);
+            this.pnlPenglihatan.Size = new System.Drawing.Size(540, 26);
             this.pnlPenglihatan.TabIndex = 66;
             // 
             // txPnglihtDtl
@@ -5241,7 +5241,7 @@
             this.txPnglihtDtl.Enabled = false;
             this.txPnglihtDtl.Location = new System.Drawing.Point(292, 3);
             this.txPnglihtDtl.Name = "txPnglihtDtl";
-            this.txPnglihtDtl.Size = new System.Drawing.Size(236, 21);
+            this.txPnglihtDtl.Size = new System.Drawing.Size(234, 21);
             this.txPnglihtDtl.TabIndex = 68;
             // 
             // label57
@@ -5288,7 +5288,7 @@
             this.pnlPendengaran.Controls.Add(this.label67);
             this.pnlPendengaran.Location = new System.Drawing.Point(7, 15);
             this.pnlPendengaran.Name = "pnlPendengaran";
-            this.pnlPendengaran.Size = new System.Drawing.Size(542, 26);
+            this.pnlPendengaran.Size = new System.Drawing.Size(540, 26);
             this.pnlPendengaran.TabIndex = 63;
             // 
             // txPdngrDtl
@@ -5298,7 +5298,7 @@
             this.txPdngrDtl.Enabled = false;
             this.txPdngrDtl.Location = new System.Drawing.Point(292, 3);
             this.txPdngrDtl.Name = "txPdngrDtl";
-            this.txPdngrDtl.Size = new System.Drawing.Size(236, 21);
+            this.txPdngrDtl.Size = new System.Drawing.Size(234, 21);
             this.txPdngrDtl.TabIndex = 65;
             // 
             // label68
@@ -5356,7 +5356,7 @@
             this.groupBox7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(2, 29);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(554, 150);
+            this.groupBox7.Size = new System.Drawing.Size(552, 150);
             this.groupBox7.TabIndex = 46;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Gastrointestinal";
@@ -5383,7 +5383,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txGstKet.Location = new System.Drawing.Point(334, 124);
             this.txGstKet.Name = "txGstKet";
-            this.txGstKet.Size = new System.Drawing.Size(201, 21);
+            this.txGstKet.Size = new System.Drawing.Size(199, 21);
             this.txGstKet.TabIndex = 61;
             // 
             // label52
@@ -5457,7 +5457,7 @@
             this.pnlBatasMakan.Controls.Add(this.label46);
             this.pnlBatasMakan.Location = new System.Drawing.Point(7, 40);
             this.pnlBatasMakan.Name = "pnlBatasMakan";
-            this.pnlBatasMakan.Size = new System.Drawing.Size(542, 26);
+            this.pnlBatasMakan.Size = new System.Drawing.Size(540, 26);
             this.pnlBatasMakan.TabIndex = 50;
             // 
             // label45
@@ -5475,7 +5475,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txBtsMakan.Location = new System.Drawing.Point(196, 3);
             this.txBtsMakan.Name = "txBtsMakan";
-            this.txBtsMakan.Size = new System.Drawing.Size(332, 21);
+            this.txBtsMakan.Size = new System.Drawing.Size(330, 21);
             this.txBtsMakan.TabIndex = 51;
             // 
             // label46
@@ -5495,7 +5495,7 @@
             this.pnlMuntah.Controls.Add(this.label49);
             this.pnlMuntah.Location = new System.Drawing.Point(203, 92);
             this.pnlMuntah.Name = "pnlMuntah";
-            this.pnlMuntah.Size = new System.Drawing.Size(346, 26);
+            this.pnlMuntah.Size = new System.Drawing.Size(344, 26);
             this.pnlMuntah.TabIndex = 56;
             // 
             // rgMuntah
@@ -5559,7 +5559,7 @@
             this.pnlGigiPalsu.Controls.Add(this.label47);
             this.pnlGigiPalsu.Location = new System.Drawing.Point(7, 66);
             this.pnlGigiPalsu.Name = "pnlGigiPalsu";
-            this.pnlGigiPalsu.Size = new System.Drawing.Size(542, 26);
+            this.pnlGigiPalsu.Size = new System.Drawing.Size(540, 26);
             this.pnlGigiPalsu.TabIndex = 52;
             // 
             // rgGigiPalsu
@@ -5595,7 +5595,7 @@
             this.pnKeluhan.Controls.Add(this.label44);
             this.pnKeluhan.Location = new System.Drawing.Point(7, 15);
             this.pnKeluhan.Name = "pnKeluhan";
-            this.pnKeluhan.Size = new System.Drawing.Size(542, 26);
+            this.pnKeluhan.Size = new System.Drawing.Size(540, 26);
             this.pnKeluhan.TabIndex = 47;
             // 
             // txKeluhan
@@ -5605,7 +5605,7 @@
             this.txKeluhan.Enabled = false;
             this.txKeluhan.Location = new System.Drawing.Point(247, 3);
             this.txKeluhan.Name = "txKeluhan";
-            this.txKeluhan.Size = new System.Drawing.Size(281, 21);
+            this.txKeluhan.Size = new System.Drawing.Size(279, 21);
             this.txKeluhan.TabIndex = 49;
             // 
             // label43
@@ -5693,12 +5693,12 @@
             this.tableLayoutPanel3.Controls.Add(this.xtraScrollableControl3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.xtraScrollableControl4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1041, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1038, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(506, 613);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(505, 617);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // xtraScrollableControl3
@@ -5707,7 +5707,7 @@
             this.xtraScrollableControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl3.Location = new System.Drawing.Point(3, 3);
             this.xtraScrollableControl3.Name = "xtraScrollableControl3";
-            this.xtraScrollableControl3.Size = new System.Drawing.Size(500, 410);
+            this.xtraScrollableControl3.Size = new System.Drawing.Size(499, 413);
             this.xtraScrollableControl3.TabIndex = 0;
             // 
             // groupBox12
@@ -5718,7 +5718,7 @@
             this.groupBox12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.Location = new System.Drawing.Point(0, 0);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(500, 410);
+            this.groupBox12.Size = new System.Drawing.Size(499, 413);
             this.groupBox12.TabIndex = 87;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Riwayat Psikososial Dan Spiritual";
@@ -5732,7 +5732,7 @@
             this.xtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl2.Location = new System.Drawing.Point(3, 17);
             this.xtraScrollableControl2.Name = "xtraScrollableControl2";
-            this.xtraScrollableControl2.Size = new System.Drawing.Size(494, 390);
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(493, 393);
             this.xtraScrollableControl2.TabIndex = 0;
             // 
             // groupBox23
@@ -5752,7 +5752,7 @@
             this.groupBox23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox23.Location = new System.Drawing.Point(4, 145);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(507, 165);
+            this.groupBox23.Size = new System.Drawing.Size(506, 165);
             this.groupBox23.TabIndex = 102;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Status Sosial";
@@ -5766,7 +5766,7 @@
             this.pnlTempatTinggal.Controls.Add(this.label73);
             this.pnlTempatTinggal.Location = new System.Drawing.Point(9, 35);
             this.pnlTempatTinggal.Name = "pnlTempatTinggal";
-            this.pnlTempatTinggal.Size = new System.Drawing.Size(494, 55);
+            this.pnlTempatTinggal.Size = new System.Drawing.Size(493, 55);
             this.pnlTempatTinggal.TabIndex = 104;
             // 
             // txTpTinggalDtl
@@ -5776,7 +5776,7 @@
             this.txTpTinggalDtl.Enabled = false;
             this.txTpTinggalDtl.Location = new System.Drawing.Point(98, 26);
             this.txTpTinggalDtl.Name = "txTpTinggalDtl";
-            this.txTpTinggalDtl.Size = new System.Drawing.Size(383, 21);
+            this.txTpTinggalDtl.Size = new System.Drawing.Size(382, 21);
             this.txTpTinggalDtl.TabIndex = 106;
             this.txTpTinggalDtl.Tag = "etc";
             // 
@@ -5812,7 +5812,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txTlpKerabat.Location = new System.Drawing.Point(48, 136);
             this.txTlpKerabat.Name = "txTlpKerabat";
-            this.txTlpKerabat.Size = new System.Drawing.Size(230, 21);
+            this.txTlpKerabat.Size = new System.Drawing.Size(229, 21);
             this.txTlpKerabat.TabIndex = 109;
             // 
             // label75
@@ -5830,7 +5830,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txHubKerabat.Location = new System.Drawing.Point(221, 112);
             this.txHubKerabat.Name = "txHubKerabat";
-            this.txHubKerabat.Size = new System.Drawing.Size(269, 21);
+            this.txHubKerabat.Size = new System.Drawing.Size(268, 21);
             this.txHubKerabat.TabIndex = 108;
             // 
             // label76
@@ -5902,7 +5902,7 @@
             this.groupBox14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.Location = new System.Drawing.Point(4, 61);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(507, 83);
+            this.groupBox14.Size = new System.Drawing.Size(506, 83);
             this.groupBox14.TabIndex = 96;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Status Mental";
@@ -5914,7 +5914,7 @@
             this.txStsMental3.Enabled = false;
             this.txStsMental3.Location = new System.Drawing.Point(216, 57);
             this.txStsMental3.Name = "txStsMental3";
-            this.txStsMental3.Size = new System.Drawing.Size(274, 21);
+            this.txStsMental3.Size = new System.Drawing.Size(273, 21);
             this.txStsMental3.TabIndex = 101;
             // 
             // txStsMental2
@@ -5924,7 +5924,7 @@
             this.txStsMental2.Enabled = false;
             this.txStsMental2.Location = new System.Drawing.Point(130, 35);
             this.txStsMental2.Name = "txStsMental2";
-            this.txStsMental2.Size = new System.Drawing.Size(360, 21);
+            this.txStsMental2.Size = new System.Drawing.Size(359, 21);
             this.txStsMental2.TabIndex = 99;
             // 
             // chkStasMental3
@@ -5973,7 +5973,7 @@
             this.groupBox25.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox25.Location = new System.Drawing.Point(5, 314);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(506, 74);
+            this.groupBox25.Size = new System.Drawing.Size(505, 74);
             this.groupBox25.TabIndex = 110;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "Status Spiritual";
@@ -5984,7 +5984,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txkegSpirit.Location = new System.Drawing.Point(215, 41);
             this.txkegSpirit.Name = "txkegSpirit";
-            this.txkegSpirit.Size = new System.Drawing.Size(274, 21);
+            this.txkegSpirit.Size = new System.Drawing.Size(273, 21);
             this.txkegSpirit.TabIndex = 112;
             // 
             // label80
@@ -6001,7 +6001,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txkegAgama.Location = new System.Drawing.Point(215, 16);
             this.txkegAgama.Name = "txkegAgama";
-            this.txkegAgama.Size = new System.Drawing.Size(274, 21);
+            this.txkegAgama.Size = new System.Drawing.Size(273, 21);
             this.txkegAgama.TabIndex = 111;
             // 
             // label79
@@ -6028,7 +6028,7 @@
             this.gbStsPsikologi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbStsPsikologi.Location = new System.Drawing.Point(2, -3);
             this.gbStsPsikologi.Name = "gbStsPsikologi";
-            this.gbStsPsikologi.Size = new System.Drawing.Size(509, 63);
+            this.gbStsPsikologi.Size = new System.Drawing.Size(508, 63);
             this.gbStsPsikologi.TabIndex = 4;
             this.gbStsPsikologi.TabStop = false;
             this.gbStsPsikologi.Text = "Status Psikologi";
@@ -6107,7 +6107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txStsPsikologi.Location = new System.Drawing.Point(142, 35);
             this.txStsPsikologi.Name = "txStsPsikologi";
-            this.txStsPsikologi.Size = new System.Drawing.Size(350, 21);
+            this.txStsPsikologi.Size = new System.Drawing.Size(349, 21);
             this.txStsPsikologi.TabIndex = 95;
             // 
             // label78
@@ -6134,7 +6134,7 @@
             this.groupBox13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.Location = new System.Drawing.Point(4, 14);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(488, 63);
+            this.groupBox13.Size = new System.Drawing.Size(487, 63);
             this.groupBox13.TabIndex = 88;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Status Psikologi";
@@ -6212,7 +6212,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox41.Location = new System.Drawing.Point(67, 35);
             this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(415, 21);
+            this.textBox41.Size = new System.Drawing.Size(414, 21);
             this.textBox41.TabIndex = 4;
             // 
             // label71
@@ -6236,10 +6236,10 @@
             this.xtraScrollableControl4.Controls.Add(this.gbHambatanBljr);
             this.xtraScrollableControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl4.FireScrollEventOnMouseWheel = true;
-            this.xtraScrollableControl4.Location = new System.Drawing.Point(3, 419);
+            this.xtraScrollableControl4.Location = new System.Drawing.Point(3, 422);
             this.xtraScrollableControl4.Name = "xtraScrollableControl4";
             this.xtraScrollableControl4.ScrollBarSmallChange = 1;
-            this.xtraScrollableControl4.Size = new System.Drawing.Size(500, 191);
+            this.xtraScrollableControl4.Size = new System.Drawing.Size(499, 192);
             this.xtraScrollableControl4.TabIndex = 1;
             // 
             // label96
@@ -7017,7 +7017,7 @@
             this.mainTab.Location = new System.Drawing.Point(0, 0);
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedTabPage = this.tab1;
-            this.mainTab.Size = new System.Drawing.Size(1558, 650);
+            this.mainTab.Size = new System.Drawing.Size(1558, 657);
             this.mainTab.TabIndex = 4;
             this.mainTab.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tab1,
@@ -9274,7 +9274,7 @@
             this.repositoryItemComboBox5,
             this.repositoryItemDateEdit3,
             this.repositoryItemTextEdit3});
-            this.gObatUmum.Size = new System.Drawing.Size(690, 396);
+            this.gObatUmum.Size = new System.Drawing.Size(697, 396);
             this.gObatUmum.TabIndex = 8;
             this.gObatUmum.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvObatUmum});
@@ -9685,7 +9685,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.sHapusRacik);
             this.splitContainer1.Panel2.Controls.Add(this.sSimpanRacik);
             this.splitContainer1.Panel2.Controls.Add(this.gdRacik);
-            this.splitContainer1.Size = new System.Drawing.Size(1552, 221);
+            this.splitContainer1.Size = new System.Drawing.Size(1552, 228);
             this.splitContainer1.SplitterDistance = 760;
             this.splitContainer1.TabIndex = 6;
             // 
@@ -9744,7 +9744,7 @@
             this.gridRacik.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpDateR,
             this.rpTimetR});
-            this.gridRacik.Size = new System.Drawing.Size(760, 221);
+            this.gridRacik.Size = new System.Drawing.Size(760, 228);
             this.gridRacik.TabIndex = 7;
             this.gridRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridHRacik});
@@ -9927,7 +9927,7 @@
             this.repositoryItemComboBox6,
             this.repositoryItemDateEdit5,
             this.repositoryItemTextEdit5});
-            this.gdRacik.Size = new System.Drawing.Size(788, 221);
+            this.gdRacik.Size = new System.Drawing.Size(788, 228);
             this.gdRacik.TabIndex = 110;
             this.gdRacik.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRacik});
@@ -10988,7 +10988,7 @@
             this.repositoryItemComboBox8,
             this.repositoryItemTimeEdit1,
             this.repositoryItemTextEdit4});
-            this.gridMedisU.Size = new System.Drawing.Size(770, 307);
+            this.gridMedisU.Size = new System.Drawing.Size(770, 314);
             this.gridMedisU.TabIndex = 2;
             this.gridMedisU.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMedisU});

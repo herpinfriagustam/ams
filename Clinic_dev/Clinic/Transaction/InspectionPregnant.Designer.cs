@@ -589,6 +589,7 @@
             this.xtraTabPage12 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.labelControl223 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.lTindRm = new DevExpress.XtraEditors.LabelControl();
             this.lTindQue = new DevExpress.XtraEditors.LabelControl();
@@ -596,6 +597,34 @@
             this.loadTind = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl206 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.gridControl14 = new DevExpress.XtraGrid.GridControl();
+            this.gridView14 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gObatJual = new DevExpress.XtraGrid.GridControl();
+            this.gvObatJual = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn62 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn63 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn105 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn106 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn107 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn108 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn109 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn110 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn111 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn112 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn113 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn114 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn115 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn116 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn117 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel24 = new System.Windows.Forms.Panel();
             this.labelControl60 = new DevExpress.XtraEditors.LabelControl();
             this.lTinDesc = new DevExpress.XtraEditors.LabelControl();
@@ -622,8 +651,6 @@
             this.labelControl214 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl13 = new DevExpress.XtraGrid.GridControl();
             this.gridView13 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl14 = new DevExpress.XtraGrid.GridControl();
-            this.gridView14 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -665,7 +692,6 @@
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerEnd = new System.Windows.Forms.Timer(this.components);
-            this.labelControl223 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -868,13 +894,18 @@
             this.tableLayoutPanel13.SuspendLayout();
             this.panel23.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView14)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gObatJual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvObatJual)).BeginInit();
             this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView14)).BeginInit();
             this.xtraTabPage6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -7302,6 +7333,17 @@
             this.panel23.Size = new System.Drawing.Size(773, 50);
             this.panel23.TabIndex = 0;
             // 
+            // labelControl223
+            // 
+            this.labelControl223.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl223.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.labelControl223.Location = new System.Drawing.Point(314, 16);
+            this.labelControl223.Name = "labelControl223";
+            this.labelControl223.Size = new System.Drawing.Size(144, 19);
+            this.labelControl223.TabIndex = 139;
+            this.labelControl223.Text = "LBL INFO ACTION";
+            this.labelControl223.Visible = false;
+            // 
             // simpleButton2
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -7375,11 +7417,11 @@
             this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel14.Controls.Add(this.tabControl1, 0, 4);
             this.tableLayoutPanel14.Controls.Add(this.panel24, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.panel25, 0, 1);
             this.tableLayoutPanel14.Controls.Add(this.panel26, 0, 3);
             this.tableLayoutPanel14.Controls.Add(this.gridControl13, 0, 2);
-            this.tableLayoutPanel14.Controls.Add(this.gridControl14, 0, 4);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 50);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
@@ -7392,6 +7434,307 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(773, 753);
             this.tableLayoutPanel14.TabIndex = 1;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tabControl1.Location = new System.Drawing.Point(3, 353);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(767, 397);
+            this.tabControl1.TabIndex = 110;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.gridControl14);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(759, 368);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Tindakan Pelayanan";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // gridControl14
+            // 
+            this.gridControl14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl14.Location = new System.Drawing.Point(3, 3);
+            this.gridControl14.MainView = this.gridView14;
+            this.gridControl14.Name = "gridControl14";
+            this.gridControl14.Size = new System.Drawing.Size(753, 362);
+            this.gridControl14.TabIndex = 4;
+            this.gridControl14.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView14});
+            // 
+            // gridView14
+            // 
+            this.gridView14.GridControl = this.gridControl14;
+            this.gridView14.Name = "gridView14";
+            this.gridView14.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView14_CustomDrawRowIndicator);
+            this.gridView14.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView14_RowCellStyle);
+            this.gridView14.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView14_InitNewRow);
+            this.gridView14.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView14_CellValueChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.gObatJual);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(759, 368);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Alkes Pelayanan";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gObatJual
+            // 
+            this.gObatJual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gObatJual.Location = new System.Drawing.Point(3, 3);
+            this.gObatJual.MainView = this.gvObatJual;
+            this.gObatJual.Name = "gObatJual";
+            this.gObatJual.Size = new System.Drawing.Size(753, 362);
+            this.gObatJual.TabIndex = 5;
+            this.gObatJual.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvObatJual});
+            // 
+            // gvObatJual
+            // 
+            this.gvObatJual.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gvObatJual.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvObatJual.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gvObatJual.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvObatJual.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.gvObatJual.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gvObatJual.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42,
+            this.gridColumn62,
+            this.gridColumn63,
+            this.gridColumn105,
+            this.gridColumn106,
+            this.gridColumn107,
+            this.gridColumn108,
+            this.gridColumn109,
+            this.gridColumn110,
+            this.gridColumn111,
+            this.gridColumn112,
+            this.gridColumn113,
+            this.gridColumn114,
+            this.gridColumn115,
+            this.gridColumn116,
+            this.gridColumn117});
+            this.gvObatJual.GridControl = this.gObatJual;
+            this.gvObatJual.Name = "gvObatJual";
+            this.gvObatJual.OptionsView.ShowGroupPanel = false;
+            this.gvObatJual.OptionsView.ShowViewCaption = true;
+            this.gvObatJual.ViewCaption = "List Alat Kesehatan dan Obat";
+            this.gvObatJual.ViewCaptionHeight = 35;
+            this.gvObatJual.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvObatJual_CustomDrawRowIndicator);
+            this.gvObatJual.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvObatJual_InitNewRow);
+            this.gvObatJual.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvObatJual_CellValueChanged);
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn37.Caption = "receipt_id";
+            this.gridColumn37.FieldName = "RECEIPT_ID";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Width = 38;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn38.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn38.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn38.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn38.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn38.Caption = "Nama Alat/Obat";
+            this.gridColumn38.FieldName = "MED_CD";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 1;
+            this.gridColumn38.Width = 399;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "med_group";
+            this.gridColumn39.FieldName = "MED_GROUP";
+            this.gridColumn39.Name = "gridColumn39";
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn40.Caption = "KODE";
+            this.gridColumn40.FieldName = "MED_CD";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 0;
+            this.gridColumn40.Width = 109;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn41.Caption = "Formula";
+            this.gridColumn41.FieldName = "FORMULA";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Width = 62;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "type_drink";
+            this.gridColumn42.FieldName = "TYPE_DRINK";
+            this.gridColumn42.Name = "gridColumn42";
+            // 
+            // gridColumn62
+            // 
+            this.gridColumn62.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn62.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn62.Caption = "Stok";
+            this.gridColumn62.FieldName = "STOCK";
+            this.gridColumn62.Name = "gridColumn62";
+            this.gridColumn62.Width = 68;
+            // 
+            // gridColumn63
+            // 
+            this.gridColumn63.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn63.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn63.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn63.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn63.Caption = "Qty";
+            this.gridColumn63.FieldName = "MED_QTY";
+            this.gridColumn63.Name = "gridColumn63";
+            this.gridColumn63.Visible = true;
+            this.gridColumn63.VisibleIndex = 2;
+            this.gridColumn63.Width = 60;
+            // 
+            // gridColumn105
+            // 
+            this.gridColumn105.Caption = "UOM";
+            this.gridColumn105.FieldName = "UOM";
+            this.gridColumn105.Name = "gridColumn105";
+            // 
+            // gridColumn106
+            // 
+            this.gridColumn106.Caption = "action";
+            this.gridColumn106.FieldName = "ACTION";
+            this.gridColumn106.Name = "gridColumn106";
+            // 
+            // gridColumn107
+            // 
+            this.gridColumn107.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn107.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn107.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn107.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn107.Caption = "Confirm";
+            this.gridColumn107.FieldName = "CONFIRM";
+            this.gridColumn107.Name = "gridColumn107";
+            this.gridColumn107.Width = 46;
+            // 
+            // gridColumn108
+            // 
+            this.gridColumn108.Caption = "DAYS";
+            this.gridColumn108.FieldName = "DAYS";
+            this.gridColumn108.Name = "gridColumn108";
+            // 
+            // gridColumn109
+            // 
+            this.gridColumn109.Caption = "PRICE";
+            this.gridColumn109.FieldName = "PRICE";
+            this.gridColumn109.Name = "gridColumn109";
+            // 
+            // gridColumn110
+            // 
+            this.gridColumn110.Caption = "qty_day";
+            this.gridColumn110.FieldName = "QTY_DAY";
+            this.gridColumn110.Name = "gridColumn110";
+            // 
+            // gridColumn111
+            // 
+            this.gridColumn111.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn111.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn111.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn111.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn111.Caption = "Dosis";
+            this.gridColumn111.FieldName = "DOSIS";
+            this.gridColumn111.Name = "gridColumn111";
+            this.gridColumn111.Width = 50;
+            // 
+            // gridColumn112
+            // 
+            this.gridColumn112.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn112.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn112.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn112.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn112.Caption = "Tanggal";
+            this.gridColumn112.FieldName = "INSP_DATE";
+            this.gridColumn112.Name = "gridColumn112";
+            this.gridColumn112.Width = 79;
+            // 
+            // gridColumn113
+            // 
+            this.gridColumn113.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn113.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn113.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn113.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn113.Caption = "Jam";
+            this.gridColumn113.FieldName = "INS_JAM";
+            this.gridColumn113.Name = "gridColumn113";
+            this.gridColumn113.Width = 44;
+            // 
+            // gridColumn114
+            // 
+            this.gridColumn114.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn114.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn114.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn114.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn114.Caption = "Jam-2";
+            this.gridColumn114.FieldName = "JAM2";
+            this.gridColumn114.Name = "gridColumn114";
+            this.gridColumn114.Width = 47;
+            // 
+            // gridColumn115
+            // 
+            this.gridColumn115.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn115.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn115.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn115.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn115.Caption = "Jam-3";
+            this.gridColumn115.FieldName = "JAM3";
+            this.gridColumn115.Name = "gridColumn115";
+            this.gridColumn115.Width = 47;
+            // 
+            // gridColumn116
+            // 
+            this.gridColumn116.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn116.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn116.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn116.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn116.Caption = "Jam-4";
+            this.gridColumn116.FieldName = "JAM4";
+            this.gridColumn116.Name = "gridColumn116";
+            this.gridColumn116.Width = 47;
+            // 
+            // gridColumn117
+            // 
+            this.gridColumn117.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn117.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn117.Caption = "Jenis Obat";
+            this.gridColumn117.FieldName = "JENIS_OBAT";
+            this.gridColumn117.Name = "gridColumn117";
+            this.gridColumn117.Width = 98;
             // 
             // panel24
             // 
@@ -7693,26 +8036,6 @@
             this.gridView13.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView13_RowCellStyle);
             this.gridView13.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView13_InitNewRow);
             this.gridView13.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView13_CellValueChanged);
-            // 
-            // gridControl14
-            // 
-            this.gridControl14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl14.Location = new System.Drawing.Point(3, 353);
-            this.gridControl14.MainView = this.gridView14;
-            this.gridControl14.Name = "gridControl14";
-            this.gridControl14.Size = new System.Drawing.Size(767, 397);
-            this.gridControl14.TabIndex = 4;
-            this.gridControl14.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView14});
-            // 
-            // gridView14
-            // 
-            this.gridView14.GridControl = this.gridControl14;
-            this.gridView14.Name = "gridView14";
-            this.gridView14.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView14_CustomDrawRowIndicator);
-            this.gridView14.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView14_RowCellStyle);
-            this.gridView14.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView14_InitNewRow);
-            this.gridView14.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView14_CellValueChanged);
             // 
             // xtraTabPage6
             // 
@@ -8178,17 +8501,6 @@
             this.timerEnd.Interval = 1000;
             this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
             // 
-            // labelControl223
-            // 
-            this.labelControl223.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl223.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.labelControl223.Location = new System.Drawing.Point(314, 16);
-            this.labelControl223.Name = "labelControl223";
-            this.labelControl223.Size = new System.Drawing.Size(144, 19);
-            this.labelControl223.TabIndex = 139;
-            this.labelControl223.Text = "LBL INFO ACTION";
-            this.labelControl223.Visible = false;
-            // 
             // InspectionPregnant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8420,6 +8732,13 @@
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView14)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gObatJual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvObatJual)).EndInit();
             this.panel24.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
@@ -8427,8 +8746,6 @@
             this.panel26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView14)).EndInit();
             this.xtraTabPage6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -9081,5 +9398,31 @@
         private DevExpress.XtraEditors.LabelControl labelControl221;
         private DevExpress.XtraEditors.LabelControl labelControl222;
         private DevExpress.XtraEditors.LabelControl labelControl223;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private DevExpress.XtraGrid.GridControl gObatJual;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvObatJual;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn62;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn63;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn105;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn106;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn107;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn108;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn109;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn110;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn111;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn112;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn113;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn114;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn115;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn116;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn117;
     }
 }

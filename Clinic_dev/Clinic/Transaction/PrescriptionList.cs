@@ -1100,8 +1100,8 @@ namespace Clinic
                             {
                                 if (temp_confrm.ToString().Equals("N"))
                                 {
-                                    command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " + //, TRANS_REMARK
-                                                " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', 1, sysdate,'" + DB.vUserId + "') "; //,'" + tdrink + "'
+                                    command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " + //, TRANS_REMARK
+                                                " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', 1, sysdate,'" + DB.vUserId + "') "; //,'" + tdrink + "'
 
                                     command.ExecuteNonQuery();
                                 }
@@ -1263,8 +1263,8 @@ namespace Clinic
                                 {
                                     if (temp_confrm.ToString().Equals("N"))
                                     {
-                                        command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
-                                                    " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+                                        command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+                                                    " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
 
                                         command.ExecuteNonQuery();
                                     }
@@ -1497,8 +1497,8 @@ namespace Clinic
                                 {
                                     if (temp_confrm.ToString().Equals("N"))
                                     {
-                                        command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
-                                                    " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+                                        command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+                                                    " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
 
                                         command.ExecuteNonQuery();
                                     }
@@ -2316,8 +2316,8 @@ namespace Clinic
                             {
                                 if (temp_confrm.ToString().Equals("N"))
                                 {
-                                    command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " +
-                                                " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
+                                    command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " +
+                                                " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
 
                                     command.ExecuteNonQuery();
                                 } 

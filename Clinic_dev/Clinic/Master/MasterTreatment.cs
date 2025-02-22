@@ -440,7 +440,7 @@ namespace Clinic
         { 
             string SQL = " select 'S' action, a.TREAT_ITEM_NAME, count(distinct b.MED_CD) Jumlah_Item  " +
                             "  from klinik.CS_TREATMENT_ITEM a " +
-                            "   join klinik.CS_TREATMENT_MED b on (a.treat_item_id = b.treat_item_id) " +
+                            "   left join klinik.CS_TREATMENT_MED b on (a.treat_item_id = b.treat_item_id) " +
                             "  join klinik.cs_treatment_group c on (a.TREAT_GROUP_ID = c.TREAT_GROUP_ID) " +
                             "where a.STATUS ='A' and MAP_TYPE ='Y'" +
                             "  and a.TREAT_GROUP_ID not in ('TRG03', 'TRG04','TRG09','TRG11','TRG13','TRG14','TRG15') " +
@@ -1207,6 +1207,7 @@ namespace Clinic
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             loadDataMap();
+            loadDataObat("");
         }
 
         private void gvMap_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
@@ -1325,10 +1326,6 @@ namespace Clinic
                     sql_all = " insert into  klinik.CS_TREATMENT_MED (TREAT_MED_ID, TREAT_ITEM_ID, MED_CD, MED_QTY, STATUS, INS_DATE, INS_EMP ) values " +
                                 " (klinik.CS_TREATMED_SEQ.nextval,'" + id_lynan + "','" + temp_code + "','" + temp_q + "', 'A', sysdate,'" + DB.vUserId + "'  ) ";
                      
-                    //sql_all = " ";
-                    //sql_all = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
-                    //          " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
-
                     ORADB.Execute(ORADB.XE, sql_all);
 
                     ssimpan = 1;
@@ -1404,6 +1401,7 @@ namespace Clinic
             GridView view = sender as GridView;
 
             view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
+            view.SetRowCellValue(e.RowHandle, view.Columns[3], 1);
         }
     }
 }

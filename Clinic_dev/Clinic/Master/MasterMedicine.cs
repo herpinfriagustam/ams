@@ -625,8 +625,8 @@ namespace Clinic
                     {
                         sql_insert = "";
 
-                        sql_insert = sql_insert + " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, trans_remark, ins_date, ins_emp) values ";
-                        sql_insert = sql_insert + " (cs_medtrans_seq.nextval, '" + med_cd + "', 'IN', sysdate, '" + p_qty + "', '" + p_batch + "', to_date('" + p_expire + "','yyyy-mm-dd'), '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
+                        sql_insert = sql_insert + " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, trans_remark, ins_date, ins_emp) values ";
+                        sql_insert = sql_insert + " ('" + med_cd + "', 'IN', sysdate, '" + p_qty + "', '" + p_batch + "', to_date('" + p_expire + "','yyyy-mm-dd'), '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
 
                         try
                         {
@@ -1020,8 +1020,8 @@ namespace Clinic
                     {
                         sql_insert = "";
 
-                        sql_insert = sql_insert + " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, trans_cd, trans_remark, ins_date, ins_emp) values ";
-                        sql_insert = sql_insert + " (cs_medtrans_seq.nextval, '" + med_cd + "', 'OUT', sysdate, '" + p_qty + "', '" + p_code + "', '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
+                        sql_insert = sql_insert + " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, trans_cd, trans_remark, ins_date, ins_emp) values ";
+                        sql_insert = sql_insert + " ( '" + med_cd + "', 'OUT', sysdate, '" + p_qty + "', '" + p_code + "', '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
 
                         try
                         {
