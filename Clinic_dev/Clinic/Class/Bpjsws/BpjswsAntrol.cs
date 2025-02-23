@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Clinic.Class.Bpjsws
 {
-    public class BpjswsAntrol
+    public class BpjswsAntrol : BpjswsRequestBase
     {
         /// <summary>
         /// mendapatkan referensi poli yang terdaftar di HFIS
@@ -18,38 +18,8 @@ namespace Clinic.Class.Bpjsws
         public static BpjswsResponse GetReferensiPoli(string tgl)
         {
             string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_REF_POLI_URL.Replace(@"{tanggal}", DateTime.Now.ToString("yyyy-MM-dd"));
-            string unixTime = Bpjsws.CurrentUnixTime.ToString();
 
-            // headers
-            Dictionary<string, string> headers = new Dictionary<string, string>
-            {
-                { "x-cons-id",  Bpjsws.CONS_ID },
-                { "x-timestamp",  unixTime },
-                { "x-signature",  Bpjsws.CreateSignature(unixTime) },
-                { "user_key",  Bpjsws.USER_KEY },
-            };
-
-            // do request
-            BpjswsResponse response = Bpjsws.Request<Clinic.Class.Bpjsws.BpjswsResponse>(url, 
-                Bpjsws.HttpMethodMode.Get,
-                Bpjsws.PostDataType.Json, 
-                headers);
-
-            // handle response
-            if (response != null)
-            {
-                if (response.Metadata.Code == 200) // 200 meaning success
-                {
-                    // decrypt message
-                    string key = Bpjsws.CreateDecryptKey(unixTime);
-                    string decData = Bpjsws.Decrypt(key, response.Response);
-                    List<ModelPoli> listPoli = BpjswsResponseConvert.Convert<List<ModelPoli>>(decData);
-
-                    response.Response = JsonConvert.SerializeObject(listPoli);
-                }
-            }
-
-            return response;
+            return Get(url);
         }
 
         /// <summary>
@@ -63,63 +33,8 @@ namespace Clinic.Class.Bpjsws
             string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_REF_DOKTER_URL
                     .Replace(@"{kodepoli}", poli)
                     .Replace(@"{tanggal}", checkDate);
-            string unixTime = Bpjsws.CurrentUnixTime.ToString();
 
-            // headers
-            Dictionary<string, string> headers = new Dictionary<string, string>
-            {
-                { "x-cons-id",  Bpjsws.CONS_ID },
-                { "x-timestamp",  unixTime },
-                { "x-signature",  Bpjsws.CreateSignature(unixTime) },
-                { "user_key",  Bpjsws.USER_KEY },
-            };
-
-            // do request
-            BpjswsResponse response = Bpjsws.Request<BpjswsResponse>(url, 
-                Bpjsws.HttpMethodMode.Get, 
-                Bpjsws.PostDataType.Json, 
-                headers);
-            
-            // handle request
-            if (response != null)
-            {
-                if (response.Metadata.Code == 200)
-                {
-                    string key = Bpjsws.CreateDecryptKey(unixTime);
-                    string decData = Clinic.Class.Bpjsws.Bpjsws.Decrypt(key, response.Response);
-                    List<ModelDokter> listDokter = BpjswsResponseConvert.Convert<List<ModelDokter>>(decData);
-
-                    response.Response = JsonConvert.SerializeObject(listDokter);
-                }
-            }
-
-            return response;
-        }
-
-        public static BpjswsResponse Post(string url, JObject json)
-        {
-            string unixTime = Bpjsws.CurrentUnixTime.ToString();
-
-            // headers
-            Dictionary<string, string> headers = new Dictionary<string, string>
-            {
-                { "x-cons-id",  Bpjsws.CONS_ID },
-                { "x-timestamp",  unixTime },
-                { "x-signature",  Bpjsws.CreateSignature(unixTime) },
-                { "user_key",  Bpjsws.USER_KEY },
-            };
-
-            // handle response
-            BpjswsResponse response = Bpjsws.Request<BpjswsResponse>(url,
-                Bpjsws.HttpMethodMode.Post,
-                Bpjsws.PostDataType.Json,
-                headers,
-                new Dictionary<string, string>
-                {
-                    { "RAW", json.ToString() }
-                });
-
-            return response;
+            return Get(url);
         }
 
         /// <summary>

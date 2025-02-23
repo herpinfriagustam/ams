@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,8 @@ namespace Clinic.Class.Bpjsws
         public const string CONS_ID = "2555";
         public const string CONS_SECRET = "3sO2B087D0";
         public const string USER_KEY = "580c0ca60ed68122d4943f7e1d32a609";
-        public const string AUTHORIZATION = "c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
+        public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
+        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
 
@@ -46,8 +48,54 @@ namespace Clinic.Class.Bpjsws
         public const string WS_PCARE_GROUP_GET_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta/{Parameter 1}";
         public const string WS_PCARE_GROUP_POST_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/kegiatan";
         public const string WS_PCARE_GROUP_POST_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta";
-        public const string WS_PCARE_GROUP_DELETE_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/kegiatan/{Parameter 1}";
+        public const string WS_PCARE_GROUP_DELETE_ACTIVITY_URL = BASE_URL_PCARE + "//kelompok/kegiatan/{Parameter 1}";
         public const string WS_PCARE_GROUP_DELETE_PATIENT_ACTIVITY_URL = BASE_URL_PCARE + "/kelompok/peserta/{Parameter 1}/{Parameter 2}";
+        public const string WS_PCARE_KESADARAN_GET_URL = BASE_URL_PCARE + "/kesadaran";
+
+        public const string WS_PCARE_KUNJUNGAN_RUJUKAN_GET_URL = BASE_URL_PCARE + "/kunjungan/rujukan/{Parameter 1}";
+        public const string WS_PCARE_KUNJUNGAN_RIWAYAT_GET_URL = BASE_URL_PCARE + "/kunjungan/peserta/{Parameter 1}";
+        public const string WS_PCARE_KUNJUNGAN_ADD_URL = BASE_URL_PCARE + "/kunjungan";
+        public const string WS_PCARE_KUNJUNGAN_EDIT_URL = BASE_URL_PCARE + "//kunjungan";
+        public const string WS_PCARE_KUNJUNGAN_DELETE_URL = BASE_URL_PCARE + "/kunjungan/{Parameter 1}";
+
+        public const string WS_PCARE_MCU_GET_URL = BASE_URL_PCARE + "/MCU/kunjungan/{Parameter 1}";
+        public const string WS_PCARE_MCU_ADD_URL = BASE_URL_PCARE + "/MCU";
+        public const string WS_PCARE_MCU_EDIT_URL = BASE_URL_PCARE + "//MCU";
+        public const string WS_PCARE_MCU_DELETE_URL = BASE_URL_PCARE + "/MCU/{Parameter 1}/kunjungan/{Parameter 2}";
+
+        public const string WS_PCARE_OBAT_DPHO_GET_URL = BASE_URL_PCARE + "/obat/dpho/{Parameter 1}/{Parameter 2}/{Parameter 3}";
+        public const string WS_PCARE_OBAT_KUNJUNGAN_GET_URL = BASE_URL_PCARE + "/obat/kunjungan/{Parameter 1}";
+        public const string WS_PCARE_OBAT_ADD_URL = BASE_URL_PCARE + "/obat/kunjungan";
+        public const string WS_PCARE_OBAT_DELETE_URL = BASE_URL_PCARE + "/obat/{Parameter 1}/kunjungan/{Parameter 2}";
+
+        public const string WS_PCARE_DAFT_BY_NO_GET_URL = BASE_URL_PCARE + "/pendaftaran/noUrut/{Parameter 1}/tglDaftar/{Parameter 2}";
+        public const string WS_PCARE_DAFT_PROVIDER_GET_URL = BASE_URL_PCARE + "/pendaftaran/tglDaftar/{Parameter 1}/{Parameter 2}/{Parameter 3}";
+        public const string WS_PCARE_DAFT_ADD_URL = BASE_URL_PCARE + "/pendaftaran";
+        public const string WS_PCARE_DAFT_DELETE_URL = BASE_URL_PCARE + "/pendaftaran/peserta/{Parameter 1}/tglDaftar/{Parameter 2}/noUrut/{Parameter 3}/kdPoli/{Parameter 4}";
+
+        public const string WS_PCARE_PESERTA_GET_URL = BASE_URL_PCARE + "/peserta/{Parameter 1}";
+        public const string WS_PCARE_PESERTA_BY_GET_URL = BASE_URL_PCARE + "/peserta/{Parameter 1}/{Parameter 2}";
+
+        public const string WS_PCARE_POLI_GET_URL = BASE_URL_PCARE + "/poli/fktp/{Parameter 1}/{Parameter 2}";
+        public const string WS_PCARE_PROVIDER_RAYONISASI_GET_URL = BASE_URL_PCARE + "/provider/{Parameter 1}/{Parameter 2}";
+        public const string WS_PCARE_STATUS_PULANG_GET_URL = BASE_URL_PCARE + "/statuspulang/rawatInap/{Parameter 1}";
+        public const string WS_PCARE_ALERGI_GET_URL = BASE_URL_PCARE + "/alergi/jenis/{parameter 1}";
+        public const string WS_PCARE_PROGNOSA_GET_URL = BASE_URL_PCARE + "/prognosa";
+
+        public const string WS_PCARE_SPESIALIS_REF_GET_URL = BASE_URL_PCARE + "/spesialis";
+        public const string WS_PCARE_SPESIALIS_SUB_REF_GET_URL = BASE_URL_PCARE + "/spesialis/{Parameter 1}/subspesialis";
+        public const string WS_PCARE_SPESIALIS_SARANA_REF_GET_URL = BASE_URL_PCARE + "/spesialis/sarana";
+        public const string WS_PCARE_SPESIALIS_KHUSUS_REF_GET_URL = BASE_URL_PCARE + "/spesialis/khusus";
+        public const string WS_PCARE_SPESIALIS_FRSS_GET_URL = BASE_URL_PCARE + "/spesialis/rujuk/subspesialis/{Parameter 1}/sarana/{Parameter 2}/tglEstRujuk/{Parameter 3}";
+        public const string WS_PCARE_SPESIALIS_FRK1_GET_URL = BASE_URL_PCARE + "/spesialis/rujuk/khusus/{Parameter 1}/noKartu/{Parameter 2}/tglEstRujuk/{Parameter 3}";
+        public const string WS_PCARE_SPESIALIS_FRK2_GET_URL = BASE_URL_PCARE + "/spesialis/rujuk/khusus/{Parameter 1}/subspesialis/{Parameter 2}/noKartu/{Parameter 3}/tglEstRujuk/{Parameter 4}";
+
+        public const string WS_PCARE_TINDAKAN_BY_KUNJUNGAN_GET_URL = BASE_URL_PCARE + "/tindakan/kunjungan/{Parameter 1}";
+        public const string WS_PCARE_TINDAKAN_REF_GET_URL = BASE_URL_PCARE + "/tindakan/kdTkp/{Parameter 1}/{Parameter 2}/{Parameter 3}";
+        public const string WS_PCARE_TINDAKAN_ADD_URL = BASE_URL_PCARE + "/tindakan";
+        public const string WS_PCARE_TINDAKAN_EDIT_URL = BASE_URL_PCARE + "/tindakan";
+        public const string WS_PCARE_TINDAKAN_DELETE_URL = BASE_URL_PCARE + "/tindakan/{Parameter 1}/kunjungan/{Parameter 2}";
+
 
         public static long CurrentUnixTime
         {
@@ -126,11 +174,48 @@ namespace Clinic.Class.Bpjsws
             string respStr = Request(url, method, dataType, headers, dataOrQParams);
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(respStr);
+                T r = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(respStr);
+                if(typeof(T) == typeof(BpjswsResponse))
+                {
+                    string unixTime = headers.ContainsKey("x-timestamp") ? headers["x-timestamp"]?.ToString() : "";
+                    foreach (PropertyInfo prop in r.GetType().GetProperties())
+                    {
+                        if (prop.Name == "ResponseRaw") prop.SetValue(r, respStr);
+                    }
+                }
+
+                return r;
             }
             catch(Exception ex)
             {
                 Console.WriteLine($"Request Exception: { ex.Message }");
+                if (typeof(T) == typeof(BpjswsResponse))
+                {
+                    Type type = typeof(T);
+                    T obj = (T)Activator.CreateInstance(type);
+                    
+                    foreach(PropertyInfo prop in type.GetProperties())
+                    {
+                        if (prop.Name == "Response") prop.SetValue(obj, respStr);
+                        else if (prop.Name == "Metadata")
+                        {
+                            try
+                            {
+                                BpjswsResponse.MetaData meta = new BpjswsResponse.MetaData();
+                                meta.Code = -1;
+                                meta.Message = respStr == "" || respStr == null ? ex.Message : respStr;
+
+                                prop.SetValue(obj, meta);
+                            }
+                            catch(Exception exx)
+                            {
+                                Console.WriteLine($"Request Exception: { exx.Message }");
+                            }
+                        }
+                    }
+
+                    return obj;
+                }
             }
 
             return default(T);
@@ -197,19 +282,24 @@ namespace Clinic.Class.Bpjsws
                     string jr = "";
                     using (HttpWebResponse r = wex.Response as HttpWebResponse)
                     {
-                        jr = "{ \"response\": null, \"metadata\": { \"code\": "+ (int)r.StatusCode  +", \"message\": \"" + wex.Message + "\"}}";
+                        using (StreamReader reader = new StreamReader(wex.Response.GetResponseStream()))
+                        {
+                            if(reader != null) jr = reader.ReadToEnd();
+                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + (int)r.StatusCode + ", \"message\": \"" + wex.Message + "\"}}";
+                        }
+                        
                     }
 
                     return jr;
                 }
 
                 Console.WriteLine($"Request Exception: { wex.Message }");
-                return "";
+                return "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Unknown Error!\"}}";
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Request Exception: { ex.Message }");
-                return "";
+                return "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Exception: " + ex.Message + "\"}}";
             }
         }
 
@@ -221,13 +311,16 @@ namespace Clinic.Class.Bpjsws
             try
             {
                 decData = DecryptStringFromBytes_Aes(data, keys[0], keys[1]);
+
+                string d = LZStringCSharp.LZString.DecompressFromEncodedURIComponent(decData);
+
+                return d;
             }
             catch (CryptographicException) { }
             catch (ArgumentNullException) { }
+            catch(Exception ex) { }
 
-            string d = LZStringCSharp.LZString.DecompressFromEncodedURIComponent(decData);
-
-            return d;
+            return data;
         }
 
         private static string DecryptStringFromBytes_Aes(string cipherTextString, byte[] Key, byte[] IV)

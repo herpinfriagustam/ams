@@ -11,10 +11,14 @@ namespace Clinic.Class.Bpjsws
     public class BpjswsResponse
     {
         public MetaData Metadata { get; set; }
-        public string Response { get; set; }
+        public object Response { get; set; }
+        public string ResponseRaw { get; set; }
+        public string ResponseRawDecrypted { get; set; }
         public T GetResponse<T>(string str) {
             return BpjswsResponseConvert.Convert<T>(str);
         }
+
+        public string RequestTimestamp { get; set; }
 
         public JObject GetResponseJO()
         {
@@ -35,7 +39,13 @@ namespace Clinic.Class.Bpjsws
         {
             try { 
                 if(this.Response != null)
-                    this.Response = JObject.Parse(this.Response).ToString(Formatting.Indented);
+                {
+                    string key = Bpjsws.CreateDecryptKey(this.RequestTimestamp);
+                    string decrypt = Bpjsws.Decrypt(key, this.Response?.ToString());
+                    JToken jt = JToken.Parse(decrypt);
+                    this.Response = jt;
+                }
+                    
             }
             catch (Exception ex) { }
 
@@ -53,6 +63,8 @@ namespace Clinic.Class.Bpjsws
     {
         public MetaData Metadata { get; set; }
         public T response { get; set; }
+
+        public string RequestTimestamp { get; set; }
 
         public T GetResponse(string str)
         {

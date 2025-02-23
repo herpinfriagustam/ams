@@ -36,9 +36,12 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.grpBody = new DevExpress.XtraEditors.GroupControl();
+            this.txtBody = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.txtResponse = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.txtParam4 = new DevExpress.XtraEditors.TextEdit();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtParam3 = new DevExpress.XtraEditors.TextEdit();
@@ -72,18 +75,19 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtConsId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtBody = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpBody)).BeginInit();
             this.grpBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBody.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtResponse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParam4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam1.Properties)).BeginInit();
@@ -102,7 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsSecret.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBody.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -147,6 +150,14 @@
             this.grpBody.TabIndex = 0;
             this.grpBody.Text = "Request Body";
             // 
+            // txtBody
+            // 
+            this.txtBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBody.Location = new System.Drawing.Point(2, 20);
+            this.txtBody.Name = "txtBody";
+            this.txtBody.Size = new System.Drawing.Size(247, 192);
+            this.txtBody.TabIndex = 2;
+            // 
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.txtResponse);
@@ -167,6 +178,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl15);
+            this.panelControl1.Controls.Add(this.txtParam4);
             this.panelControl1.Controls.Add(this.btnSend);
             this.panelControl1.Controls.Add(this.labelControl14);
             this.panelControl1.Controls.Add(this.txtParam3);
@@ -191,6 +204,23 @@
             this.panelControl1.Size = new System.Drawing.Size(504, 248);
             this.panelControl1.TabIndex = 0;
             // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(256, 193);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(59, 13);
+            this.labelControl15.TabIndex = 18;
+            this.labelControl15.Text = "Parameter 4";
+            // 
+            // txtParam4
+            // 
+            this.txtParam4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtParam4.Location = new System.Drawing.Point(321, 190);
+            this.txtParam4.Name = "txtParam4";
+            this.txtParam4.Size = new System.Drawing.Size(168, 20);
+            this.txtParam4.TabIndex = 17;
+            // 
             // btnSend
             // 
             this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -211,11 +241,9 @@
             // 
             // txtParam3
             // 
-            this.txtParam3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtParam3.Location = new System.Drawing.Point(88, 190);
             this.txtParam3.Name = "txtParam3";
-            this.txtParam3.Size = new System.Drawing.Size(401, 20);
+            this.txtParam3.Size = new System.Drawing.Size(163, 20);
             this.txtParam3.TabIndex = 14;
             // 
             // labelControl13
@@ -510,14 +538,6 @@
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "Cons ID";
             // 
-            // txtBody
-            // 
-            this.txtBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBody.Location = new System.Drawing.Point(2, 20);
-            this.txtBody.Name = "txtBody";
-            this.txtBody.Size = new System.Drawing.Size(247, 192);
-            this.txtBody.TabIndex = 2;
-            // 
             // BpjswsTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,12 +553,14 @@
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpBody)).EndInit();
             this.grpBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtBody.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtResponse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParam4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParam1.Properties)).EndInit();
@@ -558,7 +580,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsSecret.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBody.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,5 +626,7 @@
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.SimpleButton btnSend;
         private DevExpress.XtraEditors.MemoEdit txtBody;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.TextEdit txtParam4;
     }
 }

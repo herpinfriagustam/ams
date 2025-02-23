@@ -15,7 +15,9 @@ using System.Net;
 using Clinic.Report;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraEditors; 
+using DevExpress.XtraEditors;
+using Newtonsoft.Json.Linq;
+using Clinic.Class.Bpjsws;
 
 namespace Clinic
 {
@@ -967,7 +969,46 @@ namespace Clinic
 
             if(rm_number.ToString().Equals("REG"))
             {
-                string sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                // checking is bpjs or no
+                string noAntrian = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "QUE01")?.ToString();
+                string sql = $@"SELECT QUE, POLI_CD, NO_BPJS, TO_CHAR(INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG WHERE QUE = '{ noAntrian }' AND NO_BPJS IS NOT NULL";
+
+                OleDbDataAdapter adapter = new OleDbDataAdapter(sql, ConnOra.Create_Connect_Ora());
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                if(dt != null && dt.Rows.Count > 0)
+                {
+                    // send ke bpjs first
+                    // sesuai aturan dari TRUST
+                    // Update Status / Panggil Antrean
+
+                    DataRow row = dt.Rows[0];
+                    string kodePoli = row["POLI_CD"]?.ToString();
+                    string nomorKartu = row["NO_BPJS"]?.ToString();
+                    string tglPeriksa = row["INS_DATE"]?.ToString();
+
+                    // struktur json
+                    JObject json = new JObject();
+                    json.Add("tanggalperiksa", tglPeriksa);
+                    json.Add("kodepoli", kodePoli);
+                    json.Add("nomorkartu", nomorKartu);
+                    json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
+                    json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+
+                    // kirim ke bpjs
+                    // jika gagal langsung munculkan error dan aplikasi terhenti
+                    // jika berhasil system meneruskan penyimpanan seperti biasanya
+                    BpjswsResponse resp = BpjswsAntrol.PanggilAntrean(json);
+                    if (resp.Metadata.Code != 200)
+                    {
+                        MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                
+
+                // call internal app
+                sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                 OleDbCommand cm = new OleDbCommand(sql, oraConnect);
