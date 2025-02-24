@@ -873,7 +873,6 @@ namespace Clinic
                 SetCheckBoxValues(checkBoxes, dt[2].ToString());
             }
         }
-
         public static void splitVal5(string data, RadioGroup rg, TextBox tx, TextBox tx2, TextBox tx3)
         {
             string[] dt = data.Split(new string[] { "::" }, StringSplitOptions.None);

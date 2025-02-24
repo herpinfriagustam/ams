@@ -4690,7 +4690,7 @@ namespace Clinic
                                                         //                      " select klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
 
                                                         command.CommandText = " insert into klinik.cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, DET_APT_TRX_ID, FORMULAID, ins_date, ins_emp, ID_VISIT)  " +
-                                                                " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',1,0) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "' ,'" + visitid + "' " +
+                                                                " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',0,1) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "' ,'" + visitid + "' " +
                                                                 "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  " +
                                                                 "   join klinik.CS_TREATMENT_MED c  on(a.med_cd=c.med_cd)  " +
                                                                 "   join klinik.CS_TREATMENT_ITEM d  on(d.TREAT_ITEM_ID=c.TREAT_ITEM_ID and decode(a.ATT1,'UMUM','U','BPJS','B','A') = d.F_STATUS )  " +
@@ -4791,7 +4791,7 @@ namespace Clinic
                                             if (mapt.ToString().Equals("Y"))
                                             { 
                                                 command.CommandText = " insert into klinik.cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, DET_APT_TRX_ID, FORMULAID, ins_date, ins_emp, ID_VISIT)  " +
-                                                        " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',1,0) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "','" + visitid + "' " +
+                                                        " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',0,1) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "','" + visitid + "' " +
                                                         "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  " +
                                                         "   join klinik.CS_TREATMENT_MED c  on(a.med_cd=c.med_cd)  " +
                                                         "   join klinik.CS_TREATMENT_ITEM d  on(d.TREAT_ITEM_ID=c.TREAT_ITEM_ID and decode(a.ATT1,'UMUM','U','BPJS','B','A') = d.F_STATUS )  " +
@@ -5109,7 +5109,7 @@ namespace Clinic
                                                         //                      " select klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
 
                                                         command.CommandText = " insert into klinik.cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, DET_APT_TRX_ID, FORMULAID, ins_date, ins_emp,ID_VISIT)  " +
-                                                                " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',1,0) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "', '" + visitid + "' " +
+                                                                " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',0,1) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "', '" + visitid + "' " +
                                                                 "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  " +
                                                                 "   join klinik.CS_TREATMENT_MED c  on(a.med_cd=c.med_cd)  " +
                                                                 "   join klinik.CS_TREATMENT_ITEM d  on(d.TREAT_ITEM_ID=c.TREAT_ITEM_ID and decode(a.ATT1,'UMUM','U','BPJS','B','A') = d.F_STATUS )  " +
@@ -5230,7 +5230,7 @@ namespace Clinic
                                                 //                      " select klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
 
                                                 command.CommandText = " insert into klinik.cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, DET_APT_TRX_ID, FORMULAID, ins_date, ins_emp,ID_VISIT)  " +
-                                                        " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',1,0) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "', '" + visitid + "'  " +
+                                                        " select distinct b.med_cd, 'OUT' trans_type, sysdate trans_date, c.MED_QTY, 0 receipt_id, decode(d.F_STATUS,'B',0,1) insu_cover, d.TREAT_ITEM_ID,  FORMULA_ID, SYSDATE, '" + DB.vUserId + "', '" + visitid + "'  " +
                                                         "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  " +
                                                         "   join klinik.CS_TREATMENT_MED c  on(a.med_cd=c.med_cd)  " +
                                                         "   join klinik.CS_TREATMENT_ITEM d  on(d.TREAT_ITEM_ID=c.TREAT_ITEM_ID and decode(a.ATT1,'UMUM','U','BPJS','B','A') = d.F_STATUS )  " +

@@ -145,6 +145,7 @@
     <Compile Include="Class\Bpjsws\Bpjsws.cs" />
     <Compile Include="Class\Bpjsws\BpjswsAntrol.cs" />
     <Compile Include="Class\Bpjsws\BpjswsPcare.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsRequestBase.cs" />
     <Compile Include="Class\Bpjsws\BpjswsResponse.cs" />
     <Compile Include="Class\Bpjsws\BpjswsResponseList.cs" />
     <Compile Include="Class\Bpjsws\ModelAntrian.cs" />

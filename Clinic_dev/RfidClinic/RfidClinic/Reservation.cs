@@ -116,169 +116,231 @@ namespace RfidClinic
             int tot = 0;
             //string id = "", poli = "", attr01 = "", attr02 = "", attr03 = "", attr04 = "", attr05 = "";
 
-            string SQL = "";
-            SQL = "";
-            SQL = SQL + Environment.NewLine + "select code_id, code_name,  ";
-            SQL = SQL + Environment.NewLine + "attr_01, attr_02, attr_03, attr_04, attr_05 ";
-            SQL = SQL + Environment.NewLine + "from CS_CODE_DATA ";
-            SQL = SQL + Environment.NewLine + "where code_class_id='ANTRIAN'  ";
-            SQL = SQL + Environment.NewLine + "and status='A' ";
-            SQL = SQL + Environment.NewLine + "and attr_01='" + p_attr + "' ";
             if(p_attr.ToString().Equals("2"))
-                SQL = SQL + Environment.NewLine + "and attr_05 ='" + TPoli + "' AND ATTR_04 ='R'";
-            SQL = SQL + Environment.NewLine + "order by sort_order asc ";
-
-
-            try
             {
-                OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-                OleDbDataAdapter adOra2 = new OleDbDataAdapter(SQL, oraConnect2);
-                DataTable dt2 = new DataTable();
-                adOra2.Fill(dt2);
-
-                tot = dt2.Rows.Count;
-
-                LayoutControl layoutControl1 = new LayoutControl();
-                layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-                panel3.Controls.Clear();
-                panel3.Controls.Add(layoutControl1);
-
-                layoutControl1.BeginUpdate();
-                
-
-                LayoutControlGroup group1 = new LayoutControlGroup();
-                group1.Name = "GroupDetails";
-                group1.Text = "Details";
-                group1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Flow;
-                group1.GroupBordersVisible = false;
-
-                for (int i = 0; i < tot; i++)
+                TextBox inputBox = new TextBox
                 {
-                    id = dt2.Rows[i]["code_id"].ToString();
-                    poli = dt2.Rows[i]["code_name"].ToString();
-                    attr01 = dt2.Rows[i]["attr_01"].ToString();
-                    attr02 = dt2.Rows[i]["attr_02"].ToString();
-                    attr03 = dt2.Rows[i]["attr_03"].ToString();
-                    attr04 = dt2.Rows[i]["attr_04"].ToString();
-                    attr05 = dt2.Rows[i]["attr_05"].ToString();
-                    
+                    Location = new System.Drawing.Point(10, 10),
+                    Width = 200
+                };
+                this.Controls.Add(inputBox);
 
-                    SimpleButton button = new SimpleButton();
-                    button.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    button.Appearance.ForeColor = System.Drawing.Color.Black;
-                    button.Appearance.Options.UseFont = true;
-                    button.Appearance.Options.UseForeColor = true;
-                    //button.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
-                    //button.Image = imageCollection1.Images[0];
-                    if (tot <= 3)
+                // Membuat Panel untuk menampung Button
+                Panel numpadPanel = new Panel
+                {
+                    Location = new System.Drawing.Point(10, 50),
+                    Width = 230,
+                    Height = 250
+                };
+                this.Controls.Add(numpadPanel);
+
+                // Membuat Button untuk angka
+                int x = 10, y = 10;
+                for (int i = 0; i < 10; i++)
+                {
+                    Button numButton = new Button
                     {
-                        if (attr05 == "BPJS")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.BPJS1;
-                        }
-                        else if (attr05 == "UMUM")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.UMUM1;
-                        }
-                        else if (attr05 == "ASURANSI")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.ASURANSI1;
-                        }
-                        //else if (attr05 == "MCU")
-                        //{
-                        //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
-                        //}
-                        //else
-                        //{
-                        //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
-                        //}
-                        //labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
-                        button.ImageLocation = ImageLocation.TopCenter;
-                        button.Size = new System.Drawing.Size(500, 300);
+                        Text = i.ToString(),
+                        Width = 50,
+                        Height = 50,
+                        Location = new System.Drawing.Point(x, y)
+                    };
+
+                    // Ketika tombol ditekan, menambahkan angka ke TextBox
+                    numButton.Click += (sender, e) =>
+                    {
+                        inputBox.Text += numButton.Text;
+                    };
+
+                    numpadPanel.Controls.Add(numButton);
+
+                    // Menentukan posisi untuk tombol berikutnya
+                    x += 60;
+                    if (x > 120)
+                    {
+                        x = 10;
+                        y += 60;
                     }
-                    else
+                }
+
+                // Membuat tombol clear untuk menghapus input
+                Button clearButton = new Button
+                {
+                    Text = "Clear",
+                    Width = 50,
+                    Height = 50,
+                    Location = new System.Drawing.Point(x, y)
+                };
+                clearButton.Click += (sender, e) =>
+                {
+                    inputBox.Clear();
+                };
+                numpadPanel.Controls.Add(clearButton);
+            } 
+            else
+            {
+                string SQL = "";
+                SQL = "";
+                SQL = SQL + Environment.NewLine + "select code_id, code_name,  ";
+                SQL = SQL + Environment.NewLine + "attr_01, attr_02, attr_03, attr_04, attr_05 ";
+                SQL = SQL + Environment.NewLine + "from CS_CODE_DATA ";
+                SQL = SQL + Environment.NewLine + "where code_class_id='ANTRIAN'  ";
+                SQL = SQL + Environment.NewLine + "and status='A' ";
+                SQL = SQL + Environment.NewLine + "and attr_01='" + p_attr + "' ";
+                if (p_attr.ToString().Equals("3"))
+                    SQL = SQL + Environment.NewLine + "and attr_05 ='" + TPoli + "' AND ATTR_04 ='R'";
+                SQL = SQL + Environment.NewLine + "order by sort_order asc ";
+
+
+                try
+                {
+                    OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                    OleDbDataAdapter adOra2 = new OleDbDataAdapter(SQL, oraConnect2);
+                    DataTable dt2 = new DataTable();
+                    adOra2.Fill(dt2);
+
+                    tot = dt2.Rows.Count;
+
+                    LayoutControl layoutControl1 = new LayoutControl();
+                    layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+                    panel3.Controls.Clear();
+                    panel3.Controls.Add(layoutControl1);
+
+                    layoutControl1.BeginUpdate();
+
+
+                    LayoutControlGroup group1 = new LayoutControlGroup();
+                    group1.Name = "GroupDetails";
+                    group1.Text = "Details";
+                    group1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Flow;
+                    group1.GroupBordersVisible = false;
+
+                    for (int i = 0; i < tot; i++)
                     {
-                        if (attr05 == "BPJS")
+                        id = dt2.Rows[i]["code_id"].ToString();
+                        poli = dt2.Rows[i]["code_name"].ToString();
+                        attr01 = dt2.Rows[i]["attr_01"].ToString();
+                        attr02 = dt2.Rows[i]["attr_02"].ToString();
+                        attr03 = dt2.Rows[i]["attr_03"].ToString();
+                        attr04 = dt2.Rows[i]["attr_04"].ToString();
+                        attr05 = dt2.Rows[i]["attr_05"].ToString();
+
+
+                        SimpleButton button = new SimpleButton();
+                        button.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        button.Appearance.ForeColor = System.Drawing.Color.Black;
+                        button.Appearance.Options.UseFont = true;
+                        button.Appearance.Options.UseForeColor = true;
+                        //button.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
+                        //button.Image = imageCollection1.Images[0];
+                        if (tot <= 3)
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.doctor_m64;
-                        }
-                        else if (attr05 == "UMUM")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.doctor_f64;
-                        }
-                        else if (attr05 == "ASURANSI")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
-                        }
-                        else if (attr05 == "MCU")
-                        {
-                            button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
+                            if (attr05 == "BPJS")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.BPJS1;
+                            }
+                            else if (attr05 == "UMUM")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.UMUM1;
+                            }
+                            else if (attr05 == "ASURANSI")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.ASURANSI1;
+                            }
+                            //else if (attr05 == "MCU")
+                            //{
+                            //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
+                            //}
+                            //else
+                            //{
+                            //    button.Image = global::RfidClinic.Properties.Resources.checkup1_256;
+                            //}
+                            //labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
+                            button.ImageLocation = ImageLocation.TopCenter;
+                            button.Size = new System.Drawing.Size(500, 300);
                         }
                         else
                         {
-                            button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
+                            if (attr05 == "BPJS")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.doctor_m64;
+                            }
+                            else if (attr05 == "UMUM")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.doctor_f64;
+                            }
+                            else if (attr05 == "ASURANSI")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
+                            }
+                            else if (attr05 == "MCU")
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
+                            }
+                            else
+                            {
+                                button.Image = global::RfidClinic.Properties.Resources.checkup1_64;
+                            }
+
+                            button.ImageLocation = ImageLocation.Default;
+                            button.Size = new System.Drawing.Size(350, 100);
                         }
-                        
-                        button.ImageLocation = ImageLocation.Default;
-                        button.Size = new System.Drawing.Size(350, 100);
+                        button.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+                        button.LookAndFeel.SkinMaskColor = System.Drawing.Color.GhostWhite;
+                        //button.LookAndFeel.SkinName = "DevExpress Dark Style";
+                        button.LookAndFeel.UseDefaultLookAndFeel = false;
+                        button.Name = id;
+                        button.Text = poli;
+                        button.Tag = attr02;
+                        //button.Enabled = p_bol;
+
+                        LayoutControlItem itemBtn = group1.AddItem();
+                        itemBtn.Name = id;
+                        itemBtn.Control = button;
+                        itemBtn.Text = poli;
+                        itemBtn.TextVisible = false;
+                        itemBtn.SizeConstraintsType = SizeConstraintsType.Custom;
+                        //itemBtn.Enabled = true;
+                        //itemOKButton.Width = 440;
+                        if (tot <= 3)
+                        {
+                            itemBtn.MaxSize = new Size(450, 170);
+                            itemBtn.MinSize = new Size(450, 170);
+                            TPoli = ""; button.Text = "";
+                        }
+                        else
+                        {
+                            itemBtn.MaxSize = new Size(300, 180);
+                            itemBtn.MinSize = new Size(300, 180);
+                        }
+                        p_enable = p_bol;
+                        itemBtn.StartNewLine = false;
+
+                        button.Click += layoutControlItem1_Click;
                     }
-                    button.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-                    button.LookAndFeel.SkinMaskColor = System.Drawing.Color.GhostWhite;
-                    //button.LookAndFeel.SkinName = "DevExpress Dark Style";
-                    button.LookAndFeel.UseDefaultLookAndFeel = false;
-                    button.Name = id;
-                    button.Text = poli;
-                    button.Tag = attr02;
-                    //button.Enabled = p_bol;
-                    
-                    LayoutControlItem itemBtn = group1.AddItem();
-                    itemBtn.Name = id;
-                    itemBtn.Control = button;
-                    itemBtn.Text = poli;
-                    itemBtn.TextVisible = false;
-                    itemBtn.SizeConstraintsType = SizeConstraintsType.Custom;
-                    //itemBtn.Enabled = true;
-                    //itemOKButton.Width = 440;
-                    if (tot <= 3)
+
+                    labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
+
+                    layoutControl1.Root.Add(group1);
+                    //layoutControl1.AddGroup(group1);
+                    int aa = group1.Items.Count;
+                    layoutControl1.EndUpdate();
+
+                    if (Convert.ToInt16(attr01) > 1)
                     {
-                        itemBtn.MaxSize = new Size(450, 170);
-                        itemBtn.MinSize = new Size(450, 170);
-                        TPoli = ""; button.Text = "";
+                        pictureEdit2.Visible = true;
                     }
                     else
                     {
-                        itemBtn.MaxSize = new Size(300, 180);
-                        itemBtn.MinSize = new Size(300, 180);
+                        pictureEdit2.Visible = false;
                     }
-                    p_enable = p_bol;
-                    itemBtn.StartNewLine = false;
-
-                    button.Click += layoutControlItem1_Click;
                 }
-
-                labelControl3.Text = "NOMOR ANTRIAN " + TPoli + " ANDA";
-
-                layoutControl1.Root.Add(group1);
-                //layoutControl1.AddGroup(group1);
-                int aa = group1.Items.Count;
-                layoutControl1.EndUpdate();
-
-                if (Convert.ToInt16(attr01) > 1)
+                catch (Exception ex)
                 {
-                    pictureEdit2.Visible = true;
+                    //loading.CloseWaitForm();
+                    MessageBox.Show("ERROR: " + ex.Message);
                 }
-                else
-                {
-                    pictureEdit2.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                //loading.CloseWaitForm();
-                MessageBox.Show("ERROR: " + ex.Message);
-            }
-
-            
+            } 
         }
 
         private void layoutControlItem1_Click(object sender, EventArgs e)
