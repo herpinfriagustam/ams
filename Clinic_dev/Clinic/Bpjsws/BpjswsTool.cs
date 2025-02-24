@@ -359,6 +359,38 @@ namespace Clinic.Bpjsws
                         else txtResponse.Text = "Unknown error! please call the administrator";
                         break;
 
+                    // Pendaftaran
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_DAFT_BY_NO_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetPendaftaranByNoUrut(txtParam1.Text, txtParam2.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_DAFT_PROVIDER_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetPendaftaranProvider(txtParam1.Text, int.Parse(txtParam2.Text), int.Parse(txtParam3.Text));
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_DAFT_ADD_URL:
+                        try { json = JObject.Parse(txtBody.Text); }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Exception: " + ex.Message);
+                            return;
+                        }
+
+                        resp = Class.Bpjsws.BpjswsPcare.AddPendaftaran(json);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_DAFT_DELETE_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.DeletePendaftaran(txtParam1.Text, txtParam2.Text, txtParam3.Text, txtParam4.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
                     // Peserta
                     case Class.Bpjsws.Bpjsws.WS_PCARE_PESERTA_GET_URL:
                         resp = Class.Bpjsws.BpjswsPcare.GetPeserta(txtParam1.Text);
@@ -368,6 +400,48 @@ namespace Clinic.Bpjsws
 
                     case Class.Bpjsws.Bpjsws.WS_PCARE_PESERTA_BY_GET_URL:
                         resp = Class.Bpjsws.BpjswsPcare.GetPesertaByJenisKartu(txtParam1.Text, txtParam2.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    // Poli
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_POLI_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetPoliFKTP(int.Parse(txtParam1.Text), int.Parse(txtParam2.Text));
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    // Provider
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_PROVIDER_RAYONISASI_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetProviderRayonisasi(int.Parse(txtParam1.Text), int.Parse(txtParam2.Text));
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    // Spsialis
+
+                    // Status Pulang
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_STATUS_PULANG_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetStatusPulang(txtParam1.Text == "true" ? true : false);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    // tindakan
+
+                    // Alergi
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_ALERGI_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetAlergi(txtParam1.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    // Prognosa
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_PROGNOSA_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetPrognosa();
                         if (resp != null) txtResponse.Text = resp?.GetResponseString();
                         else txtResponse.Text = "Unknown error! please call the administrator";
                         break;
