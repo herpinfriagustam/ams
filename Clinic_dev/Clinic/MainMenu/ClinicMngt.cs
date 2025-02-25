@@ -76,6 +76,7 @@ namespace Clinic
         MasterPoli masterPoli = null;
         MasterFormula masterFormula = null;
         MasterRoom masterRoom = null;
+        MasterSchedule masterSchedule = null;
         MasterTreatment masterTreatment = null;
         InpatientMngt inpatientMngt = null;
         PatientReport2 patientReport2 = null;
@@ -94,11 +95,13 @@ namespace Clinic
         DashboardAntrian DashboardAntrian = null;
         AntrianPoli AntrianPoli = null;
         MasterChgPass MasterChgPass = null;
-
+        //Bpjs.BpjswsAntreanBpjs frmBpjswsAntreanBpjs = null;
+        Bpjsws.BpjswsTool frmBpjswsTool = null;
         Lap_Kunjungan Lap_Kunjungan = null;
         Lap_KunjunganRI Lap_KunjunganRI = null;
         Lap_KasHarian Lap_KasHarian = null;
         Lap_PenggunaApp Lap_PenggunaApp = null;
+        Reservation Reservation = null;
 
         string version =  "Version " + Application.ProductVersion;
 
@@ -268,6 +271,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -329,6 +333,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -344,6 +349,9 @@ namespace Clinic
                 navBarItem21.Visible = true; // Resep Manajemen
                 navBarItem51.Visible = true; // Rawat Inap Manajemen
                 navBarItem52.Visible = true; // Layanan Manajemen   
+
+                navBarGroup8.Visible = true; // Group Payment
+                navBarItem42.Visible = true; // Daftar Tagihan 
             }
             else if (userStatus == "DOC")
             {
@@ -517,6 +525,7 @@ namespace Clinic
                 navBarItem57.Visible = true; // Master Data Code 
                 navBarItem69.Visible = true; // Master Data Asuransi
                 navBarItem74.Visible = true; // Master Data Dokter
+                navBarItem80.Visible = true; // Master Data Schedule
 
                 navBarGroup6.Visible = true; // Group Upload Data
                 navBarItem29.Visible = true; // Upload Diagnosa Group 
@@ -535,6 +544,8 @@ namespace Clinic
 
                 navBarGroup8.Visible = true; // Group Payment
                 navBarItem42.Visible = true; // Daftar Tagihan 
+                navBarGroup10.Visible = true; // Tool BPJS
+                navBarItem81.Visible = true; //Antrian Klinik
             }
             navBarItem71.Visible = true; // Pergantian Password
         }
@@ -2173,6 +2184,86 @@ namespace Clinic
                 Lap_PenggunaApp.WindowState = FormWindowState.Maximized;
                 Lap_PenggunaApp.Show();
                 Lap_PenggunaApp.Focus();
+            }
+        }
+
+        private void navBarItem78_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            //if (frmBpjswsAntreanBpjs == null || frmBpjswsAntreanBpjs.Text == "")
+            //{
+            //    frmBpjswsAntreanBpjs = new Bpjs.BpjswsAntreanBpjs();
+            //    frmBpjswsAntreanBpjs.MdiParent = this;
+            //    //treatNonMedis.v_empid = userEmpid;
+            //    frmBpjswsAntreanBpjs.Show();
+            //    this.panel1.Hide();
+            //    this.pictureBox1.Hide();
+
+
+            //}
+            //else if (CheckOpened(frmBpjswsAntreanBpjs.Text))
+            //{
+            //    frmBpjswsAntreanBpjs.WindowState = FormWindowState.Maximized;
+            //    frmBpjswsAntreanBpjs.Show();
+            //    frmBpjswsAntreanBpjs.Focus();
+            //}
+        }
+
+        private void navBarItem79_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (frmBpjswsTool == null || frmBpjswsTool.Text == "")
+            {
+                frmBpjswsTool = new Bpjsws.BpjswsTool();
+                frmBpjswsTool.MdiParent = this;
+                //treatNonMedis.v_empid = userEmpid;
+                frmBpjswsTool.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide();
+
+
+            }
+            else if (CheckOpened(frmBpjswsTool.Text))
+            {
+                frmBpjswsTool.WindowState = FormWindowState.Maximized;
+                frmBpjswsTool.Show();
+                frmBpjswsTool.Focus();
+            }
+        }
+
+        private void navBarItem80_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (masterSchedule == null || masterSchedule.Text == "")
+            {
+                masterSchedule = new MasterSchedule();
+                masterSchedule.MdiParent = this;
+                masterSchedule.Show();
+                this.panel1.Hide();
+                this.pictureBox1.Hide(); 
+            }
+            else if (CheckOpened(masterSchedule.Text))
+            {
+                masterSchedule.WindowState = FormWindowState.Maximized;
+                masterSchedule.Show();
+                masterSchedule.Focus();
+            }
+        }
+
+        private void navBarItem81_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (Reservation == null || Reservation.Text == "")
+            {
+                Reservation = new Reservation();
+                //Reservation.MdiParent = false;
+                //treatNonMedis.v_empid = userEmpid;
+                Reservation.Show();
+                Reservation.WindowState = FormWindowState.Maximized;
+                this.panel1.Hide();
+                this.pictureBox1.Hide(); 
+            }
+            else if (CheckOpened(Reservation.Text))
+            {
+                Reservation.WindowState = FormWindowState.Maximized;
+                Reservation.Show();
+                Reservation.Focus();
             }
         }
 

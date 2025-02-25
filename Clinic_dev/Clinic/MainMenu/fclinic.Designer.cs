@@ -193,7 +193,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.EditValue = "";
+            this.txtPass.EditValue = "admin1";
             this.txtPass.Location = new System.Drawing.Point(27, 235);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -210,7 +210,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.EditValue = "";
+            this.txtUser.EditValue = "admin";
             this.txtUser.Location = new System.Drawing.Point(27, 157);
             this.txtUser.Name = "txtUser";
             this.txtUser.Properties.Appearance.BackColor = System.Drawing.Color.White;

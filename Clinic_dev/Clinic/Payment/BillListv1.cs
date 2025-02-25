@@ -7,8 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
+using DevExpress.XtraEditors; 
 using System.Data.OleDb;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.Repository;
@@ -1110,8 +1109,8 @@ namespace Clinic
                         temp_qty = dt.Rows[i]["med_qty"].ToString();
                         temp_id = dt.Rows[i]["receipt_id"].ToString();
 
-                        command.CommandText = " insert into KLINIK.cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, ins_date, ins_emp) values " +
-                                              " (klinik.cs_medtrans_seq.nextval,'" + temp_cd + "','OUT',to_date('" + s_date + "','yyyy-mm-dd'),'" + temp_qty + "','" + temp_id + "',sysdate,'" + v_empid + "') ";
+                        command.CommandText = " insert into KLINIK.cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, ins_date, ins_emp) values " +
+                                              " ('" + temp_cd + "','OUT',to_date('" + s_date + "','yyyy-mm-dd'),'" + temp_qty + "','" + temp_id + "',sysdate,'" + v_empid + "') ";
 
                         command.ExecuteNonQuery();
                     }

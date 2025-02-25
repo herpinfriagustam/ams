@@ -358,4 +358,43 @@
   <data name="Logo_Santosa-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_Santosa-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ASURANSI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ASURANSI1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BPJS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BPJS1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_f64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor_f64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_m64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor_m64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_Santosa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo Santosa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swab1_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swab1_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="swab_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\swab_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UMUM1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UMUM1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkup1_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkup1_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_f256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor_f256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dokter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dokter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterFormula));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdAlkes = new System.Windows.Forms.RadioButton();
+            this.rdObat = new System.Windows.Forms.RadioButton();
             this.btnDelDosis = new DevExpress.XtraEditors.SimpleButton();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoadDosis = new DevExpress.XtraEditors.SimpleButton();
@@ -41,6 +44,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +66,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnDelDosis);
             this.panel1.Controls.Add(this.btnDownload);
             this.panel1.Controls.Add(this.btnLoadDosis);
@@ -74,6 +79,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(936, 70);
             this.panel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdAlkes);
+            this.groupBox1.Controls.Add(this.rdObat);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(297, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(224, 48);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pilihan";
+            // 
+            // rdAlkes
+            // 
+            this.rdAlkes.AutoSize = true;
+            this.rdAlkes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.rdAlkes.Location = new System.Drawing.Point(103, 20);
+            this.rdAlkes.Name = "rdAlkes";
+            this.rdAlkes.Size = new System.Drawing.Size(59, 17);
+            this.rdAlkes.TabIndex = 1;
+            this.rdAlkes.Text = "ALKES";
+            this.rdAlkes.UseVisualStyleBackColor = true;
+            // 
+            // rdObat
+            // 
+            this.rdObat.AutoSize = true;
+            this.rdObat.Checked = true;
+            this.rdObat.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.rdObat.Location = new System.Drawing.Point(32, 20);
+            this.rdObat.Name = "rdObat";
+            this.rdObat.Size = new System.Drawing.Size(55, 17);
+            this.rdObat.TabIndex = 0;
+            this.rdObat.TabStop = true;
+            this.rdObat.Text = "OBAT";
+            this.rdObat.UseVisualStyleBackColor = true;
             // 
             // btnDelDosis
             // 
@@ -156,6 +197,8 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.IndicatorWidth = 45;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
@@ -176,6 +219,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -194,5 +239,8 @@
         private DevExpress.XtraEditors.SimpleButton btnSaveDosis;
         private DevExpress.XtraEditors.SimpleButton btnAddDosis;
         private DevExpress.XtraEditors.SimpleButton btnDelDosis;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdAlkes;
+        private System.Windows.Forms.RadioButton rdObat;
     }
 }

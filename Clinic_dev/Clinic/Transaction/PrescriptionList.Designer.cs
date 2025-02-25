@@ -77,6 +77,7 @@
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerEnd = new System.Windows.Forms.Timer(this.components);
+            this.chRequest = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -142,6 +143,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.chRequest);
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.aa);
             this.panel3.Controls.Add(this.chkclosed);
@@ -163,7 +165,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(318, 22);
+            this.comboBox1.Location = new System.Drawing.Point(222, 22);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(111, 21);
             this.comboBox1.TabIndex = 110;
@@ -172,7 +174,7 @@
             // 
             this.aa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.aa.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aa.Location = new System.Drawing.Point(264, 26);
+            this.aa.Location = new System.Drawing.Point(168, 26);
             this.aa.Name = "aa";
             this.aa.Size = new System.Drawing.Size(48, 13);
             this.aa.TabIndex = 111;
@@ -182,7 +184,7 @@
             // 
             this.chkclosed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkclosed.AutoSize = true;
-            this.chkclosed.Location = new System.Drawing.Point(616, 26);
+            this.chkclosed.Location = new System.Drawing.Point(509, 25);
             this.chkclosed.Name = "chkclosed";
             this.chkclosed.Size = new System.Drawing.Size(58, 17);
             this.chkclosed.TabIndex = 109;
@@ -224,7 +226,7 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(451, 25);
+            this.labelControl2.Location = new System.Drawing.Point(342, 25);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(37, 13);
             this.labelControl2.TabIndex = 32;
@@ -233,7 +235,7 @@
             // luStatus
             // 
             this.luStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.luStatus.Location = new System.Drawing.Point(494, 22);
+            this.luStatus.Location = new System.Drawing.Point(385, 22);
             this.luStatus.Name = "luStatus";
             this.luStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -631,6 +633,17 @@
             this.timerEnd.Interval = 1000;
             this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
             // 
+            // chRequest
+            // 
+            this.chRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chRequest.AutoSize = true;
+            this.chRequest.Location = new System.Drawing.Point(573, 24);
+            this.chRequest.Name = "chRequest";
+            this.chRequest.Size = new System.Drawing.Size(66, 17);
+            this.chRequest.TabIndex = 112;
+            this.chRequest.Text = "Request";
+            this.chRequest.UseVisualStyleBackColor = true;
+            // 
             // PrescriptionList
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -722,5 +735,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.ComboBox comboBox1;
         private DevExpress.XtraEditors.LabelControl aa;
+        private System.Windows.Forms.CheckBox chRequest;
     }
 }

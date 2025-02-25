@@ -26,6 +26,7 @@ namespace Clinic
         public OleDbConnection Create_Connect_Ora()
         {
             string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = localhost:1521/XE";
+            //string _ConnectStringOra = "Provider=MSDAORA.1;Password=klinik;Persist Security Info=True;User ID=klinik;Data Source = localhost:1521/XE";
             //string _ConnectStringOra = "Provider=MSDAORA.1;Password=KLINIK;Persist Security Info=True;User ID=KLINIK;Data Source = 192.168.1.99:1521/XE";
 
             try
@@ -158,9 +159,107 @@ namespace Clinic
 
             lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lokup.NullText = "";
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
             gridviw.Columns[col].ColumnEdit = lokup;
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
         }
+        public void LookUpGroupGridFilter<T>(
+               List<T> listsql,
+               GridView gridviw,
+               string scat,
+               string scode,
+               string sname,
+               RepositoryItemGridLookUpEdit lokup,
+               int col
+           ) where T : class
+        {
+            // Set DataSource untuk lookup editor
+            lokup.DataSource = listsql;
+            lokup.ValueMember = scode;
+            lokup.DisplayMember = sname;
+            var gridView = lokup.View;
+            gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
+            gridView.OptionsCustomization.AllowSort = true;
 
+            foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
+            {
+                column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            }
+            if (gridView.Columns[scat] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = scat,
+                    Caption = scat,
+                    Visible = true
+                });
+            }
+            if (gridView.Columns[scode] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = scode,
+                    Caption = scode,
+                    Visible = true
+                });
+            }
+            if (gridView.Columns[sname] == null)
+            {
+                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+                {
+                    FieldName = sname,
+                    Caption = sname,
+                    Visible = true
+                });
+            }
+            gridView.OptionsView.ColumnAutoWidth = false;
+            gridView.Columns[scat].Width = 250; // Kolom pertama
+            gridView.Columns[scode].Width = 110; // Kolom pertama
+            gridView.Columns[sname].Width = 530;
+            gridView.RowHeight = 27;
+            gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
+            gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
+            gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
+
+            lokup.PopupFormWidth = 700;
+            //lokup.ImmediatePopup = false ;
+            lokup.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
+            lokup.Appearance.Options.UseFont = true;
+            lokup.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
+            lokup.AppearanceDropDown.Options.UseFont = true;
+
+            lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lokup.ImmediatePopup = true; // Popup muncul saat mulai mengetik
+            lokup.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lokup.View.OptionsView.ShowAutoFilterRow = true;
+
+            lokup.View.OptionsFind.AlwaysVisible = true; // Menampilkan kolom pencarian di popup GridLookUpEdit
+            lokup.View.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
+            //lokup.View.OptionsFind.FindFilterColumns = "'" + scat + "', '" + scode + "','" + sname + "' "; //,scode,sname; //"Nama,Alamat,Kota";
+            //lokup.View.ActiveFilterString =  "'" + scat + "', '" + scode + "','" + sname + "' ";
+            //lokup.View.CustomRowFilter += (s, e) =>
+            //{
+            //    string keyword = lokup.View.FindFilterText.ToLower();
+
+            //    if (!string.IsNullOrEmpty(keyword))
+            //    {
+            //        string scat1 = scat;
+            //        string scode1 = scode;
+            //        string sname1 = scode;
+
+            //        if (!scat1.Contains(keyword) && !scode1.Contains(keyword) && !sname1.Contains(keyword))
+            //        {
+            //            e.Visible = false;
+            //            e.Handled = true;
+            //        }
+            //    }
+            //};
+            //lokup.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lokup.NullText = "";
+            //lokup.PopupFilterMode = PopupFilterMode.Contains;
+            gridviw.Columns[col].ColumnEdit = lokup;
+            lokup.PopupFilterMode = PopupFilterMode.Contains;
+        }
         public void LookUpEditFilter<T>(
                List<T> listsql,
                GridLookUpEdit LokUpEdit,
@@ -775,6 +874,25 @@ namespace Clinic
             }
         }
 
+        public static void splitVal5(string data, RadioGroup rg, TextBox tx, TextBox tx2, TextBox tx3)
+        {
+            string[] dt = data.Split(new string[] { "::" }, StringSplitOptions.None);
+            if (dt.Length == 3)
+            {
+                rg.SelectedIndex = Convert.ToInt32(dt[0]);
+                if (dt[2].ToString() == "")
+                {
+                    tx.Text = tx2.Text = tx3.Text = "";
+                }
+                else
+                {
+                    string[] dt1 = dt[2].Split(new string[] { "=>" }, StringSplitOptions.None);
+                    tx.Text = dt1[0]?.ToString();
+                    tx2.Text = dt1[1]?.ToString();
+                    tx3.Text = dt1[2]?.ToString();
+                }
+            }
+        }
         public static void setCheckList(string data, CheckedListBox checkedListBox)
         {
             string[] values = data.Split(',');

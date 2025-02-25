@@ -44,6 +44,9 @@ namespace Clinic
         List<Dosis> listDosis = new List<Dosis>();
         List<Racik> listRacik = new List<Racik>();
 
+        List<MedGroup> lMedicine = new List<MedGroup>(); List<MedGroup> lMedicineP = new List<MedGroup>();
+        List<MedGroup> lMedicineU = new List<MedGroup>(); List<MedGroup> lMedicineRacik = new List<MedGroup>();
+
         DataSet dsRujukan = new DataSet();
         DataSet dsRekomendasi = new DataSet();
         DataSet dsSkd = new DataSet();
@@ -65,7 +68,7 @@ namespace Clinic
         RepositoryItemGridLookUpEdit LokObatGridU = new RepositoryItemGridLookUpEdit();
         RepositoryItemGridLookUpEdit LokObatGridR = new RepositoryItemGridLookUpEdit();
 
-        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "", p_statuscls = "";
+        public string  v_name="", v_anamnesa = "", v_amkn = "", v_aobat = "", p_statuscls = "", v_iddokter ="";
         string tmp_now = "", tmp_old = "", tmp_fam = "", tmp_fisik = "", tmp_add = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
         string pub_nama = ""; string idvisit = "", s_stat ="";
@@ -82,11 +85,11 @@ namespace Clinic
         private void Inspection_Load(object sender, EventArgs e)
         {
             InitData();
-            LoadDataPasien();
+            //LoadDataPasien();
             ConnOra.InsertHistoryAkses( DB.vUserId , ConnOra.my_IP, "Inspection");
 
             sql = "";
-            sql = " select a.ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' ";
+            sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
              
             try
             {
@@ -96,7 +99,7 @@ namespace Clinic
                 adSql.Fill(dt); 
                 if (dt.Rows.Count > 0)
                 {
-                    ConnOra.v_iddokter = dt.Rows[0]["ID_DOKTER"].ToString(); 
+                    v_iddokter = dt.Rows[0]["ID_DOKTER"].ToString(); 
                 }
             }
             catch (Exception ex)
@@ -332,6 +335,7 @@ namespace Clinic
         {
             today = DateTime.Now.ToString("yyyy-MM-dd");
             LoadDataPasien();
+            subclear();
         }
 
         private void LoadDataPasien()
@@ -543,9 +547,25 @@ namespace Clinic
                 //}
             }
         }
+        private void subclear()
+        {
+            gridControl2.DataSource = null;
+            gridControl3.DataSource = null;
+            gridControl4.DataSource = null;
+            gridControl6.DataSource = null;
+            gridControl16.DataSource = null;
+            gridRacik.DataSource = null;
+            gdRacik.DataSource = null;
+            gridControl13.DataSource = null;
+            gridControl14.DataSource = null;
+        }
 
         private void gridView1_RowClick(object sender, RowClickEventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+             
+
             btnAddAnam.Enabled = false;
             btnSaveAnam.Enabled = false;
             btnDelDiag.Enabled = false;
@@ -735,6 +755,30 @@ namespace Clinic
             s_infop4 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[14]);
             s_infop5 = gridView3.GetRowCellDisplayText(0, gridView3.Columns[15]);
 
+            if(v_iddokter.ToString ().Equals("0") || v_iddokter.ToString().Equals("") )
+            {
+                sql = " ";
+                sql = " select max(a.ID_DOKTER) ID_DOKTER from KLINIK.CS_DOKTER a where NIK_DOKTER = '" + ConnOra.v_nik.ToString() + "' and F_AKTIF ='Y' and upper(SPESIALIS) ='UMUM' ";
+
+                try
+                {
+                    OleDbConnection sqlConnectD = ConnOra.Create_Connect_Ora();
+                    OleDbDataAdapter adSqlD = new OleDbDataAdapter(sql, sqlConnectD);
+                    DataTable dtD = new DataTable();
+                    adSqlD.Fill(dtD);
+                    if (dtD.Rows.Count > 0)
+                    {
+                        v_iddokter = dtD.Rows[0]["ID_DOKTER"].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
+
+            }
+
+
             //if (s_infop1 == "")
             //{
             //    checkP1.Checked = false;
@@ -779,7 +823,7 @@ namespace Clinic
             //{
             //    checkP5.Checked = true;
             //}
-             
+
 
             gridView3.BestFitColumns();
 
@@ -866,52 +910,57 @@ namespace Clinic
 
 
 
-            LookDiagnosaGrid.DataSource = listDiagnosa;
-            LookDiagnosaGrid.ValueMember = "diagnosaCode";
-            LookDiagnosaGrid.DisplayMember = "diagnosaName";
-            //LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            var gridView = LookDiagnosaGrid.View;
-            gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
-            gridView.OptionsCustomization.AllowSort = true;
+            //LookDiagnosaGrid.DataSource = listDiagnosa;
+            //LookDiagnosaGrid.ValueMember = "diagnosaCode";
+            //LookDiagnosaGrid.DisplayMember = "diagnosaName";
+            ////LookDiagnosaGrid.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //var gridView = LookDiagnosaGrid.View;
+            //gridView.OptionsView.ShowAutoFilterRow = true; // Tampilkan AutoFilterRow
+            //gridView.OptionsCustomization.AllowSort = true;
 
-            foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
-            {
-                column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            }
-            if (gridView.Columns["diagnosaCode"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaCode", Caption = "diagnosaCode", Visible = true
-                });
-            }
-            if (gridView.Columns["diagnosaName"] == null)
-            {
-                gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
-                {
-                    FieldName = "diagnosaName", Caption = "diagnosaName", Visible = true
-                });
-            }
-            gridView.OptionsView.ColumnAutoWidth = false;
-            gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
-            gridView.Columns["diagnosaName"].Width = 530;
-            gridView.RowHeight = 27;
-            gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
-            gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
-            gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
+            //foreach (DevExpress.XtraGrid.Columns.GridColumn column in gridView.Columns)
+            //{
+            //    column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            //}
+            //if (gridView.Columns["diagnosaCode"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaCode", Caption = "diagnosaCode", Visible = true
+            //    });
+            //}
+            //if (gridView.Columns["diagnosaName"] == null)
+            //{
+            //    gridView.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
+            //    {
+            //        FieldName = "diagnosaName", Caption = "diagnosaName", Visible = true
+            //    });
+            //}
+            //gridView.OptionsView.ColumnAutoWidth = false;
+            //gridView.Columns["diagnosaCode"].Width = 110; // Kolom pertama
+            //gridView.Columns["diagnosaName"].Width = 530;
+            //gridView.RowHeight = 27;
+            //gridView.Appearance.Row.Font = new Font("Arial", 11, FontStyle.Regular);        // Baris data
+            //gridView.Appearance.HeaderPanel.Font = new Font("Arial", 11, FontStyle.Bold);  // Header kolom
+            //gridView.Appearance.FocusedRow.Font = new Font("Arial", 11, FontStyle.Regular);
             
-            LookDiagnosaGrid.PopupFormWidth = 700;
-            LookDiagnosaGrid.ImmediatePopup = true;
-            LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.Appearance.Options.UseFont = true; 
-            // Mengatur ukuran font pada dropdown
-            LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
-            LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+            //LookDiagnosaGrid.PopupFormWidth = 700;
+            //LookDiagnosaGrid.ImmediatePopup = true;
+            //LookDiagnosaGrid.Appearance.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.Appearance.Options.UseFont = true; 
+            //// Mengatur ukuran font pada dropdown
+            //LookDiagnosaGrid.AppearanceDropDown.Font = new Font("Arial", 11, FontStyle.Regular);
+            //LookDiagnosaGrid.AppearanceDropDown.Options.UseFont = true;
+            //LookDiagnosaGrid.AutoComplete = true;
+            
+            //LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //LookDiagnosaGrid.NullText = "";
+            //LookDiagnosaGrid.PopupFilterMode = PopupFilterMode.Contains;
+            //gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
 
-            LookDiagnosaGrid.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            LookDiagnosaGrid.NullText = "";
-            gridView4.Columns[2].ColumnEdit = LookDiagnosaGrid;
-
+            ConnOra.LookUpGridFilter(listDiagnosa, gridView4, "diagnosaCode", "diagnosaName", LookDiagnosaGrid, 2);
+            LookDiagnosaGrid.ImmediatePopup = true ;
+            LookDiagnosaGrid.PopupFilterMode = PopupFilterMode.Contains;
 
 
             //gldiag.View.Columns["diagnosaCode"].Width = 35;
@@ -1469,7 +1518,7 @@ namespace Clinic
         private void pelayanandefault()
         {
             string date = "", que = "", rm_no = "", pasno = "", nama_laya = "", status = "", remark = "", action = "", stbyr = "", insu_flag = "", pid_visit = "", headid = "", policd = "", sql_visit ="";
-            string sql_cnt = "", diag_cnt = "", sql_update = "", sstatvisit="";
+            string sql_cnt = "", diag_cnt = "", sql_update = "", sstatvisit="", sql_cek ="", seq_va ="";
             int stsimpan = 0;
 
             date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -1500,388 +1549,152 @@ namespace Clinic
                 if (!sstatvisit.ToString().Equals("PRE") && !sstatvisit.ToString().Equals("RSV") && !sstatvisit.ToString().Equals("INS") && !sstatvisit.ToString().Equals("NUR"))
                     return;
             }
-
-            //if (nama_laya == "")
-            //    {
-            //        //MessageBox.Show("Nama Layanan harus diisi");
-            //        labelControl171.Visible = true;
-            //        labelControl171.Text = "Gagal,,Input Data Layanan";
-            //        Blinking(labelControl171, 0);
-            //        return;
-            //    }
-            //    else if (stbyr != "OPN")
-            //    {
-            //        //MessageBox.Show("Data tidak bisa ditambah");
-            //        labelControl171.Visible = true;
-            //        labelControl171.Text = "Gagal,,Pasien Closed";
-            //        Blinking(labelControl171, 0);
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        if (action == "I")
-            //        {
-                        if (insu_flag.ToString().Equals("Asuransi"))
-                            insu_flag = "A";
-                        else if (insu_flag.ToString().Equals("Umum"))
-                            insu_flag = "U";
-                        else if (insu_flag.ToString().Equals("BPJS"))
-                            insu_flag = "B";
-
-                        sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' and ID_VISIT =" + pid_visit + " ";
-                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
-                        DataTable dt = new DataTable();
-                        adOra.Fill(dt);
-                        diag_cnt = dt.Rows[0]["cnt"].ToString();
-                        if (Convert.ToInt32(diag_cnt) > 0)
-                        {
-                            headid = dt.Rows[0]["headid"].ToString();
-                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
-                            OleDbCommand command = new OleDbCommand();
-                            OleDbTransaction trans = null;
-
-                            command.Connection = oraConnectTrans;
-                            oraConnectTrans.Open();
-
-                            try
-                            {
-                                string sql_seq2 = "", seq_val2 = "", sql_tmp = "", sql_seq = "", seq_val = "";
-
-                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
-                                command.Connection = oraConnectTrans;
-                                command.Transaction = trans;
-                                //DB.vUserId = "1"; 
-
-                                //if (nama_laya.ToString().Equals("TRT01"))
-                                //{
-                                //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                                //    command.ExecuteNonQuery();
-                                //}
-                                //else
-                                //{
-                                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                                //    DataTable dts2 = new DataTable();
-                                //    adOras2.Fill(dts2);
-                                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
-
-                                //    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
-                                //    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
-                                //    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
-                                //    DataTable dts = new DataTable();
-                                //    adOras.Fill(dts);
-                                //    seq_val = dts.Rows[0]["seq"].ToString();
+             
+            if (insu_flag.ToString().Equals("Asuransi"))
+                insu_flag = "A";
+            else if (insu_flag.ToString().Equals("Umum"))
+                insu_flag = "U";
+            else if (insu_flag.ToString().Equals("BPJS"))
+                insu_flag = "B";
 
 
-                                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                                //    command.ExecuteNonQuery();
+            sql_cek = sql_cek + Environment.NewLine + "   select nvl(max(b.detail_id),0) seq ";
+            sql_cek = sql_cek + Environment.NewLine + "    from KLINIK.cs_treatment_head a  ";
+            sql_cek = sql_cek + Environment.NewLine + "    join KLINIK.cs_treatment_detail b on (a.head_id=b.head_id)  ";
+            sql_cek = sql_cek + Environment.NewLine + "    join KLINIK.cs_treatment_item c on (b.treat_item_id=c.treat_item_id)  ";
+            sql_cek = sql_cek + Environment.NewLine + "    where 1=1 ";
+            sql_cek = sql_cek + Environment.NewLine + "    and id_visit =" + idvisit + " ";
 
-                                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                                //    command.ExecuteNonQuery();
+            OleDbConnection oraConD = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOra2D = new OleDbDataAdapter(sql_cek, oraConD);
+            DataTable dt2D = new DataTable();
+            adOra2D.Fill(dt2D);
+            seq_va = dt2D.Rows[0]["seq"].ToString();
 
-                                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                                //    command.ExecuteNonQuery();
-
-                                //    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
-                                //    //command.ExecuteNonQuery();
-
-                                //    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
-                                //    //command.ExecuteNonQuery();  
-                                //}
-
-                                sql_tmp = " ";
-                                sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
-                                sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
-                                sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
-                                sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
-                                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
-                                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
-                                sql_tmp = sql_tmp + " where 1=1";
-                                sql_tmp = sql_tmp + "   and default_st='Y' ";
-                                if (!nama_laya.ToString().Equals("TRT01"))
-                                    sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
-                                else
-                                    sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
-                                sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')  and b.F_STATUS = '" + insu_flag + "'";
-
-                                command.CommandText = sql_tmp;
-                                command.ExecuteNonQuery();
-
-                                trans.Commit();
-                                //MessageBox.Show(sql_insert);
-                                //MessageBox.Show("Query Exec : " + sql_insert);
-                                //MessageBox.Show("Data Berhasil disimpan.");
-                                stsimpan = 1;
-                            }
-                            catch (Exception ex)
-                            {
-                                trans.Rollback();
-                                MessageBox.Show("ERROR: " + ex.Message);
-                            }
-
-                            oraConnectTrans.Close();
-
-                        }
-                        else
-                        {
-                            string sql_seq = "", seq_val = "", sql_tmp = "";
-                            sql_seq = " select CS_TREATMENT_HEAD_SEQ.nextval seq from dual ";
-                            OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-                            OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_seq, oraConnect2);
-                            DataTable dt2 = new DataTable();
-                            adOra2.Fill(dt2);
-                            seq_val = dt2.Rows[0]["seq"].ToString();
-
-                            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
-                            OleDbCommand command = new OleDbCommand();
-                            OleDbTransaction trans = null;
-
-                            command.Connection = oraConnectTrans;
-                            oraConnectTrans.Open();
-
-                            try
-                            {
-                                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
-                                command.Connection = oraConnectTrans;
-                                command.Transaction = trans;
-                                //DB.vUserId = "1";
-                                if (insu_flag.ToString().Equals("A"))
-                                    insu_flag = "A";
-                                else if (insu_flag.ToString().Equals("B"))
-                                    insu_flag = "B";
-                                else
-                                    insu_flag = "U";
-                                command.CommandText = " insert into KLINIK.cs_treatment_head (head_id, rm_no, patient_no, visit_date, visit_no, treat_type_id, status, remarks, pay_status, insu_flag, ins_date, ins_emp,ID_VISIT) values ('" + seq_val + "', '" + rm_no + "', '" + pasno + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + nama_laya + "', 'OPN', '" + remark + "', 'OPN', '" + insu_flag + "', sysdate, '" + DB.vUserId + "', '" + pid_visit + "') ";
-                                command.ExecuteNonQuery();
-
-                                //if (nama_laya.ToString().Equals("TRT01"))
-                                //{
-                                //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                                //    command.ExecuteNonQuery();
-                                //}
-                                //else
-                                //{
-                                //    string sql_seq2 = "", seq_val2 = "";
-                                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                                //    DataTable dts2 = new DataTable();
-                                //    adOras2.Fill(dts2);
-                                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
+            if (Convert.ToInt32(seq_va) > 0)
+            {
+                return;
+            }
 
 
-                                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                                //    command.ExecuteNonQuery();
+            sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' and ID_VISIT =" + pid_visit + " ";
+            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
+            DataTable dt = new DataTable();
+            adOra.Fill(dt);
+            diag_cnt = dt.Rows[0]["cnt"].ToString();
+            if (Convert.ToInt32(diag_cnt) > 0)
+            {
+                headid = dt.Rows[0]["headid"].ToString();
+                OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                OleDbCommand command = new OleDbCommand();
+                OleDbTransaction trans = null;
 
-                                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                                //    command.ExecuteNonQuery();
+                command.Connection = oraConnectTrans;
+                oraConnectTrans.Open();
 
-                                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                                //    command.ExecuteNonQuery();
-                                //}
+                try
+                {
+                    string sql_seq2 = "", seq_val2 = "", sql_tmp = "", sql_seq = "", seq_val = "";
 
+                    trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                    command.Connection = oraConnectTrans;
+                    command.Transaction = trans; 
 
-                                sql_tmp = "";
-                                sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
-                                sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
-                                sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
-                                sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
-                                sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
-                                sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
-                                sql_tmp = sql_tmp + "where 1=1";
-                                sql_tmp = sql_tmp + "and default_st='Y' ";
-                                if (!nama_laya.ToString().Equals("TRT01"))
-                                    sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
-                                else
-                                    sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
-                                sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')  and b.F_STATUS ='" + insu_flag + "'";
+                    sql_tmp = " ";
+                    sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
+                    sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
+                    sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
+                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
+                    sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
+                    sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
+                    sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
+                    sql_tmp = sql_tmp + " where 1=1";
+                    sql_tmp = sql_tmp + "   and default_st='Y' ";
+                    if (!nama_laya.ToString().Equals("TRT01"))
+                        sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
+                    else
+                        sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                    sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')  and b.F_STATUS = '" + insu_flag + "'";
 
-                                command.CommandText = sql_tmp;
-                                command.ExecuteNonQuery();
+                    command.CommandText = sql_tmp;
+                    command.ExecuteNonQuery();
 
-                                trans.Commit();
-                                //MessageBox.Show(sql_insert);
-                                //MessageBox.Show("Query Exec : " + sql_insert);
-                                //MessageBox.Show("Data Berhasil disimpan.");
-                                stsimpan = 1;
-                            }
-                            catch (Exception ex)
-                            {
-                                trans.Rollback();
-                                MessageBox.Show("ERROR: " + ex.Message);
-                            }
+                    trans.Commit();
 
-                            oraConnectTrans.Close();
-                        }
-                    //}
-                    //else if (action == "U" || action == "S")
-                    //{
-                    //    sql_update = "";
+                    stsimpan = 1;
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
 
-                    //    if (insu_flag != lTinDesc.Text)
-                    //    {
-                    //        //MessageBox.Show("Data Tipe Pasien pada menu reservasi dan tagihan tidak sama");
-                    //        labelControl171.Visible = true;
-                    //        labelControl171.Text = "Type Pasien Tidak Sama";
-                    //        Blinking(labelControl171, 0);
-                    //        LoadTind();
-                    //        LoadAddTind();
-                    //        return;
-                    //    }
+                oraConnectTrans.Close();
 
-                    //    if (insu_flag.ToString().Equals("Asuransi"))
-                    //        insu_flag = "A";
-                    //    else if (insu_flag.ToString().Equals("BPJS"))
-                    //        insu_flag = "B";
-                    //    else
-                    //        insu_flag = "U";
+            }
+            else
+            {
+                string sql_seq = "", seq_val = "", sql_tmp = "";
+                sql_seq = " select CS_TREATMENT_HEAD_SEQ.nextval seq from dual ";
+                OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_seq, oraConnect2);
+                DataTable dt2 = new DataTable();
+                adOra2.Fill(dt2);
+                seq_val = dt2.Rows[0]["seq"].ToString();
 
-                    //    sql_update = sql_update + " update KLINIK.cs_treatment_head" +
-                    //                              " set remarks = '" + remark + "', insu_flag= '" + insu_flag + "', ";
-                    //    sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-                    //    sql_update = sql_update + " where rm_no = '" + rm_no + "' and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and patient_no = '" + pasno + "' ";
+                OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
+                OleDbCommand command = new OleDbCommand();
+                OleDbTransaction trans = null;
 
-                    //    try
-                    //    {
-                    //        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                    //        OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
-                    //        oraConnect.Open();
-                    //        cm.ExecuteNonQuery();
-                    //        oraConnect.Close();
-                    //        cm.Dispose();
+                command.Connection = oraConnectTrans;
+                oraConnectTrans.Open();
 
-                    //        stsimpan = 2;
+                try
+                {
+                    trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
+                    command.Connection = oraConnectTrans;
+                    command.Transaction = trans;
 
-                    //        sql_cnt = " select count(0) cnt, max(head_id) headid from KLINIK.cs_treatment_head where to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and visit_no = '" + que + "' and rm_no = '" + rm_no + "' " + " and status = 'OPN' ";
-                    //        OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-                    //        OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect2);
-                    //        DataTable dt = new DataTable();
-                    //        adOra.Fill(dt);
-                    //        diag_cnt = dt.Rows[0]["cnt"].ToString();
-                    //        if (Convert.ToInt32(diag_cnt) > 0)
-                    //        {
-                    //            headid = dt.Rows[0]["headid"].ToString();
-                    //            OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora();
-                    //            OleDbCommand command = new OleDbCommand();
-                    //            OleDbTransaction trans = null;
+                    if (insu_flag.ToString().Equals("A"))
+                        insu_flag = "A";
+                    else if (insu_flag.ToString().Equals("B"))
+                        insu_flag = "B";
+                    else
+                        insu_flag = "U";
+                    command.CommandText = " insert into KLINIK.cs_treatment_head (head_id, rm_no, patient_no, visit_date, visit_no, treat_type_id, status, remarks, pay_status, insu_flag, ins_date, ins_emp,ID_VISIT) values ('" + seq_val + "', '" + rm_no + "', '" + pasno + "', to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + nama_laya + "', 'OPN', '" + remark + "', 'OPN', '" + insu_flag + "', sysdate, '" + DB.vUserId + "', '" + pid_visit + "') ";
+                    command.ExecuteNonQuery();  
 
-                    //            command.Connection = oraConnectTrans;
-                    //            oraConnectTrans.Open();
+                    sql_tmp = "";
+                    sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
+                    sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
+                    sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
+                    sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
+                    sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
+                    sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
+                    sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
+                    sql_tmp = sql_tmp + "where 1=1";
+                    sql_tmp = sql_tmp + "and default_st='Y' ";
+                    if (!nama_laya.ToString().Equals("TRT01"))
+                        sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
+                    else
+                        sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
+                    sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06')  and b.F_STATUS ='" + insu_flag + "'";
 
-                    //            try
-                    //            {
-                    //                string sql_seq2 = "", seq_val2 = "", sql_tmp = "", sql_seq = "", seq_val = "";
+                    command.CommandText = sql_tmp;
+                    command.ExecuteNonQuery();
 
-                    //                trans = oraConnectTrans.BeginTransaction(IsolationLevel.ReadCommitted);
-                    //                command.Connection = oraConnectTrans;
-                    //                command.Transaction = trans;
-                    //                //DB.vUserId = "1";
+                    trans.Commit(); 
+                    stsimpan = 1;
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("ERROR: " + ex.Message);
+                }
 
-                    //                //if (nama_laya.ToString().Equals("TRT01"))
-                    //                //{
-                    //                //    command.CommandText = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =" + pid_visit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                    //                //    command.ExecuteNonQuery();
-                    //                //}
-                    //                //else
-                    //                //{
-                    //                //    sql_seq2 = " select CS_INPATIENT_SEQ.nextval seq from dual ";
-                    //                //    OleDbConnection oraConnects2 = ConnOra.Create_Connect_Ora();
-                    //                //    OleDbDataAdapter adOras2 = new OleDbDataAdapter(sql_seq2, oraConnects2);
-                    //                //    DataTable dts2 = new DataTable();
-                    //                //    adOras2.Fill(dts2);
-                    //                //    seq_val2 = dts2.Rows[0]["seq"].ToString();
-
-                    //                //    sql_seq = " select CS_TREATMENT_DETAIL_SEQ.nextval seq from dual ";
-                    //                //    OleDbConnection oraConnects = ConnOra.Create_Connect_Ora();
-                    //                //    OleDbDataAdapter adOras = new OleDbDataAdapter(sql_seq, oraConnects);
-                    //                //    DataTable dts = new DataTable();
-                    //                //    adOras.Fill(dts);
-                    //                //    seq_val = dts.Rows[0]["seq"].ToString();
-
-
-                    //                //    command.CommandText = " insert into KLINIK.cs_visit_his select a.*,sysdate, '" + DB.vUserId + "' from KLINIK.cs_visit a where ID_VISIT =  '" + pid_visit + "' ";
-                    //                //    command.ExecuteNonQuery();
-
-                    //                //    command.CommandText = " update KLINIK.cs_visit set POLI_CD = 'POL0004', status = 'INP', inpatient_id = '" + seq_val2 + "' , time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + pasno + "' and ID_VISIT =  '" + pid_visit + "'  ";
-                    //                //    command.ExecuteNonQuery();
-
-                    //                //    command.CommandText = " insert into cs_inpatient (inpatient_id, rm_no,  reg_date, status,   date_in,    ins_date, ins_emp) values ('" + seq_val2 + "', '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'), '" + status + "',   to_date('" + date.ToString().Substring(0, 10) + "','yyyy-mm-dd'),   sysdate, '" + DB.vUserId + "') ";
-                    //                //    command.ExecuteNonQuery();
-
-                    //                //    //command.CommandText = " insert into KLINIK.cs_treatment_detail  (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, TREAT_JAM, GRID_NAME) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ljam + "', 'gvMedisPeriksa') ";
-                    //                //    //command.ExecuteNonQuery();
-
-                    //                //    //command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
-                    //                //    //command.ExecuteNonQuery();  
-                    //                //}
-
-                    //                sql_tmp = " ";
-                    //                sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
-                    //                sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
-                    //                sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                    //                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
-                    //                sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
-                    //                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
-                    //                sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
-                    //                sql_tmp = sql_tmp + " where 1=1";
-                    //                sql_tmp = sql_tmp + "   and default_st='Y' and b.treat_item_id not in( select TREAT_ITEM_ID from KLINIK.cs_treatment_detail where HEAD_ID = " + headid + " )  ";
-                    //                if (!nama_laya.ToString().Equals("TRT01"))
-                    //                    sql_tmp = sql_tmp + "and a.treat_type_id <> 'TRT01' ";
-                    //                else
-                    //                    sql_tmp = sql_tmp + "and a.treat_type_id = 'TRT01' ";
-                    //                sql_tmp = sql_tmp + "and b.treat_group_id = decode( '" + policd + "', 'POL0001','TRG01','TRG06') and b.F_STATUS ='" + insu_flag + "' ";
-
-                    //                command.CommandText = sql_tmp;
-                    //                command.ExecuteNonQuery();
-
-                    //                trans.Commit();
-                    //                stsimpan = 1;
-
-                    //                //MessageBox.Show(sql_insert);
-                    //                //MessageBox.Show("Query Exec : " + sql_insert);
-                    //                //MessageBox.Show("Data Berhasil disimpan.");
-                    //            }
-                    //            catch (Exception ex)
-                    //            {
-                    //                trans.Rollback();
-                    //                MessageBox.Show("ERROR: " + ex.Message);
-                    //            }
-
-                    //            oraConnectTrans.Close();
-
-                    //        }
-
-                    //        //MessageBox.Show("Query Exec : " + sql_update);
-
-                    //        //MessageBox.Show("Data Berhasil diupdate");
-                    //    }
-                    //    catch (Exception ex)
-                    //    {
-                    //        MessageBox.Show("ERROR: " + ex.Message);
-                    //    }
-                    //}
-            //        LoadTind();
-            //        LoadAddTind();
-            //        simpleButton2.Enabled = true;
-            //    }
-            ////}
-
-            //if (stsimpan == 1)
-            //{
-            //    labelControl171.Visible = true;
-            //    labelControl171.Text = "Pelayanan Berhasil Disimpan";
-            //    Blinking(labelControl171, 1);
-            //}
-            //else if (stsimpan == 2)
-            //{
-            //    labelControl171.Visible = true;
-            //    labelControl171.Text = "Pelayanan Berhasil Diubah";
-            //    Blinking(labelControl171, 1);
-            //}
+                oraConnectTrans.Close();
+            }
         } 
 
 
@@ -2630,7 +2443,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2656,7 +2469,7 @@ namespace Clinic
             
             //ObsList();
 
-            //cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+            //cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
             //cnt = gridView5.RowCount;
             //free = cap - cnt;
             //lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -2896,7 +2709,7 @@ namespace Clinic
                                 //ObsList();
                                 ObsList();
                                 int cap = 0, free = 0, cnt = 0;
-                                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                                 cnt = gridView5.RowCount;
                                 free = cap - cnt;
                                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -3045,11 +2858,11 @@ namespace Clinic
                            " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis,a.MED_REMARK REMARK	 " +
                            " from KLINIK.cs_receipt a  " +
-                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null and a.JENIS_OBAT ='NONE' " +
-                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
-                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit +" ";
+                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')   and GRID_NAME = 'gridView6' " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='N' " +
+                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " order by b.med_name ";
 
             DataTable dtObatUmum = ConnOra.Data_Table_ora(sql_med_load);
 
@@ -3179,7 +2992,13 @@ namespace Clinic
             //gridView6.Columns[3].ColumnEdit = medicineLookup;
 
             //DataListObat(s_stat, spoli);
-            ConnOra.LookUpGridFilter(listMedicine, gridView6, "medicineCode", "medicineName", LokObatGrid, 1);
+            //ConnOra.LookUpGridFilter(listMedicine, gridView6, "medicineCode", "medicineName", LokObatGrid, 1);
+
+            ConnOra.LookUpGroupGridFilter(lMedicine, gridView6, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGrid, 1);
+            LokObatGrid.ImmediatePopup = true;
+            LokObatGrid.PopupFilterMode = PopupFilterMode.Contains;
+            //ConnOra.LookUpGroupGridFilter(lMedicineU, gridView16, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridU, 1);
+
 
             //glmed.DataSource = listMedicine;
             //glmed.ValueMember = "medicineCode";
@@ -3195,23 +3014,23 @@ namespace Clinic
             //glmed.NullText = "";
             //gridView6.Columns[3].ColumnEdit = glmed;
             //gvRacik.Columns[3].ColumnEdit = glmed;
-            
 
-            glmedRacik.DataSource = listMedicineRacik;
-            glmedRacik.ValueMember = "medicineCode";
-            glmedRacik.DisplayMember = "medicineName";
-            glmedRacik.PopulateViewColumns();
-            glmedRacik.View.Columns["medicineCode"].Width = 35;
-            glmedRacik.View.Columns["medicineName"].Width = 200;
-            glmedRacik.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmedRacik.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmedRacik.ImmediatePopup = true;
-            glmedRacik.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmedRacik.NullText = "";
-           
+
+            //glmedRacik.DataSource = listMedicineRacik;
+            //glmedRacik.ValueMember = "medicineCode";
+            //glmedRacik.DisplayMember = "medicineName";
+            //glmedRacik.PopulateViewColumns();
+            //glmedRacik.View.Columns["medicineCode"].Width = 35;
+            //glmedRacik.View.Columns["medicineName"].Width = 200;
+            //glmedRacik.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmedRacik.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmedRacik.ImmediatePopup = true;
+            //glmedRacik.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmedRacik.NullText = "";
+
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "') ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N' ";
             //if(sstatus.ToString().Equals("BPJS"))
             //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
@@ -3284,11 +3103,11 @@ namespace Clinic
             string idracik = "";
             sql_racik2 = " select distinct a.ATT1_RECIEPT CODE_ID, a.ATT1_RECIEPT RACIKAN, a.DOSIS, type_drink,a.ATT3_RECIEPT jumlah, a.ATT2_RECIEPT REMARK_RACIK, 'S' action  " + 
                           " from KLINIK.cs_receipt a  " +
-                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) "  +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                           " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and d.racikan ='Y'  " +
                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
@@ -3300,16 +3119,17 @@ namespace Clinic
             {
                 idracik = dtR2.Rows[0]["CODE_ID"].ToString();
                 LoadResepRacikan(idracik);
-                if (sstatus.ToString().Equals("BPJS"))
-                    gvRacik.Columns[3].ColumnEdit = glmedRacik;
-                else
-                    gvRacik.Columns[3].ColumnEdit = glmed;
+                //if (sstatus.ToString().Equals("BPJS"))
+                //    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+                //else
+                //    gvRacik.Columns[3].ColumnEdit = glmed;
                 gvRacik.Columns[4].ColumnEdit = glfor;
                 gvRacik.Columns[5].ColumnEdit = medicineInfoLookup;
                 gvRacik.Columns[14].ColumnEdit = dosisLookup;
+                //ConnOra.LookUpGroupGridFilter(lMedicineRacik, gvRacik, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridR, 3);
             }
-                
 
+            
             gridRacik.DataSource = null;
             gridHRacik.Columns.Clear();
             gridRacik.DataSource = dtR2;
@@ -3317,6 +3137,7 @@ namespace Clinic
             gdRacik.DataSource = null;
             gvRacik.Columns.Clear();
             //gdRacik.DataSource = dtR2;
+            
 
             //gvRacik.OptionsView.ColumnAutoWidth = true;
             //gvRacik.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
@@ -3399,10 +3220,10 @@ namespace Clinic
                            " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  " +
-                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is null" +
                            " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and d.racikan ='N'  " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
@@ -3515,7 +3336,7 @@ namespace Clinic
 
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "') ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and upper(att1) =upper('" + sstatus + "')  and racikan ='N'  ";
             //if(sstatus.ToString().Equals("BPJS"))
             //     sql_for = sql_for + Environment.NewLine + "and BPJS_COVER ='Y'";  
 
@@ -3588,11 +3409,11 @@ namespace Clinic
             string idracik = "";
             sql_racik2 = " select distinct a.ATT1_RECIEPT CODE_ID, a.ATT1_RECIEPT RACIKAN, a.DOSIS, type_drink,a.ATT3_RECIEPT jumlah, a.ATT2_RECIEPT REMARK_RACIK, 'S' action  " +
                           " from KLINIK.cs_receipt a  " +
-                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                          " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                           " join KLINIK.CS_CODE_DATA c on (a.ATT1_RECIEPT = c.CODE_ID and c.CODE_CLASS_ID = 'MED_RACIK' )  " +
                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null " +
                           " and rm_no = '" + s_rm + "' and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                          " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'   and racikan ='Y'  " +
                           " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
             OleDbConnection oraconR2 = ConnOra.Create_Connect_Ora();
@@ -3703,10 +3524,10 @@ namespace Clinic
                            " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  " +
-                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
                            " where b.status = 'A'   and D.MINUS_STOK ='Y'  and a.ATT1_RECIEPT is not null" +
                            " and rm_no = '" + s_rm + "' and a.GRID_NAME ='gvRacik' " + // and upper(att1) in (upper('" + sstatus + "'),  'ALL')  " +
-                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  " +
+                           " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "'  and racikan ='Y'  " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + "  and ATT1_RECIEPT = '" + idracikan + "'";
 
             OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
@@ -3770,10 +3591,14 @@ namespace Clinic
             //glmed.ImmediatePopup = true;
             //glmed.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             //glmed.NullText = "";
-            if(sstatus.ToString().Equals("BPJS"))
-                gvRacik.Columns[3].ColumnEdit = glmedRacik;
-            else
-                gvRacik.Columns[3].ColumnEdit = glmed;
+            //if(sstatus.ToString().Equals("BPJS"))
+            //    gvRacik.Columns[3].ColumnEdit = glmedRacik;
+            //else
+            //    gvRacik.Columns[3].ColumnEdit = glmed;
+
+            ConnOra.LookUpGroupGridFilter(lMedicineRacik, gvRacik, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridR, 3);
+            LokObatGridR.ImmediatePopup = true;
+            LokObatGridR.PopupFilterMode = PopupFilterMode.Contains;
             //gvRacik.Columns[3].ColumnEdit = glmed;
 
             //string sql_for = "";
@@ -3862,50 +3687,40 @@ namespace Clinic
                            " klinik.FN_CS_REQ_STOCK(a.insp_date,a.med_cd) stock, " +
                            " A.med_qty, initcap(uom) uom, 'S' action, a.confirm, a.days, a.price, a.qty_day, a.dosis " +
                            " from KLINIK.cs_receipt a  " +
-                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd)  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
-                           " where b.status = 'A'   and D.MINUS_STOK ='Y'  " +
-                           " and rm_no = '" + s_rm + "' and att1 ='UMUM' " +
+                           " join KLINIK.cs_medicine b on (a.med_cd = b.med_cd and b.MED_GROUP ='OBAT')  JOIN KLINIK.cs_formula D ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula) " +
+                           " where b.status = 'A'   and D.MINUS_STOK ='Y' AND a.ATT1_RECIEPT IS NULL AND a.JENIS_OBAT = 'NONE' " +
+                           " and rm_no = '" + s_rm + "' and att1 ='UMUM'  and d.racikan ='N' " +
                            " and to_char(insp_date, 'yyyy-mm-dd') = '" + s_date + "' and GRID_NAME = 'gridView16' " +
                            " and visit_no = '" + s_que + "' and id_visit = " + idvisit + " ";
 
-            OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adOra2 = new OleDbDataAdapter(sql_med_load, oraConnect2);
-            DataTable dt2 = new DataTable();
-            adOra2.Fill(dt2);
+            DataTable dtObatUmum2 = ConnOra.Data_Table_ora(sql_med_load);
 
-            gridControl16.DataSource = null;
-            gridView16.Columns.Clear();
-            gridControl16.DataSource = dt2;
+            gridControl16.DataSource = null; 
+            gridControl16.DataSource = dtObatUmum2;
 
             gridView16.OptionsView.ColumnAutoWidth = true;
             gridView16.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
             gridView16.Appearance.HeaderPanel.FontSizeDelta = 0;
-            gridView16.IndicatorWidth = 30; 
+            gridView16.IndicatorWidth = 33;
             gridView16.BestFitColumns();
 
-            gridView16.Columns[0].Caption = "ID";
-            gridView16.Columns[1].Caption = "Kode";
-            gridView16.Columns[2].Caption = "Group";
-            gridView16.Columns[3].Caption = "Nama Obat";
-            gridView16.Columns[4].Caption = "Kode Dosis";
-            gridView16.Columns[5].Caption = "Info";
-            gridView16.Columns[6].Caption = "Stok";
-            gridView16.Columns[7].Caption = "Jumlah";
-            gridView16.Columns[8].Caption = "Satuan";
-            gridView16.Columns[9].Caption = "Action";
-            gridView16.Columns[10].Caption = "Confirm";
-            gridView16.Columns[11].Caption = "Jml";
-            gridView16.Columns[12].Caption = "Harga";
-            gridView16.Columns[13].Caption = "Jumlah per Hari";
-            gridView16.Columns[14].Caption = "Dosis";
+            gridView16.Columns[6].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[10].OptionsColumn.ReadOnly = true;
 
-            gridView16.Columns[14].VisibleIndex = 5;
-            gridView16.Columns[11].VisibleIndex = 6;
+            //gridView6.Columns[15].VisibleIndex = 0;
+            //gridView6.Columns[16].VisibleIndex = 1;
+            gridView16.Columns[1].VisibleIndex = 1;
+            gridView16.Columns[14].VisibleIndex = 2;
+            gridView16.Columns[7].VisibleIndex = 3;
+            gridView16.Columns[15].VisibleIndex = 4;
 
-            gridView16.Columns[4].MinWidth = 80;
-            gridView16.Columns[4].MaxWidth = 80;
-            gridView16.Columns[5].MinWidth = 120;
-            gridView16.Columns[5].MaxWidth = 120;
+
+            gridView16.Columns[14].MinWidth = 80;
+            gridView16.Columns[14].MaxWidth = 80;
+            gridView16.Columns[5].MinWidth = 150;
+            gridView16.Columns[5].MaxWidth = 150;
+            gridView16.Columns[3].MinWidth = 350;
+            gridView16.Columns[3].MaxWidth = 350;
             gridView16.Columns[6].MinWidth = 60;
             gridView16.Columns[6].MaxWidth = 60;
             gridView16.Columns[7].MinWidth = 60;
@@ -3915,40 +3730,88 @@ namespace Clinic
             gridView16.Columns[10].MinWidth = 60;
             gridView16.Columns[10].MaxWidth = 60;
             gridView16.Columns[11].MinWidth = 60;
-            gridView16.Columns[11].MaxWidth = 60;
-            gridView16.Columns[14].MinWidth = 60;
-            gridView16.Columns[14].MaxWidth = 60;
-
-            gridView16.Columns[0].Visible = false;
-            gridView16.Columns[1].Visible = false;
-            gridView16.Columns[2].Visible = false;
-            gridView16.Columns[7].Visible = false;
-            gridView16.Columns[8].Visible = false;
-            gridView16.Columns[9].Visible = false;
-            gridView16.Columns[12].Visible = false;
-            gridView16.Columns[13].Visible = false; 
+            gridView16.Columns[11].MaxWidth = 60; 
 
             gridView16.Columns[2].OptionsColumn.ReadOnly = true;
             gridView16.Columns[6].OptionsColumn.ReadOnly = true;
-            gridView16.Columns[7].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[7].OptionsColumn.ReadOnly = false;
             gridView16.Columns[8].OptionsColumn.ReadOnly = true;
             gridView16.Columns[9].OptionsColumn.ReadOnly = true;
-            gridView16.Columns[10].OptionsColumn.ReadOnly = true; 
+            gridView16.Columns[10].OptionsColumn.ReadOnly = true;
+            gridView16.Columns[15].OptionsColumn.ReadOnly = false;
+            gridView16.Columns[15].Visible = false;
+            gridView16.BestFitColumns();
 
-            RepositoryItemGridLookUpEdit glmedU = new RepositoryItemGridLookUpEdit();
-            glmedU.DataSource = listMedicineU;
-            glmedU.ValueMember = "medicineCode";
-            glmedU.DisplayMember = "medicineName";
+            //gridView16.Columns[0].Caption = "ID";
+            //gridView16.Columns[1].Caption = "Kode";
+            //gridView16.Columns[2].Caption = "Group";
+            //gridView16.Columns[3].Caption = "Nama Obat";
+            //gridView16.Columns[4].Caption = "Kode Dosis";
+            //gridView16.Columns[5].Caption = "Info";
+            //gridView16.Columns[6].Caption = "Stok";
+            //gridView16.Columns[7].Caption = "Jumlah";
+            //gridView16.Columns[8].Caption = "Satuan";
+            //gridView16.Columns[9].Caption = "Action";
+            //gridView16.Columns[10].Caption = "Confirm";
+            //gridView16.Columns[11].Caption = "Jml";
+            //gridView16.Columns[12].Caption = "Harga";
+            //gridView16.Columns[13].Caption = "Jumlah per Hari";
+            //gridView16.Columns[14].Caption = "Dosis";
 
-            glmedU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            glmedU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            glmedU.ImmediatePopup = true;
-            glmedU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            glmedU.NullText = "";
-            gridView16.Columns[3].ColumnEdit = glmedU; 
+            //gridView16.Columns[14].VisibleIndex = 5;
+            //gridView16.Columns[11].VisibleIndex = 6;
+
+            //gridView16.Columns[4].MinWidth = 80;
+            //gridView16.Columns[4].MaxWidth = 80;
+            //gridView16.Columns[5].MinWidth = 120;
+            //gridView16.Columns[5].MaxWidth = 120;
+            //gridView16.Columns[6].MinWidth = 60;
+            //gridView16.Columns[6].MaxWidth = 60;
+            //gridView16.Columns[7].MinWidth = 60;
+            //gridView16.Columns[7].MaxWidth = 60;
+            //gridView16.Columns[8].MinWidth = 60;
+            //gridView16.Columns[8].MaxWidth = 60;
+            //gridView16.Columns[10].MinWidth = 60;
+            //gridView16.Columns[10].MaxWidth = 60;
+            //gridView16.Columns[11].MinWidth = 60;
+            //gridView16.Columns[11].MaxWidth = 60;
+            //gridView16.Columns[14].MinWidth = 60;
+            //gridView16.Columns[14].MaxWidth = 60;
+
+            //gridView16.Columns[0].Visible = false;
+            //gridView16.Columns[1].Visible = false;
+            //gridView16.Columns[2].Visible = false;
+            //gridView16.Columns[7].Visible = false;
+            //gridView16.Columns[8].Visible = false;
+            //gridView16.Columns[9].Visible = false;
+            //gridView16.Columns[12].Visible = false;
+            //gridView16.Columns[13].Visible = false; 
+
+            //gridView16.Columns[2].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[6].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[7].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[8].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[9].OptionsColumn.ReadOnly = true;
+            //gridView16.Columns[10].OptionsColumn.ReadOnly = true;
+
+            ConnOra.LookUpGroupGridFilter(lMedicineU, gridView16, "Kategori", "Kode_Obat", "Nama_Obat", LokObatGridU, 1);
+            LokObatGridU.ImmediatePopup = true;
+            LokObatGridU.PopupFilterMode = PopupFilterMode.Contains;
+
+            //RepositoryItemGridLookUpEdit glmedU = new RepositoryItemGridLookUpEdit();
+            //glmedU.DataSource = listMedicineU;
+            //glmedU.ValueMember = "medicineCode";
+            //glmedU.DisplayMember = "medicineName";
+
+            //glmedU.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            //glmedU.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            //glmedU.ImmediatePopup = true;
+            //glmedU.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //glmedU.NullText = "";
+            //gridView16.Columns[3].ColumnEdit = glmedU; 
 
             string sql_for = "";
-            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM' ";
+            sql_for = sql_for + Environment.NewLine + "  select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1 and POLI_CD ='" + spoli.ToString() + "' and att1 = 'UMUM'  and racikan ='N' ";
              
             OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
@@ -3997,10 +3860,10 @@ namespace Clinic
         {
             dtGlMed.Clear();
             string sql_med = " ", sql_racik ="", sql_medR ="";
-            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
-            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name  ";
+            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd and b.MED_GROUP ='OBAT') where 1=1    ";
             sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
-            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   "; 
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  "; 
             //if (sstatus.ToString().Equals("BPJS"))
             //    sql_med = sql_med + Environment.NewLine + "    and BPJS_COVER ='Y' and POLI_CD = '" + spoli.ToString() + "'   ";
             //else
@@ -4022,10 +3885,10 @@ namespace Clinic
             {
                 dtGlMedU.Clear();
                 sql_med = "";
-                sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
-                sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                sql_med = sql_med + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name  ";
+                sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd ) where 1=1    ";
                 sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
-                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   "; 
+                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   "; 
                 sql_med = sql_med + Environment.NewLine + "  order by med_name  ";
 
                 OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
@@ -4047,23 +3910,28 @@ namespace Clinic
                 //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   ";
                 //sql_medR = sql_medR + Environment.NewLine + "  order by med_name  ";
 
+                //Sql = Sql + Environment.NewLine + " select formula_id, initcap(formula) formula, initcap(b.med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name ";
+                //Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1      ";
+                //Sql = Sql + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'    ";
+                //Sql = Sql + Environment.NewLine + "    and POLI_CD ='POL0001'  AND RACIKAN ='Y'   ";
+
                 dtGlMedRacik.Clear();
                 sql_medR = "";
-                sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name)  || decode(att1,'BPJS','',' [None BPJS]')  med_name   ";
                 sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
-                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'    ";
-                sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
-                sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
-                sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
-                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
-                sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
-                sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
-                sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
-                sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
-                sql_medR = sql_medR + Environment.NewLine + "                        ) ";
-                sql_medR = sql_medR + Environment.NewLine + "  order by med_name ";
+                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'   ";
+                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
+                //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                        ) ";
+                sql_medR = sql_medR + Environment.NewLine + "  order by 2 ";
 
 
                 OleDbConnection sqlConnectR = ConnOra.Create_Connect_Ora();
@@ -4078,6 +3946,94 @@ namespace Clinic
                 }
             } 
         }
+        private void DataListObatGroup(string sstatus, string spoli)
+        {
+            dtGlMed.Clear();
+            string sql_med = " ", sql_racik = "", sql_medR = "";
+
+            sql_med = "";
+            sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+            sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+            sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
+            sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and a.racikan ='N'  "; 
+            sql_med = sql_med + Environment.NewLine + "  order by a.att2, 3  ";
+
+            OleDbConnection sqlConnect3 = ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSql3 = new OleDbDataAdapter(sql_med, sqlConnect3);
+            DataTable dt3 = new DataTable();
+            dtGlMed = dt3;
+            adSql3.Fill(dt3);
+            lMedicine.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                lMedicine.Add(new MedGroup() { Kategori = dt3.Rows[i]["Kategori"].ToString(), Kode_Obat = dt3.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dt3.Rows[i]["Nama_Obat"].ToString() });
+            }
+
+            //if (sstatus.ToString().Equals("BPJS"))
+            //{
+                dtGlMedU.Clear();
+                sql_med = "";
+                sql_med = sql_med + Environment.NewLine + " select DISTINCT a.att2 Kategori, b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' Nama_Obat   ";
+                sql_med = sql_med + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                sql_med = sql_med + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 ='UMUM'  ";
+                sql_med = sql_med + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   and A.racikan ='N'   ";
+                sql_med = sql_med + Environment.NewLine + "  order by a.att2,3  ";
+
+                OleDbConnection sqlConnectU = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqlU = new OleDbDataAdapter(sql_med, sqlConnectU);
+                DataTable dtU = new DataTable();
+                dtGlMedU = dtU;
+                adSqlU.Fill(dtU);
+                lMedicineU.Clear();
+                for (int i = 0; i < dtU.Rows.Count; i++)
+                {
+                    lMedicineU.Add(new MedGroup() { Kategori = dtU.Rows[i]["Kategori"].ToString(), Kode_Obat = dtU.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtU.Rows[i]["Nama_Obat"].ToString() });
+                }
+
+                //dtGlMedRacik.Clear();
+                //sql_medR = "";
+                //sql_medR = sql_medR + Environment.NewLine + " select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name  ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y' and att1 in('BPJS', 'UMUM','ALL')   ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'   ";
+                //sql_medR = sql_medR + Environment.NewLine + "  order by med_name  ";
+
+                //Sql = Sql + Environment.NewLine + " select formula_id, initcap(formula) formula, initcap(b.med_name) || decode(att1,'BPJS','',' [None BPJS]') med_name ";
+                //Sql = Sql + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1      ";
+                //Sql = Sql + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'    ";
+                //Sql = Sql + Environment.NewLine + "    and POLI_CD ='POL0001'  AND RACIKAN ='Y'   ";
+
+                dtGlMedRacik.Clear();
+                sql_medR = "";
+                sql_medR = sql_medR + Environment.NewLine + " select DISTINCT a.att2 Kategori,  b.med_cd Kode_Obat, initcap(med_name) ||' ['||a.FORMULA||']' || decode(att1,'BPJS','',' [None BPJS]') Nama_Obat   ";
+                sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and upper(att1) in (decode(upper('" + sstatus + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL')  ";
+                sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD ='" + spoli.ToString() + "'  AND RACIKAN ='Y'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "  UNION ALL ";
+                //sql_medR = sql_medR + Environment.NewLine + "  select b.med_cd, initcap(med_name) || ' (BPJS: ' || bpjs_cover || ')' med_name   ";
+                //sql_medR = sql_medR + Environment.NewLine + "   from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 in('UMUM','ALL') ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and POLI_CD = '" + spoli.ToString() + "'    ";
+                //sql_medR = sql_medR + Environment.NewLine + "    and b.med_cd not in ( select b.med_cd  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                           from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1     ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and a.status = 'A' and MED_GROUP ='OBAT'  and MINUS_STOK ='Y'  and att1 = 'BPJS' ";
+                //sql_medR = sql_medR + Environment.NewLine + "                            and POLI_CD ='" + spoli.ToString() + "'  ";
+                //sql_medR = sql_medR + Environment.NewLine + "                        ) ";
+                sql_medR = sql_medR + Environment.NewLine + "  order by a.att2, 3 ";
+
+
+                OleDbConnection sqlConnectR = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSqlR = new OleDbDataAdapter(sql_medR, sqlConnectR);
+                DataTable dtR = new DataTable();
+                dtGlMedRacik = dtR;
+                adSqlR.Fill(dtR);
+                lMedicineRacik.Clear();
+                for (int i = 0; i < dtR.Rows.Count; i++)
+                {
+                    lMedicineRacik.Add(new MedGroup() { Kategori = dtR.Rows[i]["Kategori"].ToString(), Kode_Obat = dtR.Rows[i]["Kode_Obat"].ToString(), Nama_Obat = dtR.Rows[i]["Nama_Obat"].ToString() });
+                }
+            //}
+        }
         private void loadResep_Click(object sender, EventArgs e)
         {
             string sql_load = "", sql_resep_luar = "";
@@ -4091,6 +4047,8 @@ namespace Clinic
                 MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
                 return;
             }
+            if (gridView1.FocusedRowHandle < 0)
+                return;
 
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
@@ -4105,7 +4063,7 @@ namespace Clinic
             //sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa   ";
             sql_load = sql_load + Environment.NewLine + "', Suhu : ' || temperature || ', BB : ' || bb || ', TB : ' || tb || ', Alergi : ' || allergy || ', Keluhan : ' || anamnesa as anamnesa    ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) anamnesa,   ";
             sql_load = sql_load + Environment.NewLine + "(select LISTAGG(item_name, ', ') WITHIN GROUP (ORDER BY type_diagnosa asc) diagnosa   ";
@@ -4118,17 +4076,17 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "(select  'Sekarang : ' || disease_now || ', Dahulu : ' || disease_then ||   ";
             sql_load = sql_load + Environment.NewLine + "', Keluarga : ' || disease_family as rp ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) rp, ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_physical   ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) fisik,  ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa_other  ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa  ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no  ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and id_visit = b.id_visit ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)   ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) lain  "; 
             sql_load = sql_load + Environment.NewLine + ", case when b.STATUS = ( select d.TYPE_INS  ";
@@ -4182,7 +4140,8 @@ namespace Clinic
             lMedPf.Text = p_pf;
             lMedPt.Text = p_pt;
             lMedDiag.Text = p_diagnosa;
-            DataListObat(s_stat, dt.Rows[0]["POLI_CD"].ToString());
+            //DataListObat(s_stat, dt.Rows[0]["POLI_CD"].ToString());
+            DataListObatGroup(s_stat, dt.Rows[0]["POLI_CD"].ToString());
             LoadDataResep(); 
 
             if (gridView6.RowCount > 0)
@@ -4260,11 +4219,21 @@ namespace Clinic
         {
             btnMedSave.Enabled = true;
             GridView view = sender as GridView;
-            string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+
+            if (view.RowCount < 1)
+                return;
+
+            //if (e.RowHandle < 0)
+            //    return;
+
+            string a = Convert.ToString(view.GetRowCellValue(e.RowHandle, view.Columns[3]));
             if (a.ToString().Equals(""))
                 return;
 
+            try
+            {
 
+            
             if (e.Column.Caption == "Nama Obat" && (a.Substring(0,2)=="BP" || a.Substring(0, 2) == "UM" ))
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
@@ -4285,7 +4254,7 @@ namespace Clinic
 
                 sql_med = " select med_cd, initcap(med_name) med_name, med_group, '" + cek_stok + "' stock, initcap(uom) uom " + 
                           " from KLINIK.cs_medicine a  " +
-                          " where status = 'A'  " +
+                          " where status = 'A' and  MED_GROUP ='OBAT' " +
                           " and med_cd = '" + a + "' ";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
@@ -4308,7 +4277,7 @@ namespace Clinic
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
                 //}
                  
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y' AND RACIKAN ='N'";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -4469,8 +4438,8 @@ namespace Clinic
                     tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt16(tmp_hari); //Convert.ToInt16(tmp_hari) * Convert.ToInt16(qty);
-                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt16(tmp_hari) *
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
                 if (!cstock.ToString().Equals(""))
                 {
@@ -4503,6 +4472,9 @@ namespace Clinic
 
             if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Info" || e.Column.Caption == "Dosis" || e.Column.Caption == "Remark")
             {
+                if (view.RowCount < 1)
+                    return;
+
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
                 if (tmp_stat == "I")
@@ -4513,6 +4485,11 @@ namespace Clinic
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
                 }
+            }
+            }
+            catch
+            {
+                return;
             }
         }
 
@@ -4532,13 +4509,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -4857,9 +4834,9 @@ namespace Clinic
                     cm.ExecuteNonQuery();
                     oraConnect.Close();
                     cm.Dispose();
-
+                    gridView6.DeleteRow(gridView6.FocusedRowHandle);
                     //MessageBox.Show("Query Exec : " + sql_update);
-                    LoadDataResep();
+                    //LoadDataResep();
                     //MessageBox.Show("Data Berhasil di hapus");
                     labelControl165.Visible = true;
                     labelControl165.Text = "Hapus Berhasil";
@@ -6201,7 +6178,7 @@ namespace Clinic
             if (rm_number.ToString().Equals("DOC"))
             {
                 sql1 = " ";
-                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 ORADB.Execute(ORADB.XE, sql1);
 
@@ -6218,7 +6195,7 @@ namespace Clinic
                 if(sstus.ToString().Equals("NUR"))
                 {
                     sql1 = " ";
-                    sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N' WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' and TYPE_INS ='DOC' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql1);
                 }
@@ -6584,7 +6561,7 @@ namespace Clinic
 
                 ObsList();
                 int cap = 0, free = 0, cnt = 0;
-                cap = Convert.ToInt16(luObsRoom.GetColumnValue("roomQty").ToString());
+                cap = Convert.ToInt32(luObsRoom.GetColumnValue("roomQty").ToString());
                 cnt = gridView5.RowCount;
                 free = cap - cnt;
                 lObsCap.Text = luObsRoom.GetColumnValue("roomQty").ToString();
@@ -6682,7 +6659,7 @@ namespace Clinic
             sql_close = "";
 
             sql_close = sql_close + " update KLINIK.cs_visit" +
-                                    " set status = 'PAY', VISIT_REMARK ='NONE MEDICINE',";
+                                    " set  VISIT_REMARK ='NONE MEDICINE',";
             sql_close = sql_close + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
             sql_close = sql_close + " where patient_no = '" + s_nik + "' and que01 = '" + s_que + "' and  to_char(visit_date,'yyyy-mm-dd') = '" + s_date + "'";
 
@@ -6749,7 +6726,7 @@ namespace Clinic
 
                 s_cnt = dt.Rows[0]["cnt"].ToString();
 
-                if (Convert.ToInt16(s_cnt) > 0)
+                if (Convert.ToInt32(s_cnt) > 0)
                 {
                     sql_update = "";
 
@@ -6803,6 +6780,9 @@ namespace Clinic
 
         private void xtraTabControl2_Click(object sender, EventArgs e)
         {
+            if (gridView1.RowCount < 1)
+                return;
+
             if (xtraTabControl2.SelectedTabPage.Text == "Terapi / Resep")
             {
                 if (tmp_now != rNow.Text || tmp_old != rOld.Text || tmp_fam != rFam.Text || tmp_fisik != pFisik.Text || tmp_add != pAdd.Text)
@@ -6829,6 +6809,15 @@ namespace Clinic
             string s_rm = "", s_que = "", s_date = "", p_rm = "", p_que = "", p_date = "", p_name = "", p_anamnesa = "", p_diagnosa = "", p_tipe_pas="", p_tipe_des="", p_id_visit="";
             if (gridView1.RowCount < 1) return;
 
+            if (idvisit.ToString().Equals(""))
+            {
+                MessageBox.Show("Silahkan Tentukan Pasien Terlebh Dahulu...!!!");
+                return;
+            }
+            if (gridView1.FocusedRowHandle < 0)
+                return;
+
+
             s_rm = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[10]).ToString();
             s_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
             s_date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -6840,7 +6829,7 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "c.rm_no, to_char(b.visit_date,'yyyy-mm-dd') visit_date, que01,  ";
             sql_load = sql_load + Environment.NewLine + "(select anamnesa ";
             sql_load = sql_load + Environment.NewLine + "from KLINIK.cs_anamnesa   ";
-            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no   ";
+            sql_load = sql_load + Environment.NewLine + "where rm_no=c.rm_no and ID_VISIT = B.ID_VISIT  ";
             sql_load = sql_load + Environment.NewLine + "and insp_date=trunc(b.visit_date)  ";
             sql_load = sql_load + Environment.NewLine + "and visit_no=b.que01) anamnesa,  ";
             sql_load = sql_load + Environment.NewLine + "(select LISTAGG(initcap(item_name), ', ') WITHIN GROUP (ORDER BY type_diagnosa asc) diagnosa  ";
@@ -6872,7 +6861,7 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "and c.status = 'A'  ";
             sql_load = sql_load + Environment.NewLine + "and b.que01 = '" + s_que + "'  ";
             sql_load = sql_load + Environment.NewLine + "and c.group_patient = 'COMM'  ";
-            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "' ";
+            sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "'  and B.ID_VISIT = '" + idvisit + "' ";
 
             OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOra = new OleDbDataAdapter(sql_load, oraConnect);
@@ -6920,7 +6909,7 @@ namespace Clinic
                 btnDelTindakan.Enabled = true;
                 btnAddTindakan.Enabled = true;
                 btnSaveTindakan.Enabled = true;
-                btnAddTind.Enabled = true;
+                //btnAddTind.Enabled = true;
                 simpleButton2.Enabled = true;
             }
 
@@ -7021,16 +7010,17 @@ namespace Clinic
 
             btnAddTind.Enabled = true;
 
-            if (gridView13.RowCount > 0)
-            {
-                btnDelTind.Enabled = true;
-                btnAddTind.Enabled = false;
-            }
-            else
-            {
+            //if (gridView13.RowCount > 0)
+            //{
                 btnDelTind.Enabled = false;
-                btnAddTind.Enabled = true;
-            }
+                btnAddTind.Enabled = false;
+                btnSaveTind.Enabled = false;
+            //}
+            //else
+            //{
+            //    btnDelTind.Enabled = false;
+            //    btnAddTind.Enabled = false;
+            //}
         }
         
 
@@ -7290,7 +7280,7 @@ namespace Clinic
                                 sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                 sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
                                 sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
+                                sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2, 'Y' F_ACTIVE ";
                                 sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
                                 sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                 sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7383,7 +7373,7 @@ namespace Clinic
                                 sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                 sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + seq_val + " head_id,  b.treat_item_id, to_date('" + date + "', 'yyyy-mm-dd') visit_date, ";
                                 sql_tmp = sql_tmp + "1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
+                                sql_tmp = sql_tmp + "null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, null att1, null att2 , 'Y' F_ACTIVE ";
                                 sql_tmp = sql_tmp + "from KLINIK.cs_treatment_type a ";
                                 sql_tmp = sql_tmp + "join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                 sql_tmp = sql_tmp + "join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7518,7 +7508,7 @@ namespace Clinic
                                     sql_tmp = sql_tmp + "insert into KLINIK.cs_treatment_detail ";
                                     sql_tmp = sql_tmp + "select CS_TREATMENT_DETAIL_SEQ.nextval det_id, " + headid + " head_id,  b.treat_item_id, to_date('" + date.ToString().Substring(0, 10) + "', 'yyyy-mm-dd') visit_date, ";
                                     sql_tmp = sql_tmp + "     1 treat_qty, 'Initial' remark, sysdate ins_date, '" + DB.vUserId + "' ins_emp, ";
-                                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + ConnOra.v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
+                                    sql_tmp = sql_tmp + "  null upd_date, null upd_emp, b.treat_item_price, b.treat_item_price total_price, TO_CHAR(sysdate,'HH24:MI') jam, 'gridView13' GRID_NAME, '" + v_iddokter + "' ID_DOKTER, '" + insu_flag + "' att1, null att2, 'Y' F_ACTIVE ";
                                     sql_tmp = sql_tmp + "  from KLINIK.cs_treatment_type a ";
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_item b on (a.treat_type_id=b.treat_type_id) ";
                                     sql_tmp = sql_tmp + "  join KLINIK.cs_treatment_group c on (b.treat_group_id=c.treat_group_id) ";
@@ -7600,7 +7590,7 @@ namespace Clinic
             sql_tind_load = sql_tind_load + Environment.NewLine + "where rm_no='" + s_rm + "' ";
             //sql_tind_load = sql_tind_load + Environment.NewLine + "and to_char(visit_date,'yyyy-mm-dd')='" + s_date + "' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' and TREAT_GROUP_ID in ('TRG01','TRG06','TRG08')  ";
-            sql_tind_load = sql_tind_load + Environment.NewLine + " and ID_VISIT = '" + lbl_id_visit.Text + "' ";
+            sql_tind_load = sql_tind_load + Environment.NewLine + " and ID_VISIT = '" +idvisit+ "' ";
             //sql_tind_load = sql_tind_load + Environment.NewLine + "and c.treat_type_id in ('TRT02','TRT03') ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and (c.treat_type_id is null or c.treat_type_id not in ('TRT02')) ";
 
@@ -7712,8 +7702,10 @@ namespace Clinic
             }
             else
             {
-                if (gridView13.RowCount > 0)
-                    btnSaveTind.Enabled = true;
+                btnAddTind.Enabled = false;
+                btnSaveTind.Enabled = false;
+                //if (gridView13.RowCount > 0)
+                //btnSaveTind.Enabled = false;
                 btnDelTindakan.Enabled = false;
             }
         }
@@ -7777,10 +7769,8 @@ namespace Clinic
                     return;
                 }
 
-                sql_ = "";
-                sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate  where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
-                ConnOra.ExeNonQuery(sql_);
 
+                pelayanandefault();
 
                 sql_all = "";
                 sql_all = sql_all + @" select TYPE_INS, nvl(b.que02,'N') qno2
@@ -7829,13 +7819,17 @@ namespace Clinic
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " Silahkan Menuju Ke Farmasi";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='MED', stat ='Farmasi', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                     
                     ORADB.Execute(ORADB.XE, sql_all);
 
                     sql_all = "";
-                    sql_all = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where que01 = '" + p_que + "' and ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    sql_all = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                     ORADB.Execute(ORADB.XE, sql_all);
+
+                    //sql_ = "";
+                    //sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate  where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    //ConnOra.ExeNonQuery(sql_);
 
                     stsimpan = 1;
                 }
@@ -7868,13 +7862,17 @@ namespace Clinic
                     teks = "Nomor Antrian " + p_que + " " + p1 + p2 + " Silahkan Menuju Ke Kasir";
 
                     sql_all = "";
-                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                    sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                     ORADB.Execute(ORADB.XE, sql_all);
 
                     sql_all = "";
-                    sql_all = " update KLINIK.cs_visit set status = 'PAY', TIME_END=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where que01 = '" + p_que + "' and ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    sql_all = " update KLINIK.cs_visit set status = 'PAY', TIME_END=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where  ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
                     ORADB.Execute(ORADB.XE, sql_all);
+
+                    //sql_ = "";
+                    //sql_ = " update KLINIK.cs_visit set status = 'MED', time_inspection=sysdate  where ID_VISIT =" + idvisit + " "; // and to_char(visit_date,'yyyy-mm-dd') = '" + date + "' and que01 = '" + que + "' ";
+                    //ConnOra.ExeNonQuery(sql_);
 
                     stsimpan = 1;
                 }
@@ -7894,7 +7892,14 @@ namespace Clinic
                 labelControl173.Visible = true;
                 labelControl173.Text = "Successful Patient closed.";
                 Blinking(labelControl173, 1);
+                LoadDataPasien();
+                //gridView1_RowClick(sender, e);
                 simpleButton2.Enabled = false;
+                btnSaveTind.Enabled = false;
+                btnAddTind.Enabled = false;
+                btnSaveTindakan.Enabled = false;
+                btnAddTindakan.Enabled = false;
+                btnDelTindakan.Enabled = false;
             } 
         }
 
@@ -7922,9 +7927,16 @@ namespace Clinic
 
         private void gridView16_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            sSimpanRacik.Enabled = true;
+            sSimpanU.Enabled = true; 
             GridView view = sender as GridView;
+
+            if (view.RowCount < 1)
+                return;
+
             string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
+            if (a.ToString().Equals(""))
+                return;
+
 
             if (e.Column.Caption == "Nama Obat" && (a.Substring(0, 2) == "BP" || a.Substring(0, 2) == "UM"))
             {
@@ -7944,7 +7956,7 @@ namespace Clinic
                 adOra0.Fill(dt0);
                 cek_stok = dt0.Rows[0]["stock"].ToString();
 
-                sql_med = " select med_cd, initcap(med_name) med_name, med_group, '" + cek_stok + "' stock, initcap(uom) uom " + 
+                sql_med = " select med_cd, initcap(med_name) med_name, med_group, '" + cek_stok + "' stock, initcap(uom) uom " +
                           " from KLINIK.cs_medicine a  " +
                           " where status = 'A'  " +
                           " and med_cd = '" + a + "' ";
@@ -7960,16 +7972,16 @@ namespace Clinic
                 med_stok = dt.Rows[0]["stock"].ToString();
                 med_uom = dt.Rows[0]["uom"].ToString();
 
-                if (chOUmum.Checked)
-                {
-                    s_stat = lstsobat.Text;
-                }
-                else
-                {
-                    s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
-                }
+                //if (chOUmum.Checked)
+                //{
+                //    s_stat = lstsobat.Text;
+                //} 
+                //else
+                //{
+                s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString();
+                //}
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) =  'UMUM' and a.POLI_CD = '" + policd + "'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' AND att1 ='UMUM' and a.POLI_CD = '" + policd + "' and a.MINUS_STOK ='Y' AND RACIKAN ='N'";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -7984,22 +7996,12 @@ namespace Clinic
                     view.SetRowCellValue(e.RowHandle, view.Columns[4], dtf.Rows[0]["formula_id"].ToString());
                 else
                     view.SetRowCellValue(e.RowHandle, view.Columns[4], "");
+                 
 
-                view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-
-                view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
-
-                //view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                //view.SetRowCellValue(e.RowHandle, view.Columns[4], "");
-                //view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                //view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                //view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
                 if (tmp_stat == "I")
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
                     //view.SetRowCellValue(e.RowHandle, view.Columns[3], med_name);
                     view.SetRowCellValue(e.RowHandle, view.Columns[2], med_group);
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
@@ -8010,18 +8012,18 @@ namespace Clinic
                 else
                 {
                     view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[1], med_cd);
                     view.SetRowCellValue(e.RowHandle, view.Columns[5], "A");
                     view.SetRowCellValue(e.RowHandle, view.Columns[6], med_stok);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], "0");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], "0");
                     view.SetRowCellValue(e.RowHandle, view.Columns[8], med_uom);
                     view.SetRowCellValue(e.RowHandle, view.Columns[10], "N");
                 }
-
-                //dataFormula(policd);
+                view.SetRowCellValue(e.RowHandle, view.Columns[7], ""); 
+                view.SetRowCellValue(e.RowHandle, view.Columns[14], "3x1"); 
             }
 
-            if (e.Column.Caption == "Kode Dosis")
+            if (e.Column.Caption == "Formula")
             {
                 string medicine_cd = view.GetRowCellValue(e.RowHandle, view.Columns[1]).ToString();
                 string formula_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
@@ -8031,69 +8033,54 @@ namespace Clinic
                 string stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
                 string kode = "", sql_pilihan = "";
+                 
+                sql_pilihan = " select med_cd from KLINIK.cs_formula where formula_id = '" + formula_cd + "' and MINUS_STOK ='Y'";
+                DataTable dtf = ConnOra.Data_Table_ora(sql_pilihan); 
 
-                if (stat == "I")
+                if (dtf.Rows.Count > 0)
                 {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                    kode = dtf.Rows[0]["med_cd"].ToString();
+
                 }
                 else
                 {
-                    sql_pilihan = " select med_cd from KLINIK.cs_formula where formula_id = '" + formula_cd + "' ";
-                    OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
-                    OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_pilihan, oraConnectf);
-                    DataTable dtf = new DataTable();
-                    adOraf.Fill(dtf);
-
-                    if (dtf.Rows.Count > 0)
-                    {
-                        kode = dtf.Rows[0]["med_cd"].ToString();
-
-                    }
-                    else
-                    {
-                        kode = "";
-                    }
-
-                    if (kode == medicine_cd)
-                    {
-                        view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
-                        view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
-                        view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
-                        view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kode Formula tidak valid");
-                        return;
-                        //LoadDataResep();
-                    }
+                    kode = "";
                 }
 
+                if (kode == medicine_cd)
+                {
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[7], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[11], "");
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[12], 0);
+                    //view.SetRowCellValue(e.RowHandle, view.Columns[13], 0);
+                }
+                else
+                {
+                    MessageBox.Show("Kode Formula tidak valid");
+                    return;
+                    //LoadDataResep();
+                }
+                //} 
 
             }
 
-            if (e.Column.Caption == "Jml")
+            if (e.Column.Caption == "Qty")
             {
                 string sql_for = "", med_price = "", qty = "", tmp_stat = "";
                 string for_cd = view.GetRowCellValue(e.RowHandle, view.Columns[4]).ToString();
                 string tmp_hari = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
-                int tot_hari = 0, tot_harga = 0;
+                string cstock = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
+                int tot_hari = 0, tot_harga = 0, istock = 0;
 
                 tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
-                sql_for = " select med_price, qty from KLINIK.cs_formula where formula_id = '" + for_cd + "' ";
-                OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
-                OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
-                DataTable dtf = new DataTable();
-                adOraf.Fill(dtf);
+                sql_for = " select med_price, qty from KLINIK.cs_formula where formula_id = '" + for_cd + "' and MINUS_STOK ='Y' ";
+                DataTable dtf3 = ConnOra.Data_Table_ora(sql_for); 
 
-                if (dtf.Rows.Count > 0)
+                if (dtf3.Rows.Count > 0)
                 {
-                    med_price = dtf.Rows[0]["med_price"].ToString();
-                    qty = dtf.Rows[0]["qty"].ToString();
+                    med_price = dtf3.Rows[0]["med_price"].ToString();
+                    qty = dtf3.Rows[0]["qty"].ToString();
                 }
                 else
                 {
@@ -8103,30 +8090,46 @@ namespace Clinic
 
                 if (tmp_hari == "")
                 {
-                    tmp_hari = "0";
+                    tmp_hari = "1";
                 }
 
-                tot_hari = Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
-                tot_harga = Convert.ToInt32(Convert.ToInt32(tmp_hari) * Convert.ToDouble(med_price));
+                tot_hari = Convert.ToInt32(tmp_hari); //Convert.ToInt32(tmp_hari) * Convert.ToInt32(qty);
+                tot_harga = Convert.ToInt32(med_price); //Convert.ToInt32(tmp_hari) *
 
-                if (tmp_stat == "I")
+                if (!cstock.ToString().Equals("")) 
                 {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], tot_hari.ToString());
-                }
-                else
-                {
-                    view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
-                    view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
-                    view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
-                    view.SetRowCellValue(e.RowHandle, view.Columns[7], tot_hari.ToString());
+                    istock = Convert.ToInt32(cstock);
+                    if (istock - Convert.ToInt32(qty) < 0)
+                    {
+                        MessageBox.Show("Stok Obat Kosong. Tidak dapat dipilih..!!!");
+                        view.DeleteRow(view.FocusedRowHandle);
+                        return;
+                    }
+                    else
+                    {
+                        if (tmp_stat == "I")
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "I");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                        else
+                        {
+                            //view.SetRowCellValue(e.RowHandle, view.Columns[9], "U");
+                            view.SetRowCellValue(e.RowHandle, view.Columns[12], tot_harga.ToString());
+                            view.SetRowCellValue(e.RowHandle, view.Columns[13], qty);
+                            view.SetRowCellValue(e.RowHandle, view.Columns[11], tot_hari.ToString());
+                        }
+                    }
                 }
             }
 
             if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Info" || e.Column.Caption == "Dosis" || e.Column.Caption == "Remark")
             {
+                if (view.RowCount < 1)
+                    return;
+
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
 
                 if (tmp_stat == "I")
@@ -8150,7 +8153,7 @@ namespace Clinic
         {
             GridView View = sender as GridView;
 
-            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info" || e.Column.Caption == "Jml")
+            if (e.Column.Caption == "Nama Obat" || e.Column.Caption == "Kode Dosis" || e.Column.Caption == "Dosis" || e.Column.Caption == "Info" || e.Column.Caption == "Qty")
             {
                 e.Appearance.BackColor = Color.OldLace;
                 e.Appearance.ForeColor = Color.Black;
@@ -8162,13 +8165,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -8499,13 +8502,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -8572,7 +8575,7 @@ namespace Clinic
                  
                 s_stat = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[15]).ToString(); 
 
-                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'";
+                sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "' AND RACIKAN ='N' ";
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOraf = new OleDbDataAdapter(sql_for, oraConnectf);
                 DataTable dtf = new DataTable();
@@ -9032,7 +9035,8 @@ namespace Clinic
             sHapusRacik.Enabled = true;
             GridView view = sender as GridView;
             string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
-
+            if (a.ToString().Equals(""))
+                return;
             if (e.Column.Caption == "Nama Obat" && (a.Substring(0, 2) == "BP" || a.Substring(0, 2) == "UM"))
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
@@ -9072,17 +9076,17 @@ namespace Clinic
                 sql_for = "";
                 if(s_stat.ToString().Equals("BPJS"))
                 {
-                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'   and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ";
-                    sql_for = sql_for + Environment.NewLine + "   union all ";
-                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd ='" + med_cd + "'  and att1 in('UMUM','ALL')  and a.POLI_CD = '" + policd + "' ";
-                    sql_for = sql_for + Environment.NewLine + "     and b.med_cd not in ( select b.med_cd from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
-                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'  and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ) ";
+                    sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name)|| decode(att1,'BPJS','',' [None BPJS]') med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'    and a.POLI_CD = '" + policd + "' AND RACIKAN ='Y'  ";
+                    //sql_for = sql_for + Environment.NewLine + "   union all ";
+                    //sql_for = sql_for + Environment.NewLine + "   select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    //sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd ='" + med_cd + "'  and att1 in('UMUM','ALL')  and a.POLI_CD = '" + policd + "' ";
+                    //sql_for = sql_for + Environment.NewLine + "     and b.med_cd not in ( select b.med_cd from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd)  ";
+                    //sql_for = sql_for + Environment.NewLine + "   where 1=1  and  b.med_cd = '" + med_cd + "'  and att1 = 'BPJS'  and a.POLI_CD = '" + policd + "' ) ";
                 }
                 else
                 {
-                    sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name) med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'";
+                    sql_for = " select formula_id, initcap(formula) formula, initcap(b.med_name)|| decode(att1,'BPJS','',' [None BPJS]') med_name from KLINIK.cs_formula a join KLINIK.cs_medicine b on(a.med_cd=b.med_cd) where 1=1  and  b.med_cd = '" + med_cd + "' and upper(att1) in (decode(upper('" + s_stat + "'), 'BPJS', 'BPJS', 'ASURANSI', 'ASURANSI', 'UMUM') ,'ALL') and a.POLI_CD = '" + policd + "'  AND RACIKAN ='Y' ";
                 }
 
                 OleDbConnection oraConnectf = ConnOra.Create_Connect_Ora();
@@ -9265,13 +9269,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -9389,6 +9393,7 @@ namespace Clinic
 
             for (int i = 0; i < gridView16.DataRowCount; i++)
             {
+               
                 id = gridView16.GetRowCellValue(i, gridView16.Columns[0]).ToString();
                 kode = gridView16.GetRowCellValue(i, gridView16.Columns[1]).ToString();
                 dosis = gridView16.GetRowCellValue(i, gridView16.Columns[4]).ToString();
@@ -9568,8 +9573,12 @@ namespace Clinic
                                 command.Transaction = trans;
 
                                 command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT,GRID_NAME,JENIS_OBAT) " +
-                                                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView16','NONE') ";
+                                                     " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView16','NONE') ";
                                 command.ExecuteNonQuery();
+
+                                //command.CommandText = " insert into KLINIK.cs_receipt (receipt_id, rm_no, insp_date, med_cd, formula, med_qty, type_drink, confirm, price, days, qty_day, dosis, visit_no, ins_date, ins_emp,ID_VISIT,GRID_NAME,JENIS_OBAT) " +
+                                //                      " values(cs_receipt_seq.nextval, '" + lMedRm.Text + "', to_date('" + lMedDate.Text + "', 'yyyy-mm-dd'), '" + kode + "', '" + dosis + "', '" + jumlah + "', '" + info + "', 'N', " + harga + ", " + hari + ", " + jph + ", '" + info_dosis + "', '" + lMedQue.Text + "', sysdate, '" + DB.vUserId + "', " + idvisit + ",'gridView16','NONE') ";
+                                //command.ExecuteNonQuery();
 
                                 //command.CommandText = " update cs_visit set status = 'MED', time_inspection=sysdate, upd_emp = '" + DB.vUserId + "', upd_date = sysdate where patient_no = '" + lMedNik.Text + "' and to_char(visit_date,'yyyy-mm-dd') = '" + lMedDate.Text + "' and que01 = '" + lMedQue.Text + "' ";
                                 //command.ExecuteNonQuery();
@@ -9653,7 +9662,7 @@ namespace Clinic
 
         private void gridHRacik_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            btnMedSave.Enabled = true;
+            simpleButton6.Enabled = true;
             GridView view = sender as GridView;
             string a = view.GetRowCellValue(e.RowHandle, view.Columns[3]).ToString();
 
@@ -9666,7 +9675,7 @@ namespace Clinic
 
         private void gvRacik_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-            gvRacik.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvRacik_RowUpdated);
+            //gvRacik.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(gvRacik_RowUpdated);
         }
 
         private void chOUmum_CheckedChanged(object sender, EventArgs e)
@@ -9730,9 +9739,9 @@ namespace Clinic
                     cm.ExecuteNonQuery();
                     oraConnect.Close();
                     cm.Dispose();
-
+                    gvRacik.DeleteRow(gvRacik.FocusedRowHandle);
                     //MessageBox.Show("Query Exec : " + sql_update);
-                    LoadDataResep();
+                    //LoadDataResep();
                     //MessageBox.Show("Data Berhasil di hapus");
                     labelControl167.Visible = true;
                     labelControl167.Text = "Hapus Berhasil";
@@ -9745,6 +9754,7 @@ namespace Clinic
             }
         }
          
+
         private void btnAddTindakan_Click(object sender, EventArgs e)
         {
             gridView14.OptionsBehavior.EditingMode = GridEditingMode.Default;
@@ -9768,7 +9778,7 @@ namespace Clinic
             if (gridView14.RowCount < 1) return;
 
             string date = "", pasno = "", rm_no = "", que = "", nama_laya = "", head = "", detail = "", ldate = "", qty = "", price = "", remarks = "", action = "", stbyr = "";
-            string sql_cnt = "", diag_cnt = "", sql_update = "";
+            string sql_cnt = "", diag_cnt = "", sql_update = "" ;
             int stsimpan = 0;
 
             date = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[8]).ToString();
@@ -9786,7 +9796,7 @@ namespace Clinic
                 price = gridView14.GetRowCellValue(i, gridView14.Columns[4]).ToString();
                 remarks = gridView14.GetRowCellValue(i, gridView14.Columns[5]).ToString();
                 action = gridView14.GetRowCellValue(i, gridView14.Columns[6]).ToString();
-                stbyr = gridView14.GetRowCellValue(i, gridView14.Columns[9]).ToString();
+                stbyr = gridView14.GetRowCellValue(i, gridView14.Columns[9]).ToString(); 
 
                 if (nama_laya == "")
                 {
@@ -9800,7 +9810,8 @@ namespace Clinic
                 {
                     if (action == "I")
                     {
-                        sql_cnt = " select count(0) cnt from KLINIK.cs_treatment_detail where head_id = '" + head + "' and to_char(treat_date,'yyyy-mm-dd') = '" + ldate + "' and treat_item_id = '" + nama_laya + "' ";
+                        sql_cnt = "";
+                        sql_cnt = " select count(0) cnt from KLINIK.cs_treatment_detail where head_id = '" + head + "'  and treat_item_id = '" + nama_laya + "' ";
                         OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                         OleDbDataAdapter adOra = new OleDbDataAdapter(sql_cnt, oraConnect);
                         DataTable dt = new DataTable();
@@ -9833,12 +9844,12 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_treatment_detail (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, ID_DOKTER) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + ConnOra.v_iddokter + "') ";
+                                command.CommandText = " insert into KLINIK.cs_treatment_detail (detail_id, head_id, treat_item_id, treat_date, treat_qty, treat_item_price, total_price, remarks, ins_date, ins_emp, ID_DOKTER) values ( '" + seq_val + "', '" + head + "', '" + nama_laya + "', to_date('" + ldate + "', 'yyyy-mm-dd'), " + qty + ", " + price + ", " + price + ", '" + remarks + "', sysdate, '" + DB.vUserId + "', '" + v_iddokter + "') ";
                                 command.ExecuteNonQuery();
 
                                 command.CommandText = " insert into KLINIK.cs_action (act_id, rm_no, insp_date, visit_dt, visit_no, detail_id, ins_date, ins_emp) values ( CS_ACTION_SEQ.nextval, '" + rm_no + "', to_date('" + ldate + "', 'yyyy-mm-dd'), to_date('" + date + "', 'yyyy-mm-dd'), '" + que + "', '" + seq_val + "', sysdate, '" + DB.vUserId + "') ";
                                 command.ExecuteNonQuery();
-
+                                  
                                 trans.Commit();
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql_insert);
@@ -9859,7 +9870,7 @@ namespace Clinic
                         sql_update = "";
 
                         sql_update = sql_update + " update KLINIK.cs_treatment_detail" +
-                                                  " set remarks = '" + remarks + "', ID_DOKTER  = '" + ConnOra.v_iddokter + "',";
+                                                  " set remarks = '" + remarks + "', ID_DOKTER  = '" + v_iddokter + "',";
                         sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
                         sql_update = sql_update + " where detail_id = '" + detail + "' ";
 

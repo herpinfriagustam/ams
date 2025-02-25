@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AMS\Dokumen\Klinik Santosa\Program Klinik\Klinik New\Clinic_dev\Clinic\bin\Debug\AxInterop.WMPLib.dll</HintPath>
+      <HintPath>bin\Clinic\AxInterop.WMPLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.2" />
     <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -93,6 +93,9 @@
     <Reference Include="DevExpress.XtraRichEdit.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\DevExpress.XtraRichEdit.v15.2\v4.0_15.2.9.0__b88d1754d700e49a\DevExpress.XtraRichEdit.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="LZStringCSharp">
+      <HintPath>bin\Debug\LZStringCSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -133,10 +136,41 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bpjsws\BpjswsTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bpjsws\BpjswsTool.designer.cs">
+      <DependentUpon>BpjswsTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Bpjsws\Bpjsws.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsAntrol.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsPcare.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsRequestBase.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsResponse.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsResponseList.cs" />
+    <Compile Include="Class\Bpjsws\ModelAntrian.cs" />
+    <Compile Include="Class\Bpjsws\ModelDiagnosa.cs" />
+    <Compile Include="Class\Bpjsws\ModelDokter.cs" />
+    <Compile Include="Class\Bpjsws\ModelDokterPcare.cs" />
+    <Compile Include="Class\Bpjsws\ModelPoli.cs" />
+    <Compile Include="Class\MedKategori.cs" />
+    <Compile Include="Class\MedGroup.cs" />
     <Compile Include="Class\Racik.cs" />
     <Compile Include="Class\MedicineGroup.cs" />
     <Compile Include="Class\MedicineUmum.cs" />
     <Compile Include="Class\OracleChangeNotification.cs" />
+    <Compile Include="MainMenu\Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu\Reservation.designer.cs">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\MasterSchedule.Designer.cs">
+      <DependentUpon>MasterSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\MasterDokter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +188,12 @@
     </Compile>
     <Compile Include="Master\MasterChgPass.Designer.cs">
       <DependentUpon>MasterChgPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\BillList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment\BillList.Designer.cs">
+      <DependentUpon>BillList.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment\BillListv1.cs">
       <SubType>Form</SubType>
@@ -726,11 +766,11 @@
     <Compile Include="Master\PatientInfoMngt.Designer.cs">
       <DependentUpon>PatientInfoMngt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment\BillList.cs">
+    <Compile Include="Payment\BillListv1a.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payment\BillList.Designer.cs">
-      <DependentUpon>BillList.cs</DependentUpon>
+    <Compile Include="Payment\BillListv1a.Designer.cs">
+      <DependentUpon>BillListv1a.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientReport2.cs">
       <SubType>Form</SubType>
@@ -1106,6 +1146,21 @@
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\WorkAccident.cs" />
+    <Compile Include="Warning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warning.designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bpjsws\BpjswsTool.resx">
+      <DependentUpon>BpjswsTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu\Reservation.resx">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\MasterSchedule.resx">
+      <DependentUpon>MasterSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\MasterDokter.resx">
       <DependentUpon>MasterDokter.cs</DependentUpon>
     </EmbeddedResource>
@@ -1114,6 +1169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\MasterChgPass.resx">
       <DependentUpon>MasterChgPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment\BillList.resx">
+      <DependentUpon>BillList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment\BillListv1.resx">
       <DependentUpon>BillListv1.cs</DependentUpon>
@@ -1388,8 +1446,8 @@
     <EmbeddedResource Include="Master\PatientInfoMngt.resx">
       <DependentUpon>PatientInfoMngt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment\BillList.resx">
-      <DependentUpon>BillList.cs</DependentUpon>
+    <EmbeddedResource Include="Payment\BillListv1a.resx">
+      <DependentUpon>BillListv1a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientReport2.resx">
       <DependentUpon>PatientReport2.cs</DependentUpon>
@@ -1574,6 +1632,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -2084,7 +2145,17 @@
     <None Include="Resources\hospital.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ASURANSI1.png" />
+    <None Include="Resources\BPJS1.png" />
+    <None Include="Resources\doctor.png" />
+    <None Include="Resources\back_64.png" />
+    <None Include="Resources\checkup1_64.png" />
+    <None Include="Resources\doctor_f64.png" />
+    <None Include="Resources\doctor_m64.png" />
+    <None Include="Resources\doctor_f256.png" />
+    <None Include="Resources\dokter.png" />
     <Content Include="Resources\Logo Clicic.jpg" />
+    <None Include="Resources\Logo Santosa.png" />
     <Content Include="Resources\logo-color.png" />
     <None Include="Resources\Logo_Santosa-removebg-preview.png" />
     <Content Include="Resources\manFronBack.png">
@@ -2093,6 +2164,9 @@
     <Content Include="Resources\Pain-Scale.jpg" />
     <Content Include="Resources\painScale.png" />
     <Content Include="Resources\Rates.jpg" />
+    <None Include="Resources\swab_64.png" />
+    <None Include="Resources\swab1_64.png" />
+    <None Include="Resources\UMUM1.png" />
     <Content Include="santosa.ico" />
   </ItemGroup>
   <ItemGroup>

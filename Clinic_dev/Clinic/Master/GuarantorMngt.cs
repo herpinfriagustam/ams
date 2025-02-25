@@ -18,6 +18,7 @@ using System.Threading;
 using System.Globalization;
 using Clinic.Report;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraGrid.Columns;
 
 namespace Clinic
 {
@@ -38,6 +39,14 @@ namespace Clinic
         public GuarantorMngt()
         {
             InitializeComponent();
+
+            foreach (GridColumn column in gridView1.Columns)
+            {
+                if (Type.GetTypeCode(column.ColumnType) == TypeCode.String)
+                {
+                    column.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+                }
+            }
         }
 
         private void ReservationInput_Load(object sender, EventArgs e)
@@ -61,16 +70,16 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + " from KLINIK.cs_guarantor a  ";
             sql_search = sql_search + Environment.NewLine + " join KLINIK.cs_patient_info b on a.patient_no=b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + " join KLINIK.cs_visit c on a.PATIENT_NO = c.PATIENT_NO and c.STATUS not in('CLS','CAN') ";
-            sql_search = sql_search + Environment.NewLine + " join cs_inpatient d on c.INPATIENT_ID = d.INPATIENT_ID   ";
+            sql_search = sql_search + Environment.NewLine + " join cs_inpatient d on c.INPATIENT_ID = d.INPATIENT_ID    ";
             sql_search = sql_search + Environment.NewLine + "where 1=1  ";
 
             if (cmbStatus.Text == "Aktif")
             {
-                sql_search = sql_search + Environment.NewLine + "and b.status = 'A' ";
+                sql_search = sql_search + Environment.NewLine + "and C.status NOT IN ('CLS','CAN') ";
             }
             else
             {
-                sql_search = sql_search + Environment.NewLine + "and a.status = 'I' ";
+                sql_search = sql_search + Environment.NewLine + "and c.status  IN ('CLS','CAN')  ";
             }
 
             if (cmbSearch.Text == "Nama")
@@ -150,6 +159,7 @@ namespace Clinic
                 glPas.ImmediatePopup = true;
                 glPas.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                 glPas.NullText = "";
+                glPas.PopupFilterMode = PopupFilterMode.Contains;
                 gridView1.Columns[2].ColumnEdit = glPas;
 
                 RepositoryItemLookUpEdit jkLookup = new RepositoryItemLookUpEdit();
@@ -161,7 +171,7 @@ namespace Clinic
                 jkLookup.DropDownRows = listjk.Count;
                 jkLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
                 jkLookup.AutoSearchColumnIndex = 1;
-                jkLookup.NullText = "";
+                jkLookup.NullText = ""; 
                 gridView1.Columns[8].ColumnEdit = jkLookup;
 
                 RepositoryItemLookUpEdit stLookup = new RepositoryItemLookUpEdit();
@@ -381,7 +391,7 @@ namespace Clinic
             GridView view = sender as GridView;
             view.SetRowCellValue(e.RowHandle, view.Columns[12], "A");
             view.SetRowCellValue(e.RowHandle, view.Columns[13], "I");
-            view.Columns[9].OptionsColumn.ReadOnly = true;
+            //view.Columns[9].OptionsColumn.ReadOnly = true;
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

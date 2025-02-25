@@ -143,6 +143,10 @@ namespace Clinic
             listStat.Clear();
             listStat.Add(new Status() { statusCode = "REG", statusName = "Registrasi" });
             listStat.Add(new Status() { statusCode = "OPN", statusName = "Proses" });
+            listStat.Add(new Status() { statusCode = "INP", statusName = "Registrasi" });
+            listStat.Add(new Status() { statusCode = "PAY", statusName = "Pembayaran" });
+            listStat.Add(new Status() { statusCode = "DON", statusName = "Persiapan Pulang" });
+            listStat.Add(new Status() { statusCode = "NUR", statusName = "Proses" });
             listStat.Add(new Status() { statusCode = "CLS", statusName = "Selesai" });
             listStat.Add(new Status() { statusCode = "CAN", statusName = "Batal" });
 
@@ -197,14 +201,14 @@ namespace Clinic
 
             sql_search = sql_search + Environment.NewLine + "select 'S' action, a.inpatient_id, b.patient_no, b.que01, a.rm_no, ";
             sql_search = sql_search + Environment.NewLine + " to_char(B.visit_date,'yyyy-MM-dd') visit_date, ";
-            sql_search = sql_search + Environment.NewLine + "b.patient_no pasno, a.gr_no, b.type_patient, a.status, a.room_id, ";
+            sql_search = sql_search + Environment.NewLine + "b.patient_no pasno, a.gr_no, b.type_patient, B.status, a.room_id, ";
             sql_search = sql_search + Environment.NewLine + "to_char(a.date_in , 'YYYY-MM-DD HH24:mm:ss') date_in, ";
             sql_search = sql_search + Environment.NewLine + "a.date_out date_out, a.gr_no grno, a.room_id room_tmp, letter_no, B.ID_VISIT , b.purpose Policlinic";
             sql_search = sql_search + Environment.NewLine + "from cs_inpatient a ";
             sql_search = sql_search + Environment.NewLine + "join cs_visit b on (a.inpatient_id=b.inpatient_id) ";
             sql_search = sql_search + Environment.NewLine + "where 1=1 ";
-            sql_search = sql_search + Environment.NewLine + "and a.status in ('REG','OPN') and b.plan = 'TRT02' ";
-            sql_search = sql_search + Environment.NewLine + "order by b.visit_date ";
+            sql_search = sql_search + Environment.NewLine + "and B.status NOT in ('CLS','CAN') and b.plan = 'TRT02' ";
+            sql_search = sql_search + Environment.NewLine + "order by b.visit_date desc ";
 
 
             //loading.ShowWaitForm();
@@ -238,7 +242,7 @@ namespace Clinic
                 gridView1.OptionsView.ColumnAutoWidth = true;
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
-                gridView1.IndicatorWidth = 30;
+                gridView1.IndicatorWidth = 40;
                 //gridView1.OptionsBehavior.Editable = false;
                 gridView1.BestFitColumns();
                 //gridView1.OptionsSelection.MultiSelect = true;
@@ -565,14 +569,30 @@ namespace Clinic
             }
 
 
-            string sql_anam = "";
-            sql_anam = "";
-            sql_anam = sql_anam + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no, ";
-            sql_anam = sql_anam + Environment.NewLine + " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, bb, tb, disease_now,VITALRR ";
-            sql_anam = sql_anam + Environment.NewLine + " from cs_anamnesa where rm_no = '" + s_rm + "' and ID_VISIT = " + idvisit + " ";
+            //string sql_anam = "";
+            //sql_anam = "";
+            //sql_anam = sql_anam + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no, ";
+            //sql_anam = sql_anam + Environment.NewLine + " blood_press, pulse, temperature, allergy, anamnesa, info_k, 'U' action, rm_no, bb, tb, disease_now,VITALRR ";
+            //sql_anam = sql_anam + Environment.NewLine + " from cs_anamnesa where rm_no = '" + s_rm + "' and ID_VISIT = " + idvisit + " ";
+
+            string SQL = "";
+            SQL = SQL + Environment.NewLine + " select to_char(insp_date,'yyyy-mm-dd') as insp_date, '" + s_nama + "' as nama, visit_no,  ";
+            SQL = SQL + Environment.NewLine + "     nvl(blood_press,b.bp) blood_press, nvl(pulse,b.pl) pulse, nvl(temperature,b.tmp) temperature, nvl(allergy,b.alrgy) allergy,  ";
+            SQL = SQL + Environment.NewLine + "     nvl(a.anamnesa,b.anamnesa) anamnesa, nvl(info_k,b.ik) info_k, 'U' action, a.rm_no, nvl(a.bb,b.bb) bb, nvl(a.tb,b.tb) tb, nvl(a.disease_now,b.disease_now) disease_now, nvl(a.VITALRR,b.VITALRR ) VITALRR,nvl(a.LING_PERUT,b.LING_PERUT) LING_PERUT ";
+            SQL = SQL + Environment.NewLine + " from klinik.cs_anamnesa a, ";
+            SQL = SQL + Environment.NewLine + "      (  ";
+            SQL = SQL + Environment.NewLine + "        select  blood_press bp, pulse pl, temperature tmp, allergy alrgy, anamnesa, info_k ik, rm_no, bb, tb, disease_now,VITALRR,LING_PERUT  ";
+            SQL = SQL + Environment.NewLine + "         from klinik.cs_anamnesa ";
+            SQL = SQL + Environment.NewLine + "         where ID_VISIT in ( SELECT max(a.ID_VISIT) FROM klinik.cs_visit a   WHERE PATIENT_NO = '" + s_pasno + "' and PLAN ='TRT01' and rownum =1 ) ";
+            SQL = SQL + Environment.NewLine + "      )   b  ";
+            SQL = SQL + Environment.NewLine + "where a.rm_no = b.rm_no ";
+            SQL = SQL + Environment.NewLine + "  and a.rm_no =  '" + s_rm + "' and ID_VISIT = " + idvisit + "  ";
+
+
+
 
             OleDbConnection sqlConnect1 = ConnOra.Create_Connect_Ora();
-            OleDbDataAdapter adSql1 = new OleDbDataAdapter(sql_anam, sqlConnect1);
+            OleDbDataAdapter adSql1 = new OleDbDataAdapter(SQL, sqlConnect1);
             DataTable dt1 = new DataTable();
             adSql1.Fill(dt1);
 
@@ -583,6 +603,7 @@ namespace Clinic
             //gridView3a.OptionsView.ColumnAutoWidth = true;
             gridView3a.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
             gridView3a.Appearance.HeaderPanel.FontSizeDelta = 0;
+            gridView3a.IndicatorWidth = 40;
             //gridView3a.BestFitColumns();
             gridView3a.FixedLineWidth = 3;
             gridView3a.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -604,6 +625,7 @@ namespace Clinic
             gridView3a.Columns[12].Caption = "TB (Cm)";
             gridView3a.Columns[13].Caption = "Riwayat";
             gridView3a.Columns[14].Caption = "RR (x/m)";
+            gridView3a.Columns[15].Caption = "Lkr. Perut";
 
             gridView3a.Columns[0].OptionsColumn.AllowEdit = false;
             gridView3a.Columns[1].OptionsColumn.AllowEdit = false;
@@ -885,37 +907,37 @@ namespace Clinic
                 {
                     e.Appearance.BackColor = Color.FromArgb(175, Color.DarkGray);
                     e.Appearance.BackColor2 = Color.FromArgb(75, Color.DarkGoldenrod);
-                } 
-                //else if (kk == "Preparation")
-                //{
-                //    e.Appearance.BackColor = Color.OldLace;
-                //    e.Appearance.ForeColor = Color.Black;
-                //}
-                //}
+                }
+                else if (pur == "Pembayaran")
+                {
+                    e.Appearance.BackColor = Color.SandyBrown;
+                    e.Appearance.ForeColor = Color.Black;
+                }
+            //}
 
 
-                //string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
-                //string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
-                //if (stat == "Inspection" && pur == "Dokter")
-                //{
-                //    //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
-                //    e.Appearance.BackColor = Color.DodgerBlue;
-                //    //e.Appearance.BackColor2 = Color.White;
-                //    e.Appearance.ForeColor = Color.White;
-                //    //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
-                //    e.Appearance.FontStyleDelta = FontStyle.Bold;
-                //    e.HighPriority = true;
-                //}
+            //string pur = View.GetRowCellDisplayText(e.RowHandle, View.Columns[9]);
+            //string stat = View.GetRowCellDisplayText(e.RowHandle, View.Columns[10]);
+            //if (stat == "Inspection" && pur == "Dokter")
+            //{
+            //    //e.Appearance.BackColor = Color.FromArgb(40, Color.DodgerBlue);
+            //    e.Appearance.BackColor = Color.DodgerBlue;
+            //    //e.Appearance.BackColor2 = Color.White;
+            //    e.Appearance.ForeColor = Color.White;
+            //    //e.Appearance.Font = new Font("Arial", 9, FontStyle.Bold);
+            //    e.Appearance.FontStyleDelta = FontStyle.Bold;
+            //    e.HighPriority = true;
+            //}
 
-                //if (stat == "Inspection" && pur == "Bidan")
-                //{
-                //    e.Appearance.BackColor = Color.LightCoral;
-                //    //e.Appearance.BackColor2 = Color.White;
-                //    e.Appearance.ForeColor = Color.White;
-                //    e.Appearance.FontStyleDelta = FontStyle.Bold;
-                //    e.HighPriority = true;
-                //}
-            }
+            //if (stat == "Inspection" && pur == "Bidan")
+            //{
+            //    e.Appearance.BackColor = Color.LightCoral;
+            //    //e.Appearance.BackColor2 = Color.White;
+            //    e.Appearance.ForeColor = Color.White;
+            //    e.Appearance.FontStyleDelta = FontStyle.Bold;
+            //    e.HighPriority = true;
+            //}
+        }
 
             //GridView View = sender as GridView;
             //if (e.RowHandle >= 0)
@@ -1273,7 +1295,7 @@ namespace Clinic
             string sql_check = "", sql_cnt = "", sql_insert = "", sql_update = "", c_que = "", tmp_queue = "", visit_cnt = "", purpose = "", room_tmp = "", lett_no="", poli = "", tglin1 = "", tglout1 = "";
             int queue = 0, visit=0, tmp_visit_no = 0;
             cek = "";
-            
+            int ssimpan = 0;
 
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
@@ -1494,9 +1516,8 @@ namespace Clinic
                                 trans.Commit();
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql);
-                                MessageBox.Show("Data Berhasil disimpan.");
-                                initData();
-                                LoadData();
+                                //MessageBox.Show("Data Berhasil disimpan.");
+                                ssimpan = 1;
                             }
                             catch (Exception ex)
                             {
@@ -1582,9 +1603,9 @@ namespace Clinic
 
                         //MessageBox.Show("Query Exec : " + sql_update);
 
-                        MessageBox.Show("Data Berhasil diupdate");
-                        initData();
-                        LoadData();
+                        //MessageBox.Show("Data Berhasil diupdate");
+                        ssimpan = 2;
+                        
                     }
                     catch (Exception ex)
                     {
@@ -1594,9 +1615,15 @@ namespace Clinic
                     oraConnectTrans.Close();
                 }
             }
+
+            if(ssimpan == 1)
+                MessageBox.Show("Data Berhasil Di Simpan");
+            else if(ssimpan == 2)
+                MessageBox.Show("Data Berhasil Di Update");
             richTextBox1.Text = cek;
             //MessageBox.Show(action);
-           
+            initData();
+            LoadData();
         }
 
 
@@ -1629,7 +1656,7 @@ namespace Clinic
                         sql_update = "";
 
                         sql_update = sql_update + " update cs_inpatient set rs_in = '" + way_in + "', came_from = '" + dari + "', came_remark = '" + remark + "', rs_out = '" + way_out + "', patient_stat = '" + stat + "', ";
-                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                        sql_update = sql_update + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate, STATUS ='CLS' ";
                         sql_update = sql_update + " where inpatient_id = " + id + "  ";
 
                         try
@@ -1659,7 +1686,7 @@ namespace Clinic
         private void btnSaveAnam_Click_1(object sender, EventArgs e)
         {
             string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", trr="";
-            string sql_update2 = "", sql_cnt = "", sql_insert = "", sql_update = "", inpasien_id = "", rw = "", id_visit = "";
+            string sql_update2 = "", sql_cnt = "", sql_insert = "", sql_update = "", inpasien_id = "", rw = "", id_visit = "", lkprut ="";
 
             id_visit = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[16]).ToString();
             inpasien_id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
@@ -1681,7 +1708,7 @@ namespace Clinic
                 tb = gridView3a.GetRowCellValue(i, gridView3a.Columns[12]).ToString();
                 rw = gridView3a.GetRowCellValue(i, gridView3a.Columns[13]).ToString();
                 trr = gridView3a.GetRowCellValue(i, gridView3a.Columns[14]).ToString();
-
+                lkprut = gridView3a.GetRowCellValue(i, gridView3a.Columns[15]).ToString();
                 if (tensi == "")
                 {
                     MessageBox.Show("Tensi harus diisi");
@@ -1730,7 +1757,7 @@ namespace Clinic
                             sql_update = sql_update + " update cs_anamnesa";
                             sql_update = sql_update + " set blood_press = '" + tensi + "', pulse = '" + nadi + "', bb = '" + bb + "', tb = '" + tb + "', ";
                             sql_update = sql_update + "     temperature = '" + suhu + "', allergy = '" + alergi + "', anamnesa = '" + keluhan + "', info_k = '" + infok + "',  disease_now = '" + rw + "', VITALRR = '" + trr + "',";
-                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + "     INS_DATE = sysdate, INS_EMP = '" + DB.vUserId + "', upd_emp = '" + DB.vUserId + "', upd_date = sysdate, LING_PERUT = '" + lkprut + "' ";
                             sql_update = sql_update + " where rm_no = '" + rm_no + "' and  ID_VISIT = " + id_visit + " ";
 
                             command.CommandText = sql_update;

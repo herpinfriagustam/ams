@@ -317,16 +317,16 @@
             this.lblPoli.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lblPoli.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblPoli.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPoli.Location = new System.Drawing.Point(131, 0);
+            this.lblPoli.Location = new System.Drawing.Point(159, 0);
             this.lblPoli.Name = "lblPoli";
-            this.lblPoli.Size = new System.Drawing.Size(390, 54);
+            this.lblPoli.Size = new System.Drawing.Size(362, 54);
             this.lblPoli.TabIndex = 1;
             this.lblPoli.Text = "KLINIK PRATAMA SANTOSA";
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureEdit1.EditValue = global::Clinic.Properties.Resources.Logo_Clicic;
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
             this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -334,7 +334,7 @@
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit1.Size = new System.Drawing.Size(131, 54);
+            this.pictureEdit1.Size = new System.Drawing.Size(159, 54);
             this.pictureEdit1.TabIndex = 0;
             // 
             // panel1
@@ -913,7 +913,7 @@
             // 
             // AntrianNow
             // 
-            this.AntrianNow.Antrian = new System.Drawing.Size(267, 40);
+            this.AntrianNow.Antrian = new System.Drawing.Size(267, 45);
             this.AntrianNow.AntrianBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(115)))));
             this.AntrianNow.AntrianFont = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AntrianNow.AntrianText = "-";

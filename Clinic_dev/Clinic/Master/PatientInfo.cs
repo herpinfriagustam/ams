@@ -766,7 +766,7 @@ namespace Clinic
                             MessageBox.Show("ERROR: " + ex.Message);
                         }
                         oraConnectTrans.Close();
-                        LoadData();
+                        //LoadData();
                     } 
                 } 
             }
@@ -828,7 +828,7 @@ namespace Clinic
                     cm.Dispose();
 
                     sql_updat = " ";
-                    sql_updat = sql_updat + Environment.NewLine + "update cs_patient_info ";
+                    sql_updat = sql_updat + Environment.NewLine + "update cs_patient ";
                     sql_updat = sql_updat + Environment.NewLine + "set info11 = '" + textBox15.Text + "' ";
                     sql_updat = sql_updat + Environment.NewLine + "where patient_no = '" + pas_no + "' ";
 
@@ -843,7 +843,7 @@ namespace Clinic
 
 
                     MessageBox.Show("Data Berhasil diupdate");
-                    LoadData();
+                    //LoadData();
                 }
                 catch (Exception ex)
                 {

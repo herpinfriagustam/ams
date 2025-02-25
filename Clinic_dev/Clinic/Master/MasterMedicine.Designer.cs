@@ -210,7 +210,7 @@
             this.lTransIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTransIn.Location = new System.Drawing.Point(3, 44);
             this.lTransIn.Name = "lTransIn";
-            this.lTransIn.Size = new System.Drawing.Size(107, 16);
+            this.lTransIn.Size = new System.Drawing.Size(106, 16);
             this.lTransIn.TabIndex = 34;
             this.lTransIn.Text = "Transaksi Masuk";
             // 

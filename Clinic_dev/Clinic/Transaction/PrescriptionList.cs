@@ -7,8 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
+using DevExpress.XtraEditors; 
 using System.Data.OleDb;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.Repository;
@@ -186,8 +185,8 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "          SELECT que02, a.patient_no, b.name, address, gender, poli_name, a.status, ";
             SQL = SQL + Environment.NewLine + "                 CASE WHEN observation = 'Y' THEN 'Yes' ELSE 'No' END AS observation, ";
             SQL = SQL + Environment.NewLine + "                 CASE WHEN (SELECT COUNT (0) ";
-            SQL = SQL + Environment.NewLine + "                            FROM cs_patient x ";
-            SQL = SQL + Environment.NewLine + "                            JOIN cs_receipt y ON (x.rm_no = y.rm_no) ";
+            SQL = SQL + Environment.NewLine + "                            FROM KLINIK.cs_patient x ";
+            SQL = SQL + Environment.NewLine + "                            JOIN KLINIK.cs_receipt y ON (x.rm_no = y.rm_no) ";
             SQL = SQL + Environment.NewLine + "                           WHERE x.status = 'A' ";
             SQL = SQL + Environment.NewLine + "                             AND patient_no = a.patient_no "; 
             SQL = SQL + Environment.NewLine + "                             AND y.id_visit = a.id_visit ";
@@ -196,9 +195,9 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "                 END AS confirm, 'S' action, ";
             SQL = SQL + Environment.NewLine + "                 TO_CHAR (visit_date, 'yyyy-MM-dd') visit_date, ";
             SQL = SQL + Environment.NewLine + "                 que01, a.type_patient, a.id_visit, a.PLAN ,round(((sysdate-b.birth_date)/30)/12) age   ";
-            SQL = SQL + Environment.NewLine + "            FROM cs_visit a ";
-            SQL = SQL + Environment.NewLine + "                 JOIN cs_patient_info b ON a.patient_no = b.patient_no ";
-            SQL = SQL + Environment.NewLine + "                 JOIN cs_policlinic c ON a.poli_cd = c.poli_cd join cs_receipt d ON a.id_visit = d.id_visit  ";
+            SQL = SQL + Environment.NewLine + "            FROM KLINIK.cs_visit a ";
+            SQL = SQL + Environment.NewLine + "                 JOIN KLINIK.cs_patient_info b ON a.patient_no = b.patient_no ";
+            SQL = SQL + Environment.NewLine + "                 JOIN KLINIK.cs_policlinic c ON a.poli_cd = c.poli_cd join KLINIK.cs_receipt d ON a.id_visit = d.id_visit  ";
             SQL = SQL + Environment.NewLine + "           WHERE     1 = 1 ";
             SQL = SQL + Environment.NewLine + "             AND c.status = 'A'  and d.F_ACTIVE ='Y' ";
             SQL = SQL + Environment.NewLine + "             AND a.status LIKE '%" + luStatus.Text + "%' ";
@@ -213,6 +212,8 @@ namespace Clinic
             {
                 SQL = SQL + Environment.NewLine + "     and a.status in ('INP','NUR','MED','PAY','DON') and a.id_visit not in ( select id_visit from cs_visit where status='NUR' and plan ='TRT01') ";
             }
+            if (chRequest.Checked)
+                SQL = SQL + Environment.NewLine + "        AND d.CONFIRM ='N' ";
             SQL = SQL + Environment.NewLine + "   group by que02, a.patient_no, b.name, address, gender, poli_name, a.status,  CASE WHEN observation = 'Y' THEN 'Yes' ELSE 'No' END , TO_CHAR (visit_date, 'yyyy-MM-dd') , que01, a.type_patient, a.id_visit, a.PLAN ,round(((sysdate-b.birth_date)/30)/12)  ";
             SQL = SQL + Environment.NewLine + " union all  ";
             SQL = SQL + Environment.NewLine + "select '-' que02,'-' patient_no, initcap(name) NAME, ADDRS address, c.GENDER, 'Lain-lain' poli_name, decode(STAT_PAY,'N','PAY','Y','DON','CLS')  status, 'No' observation, a.confirm,  ";
@@ -223,8 +224,7 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "       JOIN KLINIK.cs_formula D  ";
             SQL = SQL + Environment.NewLine + "          ON (B.med_cd = D.med_cd AND D.FORMULA_ID = A.formula)  ";
             SQL = SQL + Environment.NewLine + " WHERE     b.status = 'A'  ";
-            SQL = SQL + Environment.NewLine + "       AND D.MINUS_STOK = 'Y'  ";
-            SQL = SQL + Environment.NewLine + "       AND BPJS_COVER = 'N'  ";
+            SQL = SQL + Environment.NewLine + "       AND D.MINUS_STOK = 'Y'  "; 
             if (chkclosed.Checked)
             {
                 SQL = SQL + Environment.NewLine + "        AND STAT_PAY ='X' ";
@@ -233,6 +233,8 @@ namespace Clinic
             {
                 SQL = SQL + Environment.NewLine + "       AND STAT_PAY not in('C','X') ";
             }
+            if(chRequest.Checked)
+                SQL = SQL + Environment.NewLine + "        AND a.CONFIRM ='N' ";
             SQL = SQL + Environment.NewLine + "          ) x ";
             SQL = SQL + Environment.NewLine + "   WHERE 1 = 1 ";
             if (comboBox1.Text.ToString().Equals("Lain-Lain"))
@@ -476,9 +478,9 @@ namespace Clinic
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) stok,  ";
                 sql_his = sql_his + Environment.NewLine + " confirm, a.receipt_id,a.med_cd , e.MINUS_STOK ,f.TRANS_ID   ";
                 sql_his = sql_his + Environment.NewLine + " from cs_receipt a JOIN KLINIK.CS_KIR d ON (a.ATT3_RECIEPT = d.KIR_ID)   ";
-                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd)  ";
+                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd   )  ";
                 sql_his = sql_his + Environment.NewLine + "  left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)   ";
-                sql_his = sql_his + Environment.NewLine + " where  c.status = 'A' AND c.BPJS_COVER = 'N' AND e.MINUS_STOK = 'Y'   and KIR_ID = " + visitid + "   ";
+                sql_his = sql_his + Environment.NewLine + " where  c.status = 'A' AND e.MINUS_STOK = 'Y'   and KIR_ID = " + visitid + "   ";
                 sql_his = sql_his + Environment.NewLine + " order by 1  "; 
             }
             else
@@ -492,12 +494,12 @@ namespace Clinic
                     }
                     else
                     {
-                        sql_his = sql_his + Environment.NewLine + " c.bpjs_cover bpjs, ";
+                        sql_his = sql_his + Environment.NewLine + " nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')  bpjs, ";
                     }
                 }
                 else
                 {
-                    sql_his = sql_his + Environment.NewLine + " nvl(decode(insu_cover,0,'Y','N'),c.BPJS_COVER) bpjs,  ";
+                    sql_his = sql_his + Environment.NewLine + " nvl(decode(insu_cover,0,'Y','N'),nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')) bpjs,  ";
                     //sql_his = sql_his + Environment.NewLine + "  (select decode(insu_cover,0,'Y','N')  from cs_medicine_trans where receipt_id = a.receipt_id and a.MED_CD = MED_CD) bpjs, ";
                 }
 
@@ -507,16 +509,20 @@ namespace Clinic
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -  ";
                 sql_his = sql_his + Environment.NewLine + " klinik.FN_CS_TRX_OUT(a.insp_date,a.med_cd) stok, ";
                 sql_his = sql_his + Environment.NewLine + " confirm, a.receipt_id,a.med_cd , e.MINUS_STOK ,f.TRANS_ID, nvl(f.TRANS_REMARK, a.TYPE_DRINK) CARA ,a.MED_REMARK REMARK ";
-                sql_his = sql_his + Environment.NewLine + " from cs_receipt a ";
-                sql_his = sql_his + Environment.NewLine + " join cs_patient b on (a.rm_no = b.rm_no) ";
-                sql_his = sql_his + Environment.NewLine + "  join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd) ";
-                sql_his = sql_his + Environment.NewLine + "  left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)  ";
-                sql_his = sql_his + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+                sql_his = sql_his + Environment.NewLine + " from klinik.cs_receipt a ";
+                sql_his = sql_his + Environment.NewLine + " join klinik.cs_patient b on (a.rm_no = b.rm_no) ";
+                sql_his = sql_his + Environment.NewLine + "  join klinik.cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd) ";
+                sql_his = sql_his + Environment.NewLine + "  left JOIN klinik.cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)  ";
+                sql_his = sql_his + Environment.NewLine + "    join klinik.cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+                sql_his = sql_his + Environment.NewLine + "    join klinik.cs_visit h on (h.id_visit = a.id_visit )  ";
                 sql_his = sql_his + Environment.NewLine + " where b.status = 'A' ";
                 sql_his = sql_his + Environment.NewLine + " and c.status = 'A' and a.jenis_obat ='NONE' ";
-                sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_nik + "' and id_visit = " + visitid + " ";
-                //sql_his = sql_his + Environment.NewLine + " and to_char(insp_date, 'yyyy-MM-dd') =  '" + s_date + "' ";
-                sql_his = sql_his + Environment.NewLine + " order by 1 ";
+                sql_his = sql_his + Environment.NewLine + " and b.patient_no = '" + s_nik + "' and a.id_visit = " + visitid + " ";
+                //if (s_poli.ToString().Equals("Rawat Inap"))
+                //{
+                //    sql_his = sql_his + Environment.NewLine + "  AND A.GRID_NAME ='gvObtPlng' ";
+                //}
+                sql_his = sql_his + Environment.NewLine + " order by confirm, 1 ";
             }
             
 
@@ -716,7 +722,7 @@ namespace Clinic
                 mActName.Text = "";
             }
 
-            if (Convert.ToInt16(s_cnt) > 0 || (s_poli.ToString().Equals("Lain-lain")) && (s_confirm.ToString().Equals("N")))
+            if (Convert.ToInt32(s_cnt) > 0 || (s_poli.ToString().Equals("Lain-lain")) && (s_confirm.ToString().Equals("N")))
             {
                 btnConfirm.Enabled = true;
                 simpleButton1.Enabled = true;
@@ -748,7 +754,7 @@ namespace Clinic
         {
             string Sql = "";
             Sql = Sql + Environment.NewLine + "  select distinct initcap(med_name) med_name, a.formula, dosis,  ";
-            Sql = Sql + Environment.NewLine + "         nvl(decode(insu_cover,0,'Y','N'),c.BPJS_COVER) bpjs,  ";
+            Sql = Sql + Environment.NewLine + "         nvl(decode(h.TYPE_PATIENT,decode(e.att1,'BPJS','B','UMUM','U','A'),'Y','N'),'N')  bpjs,  ";
             Sql = Sql + Environment.NewLine + "         nvl(f.TRANS_QTY,a.med_qty)  med_qty,   ";
             Sql = Sql + Environment.NewLine + "         klinik.FN_CS_INIT_STOCK(a.insp_date,a.med_cd) +   ";
             Sql = Sql + Environment.NewLine + "         klinik.FN_CS_TRX_IN(a.insp_date,a.med_cd) -   ";
@@ -759,10 +765,10 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "    join cs_medicine c on(a.med_cd = c.med_cd) JOIN KLINIK.CS_FORMULA e on(a.FORMULA = e.FORMULA_ID and a.med_cd = e.med_cd)  ";
             Sql = Sql + Environment.NewLine + "    left JOIN cs_medicine_trans f on(a.med_cd = f.med_cd and a.receipt_id = f.receipt_id)   ";
             Sql = Sql + Environment.NewLine + "    join cs_code_data d on (a.ATT1_RECIEPT = d.CODE_ID and d.CODE_CLASS_ID = 'MED_RACIK') ";
-            Sql = Sql + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE') ";
+            Sql = Sql + Environment.NewLine + "    join cs_code_data g on (a.TYPE_DRINK = g.CODE_ID and g.CODE_CLASS_ID = 'MED_USE')  join klinik.cs_visit h on (h.id_visit = a.id_visit )  ";
             Sql = Sql + Environment.NewLine + " where b.status = 'A'  ";
             Sql = Sql + Environment.NewLine + "   and c.status = 'A' and a.jenis_obat = 'RACIK' ";
-            Sql = Sql + Environment.NewLine + "   and b.patient_no = '" + idpasien + "' and id_visit = " + idvisit + "  ";
+            Sql = Sql + Environment.NewLine + "   and b.patient_no = '" + idpasien + "' and a.id_visit = " + idvisit + "  ";
             Sql = Sql + Environment.NewLine + " order by d.CODE_ID, initcap(med_name) ";
 
             OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
@@ -930,7 +936,7 @@ namespace Clinic
         {
             string SQL = "", limit = "";
 
-            if (Convert.ToInt16(txtLimitStok.Text) <= 0)
+            if (Convert.ToInt32(txtLimitStok.Text) <= 0)
             {
                 limit = "5";
                 txtLimitStok.Text = "5";
@@ -1093,8 +1099,8 @@ namespace Clinic
                             {
                                 if (temp_confrm.ToString().Equals("N"))
                                 {
-                                    command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " + //, TRANS_REMARK
-                                                " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', 1, sysdate,'" + DB.vUserId + "') "; //,'" + tdrink + "'
+                                    command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " + //, TRANS_REMARK
+                                                " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', 1, sysdate,'" + DB.vUserId + "') "; //,'" + tdrink + "'
 
                                     command.ExecuteNonQuery();
                                 }
@@ -1256,8 +1262,8 @@ namespace Clinic
                                 {
                                     if (temp_confrm.ToString().Equals("N"))
                                     {
-                                        command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
-                                                    " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+                                        command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+                                                    " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
 
                                         command.ExecuteNonQuery();
                                     }
@@ -1332,7 +1338,7 @@ namespace Clinic
                                 teks = "Nomor Antrian " + q_no2 + " " + p1 + p2 + " Silahkan Menuju Ke Kasir";
 
                                 sql_all = "";
-                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE CALL_ID = " + callid + "";
+                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE CALL_ID = " + callid + "";
 
                                 ORADB.Execute(ORADB.XE, sql_all);
                             }
@@ -1490,8 +1496,8 @@ namespace Clinic
                                 {
                                     if (temp_confrm.ToString().Equals("N"))
                                     {
-                                        command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
-                                                    " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
+                                        command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp, TRANS_REMARK) values " +
+                                                    " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "' ,'" + tdrink + "') ";
 
                                         command.ExecuteNonQuery();
                                     }
@@ -1566,7 +1572,7 @@ namespace Clinic
                                 teks = "Nomor Antrian " + q_no2 + " " + p1 + p2 + " Silahkan Menuju Ke Kasir";
 
                                 sql_all = "";
-                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "' WHERE CALL_ID = " + callid + "";
+                                sql_all = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'W', type_ins ='PAY', stat ='Kasir', param = '" + teks + "', UPD_ANTRIAN = sysdate WHERE CALL_ID = " + callid + "";
 
                                 ORADB.Execute(ORADB.XE, sql_all);
                             }
@@ -1737,19 +1743,19 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) == 0)
+                    if (Convert.ToInt32(stok) == 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) > 20)
+                    else if (Convert.ToInt32(stok) > 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.Green);
                         e.Appearance.ForeColor = Color.White;
@@ -1861,13 +1867,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) <= 0)
+                    if (Convert.ToInt32(stok) <= 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;
@@ -1974,7 +1980,7 @@ namespace Clinic
             if (rm_number.ToString().Equals("MED") && !fstat.ToString().Equals("CLS"))
             {
                 sql1 = " ";
-                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', STAT = 'Closed' WHERE CALL_ID = " + fcallid + "  ";
+                sql1 = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', STAT = 'Closed', UPD_ANTRIAN = sysdate WHERE CALL_ID = " + fcallid + "  ";
 
                 ORADB.Execute(ORADB.XE, sql1); 
             }
@@ -2309,8 +2315,8 @@ namespace Clinic
                             {
                                 if (temp_confrm.ToString().Equals("N"))
                                 {
-                                    command.CommandText = " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " +
-                                                " (klinik.cs_medtrans_seq.nextval,'" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
+                                    command.CommandText = " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, receipt_id, insu_cover, ins_date, ins_emp) values " +
+                                                " ('" + temp_code + "','OUT',to_date('" + s_date + "','yyyy-MM-dd'),'" + temp_q + "','" + temp_id + "', " + temp_cover + ", sysdate,'" + DB.vUserId + "') ";
 
                                     command.ExecuteNonQuery();
                                 } 

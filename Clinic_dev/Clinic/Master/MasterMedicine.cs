@@ -7,8 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
+using DevExpress.XtraEditors; 
 using System.Data.OleDb;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.Repository;
@@ -335,7 +334,7 @@ namespace Clinic
                 gridView2.Columns.Clear();
                 gridControl2.DataSource = dt;
 
-                btnSaveKate.Enabled = false;
+                //btnSaveKate.Enabled = false;
 
                 //gridView1.OptionsBehavior.EditingMode = GridEditingMode.EditFormInplace;
                 gridView2.OptionsView.ColumnAutoWidth = true;
@@ -625,8 +624,8 @@ namespace Clinic
                     {
                         sql_insert = "";
 
-                        sql_insert = sql_insert + " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, trans_remark, ins_date, ins_emp) values ";
-                        sql_insert = sql_insert + " (cs_medtrans_seq.nextval, '" + med_cd + "', 'IN', sysdate, '" + p_qty + "', '" + p_batch + "', to_date('" + p_expire + "','yyyy-mm-dd'), '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
+                        sql_insert = sql_insert + " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, batch_no, expire_date, trans_remark, ins_date, ins_emp) values ";
+                        sql_insert = sql_insert + " ('" + med_cd + "', 'IN', sysdate, '" + p_qty + "', '" + p_batch + "', to_date('" + p_expire + "','yyyy-mm-dd'), '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
 
                         try
                         {
@@ -1020,8 +1019,8 @@ namespace Clinic
                     {
                         sql_insert = "";
 
-                        sql_insert = sql_insert + " insert into cs_medicine_trans (trans_id, med_cd, trans_type, trans_date, trans_qty, trans_cd, trans_remark, ins_date, ins_emp) values ";
-                        sql_insert = sql_insert + " (cs_medtrans_seq.nextval, '" + med_cd + "', 'OUT', sysdate, '" + p_qty + "', '" + p_code + "', '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
+                        sql_insert = sql_insert + " insert into cs_medicine_trans ( med_cd, trans_type, trans_date, trans_qty, trans_cd, trans_remark, ins_date, ins_emp) values ";
+                        sql_insert = sql_insert + " ( '" + med_cd + "', 'OUT', sysdate, '" + p_qty + "', '" + p_code + "', '" + p_remark + "', sysdate, '" + DB.vUserId + "') ";
 
                         try
                         {
