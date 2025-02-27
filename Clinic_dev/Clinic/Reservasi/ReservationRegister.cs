@@ -255,6 +255,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "         DECODE (c.poli_group, 'PREG', 'Ibu Hamil', 'FAMP', 'KB', 'Umum' ) AS type_mr,  ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd policd, round((nvl(start_hold,sysdate)-A.visit_date) * 24 * 60) wait_time , visit_remark resmark, a.ID_VISIT, e.ANAMNESA_ID, F.HEAD_ID, F.PAY_STATUS, b.NID NIK";
             sql_search = sql_search + Environment.NewLine + "         ,(select  max(z.CALL_ID) from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)  )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat, INSU_NO NO_BPJS  ";
+            sql_search = sql_search + Environment.NewLine + "         ,(select decode(a.INS_EMP,'Antrian','Onsite','Mobile JKN') from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)) DAFTAR_BY  ";
             sql_search = sql_search + Environment.NewLine + "    FROM cs_visit a JOIN cs_patient_info b ON a.patient_no = b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + "         join cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "         LEFT JOIN KLINIK.cs_treatment_head F ON  (a.ID_VISIT = F.ID_VISIT) ";
@@ -263,16 +264,20 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
             sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  "; 
             sql_search = sql_search + Environment.NewLine + "   UNION ALL ";
-            sql_search = sql_search + Environment.NewLine + "   select QUE que01, '' patient_no, '' pasno, '' plan, '' gender,   ";
-            sql_search = sql_search + Environment.NewLine + "         0 age,    ";
-            sql_search = sql_search + Environment.NewLine + "         a.poli_cd, STYPE type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'S' action,     ";
-            sql_search = sql_search + Environment.NewLine + "         'No'   AS observation, '' visit_remark, '' rm_no,  ";
-            sql_search = sql_search + Environment.NewLine + "         DECODE (TYPE_INS, 'REG', 'Pendaftaran', 'Umum' ) AS type_mr,   ";
-            sql_search = sql_search + Environment.NewLine + "         a.poli_cd, round((nvl(a.INS_DATE,sysdate)-a.INS_DATE) * 24 * 60) wait_time , '' visit_remark, 0 ID_VISIT, 0 ANAMNESA_ID, 0 HEAD_ID, '' PAY_STATUS,  case  when length(NO_BPJS) = 13 then '-' else NO_BPJS end NIK , a.CALL_ID ,1 stat ,case  when length(NO_BPJS) = 13 then NO_BPJS else '-' end NO_BPJS ";
-            sql_search = sql_search + Environment.NewLine + "   from  CS_CALL_LOG  a, cs_policlinic b ";
-            sql_search = sql_search + Environment.NewLine + "   where a.POLI_CD = b.POLI_CD and FLAG <>'X' ";
-            sql_search = sql_search + Environment.NewLine + "     and to_char(a.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd')  ";
-            sql_search = sql_search + Environment.NewLine + "     and QUE not in (select NVL(que01,'N') from  cs_visit b where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') and b.STATUS NOT IN('CAN') ) ";
+            sql_search = sql_search + Environment.NewLine + "select QUE que01, c.PATIENT_NO patient_no, c.PATIENT_NO pasno, '' plan,  decode(c.gender,'P','Perempuan','Laki-Laki') gender,    ";
+            sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-c.birth_date)/30)/12) age,     ";
+            sql_search = sql_search + Environment.NewLine + "                 a.poli_cd, STYPE type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'S' action,      ";
+            sql_search = sql_search + Environment.NewLine + "                 'No'   AS observation, '' visit_remark, (select rm_no from cs_patient where c.patient_no = patient_no ) rm_no,   ";
+            sql_search = sql_search + Environment.NewLine + "                 DECODE (TYPE_INS, 'REG', 'Pendaftaran', 'Umum' ) AS type_mr,    ";
+            sql_search = sql_search + Environment.NewLine + "                 a.poli_cd, round((nvl(a.INS_DATE,sysdate)-a.INS_DATE) * 24 * 60) wait_time , '' visit_remark,  ";
+            sql_search = sql_search + Environment.NewLine + "                 0 ID_VISIT, 0 ANAMNESA_ID, 0 HEAD_ID, '' PAY_STATUS,  case  when length(NO_BPJS) = 13 then '-' else NO_BPJS end NIK ,  ";
+            sql_search = sql_search + Environment.NewLine + "                 a.CALL_ID ,1 stat ,case  when length(NO_BPJS) = 13 then NO_BPJS else '-' end NO_BPJS, decode(a.INS_EMP,'Antrian','Onsite','Mobile JKN') DAFTAR_BY ";
+            sql_search = sql_search + Environment.NewLine + "           from  CS_CALL_LOG  a ";
+            sql_search = sql_search + Environment.NewLine + "           join  cs_policlinic b on  a.POLI_CD = b.POLI_CD ";
+            sql_search = sql_search + Environment.NewLine + "           left  join cs_patient_info c on  (a.NO_BPJS = decode(length(a.NO_BPJS), 13, c.INSU_NO, c.nid)) ";
+            sql_search = sql_search + Environment.NewLine + "           where a.FLAG <>'X'  ";
+            sql_search = sql_search + Environment.NewLine + "             and to_char(a.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd')   ";
+            sql_search = sql_search + Environment.NewLine + "             and QUE not in (select NVL(que01,'N') from  cs_visit b where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') and b.STATUS NOT IN('CAN') )  "; 
             sql_search = sql_search + Environment.NewLine + "   ) a order by stat||CALL_ID ,que01   ";
             
             //loading.ShowWaitForm();
@@ -355,6 +360,7 @@ namespace Clinic
                 gridView1.Columns[21].Caption = "PAY STS";
                 gridView1.Columns[23].Caption = "NIK";
                 gridView1.Columns[26].Caption = "No. BPJS";
+                gridView1.Columns[27].Caption = "Reg. By";
 
                 //gridView1.Columns[6].MinWidth = 70;
                 gridView1.Columns[6].MinWidth = 70;

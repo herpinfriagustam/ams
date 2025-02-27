@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientInfoMngt));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
@@ -51,6 +51,7 @@
             this.repdate = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.redate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
+            this.chNew = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tNik.Properties)).BeginInit();
@@ -81,6 +82,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.chNew);
             this.panel1.Controls.Add(this.cmbStatus);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.btnCetak);
@@ -235,9 +237,9 @@
             // 
             // gridView1
             // 
-            gridFormatRule1.Name = "Format0";
-            gridFormatRule1.Rule = null;
-            this.gridView1.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.Name = "Format0";
+            gridFormatRule2.Rule = null;
+            this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -291,6 +293,16 @@
             // 
             this.loading.ClosingDelay = 500;
             // 
+            // chNew
+            // 
+            this.chNew.AutoSize = true;
+            this.chNew.Location = new System.Drawing.Point(327, 43);
+            this.chNew.Name = "chNew";
+            this.chNew.Size = new System.Drawing.Size(88, 17);
+            this.chNew.TabIndex = 41;
+            this.chNew.Text = "Peserta Baru";
+            this.chNew.UseVisualStyleBackColor = true;
+            // 
             // PatientInfoMngt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +351,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repdate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit redate;
+        private System.Windows.Forms.CheckBox chNew;
     }
 }

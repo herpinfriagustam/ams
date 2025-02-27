@@ -80,6 +80,10 @@ namespace Clinic
             {
                 sql_search = sql_search + Environment.NewLine + "and status = 'I' ";
             }
+            if(chNew.Checked)
+            {
+                sql_search = sql_search + Environment.NewLine + " and INS_DATE > sysdate-1 ";
+            }
 
             if (cmbSearch.Text == "Nama")
             {

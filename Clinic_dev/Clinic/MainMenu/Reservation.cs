@@ -584,7 +584,7 @@ namespace Clinic
         private void InsertAntrian(string policd, string SPoli, string SCode)
         {
             string sql_check = "", tmp_purpose = "", tmp_queue = "", sql_check5 = "";
-            string sql_insert = "", sql_cnt = "", rm_number = "", teks = "";
+            string sql_insert = "", sql_cnt = "", rm_number = "", teks = "", kodepoli ="";
             int visit, queue, tmp_visit_no = 0;
 
             //string SQL = " ";
@@ -600,6 +600,11 @@ namespace Clinic
 
             //poliname = dt5.Rows[0]["poli_name"].ToString();
 
+            if(policd.ToString().Equals("POL0001") && SPoli.ToString().Equals("BPJS"))
+            {
+                kodepoli = "001";
+            }
+
             sql_check = " ";
             sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
             
@@ -611,6 +616,51 @@ namespace Clinic
                 tmp_queue = dt.Rows[0]["que"].ToString();
             else
                 return;
+
+            //{
+            //   "nomorkartu": "00012345678",
+            //   "nik": "3212345678987654",
+            //   "nohp": "085635228888",
+            //   "kodepoli": "ANA",
+            //   "namapoli": "Anak",
+            //   "norm": "123345",
+            //   "tanggalperiksa": "2021-01-28",
+            //   "kodedokter": 12345,
+            //   "namadokter": "Dr. Hendra",
+            //   "jampraktek": "08:00-16:00",
+            //   "nomorantrean": "A-12",
+            //   "angkaantrean": 12,
+            //   "keterangan": ""
+            //}
+
+            DataRow row = dt.Rows[0];
+            string nomorkartu = row["POLI_CD"]?.ToString(); string nik = row["NO_BPJS"]?.ToString();
+            string nohp = row["INS_DATE"]?.ToString();  kodepoli = row["INS_DATE"]?.ToString(); string namapoli = row["INS_DATE"]?.ToString();
+            string norm = row["INS_DATE"]?.ToString(); string tanggalperiksa = row["INS_DATE"]?.ToString();
+            string kddokter = row["INS_DATE"]?.ToString(); string namadokter = row["INS_DATE"]?.ToString();
+            string jampraktek = row["INS_DATE"]?.ToString(); string nomorantrean = row["INS_DATE"]?.ToString();
+            string angkaantrean = row["INS_DATE"]?.ToString(); string keterangan = row["INS_DATE"]?.ToString();
+
+
+            //// struktur json
+            //JObject json = new JObject();
+            //json.Add("tanggalperiksa", tglPeriksa);
+            //json.Add("kodepoli", kodePoli);
+            //json.Add("nomorkartu", nomorKartu);
+            //json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
+            //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+
+            //// kirim ke bpjs
+            //// jika gagal langsung munculkan error dan aplikasi terhenti
+            //// jika berhasil system meneruskan penyimpanan seperti biasanya
+            //BpjswsResponse resp = BpjswsAntrol.TambahAntrean(json);
+            //if (resp.Metadata.Code != 200)
+            //{
+            //    MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+
+
 
 
             teks = "Nomor Antrian " + tmp_queue + " silahkan menuju Pendaftaran";
@@ -633,8 +683,7 @@ namespace Clinic
                 lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
                 lbl_noantrian.Text = tmp_queue;
                 //loading.CloseWaitForm();
-
-
+                 
                 PrintDocument printDocument = new PrintDocument();
 
                 printDocument.PrinterSettings.PrinterName = "XP-80";
