@@ -93,7 +93,7 @@ namespace Clinic.Class.Bpjsws
         public const string WS_PCARE_TINDAKAN_BY_KUNJUNGAN_GET_URL = BASE_URL_PCARE + "/tindakan/kunjungan/{Parameter 1}";
         public const string WS_PCARE_TINDAKAN_REF_GET_URL = BASE_URL_PCARE + "/tindakan/kdTkp/{Parameter 1}/{Parameter 2}/{Parameter 3}";
         public const string WS_PCARE_TINDAKAN_ADD_URL = BASE_URL_PCARE + "/tindakan";
-        public const string WS_PCARE_TINDAKAN_EDIT_URL = BASE_URL_PCARE + "/tindakan";
+        public const string WS_PCARE_TINDAKAN_EDIT_URL = BASE_URL_PCARE + "//tindakan";
         public const string WS_PCARE_TINDAKAN_DELETE_URL = BASE_URL_PCARE + "/tindakan/{Parameter 1}/kunjungan/{Parameter 2}";
 
 
