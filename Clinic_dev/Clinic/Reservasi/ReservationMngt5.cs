@@ -1666,7 +1666,7 @@ namespace Clinic
         {
             GridView view = sender as GridView;
 
-            if (e.Column.Caption == "Tensi" || e.Column.Caption == "Nadi" || e.Column.Caption == "Suhu" || e.Column.Caption == "BB (Kg)" || e.Column.Caption == "TB (Cm)" || e.Column.Caption == "Alergi" || e.Column.Caption == "Keluhan Utama" || e.Column.Caption == "Riwayat" || e.Column.Caption == "HR (x/m)" || e.Column.Caption == "RR (x/m)" || e.Column.Caption == "R.Sekarang" || e.Column.Caption == "R.Dulu" || e.Column.Caption == "R.Keluarga" || e.Column.Caption == "Pem.Fisik" || e.Column.Caption == "Pem.Lain")                 
+            if (e.Column.Caption == "Tensi" || e.Column.Caption == "Nadi" || e.Column.Caption == "Suhu" || e.Column.Caption == "BB (Kg)" || e.Column.Caption == "TB (Cm)" || e.Column.Caption == "Alergi" || e.Column.Caption == "Keluhan Utama" || e.Column.Caption == "Riwayat" || e.Column.Caption == "HR (x/m)" || e.Column.Caption == "RR (x/m)" || e.Column.Caption == "R.Sekarang" || e.Column.Caption == "R.Dulu" || e.Column.Caption == "R.Keluarga" || e.Column.Caption == "Pem.Fisik" || e.Column.Caption == "Pem.Lain" || e.Column.Caption == "Lkr. Perut")                 
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[9]).ToString();
                 if (tmp_stat == "I")

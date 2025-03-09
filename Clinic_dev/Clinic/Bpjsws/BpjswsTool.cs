@@ -62,13 +62,13 @@ namespace Clinic.Bpjsws
         {
             ClearInput();
             string type = radApiType.EditValue?.ToString();
-            if(type == "ANTROL")
+            if (type == "ANTROL")
             {
                 DataRow[] rows = DtApiCatalog.Select("TYPE = 'ANTROL'");
                 if (rows.Length > 0) cboApiCatalog.Properties.DataSource = rows.CopyToDataTable();
                 else cboApiCatalog.Properties.DataSource = null;
             }
-            else if(type == "PCARE")
+            else if (type == "PCARE")
             {
                 DataRow[] rows = DtApiCatalog.Select("TYPE = 'PCARE'");
                 if (rows.Length > 0) cboApiCatalog.Properties.DataSource = rows.CopyToDataTable();
@@ -105,10 +105,10 @@ namespace Clinic.Bpjsws
             {
                 string apiCatalogCode = cboApiCatalog.GetColumnValue("CODE")?.ToString();
                 DataRow[] rowParams = DtApiParam.Select($"API_CATALOG_CODE = { apiCatalogCode }");
-                if(rowParams.Length > 0)
+                if (rowParams.Length > 0)
                 {
                     int i = 1;
-                    foreach(DataRow irow in rowParams)
+                    foreach (DataRow irow in rowParams)
                     {
                         switch (i)
                         {
@@ -160,8 +160,8 @@ namespace Clinic.Bpjsws
 
             string url = cboApiCatalog.GetColumnValue("URL")?.ToString();
             JObject json = null;
-            
-            if(radApiType.EditValue?.ToString() == "ANTROL")
+
+            if (radApiType.EditValue?.ToString() == "ANTROL")
             {
                 Class.Bpjsws.BpjswsResponse resp;
                 switch (url)
@@ -179,7 +179,8 @@ namespace Clinic.Bpjsws
                         break;
                     case Class.Bpjsws.Bpjsws.WS_ANTREAN_FKTP_BPJS_ADD_QUEUE_URL:
                         try { json = JObject.Parse(txtBody.Text); }
-                        catch (Exception ex) {
+                        catch (Exception ex)
+                        {
                             MessageBox.Show("Exception: " + ex.Message);
                             return;
                         }
@@ -221,7 +222,7 @@ namespace Clinic.Bpjsws
                 {
                     case Class.Bpjsws.Bpjsws.WS_PCARE_DIAGNOSA_GET_DIAGNOSA_URL:
                         resp = Class.Bpjsws.BpjswsPcare.GetDiagnosa(txtParam1.Text, int.Parse(txtParam2.Text), int.Parse(txtParam3.Text));
-                        if(resp != null) txtResponse.Text = resp.GetResponseString();
+                        if (resp != null) txtResponse.Text = resp.GetResponseString();
                         else txtResponse.Text = "Unknown error! please call the administrator";
                         break;
 
