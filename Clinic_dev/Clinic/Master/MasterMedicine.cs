@@ -183,6 +183,8 @@ namespace Clinic
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
                 gridView1.IndicatorWidth = 40;
+                gridView1.ColumnPanelRowHeight = 30;
+                gridView1.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
                 ////gridView1.OptionsBehavior.Editable = true;
                 gridView1.BestFitColumns();
 
@@ -207,28 +209,28 @@ namespace Clinic
                 gridView1.Columns[10].Caption = "BPJS";
                 gridView1.Columns[11].Caption = "Group";
 
-                gridView1.Columns[0].MinWidth = 60;
-                gridView1.Columns[0].MaxWidth = 60;
-                gridView1.Columns[2].MinWidth = 60;
-                gridView1.Columns[2].MaxWidth = 60;
-                gridView1.Columns[3].MinWidth = 80;
-                gridView1.Columns[3].MaxWidth = 80;
-                gridView1.Columns[4].MinWidth = 70;
-                gridView1.Columns[4].MaxWidth = 70;
-                gridView1.Columns[5].MinWidth = 80;
-                gridView1.Columns[5].MaxWidth = 80;
-                gridView1.Columns[6].MinWidth = 50;
-                gridView1.Columns[6].MaxWidth = 50;
-                gridView1.Columns[7].MinWidth = 60;
-                gridView1.Columns[7].MaxWidth = 60;
-                gridView1.Columns[8].MinWidth = 90;
-                gridView1.Columns[8].MaxWidth = 90;
-                gridView1.Columns[9].MinWidth = 50;
-                gridView1.Columns[9].MaxWidth = 50;
-                gridView1.Columns[10].MinWidth = 50;
-                gridView1.Columns[10].MaxWidth = 50;
-                gridView1.Columns[11].MinWidth = 60;
-                gridView1.Columns[11].MaxWidth = 60;
+                //gridView1.Columns[0].MinWidth = 60;
+                //gridView1.Columns[0].MaxWidth = 60;
+                //gridView1.Columns[2].MinWidth = 60;
+                //gridView1.Columns[2].MaxWidth = 60;
+                //gridView1.Columns[3].MinWidth = 80;
+                //gridView1.Columns[3].MaxWidth = 80;
+                //gridView1.Columns[4].MinWidth = 70;
+                //gridView1.Columns[4].MaxWidth = 70;
+                //gridView1.Columns[5].MinWidth = 80;
+                //gridView1.Columns[5].MaxWidth = 80;
+                //gridView1.Columns[6].MinWidth = 50;
+                //gridView1.Columns[6].MaxWidth = 50;
+                //gridView1.Columns[7].MinWidth = 60;
+                //gridView1.Columns[7].MaxWidth = 60;
+                //gridView1.Columns[8].MinWidth = 90;
+                //gridView1.Columns[8].MaxWidth = 90;
+                //gridView1.Columns[9].MinWidth = 50;
+                //gridView1.Columns[9].MaxWidth = 50;
+                //gridView1.Columns[10].MinWidth = 50;
+                //gridView1.Columns[10].MaxWidth = 50;
+                //gridView1.Columns[11].MinWidth = 60;
+                //gridView1.Columns[11].MaxWidth = 60;
 
                 gridView1.Columns[0].OptionsColumn.AllowEdit = false;
                 //gridView1.Columns[0].OptionsColumn.ReadOnly = true;
@@ -1143,6 +1145,64 @@ namespace Clinic
                 var blw = (short)Math.Round((c2.B - c1.B) * per) + c1.B;
                 var clr = Color.FromArgb(red, grn, blw);
                 if (BkClr) ctrl.BackColor = clr; else ctrl.ForeColor = clr;
+            }
+        }
+
+        private void btnDelUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Anda yakin akan menghapus data?",
+                      "Message",
+                       MessageBoxButtons.YesNo,
+                       MessageBoxIcon.Information) == DialogResult.No)
+            {
+
+            }
+            else
+            {
+                string sql = "", sql_delete = "", id = "";
+
+                id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
+
+                sql = "";
+
+                sql = sql + " select RECEIPT_ID from cs_receipt ";
+                sql = sql + " where MED_CD = '" + id + "' and rownum =1  ";
+
+                OleDbConnection sqlCon  = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSql1 = new OleDbDataAdapter(sql, sqlCon);
+                DataTable dt1 = new DataTable();
+                adSql1.Fill(dt1);
+
+                if (dt1.Rows.Count > 0)
+                {
+                    MessageBox.Show("Data sudah di Proses. Data Tidak Dapat Dihapus..!!!!");
+                    return;
+                }
+                else
+                {
+                    sql_delete = "";
+
+                    sql_delete = sql_delete + " update cs_medicine set status = 'I' ";
+                    sql_delete = sql_delete + " where MED_CD = '" + id + "' ";
+
+                    try
+                    {
+                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                        OleDbCommand cm = new OleDbCommand(sql_delete, oraConnect);
+                        oraConnect.Open();
+                        cm.ExecuteNonQuery();
+                        oraConnect.Close();
+                        cm.Dispose();
+
+                        //MessageBox.Show("Query Exec : " + sql_delete);
+                        gridView1.DeleteRow(gridView1.FocusedRowHandle);
+                        MessageBox.Show("Data Berhasil dihapus");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+                } 
             }
         }
 

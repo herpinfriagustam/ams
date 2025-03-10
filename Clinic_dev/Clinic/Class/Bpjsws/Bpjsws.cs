@@ -20,14 +20,13 @@ namespace Clinic.Class.Bpjsws
 
         public enum PostDataType
         {
-            Form, Json
+            Form, Json, TextPlain
         }
 
         public const string CONS_ID = "2555";
         public const string CONS_SECRET = "3sO2B087D0";
         public const string USER_KEY = "580c0ca60ed68122d4943f7e1d32a609";
         public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
-        //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
         public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
@@ -104,25 +103,7 @@ namespace Clinic.Class.Bpjsws
             {
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return ((long)(currentTime - unixEpoch).TotalSeconds);
-
-                //DateTime currentTime = DateTime.UtcNow;
-                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                //return (long)(currentTime - unixEpoch).TotalMilliseconds;
-            }
-        }
-
-        public static long CurrentUnixTimeMili
-        {
-            get
-            {
-                //DateTime currentTime = DateTime.UtcNow;
-                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                //return ((long)(currentTime - unixEpoch).TotalSeconds);
-
-                DateTime currentTime = DateTime.UtcNow;
-                DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return (long)(currentTime - unixEpoch).TotalMilliseconds;
+                return ((long)(currentTime - unixEpoch).TotalMilliseconds);
             }
         }
 
@@ -268,6 +249,11 @@ namespace Clinic.Class.Bpjsws
                     request.ContentType = "application/x-www-form-urlencoded";
 
                 }
+                else if (dataType == PostDataType.TextPlain)
+                {
+                    request.ContentType = "text/plain";
+                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
+                }
                 else if (dataType == PostDataType.Json)
                 {
                     request.ContentType = "application/json";
@@ -301,10 +287,10 @@ namespace Clinic.Class.Bpjsws
                     string jr = "";
                     using (HttpWebResponse r = wex.Response as HttpWebResponse)
                     {
-                        using (StreamReader reader = new StreamReader(wex.Response.GetResponseStream()))
+                        using (StreamReader reader = new StreamReader(r.GetResponseStream()))
                         {
                             if (reader != null) jr = reader.ReadToEnd();
-                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + (int)r.StatusCode + ", \"message\": \"" + wex.Message + "\"}}";
+                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + ((int)r.StatusCode) + ", \"message\": \"" + wex.Message + "\"}}";
                         }
 
                     }
