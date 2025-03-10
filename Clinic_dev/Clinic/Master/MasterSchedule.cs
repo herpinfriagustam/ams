@@ -11,6 +11,9 @@ using DevExpress.XtraEditors;
 using System.Data.OleDb;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Runtime.InteropServices;
+using Newtonsoft.Json.Linq;
+using Clinic.Class.Bpjsws;
 
 namespace Clinic
 {
@@ -47,9 +50,11 @@ namespace Clinic
 
         private void MasterFormula_Load(object sender, EventArgs e)
         {
+            dDateBgn.Text = today;
             initData();
             loadData();
             ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterSchedule");
+            
         }
 
         private void initData()
@@ -58,8 +63,8 @@ namespace Clinic
 
             userStatus.Clear();
             userStatus.Add(new FlagYn() { flagCode = "", flagName = "" });
-            userStatus.Add(new FlagYn() { flagCode = "Y", flagName = "Aktif" });
-            userStatus.Add(new FlagYn() { flagCode = "N", flagName = "Tidak Aktif" });
+            userStatus.Add(new FlagYn() { flagCode = "A", flagName = "Aktif" });
+            userStatus.Add(new FlagYn() { flagCode = "I", flagName = "Tidak Aktif" });
 
             //string sql_bag  = " select CODE_ID, CODE_NAME from CS_CODE_DATA where status = 'A' and CODE_CLASS_ID ='DOC_BAGIAN' ";
             //OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
@@ -106,13 +111,14 @@ namespace Clinic
             string Sql ="" ;
 
             Sql = "";
-            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, a.POLI_CD, a.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
+            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, d.POLI_CD, b.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
             Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
             Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
-            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER = b.ID_DOKTER ";
-            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+)  and a.POLI_CD = d.POLI_CD    ";
+            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER ";
+            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
+            Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.EditValue + " ','yyyy-MM-dd'))   ";
             Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
              
             //loading.ShowWaitForm();
@@ -151,7 +157,7 @@ namespace Clinic
                 gridView1.Columns[14].Caption = "NREMARK";
                 gridView1.Columns[15].Caption = "LIMIT";
                 gridView1.Columns[16].Caption = "Tgl Register";
-                gridView1.Columns[17].Caption = "ID Register";
+                gridView1.Columns[17].Caption = "Register By";
                 gridView1.Columns[18].Caption = "Status"; 
 
                 //gridView1.Columns[8].VisibleIndex = 5;
@@ -199,6 +205,10 @@ namespace Clinic
                 gridView1.Columns[18].ColumnEdit = glStatus;
 
                 gridView1.Columns[0].Visible = false;
+                gridView1.Columns[1].Visible = false;
+                gridView1.Columns[11].Visible = false;
+                gridView1.Columns[12].Visible = false;
+                gridView1.Columns[13].Visible = false;
                 gridView1.Columns[1].OptionsColumn.ReadOnly = true;
                 gridView1.Columns[7].OptionsColumn.ReadOnly = true;
                 gridView1.Columns[8].OptionsColumn.ReadOnly = true; 
@@ -411,5 +421,103 @@ namespace Clinic
                 MessageBox.Show("Data tidak ditemukan");
             }
         }
+
+        public void RunAsyncScheduleBPJS()
+        {
+            BpjswsResponse resp; int nextna = 0; 
+
+            Task.Run(() =>
+            {
+                using (OleDbConnection conn = ConnOra.Create_Connect_Ora())
+                {
+                    try
+                    {
+
+                        OleDbCommand command = new OleDbCommand();
+                        OleDbTransaction trans = null;
+
+                        command.Connection = conn;
+                        conn.Open();
+
+                        string sql = "SELECT BPJS_KODE_POLI, BPJS_NAMA_POLI FROM CS_POLICLINIC where BPJS_KODE_POLI is not null ";
+                        DataTable dt_poli = ConnOra.Data_Table_ora(sql);
+
+                        for (int i = 0; i < dt_poli.Rows.Count; i++)
+                        {
+                            //listPoli.Add(new Poli() { poliCode = dt1.Rows[i]["POLI_CD"].ToString(), poliName = dt1.Rows[i]["POLI_NAME"].ToString() });
+                            resp = BpjswsAntrol.GetReferensiDokter(dt_poli.Rows[i]["BPJS_KODE_POLI"].ToString(), today);
+                            if (resp.Metadata.Code != 200)
+                            {
+                                //MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                Console.WriteLine($"Data Tidak ada.");
+                                //conn.Close();
+                                goto nextn ;
+                            }
+
+                            Console.WriteLine($"Before get response ");
+                            JObject jsonObj = JObject.Parse(resp?.GetResponseString());
+                            Console.WriteLine($"After get response ");
+                            JObject response = (JObject)jsonObj["Response"].First;
+                            Console.WriteLine($"sukses!Terlewatkan.");
+                            try
+                            {
+                                trans = conn.BeginTransaction(IsolationLevel.ReadCommitted);
+
+                                string sql2 = " delete KLINIK.CS_DOKTER_SCH where ID_DOKTER = '" + response["kodedokter"] + "' and trunc(TGL_JADWAL) = trunc(sysdate)  ";
+                                ORADB.Execute(ORADB.XE, sql2);
+
+
+                                string query = @" INSERT INTO CS_DOKTER_SCH (TGL_JADWAL, JAM_AWAL, JAM_AKHIR,ID_DOKTER, POLI_CD,  
+                                                                    F_AKTIF, FLIMIT, INS_DATE, INS_EMP )
+                                            VALUES (TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?, ?, 
+                                                    ?, ?, sysdate, 'ANTROL BPJS')";
+
+                                using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
+                                {
+                                    cmd.Parameters.AddWithValue("?", (string)today);
+                                    cmd.Parameters.AddWithValue("?", (string)response["jampraktek"].ToString().Substring(0, 5));
+                                    cmd.Parameters.AddWithValue("?", (string)response["jampraktek"].ToString().Substring(6, 5));
+                                    cmd.Parameters.AddWithValue("?", (string)response["kodedokter"]);
+                                    cmd.Parameters.AddWithValue("?", (string)dt_poli.Rows[i]["BPJS_KODE_POLI"].ToString());
+                                    cmd.Parameters.AddWithValue("?", (string)"A");
+                                    cmd.Parameters.AddWithValue("?", (string)response["kapasitas"]);
+
+                                    int rowsAffected = cmd.ExecuteNonQuery();
+                                    Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
+                                }
+                                trans.Commit();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                trans.Rollback();
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                            nextn:
+                            Console.WriteLine("data tidak ada"); 
+                        }
+                         
+                        Console.WriteLine($"Insert sukses!Terlewatkan.");
+
+                        //conn.Close();
+                        Console.WriteLine("Insert berhasil!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            });
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            RunAsyncScheduleBPJS();
+        }
+         
     } 
 }

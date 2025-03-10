@@ -27,12 +27,13 @@ namespace Clinic
     public partial class Reservation : DevExpress.XtraEditors.XtraForm
     {
         ConnectDb ConnOra = new ConnectDb();
+        string nobpjs = ""; private LabelControl _currentLabel;
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservation));
 
         string InputData_scanner = String.Empty;
         delegate void SetTextCallback(string text);
-
-        string lsMSG = ""; string nobpjs = "";
+        DataTable DataDokter = null; DataTable DataPasien = null;
+        string lsMSG = ""; 
         int lsOK = 0;
         bool bl_klap = true;
         string visit_cnt = "";
@@ -81,7 +82,7 @@ namespace Clinic
             load_List("1", true );
             //img_rfid_tap();
             //check_rfid();
-            lInfo.Text = "Selamat Datang " + "\r\n" + "Silahkan Tentukan Poli yang Anda Tuju";
+            lInfo.Text = "Selamat Datang " + "\r\n" + ""; //Silahkan Tentukan Poli yang Anda Tuju
         }
 
         public void img_rfid_tap()
@@ -488,8 +489,12 @@ namespace Clinic
             }
             else
             {
-                RunAsyncBPJS();
-                load_List("3", true);
+                //if(RunAsyncBPJS())
+                //{
+                    RunAsyncBPJS();
+                    load_List("3", true);
+                //}
+                
             }
         }
         private void layoutControlItem1_Click(object sender, EventArgs e)
@@ -583,27 +588,27 @@ namespace Clinic
 
         private void InsertAntrian(string policd, string SPoli, string SCode)
         {
-            string sql_check = "", tmp_purpose = "", tmp_queue = "", sql_check5 = "";
-            string sql_insert = "", sql_cnt = "", rm_number = "", teks = "", kodepoli ="";
-            int visit, queue, tmp_visit_no = 0;
-
-            //string SQL = " ";
-            //SQL = SQL + Environment.NewLine + "select poli_pic, poli_name  ";
-            //SQL = SQL + Environment.NewLine + "from CS_POLICLINIC ";
-            //SQL = SQL + Environment.NewLine + "where poli_cd = '" + policd + "' ";
-            //SQL = SQL + Environment.NewLine + "and status='A' ";
-
-            //OleDbConnection oraConnect5 = ConnOra.Create_Connect_Ora();
-            //OleDbDataAdapter adOra5 = new OleDbDataAdapter(SQL, oraConnect5);
-            //DataTable dt5 = new DataTable();
-            //adOra5.Fill(dt5);
-
-            //poliname = dt5.Rows[0]["poli_name"].ToString();
-
-            if(policd.ToString().Equals("POL0001") && SPoli.ToString().Equals("BPJS"))
+            string sql_check = "", tmp_queue ="" , NIK = "", nohp = "", kodepoli = "", namapoli = "", norm = "", teks ="";
+            string sql_insert = "", sql_cnt = "", tanggalperiksa = "",  namadokter ="", jampraktek="", nomorantrean="",   keterangan= "";
+            int visit, queue, tmp_visit_no, angkaantrean = 0, kodedokter =0;
+            if (SPoli.ToString().Equals("BPJS"))
             {
-                kodepoli = "001";
-            }
+                sql_check = " ";
+                sql_check = sql_check + "  select QUE from CS_CALL_LOG where trunc(ins_date) = trunc(sysdate) and no_bpjs =  '" + nobpjs + "'  and POLI_CD = '" + policd + "' ";  //select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
+
+                OleDbConnection oraCon1 = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adOra1 = new OleDbDataAdapter(sql_check, oraCon1);
+                DataTable dt1 = new DataTable();
+                adOra1.Fill(dt1);
+                if (dt1.Rows.Count > 0)
+                { 
+                    lInfo.Text = "GAGAL. ID SUDAH TERDAFTAR";
+                    Blinking(lInfo, 0);
+                    lbl_noantrian.Text = dt1.Rows[0]["que"].ToString();
+                    return;
+                }
+            } 
+
 
             sql_check = " ";
             sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
@@ -617,58 +622,91 @@ namespace Clinic
             else
                 return;
 
-            //{
-            //   "nomorkartu": "00012345678",
-            //   "nik": "3212345678987654",
-            //   "nohp": "085635228888",
-            //   "kodepoli": "ANA",
-            //   "namapoli": "Anak",
-            //   "norm": "123345",
-            //   "tanggalperiksa": "2021-01-28",
-            //   "kodedokter": 12345,
-            //   "namadokter": "Dr. Hendra",
-            //   "jampraktek": "08:00-16:00",
-            //   "nomorantrean": "A-12",
-            //   "angkaantrean": 12,
-            //   "keterangan": ""
-            //}
+            if (SPoli.ToString().Equals("BPJS"))
+            {
+                
+                angkaantrean = Convert.ToInt32(tmp_queue.Substring(1, 3));
+                nomorantrean = tmp_queue.Substring(0, 1) + "-" + angkaantrean;
+                string SQL = "";
+                SQL = SQL + Environment.NewLine + "select distinct to_char(tgl_jadwal,'YYYY-MM-DD') tanggalperiksa, d.BPJS_KODE_POLI BPJS_KODE_POLI, d.BPJS_NAMA_POLI, nvl(b.BPJS_ID_DOKTER,0) BPJS_ID_DOKTER , b.BPJS_NAMA_DOKTER, a.JAM_AWAL||'-'||a.JAM_AKHIR jampraktek     ";
+                SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
+                SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.BPJS_ID_DOKTER) ";
+                SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
+                SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.BPJS_KODE_POLI) ";
+                SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) ";
+                SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "'  ";
 
-            DataRow row = dt.Rows[0];
-            string nomorkartu = row["POLI_CD"]?.ToString(); string nik = row["NO_BPJS"]?.ToString();
-            string nohp = row["INS_DATE"]?.ToString();  kodepoli = row["INS_DATE"]?.ToString(); string namapoli = row["INS_DATE"]?.ToString();
-            string norm = row["INS_DATE"]?.ToString(); string tanggalperiksa = row["INS_DATE"]?.ToString();
-            string kddokter = row["INS_DATE"]?.ToString(); string namadokter = row["INS_DATE"]?.ToString();
-            string jampraktek = row["INS_DATE"]?.ToString(); string nomorantrean = row["INS_DATE"]?.ToString();
-            string angkaantrean = row["INS_DATE"]?.ToString(); string keterangan = row["INS_DATE"]?.ToString();
+                DataDokter = ConnOra.Data_Table_ora(SQL);
 
+                if(DataDokter.Rows.Count > 0)
+                {
+                    tanggalperiksa = DataDokter.Rows[0]["tanggalperiksa"].ToString();
+                    kodepoli = DataDokter.Rows[0]["BPJS_KODE_POLI"].ToString();
+                    namapoli = DataDokter.Rows[0]["BPJS_NAMA_POLI"].ToString();
+                    kodedokter = Convert.ToInt32(DataDokter.Rows[0]["BPJS_ID_DOKTER"].ToString()); 
+                    namadokter = DataDokter.Rows[0]["BPJS_NAMA_DOKTER"].ToString();
+                    jampraktek = DataDokter.Rows[0]["jampraktek"].ToString();
+                }
 
-            //// struktur json
-            //JObject json = new JObject();
-            //json.Add("tanggalperiksa", tglPeriksa);
-            //json.Add("kodepoli", kodePoli);
-            //json.Add("nomorkartu", nomorKartu);
-            //json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
-            //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+                string SQL2 = "";
+                SQL2 = SQL2 + Environment.NewLine + "  select NID, PHONE, REPLACE(PATIENT_NO,'P','') NORM from cs_patient_info ";
+                SQL2 = SQL2 + Environment.NewLine + "   where 1=1  ";
+                if (nobpjs.ToString().Trim().Length == 13)
+                    SQL2 = SQL2 + Environment.NewLine + "  and INSU_NO ='" + nobpjs + "' ";
+                else if (nobpjs.ToString().Trim().Length == 16)
+                    SQL2 = SQL2 + Environment.NewLine + "  and NID  ='" + nobpjs + "' ";
 
-            //// kirim ke bpjs
-            //// jika gagal langsung munculkan error dan aplikasi terhenti
-            //// jika berhasil system meneruskan penyimpanan seperti biasanya
-            //BpjswsResponse resp = BpjswsAntrol.TambahAntrean(json);
-            //if (resp.Metadata.Code != 200)
-            //{
-            //    MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+                DataPasien = ConnOra.Data_Table_ora(SQL2);
+                if (DataPasien.Rows.Count > 0)
+                {
+                    NIK = DataPasien.Rows[0]["NID"].ToString();
+                    nohp = DataPasien.Rows[0]["PHONE"].ToString();
+                    norm = DataPasien.Rows[0]["NORM"].ToString(); 
+                }
 
+                // struktur json
+                JObject json = new JObject();
+                json.Add("nomorkartu", nobpjs);                 //nobpjs
+                json.Add("nik", NIK);                           //NIK
+                json.Add("nohp", nohp);                         //nohp
+                json.Add("kodepoli", kodepoli);                 //kodepoli
+                json.Add("namapoli", namapoli);                 //namapoli
+                json.Add("norm", norm);                         //norm
+                json.Add("tanggalperiksa", tanggalperiksa);     //tanggalperiksa
+                json.Add("kodedokter", kodedokter);            //kodedokter
+                json.Add("namadokter",  namadokter);            //namadokter
+                json.Add("jampraktek", jampraktek);             //jampraktek
+                json.Add("nomorantrean", nomorantrean);         //nomorantrean
+                json.Add("angkaantrean", Convert.ToInt32(angkaantrean));             //angkaantrean
+                json.Add("keterangan", keterangan);             //keterangan
+                //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
 
+                // kirim ke bpjs
+                // jika gagal langsung munculkan error dan aplikasi terhenti
+                // jika berhasil system meneruskan penyimpanan seperti biasanya
+                BpjswsResponse resp = BpjswsAntrol.TambahAntrean(json);
+                if (resp.Metadata.Code != 200)
+                {
+                    MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //return;
+                } 
+            } 
 
 
             teks = "Nomor Antrian " + tmp_queue + " silahkan menuju Pendaftaran";
 
             sql_insert = "";
-            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS) ";
-            sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + tmp_queue + "','REG','Pendaftaran','" + teks + "','W','Antrian',sysdate, '" + policd + "', decode('" + SPoli + "','BPJS','B','UMUM','U','ASURANSI','A') , '" + nobpjs + "' )";
-
+            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS,KD_DOKTER) ";
+            sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + tmp_queue + "','REG','Pendaftaran','" + teks + "','W','Antrian',sysdate, '" + policd + "', decode('" + SPoli + "','BPJS','B','UMUM','U','ASURANSI','A') ";
+            if (SPoli.ToString().Equals("BPJS"))
+            {
+                sql_insert = sql_insert + "   , '" + nobpjs + "' ";
+            }
+            else
+            {
+                sql_insert = sql_insert + " ,'' ";
+            }
+            sql_insert = sql_insert + "  ," + kodedokter + " )";
             //loading.ShowWaitForm();
             try
             {
@@ -678,9 +716,9 @@ namespace Clinic
                 cm.ExecuteNonQuery();
                 oraConnect2.Close();
                 cm.Dispose();
-
-                Blinking("RESERVASI BERHASIL", 1);
-                lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
+                lInfo.Text = "RESERVASI BERHASIL";
+                Blinking(lInfo, 1);
+                //lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
                 lbl_noantrian.Text = tmp_queue;
                 //loading.CloseWaitForm();
                  
@@ -753,63 +791,78 @@ namespace Clinic
             SimpleButton clickedButton = (SimpleButton)sender;
             Process.Start((string)clickedButton.Tag);
         }
-         
 
-        private void Blinking(String Message, int mbOk)
+
+        //private void Blinking(String Message,    int mbOk)
+        //{
+
+        //    lsMSG = Message;
+        //    lsOK = mbOk;
+        //    timerStart.Interval = 150;
+        //    timerStart.Enabled = true;
+        //    timer1.Interval = 2000;
+        //    timer1.Enabled = true;
+
+        //    timerEnd.Enabled = true;
+        //    timerEnd.Interval = 2000;
+        //    timer2.Interval = 4000;
+        //    timer2.Enabled = true;
+        //}
+
+        private void Blinking(LabelControl ctrl, int mbOk)
         {
-            lsMSG = Message;
+            //lsMSG = Message;
             lsOK = mbOk;
+            _currentLabel = ctrl;
             timerStart.Interval = 150;
             timerStart.Enabled = true;
-            timer1.Interval = 2000;
-            timer1.Enabled = true;
+            //timer1.Interval = 2000;
+            //timer1.Enabled = true;
 
             timerEnd.Enabled = true;
-            timerEnd.Interval = 2000;
-            timer2.Interval = 4000;
-            timer2.Enabled = true;
+            timerEnd.Interval = 3000;
+            //timer3.Interval = 4000;
+            //timer3.Enabled = true;
         }
 
         private void timerStart_Tick(object sender, EventArgs e)
         {
-            //if (lsOK == 0)
-            //{
-            //    if (bl_klap == true)
-            //    {
-            //        lStatus.Appearance.ForeColor = Color.Red;
-            //        lStatus.Text = lsMSG;
-            //        lStatus.Visible = true;
-            //        bl_klap = false;
-            //    }
-            //    else
-            //    {
-            //        bl_klap = true;
-            //        lStatus.Visible = false;
-            //    }
-            //}
-            //else
-            //{
-            //    if (bl_klap == true)
-            //    {
-            //        lStatus.Appearance.ForeColor = Color.ForestGreen;
-            //        lStatus.Text = lsMSG;
-            //        lStatus.Visible = true;
-            //        bl_klap = false;
-            //    }
-            //    else
-            //    {
-            //        lStatus.Visible = false;
-            //        bl_klap = true;
-            //    }
 
-            //}
+            if (lsOK == 0)
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.Appearance.ForeColor = Color.Red;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    bl_klap = true;
+                    _currentLabel.Visible = false;
+                }
+            }
+            else
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.Appearance.ForeColor = Color.ForestGreen;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    _currentLabel.Visible = false;
+                    bl_klap = true;
+                }
+            }
         }
 
         private void timerEnd_Tick(object sender, EventArgs e)
         {
-            //timerStart.Enabled = false;
-            //timerEnd.Enabled = false;
-            //lStatus.Visible = true;
+            timerStart.Enabled = false;
+            timerEnd.Enabled = false;
+            _currentLabel.Visible = false ;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -1027,8 +1080,11 @@ namespace Clinic
                 oraConnect2.Close();
                 cm.Dispose();
 
-                Blinking("RESERVASI BERHASIL", 1);
-                lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
+                lInfo.Text = "RESERVASI BERHASIL";
+                Blinking(lInfo, 1);
+
+                //Blinking("RESERVASI BERHASIL", 1);
+                //lInfo.Text = "Silahkan Menunggu " + "\r\n" + "Ditempat yang sudah disediakan. ";
                 lbl_noantrian.Text = tmp_queue ;
                 //loading.CloseWaitForm();
 
@@ -1265,6 +1321,101 @@ namespace Clinic
         //    await dbHelper.InsertDataAsync("John Doe", 30);
         //}
 
+         
+        //public void RunAsyncBPJS()
+        //{
+        //    BpjswsResponse resp;
+        //    string tmp_pas_no = "";
+
+        //    Task.Run(() =>
+        //    {
+        //    using (OleDbConnection conn = ConnOra.Create_Connect_Ora())
+        //        {
+        //            OleDbTransaction trans = null;
+        //            try
+        //            {
+        //                OleDbCommand command = new OleDbCommand();
+        //                command.Connection = conn;
+        //                conn.Open();
+        //                Console.WriteLine("Koneksi berhasil dibuka.");
+
+        //                resp = BpjswsPcare.GetPeserta(nobpjs);
+        //                if (resp.Metadata.Code != 200)
+        //                {
+        //                    Console.WriteLine($"Code: {resp.Metadata.Code}, Message: {resp.Metadata.Message}");
+        //                    return false;
+        //                }
+
+        //                JObject jsonObj = JObject.Parse(resp?.GetResponseString());
+        //                JObject response = (JObject)jsonObj["Response"];
+
+        //                // Ambil nomor pasien
+        //                string sql_cnt = "SELECT 'P' || TO_CHAR(SYSDATE, 'yymm') || LPAD(COUNT(0)+1, 3, '0') AS pno FROM cs_patient_info WHERE TO_CHAR(ins_date, 'yyyymm') = TO_CHAR(SYSDATE, 'yyyymm')";
+        //                OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql_cnt, conn);
+        //                DataTable dt4 = new DataTable();
+        //                adOra4.Fill(dt4);
+        //                tmp_pas_no = dt4.Rows[0]["pno"].ToString();
+
+        //                if (dt4.Rows.Count > 0)
+        //                {
+        //                    try
+        //                    {
+        //                        trans = conn.BeginTransaction(IsolationLevel.ReadCommitted);
+        //                        Console.WriteLine("Transaksi dimulai...");
+
+        //                        string query = @"INSERT INTO cs_patient_info (patient_no, nid, NAME, gender, birth_date, insu_no, insu_class,
+        //                                                    TGL_MULAI_AKTIF_BPJS, TGL_AKHIR_BERLAKU_BPJS, JENIS_PESERTA_BPJS, JENIS_PESERTA_KODE_BPJS, STATUS_BPJS, KET_STATUS_BPJS, TUNGGAKAN_BPJS,PHONE,GOL_DARAH,HUB_KELUARGA, INS_DATE, INS_EMP)
+        //                                VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'), ?, ?,
+        //                                        TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
+        //                                        ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, 'BPJS PCARE')";
+
+        //                        using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
+        //                        {
+        //                            cmd.Parameters.AddWithValue("?", tmp_pas_no);
+        //                            cmd.Parameters.AddWithValue("?", response["noKTP"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["nama"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["sex"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglLahir"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
+        //                            cmd.Parameters.AddWithValue("?", response["noKartu"]?.ToString() ?? "0");
+        //                            cmd.Parameters.AddWithValue("?", response["jnsKelas"]["kode"]?.ToString() ?? "0");
+        //                            cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglMulaiAktif"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
+        //                            cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglAkhirBerlaku"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
+        //                            cmd.Parameters.AddWithValue("?", response["jnsPeserta"]["nama"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["jnsPeserta"]["kode"]?.ToString() ?? "0");
+        //                            cmd.Parameters.AddWithValue("?", response["aktif"] != null && (bool)response["aktif"] ? 1 : 0);
+        //                            cmd.Parameters.AddWithValue("?", response["ketAktif"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["tunggakan"] != null ? Convert.ToInt32(response["tunggakan"]) : 0);
+        //                            cmd.Parameters.AddWithValue("?", response["noHP"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["golDarah"]?.ToString() ?? "");
+        //                            cmd.Parameters.AddWithValue("?", response["hubunganKeluarga"]?.ToString() ?? "");
+
+        //                            int rowsAffected = cmd.ExecuteNonQuery();
+        //                            Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
+        //                        }
+
+        //                        trans.Commit();
+        //                        Console.WriteLine("Transaksi berhasil di-commit."); 
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        trans.Rollback();
+        //                        Console.WriteLine("Error saat insert: " + ex.Message);
+        //                        return false;
+        //                    }
+        //                }
+        //                conn.Close();
+        //                Console.WriteLine("Koneksi ditutup."); 
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                Console.WriteLine("Error: " + ex.Message);
+        //                return false ;
+        //            }
+        //        }
+        //    });
+        //    return true;
+        //}
+
         public void RunAsyncBPJS()
         {
             BpjswsResponse resp;
@@ -1274,238 +1425,163 @@ namespace Clinic
             {
                 using (OleDbConnection conn = ConnOra.Create_Connect_Ora())
                 {
-                    OleDbTransaction trans = null;
                     try
                     {
+
                         OleDbCommand command = new OleDbCommand();
+                        OleDbTransaction trans = null;
+
                         command.Connection = conn;
                         conn.Open();
-                        Console.WriteLine("Koneksi berhasil dibuka.");
 
+                        // struktur json
+                        //JObject json = new JObject();
+                        //json.Add("param", nobpjs);
+
+                        // kirim ke bpjs
+                        // jika gagal langsung dilewati
+                        // jika berhasil system akan menyimpan data ke table CS_PATIENT_INFO
                         resp = BpjswsPcare.GetPeserta(nobpjs);
                         if (resp.Metadata.Code != 200)
                         {
-                            Console.WriteLine($"Code: {resp.Metadata.Code}, Message: {resp.Metadata.Message}");
+                            MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            conn.Close();
                             return;
                         }
 
                         JObject jsonObj = JObject.Parse(resp?.GetResponseString());
                         JObject response = (JObject)jsonObj["Response"];
 
-                        // Ambil nomor pasien
-                        string sql_cnt = "SELECT 'P' || TO_CHAR(SYSDATE, 'yymm') || LPAD(COUNT(0)+1, 3, '0') AS pno FROM cs_patient_info WHERE TO_CHAR(ins_date, 'yyyymm') = TO_CHAR(SYSDATE, 'yyyymm')";
+                        //switch (url)
+                        //{
+                        //case Class.Bpjsws.Bpjsws.WS_PCARE_PESERTA_GET_URL:
+                        //    resp = Class.Bpjsws.BpjswsPcare.GetPeserta(txtParam1.Text);
+                        //    if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        //    else txtResponse.Text = "Unknown error! please call the administrator";
+                        //    break;
+
+                        //string query = "INSERT INTO BPJS (Nama, NoBPJS) VALUES (@nama, @noBPJS)";
+
+                        //using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                        //{
+                        //    cmd.Parameters.AddWithValue("@nama", "John Doe");
+                        //    cmd.Parameters.AddWithValue("@noBPJS", "123456789");
+
+                        //    cmd.ExecuteNonQuery();
+                        //} 
+
+                        string sql_cnt = " select 'P' || to_char(sysdate,'yymm') || lpad(count(0)+1,3,'0') pno from cs_patient_info where to_char(ins_date, 'yyyymm') = to_char(sysdate, 'yyyymm')  ";
                         OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql_cnt, conn);
                         DataTable dt4 = new DataTable();
                         adOra4.Fill(dt4);
                         tmp_pas_no = dt4.Rows[0]["pno"].ToString();
-
-                        if (dt4.Rows.Count > 0)
+                        if (Convert.ToInt32(dt4.Rows.Count) > 0)
                         {
+                            //using (OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora())
+                            //{
+                            //conn.Open();
+                            //OleDbTransaction trans = conn.BeginTransaction(); // Mulai transaksi
                             try
                             {
                                 trans = conn.BeginTransaction(IsolationLevel.ReadCommitted);
-                                Console.WriteLine("Transaksi dimulai...");
 
-                                string query = @"INSERT INTO cs_patient_info (patient_no, nid, NAME, gender, birth_date, insu_no, insu_class,
-                                                            TGL_MULAI_AKTIF_BPJS, TGL_AKHIR_BERLAKU_BPJS, JENIS_PESERTA_BPJS, JENIS_PESERTA_KODE_BPJS, STATUS_BPJS, KET_STATUS_BPJS, TUNGGAKAN_BPJS,PHONE,GOL_DARAH,HUB_KELUARGA, INS_DATE, INS_EMP)
-                                        VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'), ?, ?,
-                                                TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
-                                                ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, 'BPJS PCARE')";
+                                //string query = @" INSERT INTO BPJS_TABLE (NO_KARTU, NAMA, HUBUNGAN_KELUARGA, SEX, TGL_LAHIR, 
+                                //                                        TGL_MULAI_AKTIF, TGL_AKHIR_BERLAKU, KELAS_NAMA, KELAS_KODE, 
+                                //                                        JENIS_PESERTA, JENIS_PESERTA_KODE, NO_KTP, AKTIF, KET_AKTIF, TUNGGAKAN)
+                                //                VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'),
+                                //                        TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
+                                //                        ?, ?, ?, ?, ?, ?, ?, ?)";
+                                string query = @" INSERT INTO cs_patient_info (patient_no, nid,NAME, gender, birth_date, insu_no,insu_class,
+                                                                            TGL_MULAI_AKTIF_BPJS, TGL_AKHIR_BERLAKU_BPJS, JENIS_PESERTA_BPJS, JENIS_PESERTA_KODE_BPJS, STATUS_BPJS,KET_STATUS_BPJS,TUNGGAKAN_BPJS,HUB_KELUARGA,KD_PROVIDER,NM_PROVIDER, INS_DATE,INS_EMP,STATUS )
+                                                    VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'),?,?,
+                                                            TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
+                                                            ?, ?, ?, ?, ? ,?, ?, ? ,SYSDATE,'BPJS PCARE','A')";
 
                                 using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
                                 {
-                                    cmd.Parameters.AddWithValue("?", tmp_pas_no);
-                                    cmd.Parameters.AddWithValue("?", response["noKTP"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["nama"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["sex"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglLahir"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
-                                    cmd.Parameters.AddWithValue("?", response["noKartu"]?.ToString() ?? "0");
-                                    cmd.Parameters.AddWithValue("?", response["jnsKelas"]["kode"]?.ToString() ?? "0");
-                                    cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglMulaiAktif"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
-                                    cmd.Parameters.AddWithValue("?", DateTime.ParseExact(response["tglAkhirBerlaku"].ToString(), "dd-MM-yyyy", null).ToString("dd-MM-yyyy"));
-                                    cmd.Parameters.AddWithValue("?", response["jnsPeserta"]["nama"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["jnsPeserta"]["kode"]?.ToString() ?? "0");
-                                    cmd.Parameters.AddWithValue("?", response["aktif"] != null && (bool)response["aktif"] ? 1 : 0);
-                                    cmd.Parameters.AddWithValue("?", response["ketAktif"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["tunggakan"] != null ? Convert.ToInt32(response["tunggakan"]) : 0);
-                                    cmd.Parameters.AddWithValue("?", response["noHP"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["golDarah"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("?", response["hubunganKeluarga"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("?", (string)tmp_pas_no);
+                                    cmd.Parameters.AddWithValue("?", (string)response["noKTP"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["nama"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["sex"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["tglLahir"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["noKartu"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["jnsKelas"]["kode"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["tglMulaiAktif"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["tglAkhirBerlaku"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["jnsPeserta"]["nama"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["jnsPeserta"]["kode"]);
+                                    cmd.Parameters.AddWithValue("?", (bool)response["aktif"] ? 1 : 0);
+                                    cmd.Parameters.AddWithValue("?", (string)response["ketAktif"]);
+                                    cmd.Parameters.AddWithValue("?", (int)response["tunggakan"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["hubunganKeluarga"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["kdProviderPst"]["kdProvider"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["kdProviderPst"]["nmProvider"]);
 
                                     int rowsAffected = cmd.ExecuteNonQuery();
-                                    Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
+                                    Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan."); 
                                 }
 
-                                trans.Commit();
-                                Console.WriteLine("Transaksi berhasil di-commit.");
+                                string query2 = @"  insert into cs_patient (rm_no, patient_no, group_patient, status, ins_date, ins_emp) 
+                                                    VALUES (?, ?, ?, ?, SYSDATE,'BPJS PCARE')";
+
+                                using (OleDbCommand cmd2 = new OleDbCommand(query2, conn, trans))
+                                {
+                                    cmd2.Parameters.AddWithValue("?", (string)tmp_pas_no.Replace("P",""));
+                                    cmd2.Parameters.AddWithValue("?", (string)tmp_pas_no);
+                                    cmd2.Parameters.AddWithValue("?", (string)"COMM");
+                                    cmd2.Parameters.AddWithValue("?", (string)"A"); 
+
+                                    int rowsAffected2 = cmd2.ExecuteNonQuery();
+                                    Console.WriteLine($"Insert sukses! {rowsAffected2} baris ditambahkan.");
+                                }
+
+                                trans.Commit(); // Commit transaksi jika berhasil
+                                                //Console.WriteLine("Transaksi berhasil!");
+                                                //command.CommandText = " insert into cs_patient_info (patient_no, nid, name, birth_place, birth_date, gender, address, " +
+                                                //                            " city, insu_no, status, job, family_head, " +
+                                                //                            " phone, insu_class, insu_no2, insu_nm2, rfid_no, company, company_addr, ins_date, ins_emp) values " +
+                                                //                            " ( '" + tmp_pas_no + "', '" + ktp + "','" + nama + "',  '" + tmt_lahir + "',to_date('" + tgl_lahir.Substring(0, 10).ToString() + "','dd/MM/yyyy'),'" + jk + "','" + alamat + "', " +
+                                                //                            " '" + kota + "', '" + bpjs + "', '" + stat + "', '" + job + "', '" + kk + "', " +
+                                                //                            " '" + nohp + "', '" + kls + "', '" + noinsu2 + "', '" + nminsu2 + "', '" + rfid + "', '" + comp + "', '" + comp_addr + "', sysdate, '" + DB.vUserId + "') ";
+
+                                //    command.ExecuteNonQuery();
+
+                                //    command.CommandText = " insert into cs_patient (rm_no, patient_no, group_patient, status, ins_date, ins_emp) " +
+                                //                            " values ('C' || to_char(sysdate,'yymmdd') || replace('" + tmp_pas_no + "','P'), '" + tmp_pas_no + "', 'COMM', 'A', sysdate, '" + DB.vUserId + "') ";
+
+                                //    command.ExecuteNonQuery();
+
+                                //    trans.Commit();
+
                             }
                             catch (Exception ex)
                             {
                                 trans.Rollback();
-                                Console.WriteLine("Error saat insert: " + ex.Message);
+                                //MessageBox.Show("ERROR: " + ex.Message);
+                                Console.WriteLine("Error: " + ex.Message);
                             }
+                            //oraConnectTrans.Close();
+                            //}
+                            //catch (Exception ex)
+                            //{
+                            //    transaction.Rollback(); // Rollback jika ada error
+                            //    Console.WriteLine("Transaksi dibatalkan! Error: " + ex.Message);
+                            //}
+
                         }
                         conn.Close();
-                        Console.WriteLine("Koneksi ditutup.");
+                        Console.WriteLine("Insert berhasil!");
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine("Error: " + ex.Message);
                     }
+                    finally
+                    {
+                        conn.Close();
+                    }
                 }
             });
         }
-
-        //public void RunAsyncBPJS()
-        //{
-        //    BpjswsResponse resp;
-        //    string tmp_pas_no = "";
-
-        //    Task.Run(() =>
-        //    {
-        //        using (OleDbConnection conn = ConnOra.Create_Connect_Ora())
-        //        {
-        //            try
-        //            {
-
-        //                OleDbCommand command = new OleDbCommand();
-        //                OleDbTransaction trans = null;
-
-        //                command.Connection = conn;
-        //                conn.Open();
-
-        //                // struktur json
-        //                //JObject json = new JObject();
-        //                //json.Add("param", nobpjs);
-
-        //                // kirim ke bpjs
-        //                // jika gagal langsung dilewati
-        //                // jika berhasil system akan menyimpan data ke table CS_PATIENT_INFO
-        //                resp = BpjswsPcare.GetPeserta(nobpjs);
-        //                if (resp.Metadata.Code != 200)
-        //                {
-        //                    MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                    conn.Close();
-        //                    return;
-        //                }
-
-        //                JObject jsonObj = JObject.Parse(resp?.GetResponseString());
-        //                JObject response = (JObject)jsonObj["Response"];
-
-        //                //switch (url)
-        //                //{
-        //                //case Class.Bpjsws.Bpjsws.WS_PCARE_PESERTA_GET_URL:
-        //                //    resp = Class.Bpjsws.BpjswsPcare.GetPeserta(txtParam1.Text);
-        //                //    if (resp != null) txtResponse.Text = resp?.GetResponseString();
-        //                //    else txtResponse.Text = "Unknown error! please call the administrator";
-        //                //    break;
-
-        //                //string query = "INSERT INTO BPJS (Nama, NoBPJS) VALUES (@nama, @noBPJS)";
-
-        //                //using (OleDbCommand cmd = new OleDbCommand(query, conn))
-        //                //{
-        //                //    cmd.Parameters.AddWithValue("@nama", "John Doe");
-        //                //    cmd.Parameters.AddWithValue("@noBPJS", "123456789");
-
-        //                //    cmd.ExecuteNonQuery();
-        //                //} 
-
-        //                string sql_cnt = " select 'P' || to_char(sysdate,'yymm') || lpad(count(0)+1,3,'0') pno from cs_patient_info where to_char(ins_date, 'yyyymm') = to_char(sysdate, 'yyyymm')  "; 
-        //                OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql_cnt, conn);
-        //                DataTable dt4 = new DataTable();
-        //                adOra4.Fill(dt4);
-        //                tmp_pas_no = dt4.Rows[0]["pno"].ToString();
-        //                if (Convert.ToInt32(dt4.Rows.Count) > 0)
-        //                {
-        //                    //using (OleDbConnection oraConnectTrans = ConnOra.Create_Connect_Ora())
-        //                    //{
-        //                    //conn.Open();
-        //                    //OleDbTransaction trans = conn.BeginTransaction(); // Mulai transaksi
-        //                    try
-        //                    {  
-        //                        trans = conn.BeginTransaction(IsolationLevel.ReadCommitted);
-
-        //                        //string query = @" INSERT INTO BPJS_TABLE (NO_KARTU, NAMA, HUBUNGAN_KELUARGA, SEX, TGL_LAHIR, 
-        //                        //                                        TGL_MULAI_AKTIF, TGL_AKHIR_BERLAKU, KELAS_NAMA, KELAS_KODE, 
-        //                        //                                        JENIS_PESERTA, JENIS_PESERTA_KODE, NO_KTP, AKTIF, KET_AKTIF, TUNGGAKAN)
-        //                        //                VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'),
-        //                        //                        TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
-        //                        //                        ?, ?, ?, ?, ?, ?, ?, ?)";
-        //                        string query = @" INSERT INTO cs_patient_info (patient_no, nid,NAMA, gender, birth_date, insu_no,insu_class,
-        //                                                                    TGL_MULAI_AKTIF_BPJS, TGL_AKHIR_BERLAKU_BPJS, JENIS_PESERTA_BPJS, JENIS_PESERTA_KODE_BPJS, STATUS_BPJS,KET_STATUS_BPJS,TUNGGAKAN_BPJS,INS_DATE,INS_EMP )
-        //                                            VALUES (?, ?, ?, ?, TO_DATE(?, 'DD-MM-YYYY'),?,?,
-        //                                                    TO_DATE(?, 'DD-MM-YYYY'), TO_DATE(?, 'DD-MM-YYYY'),
-        //                                                    ?, ?, ?, ?, ? ,SYSDATE,'BPJS PCARE')";
-
-        //                        using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
-        //                        {
-        //                            cmd.Parameters.AddWithValue("?", (string)tmp_pas_no);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["noKTP"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["nama"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["sex"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["tglLahir"]); 
-        //                            cmd.Parameters.AddWithValue("?", (string)response["noKartu"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["jnsKelas"]["kode"]); 
-        //                            cmd.Parameters.AddWithValue("?", (string)response["tglMulaiAktif"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["tglAkhirBerlaku"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["jnsPeserta"]["nama"]);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["jnsPeserta"]["kode"]); 
-        //                            cmd.Parameters.AddWithValue("?", (bool)response["aktif"] ? 1 : 0);
-        //                            cmd.Parameters.AddWithValue("?", (string)response["ketAktif"]);
-        //                            cmd.Parameters.AddWithValue("?", (int)response["tunggakan"]);
-
-        //                            int rowsAffected = cmd.ExecuteNonQuery();
-        //                            Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
-
-
-        //                        }
-        //                    trans.Commit(); // Commit transaksi jika berhasil
-        //                    //Console.WriteLine("Transaksi berhasil!");
-        //                    //command.CommandText = " insert into cs_patient_info (patient_no, nid, name, birth_place, birth_date, gender, address, " +
-        //                    //                            " city, insu_no, status, job, family_head, " +
-        //                    //                            " phone, insu_class, insu_no2, insu_nm2, rfid_no, company, company_addr, ins_date, ins_emp) values " +
-        //                    //                            " ( '" + tmp_pas_no + "', '" + ktp + "','" + nama + "',  '" + tmt_lahir + "',to_date('" + tgl_lahir.Substring(0, 10).ToString() + "','dd/MM/yyyy'),'" + jk + "','" + alamat + "', " +
-        //                    //                            " '" + kota + "', '" + bpjs + "', '" + stat + "', '" + job + "', '" + kk + "', " +
-        //                    //                            " '" + nohp + "', '" + kls + "', '" + noinsu2 + "', '" + nminsu2 + "', '" + rfid + "', '" + comp + "', '" + comp_addr + "', sysdate, '" + DB.vUserId + "') ";
-
-        //                    //    command.ExecuteNonQuery();
-
-        //                    //    command.CommandText = " insert into cs_patient (rm_no, patient_no, group_patient, status, ins_date, ins_emp) " +
-        //                    //                            " values ('C' || to_char(sysdate,'yymmdd') || replace('" + tmp_pas_no + "','P'), '" + tmp_pas_no + "', 'COMM', 'A', sysdate, '" + DB.vUserId + "') ";
-
-        //                    //    command.ExecuteNonQuery();
-
-        //                    //    trans.Commit();
-
-        //                    }
-        //                    catch (Exception ex)
-        //                    {
-        //                        trans.Rollback();
-        //                        //MessageBox.Show("ERROR: " + ex.Message);
-        //                        Console.WriteLine("Error: " + ex.Message);
-        //                    }
-        //                    //oraConnectTrans.Close();
-        //                    //}
-        //                    //catch (Exception ex)
-        //                    //{
-        //                    //    transaction.Rollback(); // Rollback jika ada error
-        //                    //    Console.WriteLine("Transaksi dibatalkan! Error: " + ex.Message);
-        //                    //}
-
-        //                }
-        //                conn.Close();
-        //                Console.WriteLine("Insert berhasil!");
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                Console.WriteLine("Error: " + ex.Message);
-        //            }
-        //            finally
-        //            {
-        //                conn.Close();
-        //            }
-        //        }
-        //    });
-        //}
     }
 }

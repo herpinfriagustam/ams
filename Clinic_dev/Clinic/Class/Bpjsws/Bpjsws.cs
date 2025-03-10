@@ -27,7 +27,8 @@ namespace Clinic.Class.Bpjsws
         public const string CONS_SECRET = "3sO2B087D0";
         public const string USER_KEY = "580c0ca60ed68122d4943f7e1d32a609";
         public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
-        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
+        //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
+        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
 
@@ -93,7 +94,7 @@ namespace Clinic.Class.Bpjsws
         public const string WS_PCARE_TINDAKAN_BY_KUNJUNGAN_GET_URL = BASE_URL_PCARE + "/tindakan/kunjungan/{Parameter 1}";
         public const string WS_PCARE_TINDAKAN_REF_GET_URL = BASE_URL_PCARE + "/tindakan/kdTkp/{Parameter 1}/{Parameter 2}/{Parameter 3}";
         public const string WS_PCARE_TINDAKAN_ADD_URL = BASE_URL_PCARE + "/tindakan";
-        public const string WS_PCARE_TINDAKAN_EDIT_URL = BASE_URL_PCARE + "/tindakan";
+        public const string WS_PCARE_TINDAKAN_EDIT_URL = BASE_URL_PCARE + "//tindakan";
         public const string WS_PCARE_TINDAKAN_DELETE_URL = BASE_URL_PCARE + "/tindakan/{Parameter 1}/kunjungan/{Parameter 2}";
 
 
@@ -103,7 +104,25 @@ namespace Clinic.Class.Bpjsws
             {
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return ((long)(currentTime - unixEpoch).TotalSeconds);
+                return ((long)(currentTime - unixEpoch).TotalMilliseconds);
+
+                //DateTime currentTime = DateTime.UtcNow;
+                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                //return (long)(currentTime - unixEpoch).TotalMilliseconds;
+            }
+        }
+
+        public static long CurrentUnixTimeMili
+        {
+            get
+            {
+                //DateTime currentTime = DateTime.UtcNow;
+                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                //return ((long)(currentTime - unixEpoch).TotalSeconds);
+
+                DateTime currentTime = DateTime.UtcNow;
+                DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                return (long)(currentTime - unixEpoch).TotalMilliseconds;
             }
         }
 

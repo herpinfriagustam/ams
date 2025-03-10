@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientInfoMngt));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chNew = new System.Windows.Forms.CheckBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btnCetak = new DevExpress.XtraEditors.SimpleButton();
@@ -51,7 +52,6 @@
             this.repdate = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.redate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
-            this.chNew = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tNik.Properties)).BeginInit();
@@ -100,6 +100,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1126, 64);
             this.panel1.TabIndex = 0;
+            // 
+            // chNew
+            // 
+            this.chNew.AutoSize = true;
+            this.chNew.Location = new System.Drawing.Point(327, 43);
+            this.chNew.Name = "chNew";
+            this.chNew.Size = new System.Drawing.Size(88, 17);
+            this.chNew.TabIndex = 41;
+            this.chNew.Text = "Peserta Baru";
+            this.chNew.UseVisualStyleBackColor = true;
             // 
             // cmbStatus
             // 
@@ -237,9 +247,9 @@
             // 
             // gridView1
             // 
-            gridFormatRule2.Name = "Format0";
-            gridFormatRule2.Rule = null;
-            this.gridView1.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.Name = "Format0";
+            gridFormatRule1.Rule = null;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -292,16 +302,6 @@
             // loading
             // 
             this.loading.ClosingDelay = 500;
-            // 
-            // chNew
-            // 
-            this.chNew.AutoSize = true;
-            this.chNew.Location = new System.Drawing.Point(327, 43);
-            this.chNew.Name = "chNew";
-            this.chNew.Size = new System.Drawing.Size(88, 17);
-            this.chNew.TabIndex = 41;
-            this.chNew.Text = "Peserta Baru";
-            this.chNew.UseVisualStyleBackColor = true;
             // 
             // PatientInfoMngt
             // 

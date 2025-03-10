@@ -161,7 +161,7 @@ namespace Clinic
 
             sql_search = sql_search + Environment.NewLine + "select a.patient_no, nid, name, birth_place, to_date(to_char(birth_date,'yyyy-MM-dd'),'yyyy-MM-dd') birth_date,  ";
             sql_search = sql_search + Environment.NewLine + "gender, address, city,insu_class, insu_no, a.status, 'U' action, job, family_head, phone,  ";
-            sql_search = sql_search + Environment.NewLine + " insu_no2, insu_nm2, rfid_no, company, company_addr, b.RM_NO ";
+            sql_search = sql_search + Environment.NewLine + " insu_no2, insu_nm2, rfid_no, company, company_addr, b.RM_NO ,a.INS_DATE TGL_REGISTER, a.INS_EMP REGISTER_BY ";
             sql_search = sql_search + Environment.NewLine + "  from cs_patient_info a, cs_patient b ";
             sql_search = sql_search + Environment.NewLine + " where 1=1  and a.patient_no = b.patient_no ";
             if (cmbStatus.Text == "Aktif")
@@ -172,7 +172,10 @@ namespace Clinic
             {
                 sql_search = sql_search + Environment.NewLine + "and a.status = 'I' ";
             }
-
+            if (chNew.Checked)
+            {
+                sql_search = sql_search + Environment.NewLine + " and a.INS_DATE > sysdate-1 ";
+            }
             if (cmbSearch.Text == "Nama")
             {
                 sql_search = sql_search + Environment.NewLine + "and upper(a.name) like upper('%" + tNik.Text + "%') ";
@@ -243,6 +246,8 @@ namespace Clinic
                 gridView1.Columns[17].Caption = "No RFID";
                 gridView1.Columns[18].Caption = "Perusahaan";
                 gridView1.Columns[19].Caption = "Alamat Perusahaan";
+                gridView1.Columns[21].Caption = "Tgl Input";
+                gridView1.Columns[22].Caption = "Input By"; 
 
                 gridView1.Columns[6].Visible = false; gridView1.Columns[7].Visible = false; gridView1.Columns[13].Visible = false;
                 gridView1.Columns[14].Visible = false; gridView1.Columns[17].Visible = false;
@@ -1037,7 +1042,7 @@ namespace Clinic
             GridView View = sender as GridView;
             string s_pinfo = "";
 
-            if (View.RowCount < 2)
+            if (View.RowCount < 1)
                 return;
 
             if (View.FocusedColumn.Caption == "Pasien No")

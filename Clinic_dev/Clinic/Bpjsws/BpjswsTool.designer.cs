@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BpjswsTool));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.grpBody = new DevExpress.XtraEditors.GroupControl();
@@ -40,14 +40,14 @@
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.txtResponse = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.lblParam4 = new DevExpress.XtraEditors.LabelControl();
             this.txtParam4 = new DevExpress.XtraEditors.TextEdit();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.lblParam3 = new DevExpress.XtraEditors.LabelControl();
             this.txtParam3 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.lblParam2 = new DevExpress.XtraEditors.LabelControl();
             this.txtParam2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.lblParam1 = new DevExpress.XtraEditors.LabelControl();
             this.txtParam1 = new DevExpress.XtraEditors.TextEdit();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.txtFunc = new DevExpress.XtraEditors.TextEdit();
@@ -135,8 +135,8 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.groupControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(504, 214);
-            this.splitContainerControl2.SplitterPosition = 251;
+            this.splitContainerControl2.Size = new System.Drawing.Size(497, 214);
+            this.splitContainerControl2.SplitterPosition = 248;
             this.splitContainerControl2.TabIndex = 1;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -146,16 +146,16 @@
             this.grpBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBody.Location = new System.Drawing.Point(0, 0);
             this.grpBody.Name = "grpBody";
-            this.grpBody.Size = new System.Drawing.Size(251, 214);
+            this.grpBody.Size = new System.Drawing.Size(248, 214);
             this.grpBody.TabIndex = 0;
             this.grpBody.Text = "Request Body";
             // 
             // txtBody
             // 
             this.txtBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBody.Location = new System.Drawing.Point(2, 20);
+            this.txtBody.Location = new System.Drawing.Point(2, 21);
             this.txtBody.Name = "txtBody";
-            this.txtBody.Size = new System.Drawing.Size(247, 192);
+            this.txtBody.Size = new System.Drawing.Size(244, 191);
             this.txtBody.TabIndex = 2;
             // 
             // groupControl3
@@ -164,28 +164,28 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(248, 214);
+            this.groupControl3.Size = new System.Drawing.Size(237, 214);
             this.groupControl3.TabIndex = 1;
             this.groupControl3.Text = "Response";
             // 
             // txtResponse
             // 
             this.txtResponse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResponse.Location = new System.Drawing.Point(2, 20);
+            this.txtResponse.Location = new System.Drawing.Point(2, 21);
             this.txtResponse.Name = "txtResponse";
-            this.txtResponse.Size = new System.Drawing.Size(244, 192);
+            this.txtResponse.Size = new System.Drawing.Size(233, 191);
             this.txtResponse.TabIndex = 1;
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.labelControl15);
+            this.panelControl1.Controls.Add(this.lblParam4);
             this.panelControl1.Controls.Add(this.txtParam4);
             this.panelControl1.Controls.Add(this.btnSend);
-            this.panelControl1.Controls.Add(this.labelControl14);
+            this.panelControl1.Controls.Add(this.lblParam3);
             this.panelControl1.Controls.Add(this.txtParam3);
-            this.panelControl1.Controls.Add(this.labelControl13);
+            this.panelControl1.Controls.Add(this.lblParam2);
             this.panelControl1.Controls.Add(this.txtParam2);
-            this.panelControl1.Controls.Add(this.labelControl12);
+            this.panelControl1.Controls.Add(this.lblParam1);
             this.panelControl1.Controls.Add(this.txtParam1);
             this.panelControl1.Controls.Add(this.separatorControl1);
             this.panelControl1.Controls.Add(this.txtFunc);
@@ -201,16 +201,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(504, 248);
+            this.panelControl1.Size = new System.Drawing.Size(497, 248);
             this.panelControl1.TabIndex = 0;
             // 
-            // labelControl15
+            // lblParam4
             // 
-            this.labelControl15.Location = new System.Drawing.Point(256, 193);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(59, 13);
-            this.labelControl15.TabIndex = 18;
-            this.labelControl15.Text = "Parameter 4";
+            this.lblParam4.Location = new System.Drawing.Point(237, 193);
+            this.lblParam4.Name = "lblParam4";
+            this.lblParam4.Size = new System.Drawing.Size(59, 13);
+            this.lblParam4.TabIndex = 18;
+            this.lblParam4.Text = "Parameter 4";
             // 
             // txtParam4
             // 
@@ -218,41 +218,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtParam4.Location = new System.Drawing.Point(321, 190);
             this.txtParam4.Name = "txtParam4";
-            this.txtParam4.Size = new System.Drawing.Size(168, 20);
+            this.txtParam4.Size = new System.Drawing.Size(161, 20);
             this.txtParam4.TabIndex = 17;
             // 
             // btnSend
             // 
             this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.Location = new System.Drawing.Point(414, 216);
+            this.btnSend.Location = new System.Drawing.Point(407, 216);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(75, 23);
             this.btnSend.TabIndex = 16;
             this.btnSend.Text = "Send";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // labelControl14
+            // lblParam3
             // 
-            this.labelControl14.Location = new System.Drawing.Point(23, 193);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(59, 13);
-            this.labelControl14.TabIndex = 15;
-            this.labelControl14.Text = "Parameter 3";
+            this.lblParam3.Location = new System.Drawing.Point(11, 193);
+            this.lblParam3.Name = "lblParam3";
+            this.lblParam3.Size = new System.Drawing.Size(59, 13);
+            this.lblParam3.TabIndex = 15;
+            this.lblParam3.Text = "Parameter 3";
             // 
             // txtParam3
             // 
             this.txtParam3.Location = new System.Drawing.Point(88, 190);
             this.txtParam3.Name = "txtParam3";
-            this.txtParam3.Size = new System.Drawing.Size(163, 20);
+            this.txtParam3.Size = new System.Drawing.Size(143, 20);
             this.txtParam3.TabIndex = 14;
             // 
-            // labelControl13
+            // lblParam2
             // 
-            this.labelControl13.Location = new System.Drawing.Point(23, 170);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(59, 13);
-            this.labelControl13.TabIndex = 13;
-            this.labelControl13.Text = "Parameter 2";
+            this.lblParam2.Location = new System.Drawing.Point(11, 170);
+            this.lblParam2.Name = "lblParam2";
+            this.lblParam2.Size = new System.Drawing.Size(59, 13);
+            this.lblParam2.TabIndex = 13;
+            this.lblParam2.Text = "Parameter 2";
             // 
             // txtParam2
             // 
@@ -260,16 +260,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtParam2.Location = new System.Drawing.Point(88, 167);
             this.txtParam2.Name = "txtParam2";
-            this.txtParam2.Size = new System.Drawing.Size(401, 20);
+            this.txtParam2.Size = new System.Drawing.Size(394, 20);
             this.txtParam2.TabIndex = 12;
             // 
-            // labelControl12
+            // lblParam1
             // 
-            this.labelControl12.Location = new System.Drawing.Point(23, 147);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(59, 13);
-            this.labelControl12.TabIndex = 11;
-            this.labelControl12.Text = "Parameter 1";
+            this.lblParam1.Location = new System.Drawing.Point(11, 147);
+            this.lblParam1.Name = "lblParam1";
+            this.lblParam1.Size = new System.Drawing.Size(59, 13);
+            this.lblParam1.TabIndex = 11;
+            this.lblParam1.Text = "Parameter 1";
             // 
             // txtParam1
             // 
@@ -277,7 +277,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtParam1.Location = new System.Drawing.Point(88, 144);
             this.txtParam1.Name = "txtParam1";
-            this.txtParam1.Size = new System.Drawing.Size(401, 20);
+            this.txtParam1.Size = new System.Drawing.Size(394, 20);
             this.txtParam1.TabIndex = 10;
             // 
             // separatorControl1
@@ -286,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.separatorControl1.Location = new System.Drawing.Point(88, 121);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(401, 23);
+            this.separatorControl1.Size = new System.Drawing.Size(394, 23);
             this.separatorControl1.TabIndex = 9;
             // 
             // txtFunc
@@ -296,7 +296,7 @@
             this.txtFunc.Location = new System.Drawing.Point(88, 101);
             this.txtFunc.Name = "txtFunc";
             this.txtFunc.Properties.ReadOnly = true;
-            this.txtFunc.Size = new System.Drawing.Size(401, 20);
+            this.txtFunc.Size = new System.Drawing.Size(394, 20);
             this.txtFunc.TabIndex = 8;
             // 
             // txtConst
@@ -306,7 +306,7 @@
             this.txtConst.Location = new System.Drawing.Point(88, 78);
             this.txtConst.Name = "txtConst";
             this.txtConst.Properties.ReadOnly = true;
-            this.txtConst.Size = new System.Drawing.Size(401, 20);
+            this.txtConst.Size = new System.Drawing.Size(394, 20);
             this.txtConst.TabIndex = 7;
             // 
             // labelControl11
@@ -363,7 +363,7 @@
             this.txtUrl.Location = new System.Drawing.Point(88, 55);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Properties.ReadOnly = true;
-            this.txtUrl.Size = new System.Drawing.Size(401, 20);
+            this.txtUrl.Size = new System.Drawing.Size(394, 20);
             this.txtUrl.TabIndex = 2;
             // 
             // cboApiCatalog
@@ -381,7 +381,7 @@
             this.cboApiCatalog.Properties.NullText = "";
             this.cboApiCatalog.Properties.ShowHeader = false;
             this.cboApiCatalog.Properties.ValueMember = "CODE";
-            this.cboApiCatalog.Size = new System.Drawing.Size(401, 20);
+            this.cboApiCatalog.Size = new System.Drawing.Size(394, 20);
             this.cboApiCatalog.TabIndex = 1;
             this.cboApiCatalog.EditValueChanged += new System.EventHandler(this.cboApiCatalog_EditValueChanged);
             // 
@@ -449,7 +449,7 @@
             this.txtUnixTime.Name = "txtUnixTime";
             this.txtUnixTime.Properties.AutoHeight = false;
             this.txtUnixTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 19, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("txtUnixTime.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, true)});
             this.txtUnixTime.Size = new System.Drawing.Size(251, 20);
             this.txtUnixTime.TabIndex = 15;
             this.txtUnixTime.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtUnixTime_ButtonClick);
@@ -617,16 +617,16 @@
         private DevExpress.XtraEditors.GroupControl grpBody;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.MemoEdit txtResponse;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl lblParam3;
         private DevExpress.XtraEditors.TextEdit txtParam3;
-        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl lblParam2;
         private DevExpress.XtraEditors.TextEdit txtParam2;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl lblParam1;
         private DevExpress.XtraEditors.TextEdit txtParam1;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.SimpleButton btnSend;
         private DevExpress.XtraEditors.MemoEdit txtBody;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl lblParam4;
         private DevExpress.XtraEditors.TextEdit txtParam4;
     }
 }

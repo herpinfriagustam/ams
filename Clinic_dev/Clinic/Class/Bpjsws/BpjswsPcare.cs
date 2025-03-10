@@ -326,7 +326,7 @@ namespace Clinic.Class.Bpjsws
         }
 
 
-        public static BpjswsResponse GetReferensiSaran()
+        public static BpjswsResponse GetReferensiSarana()
         {
             string url = WS_PCARE_SPESIALIS_SARANA_REF_GET_URL;
 

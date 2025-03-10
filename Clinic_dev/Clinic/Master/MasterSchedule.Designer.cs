@@ -35,6 +35,9 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.dDateBgn = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btnDelUser = new DevExpress.XtraEditors.SimpleButton();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoadUser = new DevExpress.XtraEditors.SimpleButton();
@@ -49,6 +52,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dDateBgn.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDateBgn.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -102,9 +107,13 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.simpleButton1);
+            this.panel1.Controls.Add(this.dDateBgn);
+            this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.btnDelUser);
             this.panel1.Controls.Add(this.btnDownload);
             this.panel1.Controls.Add(this.btnLoadUser);
@@ -117,6 +126,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(244, 37);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton1.TabIndex = 110;
+            this.simpleButton1.Text = "Sync BPJS";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // dDateBgn
+            // 
+            this.dDateBgn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dDateBgn.EditValue = null;
+            this.dDateBgn.Location = new System.Drawing.Point(689, 40);
+            this.dDateBgn.Name = "dDateBgn";
+            this.dDateBgn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateBgn.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dDateBgn.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dDateBgn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dDateBgn.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.dDateBgn.Size = new System.Drawing.Size(85, 20);
+            this.dDateBgn.TabIndex = 109;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(634, 43);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(51, 13);
+            this.labelControl3.TabIndex = 108;
+            this.labelControl3.Text = "Tanggal :";
             // 
             // btnDelUser
             // 
@@ -204,6 +249,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dDateBgn.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDateBgn.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +270,8 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.DateEdit dDateBgn;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

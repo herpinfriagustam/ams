@@ -182,6 +182,8 @@ namespace Clinic
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
                 gridView1.IndicatorWidth = 40;
+                gridView1.ColumnPanelRowHeight = 30;
+                gridView1.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
                 ////gridView1.OptionsBehavior.Editable = true;
                 gridView1.BestFitColumns();
 

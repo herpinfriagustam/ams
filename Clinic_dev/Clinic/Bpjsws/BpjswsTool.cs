@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json.Linq;
 using Clinic.Class.Bpjsws;
+using System.Text.RegularExpressions;
 
 namespace Clinic.Bpjsws
 {
     public partial class BpjswsTool : DevExpress.XtraEditors.XtraForm
     {
         DataTable DtApiCatalog;
+        DataTable DtApiParam;
         bool InitState;
 
         public BpjswsTool()
@@ -90,6 +92,66 @@ namespace Clinic.Bpjsws
             txtParam2.ResetText();
             txtParam3.ResetText();
             txtParam4.ResetText();
+
+            txtParam1.Properties.ReadOnly = true; txtParam1.Tag = null;
+            txtParam2.Properties.ReadOnly = true; txtParam2.Tag = null;
+            txtParam3.Properties.ReadOnly = true; txtParam3.Tag = null;
+            txtParam4.Properties.ReadOnly = true; txtParam4.Tag = null;
+
+            // config required param
+            string pattern = @"\{(.*?)\}";
+            MatchCollection matches = Regex.Matches(url, pattern);
+            if (matches.Count > 0)
+            {
+                string apiCatalogCode = cboApiCatalog.GetColumnValue("CODE")?.ToString();
+                DataRow[] rowParams = DtApiParam.Select($"API_CATALOG_CODE = { apiCatalogCode }");
+                if(rowParams.Length > 0)
+                {
+                    int i = 1;
+                    foreach(DataRow irow in rowParams)
+                    {
+                        switch (i)
+                        {
+                            case 1:
+                                lblParam1.Text = irow["LABEL"]?.ToString();
+                                txtParam1.Properties.ReadOnly = false;
+                                txtParam1.Tag = irow;
+                                break;
+                            case 2:
+                                lblParam2.Text = irow["LABEL"]?.ToString();
+                                txtParam2.Properties.ReadOnly = false;
+                                txtParam2.Tag = irow;
+                                break;
+                            case 3:
+                                lblParam3.Text = irow["LABEL"]?.ToString();
+                                txtParam3.Properties.ReadOnly = false;
+                                txtParam3.Tag = irow;
+                                break;
+                            case 4:
+                                lblParam4.Text = irow["LABEL"]?.ToString();
+                                txtParam4.Properties.ReadOnly = false;
+                                txtParam4.Tag = irow;
+                                break;
+                        }
+
+                        i++;
+                    }
+                }
+                else
+                {
+                    foreach (Match match in matches)
+                    {
+                        string paramName = match.Groups[1].Value;
+                        switch (paramName)
+                        {
+                            case "Parameter 1": txtParam1.Properties.ReadOnly = false; break;
+                            case "Parameter 2": txtParam2.Properties.ReadOnly = false; break;
+                            case "Parameter 3": txtParam3.Properties.ReadOnly = false; break;
+                            case "Parameter 4": txtParam4.Properties.ReadOnly = false; break;
+                        }
+                    }
+                }
+            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -422,6 +484,48 @@ namespace Clinic.Bpjsws
 
                     // Spsialis
 
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_REF_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetReferensiSpesialis();
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_SUB_REF_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetReferensiSubSpesialis(txtParam1.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_SARANA_REF_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetReferensiSarana();
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_KHUSUS_REF_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetReferensiKhusus();
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_FRSS_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetFRSS(txtParam1.Text, txtParam2.Text, txtParam3.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_FRK1_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetFRK1(txtParam1.Text, txtParam2.Text, txtParam3.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_SPESIALIS_FRK2_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetFRK2(txtParam1.Text, txtParam2.Text, txtParam3.Text, txtParam4.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
                     // Status Pulang
 
                     case Class.Bpjsws.Bpjsws.WS_PCARE_STATUS_PULANG_GET_URL:
@@ -431,6 +535,50 @@ namespace Clinic.Bpjsws
                         break;
 
                     // tindakan
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_TINDAKAN_BY_KUNJUNGAN_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetTindakanByKunjungan(txtParam1.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_TINDAKAN_REF_GET_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.GetReferensiTindakan(txtParam1.Text, int.Parse(txtParam2.Text), int.Parse(txtParam3.Text));
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_TINDAKAN_ADD_URL:
+                        try { json = JObject.Parse(txtBody.Text); }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Exception: " + ex.Message);
+                            return;
+                        }
+
+                        resp = Class.Bpjsws.BpjswsPcare.AddTindakan(json);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_TINDAKAN_EDIT_URL:
+                        try { json = JObject.Parse(txtBody.Text); }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Exception: " + ex.Message);
+                            return;
+                        }
+
+                        resp = Class.Bpjsws.BpjswsPcare.EditTindakan(json);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
+
+                    case Class.Bpjsws.Bpjsws.WS_PCARE_TINDAKAN_DELETE_URL:
+                        resp = Class.Bpjsws.BpjswsPcare.DeleteTindakan(txtParam1.Text, txtParam2.Text);
+                        if (resp != null) txtResponse.Text = resp?.GetResponseString();
+                        else txtResponse.Text = "Unknown error! please call the administrator";
+                        break;
 
                     // Alergi
                     case Class.Bpjsws.Bpjsws.WS_PCARE_ALERGI_GET_URL:
@@ -447,7 +595,6 @@ namespace Clinic.Bpjsws
                         break;
                 }
             }
-
 
             Cursor = Cursors.Default;
         }
@@ -474,6 +621,14 @@ namespace Clinic.Bpjsws
             DtApiCatalog.Columns.Add("CONS_NAME");
             DtApiCatalog.Columns.Add("FUNC_NAME");
 
+            DtApiParam = new DataTable();
+            DtApiParam.Columns.Add("PARAM_CODE");
+            DtApiParam.Columns.Add("API_CATALOG_CODE");
+            DtApiParam.Columns.Add("PARAM_NAME");
+            DtApiParam.Columns.Add("DATA_TYPE");
+            DtApiParam.Columns.Add("LABEL");
+
+
             // Antrol
             // Antrol - Poli
             DtApiCatalog.Rows.Add(111, "Get Referensi Poli", "ANTROL",
@@ -481,11 +636,16 @@ namespace Clinic.Bpjsws
                 "WS_ANTREAN_FKTP_BPJS_REF_POLI_URL",
                 "Clinic.Class.Bpjsws.BpjswsAntrol.GetReferensiPoli(string tgl)");
 
+            DtApiParam.Rows.Add(1, 111, "tanggal", "yyyy-MM-dd", "Tgl Periksa");
+
             // Antrol - Dokter
             DtApiCatalog.Rows.Add(121, "Get Referensi Dokter", "ANTROL",
                 Class.Bpjsws.Bpjsws.WS_ANTREAN_FKTP_BPJS_REF_DOKTER_URL,
                 "WS_ANTREAN_FKTP_BPJS_REF_DOKTER_URL",
                 "Clinic.Class.Bpjsws.BpjswsAntrol.GetReferensiDokter(string poli, string checkDate)");
+
+            DtApiParam.Rows.Add(2, 121, "kodepoli", "System.String", "Kode Poli");
+            DtApiParam.Rows.Add(3, 121, "tanggal", "yyyy-MM-dd", "Tgl Periksa");
 
             // Add Antrian
             DtApiCatalog.Rows.Add(122, "Tambah Antrean", "ANTROL",
@@ -713,14 +873,12 @@ namespace Clinic.Bpjsws
                 "Clinic.Class.Bpjsws.BpjswsPacre.DeleteTindakan(string kdTindakanSK, string noKunjungan)");
 
             // Alergi
-
             DtApiCatalog.Rows.Add(2151, "Alergi - Get Alergi", "PCARE",
                 Class.Bpjsws.Bpjsws.WS_PCARE_ALERGI_GET_URL,
                 "WS_PCARE_ALERGI_GET_URL",
                 "Clinic.Class.Bpjsws.BpjswsPacre.GetAlergi(string jenisAlergi)");
 
             // Prognosa
-
             DtApiCatalog.Rows.Add(2161, "Prognosa - Get Prognosa", "PCARE",
                 Class.Bpjsws.Bpjsws.WS_PCARE_PROGNOSA_GET_URL,
                 "WS_PCARE_PROGNOSA_GET_URL",

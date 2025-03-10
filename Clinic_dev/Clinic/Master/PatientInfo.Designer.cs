@@ -127,6 +127,7 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.timerStart = new System.Windows.Forms.Timer(this.components);
             this.timerEnd = new System.Windows.Forms.Timer(this.components);
+            this.chNew = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tNik.Properties)).BeginInit();
@@ -183,6 +184,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.chNew);
             this.panel1.Controls.Add(this.cmbStatus);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.btnCetak);
@@ -262,7 +264,7 @@
             // 
             this.simpleButton4.Enabled = false;
             this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(194, 38);
+            this.simpleButton4.Location = new System.Drawing.Point(158, 38);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(77, 23);
             this.simpleButton4.TabIndex = 4;
@@ -3230,6 +3232,16 @@
             // 
             this.timerStart.Interval = 200;
             // 
+            // chNew
+            // 
+            this.chNew.AutoSize = true;
+            this.chNew.Location = new System.Drawing.Point(284, 43);
+            this.chNew.Name = "chNew";
+            this.chNew.Size = new System.Drawing.Size(88, 17);
+            this.chNew.TabIndex = 42;
+            this.chNew.Text = "Peserta Baru";
+            this.chNew.UseVisualStyleBackColor = true;
+            // 
             // PatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3388,5 +3400,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private System.Windows.Forms.TextBox textBox15;
         private DevExpress.XtraEditors.LabelControl labelControl30;
+        private System.Windows.Forms.CheckBox chNew;
     }
 }

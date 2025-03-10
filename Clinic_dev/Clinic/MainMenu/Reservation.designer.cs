@@ -63,7 +63,6 @@
             this.lInfo = new DevExpress.XtraEditors.LabelControl();
             this.gradientPanel1 = new Clinic.GradientPanel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.lblPoli = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -80,7 +79,6 @@
             this.panel5.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +88,15 @@
             // 
             // timerStart
             // 
-            this.timerStart.Interval = 200;
+            // timerStart
+            // 
+            this.timerStart.Interval = 1000;
+            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
+            // 
+            // timerEnd
+            // 
+            this.timerEnd.Interval = 1000;
+            this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
             // 
             // serialPort1
             // 
@@ -430,7 +436,6 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(0)))), ((int)(((byte)(151)))));
-            this.panel7.Controls.Add(this.textEdit1);
             this.panel7.Controls.Add(this.lblPoli);
             this.panel7.Controls.Add(this.pictureEdit3);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -438,17 +443,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1072, 80);
             this.panel7.TabIndex = 7;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.EditValue = "123";
-            this.textEdit1.Location = new System.Drawing.Point(746, 13);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Size = new System.Drawing.Size(100, 38);
-            this.textEdit1.TabIndex = 2;
             // 
             // lblPoli
             // 
@@ -510,7 +504,6 @@
             this.panel5.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -553,7 +546,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }
 

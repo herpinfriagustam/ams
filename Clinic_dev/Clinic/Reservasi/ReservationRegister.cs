@@ -25,7 +25,8 @@ namespace Clinic
     {
         ConnectDb ConnOra = new ConnectDb();
         Poli poli = new Poli();
-        List<Poli> listPoli = new List<Poli>();
+        List<Poli> listPoli = new List<Poli>(); 
+        List<Dokter> listDoc = new List<Dokter>(); 
         List<PatientType> listPatientType = new List<PatientType>();
 
         List<Purpose> listPurpose = new List<Purpose>();
@@ -51,6 +52,7 @@ namespace Clinic
         DataSet dsAgree = new DataSet(); DataTable dtGlMed = new DataTable();
         DataSet dsKetRanap = new DataSet();
         DataTable dtJadwalObat; DataTable dtMedis; DataTable dtObat;
+        DataTable DataDokter; DataTable DataPasien;
 
         RepositoryItemLookUpEdit statusLookup = new RepositoryItemLookUpEdit();
         ObsNotif obsNotif = null;
@@ -119,7 +121,29 @@ namespace Clinic
                 //poli.poliCode = dt2.Rows[i]["poli_cd"].ToString();
                 //poli.poliName = dt2.Rows[i]["poli_name"].ToString();
                 //listPoli.Add(poli);
-            } 
+            }
+
+            string SQL_dok = ""; 
+            SQL_dok = SQL_dok + Environment.NewLine + "select b.ID_DOKTER, b.NM_DOKTER  ";
+            SQL_dok = SQL_dok + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a,  ";
+            SQL_dok = SQL_dok + Environment.NewLine + "       KLINIK.CS_DOKTER b,  ";
+            SQL_dok = SQL_dok + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d  ";
+            SQL_dok = SQL_dok + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER  ";
+            SQL_dok = SQL_dok + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI     ";
+            SQL_dok = SQL_dok + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(sysdate)    ";
+            SQL_dok = SQL_dok + Environment.NewLine + "   and A.F_AKTIF  ='A' ";
+            SQL_dok = SQL_dok + Environment.NewLine + " order by 2, 1   "; 
+
+            OleDbConnection sqlConDoc= ConnOra.Create_Connect_Ora();
+            OleDbDataAdapter adSqlDoc = new OleDbDataAdapter(SQL_dok, sqlConDoc);
+            DataTable dtDoc = new DataTable();
+            adSqlDoc.Fill(dtDoc);
+            listDoc.Clear();
+            for (int i = 0; i < dtDoc.Rows.Count; i++)
+            {
+                listDoc.Add(new Dokter() { ID_Dokter = dtDoc.Rows[i]["ID_DOKTER"].ToString(), Nama_Dokter = dtDoc.Rows[i]["NM_DOKTER"].ToString() });
+
+            }
 
             listPatientType.Clear();
             listPatientType.Add(new PatientType() { patientTypeCode = "B", patientTypeName = "BPJS" });
@@ -140,7 +164,7 @@ namespace Clinic
             listStat.Add(new Status() { statusCode = "RSV", statusName = "Reservation" });
             listStat.Add(new Status() { statusCode = "NUR", statusName = "First Inspection" });
             listStat.Add(new Status() { statusCode = "INS", statusName = "Inspection" });
-            //listStat.Add(new Status() { statusCode = "OBS", statusName = "Observation" });
+            listStat.Add(new Status() { statusCode = "REG", statusName = "Pendaftaran" });
             //listStat.Add(new Status() { statusCode = "MED", statusName = "Medicine" });
             //listStat.Add(new Status() { statusCode = "CLS", statusName = "Completed" });
             //listStat.Add(new Status() { statusCode = "HOL", statusName = "Hold" });
@@ -254,24 +278,24 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "         END AS observation, visit_remark, D.rm_no, "; 
             sql_search = sql_search + Environment.NewLine + "         DECODE (c.poli_group, 'PREG', 'Ibu Hamil', 'FAMP', 'KB', 'Umum' ) AS type_mr,  ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd policd, round((nvl(start_hold,sysdate)-A.visit_date) * 24 * 60) wait_time , visit_remark resmark, a.ID_VISIT, e.ANAMNESA_ID, F.HEAD_ID, F.PAY_STATUS, b.NID NIK";
-            sql_search = sql_search + Environment.NewLine + "         ,(select  max(z.CALL_ID) from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)  )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat, INSU_NO NO_BPJS  ";
-            sql_search = sql_search + Environment.NewLine + "         ,(select decode(a.INS_EMP,'Antrian','Onsite','Mobile JKN') from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)) DAFTAR_BY  ";
+            sql_search = sql_search + Environment.NewLine + "         ,(select  max(z.CALL_ID) from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)  )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat, decode(type_patient,'B',INSU_NO,'-') NO_BPJS  ";
+            sql_search = sql_search + Environment.NewLine + "         , case when visit_remark ='UGD' then 'Manual' else ( select decode(z.INS_EMP,'Antrian','Onsite','BPJS','Mobile JKN','Manual') from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE) ) end DAFTAR_BY ,  GET_ID_DOKTER(a.KODE_DOKTER)  KODE_DOKTER, A.NREMARK, BPJS_KODE_POLI, b.STATUS_BPJS,b.KET_STATUS_BPJS,  decode(type_patient,'B',b.TUNGGAKAN_BPJS,'')  TUNGGAKAN_BPJS,  decode(type_patient,'B',decode(b.NM_PROVIDER,'','','['||b.KD_PROVIDER||']'||b.NM_PROVIDER),'-') NM_PROVIDER ";
             sql_search = sql_search + Environment.NewLine + "    FROM cs_visit a JOIN cs_patient_info b ON a.patient_no = b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + "         join cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "         LEFT JOIN KLINIK.cs_treatment_head F ON  (a.ID_VISIT = F.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "   WHERE 1 = 1  ";
             sql_search = sql_search + Environment.NewLine + "     AND TRUNC(A.visit_date) = TRUNC(sysdate)   ";
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
-            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  "; 
+            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('REG','PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  "; 
             sql_search = sql_search + Environment.NewLine + "   UNION ALL ";
             sql_search = sql_search + Environment.NewLine + "select QUE que01, c.PATIENT_NO patient_no, c.PATIENT_NO pasno, '' plan,  decode(c.gender,'P','Perempuan','Laki-Laki') gender,    ";
             sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-c.birth_date)/30)/12) age,     ";
-            sql_search = sql_search + Environment.NewLine + "                 a.poli_cd, STYPE type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'S' action,      ";
+            sql_search = sql_search + Environment.NewLine + "                 a.poli_cd, STYPE type_patient, 'N' work_accident,POLI_PIC purpose, 'REG' status, 'I' action,      ";
             sql_search = sql_search + Environment.NewLine + "                 'No'   AS observation, '' visit_remark, (select rm_no from cs_patient where c.patient_no = patient_no ) rm_no,   ";
             sql_search = sql_search + Environment.NewLine + "                 DECODE (TYPE_INS, 'REG', 'Pendaftaran', 'Umum' ) AS type_mr,    ";
             sql_search = sql_search + Environment.NewLine + "                 a.poli_cd, round((nvl(a.INS_DATE,sysdate)-a.INS_DATE) * 24 * 60) wait_time , '' visit_remark,  ";
-            sql_search = sql_search + Environment.NewLine + "                 0 ID_VISIT, 0 ANAMNESA_ID, 0 HEAD_ID, '' PAY_STATUS,  case  when length(NO_BPJS) = 13 then '-' else NO_BPJS end NIK ,  ";
-            sql_search = sql_search + Environment.NewLine + "                 a.CALL_ID ,1 stat ,case  when length(NO_BPJS) = 13 then NO_BPJS else '-' end NO_BPJS, decode(a.INS_EMP,'Antrian','Onsite','Mobile JKN') DAFTAR_BY ";
+            sql_search = sql_search + Environment.NewLine + "                 0 ID_VISIT, 0 ANAMNESA_ID, 0 HEAD_ID, '' PAY_STATUS, nvl(c.nid, case  when length(NO_BPJS) = 13 then '-' else NO_BPJS end) NIK ,  ";
+            sql_search = sql_search + Environment.NewLine + "                 a.CALL_ID ,1 stat ,case  when length(NO_BPJS) = 13 then NO_BPJS else '-' end NO_BPJS, decode(a.INS_EMP,'Antrian','Onsite','Mobile JKN') DAFTAR_BY, GET_ID_DOKTER(a.kd_dokter) kd_dokter, A.NNOTE, BPJS_KODE_POLI , c.STATUS_BPJS,c.KET_STATUS_BPJS, c.TUNGGAKAN_BPJS, decode(c.NM_PROVIDER,'','','['||c.KD_PROVIDER||']'||c.NM_PROVIDER) NM_PROVIDER ";
             sql_search = sql_search + Environment.NewLine + "           from  CS_CALL_LOG  a ";
             sql_search = sql_search + Environment.NewLine + "           join  cs_policlinic b on  a.POLI_CD = b.POLI_CD ";
             sql_search = sql_search + Environment.NewLine + "           left  join cs_patient_info c on  (a.NO_BPJS = decode(length(a.NO_BPJS), 13, c.INSU_NO, c.nid)) ";
@@ -292,15 +316,18 @@ namespace Clinic
                 gridView1.Columns.Clear();
                 gridControl1.DataSource = dt;
 
-                simpleButton2.Enabled = false;
+                //simpleButton2.Enabled = false;
 
                 //gridView1.OptionsBehavior.EditingMode = GridEditingMode.EditFormInplace;
                 gridView1.OptionsView.ColumnAutoWidth = true;
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+                gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                //gridView1.OptionsView.RowAutoHeight = 
+                gridView1.RowHeight = 25;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
-                gridView1.IndicatorWidth = 30;
+                gridView1.IndicatorWidth = 35;
                 //gridView1.OptionsBehavior.Editable = false;
-                gridView1.BestFitColumns();
+                //gridView1.BestFitColumns();
                 //gridView1.OptionsSelection.MultiSelect = true;
                 //gridView1.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
                 //gridView1.VisibleColumns[0].Width = 20;
@@ -312,9 +339,70 @@ namespace Clinic
                 //gridView1.Columns[4].OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
                 //gridView1.Columns[5].OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
 
+                gridView1.Columns[0].Caption = "Antrian";
+                gridView1.Columns[0].Width = 38;
+                gridView1.Columns[1].Caption = "Pasien No";
+                gridView1.Columns[1].Width = 45;
+                gridView1.Columns[2].Caption = "Nama";
+                gridView1.Columns[2].Width = 90;
+                gridView1.Columns[3].Caption = "Plan";
+                gridView1.Columns[4].Caption = "Gender";
+                gridView1.Columns[4].Width = 43;
+                gridView1.Columns[5].Caption = "Umur";
+                gridView1.Columns[5].Width = 28;
+                gridView1.Columns[6].Caption = "Poli";
+                gridView1.Columns[6].Width = 55;
+                gridView1.Columns[7].Caption = "Pasien";
+                gridView1.Columns[7].Width = 45;
+                gridView1.Columns[8].Caption = "KK";
+                gridView1.Columns[9].Caption = "Berobat";
+                gridView1.Columns[9].Width = 38;
+                gridView1.Columns[10].Caption = "Status";
+                gridView1.Columns[10].Width = 55;
+                gridView1.Columns[11].Caption = "Action";
+                gridView1.Columns[12].Caption = "Observation";
+                gridView1.Columns[13].Caption = "Remark";
+                gridView1.Columns[14].Caption = "No. RM";
+                gridView1.Columns[14].Width = 45;
+                gridView1.Columns[15].Caption = "Type";
+                gridView1.Columns[16].Caption = "Poli Cd";
+                gridView1.Columns[17].Caption = "W.T."; 
+                gridView1.Columns[18].Caption = "Layanan";
+                gridView1.Columns[18].Width = 45;
+                gridView1.Columns[19].Caption = "Visit ID";
+                gridView1.Columns[20].Caption = "HEAD ID";
+                gridView1.Columns[21].Caption = "PAY STS";
+                gridView1.Columns[23].Caption = "NIK";
+                gridView1.Columns[23].Width = 70;
+                gridView1.Columns[26].Caption = "No. BPJS";
+                gridView1.Columns[26].Width = 58;
+                gridView1.Columns[27].Caption = "Reg. By";
+                gridView1.Columns[27].Width = 70;
+                gridView1.Columns[28].Caption = "Dokter";
+                gridView1.Columns[28].Width = 80;
+                gridView1.Columns[28].VisibleIndex = 10;
+                gridView1.Columns[29].Caption = "Note";
+                gridView1.Columns[29].Width = 200;
+                gridView1.Columns[30].Caption = "BPJS POLI";
+                gridView1.Columns[31].Caption = "S BPJS";
+                gridView1.Columns[32].Caption = "STATUS BPJS";
+                gridView1.Columns[33].Caption = "TUNGGAKAN";
+                gridView1.Columns[33].Width = 55;
+                gridView1.Columns[34].Caption = "FASKES";
+                gridView1.Columns[34].Width = 100;
+                gridView1.Columns[17].VisibleIndex = 6;
+                gridView1.Columns[23].VisibleIndex = 25;
+                gridView1.Columns[26].VisibleIndex = 26;
+                gridView1.Columns[32].VisibleIndex = 27;
+                gridView1.Columns[33].VisibleIndex = 28;
+                gridView1.Columns[34].VisibleIndex = 29;
+                //gridView1.BestFitColumns();
+
+                //BPJS_KODE_POLI , c.STATUS_BPJS,c.KET_STATUS_BPJS, c.TUNGGAKAN_BPJS, decode(c.NM_PROVIDER,'','','['||c.KD_PROVIDER||']'||c.NM_PROVIDER) NM_PROVIDER ";
+
                 //gridView1.Columns[0].OptionsColumn.ReadOnly = true;
                 gridView1.Columns[1].OptionsColumn.AllowEdit = false;
-                gridView1.Columns[2].OptionsColumn.AllowEdit = false;
+                gridView1.Columns[2].OptionsColumn.AllowEdit = true;
                 gridView1.Columns[3].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[4].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[5].OptionsColumn.AllowEdit = false;
@@ -331,50 +419,42 @@ namespace Clinic
                 gridView1.Columns[18].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[19].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[22].OptionsColumn.AllowEdit = false;
-                gridView1.Columns[23].OptionsColumn.AllowEdit = false;
-                gridView1.Columns[24].Visible = false;
-                gridView1.Columns[25].Visible = false;
+                gridView1.Columns[23].OptionsColumn.AllowEdit = false; 
+               
                 gridView1.Columns[0].OptionsColumn.AllowEdit = false;
 
-                gridView1.Columns[0].Caption = "Antrian"; 
-                gridView1.Columns[1].Caption = "Pasien No";
-                gridView1.Columns[2].Caption = "Nama";
-                gridView1.Columns[3].Caption = "Plan";
-                gridView1.Columns[4].Caption = "Jenis Kelamin";
-                gridView1.Columns[5].Caption = "Umur";
-                gridView1.Columns[6].Caption = "Poli";
-                gridView1.Columns[7].Caption = "Pasien";
-                gridView1.Columns[8].Caption = "KK";
-                gridView1.Columns[9].Caption = "Berobat";
-                gridView1.Columns[10].Caption = "Status";
-                gridView1.Columns[11].Caption = "Action";
-                gridView1.Columns[12].Caption = "Observation";
-                gridView1.Columns[13].Caption = "Remark";
-                gridView1.Columns[14].Caption = "Medical Record";
-                gridView1.Columns[15].Caption = "Type";
-                gridView1.Columns[16].Caption = "Poli Cd";
-                gridView1.Columns[17].Caption = "W.T.";
-                gridView1.Columns[18].Caption = "Layanan";
-                gridView1.Columns[19].Caption = "Visit ID";
-                gridView1.Columns[20].Caption = "HEAD ID";
-                gridView1.Columns[21].Caption = "PAY STS";
-                gridView1.Columns[23].Caption = "NIK";
-                gridView1.Columns[26].Caption = "No. BPJS";
-                gridView1.Columns[27].Caption = "Reg. By";
+                gridView1.Columns[3].Visible = false;
+                gridView1.Columns[8].Visible = false;
+                gridView1.Columns[11].Visible = false;
+                gridView1.Columns[12].Visible = false;
+                gridView1.Columns[13].Visible = false;
+                gridView1.Columns[15].Visible = false;
+                gridView1.Columns[16].Visible = false;
+                gridView1.Columns[17].Visible = false;
+                gridView1.Columns[18].Visible = false;
+                gridView1.Columns[19].Visible = false;
+                gridView1.Columns[20].Visible = false;
+                gridView1.Columns[21].Visible = false; 
+                gridView1.Columns[22].Visible = false;
+                gridView1.Columns[24].Visible = false;
+                gridView1.Columns[25].Visible = false;
+                gridView1.Columns[30].Visible = false;
+                gridView1.Columns[31].Visible = false;
+                gridView1.Columns[32].Visible = false;
 
+                //gridView1.Columns[30].Visible = false; 
                 //gridView1.Columns[6].MinWidth = 70;
-                gridView1.Columns[6].MinWidth = 70;
+                //gridView1.Columns[6].MinWidth = 70;
+                ////gridView1.Columns[7].MinWidth = 70;
                 //gridView1.Columns[7].MinWidth = 70;
-                gridView1.Columns[7].MinWidth = 70;
+                ////gridView1.Columns[10].MinWidth = 80;
                 //gridView1.Columns[10].MinWidth = 80;
-                gridView1.Columns[10].MinWidth = 80;
-                gridView1.Columns[17].Width = 50;
+                //gridView1.Columns[17].Width = 50;
+                //gridView1.Columns[29].Width = 250; 
 
-                gridView1.Columns[17].VisibleIndex = 6;
-
-                //PRE, RSV, NUR, INS, OBS, MED, CLS, CAN
-
+                //PRE, RSV, NUR, INS, OBS, MED, CLS, CAN 
                 RepositoryItemGridLookUpEdit glPatient = new RepositoryItemGridLookUpEdit();
+                RepositoryItemGridLookUpEdit glDokter = new RepositoryItemGridLookUpEdit();
                 //glPatient.DataSource = listPatient;
                 //glPatient.ValueMember = "patientCode";
                 //glPatient.DisplayMember = "patientName";
@@ -389,6 +469,10 @@ namespace Clinic
                 ConnOra.LookUpGridFilter(listPatient, gridView1, "patientCode", "patientName", glPatient, 2);
                 glPatient.ImmediatePopup = true;
                 glPatient.PopupFilterMode = PopupFilterMode.Contains;
+
+                ConnOra.LookUpGridFilter(listDoc, gridView1, "ID_Dokter", "Nama_Dokter", glDokter,28);
+                glDokter.ImmediatePopup = true;
+                glDokter.PopupFilterMode = PopupFilterMode.Contains;
 
                 RepositoryItemLookUpEdit poliLookup = new RepositoryItemLookUpEdit();
                 poliLookup.DataSource = listPoli;
@@ -449,7 +533,7 @@ namespace Clinic
                 statusLookup.AutoSearchColumnIndex = 1;
                 statusLookup.NullText = "";
                 gridView1.Columns[10].ColumnEdit = statusLookup;
-                gridView1.BestFitColumns();
+                //gridView1.BestFitColumns();
 
                 //RepositoryItemLookUpEdit kLookup = new RepositoryItemLookUpEdit();
                 //kLookup.DataSource = listLayanan;
@@ -474,18 +558,7 @@ namespace Clinic
                 //gridControl1.RepositoryItems.Add(riButtonEdit);
                 //gridView1.Columns[17].ColumnEdit = riButtonEdit;
 
-                gridView1.Columns[3].Visible = false;
-                gridView1.Columns[8].Visible = false;
-                gridView1.Columns[11].Visible = false;
-                gridView1.Columns[12].Visible = false;
-                gridView1.Columns[13].Visible = false;
-                gridView1.Columns[15].Visible = false;
-                gridView1.Columns[16].Visible = false;
-                gridView1.Columns[17].Visible = false;
-                gridView1.Columns[18].Visible = true;
-                gridView1.Columns[20].Visible = false;
-                gridView1.Columns[21].Visible = false;
-                gridView1.Columns[2].OptionsColumn.AllowEdit = true;
+                
                 subclear();
 
                 //loading.CloseWaitForm();
@@ -978,7 +1051,7 @@ namespace Clinic
             {
                 // checking is bpjs or no
                 string noAntrian = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "QUE01")?.ToString();
-                string sql = $@"SELECT QUE, POLI_CD, NO_BPJS, TO_CHAR(INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG WHERE QUE = '{ noAntrian }' AND NO_BPJS IS NOT NULL";
+                string sql = $@"SELECT QUE,BPJS_KODE_POLI POLI_CD, NO_BPJS, TO_CHAR(a.INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG A, CS_POLICLINIC b WHERE a.POLI_CD = b.POLI_CD and QUE = '{ noAntrian }' AND NO_BPJS IS NOT NULL and trunc(a.INS_DATE) = trunc(sysdate)";
 
                 OleDbDataAdapter adapter = new OleDbDataAdapter(sql, ConnOra.Create_Connect_Ora());
                 DataTable dt = new DataTable();
@@ -1000,7 +1073,7 @@ namespace Clinic
                     json.Add("kodepoli", kodePoli);
                     json.Add("nomorkartu", nomorKartu);
                     json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
-                    json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+                    json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTimeMili);
 
                     // kirim ke bpjs
                     // jika gagal langsung munculkan error dan aplikasi terhenti
@@ -1451,6 +1524,8 @@ namespace Clinic
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             GridView view = sender as GridView;
+            if (view.RowCount < 1)
+                return;
 
             if (e.Column.Caption == "Nama")
             {
@@ -1526,7 +1601,7 @@ namespace Clinic
             }
              
 
-            if (e.Column.Caption == "Poli" || e.Column.Caption == "Pasien" || e.Column.Caption == "Status")
+            if (e.Column.Caption == "Poli" || e.Column.Caption == "Pasien" || e.Column.Caption == "Status" || e.Column.Caption == "Dokter")
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[11]).ToString();
                 string tmp_poli = view.GetRowCellValue(e.RowHandle, view.Columns[6]).ToString();
@@ -1537,10 +1612,13 @@ namespace Clinic
                 {
                     if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
                     {
-                        MessageBox.Show("Hanya Poli Kebidanan & Poli KB yang dapat di Ganti..!!");
-                        //gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
-                        LoadData();
-                        return;
+                        if(tmp_poli2.ToString() != "")
+                        {
+                            MessageBox.Show("Hanya Poli Kebidanan & Poli KB yang dapat di Ganti..!!");
+                            //gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
+                            LoadData();
+                            return;
+                        } 
                     }
                 }
 
@@ -1608,9 +1686,9 @@ namespace Clinic
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             string que = "", nik = "", nama = "", poli = "", poli2 ="", pasien = "", gnder ="", workA = "", purpose = "", status = "", action = "", cek = "", remark = "", idvisit = "", age="";
-            string sql_check = "", sql_cnt = "", sql_insert = "", sql_update = "", c_que = "", tmp_queue = "", visit_cnt = "", rm = "", teks="", p1 ="", p2="", ppoli ="";
-            int queue = 0, visit = 0, tmp_visit_no = 0, ssimpan=0;
-            string no_antrian = "", SCode = "";
+            string sql_check = "", sql_cnt = "", sql_insert = "", sql_update = "", c_que = "", tmp_queue = "", visit_cnt = "", rm = "", teks="", p1 ="", p2="", ppoli ="", nbpjs="", pdokter ="";
+            int queue = 0, visit = 0, tmp_visit_no = 0, ssimpan = 0;
+            string no_antrian = "", SCode = "", nnote ="", bpjspoli ="";
             cek = "";
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
@@ -1629,6 +1707,10 @@ namespace Clinic
                 rm = gridView1.GetRowCellValue(i, gridView1.Columns[14]).ToString();
                 age = gridView1.GetRowCellValue(i, gridView1.Columns[5]).ToString();
                 poli2 = gridView1.GetRowCellValue(i, gridView1.Columns[16]).ToString();
+                nbpjs = gridView1.GetRowCellValue(i, gridView1.Columns[26]).ToString();
+                pdokter = gridView1.GetRowCellValue(i, gridView1.Columns[28]).ToString();
+                nnote = gridView1.GetRowCellValue(i, gridView1.Columns[29]).ToString();
+                bpjspoli =  gridView1.GetRowCellValue(i, gridView1.Columns[30]).ToString();
 
                 string nme = gridView1.GetRowCellDisplayText(i, gridView1.Columns[2]).ToString();
                 if (poli == "POL0007")
@@ -1664,6 +1746,35 @@ namespace Clinic
                     }
                     else
                     {
+                        if (idvisit.ToString().Equals("0") && status.ToString().Equals("CAN"))
+                        {
+                            sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL' , NNOTE = '" + nnote + "' ,  UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                            ORADB.Execute(ORADB.XE, sql_update);
+
+                            // struktur json
+                            JObject json = new JObject();
+                            json.Add("tanggalperiksa", today);
+                            json.Add("kodepoli", poli);
+                            json.Add("nomorkartu", nbpjs);
+                            json.Add("status", 2); // Status 1 = Hadir; Status 2 = Tidak Hadir
+                            //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+
+                            // kirim ke bpjs
+                            // jika gagal langsung munculkan error dan aplikasi terhenti
+                            // jika berhasil system meneruskan penyimpanan seperti biasanya
+                            BpjswsResponse resp = BpjswsAntrol.BatalAntrian(json);
+                            if (resp.Metadata.Code != 200)
+                            {
+                                MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            } 
+
+                            LoadData();
+                            return;
+                        }
+
+
+
                         if (que.ToString().Equals(""))
                         {
                             if (pasien.ToString().Equals("B"))
@@ -1674,7 +1785,7 @@ namespace Clinic
                                 SCode = "020";
 
                             sql_cnt = "";
-                            sql_cnt = " select  KLINIK.CS_GET_ANTRIAN_POLI('POL0000',  decode('" + pasien + "','B','BPJS','U','UMUM','A','ASURANSI') , '" + SCode + "') as que from dual ";
+                            sql_cnt = " select  KLINIK.CS_GET_ANTRIAN_POLI('POL0000', decode('" + pasien + "','B','BPJS','U','UMUM','A','ASURANSI') , '" + SCode + "') as que from dual ";
                             OleDbConnection oraConNo = ConnOra.Create_Connect_Ora();
                             OleDbDataAdapter adOraNo = new OleDbDataAdapter(sql_cnt, oraConNo);
                             DataTable dtNo = new DataTable();
@@ -1709,8 +1820,8 @@ namespace Clinic
                             teks = "Nomor Antrian " + no_antrian + " " + p1 + p2 + " Pasien UGD";
 
                             sql_insert = "";
-                            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE) ";
-                            sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + no_antrian + "','UGD','Perawat','" + teks + "','X','Admin',sysdate, '" + poli + "', '" + pasien + "'  )";
+                            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS,KD_DOKTER) ";
+                            sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + no_antrian + "','UGD','Perawat','" + teks + "','X','Admin',sysdate, '" + poli + "', '" + pasien + "', '" + nbpjs + "', '" + pdokter + "'  )";
 
                             ORADB.Execute(ORADB.XE, sql_insert); 
                             remark = "UGD";
@@ -1750,6 +1861,8 @@ namespace Clinic
                             oraConnectTrans.Open();
 
                             visit = Convert.ToInt32(visit_cnt) + 1;
+                            if (status.ToString().Equals("REG"))
+                                status = "RSV";
 
                             //cek = cek + sql_insert;
                             try
@@ -1758,7 +1871,7 @@ namespace Clinic
                                 command.Connection = oraConnectTrans;
                                 command.Transaction = trans;
 
-                                command.CommandText = " insert into KLINIK.cs_visit (patient_no, visit_date, status, poli_cd, type_patient, work_accident, purpose, visit_remark, visit_cnt, que01, plan, ins_date, ins_emp,ID_VISIT) values ('" + nik + "',sysdate, '" + status + "', '" + poli + "', '" + pasien + "','" + workA + "', '" + purpose + "', '" + remark + "', '" + Convert.ToString(visit) + "', '" + no_antrian + "' , 'TRT01', sysdate, '" + DB.vUserId + "', " + tmp_visit_no + ") ";
+                                command.CommandText = " insert into KLINIK.cs_visit (patient_no, visit_date, status, poli_cd, type_patient, work_accident, purpose, visit_remark, visit_cnt, que01, plan, ins_date, ins_emp,ID_VISIT, KODE_DOKTER) values ('" + nik + "',sysdate, '" + status + "', '" + poli + "', '" + pasien + "','" + workA + "', '" + purpose + "', '" + remark + "', '" + Convert.ToString(visit) + "', '" + no_antrian + "' , 'TRT01', sysdate, '" + DB.vUserId + "', " + tmp_visit_no + ", " + pdokter + ") ";
                                 command.ExecuteNonQuery();
                                  
                                 string sql_anamnesa_id = " select cs_anamnesa_seq.nextval cnt from dual";
@@ -1842,7 +1955,7 @@ namespace Clinic
                 }
                 else if (action == "U")
                 {
-                    if(idvisit.ToString().Equals("0"))
+                    if(idvisit.ToString().Equals("0") && status.ToString().Equals("CAN"))
                     {
                         sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                         ORADB.Execute(ORADB.XE, sql_update);
@@ -1871,7 +1984,12 @@ namespace Clinic
                     }
 
 
-                    string sql_head = "", typehead ="" ;
+                    string sql_head = "", typehead ="", nomorantrean ="" ;
+                    int angkaantrean = 0, kodedokter = 0;
+
+                    string  NIK = "", nohp = "", kodepoli = "", namapoli = "", norm = "" ;
+                    string  tanggalperiksa = "", namadokter = "", jampraktek = "",  keterangan = ""; 
+
 
                     sql_head = " select INSU_FLAG from KLINIK.cs_treatment_head where patient_no = '" + nik + "' and ID_VISIT = '" + idvisit + "' ";
 
@@ -1933,19 +2051,85 @@ namespace Clinic
                         teks = "Nomor Antrian " + no_antrian + " " + p1 + p2 + " Silahkan Menuju Ke Bagian Perawat";
                          
                         sql_insert = "";
-                        sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE) ";
-                        sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + no_antrian + "','PWT','Perawat','" + teks + "','W','Admin',sysdate, '" + poli + "', '" + pasien + "'  )";
+                        sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS,KD_DOKTER)  ";
+                        sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + no_antrian + "','PWT','Perawat','" + teks + "','W','Admin',sysdate, '" + poli + "', '" + pasien + "', '" + nbpjs + "', '" + pdokter + "'  )";
 
                         ORADB.Execute(ORADB.XE, sql_insert);
 
                         sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'GANTI POLI', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                         ORADB.Execute(ORADB.XE, sql_update);
 
+                        if (pasien.ToString().Equals("B"))
+                        {
+
+                            angkaantrean = Convert.ToInt32(no_antrian.Substring(1, 3));
+                            nomorantrean = tmp_queue.Substring(0, 1) + "-" + angkaantrean;
+                            string SQL = "";
+                            SQL = SQL + Environment.NewLine + "select distinct to_char(tgl_jadwal,'YYYY-MM-DD') tanggalperiksa, d.BPJS_KODE_POLI BPJS_KODE_POLI, d.BPJS_NAMA_POLI, nvl(b.BPJS_ID_DOKTER,0) BPJS_ID_DOKTER , b.BPJS_NAMA_DOKTER, a.JAM_AWAL||'-'||a.JAM_AKHIR jampraktek     ";
+                            SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
+                            SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.BPJS_ID_DOKTER) ";
+                            SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
+                            SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.BPJS_KODE_POLI) ";
+                            SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) ";
+                            SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + poli + "'  ";
+
+                            DataDokter = ConnOra.Data_Table_ora(SQL);
+
+                            if (DataDokter.Rows.Count > 0)
+                            {
+                                tanggalperiksa = DataDokter.Rows[0]["tanggalperiksa"].ToString();
+                                kodepoli = DataDokter.Rows[0]["BPJS_KODE_POLI"].ToString();
+                                namapoli = DataDokter.Rows[0]["BPJS_NAMA_POLI"].ToString();
+                                kodedokter = Convert.ToInt32(DataDokter.Rows[0]["BPJS_ID_DOKTER"].ToString());
+                                namadokter = DataDokter.Rows[0]["BPJS_NAMA_DOKTER"].ToString();
+                                jampraktek = DataDokter.Rows[0]["jampraktek"].ToString();
+                            }
+
+                            string SQL2 = "";
+                            SQL2 = SQL2 + Environment.NewLine + "  select NID, PHONE, REPLACE(PATIENT_NO,'P','') NORM from cs_patient_info ";
+                            SQL2 = SQL2 + Environment.NewLine + "   where 1=1  "; 
+                            SQL2 = SQL2 + Environment.NewLine + "  and INSU_NO ='" + nbpjs + "' "; 
+
+                            DataPasien = ConnOra.Data_Table_ora(SQL2);
+                            if (DataPasien.Rows.Count > 0)
+                            {
+                                NIK = DataPasien.Rows[0]["NID"].ToString();
+                                nohp = DataPasien.Rows[0]["PHONE"].ToString();
+                                norm = DataPasien.Rows[0]["NORM"].ToString();
+                            }
+
+                            // struktur json
+                            JObject json = new JObject();
+                            json.Add("nomorkartu", nbpjs);                 //nobpjs
+                            json.Add("nik", NIK);                           //NIK
+                            json.Add("nohp", nohp);                         //nohp
+                            json.Add("kodepoli", kodepoli);                 //kodepoli
+                            json.Add("namapoli", namapoli);                 //namapoli
+                            json.Add("norm", norm);                         //norm
+                            json.Add("tanggalperiksa", tanggalperiksa);     //tanggalperiksa
+                            json.Add("kodedokter", kodedokter);            //kodedokter
+                            json.Add("namadokter", namadokter);            //namadokter
+                            json.Add("jampraktek", jampraktek);             //jampraktek
+                            json.Add("nomorantrean", nomorantrean);         //nomorantrean
+                            json.Add("angkaantrean", Convert.ToInt32(angkaantrean));             //angkaantrean
+                            json.Add("keterangan", keterangan);             //keterangan
+                                                                            //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+
+                            // kirim ke bpjs
+                            // jika gagal langsung munculkan error dan aplikasi terhenti
+                            // jika berhasil system meneruskan penyimpanan seperti biasanya
+                            BpjswsResponse resp = BpjswsAntrol.TambahAntrean(json);
+                            if (resp.Metadata.Code != 200)
+                            {
+                                MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        } 
                     }
 
                     sql_update = ""; 
                     sql_update = sql_update + Environment.NewLine + "update cs_visit ";
-                    sql_update = sql_update + Environment.NewLine + "set type_patient = '" + pasien + "', patient_no  = '" + nik + "', ";
+                    sql_update = sql_update + Environment.NewLine + "set type_patient = '" + pasien + "', patient_no  = '" + nik + "', KODE_DOKTER  = '" + kodedokter + "', ";
                     sql_update = sql_update + Environment.NewLine + "work_accident = '" + workA + "', purpose = '" + purpose + "', visit_remark = '" + remark + "', status = '" + status + "', ";
                     if (poli != poli2)
                     {
@@ -3678,7 +3862,8 @@ namespace Clinic
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             //gridView1.DoubleClick += GridView1_DoubleClick;
-            GridView View = sender as GridView;
+            GridView View = sender as GridView; 
+
             string s_rm = "", s_que = "", s_poli = "", s_group = "", s_rmno = "", group = "", s_nama = "", s_berobat = "";
 
             s_rm = View.GetRowCellDisplayText(gridView1.FocusedRowHandle, View.Columns[14]);
@@ -4171,6 +4356,10 @@ namespace Clinic
 
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            GridView view = sender as GridView;
+            if (view.RowCount < 1)
+                return;
+
             if (e.Column.Caption == "Poli")
             { 
                 string tmp_poli = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[16]).ToString();
@@ -4227,6 +4416,155 @@ namespace Clinic
             //    //return;
             //}
 
+        }
+
+        private void sibatal_Click(object sender, EventArgs e)
+        {
+            string que = "", nik = "", nama = "", poli = "", poli2 = "", pasien = "", gnder = "", workA = "", purpose = "", status = "", action = "", cek = "", remark = "", idvisit = "", age = "";
+            string sql_check = "", sql_cnt = "", sql_insert = "", sql_update = "", c_que = "", tmp_queue = "", visit_cnt = "", rm = "", teks = "", p1 = "", p2 = "", ppoli = "", nbpjs = "", pdokter = "";
+            int queue = 0, visit = 0, tmp_visit_no = 0, ssimpan = 0;
+            string no_antrian = "", SCode = "", nnote ="";
+            cek = "";
+            for (int i = 0; i < gridView1.DataRowCount; i++)
+            {
+                que = gridView1.GetRowCellValue(i, gridView1.Columns[0]).ToString();
+                nik = gridView1.GetRowCellValue(i, gridView1.Columns[1]).ToString();
+                nama = gridView1.GetRowCellValue(i, gridView1.Columns[2]).ToString();
+                gnder = gridView1.GetRowCellValue(i, gridView1.Columns[4]).ToString();
+                poli = gridView1.GetRowCellValue(i, gridView1.Columns[6]).ToString();
+                ppoli = gridView1.GetRowCellDisplayText(i, gridView1.Columns[6]).ToString();
+                pasien = gridView1.GetRowCellValue(i, gridView1.Columns[7]).ToString();
+                workA = gridView1.GetRowCellValue(i, gridView1.Columns[8]).ToString();
+                purpose = gridView1.GetRowCellValue(i, gridView1.Columns[9]).ToString();
+                status = gridView1.GetRowCellValue(i, gridView1.Columns[10]).ToString();
+                action = gridView1.GetRowCellValue(i, gridView1.Columns[11]).ToString();
+                idvisit = gridView1.GetRowCellValue(i, gridView1.Columns[19]).ToString();
+                rm = gridView1.GetRowCellValue(i, gridView1.Columns[14]).ToString();
+                age = gridView1.GetRowCellValue(i, gridView1.Columns[5]).ToString();
+                poli2 = gridView1.GetRowCellValue(i, gridView1.Columns[16]).ToString();
+                nbpjs = gridView1.GetRowCellValue(i, gridView1.Columns[26]).ToString();
+                pdokter = gridView1.GetRowCellValue(i, gridView1.Columns[28]).ToString();
+                nnote = gridView1.GetRowCellValue(i, gridView1.Columns[29]).ToString();
+                string nme = gridView1.GetRowCellDisplayText(i, gridView1.Columns[2]).ToString();
+                if (poli == "POL0007")
+                    remark = gridView1.GetRowCellValue(i, gridView1.Columns[18]).ToString();
+                else
+                    remark = gridView1.GetRowCellValue(i, gridView1.Columns[13]).ToString(); 
+
+                if (action == "U")
+                {
+                    if (idvisit.ToString().Equals("0"))
+                    {
+                        sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                        ORADB.Execute(ORADB.XE, sql_update);
+                        LoadData();
+                        return;
+                    }
+
+                    if (nama == "")
+                    {
+                        MessageBox.Show("Data pasien tidak ditemukan");
+                        return;
+                    }
+                    else if (purpose == "" || purpose == "REG")
+                    {
+                        MessageBox.Show("Tujuan Berobat harus diisi");
+                        return;
+                    }
+                    else if (poli == "")
+                    {
+                        MessageBox.Show("Silahkan Tentukan Poli yang Anda Tuju..!!"); return;
+                    }
+                    else if (pasien == "")
+                    {
+                        MessageBox.Show("Status Type Pasien belum ditentukan.");
+                        return;
+                    }
+
+
+                    string sql_head = "", typehead = "";
+
+                    sql_head = " select INSU_FLAG from KLINIK.cs_treatment_head where patient_no = '" + nik + "' and ID_VISIT = '" + idvisit + "' ";
+
+                    OleDbConnection sqlConHead = ConnOra.Create_Connect_Ora();
+                    OleDbDataAdapter adSqlHead = new OleDbDataAdapter(sql_head, sqlConHead);
+                    DataTable dtHead = new DataTable();
+                    adSqlHead.Fill(dtHead);
+
+                    if (dtHead.Rows.Count > 0)
+                    {
+                        typehead = dtHead.Rows[0]["INSU_FLAG"].ToString();
+                        if (typehead != pasien)
+                        {
+                            MessageBox.Show("Pasien sudah dilakukan proses Pelayanan, Perubahan Type tidak dapat di proses.");
+                            return;
+                        }
+                    } 
+
+                    sql_update = "";
+                    sql_update = sql_update + Environment.NewLine + "update cs_visit ";
+                    sql_update = sql_update + Environment.NewLine + "set type_patient = '" + pasien + "', patient_no  = '" + nik + "', ";
+                    sql_update = sql_update + Environment.NewLine + "work_accident = '" + workA + "', purpose = '" + purpose + "', visit_remark = '" + remark + "', status = '" + status + "', "; 
+                    sql_update = sql_update + Environment.NewLine + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                    sql_update = sql_update + Environment.NewLine + " where   ID_VISIT = '" + idvisit + "'";
+
+                    cek = cek + sql_update;
+
+                    try
+                    {
+                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                        OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                        oraConnect.Open();
+                        cm.ExecuteNonQuery();
+                        oraConnect.Close();
+                        cm.Dispose();
+                        ssimpan = 2;
+                        //MessageBox.Show("Query Exec : " + sql_update);
+
+                        //MessageBox.Show("Data Berhasil diupdate");
+
+                        string sql = $@"SELECT QUE,BPJS_KODE_POLI POLI_CD, NO_BPJS, TO_CHAR(a.INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG A, CS_POLICLINIC b WHERE a.POLI_CD = b.POLI_CD and QUE = '" + que + "' AND NO_BPJS IS NOT NULL and trunc(a.INS_DATE) = trunc(sysdate)";
+
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(sql, ConnOra.Create_Connect_Ora());
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            // send ke bpjs first
+                            // sesuai aturan dari TRUST
+                            // Update Status / Panggil Antrean
+
+                            DataRow row = dt.Rows[0];
+                            string kodePoli = row["POLI_CD"]?.ToString();
+                            string nomorKartu = row["NO_BPJS"]?.ToString();
+                            string tglPeriksa = row["INS_DATE"]?.ToString();
+
+                            // struktur json
+                            JObject json = new JObject();
+                            json.Add("tanggalperiksa", tglPeriksa);
+                            json.Add("kodepoli", kodePoli);
+                            json.Add("nomorkartu", nomorKartu);
+                            json.Add("status", nnote); 
+
+                            // kirim ke bpjs
+                            // jika gagal langsung munculkan error dan aplikasi terhenti
+                            // jika berhasil system meneruskan penyimpanan seperti biasanya
+                            BpjswsResponse resp = BpjswsAntrol.BatalAntrian(json);
+                            if (resp.Metadata.Code != 200)
+                            {
+                                MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void simpleButton13_Click(object sender, EventArgs e)
