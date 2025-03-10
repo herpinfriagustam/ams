@@ -209,28 +209,28 @@ namespace Clinic
                 gridView1.Columns[10].Caption = "BPJS";
                 gridView1.Columns[11].Caption = "Group";
 
-                //gridView1.Columns[0].MinWidth = 60;
-                //gridView1.Columns[0].MaxWidth = 60;
+                gridView1.Columns[0].MinWidth = 60;
+                gridView1.Columns[0].MaxWidth = 60;
                 //gridView1.Columns[2].MinWidth = 60;
-                //gridView1.Columns[2].MaxWidth = 60;
+                gridView1.Columns[2].MaxWidth = 60;
                 //gridView1.Columns[3].MinWidth = 80;
-                //gridView1.Columns[3].MaxWidth = 80;
+                gridView1.Columns[3].MaxWidth = 80;
                 //gridView1.Columns[4].MinWidth = 70;
-                //gridView1.Columns[4].MaxWidth = 70;
+                gridView1.Columns[4].MaxWidth = 70;
                 //gridView1.Columns[5].MinWidth = 80;
-                //gridView1.Columns[5].MaxWidth = 80;
+                gridView1.Columns[5].MaxWidth = 80;
                 //gridView1.Columns[6].MinWidth = 50;
-                //gridView1.Columns[6].MaxWidth = 50;
+                gridView1.Columns[6].MaxWidth = 50;
                 //gridView1.Columns[7].MinWidth = 60;
-                //gridView1.Columns[7].MaxWidth = 60;
+                gridView1.Columns[7].MaxWidth = 60;
                 //gridView1.Columns[8].MinWidth = 90;
-                //gridView1.Columns[8].MaxWidth = 90;
+                gridView1.Columns[8].MaxWidth = 90;
                 //gridView1.Columns[9].MinWidth = 50;
-                //gridView1.Columns[9].MaxWidth = 50;
+                gridView1.Columns[9].MaxWidth = 50;
                 //gridView1.Columns[10].MinWidth = 50;
-                //gridView1.Columns[10].MaxWidth = 50;
+                gridView1.Columns[10].MaxWidth = 50;
                 //gridView1.Columns[11].MinWidth = 60;
-                //gridView1.Columns[11].MaxWidth = 60;
+                gridView1.Columns[11].MaxWidth = 60;
 
                 gridView1.Columns[0].OptionsColumn.AllowEdit = false;
                 //gridView1.Columns[0].OptionsColumn.ReadOnly = true;
@@ -1061,7 +1061,8 @@ namespace Clinic
                 limit = txtLimitStok.Text;
             }
 
-            SQL = SQL + Environment.NewLine + "select LISTAGG(med_name, '; ') WITHIN GROUP (ORDER BY med_name, LIMIT_STOCK ASC) med_name, stok from (   ";
+            //SQL = SQL + Environment.NewLine + "select LISTAGG(med_name, '; ') WITHIN GROUP (ORDER BY med_name, LIMIT_STOCK ASC) med_name, stok from (   ";
+            SQL = SQL + Environment.NewLine + "select med_name, stok from (   ";
             SQL = SQL + Environment.NewLine + "select initcap(med_name) med_name, LIMIT_STOCK , ";
             SQL = SQL + Environment.NewLine + "klinik.FN_CS_INIT_STOCK(sysdate,med_cd) +  ";
             SQL = SQL + Environment.NewLine + "klinik.FN_CS_TRX_IN(sysdate,med_cd) -   ";
@@ -1072,7 +1073,7 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "and status = 'A' and med_cd  not like 'AK%' ) a  ";
             SQL = SQL + Environment.NewLine + "where 1=1   ";
             SQL = SQL + Environment.NewLine + "and stok <=  LIMIT_STOCK ";
-            SQL = SQL + Environment.NewLine + "group by stok ";
+            //SQL = SQL + Environment.NewLine + "group by stok ";
             SQL = SQL + Environment.NewLine + "order by stok   ";
 
             //loading.ShowWaitForm();

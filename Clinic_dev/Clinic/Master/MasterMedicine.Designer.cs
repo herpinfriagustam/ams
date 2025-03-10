@@ -32,6 +32,7 @@
             this.loading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Clinic.WaitForm1), true, true);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelUser = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.luStatus = new DevExpress.XtraEditors.LookUpEdit();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
@@ -63,7 +64,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl4 = new DevExpress.XtraGrid.GridControl();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnDelUser = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luStatus.Properties)).BeginInit();
@@ -103,7 +103,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 679);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 597);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -122,6 +122,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(753, 70);
             this.panel1.TabIndex = 0;
+            // 
+            // btnDelUser
+            // 
+            this.btnDelUser.Image = ((System.Drawing.Image)(resources.GetObject("btnDelUser.Image")));
+            this.btnDelUser.Location = new System.Drawing.Point(163, 39);
+            this.btnDelUser.Name = "btnDelUser";
+            this.btnDelUser.Size = new System.Drawing.Size(67, 23);
+            this.btnDelUser.TabIndex = 44;
+            this.btnDelUser.Text = "Hapus";
+            this.btnDelUser.Click += new System.EventHandler(this.btnDelUser_Click);
             // 
             // labelControl2
             // 
@@ -212,7 +222,7 @@
             this.lTransIn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTransIn.Location = new System.Drawing.Point(3, 44);
             this.lTransIn.Name = "lTransIn";
-            this.lTransIn.Size = new System.Drawing.Size(107, 16);
+            this.lTransIn.Size = new System.Drawing.Size(106, 16);
             this.lTransIn.TabIndex = 34;
             this.lTransIn.Text = "Transaksi Masuk";
             // 
@@ -262,7 +272,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(617, 609);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(617, 527);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // gridControl2
@@ -271,7 +281,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(611, 278);
+            this.gridControl2.Size = new System.Drawing.Size(611, 237);
             this.gridControl2.TabIndex = 3;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -292,7 +302,7 @@
             this.panel3.Controls.Add(this.btnSaveOut);
             this.panel3.Controls.Add(this.lTransOut);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 284);
+            this.panel3.Location = new System.Drawing.Point(0, 243);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(617, 40);
@@ -333,10 +343,10 @@
             // gridControl3
             // 
             this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(3, 327);
+            this.gridControl3.Location = new System.Drawing.Point(3, 286);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(611, 279);
+            this.gridControl3.Size = new System.Drawing.Size(611, 238);
             this.gridControl3.TabIndex = 5;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -365,7 +375,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 609);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(753, 527);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // panel4
@@ -375,7 +385,7 @@
             this.panel4.Controls.Add(this.labelControl4);
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 359);
+            this.panel4.Location = new System.Drawing.Point(0, 277);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(753, 50);
@@ -428,7 +438,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(747, 353);
+            this.gridControl1.Size = new System.Drawing.Size(747, 271);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -452,7 +462,7 @@
             // gridControl4
             // 
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(3, 412);
+            this.gridControl4.Location = new System.Drawing.Point(3, 330);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
             this.gridControl4.Size = new System.Drawing.Size(747, 194);
@@ -470,23 +480,13 @@
             this.gridView4.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView4_CustomDrawRowIndicator);
             this.gridView4.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView4_RowCellStyle);
             // 
-            // btnDelUser
-            // 
-            this.btnDelUser.Image = ((System.Drawing.Image)(resources.GetObject("btnDelUser.Image")));
-            this.btnDelUser.Location = new System.Drawing.Point(163, 39);
-            this.btnDelUser.Name = "btnDelUser";
-            this.btnDelUser.Size = new System.Drawing.Size(67, 23);
-            this.btnDelUser.TabIndex = 44;
-            this.btnDelUser.Text = "Hapus";
-            this.btnDelUser.Click += new System.EventHandler(this.btnDelUser_Click);
-            // 
             // MasterMedicine
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 679);
+            this.ClientSize = new System.Drawing.Size(1370, 597);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MasterMedicine";
             this.Text = "Master Obat";
