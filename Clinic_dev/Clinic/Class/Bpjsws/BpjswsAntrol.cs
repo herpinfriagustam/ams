@@ -61,7 +61,7 @@ namespace Clinic.Class.Bpjsws
         public static BpjswsResponse TambahAntrean(JObject json)
         {
             string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_ADD_QUEUE_URL;
-            return Post(url, json, PostDataType.Json);
+            return Post(url, json);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Clinic.Class.Bpjsws
         public static BpjswsResponse BatalAntrian(JObject json)
         {
             string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_CANCEL_QUEUE_URL;
-            return Post(url, json, PostDataType.Json);
+            return Post(url, json);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Clinic.Class.Bpjsws
         public static BpjswsResponse PanggilAntrean(JObject json)
         {
             string url = Bpjsws.WS_ANTREAN_FKTP_BPJS_CALL_QUEUE_URL;
-            return Post(url, json, PostDataType.Json);
+            return Post(url, json);
         }
     }
 }

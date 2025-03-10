@@ -20,18 +20,15 @@ namespace Clinic.Class.Bpjsws
 
         public enum PostDataType
         {
-            Form, Json, TextPlain
+            Form, Json
         }
 
         public const string CONS_ID = "2555";
         public const string CONS_SECRET = "3sO2B087D0";
         public const string USER_KEY = "580c0ca60ed68122d4943f7e1d32a609";
         public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
-<<<<<<< HEAD
+        //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
         public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
-=======
-        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
->>>>>>> remotes/origin/devFree-v.1
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
 
@@ -107,11 +104,25 @@ namespace Clinic.Class.Bpjsws
             {
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-<<<<<<< HEAD
-                return ((long)(currentTime - unixEpoch).TotalMilliseconds);
-=======
                 return ((long)(currentTime - unixEpoch).TotalSeconds);
->>>>>>> remotes/origin/devFree-v.1
+
+                //DateTime currentTime = DateTime.UtcNow;
+                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                //return (long)(currentTime - unixEpoch).TotalMilliseconds;
+            }
+        }
+
+        public static long CurrentUnixTimeMili
+        {
+            get
+            {
+                //DateTime currentTime = DateTime.UtcNow;
+                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                //return ((long)(currentTime - unixEpoch).TotalSeconds);
+
+                DateTime currentTime = DateTime.UtcNow;
+                DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                return (long)(currentTime - unixEpoch).TotalMilliseconds;
             }
         }
 
@@ -149,7 +160,7 @@ namespace Clinic.Class.Bpjsws
                 string encodedSignature = Convert.ToBase64String(signature);
                 return encodedSignature;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"CreateSignature Exception: { ex.Message }");
                 return null;
@@ -183,7 +194,7 @@ namespace Clinic.Class.Bpjsws
             try
             {
                 T r = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(respStr);
-                if(typeof(T) == typeof(BpjswsResponse))
+                if (typeof(T) == typeof(BpjswsResponse))
                 {
                     string unixTime = headers.ContainsKey("x-timestamp") ? headers["x-timestamp"]?.ToString() : "";
                     foreach (PropertyInfo prop in r.GetType().GetProperties())
@@ -194,15 +205,15 @@ namespace Clinic.Class.Bpjsws
 
                 return r;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Request Exception: { ex.Message }");
                 if (typeof(T) == typeof(BpjswsResponse))
                 {
                     Type type = typeof(T);
                     T obj = (T)Activator.CreateInstance(type);
-                    
-                    foreach(PropertyInfo prop in type.GetProperties())
+
+                    foreach (PropertyInfo prop in type.GetProperties())
                     {
                         if (prop.Name == "Response") prop.SetValue(obj, respStr);
                         else if (prop.Name == "Metadata")
@@ -215,7 +226,7 @@ namespace Clinic.Class.Bpjsws
 
                                 prop.SetValue(obj, meta);
                             }
-                            catch(Exception exx)
+                            catch (Exception exx)
                             {
                                 Console.WriteLine($"Request Exception: { exx.Message }");
                             }
@@ -229,14 +240,14 @@ namespace Clinic.Class.Bpjsws
             return default(T);
         }
 
-        public static string Request(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null) 
+        public static string Request(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null)
         {
             HttpWebRequest request = null;
 
             string content = "";
             if (dataOrQParams != null)
             {
-                if(dataOrQParams.ContainsKey("RAW")) content = dataOrQParams["RAW"];
+                if (dataOrQParams.ContainsKey("RAW")) content = dataOrQParams["RAW"];
                 else content = string.Join("&", dataOrQParams.Select(x => string.Join("=", x.Key, Uri.EscapeDataString(x.Value))));
             }
 
@@ -248,24 +259,14 @@ namespace Clinic.Class.Bpjsws
                 request.ContentLength = content.Length;
 
                 if (headers != null && headers.Count > 0)
-                    foreach(KeyValuePair<string, string> kv in headers)
+                    foreach (KeyValuePair<string, string> kv in headers)
                         request.Headers.Add(kv.Key, kv.Value);
 
                 byte[] dataBytes = Encoding.UTF8.GetBytes(content);
                 if (dataType == PostDataType.Form)
                 {
                     request.ContentType = "application/x-www-form-urlencoded";
-                    
-                }
-                else if (dataType == PostDataType.TextPlain)
-                {
-                    request.ContentType = "text/plain";
-                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
-                }
-                else if (dataType == PostDataType.TextPlain)
-                {
-                    request.ContentType = "text/plain";
-                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
+
                 }
                 else if (dataType == PostDataType.Json)
                 {
@@ -293,23 +294,19 @@ namespace Clinic.Class.Bpjsws
 
                 return responseString;
             }
-            catch(WebException wex)
+            catch (WebException wex)
             {
-                if(wex.Response != null)
+                if (wex.Response != null)
                 {
                     string jr = "";
                     using (HttpWebResponse r = wex.Response as HttpWebResponse)
                     {
-                        using (StreamReader reader = new StreamReader(r.GetResponseStream()))
+                        using (StreamReader reader = new StreamReader(wex.Response.GetResponseStream()))
                         {
-<<<<<<< HEAD
                             if (reader != null) jr = reader.ReadToEnd();
-=======
-                            if(reader != null) jr = reader.ReadToEnd();
->>>>>>> remotes/origin/devFree-v.1
-                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + ((int)r.StatusCode) + ", \"message\": \"" + wex.Message + "\"}}";
+                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + (int)r.StatusCode + ", \"message\": \"" + wex.Message + "\"}}";
                         }
-                        
+
                     }
 
                     return jr;
@@ -340,7 +337,7 @@ namespace Clinic.Class.Bpjsws
             }
             catch (CryptographicException) { }
             catch (ArgumentNullException) { }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
 
             return data;
         }

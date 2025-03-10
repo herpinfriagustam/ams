@@ -35,7 +35,7 @@ namespace Clinic.Class.Bpjsws
             return response;
         }
 
-        public static BpjswsResponse Post(string url, JObject json, PostDataType dataType)
+        public static BpjswsResponse Post(string url, JObject json)
         {
             string unixTime = CurrentUnixTime.ToString();
 
@@ -52,7 +52,7 @@ namespace Clinic.Class.Bpjsws
             // handle response
             BpjswsResponse response = Request<BpjswsResponse>(url,
                 HttpMethodMode.Post,
-                dataType,
+                PostDataType.Json,
                 headers,
                 new Dictionary<string, string>
                 {
@@ -64,7 +64,7 @@ namespace Clinic.Class.Bpjsws
             return response;
         }
 
-        public static BpjswsResponse Delete(string url, PostDataType dataType)
+        public static BpjswsResponse Delete(string url)
         {
             string unixTime = CurrentUnixTime.ToString();
 
@@ -81,7 +81,7 @@ namespace Clinic.Class.Bpjsws
             // do request
             BpjswsResponse response = Request<BpjswsResponse>(url,
                 HttpMethodMode.Delete,
-                dataType,
+                PostDataType.Json,
                 headers);
 
             if (response != null) response.RequestTimestamp = unixTime;
@@ -89,7 +89,7 @@ namespace Clinic.Class.Bpjsws
             return response;
         }
 
-        public static BpjswsResponse Put(string url, JObject json, PostDataType dataType)
+        public static BpjswsResponse Put(string url, JObject json)
         {
             string unixTime = CurrentUnixTime.ToString();
 
@@ -106,7 +106,7 @@ namespace Clinic.Class.Bpjsws
             // do request
             BpjswsResponse response = Request<BpjswsResponse>(url,
                 HttpMethodMode.Put,
-                dataType,
+                PostDataType.Json,
                 headers,
                 new Dictionary<string, string>
                 {
