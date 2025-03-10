@@ -66,13 +66,13 @@ namespace Clinic.Class.Bpjsws
         public static BpjswsResponse AddKegiatanKelompok(JObject json)
         {
             string url = WS_PCARE_GROUP_POST_ACTIVITY_URL;
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse AddPesertaKegiatanKelompok(JObject json)
         {
             string url = WS_PCARE_GROUP_POST_PATIENT_ACTIVITY_URL;
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeleteKegiatanKelompok(string eduid)
@@ -80,7 +80,7 @@ namespace Clinic.Class.Bpjsws
             string url = WS_PCARE_GROUP_DELETE_ACTIVITY_URL
                 .Replace(@"{Parameter 1}", eduid);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         public static BpjswsResponse DeletePesertaKegiatanKelompok(string eduid, string bpjsno)
@@ -89,7 +89,7 @@ namespace Clinic.Class.Bpjsws
                 .Replace(@"{Parameter 1}", eduid)
                 .Replace(@"{Parameter 2}", bpjsno);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion kelompok
@@ -125,21 +125,21 @@ namespace Clinic.Class.Bpjsws
         {
             string url = WS_PCARE_KUNJUNGAN_ADD_URL;
 
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse EditKunjungan(JObject json)
         {
             string url = WS_PCARE_KUNJUNGAN_EDIT_URL;
 
-            return Put(url, json);
+            return Put(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeleteKunjungan(string noKunjungan)
         {
             string url = WS_PCARE_KUNJUNGAN_DELETE_URL.Replace("{Parameter 1}", noKunjungan);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion Kunjungan
@@ -157,14 +157,14 @@ namespace Clinic.Class.Bpjsws
         {
             string url = WS_PCARE_MCU_ADD_URL;
 
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse EditMCU(JObject json)
         {
             string url = WS_PCARE_MCU_EDIT_URL;
 
-            return Put(url, json);
+            return Put(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeleteMCU(string kodeMCU, string noKunjungan)
@@ -173,7 +173,7 @@ namespace Clinic.Class.Bpjsws
                 .Replace("{Parameter 1}", kodeMCU)
                 .Replace("{Parameter 2}", noKunjungan);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion MCU
@@ -201,7 +201,7 @@ namespace Clinic.Class.Bpjsws
         {
             string url = WS_PCARE_OBAT_ADD_URL;
 
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeleteObat(string kodeObatSK, string noKunjungan)
@@ -210,7 +210,7 @@ namespace Clinic.Class.Bpjsws
                 .Replace("{Parameter 1}", kodeObatSK)
                 .Replace("{Parameter 2}", noKunjungan);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion Obat
@@ -240,7 +240,7 @@ namespace Clinic.Class.Bpjsws
         {
             string url = WS_PCARE_DAFT_ADD_URL;
 
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeletePendaftaran(string noBpjs, string tglDaftar, string noDaftar, string kodePoli)
@@ -251,7 +251,7 @@ namespace Clinic.Class.Bpjsws
                 .Replace("{Parameter 3}", noDaftar)
                 .Replace("{Parameter 4}", kodePoli);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion Pendaftaran
@@ -410,14 +410,14 @@ namespace Clinic.Class.Bpjsws
         {
             string url = WS_PCARE_TINDAKAN_ADD_URL;
 
-            return Post(url, json);
+            return Post(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse EditTindakan(JObject json)
         {
             string url = WS_PCARE_TINDAKAN_EDIT_URL;
 
-            return Put(url, json);
+            return Put(url, json, PostDataType.TextPlain);
         }
 
         public static BpjswsResponse DeleteTindakan(string kdTindakanSK, string noKunjungan)
@@ -426,7 +426,7 @@ namespace Clinic.Class.Bpjsws
                 .Replace("{Parameter 1}", kdTindakanSK)
                 .Replace("{Parameter 2}", noKunjungan);
 
-            return Delete(url);
+            return Delete(url, PostDataType.Json);
         }
 
         #endregion Tindakan

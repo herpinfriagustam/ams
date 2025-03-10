@@ -20,7 +20,7 @@ namespace Clinic.Class.Bpjsws
 
         public enum PostDataType
         {
-            Form, Json
+            Form, Json, TextPlain
         }
 
         public const string CONS_ID = "2555";
@@ -249,6 +249,11 @@ namespace Clinic.Class.Bpjsws
                     request.ContentType = "application/x-www-form-urlencoded";
                     
                 }
+                else if (dataType == PostDataType.TextPlain)
+                {
+                    request.ContentType = "text/plain";
+                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
+                }
                 else if (dataType == PostDataType.Json)
                 {
                     request.ContentType = "application/json";
@@ -285,7 +290,7 @@ namespace Clinic.Class.Bpjsws
                         using (StreamReader reader = new StreamReader(wex.Response.GetResponseStream()))
                         {
                             if(reader != null) jr = reader.ReadToEnd();
-                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + (int)r.StatusCode + ", \"message\": \"" + wex.Message + "\"}}";
+                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + ((int)r.StatusCode) + ", \"message\": \"" + wex.Message + "\"}}";
                         }
                         
                     }
