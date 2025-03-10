@@ -1530,13 +1530,10 @@ namespace Clinic
                 {
                     if ((!tmp_poli.ToString().Equals("POL0002") && !tmp_poli.ToString().Equals("POL0003")))
                     {
-                        if (tmp_poli2.ToString() != "")
-                        {
-                            MessageBox.Show("Hanya Poli Kebidanan & Poli KB yang dapat di Ganti..!!");
-                            //gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
-                            LoadData();
-                            return;
-                        }
+                        MessageBox.Show("Hanya Poli Kebidanan & Poli KB yang dapat di Ganti..!!");
+                        //gridView1.SetRowCellValue(e.RowHandle, gridView1.Columns[6], tmp_poli);
+                        LoadData();
+                        return;
                     }
                 }
 
@@ -4167,10 +4164,6 @@ namespace Clinic
 
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            GridView view = sender as GridView;
-            if (view.RowCount < 1)
-                return;
-
             if (e.Column.Caption == "Poli")
             { 
                 string tmp_poli = gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns[16]).ToString();

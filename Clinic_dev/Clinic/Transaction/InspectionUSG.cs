@@ -3628,7 +3628,7 @@ namespace Clinic
             sql_load = sql_load + Environment.NewLine + "where  to_char(b.visit_date, 'yyyy-mm-dd') = '" + s_date + "'   ";
             sql_load = sql_load + Environment.NewLine + "and c.status = 'A'   ";
             sql_load = sql_load + Environment.NewLine + "and b.que01 = '" + s_que + "'   ";
-            //sql_load = sql_load + Environment.NewLine + "and c.group_patient in( 'PREG','FAMP')   ";
+            sql_load = sql_load + Environment.NewLine + "and c.group_patient in( 'PREG','FAMP')   ";
             sql_load = sql_load + Environment.NewLine + "and c.rm_no = '" + s_rm + "' and id_visit = " + idvisit + "  ";
 
 
@@ -3636,36 +3636,32 @@ namespace Clinic
             OleDbDataAdapter adOra = new OleDbDataAdapter(sql_load, oraConnect);
             DataTable dt = new DataTable();
             adOra.Fill(dt);
-            if(dt.Rows.Count > 0)
-            {
-                p_rm = dt.Rows[0]["rm_no"].ToString();
-                p_que = dt.Rows[0]["que01"].ToString();
-                p_que2 = dt.Rows[0]["que02"].ToString();
-                p_date = dt.Rows[0]["visit_date"].ToString();
+            p_rm = dt.Rows[0]["rm_no"].ToString();
+            p_que = dt.Rows[0]["que01"].ToString();
+            p_que2 = dt.Rows[0]["que02"].ToString();
+            p_date = dt.Rows[0]["visit_date"].ToString();
 
-                p_name = dt.Rows[0]["name"].ToString();
-                p_nik = dt.Rows[0]["patient_no"].ToString();
-                p_anamnesa = dt.Rows[0]["anamnesa"].ToString();
-                p_rp = dt.Rows[0]["rp"].ToString();
-                p_pf = dt.Rows[0]["fisik"].ToString();
-                p_pt = dt.Rows[0]["lain"].ToString();
-                p_diagnosa = dt.Rows[0]["diagnosa"].ToString();
-                p_statuscls = dt.Rows[0]["st_close"].ToString();
+            p_name = dt.Rows[0]["name"].ToString();
+            p_nik = dt.Rows[0]["patient_no"].ToString();
+            p_anamnesa = dt.Rows[0]["anamnesa"].ToString();
+            p_rp = dt.Rows[0]["rp"].ToString();
+            p_pf = dt.Rows[0]["fisik"].ToString();
+            p_pt = dt.Rows[0]["lain"].ToString();
+            p_diagnosa = dt.Rows[0]["diagnosa"].ToString();
+            p_statuscls = dt.Rows[0]["st_close"].ToString();
 
-                lMedRm.Text = p_rm;
-                lMedQue.Text = p_que;
-                lMedDate.Text = p_date;
-                lMedQue2.Text = p_que2;
+            lMedRm.Text = p_rm;
+            lMedQue.Text = p_que;
+            lMedDate.Text = p_date;
+            lMedQue2.Text = p_que2;
 
-                lMedName.Text = p_name;
-                lMedNik.Text = p_nik;
-                lMedAnam.Text = p_anamnesa;
-                lMedRp.Text = p_rp;
-                lMedPf.Text = p_pf;
-                lMedPt.Text = p_pt;
-                lMedDiag.Text = p_diagnosa;
-            }
-            
+            lMedName.Text = p_name;
+            lMedNik.Text = p_nik;
+            lMedAnam.Text = p_anamnesa;
+            lMedRp.Text = p_rp;
+            lMedPf.Text = p_pf;
+            lMedPt.Text = p_pt;
+            lMedDiag.Text = p_diagnosa;
 
             DataListObatGroup(s_stat, dt.Rows[0]["POLI_CD"].ToString());
             LoadDataResep();
@@ -6890,7 +6886,7 @@ namespace Clinic
             sql_tind_load = sql_tind_load + Environment.NewLine + "join KLINIK.cs_treatment_item c on (b.treat_item_id=c.treat_item_id) ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "where rm_no='" + s_rm + "' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and to_char(visit_date,'yyyy-mm-dd')='" + s_date + "' ";
-            sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' or (b.remarks ='Initial' or b.remarks like '%') ";
+            sql_tind_load = sql_tind_load + Environment.NewLine + "and visit_no='" + s_que + "' and b.remarks ='Initial' ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and a.status='OPN'  and ID_VISIT = '" + lbl_id_visit.Text + "' ";
             //sql_tind_load = sql_tind_load + Environment.NewLine + "and c.treat_type_id in ('TRT02','TRT03') ";
             sql_tind_load = sql_tind_load + Environment.NewLine + "and (c.treat_type_id is null or c.treat_type_id not in ('TRT02')) ";
