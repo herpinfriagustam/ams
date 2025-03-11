@@ -121,7 +121,7 @@ namespace Clinic
             sql_search = "";
             sql_search = sql_search + Environment.NewLine + "select 'S' action, formula_id, b.MED_GROUP, b.med_cd,  b.med_cd med_name,  upper(formula) formula, qty, base_price, med_price, a.MINUS_STOK, a.POLI_CD Poli, a.ATT1 status  , a.ATT2 Kategori, a.Racikan "; //initcap(med_name) 
             sql_search = sql_search + Environment.NewLine + "from cs_formula  a, CS_MEDICINE b";
-            sql_search = sql_search + Environment.NewLine + "where a.med_cd(+) = b.med_cd  and b.status='A'  ";
+            sql_search = sql_search + Environment.NewLine + "where a.med_cd(+) = b.med_cd  and b.status='A' and a.status='A' ";
             if (rdObat.Checked)
                 sql_search = sql_search + Environment.NewLine + "     and MED_GROUP ='OBAT'  ";
             else

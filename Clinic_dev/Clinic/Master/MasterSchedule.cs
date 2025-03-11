@@ -118,7 +118,7 @@ namespace Clinic
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
             Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER ";
             Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
-            Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.EditValue + " ','yyyy-MM-dd'))   ";
+            Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.Text.TrimEnd()  + "','yyyy-MM-dd'))   ";
             Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
              
             //loading.ShowWaitForm();

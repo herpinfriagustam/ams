@@ -104,7 +104,7 @@ namespace Clinic.Class.Bpjsws
             {
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return ((long)(currentTime - unixEpoch).TotalMilliseconds);
+                return ((long)(currentTime - unixEpoch).TotalSeconds);
 
                 //DateTime currentTime = DateTime.UtcNow;
                 //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
