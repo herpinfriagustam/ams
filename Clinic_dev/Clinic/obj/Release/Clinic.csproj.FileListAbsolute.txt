@@ -3176,7 +3176,6 @@ C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\de\DevExpress.X
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\es\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\ja\DevExpress.XtraPivotGrid.v15.2.resources.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\bin\Release\ru\DevExpress.XtraPivotGrid.v15.2.resources.dll
-C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Interop.WMPLib.dll
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.csproj.ResolveComReference.cache
 C:\Users\USERNEM\Documents\AMS\ams\Clinic_dev\Clinic\obj\Release\Clinic.Bpjsws.BpjswsTool.resources

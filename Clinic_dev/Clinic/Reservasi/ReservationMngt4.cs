@@ -585,7 +585,7 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "         from klinik.cs_anamnesa ";
             SQL = SQL + Environment.NewLine + "         where ID_VISIT in ( SELECT max(a.ID_VISIT) FROM klinik.cs_visit a   WHERE PATIENT_NO = '" + s_pasno + "' and PLAN ='TRT01' and rownum =1 ) ";
             SQL = SQL + Environment.NewLine + "      )   b  ";
-            SQL = SQL + Environment.NewLine + "where a.rm_no = b.rm_no ";
+            SQL = SQL + Environment.NewLine + "where a.rm_no = b.rm_no(+) ";
             SQL = SQL + Environment.NewLine + "  and a.rm_no =  '" + s_rm + "' and ID_VISIT = " + idvisit + "  ";
 
 
