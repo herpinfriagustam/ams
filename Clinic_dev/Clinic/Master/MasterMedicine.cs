@@ -608,7 +608,7 @@ namespace Clinic
                 p_remark = gridView2.GetRowCellValue(i, gridView2.Columns[5]).ToString();
                 p_action = gridView2.GetRowCellValue(i, gridView2.Columns[6]).ToString();
 
-                if (p_qty == "" || Convert.ToInt16(p_qty) <1)
+                if (p_qty == "" || Convert.ToInt32(p_qty) <1)
                 {
                     MessageBox.Show("Jumlah harus diisi");
                 }
@@ -1003,7 +1003,7 @@ namespace Clinic
                 p_remark = gridView3.GetRowCellValue(i, gridView3.Columns[6]).ToString();
                 p_action = gridView3.GetRowCellValue(i, gridView3.Columns[7]).ToString();
 
-                if (p_qty == "" || Convert.ToInt16(p_qty) < 1)
+                if (p_qty == "" || Convert.ToInt32(p_qty) < 1)
                 {
                     MessageBox.Show("Jumlah harus diisi");
                 }
@@ -1050,7 +1050,7 @@ namespace Clinic
         {
             string SQL = "", limit = "";
 
-            if (Convert.ToInt16(txtLimitStok.Text) <= 0)
+            if (Convert.ToInt32(txtLimitStok.Text) <= 0)
             {
                 limit = "5";
                 txtLimitStok.Text = "5";
@@ -1167,13 +1167,13 @@ namespace Clinic
 
                 if (stok != "")
                 {
-                    if (Convert.ToInt16(stok) <= 0)
+                    if (Convert.ToInt32(stok) <= 0)
                     {
                         e.Appearance.BackColor = Color.Crimson;
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.FontStyleDelta = FontStyle.Bold;
                     }
-                    else if (Convert.ToInt16(stok) <= 20)
+                    else if (Convert.ToInt32(stok) <= 20)
                     {
                         e.Appearance.BackColor = Color.FromArgb(150, Color.OrangeRed);
                         e.Appearance.ForeColor = Color.White;

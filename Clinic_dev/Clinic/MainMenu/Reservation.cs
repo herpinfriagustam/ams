@@ -589,12 +589,13 @@ namespace Clinic
         private void InsertAntrian(string policd, string SPoli, string SCode)
         {
             string sql_check = "", tmp_queue ="" , NIK = "", nohp = "", kodepoli = "", namapoli = "", norm = "", teks ="";
-            string sql_insert = "", sql_cnt = "", tanggalperiksa = "",  namadokter ="", jampraktek="", nomorantrean="",   keterangan= "";
-            int visit, queue, tmp_visit_no, angkaantrean = 0, kodedokter =0;
+            string sql_insert = "", sql_cnt = "", tanggalperiksa = "",  namadokter ="", jampraktek="", nomorantrean="",   keterangan= "", NNOTE="";
+            int visit, queue, tmp_visit_no, angkaantrean = 0, kodedokter =0, BPJSWS_STATUS =0;
+
             if (SPoli.ToString().Equals("BPJS"))
             {
                 sql_check = " ";
-                sql_check = sql_check + "  select QUE from CS_CALL_LOG where trunc(ins_date) = trunc(sysdate) and no_bpjs =  '" + nobpjs + "'  and POLI_CD = '" + policd + "' ";  //select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
+                sql_check = sql_check + "  select QUE from CS_CALL_LOG where trunc(ins_date) = trunc(sysdate) and no_bpjs =  '" + nobpjs + "'  and POLI_CD = '" + policd + "' and FLAG <> 'X'   ";  //select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
 
                 OleDbConnection oraCon1 = ConnOra.Create_Connect_Ora();
                 OleDbDataAdapter adOra1 = new OleDbDataAdapter(sql_check, oraCon1);
@@ -607,8 +608,7 @@ namespace Clinic
                     lbl_noantrian.Text = dt1.Rows[0]["que"].ToString();
                     return;
                 }
-            } 
-
+            }  
 
             sql_check = " ";
             sql_check = sql_check + "  select  KLINIK.CS_GET_ANTRIAN_POLI('" + policd + "', '" + SPoli + "', '" + SCode + "') as que from dual ";
@@ -627,14 +627,15 @@ namespace Clinic
                 
                 angkaantrean = Convert.ToInt32(tmp_queue.Substring(1, 3));
                 nomorantrean = tmp_queue.Substring(0, 1) + "-" + angkaantrean;
+
                 string SQL = "";
                 SQL = SQL + Environment.NewLine + "select distinct to_char(tgl_jadwal,'YYYY-MM-DD') tanggalperiksa, d.BPJS_KODE_POLI BPJS_KODE_POLI, d.BPJS_NAMA_POLI, nvl(b.BPJS_ID_DOKTER,0) BPJS_ID_DOKTER , b.BPJS_NAMA_DOKTER, a.JAM_AWAL||'-'||a.JAM_AKHIR jampraktek     ";
                 SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
-                SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.BPJS_ID_DOKTER) ";
+                SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.ID_DOKTER) ";
                 SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
                 SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.BPJS_KODE_POLI) ";
                 SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) ";
-                SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "'  ";
+                SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "' and b.BPJS_NAMA_DOKTER is not null and rownum =1 ";
 
                 DataDokter = ConnOra.Data_Table_ora(SQL);
 
@@ -688,6 +689,8 @@ namespace Clinic
                 if (resp.Metadata.Code != 200)
                 {
                     MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    BPJSWS_STATUS = 5;
+                    NNOTE =  resp.Metadata.Message ;
                     //return;
                 } 
             } 
@@ -696,7 +699,7 @@ namespace Clinic
             teks = "Nomor Antrian " + tmp_queue + " silahkan menuju Pendaftaran";
 
             sql_insert = "";
-            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS,KD_DOKTER) ";
+            sql_insert = sql_insert + " insert into cs_call_log (call_id, que, type_ins, stat, param, flag, ins_emp, ins_date, POLI_CD, STYPE,NO_BPJS,KD_DOKTER,BPJSWS_STATUS, NNOTE) ";
             sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + tmp_queue + "','REG','Pendaftaran','" + teks + "','W','Antrian',sysdate, '" + policd + "', decode('" + SPoli + "','BPJS','B','UMUM','U','ASURANSI','A') ";
             if (SPoli.ToString().Equals("BPJS"))
             {
@@ -706,7 +709,7 @@ namespace Clinic
             {
                 sql_insert = sql_insert + " ,'' ";
             }
-            sql_insert = sql_insert + "  ," + kodedokter + " )";
+            sql_insert = sql_insert + "  ," + kodedokter + ", " + BPJSWS_STATUS + ", '" + NNOTE + "' )";
             //loading.ShowWaitForm();
             try
             {

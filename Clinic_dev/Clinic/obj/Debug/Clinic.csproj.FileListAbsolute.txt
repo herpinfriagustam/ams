@@ -4947,6 +4947,7 @@ C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debu
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Interop.WMPLib.dll
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.csproj.ResolveComReference.cache
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Bpjsws.BpjswsTool.resources
+C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Bpjsws.InterfacePCare.resources
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.Reservation.resources
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterSchedule.resources
 C:\Users\herpi\OneDrive\Documents\GitHub\dev bpjs\ams\Clinic_dev\Clinic\obj\Debug\Clinic.MasterDokter.resources

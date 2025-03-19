@@ -2239,7 +2239,7 @@ namespace Clinic
                         cd_val = dtco.Rows[0]["room_id"].ToString();
                     }
 
-                    if (comboBox1.Text == "Rawat Inap" && (dt_out.Trim() == "" || tmp_rsout.Trim() == "" || tmp_passtat.Trim() == ""))
+                    if (comboBox1.Text == "Rawat Inap" && (dt_out.Trim() == "" || dt_out.Trim() == "0001-01-01" || tmp_rsout.Trim() == "" || tmp_passtat.Trim() == ""))
                     {
                         MessageBox.Show("Silahkan Isi tgl keluar, cara keluar dan status pasien pada menu Reservasi Rawat Inap");
                         return;

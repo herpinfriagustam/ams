@@ -20,15 +20,16 @@ namespace Clinic.Class.Bpjsws
 
         public enum PostDataType
         {
-            Form, Json
+            Form, Json, TextPlain
         }
 
         public const string CONS_ID = "2555";
         public const string CONS_SECRET = "3sO2B087D0";
         public const string USER_KEY = "580c0ca60ed68122d4943f7e1d32a609";
         public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
-        //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTohXzN1eiNwKlNyVVE6MDk1";
-        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
+
+        //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
+        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpMOkN1XzM0cGpwUDowOTU=";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
 
@@ -104,25 +105,17 @@ namespace Clinic.Class.Bpjsws
             {
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return ((long)(currentTime - unixEpoch).TotalSeconds);
-
-                //DateTime currentTime = DateTime.UtcNow;
-                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                //return (long)(currentTime - unixEpoch).TotalMilliseconds;
+                return ((long)(currentTime - unixEpoch).TotalSeconds); 
             }
         }
 
         public static long CurrentUnixTimeMili
         {
             get
-            {
-                //DateTime currentTime = DateTime.UtcNow;
-                //DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                //return ((long)(currentTime - unixEpoch).TotalSeconds);
-
+            { 
                 DateTime currentTime = DateTime.UtcNow;
                 DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return (long)(currentTime - unixEpoch).TotalMilliseconds;
+                return ((long)(currentTime - unixEpoch).TotalMilliseconds);
             }
         }
 
@@ -160,7 +153,7 @@ namespace Clinic.Class.Bpjsws
                 string encodedSignature = Convert.ToBase64String(signature);
                 return encodedSignature;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"CreateSignature Exception: { ex.Message }");
                 return null;
@@ -190,11 +183,13 @@ namespace Clinic.Class.Bpjsws
 
         public static T Request<T>(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null)
         {
-            string respStr = Request(url, method, dataType, headers, dataOrQParams);
+            BpjswsResponseBase rb = new BpjswsResponseBase();
+            rb = RequestBase(url, method, dataType, headers, dataOrQParams);
+            string respStr = rb.ResponseString;
             try
             {
                 T r = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(respStr);
-                if(typeof(T) == typeof(BpjswsResponse))
+                if (typeof(T) == typeof(BpjswsResponse))
                 {
                     string unixTime = headers.ContainsKey("x-timestamp") ? headers["x-timestamp"]?.ToString() : "";
                     foreach (PropertyInfo prop in r.GetType().GetProperties())
@@ -205,15 +200,15 @@ namespace Clinic.Class.Bpjsws
 
                 return r;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Request Exception: { ex.Message }");
                 if (typeof(T) == typeof(BpjswsResponse))
                 {
                     Type type = typeof(T);
                     T obj = (T)Activator.CreateInstance(type);
-                    
-                    foreach(PropertyInfo prop in type.GetProperties())
+
+                    foreach (PropertyInfo prop in type.GetProperties())
                     {
                         if (prop.Name == "Response") prop.SetValue(obj, respStr);
                         else if (prop.Name == "Metadata")
@@ -221,12 +216,12 @@ namespace Clinic.Class.Bpjsws
                             try
                             {
                                 BpjswsResponse.MetaData meta = new BpjswsResponse.MetaData();
-                                meta.Code = -1;
+                                meta.Code = rb.StatusCodeNumber;
                                 meta.Message = respStr == "" || respStr == null ? ex.Message : respStr;
 
                                 prop.SetValue(obj, meta);
                             }
-                            catch(Exception exx)
+                            catch (Exception exx)
                             {
                                 Console.WriteLine($"Request Exception: { exx.Message }");
                             }
@@ -240,14 +235,14 @@ namespace Clinic.Class.Bpjsws
             return default(T);
         }
 
-        public static string Request(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null) 
+        public static BpjswsResponseBase RequestBase(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null)
         {
             HttpWebRequest request = null;
 
             string content = "";
             if (dataOrQParams != null)
             {
-                if(dataOrQParams.ContainsKey("RAW")) content = dataOrQParams["RAW"];
+                if (dataOrQParams.ContainsKey("RAW")) content = dataOrQParams["RAW"];
                 else content = string.Join("&", dataOrQParams.Select(x => string.Join("=", x.Key, Uri.EscapeDataString(x.Value))));
             }
 
@@ -259,14 +254,19 @@ namespace Clinic.Class.Bpjsws
                 request.ContentLength = content.Length;
 
                 if (headers != null && headers.Count > 0)
-                    foreach(KeyValuePair<string, string> kv in headers)
+                    foreach (KeyValuePair<string, string> kv in headers)
                         request.Headers.Add(kv.Key, kv.Value);
 
                 byte[] dataBytes = Encoding.UTF8.GetBytes(content);
                 if (dataType == PostDataType.Form)
                 {
                     request.ContentType = "application/x-www-form-urlencoded";
-                    
+
+                }
+                else if (dataType == PostDataType.TextPlain)
+                {
+                    request.ContentType = "text/plain";
+                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
                 }
                 else if (dataType == PostDataType.Json)
                 {
@@ -292,34 +292,62 @@ namespace Clinic.Class.Bpjsws
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                return responseString;
-            }
-            catch(WebException wex)
-            {
-                if(wex.Response != null)
+                BpjswsResponseBase r = new BpjswsResponseBase
                 {
-                    string jr = "";
+                    StatusCode = response.StatusCode,
+                    StatusCodeNumber = (int)response.StatusCode,
+                    ResponseString = responseString
+                };
+
+                return r;
+            }
+            catch (WebException wex)
+            {
+                BpjswsResponseBase rb = new BpjswsResponseBase();
+                if (wex.Response != null)
+                {
+
                     using (HttpWebResponse r = wex.Response as HttpWebResponse)
                     {
-                        using (StreamReader reader = new StreamReader(wex.Response.GetResponseStream()))
+                        rb.StatusCode = r.StatusCode;
+                        rb.StatusCodeNumber = (int)r.StatusCode;
+                        using (StreamReader reader = new StreamReader(r.GetResponseStream()))
                         {
-                            if(reader != null) jr = reader.ReadToEnd();
-                            else jr = "{ \"response\": null, \"metadata\": { \"code\": " + (int)r.StatusCode + ", \"message\": \"" + wex.Message + "\"}}";
+                            if (reader != null) rb.ResponseString = reader.ReadToEnd();
+                            else rb.ResponseString = "{ \"response\": null, \"metadata\": { \"code\": " + rb.StatusCodeNumber + ", \"message\": \"" + wex.Message + "\"}}";
                         }
-                        
+
                     }
 
-                    return jr;
+                    return rb;
                 }
 
                 Console.WriteLine($"Request Exception: { wex.Message }");
-                return "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Unknown Error!\"}}";
+                rb.StatusCode = HttpStatusCode.BadRequest;
+                rb.StatusCodeNumber = -1;
+                rb.ResponseString = "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Unknown Error!\"}}";
+
+                return rb;
             }
             catch (Exception ex)
             {
+                BpjswsResponseBase rb = new BpjswsResponseBase();
+                rb.StatusCode = HttpStatusCode.BadRequest;
+                rb.StatusCodeNumber = -1;
+
                 Console.WriteLine($"Request Exception: { ex.Message }");
-                return "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Exception: " + ex.Message + "\"}}";
+                rb.ResponseString = "{ \"response\": null, \"metadata\": { \"code\": -1, \"message\": \"Exception: " + ex.Message + "\"}}";
+
+                return rb;
             }
+        }
+
+        public static string Request(string url, HttpMethodMode method, PostDataType dataType = PostDataType.Json, Dictionary<string, string> headers = null, Dictionary<string, string> dataOrQParams = null)
+        {
+            BpjswsResponseBase rb = new BpjswsResponseBase();
+            rb = RequestBase(url, method, dataType, headers, dataOrQParams);
+
+            return rb.ResponseString;
         }
 
         public static string Decrypt(string key, string data)
@@ -337,7 +365,7 @@ namespace Clinic.Class.Bpjsws
             }
             catch (CryptographicException) { }
             catch (ArgumentNullException) { }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
 
             return data;
         }

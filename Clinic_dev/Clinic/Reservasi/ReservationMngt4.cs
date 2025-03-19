@@ -207,7 +207,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "from cs_inpatient a ";
             sql_search = sql_search + Environment.NewLine + "join cs_visit b on (a.inpatient_id=b.inpatient_id) ";
             sql_search = sql_search + Environment.NewLine + "where 1=1 ";
-            sql_search = sql_search + Environment.NewLine + "and B.status NOT in ('CLS','CAN') and b.plan = 'TRT02' ";
+            sql_search = sql_search + Environment.NewLine + "and B.status NOT in ('CLS','CAN') and b.plan = 'TRT02' and b.id_visit not in( select id_visit from CS_TREATMENT_HEAD z where b.id_visit = z.id_visit  and PAY_STATUS   in ('CLS','CAN') )";
             sql_search = sql_search + Environment.NewLine + "order by b.visit_date desc ";
 
 

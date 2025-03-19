@@ -117,10 +117,7 @@ namespace Clinic
             listPoli.Clear();
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
-                listPoli.Add(new Poli() { poliCode = dt2.Rows[i]["poli_cd"].ToString(), poliName = dt2.Rows[i]["poli_name"].ToString() });
-                //poli.poliCode = dt2.Rows[i]["poli_cd"].ToString();
-                //poli.poliName = dt2.Rows[i]["poli_name"].ToString();
-                //listPoli.Add(poli);
+                listPoli.Add(new Poli() { poliCode = dt2.Rows[i]["poli_cd"].ToString(), poliName = dt2.Rows[i]["poli_name"].ToString() }); 
             }
 
             string SQL_dok = ""; 
@@ -128,7 +125,7 @@ namespace Clinic
             SQL_dok = SQL_dok + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a,  ";
             SQL_dok = SQL_dok + Environment.NewLine + "       KLINIK.CS_DOKTER b,  ";
             SQL_dok = SQL_dok + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d  ";
-            SQL_dok = SQL_dok + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER  ";
+            SQL_dok = SQL_dok + Environment.NewLine + " where a.ID_DOKTER  = b.ID_DOKTER  ";
             SQL_dok = SQL_dok + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI     ";
             SQL_dok = SQL_dok + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(sysdate)    ";
             SQL_dok = SQL_dok + Environment.NewLine + "   and A.F_AKTIF  ='A' ";
@@ -141,8 +138,7 @@ namespace Clinic
             listDoc.Clear();
             for (int i = 0; i < dtDoc.Rows.Count; i++)
             {
-                listDoc.Add(new Dokter() { ID_Dokter = dtDoc.Rows[i]["ID_DOKTER"].ToString(), Nama_Dokter = dtDoc.Rows[i]["NM_DOKTER"].ToString() });
-
+                listDoc.Add(new Dokter() { ID_Dokter = dtDoc.Rows[i]["ID_DOKTER"].ToString(), Nama_Dokter = dtDoc.Rows[i]["NM_DOKTER"].ToString() }); 
             }
 
             listPatientType.Clear();
@@ -279,14 +275,15 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "         DECODE (c.poli_group, 'PREG', 'Ibu Hamil', 'FAMP', 'KB', 'Umum' ) AS type_mr,  ";
             sql_search = sql_search + Environment.NewLine + "         a.poli_cd policd, round((nvl(start_hold,sysdate)-A.visit_date) * 24 * 60) wait_time , visit_remark resmark, a.ID_VISIT, e.ANAMNESA_ID, F.HEAD_ID, F.PAY_STATUS, b.NID NIK";
             sql_search = sql_search + Environment.NewLine + "         ,(select  max(z.CALL_ID) from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE)  )CALL_ID ,case when a.status = 'REG' then 1 else 2 end stat, decode(type_patient,'B',INSU_NO,'-') NO_BPJS  ";
-            sql_search = sql_search + Environment.NewLine + "         , case when visit_remark ='UGD' then 'Manual' else ( select decode(z.INS_EMP,'Antrian','Onsite','BPJS','Mobile JKN','Manual') from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE) ) end DAFTAR_BY ,  GET_ID_DOKTER(a.KODE_DOKTER)  KODE_DOKTER, A.NREMARK, BPJS_KODE_POLI, b.STATUS_BPJS,b.KET_STATUS_BPJS,  decode(type_patient,'B',b.TUNGGAKAN_BPJS,'')  TUNGGAKAN_BPJS,  decode(type_patient,'B',decode(b.NM_PROVIDER,'','','['||b.KD_PROVIDER||']'||b.NM_PROVIDER),'-') NM_PROVIDER ";
+            sql_search = sql_search + Environment.NewLine + "         , case when visit_remark ='UGD' then 'Manual' else ( select decode(z.INS_EMP,'Antrian','Onsite','BPJS','Mobile JKN','Manual') from CS_CALL_LOG z where a.que01 = z.QUE and to_char(z.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd') and TRUNC(A.visit_date) =  TRUNC(z.INS_DATE) ) end DAFTAR_BY ,  a.KODE_DOKTER  KODE_DOKTER, A.NREMARK, BPJS_KODE_POLI, b.STATUS_BPJS,b.KET_STATUS_BPJS,  decode(type_patient,'B',b.TUNGGAKAN_BPJS,'')  TUNGGAKAN_BPJS,  decode(type_patient,'B',decode(b.NM_PROVIDER,'','','['||b.KD_PROVIDER||']'||b.NM_PROVIDER),'-') NM_PROVIDER ";
             sql_search = sql_search + Environment.NewLine + "    FROM cs_visit a JOIN cs_patient_info b ON a.patient_no = b.patient_no  ";
             sql_search = sql_search + Environment.NewLine + "         join cs_patient D ON a.patient_no = D.patient_no  LEFT JOIN cs_policlinic c ON (a.poli_cd = c.poli_cd AND c.status = 'A') LEFT JOIN CS_ANAMNESA e ON (a.ID_VISIT = e.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "         LEFT JOIN KLINIK.cs_treatment_head F ON  (a.ID_VISIT = F.ID_VISIT) ";
             sql_search = sql_search + Environment.NewLine + "   WHERE 1 = 1  ";
             sql_search = sql_search + Environment.NewLine + "     AND TRUNC(A.visit_date) = TRUNC(sysdate)   ";
             sql_search = sql_search + Environment.NewLine + "     AND a.poli_cd not in ('POL0004')  ";
-            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('REG','PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  "; 
+            sql_search = sql_search + Environment.NewLine + "     AND a.status IN ('REG','PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')  ";
+            sql_search = sql_search + Environment.NewLine + "     and a.id_visit not in (select id_visit from  cs_visit x, CS_CALL_LOG y where x.que01 = y.QUE and trunc(visit_date) = trunc(y.INS_DATE) and  to_char(x.visit_date,'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') and FLAG = 'X' and TYPE_INS <> 'UGD' AND x.status IN ('REG','PRE', 'RSV', 'NUR', 'INS', 'OBS', 'HOL','CAN')) ";
             sql_search = sql_search + Environment.NewLine + "   UNION ALL ";
             sql_search = sql_search + Environment.NewLine + "select QUE que01, c.PATIENT_NO patient_no, c.PATIENT_NO pasno, '' plan,  decode(c.gender,'P','Perempuan','Laki-Laki') gender,    ";
             sql_search = sql_search + Environment.NewLine + "                 round(((sysdate-c.birth_date)/30)/12) age,     ";
@@ -301,7 +298,7 @@ namespace Clinic
             sql_search = sql_search + Environment.NewLine + "           left  join cs_patient_info c on  (a.NO_BPJS = decode(length(a.NO_BPJS), 13, c.INSU_NO, c.nid)) ";
             sql_search = sql_search + Environment.NewLine + "           where a.FLAG <>'X'  ";
             sql_search = sql_search + Environment.NewLine + "             and to_char(a.INS_DATE,'yyyy-mm-dd')=to_char(sysdate,'yyyy-mm-dd')   ";
-            sql_search = sql_search + Environment.NewLine + "             and QUE not in (select NVL(que01,'N') from  cs_visit b where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') and b.STATUS NOT IN('CAN') )  "; 
+            sql_search = sql_search + Environment.NewLine + "             and QUE not in (select NVL(que01,'N') from  cs_visit b where to_char(visit_date,'yyyy-mm-dd')= to_char(sysdate, 'yyyy-mm-dd') )  "; 
             sql_search = sql_search + Environment.NewLine + "   ) a order by stat||CALL_ID ,que01   ";
             
             //loading.ShowWaitForm();
@@ -386,7 +383,7 @@ namespace Clinic
                 gridView1.Columns[30].Caption = "BPJS POLI";
                 gridView1.Columns[31].Caption = "S BPJS";
                 gridView1.Columns[32].Caption = "STATUS BPJS";
-                gridView1.Columns[33].Caption = "TUNGGAKAN";
+                gridView1.Columns[33].Caption = "Tunggakan";
                 gridView1.Columns[33].Width = 55;
                 gridView1.Columns[34].Caption = "FASKES";
                 gridView1.Columns[34].Width = 100;
@@ -1022,33 +1019,98 @@ namespace Clinic
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             string fname = ".wav", p_que = "", p1 = "", p2 = "", p3 = "", p4 = "", policd = "", s_gender = "", s_name = "", urltts = "", teks = "";
-            string sql_check5 = "", rm_number ="", sql_cnt="", pasienno="";
-            int visit, queue, tmp_visit_no = 0;
+            string sql_check5 = "", rm_number = "", sql_cnt = "", pasienno = "", NNOTE = "", nnik = "", nobpjs = "", nophone ="", norm ="", ttype_p ="" ;
+            int visit, queue, tmp_visit_no = 0, BPJSWS_STATUS =0;
             //p_dir = resourcesDirectory;
             //p_dir = "C:\\KLINIK\\";
 
             if (gridView1.RowCount < 1)
                 return;
 
-            p_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();
-            //s_gender = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[4]).ToString();
+            p_que = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]).ToString();            
             //s_name = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[2]).ToString();
             policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
-            //pasienno = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
-
-            sql_check5 = sql_check5 + "select TYPE_INS from KLINIK.CS_CALL_LOG where  QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
-
+            ttype_p = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[7]).ToString();
+             
+            sql_check5 = "";
+            sql_check5 = sql_check5 + " select TYPE_INS, BPJSWS_STATUS, NNOTE, NID, INSU_NO, PHONE, REPLACE(PATIENT_NO,'P', '') NORM from KLINIK.CS_CALL_LOG a left join cs_patient_info b on a.NO_BPJS = nvl(b.INSU_NO, b.NID) where QUE =  '" + p_que + "' AND TRUNC(a.INS_DATE) = TRUNC(SYSDATE) ";
+            
             OleDbConnection oraConnect5 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adOra5 = new OleDbDataAdapter(sql_check5, oraConnect5);
             DataTable dt5 = new DataTable();
             adOra5.Fill(dt5);
             if (dt5.Rows.Count > 0)
             {
-                rm_number = dt5.Rows[0]["TYPE_INS"].ToString(); 
+                rm_number = dt5.Rows[0]["TYPE_INS"].ToString();
+                BPJSWS_STATUS = Convert.ToInt32(dt5.Rows[0]["BPJSWS_STATUS"].ToString());
+                NNOTE = dt5.Rows[0]["NNOTE"].ToString();
+                nnik = dt5.Rows[0]["NID"].ToString();
+                nobpjs = dt5.Rows[0]["INSU_NO"].ToString();
+                nophone = dt5.Rows[0]["PHONE"].ToString();
+                norm = dt5.Rows[0]["NORM"].ToString();
             }
 
-            if(rm_number.ToString().Equals("REG"))
+            if(rm_number.ToString().Equals("REG") )
             {
+                if (!NNOTE.ToString().Equals("") && BPJSWS_STATUS.ToString().Equals("0") && ttype_p.ToString().Equals("B"))
+                {
+                    string SQL = "", tanggalperiksa = "", namadokter = "", jampraktek = "", nomorantrean = "", keterangan = "", kodepoli = "", namapoli = "" ;
+                    int kodedokter = 0, angkaantrean = 0;
+
+                    angkaantrean = Convert.ToInt32(p_que.Substring(1, 3));
+                    nomorantrean = p_que.Substring(0, 1) + "-" + angkaantrean;
+
+
+                    SQL = SQL + Environment.NewLine + "select distinct to_char(tgl_jadwal,'YYYY-MM-DD') tanggalperiksa, d.BPJS_KODE_POLI BPJS_KODE_POLI, d.BPJS_NAMA_POLI, nvl(b.BPJS_ID_DOKTER,0) BPJS_ID_DOKTER , b.BPJS_NAMA_DOKTER, a.JAM_AWAL||'-'||a.JAM_AKHIR jampraktek     ";
+                    SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
+                    SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.ID_DOKTER) ";
+                    SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
+                    SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.BPJS_KODE_POLI) ";
+                    SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) ";
+                    SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "' and b.BPJS_NAMA_DOKTER is not null and rownum =1 ";
+
+                    DataDokter = ConnOra.Data_Table_ora(SQL);
+
+                    if (DataDokter.Rows.Count > 0)
+                    {
+                        tanggalperiksa = DataDokter.Rows[0]["tanggalperiksa"].ToString();
+                        kodepoli = DataDokter.Rows[0]["BPJS_KODE_POLI"].ToString();
+                        namapoli = DataDokter.Rows[0]["BPJS_NAMA_POLI"].ToString();
+                        kodedokter = Convert.ToInt32(DataDokter.Rows[0]["BPJS_ID_DOKTER"].ToString());
+                        namadokter = DataDokter.Rows[0]["BPJS_NAMA_DOKTER"].ToString();
+                        jampraktek = DataDokter.Rows[0]["jampraktek"].ToString();
+                    }
+                     
+                    // struktur json
+                    JObject json = new JObject();
+                    json.Add("nomorkartu", nobpjs);                 //nobpjs
+                    json.Add("nik", nnik);                           //NIK
+                    json.Add("nohp", nophone);                         //nohp
+                    json.Add("kodepoli", kodepoli);                 //kodepoli
+                    json.Add("namapoli", namapoli);                 //namapoli
+                    json.Add("norm", norm);                         //norm
+                    json.Add("tanggalperiksa", tanggalperiksa);     //tanggalperiksa
+                    json.Add("kodedokter", kodedokter);            //kodedokter
+                    json.Add("namadokter", namadokter);            //namadokter
+                    json.Add("jampraktek", jampraktek);             //jampraktek
+                    json.Add("nomorantrean", nomorantrean);         //nomorantrean
+                    json.Add("angkaantrean", Convert.ToInt32(angkaantrean));             //angkaantrean
+                    json.Add("keterangan", keterangan);             //keterangan
+                                                                    //json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTime);
+
+                    // kirim ke bpjs
+                    // jika gagal langsung munculkan error dan aplikasi terhenti
+                    // jika berhasil system meneruskan penyimpanan seperti biasanya
+                    BpjswsResponse resp = BpjswsAntrol.TambahAntrean(json);
+                    if (resp.Metadata.Code != 200)
+                    {
+                        MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        BPJSWS_STATUS = 5;
+                        NNOTE = resp.Metadata.Message;
+                        //return;
+                    }
+                }
+
                 // checking is bpjs or no
                 string noAntrian = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "QUE01")?.ToString();
                 string sql = $@"SELECT QUE,BPJS_KODE_POLI POLI_CD, NO_BPJS, TO_CHAR(a.INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG A, CS_POLICLINIC b WHERE a.POLI_CD = b.POLI_CD and QUE = '{ noAntrian }' AND NO_BPJS IS NOT NULL and trunc(a.INS_DATE) = trunc(sysdate)";
@@ -1067,28 +1129,30 @@ namespace Clinic
                     string nomorKartu = row["NO_BPJS"]?.ToString();
                     string tglPeriksa = row["INS_DATE"]?.ToString();
 
-                    // struktur json
-                    JObject json = new JObject();
-                    json.Add("tanggalperiksa", tglPeriksa);
-                    json.Add("kodepoli", kodePoli);
-                    json.Add("nomorkartu", nomorKartu);
-                    json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
-                    json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTimeMili);
-
-                    // kirim ke bpjs
-                    // jika gagal langsung munculkan error dan aplikasi terhenti
-                    // jika berhasil system meneruskan penyimpanan seperti biasanya
-                    BpjswsResponse resp = BpjswsAntrol.PanggilAntrean(json);
-                    if (resp.Metadata.Code != 200)
+                    if(BPJSWS_STATUS == 0 && ttype_p.ToString().Equals("B"))
                     {
-                        MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                        // struktur json
+                        JObject json = new JObject();
+                        json.Add("tanggalperiksa", tglPeriksa);
+                        json.Add("kodepoli", kodePoli);
+                        json.Add("nomorkartu", nomorKartu);
+                        json.Add("status", 1); // Status 1 = Hadir; Status 2 = Tidak Hadir
+                        json.Add("waktu", Clinic.Class.Bpjsws.Bpjsws.CurrentUnixTimeMili);
+
+                        // kirim ke bpjs
+                        // jika gagal langsung munculkan error dan aplikasi terhenti
+                        // jika berhasil system meneruskan penyimpanan seperti biasanya
+                        BpjswsResponse resp = BpjswsAntrol.PanggilAntrean(json);
+                        if (resp.Metadata.Code != 200)
+                        {
+                            MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    } 
                 }
-                
 
                 // call internal app
-                sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                sql = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'N', UPD_ANTRIAN =sysdate,BPJSWS_STATUS =1 WHERE QUE = '" + p_que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
 
                 OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
                 OleDbCommand cm = new OleDbCommand(sql, oraConnect);
@@ -1102,100 +1166,7 @@ namespace Clinic
                 MessageBox.Show("Maaf Pasien sudah di Proses, Tidak Dapat Dipanggil Di Pendaftaran.");
                 return;
             }
-
-
-
-            //p1 = p_que.Substring(0, 1);
-            //p2 = p_que.Substring(1, 1);
-            //p3 = p_que.Substring(2, 1);
-            //p4 = p_que.Substring(3, 1);
-
-            //if (s_gender == "Perempuan")
-            //{
-            //    p1 = "Ibu ";
-            //}
-            //else
-            //{
-            //    p1 = "Bapak ";
-            //}
-
-            //p2 = s_name;
-
-            //teks = p1 + p2 + " silahkan menuju ke konter pendaftaran";
-
-            //loading.ShowWaitForm();
-            //try
-            //{  
-            //    string stpoli = "";
-            //    if (policd.ToString().Equals("POL0002"))
-            //        stpoli = "PREG";
-            //    else
-            //        stpoli = "COMM"; 
-
-            //    sql_check5 = sql_check5 + " select  rm_no from cs_patient_info a, cs_patient b where a.PATIENT_NO = b.PATIENT_NO and a.PATIENT_NO = '" + pasienno.ToString() + "' and b.GROUP_PATIENT = '" + stpoli + "' ";
-
-            //    try
-            //    {
-            //        OleDbConnection oraConnect5 = ConnOra.Create_Connect_Ora();
-            //        OleDbDataAdapter adOra5 = new OleDbDataAdapter(sql_check5, oraConnect5);
-            //        DataTable dt5 = new DataTable();
-            //        adOra5.Fill(dt5);
-            //        if (dt5.Rows.Count > 0)
-            //        {
-            //            rm_number = dt5.Rows[0]["rm_no"].ToString();
-            //        }
-            //        else
-            //        {
-            //            rm_number = "";
-            //            MessageBox.Show("Anda belum terdaftar untuk Poli ini. Silahkan ke bagian pendaftaran dahulu.");
-            //            return;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("ERROR: " + ex.Message);
-            //        loading.CloseWaitForm();
-            //    }
-
-
-            //    sql_cnt = " select to_char(sysdate,'yymm') || LPAD(CS_VISIT_SEQ.NEXTVAL, 4, '0') vno from dual ";
-            //    OleDbConnection oraConnect4 = ConnOra.Create_Connect_Ora();
-            //    OleDbDataAdapter adOra4 = new OleDbDataAdapter(sql_cnt, oraConnect4);
-            //    DataTable dt4 = new DataTable();
-            //    adOra4.Fill(dt4);
-            //    tmp_visit_no = Convert.ToInt32(dt4.Rows[0]["vno"].ToString());
-
-
-
-
-            //    //SoundPlayer player = new SoundPlayer(p_dir + "antrian" + fname);
-            //    //SoundPlayer player2 = new SoundPlayer(p_dir + p1 + fname);
-            //    //SoundPlayer player3 = new SoundPlayer(p_dir + "_" + p2 + fname);
-            //    //SoundPlayer player4 = new SoundPlayer(p_dir + "_" + p3 + fname);
-            //    //SoundPlayer player5 = new SoundPlayer(p_dir + "_" + p4 + fname);
-            //    //SoundPlayer player6 = new SoundPlayer(p_dir + "IN" + fname);
-            //    //player.PlaySync();
-            //    ////Thread.Sleep(2000);
-            //    //player2.PlaySync();
-            //    ////Thread.Sleep(900);
-            //    //player3.PlaySync();
-            //    ////Thread.Sleep(900);
-            //    //player4.PlaySync();
-            //    ////Thread.Sleep(900);
-            //    //player5.PlaySync();
-            //    //Thread.Sleep(900);
-            //    //player6.PlaySync();
-            //    //Thread.Sleep(2000);
-
-            //    loading.CloseWaitForm();
-            //}
-            //catch (Exception ex)
-            //{
-            //    loading.CloseWaitForm();
-            //    MessageBox.Show("ERROR: " + ex.Message);
-            //}
-
-
+              
         }
 
         public static void PlayMp3FromUrl(string url)
@@ -1771,9 +1742,7 @@ namespace Clinic
 
                             LoadData();
                             return;
-                        }
-
-
+                        } 
 
                         if (que.ToString().Equals(""))
                         {
@@ -1987,6 +1956,7 @@ namespace Clinic
                     string sql_head = "", typehead ="", nomorantrean ="" ;
                     int angkaantrean = 0, kodedokter = 0;
 
+                    kodedokter = Convert.ToInt32(pdokter);
                     string  NIK = "", nohp = "", kodepoli = "", namapoli = "", norm = "" ;
                     string  tanggalperiksa = "", namadokter = "", jampraktek = "",  keterangan = ""; 
 
@@ -4451,14 +4421,14 @@ namespace Clinic
                 else
                     remark = gridView1.GetRowCellValue(i, gridView1.Columns[13]).ToString(); 
 
-                if (action == "U")
+                if (action == "U" || action == "I")
                 {
                     if (idvisit.ToString().Equals("0"))
                     {
                         sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
                         ORADB.Execute(ORADB.XE, sql_update);
-                        LoadData();
-                        return;
+                        //LoadData();
+                        //return;
                     }
 
                     if (nama == "")
@@ -4481,7 +4451,6 @@ namespace Clinic
                         return;
                     }
 
-
                     string sql_head = "", typehead = "";
 
                     sql_head = " select INSU_FLAG from KLINIK.cs_treatment_head where patient_no = '" + nik + "' and ID_VISIT = '" + idvisit + "' ";
@@ -4499,28 +4468,10 @@ namespace Clinic
                             MessageBox.Show("Pasien sudah dilakukan proses Pelayanan, Perubahan Type tidak dapat di proses.");
                             return;
                         }
-                    } 
-
-                    sql_update = "";
-                    sql_update = sql_update + Environment.NewLine + "update cs_visit ";
-                    sql_update = sql_update + Environment.NewLine + "set type_patient = '" + pasien + "', patient_no  = '" + nik + "', ";
-                    sql_update = sql_update + Environment.NewLine + "work_accident = '" + workA + "', purpose = '" + purpose + "', visit_remark = '" + remark + "', status = '" + status + "', "; 
-                    sql_update = sql_update + Environment.NewLine + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
-                    sql_update = sql_update + Environment.NewLine + " where   ID_VISIT = '" + idvisit + "'";
-
-                    cek = cek + sql_update;
-
+                    }  
                     try
                     {
-                        OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                        OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
-                        oraConnect.Open();
-                        cm.ExecuteNonQuery();
-                        oraConnect.Close();
-                        cm.Dispose();
-                        ssimpan = 2;
                         //MessageBox.Show("Query Exec : " + sql_update);
-
                         //MessageBox.Show("Data Berhasil diupdate");
 
                         string sql = $@"SELECT QUE,BPJS_KODE_POLI POLI_CD, NO_BPJS, TO_CHAR(a.INS_DATE, 'YYYY-MM-DD') INS_DATE FROM CS_CALL_LOG A, CS_POLICLINIC b WHERE a.POLI_CD = b.POLI_CD and QUE = '" + que + "' AND NO_BPJS IS NOT NULL and trunc(a.INS_DATE) = trunc(sysdate)";
@@ -4555,9 +4506,28 @@ namespace Clinic
                                 MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
                             }
-                        }
 
+                            sql_update = "";
+                            sql_update = sql_update + Environment.NewLine + "update cs_visit ";
+                            sql_update = sql_update + Environment.NewLine + "set type_patient = '" + pasien + "', patient_no  = '" + nik + "', ";
+                            sql_update = sql_update + Environment.NewLine + "work_accident = '" + workA + "', purpose = '" + purpose + "', visit_remark = '" + remark + "', status = '" + status + "', ";
+                            sql_update = sql_update + Environment.NewLine + " upd_emp = '" + DB.vUserId + "', upd_date = sysdate ";
+                            sql_update = sql_update + Environment.NewLine + " where   ID_VISIT = '" + idvisit + "'";
 
+                            cek = cek + sql_update;
+
+                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                            OleDbCommand cm = new OleDbCommand(sql_update, oraConnect);
+                            oraConnect.Open();
+                            cm.ExecuteNonQuery();
+                            oraConnect.Close();
+                            cm.Dispose();
+
+                            sql_update = @"UPDATE KLINIK.CS_CALL_LOG SET FLAG = 'X', param = 'BATAL', UPD_ANTRIAN =sysdate WHERE QUE = '" + que + "' AND TRUNC(INS_DATE) = TRUNC(SYSDATE)";
+                            ORADB.Execute(ORADB.XE, sql_update);
+
+                            ssimpan = 2;
+                        } 
                     }
                     catch (Exception ex)
                     {

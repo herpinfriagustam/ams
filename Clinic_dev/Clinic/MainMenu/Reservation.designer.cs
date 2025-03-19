@@ -88,8 +88,6 @@
             // 
             // timerStart
             // 
-            // timerStart
-            // 
             this.timerStart.Interval = 1000;
             this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
             // 
@@ -384,13 +382,14 @@
             // 
             this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(983, 17);
+            this.pictureEdit1.Location = new System.Drawing.Point(978, 17);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.ZoomPercent = 150D;
             this.pictureEdit1.Size = new System.Drawing.Size(72, 83);
             this.pictureEdit1.TabIndex = 2;
             this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);

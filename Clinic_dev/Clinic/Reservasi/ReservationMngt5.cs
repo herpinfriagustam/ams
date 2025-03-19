@@ -3349,6 +3349,17 @@ namespace Clinic
 
                 SQL = SQL + Environment.NewLine + "   AND UPPER(TREAT_ITEM_NAME) NOT LIKE '%VISIT DOKTER%' ";
                 SQL = SQL + Environment.NewLine + "   and F_STATUS = 'U' ";
+                if (!s_policd.ToString().Equals("POL0007"))
+                {
+                    SQL = SQL + Environment.NewLine + " UNION ALL ";
+                    SQL = SQL + Environment.NewLine + "select treat_item_id, initcap(treat_item_name)  ||case when MAP_TYPE ='Y' then ' [MAP]' else '' end  treat_item_name ";
+                    SQL = SQL + Environment.NewLine + "  from KLINIK.cs_treatment_item ";
+                    SQL = SQL + Environment.NewLine + " where 1=1 ";
+                    SQL = SQL + Environment.NewLine + "   and treat_type_id = 'TRT01'   ";
+                    SQL = SQL + Environment.NewLine + "   AND treat_group_id = 'TRG08' and USED_BY = 'NUR'  ";
+                    SQL = SQL + Environment.NewLine + "   AND UPPER(TREAT_ITEM_NAME) NOT LIKE '%VISIT DOKTER%' ";
+                    SQL = SQL + Environment.NewLine + "   and F_STATUS = 'U' ";
+                } 
                 SQL = SQL + Environment.NewLine + " order by 2 ";
 
                 OleDbConnection oraConnU = ConnOra.Create_Connect_Ora();

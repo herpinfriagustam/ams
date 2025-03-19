@@ -142,11 +142,18 @@
     <Compile Include="Bpjsws\BpjswsTool.designer.cs">
       <DependentUpon>BpjswsTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bpjsws\InterfacePCare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bpjsws\InterfacePCare.Designer.cs">
+      <DependentUpon>InterfacePCare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Bpjsws\Bpjsws.cs" />
     <Compile Include="Class\Bpjsws\BpjswsAntrol.cs" />
     <Compile Include="Class\Bpjsws\BpjswsPcare.cs" />
     <Compile Include="Class\Bpjsws\BpjswsRequestBase.cs" />
     <Compile Include="Class\Bpjsws\BpjswsResponse.cs" />
+    <Compile Include="Class\Bpjsws\BpjswsResponseBase.cs" />
     <Compile Include="Class\Bpjsws\BpjswsResponseList.cs" />
     <Compile Include="Class\Bpjsws\ModelAntrian.cs" />
     <Compile Include="Class\Bpjsws\ModelDiagnosa.cs" />
@@ -1154,6 +1161,9 @@
     </Compile>
     <EmbeddedResource Include="Bpjsws\BpjswsTool.resx">
       <DependentUpon>BpjswsTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bpjsws\InterfacePCare.resx">
+      <DependentUpon>InterfacePCare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu\Reservation.resx">
       <DependentUpon>Reservation.cs</DependentUpon>

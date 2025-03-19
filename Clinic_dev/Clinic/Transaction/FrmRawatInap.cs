@@ -786,7 +786,7 @@ namespace Clinic
                               FROM CS_ANAMNESA A, CS_PATIENT B, CS_PATIENT_INFO C, CS_VISIT D, CS_TREATMENT_HEAD E, KLINIK.cs_inpatient F
                               WHERE A.ID_VISIT = D.ID_VISIT AND D.inpatient_id=f.inpatient_id
                                 and d.ID_VISIT = E.ID_VISIT
-                                AND D.STATUS not in ('CLS','CAN') 
+                                AND D.STATUS not in ('CLS','CAN') AND e.pay_status not in ('CLS','CAN')  
                                 AND B.PATIENT_NO = D.PATIENT_NO and anamnesa is not null
                                 AND B.PATIENT_NO = C.PATIENT_NO AND d.POLI_CD ='POL0004' and d.plan = 'TRT02' and d.purpose ='DOC' order by  to_char(A.INSP_DATE,'yyyy-MM-dd') desc, initcap(C.NAME) ";
 

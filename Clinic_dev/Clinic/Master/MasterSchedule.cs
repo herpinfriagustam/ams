@@ -110,18 +110,17 @@ namespace Clinic
         {
             string Sql ="" ;
 
-            Sql = "";
+            Sql = " ";
             Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, d.POLI_CD, b.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
-            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
+            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER PNIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
             Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
-            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER ";
+            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.ID_DOKTER ";
             Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
             Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.Text.TrimEnd()  + "','yyyy-MM-dd'))   ";
             Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
-             
-            //loading.ShowWaitForm();
+              
             try
             {
                 OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
@@ -132,8 +131,7 @@ namespace Clinic
                 gridControl1.DataSource = null;
                 gridView1.Columns.Clear();
                 gridControl1.DataSource = dt;
-
-                //gridView1.OptionsBehavior.EditingMode = GridEditingMode.EditFormInplace;
+                 
                 gridView1.OptionsView.ColumnAutoWidth = false;
                 gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
                 gridView1.Appearance.HeaderPanel.FontSizeDelta = 0;
@@ -158,9 +156,7 @@ namespace Clinic
                 gridView1.Columns[15].Caption = "LIMIT";
                 gridView1.Columns[16].Caption = "Tgl Register";
                 gridView1.Columns[17].Caption = "Register By";
-                gridView1.Columns[18].Caption = "Status"; 
-
-                //gridView1.Columns[8].VisibleIndex = 5;
+                gridView1.Columns[18].Caption = "Status";  
 
                 ConnOra.LookUpGridFilter(listPoli, gridView1, "poliCode", "poliName", LokPoli, 5);
                 ConnOra.LookUpGridFilter(listDokter, gridView1, "ID_Dokter", "Nama_Dokter", LokDokter, 6);
@@ -178,20 +174,7 @@ namespace Clinic
                 rpjam.Mask.EditMask = "90:00";
                 rpjam.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
                 gridView1.Columns[3].ColumnEdit = rpjam;
-                gridView1.Columns[4].ColumnEdit = rpjam; 
-
-
-                ////RepositoryItemGridLookUpEdit glRole = new RepositoryItemGridLookUpEdit();
-                //glRole.DataSource = listBagian;
-                //glRole.ValueMember = "statCode";
-                //glRole.DisplayMember = "statName";
-
-                //glRole.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-                //glRole.AutoSearchColumnIndex = 1;
-                //glRole.ImmediatePopup = true;
-                //glRole.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-                //glRole.NullText = "";
-                //gridView1.Columns[4].ColumnEdit = glRole;
+                gridView1.Columns[4].ColumnEdit = rpjam;  
 
                 glStatus.DataSource = userStatus;
                 glStatus.ValueMember = "flagCode";
@@ -214,6 +197,94 @@ namespace Clinic
                 gridView1.Columns[8].OptionsColumn.ReadOnly = true; 
                 gridView1.Columns[9].OptionsColumn.ReadOnly = false;  
                 gridView1.BestFitColumns();
+                //loading.CloseWaitForm();
+            }
+            catch (Exception ex)
+            {
+                //loading.CloseWaitForm();
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+        }
+
+        private void loadPoli()
+        { 
+            string SQL = " ";
+            SQL = SQL + Environment.NewLine + "select DISTINCT A.POLI_CD, A.POLI_NAME, '['||A.BPJS_KODE_POLI||']'||A.BPJS_NAMA_POLI BPJS_POLI, B.FLIMIT, DECODE(A.STATUS,'A','AKTIF','NONE AKTIF') STATUS ";
+            SQL = SQL + Environment.NewLine + "  from  CS_POLICLINIC a,  KLINIK.CS_DOKTER_SCH  b ";
+            SQL = SQL + Environment.NewLine + " where 1=1 ";
+            SQL = SQL + Environment.NewLine + "   AND trunc(TGL_JADWAL) = trunc(sysdate)   ";
+            SQL = SQL + Environment.NewLine + "   AND BPJS_KODE_POLI = B.POLI_CD "; 
+
+            try
+            {
+                OleDbConnection sqlConnect = ConnOra.Create_Connect_Ora();
+                OleDbDataAdapter adSql = new OleDbDataAdapter(SQL, sqlConnect);
+                DataTable dt = new DataTable();
+                adSql.Fill(dt);
+
+                gridControl2.DataSource = null;
+                gridView2.Columns.Clear();
+                gridControl2.DataSource = dt;
+
+                gridView2.OptionsView.ColumnAutoWidth = false;
+                gridView2.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
+                gridView2.Appearance.HeaderPanel.FontSizeDelta = 0;
+                gridView2.IndicatorWidth = 40;
+                //gridView2.OptionsBehavior.Editable = true;
+
+                gridView2.Columns[0].Caption = "ID POLI";
+                gridView2.Columns[1].Caption = "NAMA POLI";
+                gridView2.Columns[2].Caption = "BPJS POLI";
+                gridView2.Columns[3].Caption = "LIMIT";
+                gridView2.Columns[4].Caption = "STATUS";
+
+                gridView2.Columns[0].Width =80;
+                gridView2.Columns[1].Width = 150;
+                gridView2.Columns[2].Width = 170;
+                gridView2.Columns[3].Width = 60;
+                gridView2.Columns[4].Width = 70;
+
+                //gridView2.BestFitColumns();
+
+                //ConnOra.LookUpGridFilter(listPoli, gridView1, "poliCode", "poliName", LokPoli, 5);
+                //ConnOra.LookUpGridFilter(listDokter, gridView1, "ID_Dokter", "Nama_Dokter", LokDokter, 6);
+                //ConnOra.LookUpGridFilter(listDokter, gridView1, "ID_Dokter", "Nama_Dokter", LokDokter, 10);
+
+                //RepositoryItemDateEdit rptanggal = new RepositoryItemDateEdit();
+                //rptanggal.DisplayFormat.FormatString = "yyyy-MM-dd";
+                //rptanggal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                //rptanggal.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+                //rptanggal.Mask.EditMask = "yyyy-MM-dd";
+                //rptanggal.Mask.UseMaskAsDisplayFormat = true;
+                //gridView1.Columns[2].ColumnEdit = rptanggal;
+
+                //RepositoryItemTextEdit rpjam = new RepositoryItemTextEdit();
+                //rpjam.Mask.EditMask = "90:00";
+                //rpjam.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+                //gridView1.Columns[3].ColumnEdit = rpjam;
+                //gridView1.Columns[4].ColumnEdit = rpjam;
+
+                //glStatus.DataSource = userStatus;
+                //glStatus.ValueMember = "flagCode";
+                //glStatus.DisplayMember = "flagName";
+
+                //glStatus.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+                //glStatus.AutoSearchColumnIndex = 1;
+                //glStatus.ImmediatePopup = true;
+                //glStatus.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+                //glStatus.NullText = "";
+                //gridView1.Columns[18].ColumnEdit = glStatus;
+
+                //gridView1.Columns[0].Visible = false;
+                //gridView1.Columns[1].Visible = false;
+                //gridView1.Columns[11].Visible = false;
+                //gridView1.Columns[12].Visible = false;
+                //gridView1.Columns[13].Visible = false;
+                //gridView1.Columns[1].OptionsColumn.ReadOnly = true;
+                //gridView1.Columns[7].OptionsColumn.ReadOnly = true;
+                //gridView1.Columns[8].OptionsColumn.ReadOnly = true;
+                //gridView1.Columns[9].OptionsColumn.ReadOnly = false;
+
                 //loading.CloseWaitForm();
             }
             catch (Exception ex)
@@ -463,14 +534,14 @@ namespace Clinic
                             {
                                 trans = conn.BeginTransaction(IsolationLevel.ReadCommitted);
 
-                                string sql2 = " delete KLINIK.CS_DOKTER_SCH where ID_DOKTER = '" + response["kodedokter"] + "' and trunc(TGL_JADWAL) = trunc(sysdate)  ";
+                                string sql2 = " delete KLINIK.CS_DOKTER_SCH where ID_DOKTER_BPJS = '" + response["kodedokter"] + "' and  trunc(TGL_JADWAL) = trunc(to_date( '" + today + "','yyyy-MM-dd'))   ";
                                 ORADB.Execute(ORADB.XE, sql2);
-
+                                Console.WriteLine($"Delete sukses.");
 
                                 string query = @" INSERT INTO CS_DOKTER_SCH (TGL_JADWAL, JAM_AWAL, JAM_AKHIR,ID_DOKTER, POLI_CD,  
-                                                                    F_AKTIF, FLIMIT, INS_DATE, INS_EMP )
-                                            VALUES (TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?, ?, 
-                                                    ?, ?, sysdate, 'ANTROL BPJS')";
+                                                                    F_AKTIF, FLIMIT, INS_DATE, INS_EMP, ID_DOKTER_BPJS)
+                                            VALUES (TO_DATE(?, 'YYYY-MM-DD'), ?, ?, GET_ID_DOKTER(?), ?, 
+                                                    ?, ?, sysdate, 'ANTROL BPJS', ?)";
 
                                 using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
                                 {
@@ -481,12 +552,12 @@ namespace Clinic
                                     cmd.Parameters.AddWithValue("?", (string)dt_poli.Rows[i]["BPJS_KODE_POLI"].ToString());
                                     cmd.Parameters.AddWithValue("?", (string)"A");
                                     cmd.Parameters.AddWithValue("?", (string)response["kapasitas"]);
+                                    cmd.Parameters.AddWithValue("?", (string)response["kodedokter"]);
 
                                     int rowsAffected = cmd.ExecuteNonQuery();
                                     Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
                                 }
-                                trans.Commit();
-
+                                trans.Commit(); 
                             }
                             catch (Exception ex)
                             {
@@ -516,8 +587,50 @@ namespace Clinic
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            today = dDateBgn.Text.TrimEnd();
             RunAsyncScheduleBPJS();
         }
-         
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            loadPoli();
+        }
+
+        private void gridView2_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            if (gridView2.RowCount > 0)
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog
+                {
+                    Filter = "XLS (*.xls)|*.xlsx",
+                    FileName = "user.xls",
+                    RestoreDirectory = true,
+                    CheckFileExists = false,
+                    CheckPathExists = true,
+                    OverwritePrompt = true,
+                    DereferenceLinks = true,
+                    ValidateNames = true,
+                    AddExtension = false,
+                    FilterIndex = 1
+                };
+                saveDialog.InitialDirectory = "C:\\";
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    gridControl2.ExportToXls(saveDialog.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data tidak ditemukan");
+            }
+        }
     } 
 }
