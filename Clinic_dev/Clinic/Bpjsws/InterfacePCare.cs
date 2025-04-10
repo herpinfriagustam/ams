@@ -99,17 +99,38 @@ namespace Clinic.Bpjsws
         {
             string Sql ="" ;
 
-            Sql = "";
-            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, d.POLI_CD, b.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
-            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
-            Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
-            Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
-            Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
-            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER ";
-            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
-            Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.Text.TrimEnd()  + "','yyyy-MM-dd'))   ";
-            Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
-             
+            //Sql = "";
+            //Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, d.POLI_CD, b.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
+            //Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
+            //Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
+            //Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
+            //Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
+            //Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.BPJS_ID_DOKTER ";
+            //Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
+            //Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.Text.TrimEnd()  + "','yyyy-MM-dd'))   ";
+            //Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
+
+            string SQL = "";
+            SQL = SQL + Environment.NewLine + "select distinct '0129B010' kd_provider, to_char(visit_date,'dd-mm-yyyy') tanggal, c.RM_NO, b.name, b.insu_no,  ";
+            SQL = SQL + Environment.NewLine + "       NID NIK, decode(GENDER,'L','Laki-Laki','Perempuan') GENDER, PHONE, P_AGE usia,  ADDRESS,   ";
+            SQL = SQL + Environment.NewLine + "       decode(type_patient,'B','BPJS','A','ASURANSI','UMUM') type_patient,  ";
+            SQL = SQL + Environment.NewLine + "       DECODE(purpose,'DOC','Dokter','MID','Bidan','Lain-Lain') purpose,  ";
+            SQL = SQL + Environment.NewLine + "       BPJS_KODE_POLI POLI_CD, POLI_NAME  POLI_NAME, d.ANAMNESA,   ";
+            SQL = SQL + Environment.NewLine + "       substr(blood_press,0, (instr(blood_press,'/')-1))sistole,substr(blood_press,(instr(blood_press,'/')+1),  length(blood_press)-(instr(blood_press,'/')))diastole, ";
+            SQL = SQL + Environment.NewLine + "       d.bb, d.tb,d.vitalrr respRate, d.LING_PERUT lkperut, d.PULSE heartRate, 0 rujuk, 10 kdtkp, a.ID_VISIT, a.QUE01 ANTRIAN_NO  ";
+            SQL = SQL + Environment.NewLine + "from KLINIK.cs_visit a     ";
+            SQL = SQL + Environment.NewLine + "join KLINIK.cs_patient_info b on (a.PATIENT_NO=b.PATIENT_NO)     ";
+            SQL = SQL + Environment.NewLine + "join KLINIK.cs_patient c on (b.PATIENT_NO=c.PATIENT_NO)   ";
+            SQL = SQL + Environment.NewLine + "left join KLINIK.cs_anamnesa d on (c.rm_no=d.rm_no and a.ID_VISIT=d.ID_VISIT )   ";
+            SQL = SQL + Environment.NewLine + "left join KLINIK.cs_diagnosa e on (d.ANAMNESA_ID=e.ANAMNESA_ID  ) left join KLINIK.cs_anamnesa_dtl j on (d.ANAMNESA_ID=j.ANAMNESA_ID)   ";
+            SQL = SQL + Environment.NewLine + "left join KLINIK.CS_DIAGNOSA_ITEM f on (f.ITEM_CD=e.ITEM_CD )   ";
+            SQL = SQL + Environment.NewLine + "left join KLINIK.cs_user g on (e.INS_EMP=g.USER_ID and g.STATUS ='A')    ";
+            SQL = SQL + Environment.NewLine + "JOIN KLINIK.CS_CODE_DATA H ON (H.CODE_ID = A.STATUS AND H.CODE_CLASS_ID = 'ST_PASIEN')  ";
+            SQL = SQL + Environment.NewLine + "join KLINIK.CS_POLICLINIC i on(i.POLI_CD = a.POLI_CD)   ";
+            SQL = SQL + Environment.NewLine + "where 1=1  AND A.PLAN ='TRT01' and  ";
+            SQL = SQL + Environment.NewLine + "and trunc(visit_date) between to_date('" + dDateBgn.Text.TrimEnd() + "','yyyy-mm-dd') and to_date('2025-03-19','yyyy-mm-dd')   ";
+            SQL = SQL + Environment.NewLine + "order by 1,2,6,5  ";
+
             //loading.ShowWaitForm();
             try
             {

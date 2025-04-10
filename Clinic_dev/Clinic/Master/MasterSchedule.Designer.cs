@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterSchedule));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -35,6 +36,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lInfo = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dDateBgn = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -51,6 +53,8 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.timerStart = new System.Windows.Forms.Timer(this.components);
+            this.timerEnd = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -113,6 +117,10 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
@@ -120,9 +128,13 @@
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lInfo);
             this.panel1.Controls.Add(this.simpleButton1);
             this.panel1.Controls.Add(this.dDateBgn);
             this.panel1.Controls.Add(this.labelControl3);
@@ -138,6 +150,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(933, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // lInfo
+            // 
+            this.lInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 32F, System.Drawing.FontStyle.Bold);
+            this.lInfo.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lInfo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lInfo.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lInfo.Location = new System.Drawing.Point(338, 9);
+            this.lInfo.Name = "lInfo";
+            this.lInfo.Size = new System.Drawing.Size(286, 51);
+            this.lInfo.TabIndex = 111;
             // 
             // simpleButton1
             // 
@@ -308,6 +334,16 @@
             this.labelControl4.TabIndex = 7;
             this.labelControl4.Text = "List Data Jadwal Policlinic";
             // 
+            // timerStart
+            // 
+            this.timerStart.Interval = 1000;
+            this.timerStart.Tick += new System.EventHandler(this.timerStart_Tick);
+            // 
+            // timerEnd
+            // 
+            this.timerEnd.Interval = 1000;
+            this.timerEnd.Tick += new System.EventHandler(this.timerEnd_Tick);
+            // 
             // MasterSchedule
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -362,5 +398,8 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.Timer timerStart;
+        private System.Windows.Forms.Timer timerEnd;
+        private DevExpress.XtraEditors.LabelControl lInfo;
     }
 }

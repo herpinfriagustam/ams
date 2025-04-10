@@ -29,7 +29,7 @@ namespace Clinic.Class.Bpjsws
         public const string AUTHORIZATION = "Basic c2FudG9zYV9zYmdTYW50b3NhITAwMQ==";
 
         //public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpmY0k2NmNnZDJ0Xyk2andBX1RKUzowOTU=";
-        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpMOkN1XzM0cGpwUDowOTU=";
+        public const string AUTHORIZATION_PCARE = "Basic c2FudG9zYTpuQnpWZ2VqLUgzSzowOTU=";
 
         public const string BASE_URL = "https://apijkn-dev.bpjs-kesehatan.go.id";
 

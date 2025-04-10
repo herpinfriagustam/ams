@@ -20,6 +20,7 @@ namespace Clinic
     public partial class MasterSchedule : DevExpress.XtraEditors.XtraForm
     {
         ConnectDb ConnOra = new ConnectDb();
+        private LabelControl _currentLabel;
         List<FlagYn> userStatus = new List<FlagYn>();
         List<Stat> listBagian = new List<Stat>();
         List<Poli> listPoli = new List<Poli>(); List<Dokter> listDokter = new List<Dokter>();
@@ -28,8 +29,9 @@ namespace Clinic
         RepositoryItemLookUpEdit glStatus = new RepositoryItemLookUpEdit();
 
         RepositoryItemGridLookUpEdit LokPoli = new RepositoryItemGridLookUpEdit();
-        RepositoryItemGridLookUpEdit LokDokter = new RepositoryItemGridLookUpEdit(); 
-
+        RepositoryItemGridLookUpEdit LokDokter = new RepositoryItemGridLookUpEdit();
+        int lsOK = 0;
+        bool bl_klap = true;
         public string   v_name = "";
         string kate_cd = "";
         string today = DateTime.Now.ToString("yyyy-MM-dd");
@@ -54,7 +56,7 @@ namespace Clinic
             initData();
             loadData();
             ConnOra.InsertHistoryAkses(DB.vUserId, ConnOra.my_IP, "MasterSchedule");
-            
+            _currentLabel = lInfo;
         }
 
         private void initData()
@@ -63,8 +65,8 @@ namespace Clinic
 
             userStatus.Clear();
             userStatus.Add(new FlagYn() { flagCode = "", flagName = "" });
-            userStatus.Add(new FlagYn() { flagCode = "A", flagName = "Aktif" });
-            userStatus.Add(new FlagYn() { flagCode = "I", flagName = "Tidak Aktif" });
+            userStatus.Add(new FlagYn() { flagCode = "Y", flagName = "Aktif" });
+            userStatus.Add(new FlagYn() { flagCode = "N", flagName = "Tidak Aktif" });
 
             //string sql_bag  = " select CODE_ID, CODE_NAME from CS_CODE_DATA where status = 'A' and CODE_CLASS_ID ='DOC_BAGIAN' ";
             //OleDbConnection sqlConnect2 = ConnOra.Create_Connect_Ora();
@@ -77,7 +79,7 @@ namespace Clinic
             //    listBagian.Add(new Stat() { statCode = dt2.Rows[i]["CODE_ID"].ToString(), statName = dt2.Rows[i]["CODE_NAME"].ToString() }); 
             //}
 
-            string sql_poli = " select POLI_CD, POLI_NAME from CS_POLICLINIC where STATUS = 'A'   ";
+            string sql_poli = " select POLI_CD, POLI_NAME from CS_POLICLINIC where STATUS = 'A' and POLI_CD not in ('POL0000','POL0004','POL0007','POL0008','POL0009')  ";
             OleDbConnection sqlCon1 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql1 = new OleDbDataAdapter(sql_poli, sqlCon1);
             DataTable dt1 = new DataTable();
@@ -88,7 +90,7 @@ namespace Clinic
                 listPoli.Add(new Poli() { poliCode = dt1.Rows[i]["POLI_CD"].ToString(), poliName = dt1.Rows[i]["POLI_NAME"].ToString() });
             }
 
-            string sql_dokter = " select ID_DOKTER, NM_DOKTER from CS_DOKTER where F_AKTIF = 'Y'   ";
+            string sql_dokter = " select ID_DOKTER, NM_DOKTER from CS_DOKTER where F_AKTIF = 'A' and ID_DOKTER not in(99)  ";
             OleDbConnection sqlCon2 = ConnOra.Create_Connect_Ora();
             OleDbDataAdapter adSql2 = new OleDbDataAdapter(sql_dokter, sqlCon2);
             DataTable dt2 = new DataTable();
@@ -111,13 +113,13 @@ namespace Clinic
             string Sql ="" ;
 
             Sql = " ";
-            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, d.POLI_CD, b.ID_DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
-            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER PNIK_DOKTER, a.nremark,  FLIMIT, NVL(a.UPD_DATE,a.INS_DATE) INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
+            Sql = Sql + Environment.NewLine + "select 'S' action, ID_JADWAL, TGL_JADWAL, JAM_AWAL, JAM_AKHIR, a.POLI_CD, b.ID_DOKTER DOKTER, b.NM_DOKTER, b.SPESIALIS, b.NIK_DOKTER, ";
+            Sql = Sql + Environment.NewLine + "       a.ID_PENGGANTI, c.NM_DOKTER PDOKTER, c.SPESIALIS PSPESIALIS, C.NIK_DOKTER PNIK_DOKTER, a.nremark,  FLIMIT, to_char(NVL(a.UPD_DATE,a.INS_DATE),'yyyy-MM-dd HH:mm:ss') INS_DATE, NVL(a.UPD_EMP,a.INS_EMP) INS_EMP, A.F_AKTIF ";
             Sql = Sql + Environment.NewLine + "  from KLINIK.CS_DOKTER_SCH a, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER b, ";
             Sql = Sql + Environment.NewLine + "       KLINIK.CS_DOKTER c, klinik.CS_POLICLINIC d ";
-            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.ID_DOKTER ";
-            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI  ";
+            Sql = Sql + Environment.NewLine + " where a.ID_DOKTER  = b.ID_DOKTER and a.f_aktif ='Y'";
+            Sql = Sql + Environment.NewLine + "   and a.ID_PENGGANTI = c.ID_DOKTER(+) and a.POLI_CD = d.BPJS_KODE_POLI(+)  ";
             Sql = Sql + Environment.NewLine + "   and trunc(TGL_JADWAL) = trunc(to_date( '" + dDateBgn.Text.TrimEnd()  + "','yyyy-MM-dd'))   ";
             Sql = Sql + Environment.NewLine + " order by 3,2,1   ";
               
@@ -144,7 +146,7 @@ namespace Clinic
                 gridView1.Columns[3].Caption = "JAM AWAL";
                 gridView1.Columns[4].Caption = "JAM AKHIR";
                 gridView1.Columns[5].Caption = "POLI";
-                gridView1.Columns[6].Caption = "ID DOKTER";
+                gridView1.Columns[6].Caption = "DOKTER";
                 gridView1.Columns[7].Caption = "NAMA DOKTER";
                 gridView1.Columns[8].Caption = "SPESIALIS";
                 gridView1.Columns[9].Caption = "NIK";
@@ -187,8 +189,12 @@ namespace Clinic
                 glStatus.NullText = "";
                 gridView1.Columns[18].ColumnEdit = glStatus;
 
+                gridView1.Columns[16].DisplayFormat.FormatString = "d";
+                gridView1.Columns[16].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+
                 gridView1.Columns[0].Visible = false;
                 gridView1.Columns[1].Visible = false;
+                gridView1.Columns[7].Visible = false;
                 gridView1.Columns[11].Visible = false;
                 gridView1.Columns[12].Visible = false;
                 gridView1.Columns[13].Visible = false;
@@ -213,7 +219,7 @@ namespace Clinic
             SQL = SQL + Environment.NewLine + "  from  CS_POLICLINIC a,  KLINIK.CS_DOKTER_SCH  b ";
             SQL = SQL + Environment.NewLine + " where 1=1 ";
             SQL = SQL + Environment.NewLine + "   AND trunc(TGL_JADWAL) = trunc(sysdate)   ";
-            SQL = SQL + Environment.NewLine + "   AND BPJS_KODE_POLI = B.POLI_CD "; 
+            SQL = SQL + Environment.NewLine + "   AND a.POLI_CD = B.POLI_CD "; 
 
             try
             {
@@ -308,90 +314,121 @@ namespace Clinic
             GridView view = sender as GridView;
 
             view.SetRowCellValue(e.RowHandle, view.Columns[0], "I");
-            view.SetRowCellValue(e.RowHandle, view.Columns[7], "Y");
+            view.SetRowCellValue(e.RowHandle, view.Columns[18], "Y");
         }
 
         private void btnSaveDosis_Click(object sender, EventArgs e)
         {
-            string sql_insert = "", sql_update = "", sql_cnt = "", p_spesial = "", p_nama = "", p_nik ="";
-            string p_bagian = "", p_pass = "", p_id = "", p_status = "", p_action = "";
+            string sql_insert = "", sql_update = "", p_action = "", sql ="";
+            string p_tgl = "", p_awal = "", p_akhir = "", p_poli = "", p_dokter = "", p_pengganti = "", p_remark = "", p_limit = "";
+            int ssimpan = 0;
             
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
                 p_action = gridView1.GetRowCellValue(i, gridView1.Columns[0]).ToString();
-                p_id = gridView1.GetRowCellValue(i, gridView1.Columns[1]).ToString();
-                p_nama = gridView1.GetRowCellValue(i, gridView1.Columns[2]).ToString();
-                p_spesial = gridView1.GetRowCellValue(i, gridView1.Columns[3]).ToString();
-                p_bagian = gridView1.GetRowCellValue(i, gridView1.Columns[4]).ToString();
-                p_status = gridView1.GetRowCellValue(i, gridView1.Columns[7]).ToString();
-                p_nik   = gridView1.GetRowCellValue(i, gridView1.Columns[8]).ToString();
+                p_tgl = gridView1.GetRowCellDisplayText(i, gridView1.Columns[2]).ToString();
+                p_awal = gridView1.GetRowCellValue(i, gridView1.Columns[3]).ToString();
+                p_akhir = gridView1.GetRowCellValue(i, gridView1.Columns[4]).ToString();
+                p_poli = gridView1.GetRowCellValue(i, gridView1.Columns[5]).ToString();
+                p_dokter = gridView1.GetRowCellValue(i, gridView1.Columns[6]).ToString();
+                p_pengganti = gridView1.GetRowCellValue(i, gridView1.Columns[10]).ToString();
+                p_remark = gridView1.GetRowCellValue(i, gridView1.Columns[14]).ToString();
+                p_limit = gridView1.GetRowCellValue(i, gridView1.Columns[15]).ToString(); 
 
-                if (p_nama == "")
+                if (p_dokter == "")
                 {
                     MessageBox.Show("Nama Dokter harus diisi"); return;
-                } 
-                else if (p_spesial == "")
-                {
-                    MessageBox.Show("Spesialis harus diisi"); return;
                 }
-                else if (p_bagian == "")
+                else if(p_dokter == p_pengganti)
                 {
-                    MessageBox.Show("Bagian harus diisi"); return;
+                    MessageBox.Show("Dokter Pengganti Tidak Boleh Sama."); return;
                 }
-                //else if (p_nik == "")
-                //{
-                //    MessageBox.Show("NIK harus diisi"); return;
-                //}
+                else if (p_limit == "")
+                {
+                    MessageBox.Show("Limit harus diisi"); return;
+                }
+                else if (p_poli == "")
+                {
+                    MessageBox.Show("Poli harus ditentukan"); return;
+                }
+                else if (p_tgl == "")
+                {
+                    MessageBox.Show("Tanggal harus diisi"); return;
+                }
+                else if (p_awal == "" || p_akhir =="")
+                {
+                    MessageBox.Show("Jam Awal dan Akhir harus diisi"); return;
+                }
                 else
                 {
-                    if (p_action == "I")
-                    {
-                        sql_insert = "";  
-                        sql_insert = sql_insert + " insert into KLINIK.CS_DOKTER (ID_DOKTER, NM_DOKTER, SPESIALIS, BAGIAN, F_AKTIF, INS_DATE, INS_EMP, NIK_DOKTER) values ";
-                        sql_insert = sql_insert + " (KLINIK.CS_DOKTER_SEQ.nextval , '" + p_nama + "', '" + p_spesial + "',  '" + p_bagian + "', 'Y', sysdate, '" + DB.vUserId + "', '" + p_nik + "') ";
+                    sql = "";
+                    sql = "SELECT ID_DOKTER FROM KLINIK.CS_DOKTER_SCH where ID_DOKTER = '" + p_dokter + "' AND TRUNC(TGL_JADWAL) = TO_DATE('" + p_tgl + "','YYYY-MM-DD') and  F_AKTIF = 'Y'  ";
+                    DataTable dt_dokterp = ConnOra.Data_Table_ora(sql);
 
-                        try
+                    if(dt_dokterp.Rows.Count > 0)
+                    {
+                        if (p_action == "U")
                         {
-                            OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
-                            OleDbCommand cm = new OleDbCommand(sql_insert, oraConnect);
-                            oraConnect.Open();
-                            cm.ExecuteNonQuery();
-                            oraConnect.Close();
-                            cm.Dispose();
-                             
-                            MessageBox.Show("Data Dokter Berhasil ditambah");
+                            sql_update = "";
+                            sql_update = sql_update + " update KLINIK.CS_DOKTER_SCH  set  TGL_JADWAL = TO_DATE('" + p_tgl + "','YYYY-MM-DD'), JAM_AWAL = '" + p_awal + "' , JAM_AKHIR = '" + p_akhir + "', ID_PENGGANTI = '" + p_pengganti + "', NREMARK = '" + p_remark + "',FLIMIT = '" + p_limit + "', POLI_CD =  '" + p_poli + "', ";
+                            sql_update = sql_update + "        UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "', F_AKTIF = 'Y'  ";
+                            sql_update = sql_update + "  where ID_DOKTER = '" + p_dokter + "' AND TRUNC(TGL_JADWAL) = TO_DATE('" + p_tgl + "','YYYY-MM-DD')";
+
+                            try
+                            {
+                                OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
+                                OleDbCommand cm2 = new OleDbCommand(sql_update, oraConnect2);
+                                oraConnect2.Open();
+                                cm2.ExecuteNonQuery();
+                                oraConnect2.Close();
+                                cm2.Dispose();
+
+                                ssimpan = 1;
+                                
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
                         }
-                        catch (Exception ex)
+                        else if (p_action == "I")
                         {
-                            MessageBox.Show("ERROR: " + ex.Message);
+                            MessageBox.Show("Dokter sudah ada Schedule. Schedule tidak dapat di proses..!!!");
+                            return;
                         }
                     }
-                    else if (p_action == "U")
+                    else
                     {
-                        sql_update = "";
-
-                        sql_update = sql_update + " update KLINIK.CS_DOKTER  set  NM_DOKTER = '" + p_nama + "', SPESIALIS = '" + p_spesial + "' , BAGIAN = '" + p_bagian + "', NIK_DOKTER = '" + p_nik + "', ";
-                        sql_update = sql_update + " UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "', F_AKTIF = '" + p_status + "'  ";
-                        sql_update = sql_update + " where ID_DOKTER = '" + p_id + "' ";
-
-                        try
+                        if (p_action == "I")
                         {
-                            OleDbConnection oraConnect2 = ConnOra.Create_Connect_Ora();
-                            OleDbCommand cm2 = new OleDbCommand(sql_update, oraConnect2);
-                            oraConnect2.Open();
-                            cm2.ExecuteNonQuery();
-                            oraConnect2.Close();
-                            cm2.Dispose();
-                             
-                            MessageBox.Show("Data Dokter Berhasil dirubah");
+                            sql_insert = "";
+                            sql_insert = sql_insert + " insert into KLINIK.CS_DOKTER_SCH (TGL_JADWAL,JAM_AWAL,JAM_AKHIR,ID_DOKTER, ID_PENGGANTI, NREMARK, INS_DATE, INS_EMP, FLIMIT, POLI_CD, ID_DOKTER_BPJS ) values ";
+                            sql_insert = sql_insert + " ( TO_DATE('" + p_tgl + "','YYYY-MM-DD'), '" + p_awal + "',  '" + p_akhir + "', '" + p_dokter + "','" + p_pengganti + "','" + p_remark + "', sysdate, '" + DB.vUserId + "', '" + p_limit + "', '" + p_poli + "', GET_ID_DOKTER('" + p_dokter + "') ) ";
+
+                            try
+                            {
+                                OleDbConnection oraConnect = ConnOra.Create_Connect_Ora();
+                                OleDbCommand cm = new OleDbCommand(sql_insert, oraConnect);
+                                oraConnect.Open();
+                                cm.ExecuteNonQuery();
+                                oraConnect.Close();
+                                cm.Dispose();
+                                ssimpan = 2;
+                               
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR: " + ex.Message);
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("ERROR: " + ex.Message);
-                        }
-                    }
+                    } 
                 }
             }
+            if(ssimpan ==1)
+                MessageBox.Show("Schedule Dokter Berhasil di ubah");
+            else if (ssimpan == 2)
+                MessageBox.Show("Schedule Dokter Berhasil Dibuat");
+
             loadData();
         } 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -399,7 +436,7 @@ namespace Clinic
             btnSaveUser.Enabled = true;
             GridView view = sender as GridView;
  
-            if (e.Column.Caption == "Nama Dokter" || e.Column.Caption == "SPESIALIS" || e.Column.Caption == "BAGIAN" || e.Column.Caption == "NIK" || e.Column.Caption == "Status")
+            if (e.Column.Caption == "TGL JADWAL" || e.Column.Caption == "POLI" || e.Column.Caption == "DOKTER" || e.Column.Caption == "JAM AWAL" || e.Column.Caption == "JAM AKHIR" || e.Column.Caption == "LIMIT" || e.Column.Caption == "DOKTER PENGGANTI" || e.Column.Caption == "NREMARK")
             {
                 string tmp_stat = view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString();
                 if (tmp_stat == "I")
@@ -417,7 +454,7 @@ namespace Clinic
         {
             GridView View = sender as GridView;
 
-            if (e.Column.Caption == "Nama Dokter" || e.Column.Caption == "SPESIALIS" || e.Column.Caption == "BAGIAN" || e.Column.Caption == "Status" || e.Column.Caption == "NIK")
+            if (e.Column.Caption == "TGL JADWAL"  || e.Column.Caption == "POLI" || e.Column.Caption == "DOKTER" || e.Column.Caption == "JAM AWAL" || e.Column.Caption == "JAM AKHIR" || e.Column.Caption == "LIMIT" || e.Column.Caption == "DOKTER PENGGANTI" || e.Column.Caption == "NREMARK")
             {
                 e.Appearance.BackColor = Color.OldLace;
                 e.Appearance.ForeColor = Color.Black;
@@ -435,14 +472,14 @@ namespace Clinic
             }
             else
             {
-                string sql_delete = "", id = "";
+                string sql_delete = "", id = "", p_tgl ="";
 
-                id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[1]).ToString();
+                id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
+                p_tgl  = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[2]).ToString();
 
-                sql_delete = "";
-
-                sql_delete = sql_delete + " update CS_DOKTER set F_AKTIF = 'N', UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "' ";
-                sql_delete = sql_delete + " where ID_DOKTER = '" + id + "' ";
+                sql_delete = ""; 
+                sql_delete = sql_delete + " update CS_DOKTER_SCH set F_AKTIF = 'N', UPD_DATE = sysdate, UPD_EMP = '" + DB.vUserId + "' ";
+                sql_delete = sql_delete + " where ID_DOKTER = '" + id + "' AND TRUNC(TGL_JADWAL) = TO_DATE('" + p_tgl + "','YYYY-MM-DD') ";
 
                 try
                 {
@@ -495,7 +532,7 @@ namespace Clinic
 
         public void RunAsyncScheduleBPJS()
         {
-            BpjswsResponse resp; int nextna = 0; 
+            BpjswsResponse resp; int nextna = 0, sstatus = 0; string terror = "";
 
             Task.Run(() =>
             {
@@ -510,7 +547,7 @@ namespace Clinic
                         command.Connection = conn;
                         conn.Open();
 
-                        string sql = "SELECT BPJS_KODE_POLI, BPJS_NAMA_POLI FROM CS_POLICLINIC where BPJS_KODE_POLI is not null ";
+                        string sql = "SELECT BPJS_KODE_POLI, BPJS_NAMA_POLI, POLI_CD  FROM CS_POLICLINIC where BPJS_KODE_POLI is not null ";
                         DataTable dt_poli = ConnOra.Data_Table_ora(sql);
 
                         for (int i = 0; i < dt_poli.Rows.Count; i++)
@@ -521,6 +558,8 @@ namespace Clinic
                             {
                                 //MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 Console.WriteLine($"Data Tidak ada.");
+                                sstatus = 2;
+                                terror = "Synchronizing GAGAL..!!!";
                                 //conn.Close();
                                 goto nextn ;
                             }
@@ -540,7 +579,7 @@ namespace Clinic
 
                                 string query = @" INSERT INTO CS_DOKTER_SCH (TGL_JADWAL, JAM_AWAL, JAM_AKHIR,ID_DOKTER, POLI_CD,  
                                                                     F_AKTIF, FLIMIT, INS_DATE, INS_EMP, ID_DOKTER_BPJS)
-                                            VALUES (TO_DATE(?, 'YYYY-MM-DD'), ?, ?, GET_ID_DOKTER(?), ?, 
+                                            VALUES (TO_DATE(?, 'YYYY-MM-DD'), ?, ?, GET_ID_DOKTER(?), GET_POLI_DOKTER(?), 
                                                     ?, ?, sysdate, 'ANTROL BPJS', ?)";
 
                                 using (OleDbCommand cmd = new OleDbCommand(query, conn, trans))
@@ -549,19 +588,22 @@ namespace Clinic
                                     cmd.Parameters.AddWithValue("?", (string)response["jampraktek"].ToString().Substring(0, 5));
                                     cmd.Parameters.AddWithValue("?", (string)response["jampraktek"].ToString().Substring(6, 5));
                                     cmd.Parameters.AddWithValue("?", (string)response["kodedokter"]);
-                                    cmd.Parameters.AddWithValue("?", (string)dt_poli.Rows[i]["BPJS_KODE_POLI"].ToString());
-                                    cmd.Parameters.AddWithValue("?", (string)"A");
+                                    cmd.Parameters.AddWithValue("?", (string)response["kdPoli"]);
+                                    cmd.Parameters.AddWithValue("?", (string)"Y");
                                     cmd.Parameters.AddWithValue("?", (string)response["kapasitas"]);
                                     cmd.Parameters.AddWithValue("?", (string)response["kodedokter"]);
 
                                     int rowsAffected = cmd.ExecuteNonQuery();
                                     Console.WriteLine($"Insert sukses! {rowsAffected} baris ditambahkan.");
                                 }
-                                trans.Commit(); 
+                                trans.Commit();
+                                sstatus = 1;
+                                terror = "Synchronizing Schedule Dokter Berhasil.";
                             }
                             catch (Exception ex)
                             {
                                 trans.Rollback();
+                                //Blinking2(terror, 0);
                                 Console.WriteLine("Error: " + ex.Message);
                             }
                             nextn:
@@ -572,17 +614,42 @@ namespace Clinic
 
                         //conn.Close();
                         Console.WriteLine("Insert berhasil!");
+
+                        //if (sstatus == 1)
+                        //    Blinking2(terror, 1); 
+                           
                     }
                     catch (Exception ex)
                     {
+                        //Blinking2(terror, 0);
                         Console.WriteLine("Error: " + ex.Message);
                     }
                     finally
                     {
+                        //Blinking2(terror, 0);
                         conn.Close();
                     }
                 }
+                // Update UI setelah proses selesai
+                if (_currentLabel != null && _currentLabel.InvokeRequired)
+                {
+                    _currentLabel.Invoke(new Action(() =>
+                    {
+                        if (sstatus == 1)
+                            Blinking2(terror, 1);
+                        else if (sstatus == 2)
+                            Blinking2(terror, 2);
+                    }));
+                }
+                else
+                {
+                    if (sstatus == 1)
+                        Blinking2(terror, 1);
+                    else if (sstatus == 2)
+                        Blinking2(terror, 2);
+                } 
             });
+             
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -632,5 +699,75 @@ namespace Clinic
                 MessageBox.Show("Data tidak ditemukan");
             }
         }
-    } 
+
+        private void Blinking(LabelControl ctrl, int mbOk)
+        {
+            //lsMSG = Message;
+            lsOK = mbOk;
+            //_currentLabel = ctrl;
+            timerStart.Interval = 150;
+            timerStart.Enabled = true;
+            //timer1.Interval = 2000;
+            //timer1.Enabled = true;
+
+            timerEnd.Enabled = true;
+            timerEnd.Interval = 3000;
+            //timer3.Interval = 4000;
+            //timer3.Enabled = true;
+        }
+        private void Blinking2(string ctrl, int mbOk)
+        {
+            //lsMSG = Message;
+            lsOK = mbOk;
+            _currentLabel.Text  = ctrl;
+            timerStart.Interval = 150;
+            timerStart.Enabled = true;
+            //timer1.Interval = 2000;
+            //timer1.Enabled = true;
+
+            timerEnd.Enabled = true;
+            timerEnd.Interval = 3000;
+            //timer3.Interval = 4000;
+            //timer3.Enabled = true;
+        }
+        private void timerStart_Tick(object sender, EventArgs e)
+        {
+
+            if (lsOK == 2)
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.ForeColor = Color.Red;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    bl_klap = true;
+                    _currentLabel.Visible = false;
+                }
+            }
+            else
+            {
+                if (bl_klap == true)
+                {
+                    _currentLabel.ForeColor = Color.ForestGreen;
+                    _currentLabel.Visible = true;
+                    bl_klap = false;
+                }
+                else
+                {
+                    _currentLabel.Visible = false;
+                    bl_klap = true;
+                }
+            }
+        }
+
+        private void timerEnd_Tick(object sender, EventArgs e)
+        {
+            timerStart.Enabled = false;
+            timerEnd.Enabled = false;
+            _currentLabel.Visible = false;
+        }
+    }
 }

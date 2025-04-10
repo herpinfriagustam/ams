@@ -633,8 +633,8 @@ namespace Clinic
                 SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
                 SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.ID_DOKTER) ";
                 SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
-                SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.BPJS_KODE_POLI) ";
-                SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) ";
+                SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.poli_cd) ";
+                SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) and a.F_AKTIF ='Y' and to_char(sysdate,'HH:MI') between a.JAM_AWAL and a.JAM_AKHIR ";
                 SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "' and b.BPJS_NAMA_DOKTER is not null and rownum =1 ";
 
                 DataDokter = ConnOra.Data_Table_ora(SQL);
@@ -693,8 +693,30 @@ namespace Clinic
                     NNOTE =  resp.Metadata.Message ;
                     //return;
                 } 
-            } 
+            }  
+            else
+            {
+                angkaantrean = Convert.ToInt32(tmp_queue.Substring(1, 3));
+                nomorantrean = tmp_queue.Substring(0, 1) + "-" + angkaantrean;
 
+                string SQL = "";
+                SQL = SQL + Environment.NewLine + "select distinct  nvl(a.ID_PENGGANTI,a.ID_DOKTER) ID_DOKTER , a.JAM_AWAL||'-'||a.JAM_AKHIR jampraktek          ";
+                SQL = SQL + Environment.NewLine + "  from CS_DOKTER_SCH a ";
+                SQL = SQL + Environment.NewLine + "  join CS_DOKTER b on (a.ID_DOKTER = b.ID_DOKTER) ";
+                SQL = SQL + Environment.NewLine + "  left join CS_DOKTER c on (a.ID_PENGGANTI = c.ID_DOKTER) ";
+                SQL = SQL + Environment.NewLine + "  join CS_POLICLINIC d on (a.poli_cd = d.poli_cd) ";
+                SQL = SQL + Environment.NewLine + " where trunc(tgl_jadwal) = trunc(sysdate) and a.F_AKTIF ='Y' and to_char(sysdate,'HH:MI') between a.JAM_AWAL and a.JAM_AKHIR ";
+                SQL = SQL + Environment.NewLine + "   and d.poli_cd = '" + policd + "' and rownum =1 ";
+
+                DataDokter = ConnOra.Data_Table_ora(SQL);
+
+                if (DataDokter.Rows.Count > 0)
+                { 
+                    kodedokter = Convert.ToInt32(DataDokter.Rows[0]["ID_DOKTER"].ToString()); 
+                    jampraktek = DataDokter.Rows[0]["jampraktek"].ToString();
+                }
+                 
+            }
 
             teks = "Nomor Antrian " + tmp_queue + " silahkan menuju Pendaftaran";
 
@@ -703,13 +725,13 @@ namespace Clinic
             sql_insert = sql_insert + " values (cs_call_log_seq.nextval, '" + tmp_queue + "','REG','Pendaftaran','" + teks + "','W','Antrian',sysdate, '" + policd + "', decode('" + SPoli + "','BPJS','B','UMUM','U','ASURANSI','A') ";
             if (SPoli.ToString().Equals("BPJS"))
             {
-                sql_insert = sql_insert + "   , '" + nobpjs + "' ";
+                sql_insert = sql_insert + "   , '" + nobpjs + "'  ,GET_ID_DOKTER('" + kodedokter + "') ";
             }
             else
             {
-                sql_insert = sql_insert + " ,'' ";
+                sql_insert = sql_insert + " ,'', '" + kodedokter + "' ";
             }
-            sql_insert = sql_insert + "  ," + kodedokter + ", " + BPJSWS_STATUS + ", '" + NNOTE + "' )";
+            sql_insert = sql_insert + " , " + BPJSWS_STATUS + ", '" + NNOTE + "' )";
             //loading.ShowWaitForm();
             try
             {

@@ -18,6 +18,8 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraEditors;
 using System.Collections;
 using System.Globalization;
+using Newtonsoft.Json.Linq;
+using Clinic.Class.Bpjsws;
 
 namespace Clinic
 {
@@ -326,7 +328,8 @@ namespace Clinic
                 //gridView1.Columns[5].OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
 
                 //gridView1.Columns[0].OptionsColumn.ReadOnly = true;
-                gridView1.Columns[1].OptionsColumn.AllowEdit = false;
+                gridView1.Columns[1].OptionsColumn.AllowEdit = true;
+                gridView1.Columns[1].OptionsColumn.ReadOnly = true;
                 gridView1.Columns[2].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[3].OptionsColumn.AllowEdit = false;
                 gridView1.Columns[4].OptionsColumn.AllowEdit = false;
@@ -1975,16 +1978,17 @@ namespace Clinic
 
         private void btnSaveAnam_Click(object sender, EventArgs e)
         {
-            string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", age ="";
+            string date = "", que = "", tensi = "", nadi = "", suhu = "", alergi = "", keluhan = "", action = "", rm_no = "", nik = "", infok = "", bb = "", tb = "", age ="", policd ="" ;
             string chol = "", bsugar = "", uacid = "", r_now = "", r_then = "", r_fam = "", anam_physical = "", anam_other = "", vhr = "", vrr = "", lkr_perut="";
             string teks = "", p1 = "", p2 = "", nama ="", gnder = "", poli ="", purpse ="", fdokter="";
-            string sql_update2 = "", sql_cnt = "", stat_rsv = "", sql_update = "", anam_cnt = "", tlnperut ="";
+            string sql_update2 = "", sql_cnt = "", stat_rsv = "", sql_update = "", anam_cnt = "" ;
 
             for (int i = 0; i < gridView2.DataRowCount; i++)
             {
                 nama = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[2]).ToString();
                 gnder = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[4]).ToString();
                 age  = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[5]).ToString();
+                policd = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
                 poli = gridView1.GetRowCellDisplayText(gridView1.FocusedRowHandle, gridView1.Columns[6]).ToString();
                 purpse = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[9]).ToString();    
                 date = Convert.ToDateTime(gridView2.GetRowCellValue(i, gridView2.Columns[0]).ToString()).ToString("yyyy-MM-dd");
@@ -2149,6 +2153,63 @@ namespace Clinic
                                 command.ExecuteNonQuery();
 
                                 trans.Commit();
+
+                                string SQL_INF = "";
+                                SQL_INF = SQL_INF + Environment.NewLine + " select '0129B010' kdProvider, to_char(INSP_DATE,'DD-MM-YYYY') tgldaftar, d.INSU_NO  nomorkartu, c.POLI_CD, b.ANAMNESA keluhan, ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "        substr(b.blood_press,0, (instr(b.blood_press,'/')-1))sistole,substr(b.blood_press,(instr(b.blood_press,'/')+1),  length(b.blood_press)-(instr(b.blood_press,'/')))diastole, ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "        b.bb,b.tb, b.VITALRR respRate, b.LING_PERUT lkperut, b.PULSE heartRate, 0 rujukBalik, '10' kdTkp, b.INF_STAT, a.TYPE_PATIENT";
+                                SQL_INF = SQL_INF + Environment.NewLine + "  from cs_visit a ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "  join cs_anamnesa b on(a.ID_VISIT = b.ID_VISIT) ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "  join CS_DOKTER_SCH c on(a.KODE_DOKTER = c.ID_DOKTER and trunc(TGL_JADWAL) = trunc(sysdate)) ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "  join CS_PATIENT_INFO d ON(a.PATIENT_NO = d.PATIENT_NO) ";
+                                SQL_INF = SQL_INF + Environment.NewLine + " where trunc(visit_date) = trunc(sysdate) and TYPE_PATIENT ='B' ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "   and a.PATIENT_NO = '" + nik + "' ";
+                                SQL_INF = SQL_INF + Environment.NewLine + "   and a.POLI_CD = '" + policd + "'   ";
+                                 
+                                OleDbDataAdapter adapter = new OleDbDataAdapter(SQL_INF, ConnOra.Create_Connect_Ora());
+                                DataTable dtinf = new DataTable();
+                                adapter.Fill(dtinf);
+                                if (dtinf != null && dtinf.Rows.Count > 0)
+                                {
+                                    // send ke bpjs data add pendaftaran p-care
+                                    // sesuai aturan dari TRUST 
+
+                                    DataRow row = dtinf.Rows[0];
+                                    string kdProviderPeserta = row["kdProvider"]?.ToString();
+                                    string tglDaftar = row["tgldaftar"]?.ToString();
+                                    string noKartu = row["nomorkartu"]?.ToString();
+                                    string kdPoli = row["POLI_CD"]?.ToString();
+                                    string keluhaninf = row["keluhan"]?.ToString();
+                                    int  sistole = Convert.ToInt32(row["sistole"]?.ToString());
+                                    int  diastole = Convert.ToInt32(row["diastole"]?.ToString());
+                                    int  beratBadan = Convert.ToInt32(row["bb"]?.ToString());
+                                    int  tinggiBadan = Convert.ToInt32(row["tb"]?.ToString());
+                                    int  respRate = Convert.ToInt32(row["respRate"]?.ToString());
+                                    int  lingkarPerut = Convert.ToInt32(row["lkperut"]?.ToString());
+                                    int  heartRate = Convert.ToInt32(row["heartRate"]?.ToString());
+                                    int INF_STAT = Convert.ToInt32(row["INF_STAT"]?.ToString());
+                                    string ttype_p = row["TYPE_PATIENT"]?.ToString();
+
+                                    if (INF_STAT == 0  && ttype_p.ToString().Equals("B"))
+                                    {
+                                        // struktur json
+                                        JObject json = new JObject();
+                                        json.Add("kdProviderPeserta", kdProviderPeserta); json.Add("tglDaftar", tglDaftar); json.Add("noKartu", noKartu); json.Add("kdPoli", kdPoli);
+                                        json.Add("keluhan", keluhaninf); json.Add("kunjSakit", true); json.Add("sistole", sistole); json.Add("diastole", diastole); json.Add("beratBadan", beratBadan);
+                                        json.Add("tinggiBadan", tinggiBadan); json.Add("respRate", respRate); json.Add("lingkarPerut", lingkarPerut); json.Add("heartRate", heartRate); json.Add("rujukBalik", 0); json.Add("kdTkp", "10");
+                                        // kirim ke bpjs
+                                        // jika gagal langsung munculkan error dan aplikasi terhenti
+                                        // jika berhasil system meneruskan penyimpanan seperti biasanya
+                                        BpjswsResponse resp = BpjswsPcare.AddPendaftaran(json);
+                                        if (resp.Metadata.Code != 200)
+                                        {
+                                            MessageBox.Show($"Code: { resp.Metadata.Code }, Message: { resp.Metadata.Message }", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            //return;
+                                        }
+                                    }
+                                }
+
+                                
                                 //MessageBox.Show(sql_insert);
                                 //MessageBox.Show("Query Exec : " + sql_insert);
                                 MessageBox.Show("Data Berhasil disimpan.");

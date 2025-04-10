@@ -52,6 +52,7 @@
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.replayanan = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
             this.sibatal = new DevExpress.XtraEditors.SimpleButton();
             this.btnNotif = new DevExpress.XtraEditors.SimpleButton();
             this.btnTunda = new DevExpress.XtraEditors.SimpleButton();
@@ -671,6 +672,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.simpleButton16);
             this.panel1.Controls.Add(this.sibatal);
             this.panel1.Controls.Add(this.btnNotif);
             this.panel1.Controls.Add(this.btnTunda);
@@ -690,12 +692,24 @@
             this.panel1.Size = new System.Drawing.Size(1364, 74);
             this.panel1.TabIndex = 0;
             // 
+            // simpleButton16
+            // 
+            this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton16.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton16.Image")));
+            this.simpleButton16.Location = new System.Drawing.Point(1177, 38);
+            this.simpleButton16.Name = "simpleButton16";
+            this.simpleButton16.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton16.TabIndex = 111;
+            this.simpleButton16.Text = "Sync BPJS";
+            this.simpleButton16.Click += new System.EventHandler(this.simpleButton16_Click);
+            // 
             // sibatal
             // 
+            this.sibatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sibatal.Image = ((System.Drawing.Image)(resources.GetObject("sibatal.Image")));
-            this.sibatal.Location = new System.Drawing.Point(355, 38);
+            this.sibatal.Location = new System.Drawing.Point(1271, 38);
             this.sibatal.Name = "sibatal";
-            this.sibatal.Size = new System.Drawing.Size(106, 23);
+            this.sibatal.Size = new System.Drawing.Size(88, 23);
             this.sibatal.TabIndex = 45;
             this.sibatal.Text = "Batal Antrian";
             this.sibatal.Click += new System.EventHandler(this.sibatal_Click);
@@ -704,7 +718,7 @@
             // 
             this.btnNotif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNotif.Image = ((System.Drawing.Image)(resources.GetObject("btnNotif.Image")));
-            this.btnNotif.Location = new System.Drawing.Point(760, 38);
+            this.btnNotif.Location = new System.Drawing.Point(554, 38);
             this.btnNotif.Name = "btnNotif";
             this.btnNotif.Size = new System.Drawing.Size(73, 23);
             this.btnNotif.TabIndex = 44;
@@ -717,7 +731,7 @@
             this.btnTunda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTunda.Enabled = false;
             this.btnTunda.Image = ((System.Drawing.Image)(resources.GetObject("btnTunda.Image")));
-            this.btnTunda.Location = new System.Drawing.Point(839, 38);
+            this.btnTunda.Location = new System.Drawing.Point(633, 38);
             this.btnTunda.Name = "btnTunda";
             this.btnTunda.Size = new System.Drawing.Size(67, 23);
             this.btnTunda.TabIndex = 43;
@@ -730,7 +744,7 @@
             this.btnLanjut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLanjut.Enabled = false;
             this.btnLanjut.Image = ((System.Drawing.Image)(resources.GetObject("btnLanjut.Image")));
-            this.btnLanjut.Location = new System.Drawing.Point(912, 38);
+            this.btnLanjut.Location = new System.Drawing.Point(706, 38);
             this.btnLanjut.Name = "btnLanjut";
             this.btnLanjut.Size = new System.Drawing.Size(67, 23);
             this.btnLanjut.TabIndex = 42;
@@ -742,7 +756,7 @@
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
-            this.btnCreate.Location = new System.Drawing.Point(985, 38);
+            this.btnCreate.Location = new System.Drawing.Point(779, 38);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(128, 23);
             this.btnCreate.TabIndex = 41;
@@ -755,7 +769,7 @@
             this.btnCetak2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCetak2.Enabled = false;
             this.btnCetak2.Image = ((System.Drawing.Image)(resources.GetObject("btnCetak2.Image")));
-            this.btnCetak2.Location = new System.Drawing.Point(1119, 38);
+            this.btnCetak2.Location = new System.Drawing.Point(913, 38);
             this.btnCetak2.Name = "btnCetak2";
             this.btnCetak2.Size = new System.Drawing.Size(118, 23);
             this.btnCetak2.TabIndex = 40;
@@ -768,7 +782,7 @@
             this.btnCetak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCetak.Enabled = false;
             this.btnCetak.Image = ((System.Drawing.Image)(resources.GetObject("btnCetak.Image")));
-            this.btnCetak.Location = new System.Drawing.Point(1243, 38);
+            this.btnCetak.Location = new System.Drawing.Point(1037, 38);
             this.btnCetak.Name = "btnCetak";
             this.btnCetak.Size = new System.Drawing.Size(118, 23);
             this.btnCetak.TabIndex = 39;
@@ -2127,7 +2141,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(21, -885);
+            this.label24.Location = new System.Drawing.Point(21, -1101);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(35, 13);
             this.label24.TabIndex = 45;
@@ -2143,7 +2157,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(21, -909);
+            this.label25.Location = new System.Drawing.Point(21, -1125);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(69, 13);
             this.label25.TabIndex = 43;
@@ -2173,7 +2187,7 @@
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl9.Location = new System.Drawing.Point(22, -933);
+            this.labelControl9.Location = new System.Drawing.Point(22, -1149);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(401, 13);
             this.labelControl9.TabIndex = 38;
@@ -2203,7 +2217,7 @@
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl8.Location = new System.Drawing.Point(22, -958);
+            this.labelControl8.Location = new System.Drawing.Point(22, -1174);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(416, 13);
             this.labelControl8.TabIndex = 36;
@@ -2233,7 +2247,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.labelControl7.Location = new System.Drawing.Point(22, -983);
+            this.labelControl7.Location = new System.Drawing.Point(22, -1199);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(174, 13);
             this.labelControl7.TabIndex = 20;
@@ -2242,7 +2256,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(450, -1012);
+            this.label22.Location = new System.Drawing.Point(450, -1228);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(92, 13);
             this.label22.TabIndex = 19;
@@ -2258,7 +2272,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(259, -1011);
+            this.label23.Location = new System.Drawing.Point(259, -1227);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(32, 13);
             this.label23.TabIndex = 17;
@@ -2267,7 +2281,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(229, -1010);
+            this.label20.Location = new System.Drawing.Point(229, -1226);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(19, 13);
             this.label20.TabIndex = 16;
@@ -2283,7 +2297,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(137, -1011);
+            this.label21.Location = new System.Drawing.Point(137, -1227);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 14;
@@ -2292,7 +2306,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(99, -1010);
+            this.label18.Location = new System.Drawing.Point(99, -1226);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(19, 13);
             this.label18.TabIndex = 13;
@@ -2308,7 +2322,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(19, -1011);
+            this.label19.Location = new System.Drawing.Point(19, -1227);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(26, 13);
             this.label19.TabIndex = 11;
@@ -4497,5 +4511,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repjam;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repjam2;
         private DevExpress.XtraEditors.SimpleButton sibatal;
+        private DevExpress.XtraEditors.SimpleButton simpleButton16;
     }
 }
